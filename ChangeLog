@@ -1,5 +1,6 @@
 
 0.2 Mar 02, 2005
+ * prevent progress window from being closed for the time being (see TODO)
  * changed slackpkg make target to pkg
  * upgrade summary shows current pkg version and new pkg version
  * added TODO

@@ -1307,8 +1307,8 @@ create_progress_window (void)
   gtk_box_pack_start (GTK_BOX (vbox49), progress_package_description, TRUE, TRUE, 6);
   gtk_misc_set_alignment (GTK_MISC (progress_package_description), 0, 0);
 
-  g_signal_connect ((gpointer) progress_window, "destroy",
-                    G_CALLBACK (gtk_main_quit),
+  g_signal_connect ((gpointer) progress_window, "delete_event",
+                    G_CALLBACK (gtk_true),
                     NULL);
 
   /* Store pointers to all widgets, for use by lookup_widget(). */
