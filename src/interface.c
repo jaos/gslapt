@@ -1381,6 +1381,7 @@ create_progress_window (void)
   GdkPixbuf *progress_window_icon_pixbuf;
   GtkWidget *vbox49;
   GtkWidget *progress_progressbar;
+  GtkWidget *dl_progress;
   GtkWidget *progress_action;
   GtkWidget *progress_message;
   GtkWidget *progress_package_description;
@@ -1398,7 +1399,7 @@ create_progress_window (void)
     }
   gtk_window_set_gravity (GTK_WINDOW (progress_window), GDK_GRAVITY_CENTER);
 
-  vbox49 = gtk_vbox_new (FALSE, 0);
+  vbox49 = gtk_vbox_new (FALSE, 2);
   gtk_widget_set_name (vbox49, "vbox49");
   gtk_widget_show (vbox49);
   gtk_container_add (GTK_CONTAINER (progress_window), vbox49);
@@ -1408,7 +1409,12 @@ create_progress_window (void)
   gtk_widget_set_name (progress_progressbar, "progress_progressbar");
   gtk_widget_show (progress_progressbar);
   gtk_box_pack_start (GTK_BOX (vbox49), progress_progressbar, FALSE, TRUE, 0);
-  gtk_progress_bar_set_text (GTK_PROGRESS_BAR (progress_progressbar), _("in progress..."));
+  gtk_progress_bar_set_text (GTK_PROGRESS_BAR (progress_progressbar), _("total progress"));
+
+  dl_progress = gtk_progress_bar_new ();
+  gtk_widget_set_name (dl_progress, "dl_progress");
+  gtk_widget_show (dl_progress);
+  gtk_box_pack_start (GTK_BOX (vbox49), dl_progress, FALSE, TRUE, 2);
 
   progress_action = gtk_label_new ("");
   gtk_widget_set_name (progress_action, "progress_action");
@@ -1434,6 +1440,7 @@ create_progress_window (void)
   GLADE_HOOKUP_OBJECT_NO_REF (progress_window, progress_window, "progress_window");
   GLADE_HOOKUP_OBJECT (progress_window, vbox49, "vbox49");
   GLADE_HOOKUP_OBJECT (progress_window, progress_progressbar, "progress_progressbar");
+  GLADE_HOOKUP_OBJECT (progress_window, dl_progress, "dl_progress");
   GLADE_HOOKUP_OBJECT (progress_window, progress_action, "progress_action");
   GLADE_HOOKUP_OBJECT (progress_window, progress_message, "progress_message");
   GLADE_HOOKUP_OBJECT (progress_window, progress_package_description, "progress_package_description");

@@ -2276,7 +2276,7 @@
       <property name="border_width">6</property>
       <property name="visible">True</property>
       <property name="homogeneous">False</property>
-      <property name="spacing">0</property>
+      <property name="spacing">2</property>
 
       <child>
 	<widget class="GtkProgressBar" id="progress_progressbar">
@@ -2284,10 +2284,24 @@
 	  <property name="orientation">GTK_PROGRESS_LEFT_TO_RIGHT</property>
 	  <property name="fraction">0</property>
 	  <property name="pulse_step">0.10000000149</property>
-	  <property name="text" translatable="yes">in progress...</property>
+	  <property name="text" translatable="yes">total progress</property>
 	</widget>
 	<packing>
 	  <property name="padding">0</property>
+	  <property name="expand">False</property>
+	  <property name="fill">True</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkProgressBar" id="dl_progress">
+	  <property name="visible">True</property>
+	  <property name="orientation">GTK_PROGRESS_LEFT_TO_RIGHT</property>
+	  <property name="fraction">0</property>
+	  <property name="pulse_step">0.10000000149</property>
+	</widget>
+	<packing>
+	  <property name="padding">2</property>
 	  <property name="expand">False</property>
 	  <property name="fill">True</property>
 	</packing>

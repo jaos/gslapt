@@ -28,6 +28,7 @@
 #include "interface.h"
 #include "support.h"
 
+static GtkWidget *progress_window;
 
 void on_gslapt_destroy (GtkObject *object, gpointer user_data) {
 	(void)object;
@@ -597,7 +598,6 @@ void clear_treeview(GtkTreeView *treeview){
 }
 
 void get_package_data(void){
-	GtkWidget *progress_window;
 	GtkLabel *progress_action_label,*progress_message_label,*progress_pkg_desc;
 	GtkProgressBar *p_bar;
 	extern rc_config *global_config;
@@ -810,14 +810,19 @@ void get_package_data(void){
 }
 
 int gtk_progress_callback(void *data, double dltotal, double dlnow, double ultotal, double ulnow){
+	extern GtkWidget *gslapt;
+	GtkProgressBar *p_bar = GTK_PROGRESS_BAR(lookup_widget(progress_window,"dl_progress"));
+	double perc = 1.0;
 
-	(void)dltotal;
-	(void)dlnow;
+	if( dltotal != 0.0 ) perc = ((dlnow * 100)/dltotal)/100;
+
 	(void)data;
 	(void)ultotal;
 	(void)ulnow;
 
-	fprintf(stderr,"gtk_progress_callback called\n");
+	gdk_threads_enter();
+	gtk_progress_bar_set_fraction(p_bar,perc);
+	gdk_threads_leave();
 
 	return 0;
 }
@@ -1248,7 +1253,6 @@ void build_upgrade_list(void){
 }
 
 gboolean download_packages(void){
-	GtkWidget *progress_window;
 	GtkLabel *progress_action_label,*progress_message_label,*progress_pkg_desc;
 	GtkProgressBar *p_bar;
 	extern transaction_t *trans;
@@ -1327,7 +1331,6 @@ gboolean download_packages(void){
 }
 
 gboolean install_packages(void){
-	GtkWidget *progress_window;
 	GtkLabel *progress_action_label,*progress_message_label,*progress_pkg_desc;
 	GtkProgressBar *p_bar;
 	extern transaction_t *trans;
