@@ -517,8 +517,8 @@ void fillin_pkg_details(pkg_info_t *pkg){
 	extern struct pkg_list *installed,*all;
 	extern transaction_t *trans;
 	gchar size_c[20],size_u[20],*short_desc;
-	pkg_info_t *upgrade_pkg = NULL;
-	guint is_installed = 0,is_newest = 1,is_exclude = 0,is_downloadable = 0;
+	pkg_info_t *upgrade_pkg = NULL,*newest_installed = NULL;
+	guint is_installed = 0,is_newest = 1,is_exclude = 0,is_downloadable = 0,is_downgrade = 0;
 	GtkButton *install_upgrade,*remove,*exclude;
 	extern rc_config *global_config;
 
@@ -537,6 +537,10 @@ void fillin_pkg_details(pkg_info_t *pkg){
 	}
 	if( get_exact_pkg(all,pkg->name,pkg->version) != NULL){
 		is_downloadable = 1;
+	}
+	newest_installed = get_newest_pkg(installed,pkg->name);
+	if( newest_installed != NULL && cmp_pkg_versions(pkg->version,newest_installed->version) < 0 ){
+		is_downgrade = 1;
 	}
 
 	upgrade_pkg = get_newest_pkg(all,pkg->name);
@@ -578,13 +582,13 @@ void fillin_pkg_details(pkg_info_t *pkg){
 				gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"label131")),_("Re-Install"));
 				g_signal_handlers_disconnect_by_func((gpointer)install_upgrade,add_pkg_for_install,GTK_OBJECT(gslapt));
   			g_signal_connect_swapped((gpointer) install_upgrade,"clicked",G_CALLBACK(add_pkg_for_reinstall),GTK_OBJECT(gslapt));
-			}else if( is_installed == 0 && upgrade_pkg != NULL ){ /* this is for downgrades */
+			}else if( is_installed == 0 && is_downgrade == 1 && is_downloadable == 1 ){ /* this is for downgrades */
 				gtk_widget_set_sensitive( GTK_WIDGET(install_upgrade),TRUE);
 				gtk_widget_set_sensitive( GTK_WIDGET(exclude),TRUE);
 				gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"label131")),_("Downgrade"));
 				g_signal_handlers_disconnect_by_func((gpointer)install_upgrade,add_pkg_for_install,GTK_OBJECT(gslapt));
   			g_signal_connect_swapped((gpointer) install_upgrade,"clicked",G_CALLBACK(add_pkg_for_reinstall),GTK_OBJECT(gslapt));
-			}else if( is_installed == 0 && upgrade_pkg == NULL ){ /* straight up install */
+			}else if( is_installed == 0 && is_downloadable == 1 ){ /* straight up install */
 				gtk_widget_set_sensitive( GTK_WIDGET(install_upgrade),TRUE);
 				gtk_widget_set_sensitive( GTK_WIDGET(exclude),TRUE);
 				gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"label131")),_("Install"));
