@@ -8,8 +8,8 @@
   <property name="type">GTK_WINDOW_TOPLEVEL</property>
   <property name="window_position">GTK_WIN_POS_CENTER</property>
   <property name="modal">True</property>
-  <property name="default_width">200</property>
-  <property name="default_height">250</property>
+  <property name="default_width">400</property>
+  <property name="default_height">300</property>
   <property name="resizable">True</property>
   <property name="destroy_with_parent">False</property>
   <property name="decorated">True</property>
@@ -132,21 +132,21 @@
 		    </widget>
 		    <packing>
 		      <property name="padding">0</property>
-		      <property name="expand">False</property>
-		      <property name="fill">False</property>
+		      <property name="expand">True</property>
+		      <property name="fill">True</property>
 		    </packing>
 		  </child>
 		</widget>
 		<packing>
 		  <property name="padding">0</property>
-		  <property name="expand">False</property>
-		  <property name="fill">False</property>
+		  <property name="expand">True</property>
+		  <property name="fill">True</property>
 		</packing>
 	      </child>
 	    </widget>
 	    <packing>
 	      <property name="tab_expand">False</property>
-	      <property name="tab_fill">False</property>
+	      <property name="tab_fill">True</property>
 	    </packing>
 	  </child>
 
@@ -278,7 +278,7 @@
 				  <property name="use_stock">True</property>
 				  <property name="relief">GTK_RELIEF_NORMAL</property>
 				  <property name="focus_on_click">True</property>
-				  <signal name="clicked" handler="preferences_sources_add" last_modification_time="Mon, 15 Nov 2004 04:01:52 GMT"/>
+				  <signal name="clicked" handler="preferences_sources_add" object="window_preferences" last_modification_time="Mon, 15 Nov 2004 04:01:52 GMT"/>
 				</widget>
 				<packing>
 				  <property name="padding">0</property>
@@ -295,7 +295,7 @@
 				  <property name="use_stock">True</property>
 				  <property name="relief">GTK_RELIEF_NORMAL</property>
 				  <property name="focus_on_click">True</property>
-				  <signal name="clicked" handler="preferences_sources_remove" last_modification_time="Mon, 15 Nov 2004 04:02:03 GMT"/>
+				  <signal name="clicked" handler="preferences_sources_remove" object="window_preferences" last_modification_time="Mon, 15 Nov 2004 04:02:03 GMT"/>
 				</widget>
 				<packing>
 				  <property name="padding">0</property>
@@ -307,7 +307,7 @@
 			    <packing>
 			      <property name="padding">0</property>
 			      <property name="expand">False</property>
-			      <property name="fill">False</property>
+			      <property name="fill">True</property>
 			    </packing>
 			  </child>
 			</widget>
@@ -327,14 +327,14 @@
 		</widget>
 		<packing>
 		  <property name="padding">0</property>
-		  <property name="expand">False</property>
-		  <property name="fill">False</property>
+		  <property name="expand">True</property>
+		  <property name="fill">True</property>
 		</packing>
 	      </child>
 	    </widget>
 	    <packing>
 	      <property name="tab_expand">False</property>
-	      <property name="tab_fill">False</property>
+	      <property name="tab_fill">True</property>
 	    </packing>
 	  </child>
 
@@ -467,7 +467,7 @@
 				  <property name="use_stock">True</property>
 				  <property name="relief">GTK_RELIEF_NORMAL</property>
 				  <property name="focus_on_click">True</property>
-				  <signal name="clicked" handler="preferences_exclude_add" last_modification_time="Sun, 06 Feb 2005 04:41:48 GMT"/>
+				  <signal name="clicked" handler="preferences_exclude_add" object="window_preferences" last_modification_time="Sun, 06 Feb 2005 04:41:48 GMT"/>
 				</widget>
 				<packing>
 				  <property name="padding">0</property>
@@ -484,7 +484,7 @@
 				  <property name="use_stock">True</property>
 				  <property name="relief">GTK_RELIEF_NORMAL</property>
 				  <property name="focus_on_click">True</property>
-				  <signal name="clicked" handler="preferences_exclude_remove" last_modification_time="Sun, 06 Feb 2005 04:41:58 GMT"/>
+				  <signal name="clicked" handler="preferences_exclude_remove" object="window_preferences" last_modification_time="Sun, 06 Feb 2005 04:41:58 GMT"/>
 				</widget>
 				<packing>
 				  <property name="padding">0</property>
@@ -516,8 +516,8 @@
 		</widget>
 		<packing>
 		  <property name="padding">0</property>
-		  <property name="expand">False</property>
-		  <property name="fill">False</property>
+		  <property name="expand">True</property>
+		  <property name="fill">True</property>
 		</packing>
 	      </child>
 	    </widget>
@@ -589,7 +589,7 @@
 	<packing>
 	  <property name="padding">0</property>
 	  <property name="expand">False</property>
-	  <property name="fill">False</property>
+	  <property name="fill">True</property>
 	</packing>
       </child>
     </widget>
@@ -637,7 +637,7 @@
 		      <property name="visible">True</property>
 		      <property name="label" translatable="yes">_Update</property>
 		      <property name="use_underline">True</property>
-		      <signal name="activate" handler="update_callback" last_modification_time="Sat, 05 Feb 2005 06:54:59 GMT"/>
+		      <signal name="activate" handler="update_callback" object="gslapt" last_modification_time="Sat, 05 Feb 2005 06:54:59 GMT"/>
 		      <accelerator key="u" modifiers="GDK_CONTROL_MASK" signal="activate"/>
 
 		      <child internal-child="image">
@@ -659,7 +659,7 @@
 		      <property name="visible">True</property>
 		      <property name="label" translatable="yes">Up_grade</property>
 		      <property name="use_underline">True</property>
-		      <signal name="activate" handler="upgrade_callback" last_modification_time="Sat, 05 Feb 2005 06:54:59 GMT"/>
+		      <signal name="activate" handler="upgrade_callback" object="gslapt" last_modification_time="Sat, 05 Feb 2005 06:54:59 GMT"/>
 		      <accelerator key="g" modifiers="GDK_CONTROL_MASK" signal="activate"/>
 
 		      <child internal-child="image">
@@ -681,7 +681,7 @@
 		      <property name="visible">True</property>
 		      <property name="label" translatable="yes">_Dist-Upgrade</property>
 		      <property name="use_underline">True</property>
-		      <signal name="activate" handler="distupgrade_callback" last_modification_time="Sat, 05 Feb 2005 06:54:59 GMT"/>
+		      <signal name="activate" handler="distupgrade_callback" object="gslapt" last_modification_time="Sat, 05 Feb 2005 06:54:59 GMT"/>
 		      <accelerator key="d" modifiers="GDK_CONTROL_MASK" signal="activate"/>
 
 		      <child internal-child="image">
@@ -703,7 +703,7 @@
 		      <property name="visible">True</property>
 		      <property name="label" translatable="yes">_Execute</property>
 		      <property name="use_underline">True</property>
-		      <signal name="activate" handler="execute_callback" last_modification_time="Sat, 05 Feb 2005 06:59:02 GMT"/>
+		      <signal name="activate" handler="execute_callback" object="gslapt" last_modification_time="Sat, 05 Feb 2005 06:59:02 GMT"/>
 		      <accelerator key="e" modifiers="GDK_CONTROL_MASK" signal="activate"/>
 
 		      <child internal-child="image">
@@ -731,7 +731,7 @@
 		      <property name="visible">True</property>
 		      <property name="label">gtk-quit</property>
 		      <property name="use_stock">True</property>
-		      <signal name="activate" handler="quit_callback" last_modification_time="Sat, 05 Feb 2005 19:30:52 GMT"/>
+		      <signal name="activate" handler="on_gslapt_destroy" last_modification_time="Wed, 09 Feb 2005 17:51:18 GMT"/>
 		    </widget>
 		  </child>
 		</widget>
@@ -753,7 +753,7 @@
 		      <property name="visible">True</property>
 		      <property name="label" translatable="yes">_Preferences</property>
 		      <property name="use_underline">True</property>
-		      <signal name="activate" handler="open_preferences" last_modification_time="Sat, 05 Feb 2005 21:02:58 GMT"/>
+		      <signal name="activate" handler="open_preferences" object="gslapt" last_modification_time="Sat, 05 Feb 2005 21:02:58 GMT"/>
 		      <accelerator key="p" modifiers="GDK_CONTROL_MASK" signal="activate"/>
 
 		      <child internal-child="image">
@@ -788,7 +788,7 @@
 		      <property name="visible">True</property>
 		      <property name="label" translatable="yes">About</property>
 		      <property name="use_underline">True</property>
-		      <signal name="activate" handler="open_about" last_modification_time="Sat, 05 Feb 2005 20:48:31 GMT"/>
+		      <signal name="activate" handler="open_about" object="gslapt" last_modification_time="Sat, 05 Feb 2005 20:48:31 GMT"/>
 
 		      <child internal-child="image">
 			<widget class="GtkImage" id="image836">
@@ -833,7 +833,7 @@
 	      <property name="visible_horizontal">True</property>
 	      <property name="visible_vertical">True</property>
 	      <property name="is_important">False</property>
-	      <signal name="clicked" handler="update_callback" last_modification_time="Fri, 14 Nov 2003 19:05:38 GMT"/>
+	      <signal name="clicked" handler="update_callback" object="gslapt" last_modification_time="Fri, 14 Nov 2003 19:05:38 GMT"/>
 	    </widget>
 	    <packing>
 	      <property name="expand">False</property>
@@ -851,7 +851,7 @@
 	      <property name="visible_horizontal">True</property>
 	      <property name="visible_vertical">True</property>
 	      <property name="is_important">False</property>
-	      <signal name="clicked" handler="upgrade_callback" last_modification_time="Fri, 14 Nov 2003 19:05:58 GMT"/>
+	      <signal name="clicked" handler="upgrade_callback" object="gslapt" last_modification_time="Fri, 14 Nov 2003 19:05:58 GMT"/>
 	    </widget>
 	    <packing>
 	      <property name="expand">False</property>
@@ -869,7 +869,7 @@
 	      <property name="visible_horizontal">True</property>
 	      <property name="visible_vertical">True</property>
 	      <property name="is_important">False</property>
-	      <signal name="clicked" handler="distupgrade_callback" last_modification_time="Fri, 14 Nov 2003 19:06:29 GMT"/>
+	      <signal name="clicked" handler="distupgrade_callback" object="gslapt" last_modification_time="Fri, 14 Nov 2003 19:06:29 GMT"/>
 	    </widget>
 	    <packing>
 	      <property name="expand">False</property>
@@ -887,7 +887,7 @@
 	      <property name="visible_horizontal">True</property>
 	      <property name="visible_vertical">True</property>
 	      <property name="is_important">False</property>
-	      <signal name="clicked" handler="execute_callback" last_modification_time="Fri, 14 Nov 2003 19:06:49 GMT"/>
+	      <signal name="clicked" handler="execute_callback" object="gslapt" last_modification_time="Fri, 14 Nov 2003 19:06:49 GMT"/>
 	    </widget>
 	    <packing>
 	      <property name="expand">False</property>
@@ -903,7 +903,7 @@
 	      <property name="visible_horizontal">True</property>
 	      <property name="visible_vertical">True</property>
 	      <property name="is_important">False</property>
-	      <signal name="clicked" handler="quit_callback" last_modification_time="Fri, 14 Nov 2003 19:04:54 GMT"/>
+	      <signal name="clicked" handler="on_gslapt_destroy" last_modification_time="Wed, 09 Feb 2005 17:50:27 GMT"/>
 	    </widget>
 	    <packing>
 	      <property name="expand">False</property>
@@ -987,7 +987,7 @@
 			      <property name="use_underline">True</property>
 			      <property name="relief">GTK_RELIEF_NORMAL</property>
 			      <property name="focus_on_click">True</property>
-			      <signal name="clicked" handler="on_search_tab_search_button_clicked" last_modification_time="Fri, 14 Nov 2003 19:07:14 GMT"/>
+			      <signal name="clicked" handler="on_search_tab_search_button_clicked" object="gslapt" last_modification_time="Fri, 14 Nov 2003 19:07:14 GMT"/>
 			    </widget>
 			    <packing>
 			      <property name="padding">0</property>
@@ -1602,7 +1602,7 @@
 			  <property name="can_focus">True</property>
 			  <property name="relief">GTK_RELIEF_NORMAL</property>
 			  <property name="focus_on_click">True</property>
-			  <signal name="clicked" handler="add_pkg_for_install" last_modification_time="Fri, 14 Nov 2003 19:26:00 GMT"/>
+			  <signal name="clicked" handler="add_pkg_for_install" object="gslapt" last_modification_time="Fri, 14 Nov 2003 19:26:00 GMT"/>
 
 			  <child>
 			    <widget class="GtkAlignment" id="alignment27">
@@ -1678,7 +1678,7 @@
 			  <property name="can_focus">True</property>
 			  <property name="relief">GTK_RELIEF_NORMAL</property>
 			  <property name="focus_on_click">True</property>
-			  <signal name="clicked" handler="add_pkg_for_removal" last_modification_time="Fri, 14 Nov 2003 19:26:12 GMT"/>
+			  <signal name="clicked" handler="add_pkg_for_removal" object="gslapt" last_modification_time="Fri, 14 Nov 2003 19:26:12 GMT"/>
 
 			  <child>
 			    <widget class="GtkAlignment" id="alignment28">
@@ -1754,7 +1754,7 @@
 			  <property name="can_focus">True</property>
 			  <property name="relief">GTK_RELIEF_NORMAL</property>
 			  <property name="focus_on_click">True</property>
-			  <signal name="clicked" handler="add_pkg_for_exclude" last_modification_time="Fri, 14 Nov 2003 19:26:31 GMT"/>
+			  <signal name="clicked" handler="add_pkg_for_exclude" object="gslapt" last_modification_time="Fri, 14 Nov 2003 19:26:31 GMT"/>
 
 			  <child>
 			    <widget class="GtkAlignment" id="alignment29">

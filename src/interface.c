@@ -73,7 +73,7 @@ create_window_preferences (void)
   gtk_window_set_title (GTK_WINDOW (window_preferences), _("Preferences"));
   gtk_window_set_position (GTK_WINDOW (window_preferences), GTK_WIN_POS_CENTER);
   gtk_window_set_modal (GTK_WINDOW (window_preferences), TRUE);
-  gtk_window_set_default_size (GTK_WINDOW (window_preferences), 200, 250);
+  gtk_window_set_default_size (GTK_WINDOW (window_preferences), 400, 300);
   gtk_window_set_gravity (GTK_WINDOW (window_preferences), GDK_GRAVITY_CENTER);
 
   preferences_vbox = gtk_vbox_new (FALSE, 0);
@@ -92,14 +92,12 @@ create_window_preferences (void)
   gtk_widget_set_name (preferences_working_dir_vbox, "preferences_working_dir_vbox");
   gtk_widget_show (preferences_working_dir_vbox);
   gtk_container_add (GTK_CONTAINER (preferences_notebook), preferences_working_dir_vbox);
-  gtk_notebook_set_tab_label_packing (GTK_NOTEBOOK (preferences_notebook), preferences_working_dir_vbox,
-                                      FALSE, FALSE, GTK_PACK_START);
   gtk_container_set_border_width (GTK_CONTAINER (preferences_working_dir_vbox), 12);
 
   preferences_working_dir_vbox_vbox = gtk_vbox_new (FALSE, 6);
   gtk_widget_set_name (preferences_working_dir_vbox_vbox, "preferences_working_dir_vbox_vbox");
   gtk_widget_show (preferences_working_dir_vbox_vbox);
-  gtk_box_pack_start (GTK_BOX (preferences_working_dir_vbox), preferences_working_dir_vbox_vbox, FALSE, FALSE, 0);
+  gtk_box_pack_start (GTK_BOX (preferences_working_dir_vbox), preferences_working_dir_vbox_vbox, TRUE, TRUE, 0);
 
   preferences_working_dir_label = gtk_label_new (_("<b>Package and data storage</b>"));
   gtk_widget_set_name (preferences_working_dir_label, "preferences_working_dir_label");
@@ -111,7 +109,7 @@ create_window_preferences (void)
   hbox3 = gtk_hbox_new (FALSE, 0);
   gtk_widget_set_name (hbox3, "hbox3");
   gtk_widget_show (hbox3);
-  gtk_box_pack_start (GTK_BOX (preferences_working_dir_vbox_vbox), hbox3, FALSE, FALSE, 0);
+  gtk_box_pack_start (GTK_BOX (preferences_working_dir_vbox_vbox), hbox3, TRUE, TRUE, 0);
 
   label72 = gtk_label_new (_("    "));
   gtk_widget_set_name (label72, "label72");
@@ -138,14 +136,12 @@ create_window_preferences (void)
   gtk_widget_set_name (preferences_sources_vbox, "preferences_sources_vbox");
   gtk_widget_show (preferences_sources_vbox);
   gtk_container_add (GTK_CONTAINER (preferences_notebook), preferences_sources_vbox);
-  gtk_notebook_set_tab_label_packing (GTK_NOTEBOOK (preferences_notebook), preferences_sources_vbox,
-                                      FALSE, FALSE, GTK_PACK_START);
   gtk_container_set_border_width (GTK_CONTAINER (preferences_sources_vbox), 12);
 
   vbox38 = gtk_vbox_new (FALSE, 6);
   gtk_widget_set_name (vbox38, "vbox38");
   gtk_widget_show (vbox38);
-  gtk_box_pack_start (GTK_BOX (preferences_sources_vbox), vbox38, FALSE, FALSE, 0);
+  gtk_box_pack_start (GTK_BOX (preferences_sources_vbox), vbox38, TRUE, TRUE, 0);
 
   preferences_sources_label = gtk_label_new (_("<b>Package Sources</b>"));
   gtk_widget_set_name (preferences_sources_label, "preferences_sources_label");
@@ -187,7 +183,7 @@ create_window_preferences (void)
   vbox39 = gtk_vbox_new (FALSE, 6);
   gtk_widget_set_name (vbox39, "vbox39");
   gtk_widget_show (vbox39);
-  gtk_box_pack_start (GTK_BOX (preferences_sources_hbox), vbox39, FALSE, FALSE, 0);
+  gtk_box_pack_start (GTK_BOX (preferences_sources_hbox), vbox39, FALSE, TRUE, 0);
 
   preferences_add_source_button = gtk_button_new_from_stock ("gtk-add");
   gtk_widget_set_name (preferences_add_source_button, "preferences_add_source_button");
@@ -213,7 +209,7 @@ create_window_preferences (void)
   preferences_exclude_vbox_vbox = gtk_vbox_new (FALSE, 6);
   gtk_widget_set_name (preferences_exclude_vbox_vbox, "preferences_exclude_vbox_vbox");
   gtk_widget_show (preferences_exclude_vbox_vbox);
-  gtk_box_pack_start (GTK_BOX (preferences_exclude_vbox), preferences_exclude_vbox_vbox, FALSE, FALSE, 0);
+  gtk_box_pack_start (GTK_BOX (preferences_exclude_vbox), preferences_exclude_vbox_vbox, TRUE, TRUE, 0);
   gtk_container_set_border_width (GTK_CONTAINER (preferences_exclude_vbox_vbox), 12);
 
   preferences_exclude_label = gtk_label_new (_("<b>Exclude List</b>"));
@@ -277,7 +273,7 @@ create_window_preferences (void)
   preferences_hbuttonbox = gtk_hbutton_box_new ();
   gtk_widget_set_name (preferences_hbuttonbox, "preferences_hbuttonbox");
   gtk_widget_show (preferences_hbuttonbox);
-  gtk_box_pack_start (GTK_BOX (preferences_vbox), preferences_hbuttonbox, FALSE, FALSE, 0);
+  gtk_box_pack_start (GTK_BOX (preferences_vbox), preferences_hbuttonbox, FALSE, TRUE, 0);
   gtk_container_set_border_width (GTK_CONTAINER (preferences_hbuttonbox), 6);
   gtk_button_box_set_layout (GTK_BUTTON_BOX (preferences_hbuttonbox), GTK_BUTTONBOX_END);
   gtk_box_set_spacing (GTK_BOX (preferences_hbuttonbox), 6);
@@ -297,18 +293,18 @@ create_window_preferences (void)
   g_signal_connect ((gpointer) window_preferences, "destroy_event",
                     G_CALLBACK (gtk_widget_destroy),
                     NULL);
-  g_signal_connect ((gpointer) preferences_add_source_button, "clicked",
-                    G_CALLBACK (preferences_sources_add),
-                    NULL);
-  g_signal_connect ((gpointer) preferences_remove_source_button, "clicked",
-                    G_CALLBACK (preferences_sources_remove),
-                    NULL);
-  g_signal_connect ((gpointer) preferences_add_exclude_button, "clicked",
-                    G_CALLBACK (preferences_exclude_add),
-                    NULL);
-  g_signal_connect ((gpointer) preferences_remove_exclude_button, "clicked",
-                    G_CALLBACK (preferences_exclude_remove),
-                    NULL);
+  g_signal_connect_swapped ((gpointer) preferences_add_source_button, "clicked",
+                            G_CALLBACK (preferences_sources_add),
+                            GTK_OBJECT (window_preferences));
+  g_signal_connect_swapped ((gpointer) preferences_remove_source_button, "clicked",
+                            G_CALLBACK (preferences_sources_remove),
+                            GTK_OBJECT (window_preferences));
+  g_signal_connect_swapped ((gpointer) preferences_add_exclude_button, "clicked",
+                            G_CALLBACK (preferences_exclude_add),
+                            GTK_OBJECT (window_preferences));
+  g_signal_connect_swapped ((gpointer) preferences_remove_exclude_button, "clicked",
+                            G_CALLBACK (preferences_exclude_remove),
+                            GTK_OBJECT (window_preferences));
   g_signal_connect_swapped ((gpointer) preferences_close_button, "clicked",
                             G_CALLBACK (gtk_widget_destroy),
                             GTK_OBJECT (window_preferences));
@@ -973,57 +969,57 @@ create_gslapt (void)
   g_signal_connect ((gpointer) gslapt, "destroy",
                     G_CALLBACK (on_gslapt_destroy),
                     NULL);
-  g_signal_connect ((gpointer) update2, "activate",
-                    G_CALLBACK (update_callback),
-                    NULL);
-  g_signal_connect ((gpointer) upgrade2, "activate",
-                    G_CALLBACK (upgrade_callback),
-                    NULL);
-  g_signal_connect ((gpointer) dist_upgrade2, "activate",
-                    G_CALLBACK (distupgrade_callback),
-                    NULL);
-  g_signal_connect ((gpointer) execute2, "activate",
-                    G_CALLBACK (execute_callback),
-                    NULL);
+  g_signal_connect_swapped ((gpointer) update2, "activate",
+                            G_CALLBACK (update_callback),
+                            GTK_OBJECT (gslapt));
+  g_signal_connect_swapped ((gpointer) upgrade2, "activate",
+                            G_CALLBACK (upgrade_callback),
+                            GTK_OBJECT (gslapt));
+  g_signal_connect_swapped ((gpointer) dist_upgrade2, "activate",
+                            G_CALLBACK (distupgrade_callback),
+                            GTK_OBJECT (gslapt));
+  g_signal_connect_swapped ((gpointer) execute2, "activate",
+                            G_CALLBACK (execute_callback),
+                            GTK_OBJECT (gslapt));
   g_signal_connect ((gpointer) quit, "activate",
-                    G_CALLBACK (quit_callback),
+                    G_CALLBACK (on_gslapt_destroy),
                     NULL);
-  g_signal_connect ((gpointer) preferences2, "activate",
-                    G_CALLBACK (open_preferences),
-                    NULL);
-  g_signal_connect ((gpointer) about3, "activate",
-                    G_CALLBACK (open_about),
-                    NULL);
-  g_signal_connect ((gpointer) action_bar_update_button, "clicked",
-                    G_CALLBACK (update_callback),
-                    NULL);
-  g_signal_connect ((gpointer) action_bar_upgrade_button, "clicked",
-                    G_CALLBACK (upgrade_callback),
-                    NULL);
-  g_signal_connect ((gpointer) action_bar_dist_upgrade_button, "clicked",
-                    G_CALLBACK (distupgrade_callback),
-                    NULL);
-  g_signal_connect ((gpointer) action_bar_execute_button, "clicked",
-                    G_CALLBACK (execute_callback),
-                    NULL);
+  g_signal_connect_swapped ((gpointer) preferences2, "activate",
+                            G_CALLBACK (open_preferences),
+                            GTK_OBJECT (gslapt));
+  g_signal_connect_swapped ((gpointer) about3, "activate",
+                            G_CALLBACK (open_about),
+                            GTK_OBJECT (gslapt));
+  g_signal_connect_swapped ((gpointer) action_bar_update_button, "clicked",
+                            G_CALLBACK (update_callback),
+                            GTK_OBJECT (gslapt));
+  g_signal_connect_swapped ((gpointer) action_bar_upgrade_button, "clicked",
+                            G_CALLBACK (upgrade_callback),
+                            GTK_OBJECT (gslapt));
+  g_signal_connect_swapped ((gpointer) action_bar_dist_upgrade_button, "clicked",
+                            G_CALLBACK (distupgrade_callback),
+                            GTK_OBJECT (gslapt));
+  g_signal_connect_swapped ((gpointer) action_bar_execute_button, "clicked",
+                            G_CALLBACK (execute_callback),
+                            GTK_OBJECT (gslapt));
   g_signal_connect ((gpointer) action_bar_quit_button, "clicked",
-                    G_CALLBACK (quit_callback),
+                    G_CALLBACK (on_gslapt_destroy),
                     NULL);
-  g_signal_connect ((gpointer) search_tab_search_button, "clicked",
-                    G_CALLBACK (on_search_tab_search_button_clicked),
-                    NULL);
+  g_signal_connect_swapped ((gpointer) search_tab_search_button, "clicked",
+                            G_CALLBACK (on_search_tab_search_button_clicked),
+                            GTK_OBJECT (gslapt));
   g_signal_connect_swapped ((gpointer) search_tab_clear_button, "clicked",
                             G_CALLBACK (on_search_tab_clear_button_clicked),
                             GTK_OBJECT (search_tab_search_entry));
-  g_signal_connect ((gpointer) pkg_info_action_install_upgrade_button, "clicked",
-                    G_CALLBACK (add_pkg_for_install),
-                    NULL);
-  g_signal_connect ((gpointer) pkg_info_action_remove_button, "clicked",
-                    G_CALLBACK (add_pkg_for_removal),
-                    NULL);
-  g_signal_connect ((gpointer) pkg_info_action_exclude_button, "clicked",
-                    G_CALLBACK (add_pkg_for_exclude),
-                    NULL);
+  g_signal_connect_swapped ((gpointer) pkg_info_action_install_upgrade_button, "clicked",
+                            G_CALLBACK (add_pkg_for_install),
+                            GTK_OBJECT (gslapt));
+  g_signal_connect_swapped ((gpointer) pkg_info_action_remove_button, "clicked",
+                            G_CALLBACK (add_pkg_for_removal),
+                            GTK_OBJECT (gslapt));
+  g_signal_connect_swapped ((gpointer) pkg_info_action_exclude_button, "clicked",
+                            G_CALLBACK (add_pkg_for_exclude),
+                            GTK_OBJECT (gslapt));
 
   /* Store pointers to all widgets, for use by lookup_widget(). */
   GLADE_HOOKUP_OBJECT_NO_REF (gslapt, gslapt, "gslapt");

@@ -32,7 +32,6 @@ void upgrade_callback (GtkObject *object, gpointer user_data) {
 	GtkWidget *trans_window;
 	(void)object;
 	(void)user_data;
-	printf("upgrade callback\n");
 
 	build_upgrade_list();
 
@@ -47,7 +46,6 @@ void distupgrade_callback (GtkObject *object, gpointer user_data) {
 	extern rc_config *global_config;
 	(void)object;
 	(void)user_data;
-	printf("distupgrade callback\n");
 	global_config->dist_upgrade = 1;
 
 	build_upgrade_list();
@@ -106,12 +104,10 @@ void open_preferences (GtkMenuItem *menuitem, gpointer user_data) {
 	gtk_widget_show(preferences);
 }
 
-void on_search_tab_search_button_clicked (GtkButton *button, gpointer user_data) {
-	extern GtkWidget *gslapt;
+void on_search_tab_search_button_clicked (GtkWidget *gslapt, gpointer user_data) {
   GtkTreeView *treeview;
 	gchar *pattern;
 
-	(void)button;
 	(void)user_data;
 	
 	/* search_tab_search_entry */
@@ -122,8 +118,7 @@ void on_search_tab_search_button_clicked (GtkButton *button, gpointer user_data)
 	build_searched_treeviewlist(GTK_WIDGET(treeview),pattern);
 }
 
-void add_pkg_for_install (GtkButton *button, gpointer user_data) {
-	extern GtkWidget *gslapt;
+void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data) {
 	extern transaction_t *trans;
 	extern struct pkg_list *installed;
 	extern struct pkg_list *all;
@@ -134,7 +129,6 @@ void add_pkg_for_install (GtkButton *button, gpointer user_data) {
 	const gchar *pkg_name;
 	const gchar *pkg_version;
 
-	(void)button;
 	(void)user_data;
 
 	/* lookup pkg from form */
@@ -195,8 +189,7 @@ void add_pkg_for_install (GtkButton *button, gpointer user_data) {
 
 }
 
-void add_pkg_for_removal (GtkButton *button, gpointer user_data) {
-	extern GtkWidget *gslapt;
+void add_pkg_for_removal (GtkWidget *gslapt, gpointer user_data) {
 	extern transaction_t *trans;
 	extern struct pkg_list *installed;
 	extern struct pkg_list *all;
@@ -206,7 +199,6 @@ void add_pkg_for_removal (GtkButton *button, gpointer user_data) {
 	const gchar *pkg_name;
 	const gchar *pkg_version;
 
-	(void)button;
 	(void)user_data;
 
 	/* lookup pkg from form */
@@ -237,8 +229,7 @@ void add_pkg_for_removal (GtkButton *button, gpointer user_data) {
 
 }
 
-void add_pkg_for_exclude (GtkButton *button, gpointer user_data) {
-	extern GtkWidget *gslapt;
+void add_pkg_for_exclude (GtkWidget *gslapt, gpointer user_data) {
 	extern transaction_t *trans;
 	extern struct pkg_list *installed;
 	extern struct pkg_list *all;
@@ -247,7 +238,6 @@ void add_pkg_for_exclude (GtkButton *button, gpointer user_data) {
 	const gchar *pkg_version;
 	pkg_info_t *pkg = NULL;
 
-	(void)button;
 	(void)user_data;
 
 	/* lookup pkg from form */
@@ -803,9 +793,7 @@ void get_package_data(void){
 }
 
 int gtk_progress_callback(void *data, double dltotal, double dlnow, double ultotal, double ulnow){
-	extern GtkWidget *gslapt;
 
-	(void)gslapt;
 	(void)data;
 	(void)ultotal;
 	(void)ulnow;
@@ -1066,7 +1054,6 @@ void populate_transaction_window(GtkWidget *trans_window){
 
 
 void on_search_tab_clear_button_clicked(GtkWidget *w, gpointer user_data) {
-	/* gtk_entry_set_text(working_dir,global_config->working_dir); */
 	gtk_entry_set_text(GTK_ENTRY(w),"");
 	rebuild_treeviews();
 }
