@@ -1551,18 +1551,28 @@ void preferences_exclude_remove(GtkWidget *w, gpointer user_data) {
 static gboolean write_preferences(void){
 	extern rc_config *global_config;
 	guint i;
+	FILE *rc;
 
-	fprintf(stderr,"About to write configuration\n\n");
+	rc = open_file(RC_LOCATION,"w+");
+	if( rc == NULL ) return FALSE;
 
-	fprintf(stderr,"working_dir: %s\n",global_config->working_dir);
-	for(i = 0; i < global_config->exclude_list->count;++i){
-		fprintf(stderr,"exclude %d: %s\n",i,global_config->exclude_list->excludes[i]);
+	fprintf(rc,"%s%s\n",WORKINGDIR_TOKEN,global_config->working_dir);
+
+	fprintf(rc,"%s",EXCLUDE_TOKEN);
+	for(i = 0;i < global_config->exclude_list->count;++i){
+		if( i+1 == global_config->exclude_list->count)
+			fprintf(rc,"%s",global_config->exclude_list->excludes[i]);
+		else
+			fprintf(rc,"%s,",global_config->exclude_list->excludes[i]);
 	}
+	fprintf(rc,"\n");
+
 	for(i = 0; i < global_config->sources.count;++i){
-		fprintf(stderr,"source %d: %s\n",i,global_config->sources.url[i]);
+		fprintf(rc,"%s%s\n",SOURCE_TOKEN,global_config->sources.url[i]);
 	}
 
-	/* open RC_LOCATION */
+	fclose(rc);
 
 	return TRUE;
 }
+
