@@ -273,3 +273,6 @@ msgstr "Re-Instaluj"
 msgid "Downgrade"
 msgstr "Downgrade"
 
+msgid "_File"
+msgstr "Plik"
+
