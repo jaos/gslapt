@@ -1384,6 +1384,7 @@ gboolean install_packages(void){
 			gtk_widget_destroy(progress_window);
 			return FALSE;
 		}
+		++count;
 	}
 
 	gdk_threads_enter();
@@ -1406,6 +1407,7 @@ gboolean install_packages(void){
 			gtk_widget_destroy(progress_window);
 			return FALSE;
 		}
+		++count;
 	}
 
 	gdk_threads_enter();
