@@ -2448,7 +2448,7 @@
 	    <widget class="GtkLabel" id="label146">
 	      <property name="visible">True</property>
 	      <property name="can_focus">True</property>
-	      <property name="label" translatable="yes">&lt;span weight=&quot;bold&quot; size=&quot;xx-large&quot;&gt;gslapt 0.2alpha&lt;/span&gt;</property>
+	      <property name="label">&lt;span weight=&quot;bold&quot; size=&quot;xx-large&quot;&gt;gslapt 0.2alpha&lt;/span&gt;</property>
 	      <property name="use_underline">False</property>
 	      <property name="use_markup">True</property>
 	      <property name="justify">GTK_JUSTIFY_RIGHT</property>
@@ -2513,7 +2513,7 @@
 	    <widget class="GtkLabel" id="label149">
 	      <property name="visible">True</property>
 	      <property name="can_focus">True</property>
-	      <property name="label" translatable="yes">Copyright Jason Woodward, 2005
+	      <property name="label">Copyright Jason Woodward, 2005
 http://software.jaso.org/#gslapt</property>
 	      <property name="use_underline">False</property>
 	      <property name="use_markup">True</property>

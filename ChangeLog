@@ -1,5 +1,6 @@
 
 0.2alpha Feb 20, 2005
+ * made all possible fields translatable, regenerated translation files
  * added slackpkg make target to Makefile.am
  * fixed search duplication error
  * added pl.po translation contributed by Piotr Simon

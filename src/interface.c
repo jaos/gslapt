@@ -1491,7 +1491,7 @@ create_about (void)
   gtk_widget_show (image853);
   gtk_box_pack_start (GTK_BOX (vbox50), image853, TRUE, TRUE, 0);
 
-  label146 = gtk_label_new (_("<span weight=\"bold\" size=\"xx-large\">gslapt 0.2alpha</span>"));
+  label146 = gtk_label_new ("<span weight=\"bold\" size=\"xx-large\">gslapt 0.2alpha</span>");
   gtk_widget_set_name (label146, "label146");
   gtk_widget_show (label146);
   gtk_box_pack_start (GTK_BOX (vbox50), label146, TRUE, TRUE, 0);
@@ -1514,7 +1514,7 @@ create_about (void)
   gtk_widget_show (label170);
   gtk_box_pack_start (GTK_BOX (vbox50), label170, FALSE, FALSE, 0);
 
-  label149 = gtk_label_new (_("Copyright Jason Woodward, 2005\nhttp://software.jaso.org/#gslapt"));
+  label149 = gtk_label_new ("Copyright Jason Woodward, 2005\nhttp://software.jaso.org/#gslapt");
   gtk_widget_set_name (label149, "label149");
   gtk_widget_show (label149);
   gtk_box_pack_start (GTK_BOX (vbox50), label149, TRUE, TRUE, 0);

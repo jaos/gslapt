@@ -326,7 +326,7 @@ void build_package_treeviewlist(GtkWidget *treeview){
 		}
 		gtk_list_store_set ( store, &iter,
 			0,all->pkgs[i]->name, 1,all->pkgs[i]->version, 2,all->pkgs[i]->location,
-			3,(is_inst == 1 ) ? "Yes" : "No", -1
+			3,(is_inst == 1 ) ? _("Yes") : _("No"), -1
 		);
 	}
 	for(i = 0; i < installed->pkg_count; ++i){
@@ -334,35 +334,35 @@ void build_package_treeviewlist(GtkWidget *treeview){
 			gtk_list_store_append (store, &iter);
 			gtk_list_store_set ( store, &iter,
 				0,installed->pkgs[i]->name, 1,installed->pkgs[i]->version, 2,
-				installed->pkgs[i]->location,3,"Yes", -1
+				installed->pkgs[i]->location,3,_("Yes"), -1
 			);
 		}
 	}
 
   /* column for name */
   renderer = gtk_cell_renderer_text_new();
-	column = gtk_tree_view_column_new_with_attributes ("Name", renderer,
+	column = gtk_tree_view_column_new_with_attributes (_("Name"), renderer,
 		"text", 0, NULL);
   gtk_tree_view_column_set_sort_column_id (column, 0);
   gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
 
   /* column for version */
   renderer = gtk_cell_renderer_text_new();
-	column = gtk_tree_view_column_new_with_attributes ("Version", renderer,
+	column = gtk_tree_view_column_new_with_attributes (_("Version"), renderer,
 		"text", 1, NULL);
   gtk_tree_view_column_set_sort_column_id (column, 1);
   gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
 
   /* column for location */
   renderer = gtk_cell_renderer_text_new();
-	column = gtk_tree_view_column_new_with_attributes ("Location", renderer,
+	column = gtk_tree_view_column_new_with_attributes (_("Location"), renderer,
 		"text", 2, NULL);
   gtk_tree_view_column_set_sort_column_id (column, 2);
   gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
 
 	/* column for installed status */
 	renderer = gtk_cell_renderer_text_new();
-	column = gtk_tree_view_column_new_with_attributes ("Installed", renderer,
+	column = gtk_tree_view_column_new_with_attributes (_("Installed"), renderer,
 		"text", 3, NULL);
   gtk_tree_view_column_set_sort_column_id (column, 3);
   gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
@@ -397,24 +397,14 @@ void build_searched_treeviewlist(GtkWidget *treeview, gchar *pattern){
 
 		a_matches = search_pkg_list(all,pattern);
 		for(i = 0; i < a_matches->pkg_count; i++ ){
-			gchar installed_notification[4];
-			if(
-				get_exact_pkg(
-					installed,
-					a_matches->pkgs[i]->name,
-					a_matches->pkgs[i]->version
-				) != NULL
-			){
-				strcpy(installed_notification,"Yes\0");
-			}else{
-				strcpy(installed_notification,"No\0");
-			}
 			gtk_list_store_append (store, &iter);
 			gtk_list_store_set ( store, &iter,
 				0,a_matches->pkgs[i]->name,
 				1,a_matches->pkgs[i]->version,
 				2,a_matches->pkgs[i]->location,
-				3,installed_notification,-1
+				3,( get_exact_pkg(installed,a_matches->pkgs[i]->name,
+					a_matches->pkgs[i]->version) != NULL) ? _("Yes") : _("No"),
+				-1
 			);
 		}
 
@@ -429,7 +419,7 @@ void build_searched_treeviewlist(GtkWidget *treeview, gchar *pattern){
 				0,i_matches->pkgs[i]->name,
 				1,i_matches->pkgs[i]->version,
 				2,i_matches->pkgs[i]->location,
-				3,"Yes", -1
+				3,_("Yes"), -1
 			);
 		}
 		free_pkg_list(a_matches);
@@ -439,28 +429,28 @@ void build_searched_treeviewlist(GtkWidget *treeview, gchar *pattern){
 
   /* column for name */
   renderer = gtk_cell_renderer_text_new();
-	column = gtk_tree_view_column_new_with_attributes ("Name", renderer,
+	column = gtk_tree_view_column_new_with_attributes (_("Name"), renderer,
 		"text", 0, NULL);
   gtk_tree_view_column_set_sort_column_id (column, 0);
   gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
 
   /* column for version */
   renderer = gtk_cell_renderer_text_new();
-	column = gtk_tree_view_column_new_with_attributes ("Version", renderer,
+	column = gtk_tree_view_column_new_with_attributes (_("Version"), renderer,
 		"text", 1, NULL);
   gtk_tree_view_column_set_sort_column_id (column, 1);
   gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
 
   /* column for location */
   renderer = gtk_cell_renderer_text_new();
-	column = gtk_tree_view_column_new_with_attributes ("Location", renderer,
+	column = gtk_tree_view_column_new_with_attributes (_("Location"), renderer,
 		"text", 2, NULL);
   gtk_tree_view_column_set_sort_column_id (column, 2);
   gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
 
   /* column for installed status */
   renderer = gtk_cell_renderer_text_new();
-	column = gtk_tree_view_column_new_with_attributes ("Installed", renderer,
+	column = gtk_tree_view_column_new_with_attributes (_("Installed"), renderer,
 		"text", 3, NULL);
   gtk_tree_view_column_set_sort_column_id (column, 3);
   gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
@@ -566,9 +556,9 @@ void fillin_pkg_details(pkg_info_t *pkg){
 		if( (is_installed == 0 || is_newest == 0) && (is_exclude == 0) ){
 			gtk_widget_set_sensitive( GTK_WIDGET(install_upgrade),TRUE);
 			if( is_installed == 1 && is_newest == 0 ){
-				gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"label131")),"Upgrade");
+				gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"label131")),_("Upgrade"));
 			}else{
-				gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"label131")),"Install");
+				gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"label131")),_("Install"));
 			}
 		}
 		if( is_installed == 1 && get_exact_pkg(trans->remove_pkgs,pkg->name,pkg->version) == NULL )
@@ -607,7 +597,7 @@ void get_package_data(void){
 	gfloat dl_files = 0.0, dl_count = 0.0;
 
 	progress_window = create_progress_window();
-	gtk_window_set_title(GTK_WINDOW(progress_window),"Progress");
+	gtk_window_set_title(GTK_WINDOW(progress_window),_("Progress"));
 	p_bar = GTK_PROGRESS_BAR(lookup_widget(progress_window,"progress_progressbar"));
 	progress_action_label = GTK_LABEL(lookup_widget(progress_window,"progress_action"));
 	progress_message_label = GTK_LABEL(lookup_widget(progress_window,"progress_message"));
@@ -615,7 +605,7 @@ void get_package_data(void){
 
 	gdk_threads_enter();
 	lock_toolbar_buttons();
-	context_id = gslapt_set_status("Checking for new package data...");
+	context_id = gslapt_set_status(_("Checking for new package data..."));
 	gtk_widget_show(progress_window);
 	gdk_threads_leave();
 
@@ -971,7 +961,7 @@ void build_sources_treeviewlist(GtkWidget *treeview, const rc_config *global_con
 
   /* column for url */
   renderer = gtk_cell_renderer_text_new();
-	column = gtk_tree_view_column_new_with_attributes ("Source", renderer,
+	column = gtk_tree_view_column_new_with_attributes (_("Source"), renderer,
 		"text", 0, NULL);
   gtk_tree_view_column_set_sort_column_id (column, 0);
   gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
@@ -1003,7 +993,7 @@ void build_exclude_treeviewlist(GtkWidget *treeview, const rc_config *global_con
 
   /* column for url */
   renderer = gtk_cell_renderer_text_new();
-	column = gtk_tree_view_column_new_with_attributes ("Expression", renderer,
+	column = gtk_tree_view_column_new_with_attributes (_("Expression"), renderer,
 		"text", 0, NULL);
   gtk_tree_view_column_set_sort_column_id (column, 0);
   gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
@@ -1062,7 +1052,7 @@ void populate_transaction_window(GtkWidget *trans_window){
 	gtk_tree_view_set_model (GTK_TREE_VIEW(summary_treeview),GTK_TREE_MODEL(store));
 
   renderer = gtk_cell_renderer_text_new();
-	column = gtk_tree_view_column_new_with_attributes ("Package", renderer,
+	column = gtk_tree_view_column_new_with_attributes (_("Package"), renderer,
 		"text", 0, NULL);
   gtk_tree_view_column_set_sort_column_id (column, 0);
   gtk_tree_view_append_column (GTK_TREE_VIEW(summary_treeview), column);
@@ -1263,7 +1253,7 @@ gboolean download_packages(void){
 	pkgs_to_dl += trans->upgrade_pkgs->pkg_count;
 
 	progress_window = create_progress_window();
-	gtk_window_set_title(GTK_WINDOW(progress_window),"Progress");
+	gtk_window_set_title(GTK_WINDOW(progress_window),_("Progress"));
 
 	p_bar = GTK_PROGRESS_BAR(lookup_widget(progress_window,"progress_progressbar"));
 	progress_action_label = GTK_LABEL(lookup_widget(progress_window,"progress_action"));
@@ -1289,7 +1279,7 @@ gboolean download_packages(void){
 
 		gdk_threads_enter();
 		gtk_label_set_text(progress_pkg_desc,trans->install_pkgs->pkgs[i]->description);
-		gtk_label_set_text(progress_action_label,"Downloading...");
+		gtk_label_set_text(progress_action_label,_("Downloading..."));
 		gtk_label_set_text(progress_message_label,msg);
 		gtk_progress_bar_set_fraction(p_bar,((count * 100)/pkgs_to_dl)/100);
 		gdk_threads_leave();
@@ -1311,7 +1301,7 @@ gboolean download_packages(void){
 
 		gdk_threads_enter();
 		gtk_label_set_text(progress_pkg_desc,trans->upgrade_pkgs->pkgs[i]->upgrade->description);
-		gtk_label_set_text(progress_action_label,"Downloading...");
+		gtk_label_set_text(progress_action_label,_("Downloading..."));
 		gtk_label_set_text(progress_message_label,msg);
 		gtk_progress_bar_set_fraction(p_bar,((count * 100)/pkgs_to_dl)/100);
 		gdk_threads_leave();
@@ -1339,7 +1329,7 @@ gboolean install_packages(void){
 	/* begin removing, installing, and upgrading */
 
 	progress_window = create_progress_window();
-	gtk_window_set_title(GTK_WINDOW(progress_window),"Progress");
+	gtk_window_set_title(GTK_WINDOW(progress_window),_("Progress"));
 
 	p_bar = GTK_PROGRESS_BAR(lookup_widget(progress_window,"progress_progressbar"));
 	progress_action_label = GTK_LABEL(lookup_widget(progress_window,"progress_action"));
@@ -1354,7 +1344,7 @@ gboolean install_packages(void){
 	for(i = 0; i < trans->remove_pkgs->pkg_count;++i){
 		gdk_threads_enter();
 		gtk_label_set_text(progress_pkg_desc,trans->remove_pkgs->pkgs[i]->description);
-		gtk_label_set_text(progress_action_label,"Uninstalling...");
+		gtk_label_set_text(progress_action_label,_("Uninstalling..."));
 		gtk_label_set_text(progress_message_label,trans->remove_pkgs->pkgs[i]->name);
 		gdk_threads_leave();
 
@@ -1375,7 +1365,7 @@ gboolean install_packages(void){
 	for(i = 0; i < trans->install_pkgs->pkg_count;++i){
 		gdk_threads_enter();
 		gtk_label_set_text(progress_pkg_desc,trans->install_pkgs->pkgs[i]->description);
-		gtk_label_set_text(progress_action_label,"Installing...");
+		gtk_label_set_text(progress_action_label,_("Installing..."));
 		gtk_label_set_text(progress_message_label,trans->install_pkgs->pkgs[i]->name);
 		gdk_threads_leave();
 
@@ -1395,7 +1385,7 @@ gboolean install_packages(void){
 	for(i = 0; i < trans->upgrade_pkgs->pkg_count;++i){
 		gdk_threads_enter();
 		gtk_label_set_text(progress_pkg_desc,trans->upgrade_pkgs->pkgs[i]->upgrade->description);
-		gtk_label_set_text(progress_action_label,"Upgrading...");
+		gtk_label_set_text(progress_action_label,_("Upgrading..."));
 		gtk_label_set_text(progress_message_label,trans->upgrade_pkgs->pkgs[i]->upgrade->name);
 		gdk_threads_leave();
 

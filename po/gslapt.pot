@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gslapt 0.2alpha\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
-"POT-Creation-Date: 2005-02-17 14:52-0500\n"
+"POT-Creation-Date: 2005-02-20 16:24-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,234 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Failed to calloc url\n"
-msgstr ""
-
-#, c-format
-msgid "Failed to download: %s\n"
-msgstr ""
-
-msgid "Packages excluded"
-msgstr ""
-
-msgid "Packages to be installed"
-msgstr ""
-
-msgid "Packages to be upgraded"
-msgstr ""
-
-msgid "Packages to be removed"
-msgstr ""
-
-msgid "Downloading packages..."
-msgstr ""
-
-msgid "Removing packages..."
-msgstr ""
-
-msgid "Installing packages..."
-msgstr ""
-
-msgid "Upgrading packages..."
-msgstr ""
-
-msgid "Preferences"
-msgstr ""
-
-msgid "<b>Package and data storage</b>"
-msgstr ""
-
-msgid "Working Directory"
-msgstr ""
-
-msgid "<b>Package Sources</b>"
-msgstr ""
-
-msgid "<span weight=\"bold\">SOURCE=</span>"
-msgstr ""
-
-msgid "Sources"
-msgstr ""
-
 msgid "<b>Exclude List</b>"
-msgstr ""
-
-msgid "<span weight=\"bold\">Exclude Expression:</span>"
-msgstr ""
-
-msgid "Excludes"
-msgstr ""
-
-msgid "Gslapt"
-msgstr ""
-
-msgid "_Actions"
-msgstr ""
-
-msgid "_Update"
-msgstr ""
-
-msgid "Up_grade"
-msgstr ""
-
-msgid "_Dist-Upgrade"
-msgstr ""
-
-msgid "_Clean"
-msgstr ""
-
-msgid "_Execute"
-msgstr ""
-
-msgid "_Settings"
-msgstr ""
-
-msgid "_Preferences"
-msgstr ""
-
-msgid "_Help"
-msgstr ""
-
-msgid "About"
-msgstr ""
-
-msgid "Update"
-msgstr ""
-
-msgid "Update local package cache"
-msgstr ""
-
-msgid "Upgrade All"
-msgstr ""
-
-msgid "Upgrade installed packages"
-msgstr ""
-
-msgid "Dist-Upgrade"
-msgstr ""
-
-msgid "Upgrade to newer release"
-msgstr ""
-
-msgid "Clean"
-msgstr ""
-
-msgid "Clean archived packages off filesystem"
-msgstr ""
-
-msgid "Execute"
-msgstr ""
-
-msgid "Execute all scheduled actions in current transaction"
-msgstr ""
-
-msgid "Quit"
-msgstr ""
-
-msgid "Search"
-msgstr ""
-
-msgid "Search for expression"
-msgstr ""
-
-msgid "Clear"
-msgstr ""
-
-msgid "Clear search expression"
-msgstr ""
-
-msgid "Packages"
-msgstr ""
-
-msgid "Name"
-msgstr ""
-
-msgid "Location"
-msgstr ""
-
-msgid "Version"
-msgstr ""
-
-msgid "Size"
-msgstr ""
-
-msgid "Installed Size"
-msgstr ""
-
-msgid "Conflicts"
-msgstr ""
-
-msgid "Suggests"
-msgstr ""
-
-msgid "Required"
-msgstr ""
-
-msgid "Description"
-msgstr ""
-
-msgid "Mirror"
-msgstr ""
-
-msgid "Package Information"
-msgstr ""
-
-msgid "Install/Upgrade package"
-msgstr ""
-
-msgid "Install"
-msgstr ""
-
-msgid "Remove package"
-msgstr ""
-
-msgid "Remove"
-msgstr ""
-
-msgid "Exclude package"
-msgstr ""
-
-msgid "Exclude"
-msgstr ""
-
-msgid "Package Action"
-msgstr ""
-
-msgid "Summary"
-msgstr ""
-
-msgid "<span weight=\"bold\" size=\"large\">Apply the folowing changes?</span>"
-msgstr ""
-
-msgid "This is a summary of the changes about to be performed."
-msgstr ""
-
-msgid "Download packages only"
-msgstr ""
-
-msgid "working"
-msgstr ""
-
-msgid "total progress..."
-msgstr ""
-
-msgid "About gslapt"
-msgstr ""
-
-msgid "<span weight=\"bold\" size=\"xx-large\">gslapt 0.2alpha</span>"
-msgstr ""
-
-msgid ""
-"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
-"Slackware"
-msgstr ""
-
-msgid ""
-"Copyright Jason Woodward, 2005\n"
-"http://software.jaso.org/#gslapt"
-msgstr ""
-
-msgid "WARNING"
 msgstr ""
 
 msgid ""
@@ -255,9 +28,260 @@ msgid ""
 "devel@software.jaos.org"
 msgstr ""
 
-msgid "Dismiss"
+msgid "<b>Package Sources</b>"
+msgstr ""
+
+msgid "<b>Package and data storage</b>"
+msgstr ""
+
+msgid "<span weight=\"bold\" size=\"large\">Apply the folowing changes?</span>"
+msgstr ""
+
+msgid "<span weight=\"bold\">Exclude Expression:</span>"
+msgstr ""
+
+msgid "<span weight=\"bold\">SOURCE=</span>"
+msgstr ""
+
+msgid "About gslapt"
+msgstr ""
+
+msgid "About"
+msgstr ""
+
+msgid "Checking for new package data..."
+msgstr ""
+
+msgid "Clean archived packages off filesystem"
+msgstr ""
+
+msgid "Clean"
+msgstr ""
+
+msgid "Clear search expression"
+msgstr ""
+
+msgid "Clear"
+msgstr ""
+
+msgid "Conflicts"
 msgstr ""
 
 #, c-format
 msgid "Couldn't find pixmap file: %s"
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "Dismiss"
+msgstr ""
+
+msgid "Dist-Upgrade"
+msgstr ""
+
+msgid "Download packages only"
+msgstr ""
+
+msgid "Downloading packages..."
+msgstr ""
+
+msgid "Downloading..."
+msgstr ""
+
+msgid "Exclude package"
+msgstr ""
+
+msgid "Exclude"
+msgstr ""
+
+msgid "Excludes"
+msgstr ""
+
+msgid "Execute all scheduled actions in current transaction"
+msgstr ""
+
+msgid "Execute"
+msgstr ""
+
+msgid "Expression"
+msgstr ""
+
+msgid "Gslapt"
+msgstr ""
+
+msgid "Install"
+msgstr ""
+
+msgid "Install/Upgrade package"
+msgstr ""
+
+msgid "Installed Size"
+msgstr ""
+
+msgid "Installed"
+msgstr ""
+
+msgid "Installing packages..."
+msgstr ""
+
+msgid "Installing..."
+msgstr ""
+
+msgid "Location"
+msgstr ""
+
+msgid "Mirror"
+msgstr ""
+
+msgid "NO"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "Package Action"
+msgstr ""
+
+msgid "Package Information"
+msgstr ""
+
+msgid "Package"
+msgstr ""
+
+msgid "Packages excluded"
+msgstr ""
+
+msgid "Packages to be installed"
+msgstr ""
+
+msgid "Packages to be removed"
+msgstr ""
+
+msgid "Packages to be upgraded"
+msgstr ""
+
+msgid "Preferences"
+msgstr ""
+
+msgid "Progress"
+msgstr ""
+
+msgid "Quit"
+msgstr ""
+
+msgid "Remove package"
+msgstr ""
+
+msgid "Remove"
+msgstr ""
+
+msgid "Removing packages..."
+msgstr ""
+
+msgid "Required"
+msgstr ""
+
+msgid "Search for expression"
+msgstr ""
+
+msgid "Search"
+msgstr ""
+
+msgid "Size"
+msgstr ""
+
+msgid "Source"
+msgstr ""
+
+msgid "Sources"
+msgstr ""
+
+msgid "Suggests"
+msgstr ""
+
+msgid "Summary"
+msgstr ""
+
+msgid "This is a summary of the changes about to be performed."
+msgstr ""
+
+msgid "Uninstalling..."
+msgstr ""
+
+msgid "Up_grade"
+msgstr ""
+
+msgid "Update local package cache"
+msgstr ""
+
+msgid "Update"
+msgstr ""
+
+msgid "Upgrade All"
+msgstr ""
+
+msgid "Upgrade installed packages"
+msgstr ""
+
+msgid "Upgrade to newer release"
+msgstr ""
+
+msgid "Upgrade"
+msgstr ""
+
+msgid "Upgrading packages..."
+msgstr ""
+
+msgid "Upgrading..."
+msgstr ""
+
+msgid "Version"
+msgstr ""
+
+msgid "WARNING"
+msgstr ""
+
+msgid "Working Directory"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "_Actions"
+msgstr ""
+
+msgid "_Clean"
+msgstr ""
+
+msgid "_Dist-Upgrade"
+msgstr ""
+
+msgid "_Execute"
+msgstr ""
+
+msgid "_Help"
+msgstr ""
+
+msgid "_Preferences"
+msgstr ""
+
+msgid "_Settings"
+msgstr ""
+
+msgid "_Update"
+msgstr ""
+
+msgid ""
+"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
+"Slackware"
+msgstr ""
+
+msgid "total progress"
+msgstr ""
+
+msgid "working"
 msgstr ""
