@@ -1506,12 +1506,17 @@ void preferences_sources_remove(GtkWidget *w, gpointer user_data){
 		}
 		if( tmp != NULL ){
 			char **realloc_tmp;
+			int count = global_config->sources->count - 1;
+			if( count < 1 ) count = 1;
+
 			free(tmp);
-			realloc_tmp = realloc(global_config->sources->url,sizeof *global_config->sources->url * (global_config->sources->count - 1));
+
+			realloc_tmp = realloc(global_config->sources->url,sizeof *global_config->sources->url * count );
 			if( realloc_tmp != NULL ){
 				global_config->sources->url = realloc_tmp;
 				if( global_config->sources->count > 0 ) --global_config->sources->count;
 			}
+
 		}
 
 		g_free(source);
@@ -1597,13 +1602,21 @@ void preferences_exclude_remove(GtkWidget *w, gpointer user_data) {
 			++i;
 		}
 		if( tmp != NULL ){
-			free(tmp);
 			char **realloc_tmp;
-			realloc_tmp = realloc(global_config->exclude_list->excludes,sizeof *global_config->exclude_list->excludes * (global_config->exclude_list->count - 1));
+			int count = global_config->exclude_list->count - 1;
+			if( count < 1 ) count = 1;
+
+			free(tmp);
+
+			realloc_tmp = realloc(	
+				global_config->exclude_list->excludes,
+				sizeof *global_config->exclude_list->excludes * count
+			);
 			if( realloc_tmp != NULL ){
 				global_config->exclude_list->excludes = realloc_tmp;
 				if( global_config->exclude_list->count > 0 ) --global_config->exclude_list->count;
 			}
+
 		}
 
 		g_free(exclude);
