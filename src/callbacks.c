@@ -873,11 +873,6 @@ void preferences_sources_remove(GtkButton *button, gpointer user_data){
 	(void)user_data;
 }
 
-void preferences_on_apply_clicked(GtkWidget *w, gpointer user_data){
-	(void)user_data;
-	gtk_widget_destroy(w);
-}
-
 void preferences_on_ok_clicked(GtkWidget *w, gpointer user_data){
 	(void)user_data;
 	gtk_widget_destroy(w);

@@ -34,7 +34,6 @@ void unlock_toolbar_buttons(void);
 
 void preferences_sources_add(GtkButton *button, gpointer user_data);
 void preferences_sources_remove(GtkButton *button, gpointer user_data);
-void preferences_on_apply_clicked(GtkWidget *w, gpointer user_data);
 void preferences_on_ok_clicked(GtkWidget *w, gpointer user_data);
 
 void on_transaction_okbutton1_clicked(GtkWidget *w, gpointer user_data);

@@ -65,7 +65,6 @@ create_window_preferences (void)
   GtkWidget *preferences_remove_exclude_button;
   GtkWidget *label51;
   GtkWidget *preferences_hbuttonbox;
-  GtkWidget *preferences_apply_button;
   GtkWidget *preferences_close_button;
   GtkWidget *preferences_ok_button;
 
@@ -276,12 +275,6 @@ create_window_preferences (void)
   gtk_button_box_set_layout (GTK_BUTTON_BOX (preferences_hbuttonbox), GTK_BUTTONBOX_END);
   gtk_box_set_spacing (GTK_BOX (preferences_hbuttonbox), 6);
 
-  preferences_apply_button = gtk_button_new_from_stock ("gtk-apply");
-  gtk_widget_set_name (preferences_apply_button, "preferences_apply_button");
-  gtk_widget_show (preferences_apply_button);
-  gtk_container_add (GTK_CONTAINER (preferences_hbuttonbox), preferences_apply_button);
-  GTK_WIDGET_SET_FLAGS (preferences_apply_button, GTK_CAN_DEFAULT);
-
   preferences_close_button = gtk_button_new_from_stock ("gtk-cancel");
   gtk_widget_set_name (preferences_close_button, "preferences_close_button");
   gtk_widget_show (preferences_close_button);
@@ -309,9 +302,6 @@ create_window_preferences (void)
   g_signal_connect ((gpointer) preferences_remove_exclude_button, "clicked",
                     G_CALLBACK (preferences_exclude_remove),
                     NULL);
-  g_signal_connect_swapped ((gpointer) preferences_apply_button, "clicked",
-                            G_CALLBACK (preferences_on_apply_clicked),
-                            GTK_OBJECT (window_preferences));
   g_signal_connect_swapped ((gpointer) preferences_close_button, "clicked",
                             G_CALLBACK (gtk_widget_destroy),
                             GTK_OBJECT (window_preferences));
@@ -356,7 +346,6 @@ create_window_preferences (void)
   GLADE_HOOKUP_OBJECT (window_preferences, preferences_remove_exclude_button, "preferences_remove_exclude_button");
   GLADE_HOOKUP_OBJECT (window_preferences, label51, "label51");
   GLADE_HOOKUP_OBJECT (window_preferences, preferences_hbuttonbox, "preferences_hbuttonbox");
-  GLADE_HOOKUP_OBJECT (window_preferences, preferences_apply_button, "preferences_apply_button");
   GLADE_HOOKUP_OBJECT (window_preferences, preferences_close_button, "preferences_close_button");
   GLADE_HOOKUP_OBJECT (window_preferences, preferences_ok_button, "preferences_ok_button");
 
