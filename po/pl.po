@@ -1,0 +1,270 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: gslapt 0.2alpha\n"
+"Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
+"POT-Creation-Date: 2005-02-17 14:52-0500\n"
+"PO-Revision-Date: 2005-02-19 14:52-0500\n"
+"Last-Translator: Piotr Simon <sajmon@tenboard.com>\n"
+"Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-2\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Failed to calloc url\n"
+msgstr "Failed to calloc url\n"
+
+#, c-format
+msgid "Failed to download: %s\n"
+msgstr "Pobranie nie powiodło się: %s\n"
+
+msgid "Packages excluded"
+msgstr "Wykluczone pakiety"
+
+msgid "Packages to be installed"
+msgstr "Pakiety do instalcji"
+
+msgid "Packages to be upgraded"
+msgstr "Pakiety do aktualizacji"
+
+msgid "Packages to be removed"
+msgstr "Pakiety do usunięcia"
+
+msgid "Downloading packages..."
+msgstr "Pobieranie pakietu..."
+
+msgid "Removing packages..."
+msgstr "Usuwanie pakietu..."
+
+msgid "Installing packages..."
+msgstr "Instalacja packages..."
+
+msgid "Upgrading packages..."
+msgstr "Aktualizacja pakietu..."
+
+msgid "Preferences"
+msgstr "Preferencje"
+
+msgid "<b>Package and data storage</b>"
+msgstr "<b>Miejsce zapisu</b>"
+
+msgid "Working Directory"
+msgstr "Katalog"
+
+msgid "<b>Package Sources</b>"
+msgstr "<b>Żródła pakietów</b>"
+
+msgid "<span weight=\"bold\">SOURCE=</span>"
+msgstr "<span weight=\"bold\">SOURCE=</span>"
+
+msgid "Sources"
+msgstr "Żródła"
+
+msgid "<b>Exclude List</b>"
+msgstr "<b>Lista wykluczeń</b>"
+
+msgid "<span weight=\"bold\">Exclude Expression:</span>"
+msgstr "<span weight=\"bold\">Wyrażenie wykluczenia:</span>"
+
+msgid "Excludes"
+msgstr "Wykluczenia"
+
+msgid "Gslapt"
+msgstr "Gslapt"
+
+msgid "_Actions"
+msgstr "_Akcja"
+
+msgid "_Update"
+msgstr "_Update"
+
+msgid "Up_grade"
+msgstr "Up_grade"
+
+msgid "_Dist-Upgrade"
+msgstr "_Dist-Upgrade"
+
+msgid "_Clean"
+msgstr "_Clean"
+
+msgid "_Execute"
+msgstr "_Wykonaj"
+
+msgid "_Settings"
+msgstr "_Ustawienia"
+
+msgid "_Preferences"
+msgstr "_Preferencje"
+
+msgid "_Help"
+msgstr "_Pomoc"
+
+msgid "About"
+msgstr "o programie"
+
+msgid "Update"
+msgstr "Update"
+
+msgid "Update local package cache"
+msgstr "Aktualizuj lokalne cache"
+
+msgid "Upgrade All"
+msgstr "Upgrade All"
+
+msgid "Upgrade installed packages"
+msgstr "Aktualizuj zainstalowane pakiety"
+
+msgid "Dist-Upgrade"
+msgstr "Dist-Upgrade"
+
+msgid "Upgrade to newer release"
+msgstr "Aktualizuj do nowszej wersji"
+
+msgid "Clean"
+msgstr "Clean"
+
+msgid "Clean archived packages off filesystem"
+msgstr "Wyczyść pakiety w cache"
+
+msgid "Execute"
+msgstr "Wykonaj"
+
+msgid "Execute all scheduled actions in current transaction"
+msgstr "Wykonaj wszystkie zaplanowane akcje w bieżącej transakcji"
+
+msgid "Quit"
+msgstr "Opuść"
+
+msgid "Search"
+msgstr "Szukaj"
+
+msgid "Search for expression"
+msgstr "Szukaj wyrażenia"
+
+msgid "Clear"
+msgstr "Wyczyść"
+
+msgid "Clear search expression"
+msgstr "Wyczyść wyrażenia"
+
+msgid "Packages"
+msgstr "Pakiety"
+
+msgid "Name"
+msgstr "Nazwa"
+
+msgid "Location"
+msgstr "Lokacja"
+
+msgid "Version"
+msgstr "Wersja"
+
+msgid "Size"
+msgstr "Rozmiar"
+
+msgid "Installed Size"
+msgstr "Rozmiar po instalacji"
+
+msgid "Conflicts"
+msgstr "Konfilkt"
+
+msgid "Suggests"
+msgstr "Sugestia"
+
+msgid "Required"
+msgstr "Wymaga"
+
+msgid "Description"
+msgstr "Opis"
+
+msgid "Mirror"
+msgstr "Mirror"
+
+msgid "Package Information"
+msgstr "Informacje pakietu"
+
+msgid "Install/Upgrade package"
+msgstr "Instaluj/Aktualizuj pakiet"
+
+msgid "Install"
+msgstr "Zainstaluj"
+
+msgid "Remove package"
+msgstr "Usuń pakiet"
+
+msgid "Remove"
+msgstr "Usuń"
+
+msgid "Exclude package"
+msgstr "Wyklucz pakiet"
+
+msgid "Exclude"
+msgstr "Wyklucz"
+
+msgid "Package Action"
+msgstr "Akcja pakietu"
+
+msgid "Summary"
+msgstr "Podsumowanie"
+
+msgid "<span weight=\"bold\" size=\"large\">Apply the folowing changes?</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Użyć następujących zmian?</span>"
+
+msgid "This is a summary of the changes about to be performed."
+msgstr "To jest podsumowanie zmian, które mają zostać przeprowadzone."
+
+msgid "Download packages only"
+msgstr "Tylko pobierz"
+
+msgid "working"
+msgstr "working"
+
+msgid "total progress..."
+msgstr "total progress..."
+
+msgid "About gslapt"
+msgstr "o programie"
+
+msgid ""
+"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
+"Slackware"
+msgstr ""
+"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
+"Slackware"
+
+msgid ""
+"Copyright Jason Woodward, 2005\n"
+"http://software.jaso.org/#gslapt"
+msgstr ""
+"Copyright Jason Woodward, 2005\n"
+"http://software.jaso.org/#gslapt"
+
+msgid "WARNING"
+msgstr "WARNING"
+
+msgid ""
+"<b>Gslapt</b> is <b>alpha</b> quality software.  <span weight=\"bold\">It "
+"will crash and may leave your machine in an unusable state.</span>  Please "
+"use with caution.\n"
+"\n"
+"Bug reports should go to the slapt-get-devel mailing list: slapt-get-"
+"devel@software.jaos.org"
+msgstr ""
+"<b>Gslapt</b> is <b>alpha</b> quality software.  <span weight=\"bold\">It "
+"will crash and may leave your machine in an unusable state.</span>  Please "
+"use with caution.\n"
+"\n"
+"Bug reports should go to the slapt-get-devel mailing list: slapt-get-"
+"devel@software.jaos.org"
+
+msgid "Dismiss"
+msgstr "Dismiss"
+
+#, c-format
+msgid "Couldn't find pixmap file: %s"
+msgstr "Nie znalazłem pixmap pliku: %s"
