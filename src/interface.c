@@ -30,6 +30,7 @@ GtkWidget*
 create_window_preferences (void)
 {
   GtkWidget *window_preferences;
+  GdkPixbuf *window_preferences_icon_pixbuf;
   GtkWidget *preferences_vbox;
   GtkWidget *preferences_notebook;
   GtkWidget *preferences_working_dir_vbox;
@@ -80,6 +81,12 @@ create_window_preferences (void)
   gtk_window_set_position (GTK_WINDOW (window_preferences), GTK_WIN_POS_CENTER);
   gtk_window_set_modal (GTK_WINDOW (window_preferences), TRUE);
   gtk_window_set_default_size (GTK_WINDOW (window_preferences), 400, 300);
+  window_preferences_icon_pixbuf = create_pixbuf ("gslapt.png");
+  if (window_preferences_icon_pixbuf)
+    {
+      gtk_window_set_icon (GTK_WINDOW (window_preferences), window_preferences_icon_pixbuf);
+      gdk_pixbuf_unref (window_preferences_icon_pixbuf);
+    }
   gtk_window_set_gravity (GTK_WINDOW (window_preferences), GDK_GRAVITY_CENTER);
 
   preferences_vbox = gtk_vbox_new (FALSE, 0);
@@ -1239,6 +1246,7 @@ GtkWidget*
 create_transaction_window (void)
 {
   GtkWidget *transaction_window;
+  GdkPixbuf *transaction_window_icon_pixbuf;
   GtkWidget *vbox47;
   GtkWidget *vbox61;
   GtkWidget *hbox97;
@@ -1258,6 +1266,12 @@ create_transaction_window (void)
   gtk_container_set_border_width (GTK_CONTAINER (transaction_window), 12);
   gtk_window_set_title (GTK_WINDOW (transaction_window), _("Summary"));
   gtk_window_set_default_size (GTK_WINDOW (transaction_window), 200, 400);
+  transaction_window_icon_pixbuf = create_pixbuf ("gslapt.png");
+  if (transaction_window_icon_pixbuf)
+    {
+      gtk_window_set_icon (GTK_WINDOW (transaction_window), transaction_window_icon_pixbuf);
+      gdk_pixbuf_unref (transaction_window_icon_pixbuf);
+    }
   gtk_window_set_skip_taskbar_hint (GTK_WINDOW (transaction_window), TRUE);
   gtk_window_set_gravity (GTK_WINDOW (transaction_window), GDK_GRAVITY_CENTER);
 
@@ -1377,6 +1391,7 @@ GtkWidget*
 create_progress_window (void)
 {
   GtkWidget *progress_window;
+  GdkPixbuf *progress_window_icon_pixbuf;
   GtkWidget *vbox49;
   GtkWidget *progress_progressbar;
   GtkWidget *progress_action;
@@ -1388,6 +1403,12 @@ create_progress_window (void)
   gtk_container_set_border_width (GTK_CONTAINER (progress_window), 12);
   gtk_window_set_title (GTK_WINDOW (progress_window), _("working"));
   gtk_window_set_position (GTK_WINDOW (progress_window), GTK_WIN_POS_CENTER);
+  progress_window_icon_pixbuf = create_pixbuf ("gslapt.png");
+  if (progress_window_icon_pixbuf)
+    {
+      gtk_window_set_icon (GTK_WINDOW (progress_window), progress_window_icon_pixbuf);
+      gdk_pixbuf_unref (progress_window_icon_pixbuf);
+    }
   gtk_window_set_gravity (GTK_WINDOW (progress_window), GDK_GRAVITY_CENTER);
 
   vbox49 = gtk_vbox_new (FALSE, 0);
@@ -1416,8 +1437,6 @@ create_progress_window (void)
   gtk_widget_set_name (progress_package_description, "progress_package_description");
   gtk_widget_show (progress_package_description);
   gtk_box_pack_start (GTK_BOX (vbox49), progress_package_description, TRUE, TRUE, 6);
-  GTK_WIDGET_SET_FLAGS (progress_package_description, GTK_CAN_FOCUS);
-  gtk_label_set_selectable (GTK_LABEL (progress_package_description), TRUE);
   gtk_misc_set_alignment (GTK_MISC (progress_package_description), 0, 0);
 
   g_signal_connect ((gpointer) progress_window, "destroy_event",
@@ -1439,11 +1458,13 @@ GtkWidget*
 create_about (void)
 {
   GtkWidget *about;
+  GdkPixbuf *about_icon_pixbuf;
   GtkWidget *dialog_vbox1;
   GtkWidget *vbox50;
+  GtkWidget *image853;
   GtkWidget *label146;
   GtkWidget *label147;
-  GtkWidget *label148;
+  GtkWidget *label170;
   GtkWidget *label149;
   GtkWidget *dialog_action_area1;
   GtkWidget *closebutton1;
@@ -1453,6 +1474,12 @@ create_about (void)
   gtk_window_set_title (GTK_WINDOW (about), _("About gslapt"));
   gtk_window_set_position (GTK_WINDOW (about), GTK_WIN_POS_CENTER);
   gtk_window_set_destroy_with_parent (GTK_WINDOW (about), TRUE);
+  about_icon_pixbuf = create_pixbuf ("gslapt.png");
+  if (about_icon_pixbuf)
+    {
+      gtk_window_set_icon (GTK_WINDOW (about), about_icon_pixbuf);
+      gdk_pixbuf_unref (about_icon_pixbuf);
+    }
   gtk_window_set_type_hint (GTK_WINDOW (about), GDK_WINDOW_TYPE_HINT_DIALOG);
 
   dialog_vbox1 = GTK_DIALOG (about)->vbox;
@@ -1463,6 +1490,11 @@ create_about (void)
   gtk_widget_set_name (vbox50, "vbox50");
   gtk_widget_show (vbox50);
   gtk_box_pack_start (GTK_BOX (dialog_vbox1), vbox50, TRUE, TRUE, 0);
+
+  image853 = create_pixmap (about, "gslapt.png");
+  gtk_widget_set_name (image853, "image853");
+  gtk_widget_show (image853);
+  gtk_box_pack_start (GTK_BOX (vbox50), image853, TRUE, TRUE, 0);
 
   label146 = gtk_label_new (_("<span weight=\"bold\" size=\"xx-large\">gslapt 0.2alpha</span>"));
   gtk_widget_set_name (label146, "label146");
@@ -1482,15 +1514,12 @@ create_about (void)
   gtk_label_set_line_wrap (GTK_LABEL (label147), TRUE);
   gtk_label_set_selectable (GTK_LABEL (label147), TRUE);
 
-  label148 = gtk_label_new (_("Copyright Jason Woodward, 2005"));
-  gtk_widget_set_name (label148, "label148");
-  gtk_widget_show (label148);
-  gtk_box_pack_start (GTK_BOX (vbox50), label148, TRUE, TRUE, 0);
-  GTK_WIDGET_SET_FLAGS (label148, GTK_CAN_FOCUS);
-  gtk_label_set_justify (GTK_LABEL (label148), GTK_JUSTIFY_RIGHT);
-  gtk_label_set_selectable (GTK_LABEL (label148), TRUE);
+  label170 = gtk_label_new ("");
+  gtk_widget_set_name (label170, "label170");
+  gtk_widget_show (label170);
+  gtk_box_pack_start (GTK_BOX (vbox50), label170, FALSE, FALSE, 0);
 
-  label149 = gtk_label_new (_("http://software.jaso.org/#gslapt"));
+  label149 = gtk_label_new (_("Copyright Jason Woodward, 2005\nhttp://software.jaso.org/#gslapt"));
   gtk_widget_set_name (label149, "label149");
   gtk_widget_show (label149);
   gtk_box_pack_start (GTK_BOX (vbox50), label149, TRUE, TRUE, 0);
@@ -1518,9 +1547,10 @@ create_about (void)
   GLADE_HOOKUP_OBJECT_NO_REF (about, about, "about");
   GLADE_HOOKUP_OBJECT_NO_REF (about, dialog_vbox1, "dialog_vbox1");
   GLADE_HOOKUP_OBJECT (about, vbox50, "vbox50");
+  GLADE_HOOKUP_OBJECT (about, image853, "image853");
   GLADE_HOOKUP_OBJECT (about, label146, "label146");
   GLADE_HOOKUP_OBJECT (about, label147, "label147");
-  GLADE_HOOKUP_OBJECT (about, label148, "label148");
+  GLADE_HOOKUP_OBJECT (about, label170, "label170");
   GLADE_HOOKUP_OBJECT (about, label149, "label149");
   GLADE_HOOKUP_OBJECT_NO_REF (about, dialog_action_area1, "dialog_action_area1");
   GLADE_HOOKUP_OBJECT (about, closebutton1, "closebutton1");
@@ -1532,6 +1562,7 @@ GtkWidget*
 create_devel_warning_dialog (void)
 {
   GtkWidget *devel_warning_dialog;
+  GdkPixbuf *devel_warning_dialog_icon_pixbuf;
   GtkWidget *dialog_vbox2;
   GtkWidget *label169;
   GtkWidget *dialog_action_area2;
@@ -1542,6 +1573,12 @@ create_devel_warning_dialog (void)
   gtk_container_set_border_width (GTK_CONTAINER (devel_warning_dialog), 6);
   gtk_window_set_title (GTK_WINDOW (devel_warning_dialog), _("WARNING"));
   gtk_window_set_position (GTK_WINDOW (devel_warning_dialog), GTK_WIN_POS_CENTER);
+  devel_warning_dialog_icon_pixbuf = create_pixbuf ("gslapt.png");
+  if (devel_warning_dialog_icon_pixbuf)
+    {
+      gtk_window_set_icon (GTK_WINDOW (devel_warning_dialog), devel_warning_dialog_icon_pixbuf);
+      gdk_pixbuf_unref (devel_warning_dialog_icon_pixbuf);
+    }
   gtk_window_set_type_hint (GTK_WINDOW (devel_warning_dialog), GDK_WINDOW_TYPE_HINT_DIALOG);
   gtk_window_set_gravity (GTK_WINDOW (devel_warning_dialog), GDK_GRAVITY_CENTER);
 
