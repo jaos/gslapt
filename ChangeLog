@@ -1,5 +1,6 @@
 
 0.2 Mar 01, 2005
+ * added TODO
  * updated the interface, removing duplicate file menu entries, removed
    location field.
  * requires slapt-get >= 0.9.9i

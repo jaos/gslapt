@@ -1,0 +1,10 @@
+
+Things to do:
+
+* bug testing
+* Need to look into generating omf documentation for comprehensive help
+ (but does that require gnome libs?)
+* more statusbar usage to notify what we are doing
+* ui cleanups, improvements
+* move to libglade instead of generated code
+
