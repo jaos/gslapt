@@ -64,6 +64,10 @@ void upgrade_callback (GtkObject *object, gpointer user_data) {
 	(void)object;
 	(void)user_data;
 
+	/* clean this out in case dist-upgrade was previously called */
+	free_transaction(trans);
+	init_transaction(trans);
+
 	build_upgrade_list();
 
 	if( trans->install_pkgs->pkg_count == 0 
@@ -82,9 +86,11 @@ void upgrade_callback (GtkObject *object, gpointer user_data) {
 void distupgrade_callback (GtkObject *object, gpointer user_data) {
 	extern rc_config *global_config;
 
-	global_config->dist_upgrade = 1;
+	global_config->dist_upgrade = TRUE;
 
 	upgrade_callback(object,user_data);
+
+	global_config->dist_upgrade = FALSE;
 }
 
 void execute_callback (GtkObject *object, gpointer user_data) {
