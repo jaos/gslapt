@@ -1113,75 +1113,6 @@ create_gslapt (void)
 }
 
 GtkWidget*
-create_about (void)
-{
-  GtkWidget *about;
-  GtkWidget *dialog_vbox1;
-  GtkWidget *image797;
-  GtkWidget *label138;
-  GtkWidget *label137;
-  GtkWidget *dialog_action_area1;
-  GtkWidget *closebutton1;
-
-  about = gtk_dialog_new ();
-  gtk_widget_set_name (about, "about");
-  gtk_window_set_title (GTK_WINDOW (about), _("About Gslapt"));
-  gtk_window_set_default_size (GTK_WINDOW (about), 80, 100);
-  gtk_window_set_type_hint (GTK_WINDOW (about), GDK_WINDOW_TYPE_HINT_DIALOG);
-
-  dialog_vbox1 = GTK_DIALOG (about)->vbox;
-  gtk_widget_set_name (dialog_vbox1, "dialog_vbox1");
-  gtk_widget_show (dialog_vbox1);
-
-  image797 = gtk_image_new_from_stock ("gtk-dialog-info", GTK_ICON_SIZE_DIALOG);
-  gtk_widget_set_name (image797, "image797");
-  gtk_widget_show (image797);
-  gtk_box_pack_start (GTK_BOX (dialog_vbox1), image797, FALSE, FALSE, 0);
-
-  label138 = gtk_label_new ("");
-  gtk_widget_set_name (label138, "label138");
-  gtk_widget_show (label138);
-  gtk_box_pack_start (GTK_BOX (dialog_vbox1), label138, FALSE, FALSE, 0);
-
-  label137 = gtk_label_new (_("               Gslapt\n\n        GTK+ slapt-get \n\nCopyright Jason Woodward"));
-  gtk_widget_set_name (label137, "label137");
-  gtk_widget_show (label137);
-  gtk_box_pack_start (GTK_BOX (dialog_vbox1), label137, FALSE, FALSE, 0);
-
-  dialog_action_area1 = GTK_DIALOG (about)->action_area;
-  gtk_widget_set_name (dialog_action_area1, "dialog_action_area1");
-  gtk_widget_show (dialog_action_area1);
-  gtk_button_box_set_layout (GTK_BUTTON_BOX (dialog_action_area1), GTK_BUTTONBOX_END);
-
-  closebutton1 = gtk_button_new_from_stock ("gtk-close");
-  gtk_widget_set_name (closebutton1, "closebutton1");
-  gtk_widget_show (closebutton1);
-  gtk_dialog_add_action_widget (GTK_DIALOG (about), closebutton1, GTK_RESPONSE_CLOSE);
-  GTK_WIDGET_SET_FLAGS (closebutton1, GTK_CAN_DEFAULT);
-
-  g_signal_connect_swapped ((gpointer) about, "close",
-                            G_CALLBACK (gtk_widget_destroy),
-                            GTK_OBJECT (about));
-  g_signal_connect_swapped ((gpointer) about, "destroy_event",
-                            G_CALLBACK (gtk_widget_destroy),
-                            GTK_OBJECT (about));
-  g_signal_connect_swapped ((gpointer) closebutton1, "clicked",
-                            G_CALLBACK (gtk_widget_destroy),
-                            GTK_OBJECT (about));
-
-  /* Store pointers to all widgets, for use by lookup_widget(). */
-  GLADE_HOOKUP_OBJECT_NO_REF (about, about, "about");
-  GLADE_HOOKUP_OBJECT_NO_REF (about, dialog_vbox1, "dialog_vbox1");
-  GLADE_HOOKUP_OBJECT (about, image797, "image797");
-  GLADE_HOOKUP_OBJECT (about, label138, "label138");
-  GLADE_HOOKUP_OBJECT (about, label137, "label137");
-  GLADE_HOOKUP_OBJECT_NO_REF (about, dialog_action_area1, "dialog_action_area1");
-  GLADE_HOOKUP_OBJECT (about, closebutton1, "closebutton1");
-
-  return about;
-}
-
-GtkWidget*
 create_transaction_window (void)
 {
   GtkWidget *transaction_window;
@@ -1358,5 +1289,98 @@ create_progress_window (void)
   GLADE_HOOKUP_OBJECT (progress_window, progress_message, "progress_message");
 
   return progress_window;
+}
+
+GtkWidget*
+create_about (void)
+{
+  GtkWidget *about;
+  GtkWidget *dialog_vbox1;
+  GtkWidget *vbox50;
+  GtkWidget *label146;
+  GtkWidget *label147;
+  GtkWidget *label148;
+  GtkWidget *label149;
+  GtkWidget *dialog_action_area1;
+  GtkWidget *closebutton1;
+
+  about = gtk_dialog_new ();
+  gtk_widget_set_name (about, "about");
+  gtk_window_set_title (GTK_WINDOW (about), _("About gslapt"));
+  gtk_window_set_position (GTK_WINDOW (about), GTK_WIN_POS_CENTER);
+  gtk_window_set_destroy_with_parent (GTK_WINDOW (about), TRUE);
+  gtk_window_set_type_hint (GTK_WINDOW (about), GDK_WINDOW_TYPE_HINT_DIALOG);
+
+  dialog_vbox1 = GTK_DIALOG (about)->vbox;
+  gtk_widget_set_name (dialog_vbox1, "dialog_vbox1");
+  gtk_widget_show (dialog_vbox1);
+
+  vbox50 = gtk_vbox_new (TRUE, 0);
+  gtk_widget_set_name (vbox50, "vbox50");
+  gtk_widget_show (vbox50);
+  gtk_box_pack_start (GTK_BOX (dialog_vbox1), vbox50, TRUE, TRUE, 0);
+
+  label146 = gtk_label_new (_("<span weight=\"bold\" size=\"xx-large\">gslapt 0.1alpha</span>"));
+  gtk_widget_set_name (label146, "label146");
+  gtk_widget_show (label146);
+  gtk_box_pack_start (GTK_BOX (vbox50), label146, TRUE, TRUE, 0);
+  GTK_WIDGET_SET_FLAGS (label146, GTK_CAN_FOCUS);
+  gtk_label_set_use_markup (GTK_LABEL (label146), TRUE);
+  gtk_label_set_justify (GTK_LABEL (label146), GTK_JUSTIFY_RIGHT);
+  gtk_label_set_selectable (GTK_LABEL (label146), TRUE);
+
+  label147 = gtk_label_new (_("gslapt is a GTK+ frontend to slapt-get, an APT like package system for Slackware"));
+  gtk_widget_set_name (label147, "label147");
+  gtk_widget_show (label147);
+  gtk_box_pack_start (GTK_BOX (vbox50), label147, TRUE, TRUE, 0);
+  GTK_WIDGET_SET_FLAGS (label147, GTK_CAN_FOCUS);
+  gtk_label_set_justify (GTK_LABEL (label147), GTK_JUSTIFY_CENTER);
+  gtk_label_set_line_wrap (GTK_LABEL (label147), TRUE);
+  gtk_label_set_selectable (GTK_LABEL (label147), TRUE);
+
+  label148 = gtk_label_new (_("Copyright Jason Woodward, 2005"));
+  gtk_widget_set_name (label148, "label148");
+  gtk_widget_show (label148);
+  gtk_box_pack_start (GTK_BOX (vbox50), label148, TRUE, TRUE, 0);
+  GTK_WIDGET_SET_FLAGS (label148, GTK_CAN_FOCUS);
+  gtk_label_set_justify (GTK_LABEL (label148), GTK_JUSTIFY_RIGHT);
+  gtk_label_set_selectable (GTK_LABEL (label148), TRUE);
+
+  label149 = gtk_label_new (_("http://software.jaso.org/#gslapt"));
+  gtk_widget_set_name (label149, "label149");
+  gtk_widget_show (label149);
+  gtk_box_pack_start (GTK_BOX (vbox50), label149, TRUE, TRUE, 0);
+  GTK_WIDGET_SET_FLAGS (label149, GTK_CAN_FOCUS);
+  gtk_label_set_use_markup (GTK_LABEL (label149), TRUE);
+  gtk_label_set_justify (GTK_LABEL (label149), GTK_JUSTIFY_CENTER);
+  gtk_label_set_selectable (GTK_LABEL (label149), TRUE);
+
+  dialog_action_area1 = GTK_DIALOG (about)->action_area;
+  gtk_widget_set_name (dialog_action_area1, "dialog_action_area1");
+  gtk_widget_show (dialog_action_area1);
+  gtk_button_box_set_layout (GTK_BUTTON_BOX (dialog_action_area1), GTK_BUTTONBOX_END);
+
+  closebutton1 = gtk_button_new_from_stock ("gtk-close");
+  gtk_widget_set_name (closebutton1, "closebutton1");
+  gtk_widget_show (closebutton1);
+  gtk_dialog_add_action_widget (GTK_DIALOG (about), closebutton1, GTK_RESPONSE_CLOSE);
+  GTK_WIDGET_SET_FLAGS (closebutton1, GTK_CAN_DEFAULT);
+
+  g_signal_connect_swapped ((gpointer) closebutton1, "clicked",
+                            G_CALLBACK (gtk_widget_destroy),
+                            GTK_OBJECT (about));
+
+  /* Store pointers to all widgets, for use by lookup_widget(). */
+  GLADE_HOOKUP_OBJECT_NO_REF (about, about, "about");
+  GLADE_HOOKUP_OBJECT_NO_REF (about, dialog_vbox1, "dialog_vbox1");
+  GLADE_HOOKUP_OBJECT (about, vbox50, "vbox50");
+  GLADE_HOOKUP_OBJECT (about, label146, "label146");
+  GLADE_HOOKUP_OBJECT (about, label147, "label147");
+  GLADE_HOOKUP_OBJECT (about, label148, "label148");
+  GLADE_HOOKUP_OBJECT (about, label149, "label149");
+  GLADE_HOOKUP_OBJECT_NO_REF (about, dialog_action_area1, "dialog_action_area1");
+  GLADE_HOOKUP_OBJECT (about, closebutton1, "closebutton1");
+
+  return about;
 }
 
