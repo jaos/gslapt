@@ -290,3 +290,10 @@ msgstr "total progress"
 
 msgid "working"
 msgstr "working"
+
+msgid "Up to Date"
+msgstr "Up to Date"
+
+msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
+msgstr "<span weight=\"bold\" size=\"large\">No updates available</span>"
+

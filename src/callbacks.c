@@ -59,26 +59,40 @@ void update_callback (GtkObject *object, gpointer user_data) {
 }
 
 void upgrade_callback (GtkObject *object, gpointer user_data) {
-	GtkWidget *trans_window;
+	GtkWidget *w;
+	extern transaction_t *trans;
 	(void)object;
 	(void)user_data;
 
 	build_upgrade_list();
 
-	trans_window = (GtkWidget *)create_transaction_window();
-	populate_transaction_window(trans_window);
-
-	gtk_widget_show(trans_window);
+	if( trans->install_pkgs->pkg_count == 0 
+		&& trans->remove_pkgs->pkg_count == 0 
+		&& trans->upgrade_pkgs->pkg_count == 0 
+	){
+		w = (GtkWidget *)create_up_to_date();
+		gtk_widget_show(w);
+	}else{
+		w = (GtkWidget *)create_transaction_window();
+		populate_transaction_window(w);
+		gtk_widget_show(w);
+	}
 }
 
 void distupgrade_callback (GtkObject *object, gpointer user_data) {
 	GtkWidget *trans_window;
+	extern transaction_t *trans;
 	extern rc_config *global_config;
 	(void)object;
 	(void)user_data;
 	global_config->dist_upgrade = 1;
 
 	build_upgrade_list();
+
+	if( trans->install_pkgs->pkg_count == 0 
+		&& trans->remove_pkgs->pkg_count == 0 
+		&& trans->upgrade_pkgs->pkg_count == 0 
+	) return;
 
 	trans_window = (GtkWidget *)create_transaction_window();
 	populate_transaction_window(trans_window);

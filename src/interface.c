@@ -1616,3 +1616,55 @@ create_devel_warning_dialog (void)
   return devel_warning_dialog;
 }
 
+GtkWidget*
+create_up_to_date (void)
+{
+  GtkWidget *up_to_date;
+  GtkWidget *dialog_vbox3;
+  GtkWidget *label171;
+  GtkWidget *dialog_action_area3;
+  GtkWidget *okbutton2;
+
+  up_to_date = gtk_dialog_new ();
+  gtk_widget_set_name (up_to_date, "up_to_date");
+  gtk_container_set_border_width (GTK_CONTAINER (up_to_date), 2);
+  gtk_window_set_title (GTK_WINDOW (up_to_date), _("Up to Date"));
+  gtk_window_set_position (GTK_WINDOW (up_to_date), GTK_WIN_POS_CENTER);
+  gtk_window_set_type_hint (GTK_WINDOW (up_to_date), GDK_WINDOW_TYPE_HINT_DIALOG);
+  gtk_window_set_gravity (GTK_WINDOW (up_to_date), GDK_GRAVITY_CENTER);
+
+  dialog_vbox3 = GTK_DIALOG (up_to_date)->vbox;
+  gtk_widget_set_name (dialog_vbox3, "dialog_vbox3");
+  gtk_widget_show (dialog_vbox3);
+
+  label171 = gtk_label_new (_("<span weight=\"bold\" size=\"large\">No updates available</span>"));
+  gtk_widget_set_name (label171, "label171");
+  gtk_widget_show (label171);
+  gtk_box_pack_start (GTK_BOX (dialog_vbox3), label171, TRUE, TRUE, 2);
+  gtk_label_set_use_markup (GTK_LABEL (label171), TRUE);
+
+  dialog_action_area3 = GTK_DIALOG (up_to_date)->action_area;
+  gtk_widget_set_name (dialog_action_area3, "dialog_action_area3");
+  gtk_widget_show (dialog_action_area3);
+  gtk_button_box_set_layout (GTK_BUTTON_BOX (dialog_action_area3), GTK_BUTTONBOX_END);
+
+  okbutton2 = gtk_button_new_from_stock ("gtk-ok");
+  gtk_widget_set_name (okbutton2, "okbutton2");
+  gtk_widget_show (okbutton2);
+  gtk_dialog_add_action_widget (GTK_DIALOG (up_to_date), okbutton2, GTK_RESPONSE_OK);
+  GTK_WIDGET_SET_FLAGS (okbutton2, GTK_CAN_DEFAULT);
+
+  g_signal_connect_swapped ((gpointer) okbutton2, "clicked",
+                            G_CALLBACK (gtk_widget_destroy),
+                            GTK_OBJECT (up_to_date));
+
+  /* Store pointers to all widgets, for use by lookup_widget(). */
+  GLADE_HOOKUP_OBJECT_NO_REF (up_to_date, up_to_date, "up_to_date");
+  GLADE_HOOKUP_OBJECT_NO_REF (up_to_date, dialog_vbox3, "dialog_vbox3");
+  GLADE_HOOKUP_OBJECT (up_to_date, label171, "label171");
+  GLADE_HOOKUP_OBJECT_NO_REF (up_to_date, dialog_action_area3, "dialog_action_area3");
+  GLADE_HOOKUP_OBJECT (up_to_date, okbutton2, "okbutton2");
+
+  return up_to_date;
+}
+

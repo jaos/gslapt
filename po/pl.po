@@ -268,3 +268,10 @@ msgstr "Dismiss"
 #, c-format
 msgid "Couldn't find pixmap file: %s"
 msgstr "Nie znalazłem pixmap pliku: %s"
+
+msgid "Up to Date"
+msgstr ""
+
+msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
+msgstr ""
+

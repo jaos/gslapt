@@ -285,3 +285,10 @@ msgstr ""
 
 msgid "working"
 msgstr ""
+
+msgid "Up to Date"
+msgstr ""
+
+msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
+msgstr ""
+
