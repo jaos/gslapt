@@ -306,3 +306,6 @@ msgstr "After unpacking %0.1d%s disk space will be freed."
 msgid "After unpacking %0.1d%s of additional disk space will be used."
 msgstr "After unpacking %0.1d%s of additional disk space will be used."
 
+msgid "Ready"
+msgstr "Ready"
+

@@ -164,6 +164,9 @@ msgstr "Rozmiar"
 msgid "Installed Size"
 msgstr "Rozmiar po instalacji"
 
+msgid "Installed"
+msgstr "Instalacji"
+
 msgid "Conflicts"
 msgstr "Konfliktuje"
 
@@ -268,4 +271,7 @@ msgstr "Aktualny"
 
 msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
 msgstr  "<span weight=\"bold\" size=\"large\">Brak dostępnych aktualizacji</span>"
+
+msgid "Ready"
+msgstr ""
 

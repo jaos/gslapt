@@ -301,3 +301,6 @@ msgstr ""
 msgid "After unpacking %0.1d%s of additional disk space will be used."
 msgstr ""
 
+msgid "Ready"
+msgstr ""
+
