@@ -219,7 +219,7 @@ msgid "working"
 msgstr "working"
 
 msgid "total progress..."
-msgstr "total progress..."
+msgstr "całkowity postęp..."
 
 msgid "About gslapt"
 msgstr "o programie"
@@ -264,8 +264,8 @@ msgid "Couldn't find pixmap file: %s"
 msgstr "Nie znalazłem pixmap pliku: %s"
 
 msgid "Up to Date"
-msgstr ""
+msgstr "Aktualny"
 
 msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
-msgstr ""
+msgstr  "<span weight=\"bold\" size=\"large\">Brak dostępnych aktualizacji</span>"
 
