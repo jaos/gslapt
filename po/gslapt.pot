@@ -224,7 +224,7 @@ msgstr ""
 msgid "working"
 msgstr ""
 
-msgid "in progress..."
+msgid "total progress..."
 msgstr ""
 
 msgid "About gslapt"

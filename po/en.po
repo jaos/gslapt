@@ -224,8 +224,8 @@ msgstr "Download packages only"
 msgid "working"
 msgstr "working"
 
-msgid "in progress..."
-msgstr "in progress..."
+msgid "total progress..."
+msgstr "total progress..."
 
 msgid "About gslapt"
 msgstr "About gslapt"
