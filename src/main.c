@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 Jason Woodward <woodwardj at jaos dot org>
+ * Copyright (C) 2003,2004,2005 Jason Woodward <woodwardj at jaos dot org>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -51,6 +51,7 @@ int main (int argc, char *argv[]){
 
   gslapt = (GtkWidget *)create_gslapt ();
   gtk_widget_show (gslapt);
+	gtk_widget_show(create_devel_warning_dialog());
 
 	global_config = read_rc_config(RC_LOCATION);
 	working_dir_init(global_config);

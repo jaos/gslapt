@@ -1496,3 +1496,59 @@ create_about (void)
   return about;
 }
 
+GtkWidget*
+create_devel_warning_dialog (void)
+{
+  GtkWidget *devel_warning_dialog;
+  GtkWidget *dialog_vbox2;
+  GtkWidget *label169;
+  GtkWidget *dialog_action_area2;
+  GtkWidget *okbutton1;
+
+  devel_warning_dialog = gtk_dialog_new ();
+  gtk_widget_set_name (devel_warning_dialog, "devel_warning_dialog");
+  gtk_container_set_border_width (GTK_CONTAINER (devel_warning_dialog), 6);
+  gtk_window_set_title (GTK_WINDOW (devel_warning_dialog), _("WARNING"));
+  gtk_window_set_position (GTK_WINDOW (devel_warning_dialog), GTK_WIN_POS_CENTER);
+  gtk_window_set_type_hint (GTK_WINDOW (devel_warning_dialog), GDK_WINDOW_TYPE_HINT_DIALOG);
+  gtk_window_set_gravity (GTK_WINDOW (devel_warning_dialog), GDK_GRAVITY_CENTER);
+
+  dialog_vbox2 = GTK_DIALOG (devel_warning_dialog)->vbox;
+  gtk_widget_set_name (dialog_vbox2, "dialog_vbox2");
+  gtk_widget_show (dialog_vbox2);
+
+  label169 = gtk_label_new (_("<b>Gslapt</b> is <b>alpha</b> quality software.  <span weight=\"bold\">It will crash and may leave your machine in an unusable state.</span>  Please use with caution.\n\nBug reports should go to the slapt-get-devel mailing list: slapt-get-devel@software.jaos.org"));
+  gtk_widget_set_name (label169, "label169");
+  gtk_widget_show (label169);
+  gtk_box_pack_start (GTK_BOX (dialog_vbox2), label169, TRUE, TRUE, 2);
+  GTK_WIDGET_SET_FLAGS (label169, GTK_CAN_FOCUS);
+  gtk_label_set_use_markup (GTK_LABEL (label169), TRUE);
+  gtk_label_set_line_wrap (GTK_LABEL (label169), TRUE);
+  gtk_label_set_selectable (GTK_LABEL (label169), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label169), 0, 0);
+
+  dialog_action_area2 = GTK_DIALOG (devel_warning_dialog)->action_area;
+  gtk_widget_set_name (dialog_action_area2, "dialog_action_area2");
+  gtk_widget_show (dialog_action_area2);
+  gtk_button_box_set_layout (GTK_BUTTON_BOX (dialog_action_area2), GTK_BUTTONBOX_END);
+
+  okbutton1 = gtk_button_new_with_mnemonic (_("Dismiss"));
+  gtk_widget_set_name (okbutton1, "okbutton1");
+  gtk_widget_show (okbutton1);
+  gtk_dialog_add_action_widget (GTK_DIALOG (devel_warning_dialog), okbutton1, GTK_RESPONSE_OK);
+  GTK_WIDGET_SET_FLAGS (okbutton1, GTK_CAN_DEFAULT);
+
+  g_signal_connect_swapped ((gpointer) okbutton1, "clicked",
+                            G_CALLBACK (gtk_widget_destroy),
+                            GTK_OBJECT (devel_warning_dialog));
+
+  /* Store pointers to all widgets, for use by lookup_widget(). */
+  GLADE_HOOKUP_OBJECT_NO_REF (devel_warning_dialog, devel_warning_dialog, "devel_warning_dialog");
+  GLADE_HOOKUP_OBJECT_NO_REF (devel_warning_dialog, dialog_vbox2, "dialog_vbox2");
+  GLADE_HOOKUP_OBJECT (devel_warning_dialog, label169, "label169");
+  GLADE_HOOKUP_OBJECT_NO_REF (devel_warning_dialog, dialog_action_area2, "dialog_action_area2");
+  GLADE_HOOKUP_OBJECT (devel_warning_dialog, okbutton1, "okbutton1");
+
+  return devel_warning_dialog;
+}
+
