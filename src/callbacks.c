@@ -568,6 +568,8 @@ void fillin_pkg_details(pkg_info_t *pkg){
 				gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"label131")),_("Upgrade"));
 			}else if( is_installed == 1 && is_newest == 1 ){
 				gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"label131")),_("Re-Install"));
+				g_signal_handlers_disconnect_by_func((gpointer)install_upgrade,add_pkg_for_install,GTK_OBJECT(gslapt));
+  			g_signal_connect_swapped((gpointer) install_upgrade,"clicked",G_CALLBACK(add_pkg_for_reinstall),GTK_OBJECT(gslapt));
 			}else{
 				gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"label131")),_("Install"));
 			}
@@ -1576,3 +1578,14 @@ void cancel_upgrade_transaction(GtkWidget *w,gpointer user_data){
 
 }
 
+void add_pkg_for_reinstall (GtkWidget *gslapt, gpointer user_data){
+	extern rc_config *global_config;
+	GtkButton *install_upgrade = GTK_BUTTON( lookup_widget(gslapt,"pkg_info_action_install_upgrade_button") );
+
+	global_config->re_install = TRUE;
+	add_pkg_for_install(gslapt,user_data);
+	global_config->re_install = FALSE;
+
+	g_signal_handlers_disconnect_by_func((gpointer)install_upgrade,add_pkg_for_reinstall,GTK_OBJECT(gslapt));
+	g_signal_connect_swapped((gpointer) install_upgrade,"clicked",G_CALLBACK(add_pkg_for_install),GTK_OBJECT(gslapt));
+}
