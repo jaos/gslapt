@@ -1,5 +1,6 @@
 
-0.3 Mar 28, 2005
+0.3 Mar 29, 2005
+ * requires slapt-get >= 0.9.9j
  * fixed upgrade problem
  * updated transaction code to follow new transaction_t struct use of queue 
  * borrowed Ubuntu's add/remove applications icon for new gslapt icon
