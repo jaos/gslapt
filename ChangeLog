@@ -1,5 +1,6 @@
 
 0.2 Feb 21, 2005
+ * filled in total progress progress-bar when installing, upgrading, and removing
  * fixed bug when all package sources or exclude expressions where removed
  * notify if no updates are available, don't show empty summary 
  * updates following libslapt updates, using add_source and new source list struct

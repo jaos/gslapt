@@ -1329,6 +1329,7 @@ gboolean install_packages(void){
 	extern transaction_t *trans;
 	extern rc_config *global_config;
 	guint i,context_id;
+	gfloat count = 0.0;
 
 	/* begin removing, installing, and upgrading */
 
@@ -1350,12 +1351,14 @@ gboolean install_packages(void){
 		gtk_label_set_text(progress_pkg_desc,trans->remove_pkgs->pkgs[i]->description);
 		gtk_label_set_text(progress_action_label,_("Uninstalling..."));
 		gtk_label_set_text(progress_message_label,trans->remove_pkgs->pkgs[i]->name);
+		gtk_progress_bar_set_fraction(p_bar,((count * 100)/trans->remove_pkgs->pkg_count)/100);
 		gdk_threads_leave();
 
 		if( remove_pkg(global_config,trans->remove_pkgs->pkgs[i]) == -1 ){
 			gtk_widget_destroy(progress_window);
 			return FALSE;
 		}
+		++count;
 	}
 
 	/* reset progress bar */
@@ -1366,11 +1369,13 @@ gboolean install_packages(void){
 	gdk_threads_leave();
 
 	/* now for the installs */
+	count = 0.0;
 	for(i = 0; i < trans->install_pkgs->pkg_count;++i){
 		gdk_threads_enter();
 		gtk_label_set_text(progress_pkg_desc,trans->install_pkgs->pkgs[i]->description);
 		gtk_label_set_text(progress_action_label,_("Installing..."));
 		gtk_label_set_text(progress_message_label,trans->install_pkgs->pkgs[i]->name);
+		gtk_progress_bar_set_fraction(p_bar,((count * 100)/trans->install_pkgs->pkg_count)/100);
 		gdk_threads_leave();
 
 		if( install_pkg(global_config,trans->install_pkgs->pkgs[i]) == -1 ){
@@ -1386,11 +1391,13 @@ gboolean install_packages(void){
 	gdk_threads_leave();
 
 	/* now for the upgrades */
+	count = 0.0;
 	for(i = 0; i < trans->upgrade_pkgs->pkg_count;++i){
 		gdk_threads_enter();
 		gtk_label_set_text(progress_pkg_desc,trans->upgrade_pkgs->pkgs[i]->upgrade->description);
 		gtk_label_set_text(progress_action_label,_("Upgrading..."));
 		gtk_label_set_text(progress_message_label,trans->upgrade_pkgs->pkgs[i]->upgrade->name);
+		gtk_progress_bar_set_fraction(p_bar,((count * 100)/trans->upgrade_pkgs->pkg_count)/100);
 		gdk_threads_leave();
 
 		if( upgrade_pkg(global_config,trans->upgrade_pkgs->pkgs[i]->installed,trans->upgrade_pkgs->pkgs[i]->upgrade) == -1 ){
