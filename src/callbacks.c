@@ -115,14 +115,14 @@ void open_preferences (GtkMenuItem *menuitem, gpointer user_data) {
 	gtk_widget_show(preferences);
 }
 
-void on_search_tab_search_button_clicked (GtkWidget *gslapt, gpointer user_data) {
+void search_button_clicked (GtkWidget *gslapt, gpointer user_data) {
   GtkTreeView *treeview;
 	gchar *pattern;
 
 	(void)user_data;
 	
-	/* search_tab_search_entry */
-	pattern = (gchar *)gtk_entry_get_text(GTK_ENTRY(lookup_widget(gslapt,"search_tab_search_entry")));
+	/* search_entry */
+	pattern = (gchar *)gtk_entry_get_text(GTK_ENTRY(lookup_widget(gslapt,"search_entry")));
 
 	treeview = GTK_TREE_VIEW(lookup_widget(gslapt,"pkg_listing_treeview"));
 	clear_treeview(treeview);
@@ -1120,7 +1120,7 @@ void populate_transaction_window(GtkWidget *trans_window){
 }
 
 
-void on_search_tab_clear_button_clicked(GtkWidget *w, gpointer user_data) {
+void clear_button_clicked(GtkWidget *w, gpointer user_data) {
 	(void)user_data;
 
 	gtk_entry_set_text(GTK_ENTRY(w),"");
@@ -1655,4 +1655,5 @@ static gboolean write_preferences(void){
 
 	return TRUE;
 }
+
 
