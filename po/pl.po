@@ -276,3 +276,6 @@ msgstr "Downgrade"
 msgid "_File"
 msgstr "Plik"
 
+msgid "Upgrade"
+msgstr "Aktualizuj"
+
