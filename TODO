@@ -9,4 +9,5 @@ Things to do:
  * ui cleanups, improvements
  * move to libglade instead of generated code
  * context menu for right click on package in list
+ * need to figure out how to find out if gnome-sudo|gksu|etc are installed and use them for the .desktop entry
 
