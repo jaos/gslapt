@@ -529,16 +529,19 @@ void fillin_pkg_details(pkg_info_t *pkg){
 	gtk_widget_set_sensitive( GTK_WIDGET(remove),FALSE);
 	gtk_widget_set_sensitive( GTK_WIDGET(exclude),FALSE);
 
-	if( get_exact_pkg(installed,pkg->name,pkg->version) != NULL)
+	if( get_exact_pkg(installed,pkg->name,pkg->version) != NULL){
 		is_installed = 1;
+	}
 
 	upgrade_pkg = get_newest_pkg(all,pkg->name);
-	if( upgrade_pkg != NULL && cmp_pkg_versions(pkg->version,upgrade_pkg->version) < 0 )
+	if( upgrade_pkg != NULL && cmp_pkg_versions(pkg->version,upgrade_pkg->version) < 0 ){
 		is_newest = 0;
+	}
 
 	if( is_excluded(global_config,pkg) == 1 
-	|| get_exact_pkg(trans->exclude_pkgs,pkg->name,pkg->version) != NULL)
+	|| get_exact_pkg(trans->exclude_pkgs,pkg->name,pkg->version) != NULL){
 		is_exclude = 1;
+	}
 
 	gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"pkg_info_action_name_entry")),pkg->name);
 	gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"pkg_info_action_version_entry")),pkg->version);
