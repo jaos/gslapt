@@ -616,10 +616,10 @@ void get_package_data(void){
 		exit(1);
 	}
 
-	dl_files = (global_config->sources.count * 3.0 );
+	dl_files = (global_config->sources->count * 3.0 );
 
 	/* go through each package source and download the meta data */
-	for(i = 0; i < global_config->sources.count; i++){
+	for(i = 0; i < global_config->sources->count; i++){
 		FILE *tmp_pkg_f,*tmp_patch_f,*tmp_checksum_f;
 		struct pkg_list *available_pkgs = NULL;
 		struct pkg_list *patch_pkgs = NULL;
@@ -629,13 +629,13 @@ void get_package_data(void){
 		gchar *checksum_head,*checksum_local_head;
 
 		gdk_threads_enter();
-		gtk_label_set_text(progress_action_label,global_config->sources.url[i]);
+		gtk_label_set_text(progress_action_label,global_config->sources->url[i]);
 		gtk_label_set_text(progress_message_label,PKG_LIST);
 		gdk_threads_leave();
 
 		/* download our PKG_LIST */
-		pkg_filename = gen_filename_from_url(global_config->sources.url[i],PKG_LIST);
-		pkg_head = head_mirror_data(global_config->sources.url[i],PKG_LIST);
+		pkg_filename = gen_filename_from_url(global_config->sources->url[i],PKG_LIST);
+		pkg_head = head_mirror_data(global_config->sources->url[i],PKG_LIST);
 		pkg_local_head = read_head_cache(pkg_filename);
 
 		/* open for reading if cached, otherwise write it from the downloaded data */
@@ -644,7 +644,7 @@ void get_package_data(void){
 			available_pkgs = parse_packages_txt(tmp_pkg_f);
 		}else{
 			if( (tmp_pkg_f = open_file(pkg_filename,"w+b")) == NULL ) exit(1);
-			if( get_mirror_data_from_source(tmp_pkg_f,global_config,global_config->sources.url[i],PKG_LIST) == 0 ){
+			if( get_mirror_data_from_source(tmp_pkg_f,global_config,global_config->sources->url[i],PKG_LIST) == 0 ){
 				rewind(tmp_pkg_f); /* make sure we are back at the front of the file */
 				available_pkgs = parse_packages_txt(tmp_pkg_f);
 			}else{
@@ -671,8 +671,8 @@ void get_package_data(void){
 
 
 		/* download PATCHES_LIST */
-		patch_filename = gen_filename_from_url(global_config->sources.url[i],PATCHES_LIST);
-		patch_head = head_mirror_data(global_config->sources.url[i],PATCHES_LIST);
+		patch_filename = gen_filename_from_url(global_config->sources->url[i],PATCHES_LIST);
+		patch_head = head_mirror_data(global_config->sources->url[i],PATCHES_LIST);
 		patch_local_head = read_head_cache(patch_filename);
 
 		/* open for reading if cached, otherwise write it from the downloaded data */
@@ -681,7 +681,7 @@ void get_package_data(void){
 			patch_pkgs = parse_packages_txt(tmp_patch_f);
 		}else{
 			if( (tmp_patch_f = open_file(patch_filename,"w+b")) == NULL ) exit (1);
-			if( get_mirror_data_from_source(tmp_patch_f,global_config,global_config->sources.url[i],PATCHES_LIST) == 0 ){
+			if( get_mirror_data_from_source(tmp_patch_f,global_config,global_config->sources->url[i],PATCHES_LIST) == 0 ){
 				rewind(tmp_patch_f); /* make sure we are back at the front of the file */
 				patch_pkgs = parse_packages_txt(tmp_patch_f);
 			}else{
@@ -705,8 +705,8 @@ void get_package_data(void){
 
 
 		/* download checksum file */
-		checksum_filename = gen_filename_from_url(global_config->sources.url[i],CHECKSUM_FILE);
-		checksum_head = head_mirror_data(global_config->sources.url[i],CHECKSUM_FILE);
+		checksum_filename = gen_filename_from_url(global_config->sources->url[i],CHECKSUM_FILE);
+		checksum_head = head_mirror_data(global_config->sources->url[i],CHECKSUM_FILE);
 		checksum_local_head = read_head_cache(checksum_filename);
 
 		/* open for reading if cached, otherwise write it from the downloaded data */
@@ -715,7 +715,7 @@ void get_package_data(void){
 		}else{
 			if( (tmp_checksum_f = open_file(checksum_filename,"w+b")) == NULL ) exit(1);
 			if( get_mirror_data_from_source(
-						tmp_checksum_f,global_config,global_config->sources.url[i],CHECKSUM_FILE
+						tmp_checksum_f,global_config,global_config->sources->url[i],CHECKSUM_FILE
 					) != 0
 			){
 				source_dl_failed = 1;
@@ -753,8 +753,8 @@ void get_package_data(void){
 			}
 
 			/* write package listings to disk */
-			write_pkg_data(global_config->sources.url[i],pkg_list_fh_tmp,available_pkgs);
-			write_pkg_data(global_config->sources.url[i],pkg_list_fh_tmp,patch_pkgs);
+			write_pkg_data(global_config->sources->url[i],pkg_list_fh_tmp,available_pkgs);
+			write_pkg_data(global_config->sources->url[i],pkg_list_fh_tmp,patch_pkgs);
 
 		}
 		if ( available_pkgs ) free_pkg_list(available_pkgs);
@@ -954,9 +954,9 @@ void build_sources_treeviewlist(GtkWidget *treeview, const rc_config *global_con
 		G_TYPE_STRING
 	);
 
-	for(i = 0; i < global_config->sources.count; ++i ){
+	for(i = 0; i < global_config->sources->count; ++i ){
 		gtk_list_store_append(store, &iter);
-		gtk_list_store_set(store,&iter,0,global_config->sources.url[i],-1);
+		gtk_list_store_set(store,&iter,0,global_config->sources->url[i],-1);
 	}
 
   /* column for url */
@@ -1418,27 +1418,11 @@ void preferences_sources_add(GtkWidget *w, gpointer user_data){
 	GtkEntry *new_source_entry = GTK_ENTRY(lookup_widget(w,"new_source_entry"));
 	const gchar *new_source = gtk_entry_get_text(new_source_entry);
 	(void)user_data;
+	guint i;
 
 	if( new_source == NULL || strlen(new_source) < 1 ) return;
 
-	if( strlen(new_source) <= MAX_SOURCE_URL_LEN ){
-		global_config->sources.url[global_config->sources.count][0] = '\0';
-		strncpy(
-			global_config->sources.url[global_config->sources.count],
-			new_source,
-			strlen(new_source)
-		);
-		global_config->sources.url[global_config->sources.count][strlen(new_source)] = '\0';
-		/* make sure our url has a trailing '/' */
-		if( global_config->sources.url[global_config->sources.count]
-			[
-				strlen(global_config->sources.url[global_config->sources.count]) - 1
-			] != '/'
-		){
-			strncat(global_config->sources.url[global_config->sources.count],"/",strlen("/"));
-		}
-		++global_config->sources.count;
-	}
+	add_source(global_config->sources,new_source);
 
 	gtk_entry_set_text(new_source_entry,"");
 	clear_treeview(source_tree);
@@ -1457,23 +1441,26 @@ void preferences_sources_remove(GtkWidget *w, gpointer user_data){
 	if( gtk_tree_selection_get_selected(select,&model,&iter)){
 		guint i = 0,found = 0;
 		gchar *source;
+		gchar *tmp = NULL;
 
 		gtk_tree_model_get(model,&iter,0,&source, -1 );
-		while( i < global_config->sources.count ){
-			if( strcmp(source,global_config->sources.url[i]) == 0 ){
-				found = 1;
-			}
-			if( found == 1 && (i+1 < global_config->sources.count) ){
-				strncpy(
-					global_config->sources.url[i],
-					global_config->sources.url[i+1],
-					strlen(global_config->sources.url[i+1])
-				);
-				global_config->sources.url[i][strlen(global_config->sources.url[i+1])] = '\0';
+		while( i < global_config->sources->count ){
+			if( strcmp(source,global_config->sources->url[i]) == 0 && tmp == NULL )
+				tmp = global_config->sources->url[i];
+			if( tmp != NULL && (i+1 < global_config->sources->count) ){
+				global_config->sources->url[i] = global_config->sources->url[i + 1];
 			}
 			++i;
 		}
-		if( found == 1 ) --global_config->sources.count;
+		if( tmp != NULL ){
+			char **realloc_tmp;
+			free(tmp);
+			realloc_tmp = realloc(global_config->sources->url,sizeof *global_config->sources->url * (global_config->sources->count - 1));
+			if( realloc_tmp != NULL ){
+				global_config->sources->url = realloc_tmp;
+				--global_config->sources->count;
+			}
+		}
 
 		g_free(source);
 
@@ -1542,7 +1529,7 @@ void preferences_exclude_remove(GtkWidget *w, gpointer user_data) {
 
 	if( gtk_tree_selection_get_selected(select,&model,&iter)){
 		guint i = 0;
-		char *tmp = NULL;
+		gchar *tmp = NULL;
 		gchar *exclude;
 
 		gtk_tree_model_get(model,&iter,0,&exclude, -1 );
@@ -1591,8 +1578,8 @@ static gboolean write_preferences(void){
 	}
 	fprintf(rc,"\n");
 
-	for(i = 0; i < global_config->sources.count;++i){
-		fprintf(rc,"%s%s\n",SOURCE_TOKEN,global_config->sources.url[i]);
+	for(i = 0; i < global_config->sources->count;++i){
+		fprintf(rc,"%s%s\n",SOURCE_TOKEN,global_config->sources->url[i]);
 	}
 
 	fclose(rc);
