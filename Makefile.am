@@ -9,6 +9,8 @@ EXTRA_DIST = \
 
 install-data-local:
 	@$(NORMAL_INSTALL)
+	$(mkinstalldirs) $(DESTDIR)/usr/share/applications; \
+	$(INSTALL_DATA) gslapt.desktop $(DESTDIR)/usr/share/applications/gslapt.desktop; \
 	if test -d $(srcdir)/pixmaps; then \
 	  $(mkinstalldirs) $(DESTDIR)$(pkgdatadir)/pixmaps; \
 	  for pixmap in $(srcdir)/pixmaps/*; do \
