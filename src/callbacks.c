@@ -75,12 +75,6 @@ void execute_callback (GtkObject *object, gpointer user_data) {
 	gtk_widget_show(trans_window);
 }
 
-void quit_callback(GtkMenuItem *menuitem, gpointer user_data){
-	(void)menuitem;
-	(void)user_data;
-	gtk_main_quit();
-}
-
 void open_preferences (GtkMenuItem *menuitem, gpointer user_data) {
 	GtkWidget *preferences;
 	extern rc_config *global_config;

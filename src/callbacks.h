@@ -7,7 +7,6 @@ void update_callback (GtkObject *object, gpointer user_data);
 void upgrade_callback (GtkObject *object, gpointer user_data);
 void distupgrade_callback (GtkObject *object, gpointer user_data);
 void execute_callback (GtkObject *object, gpointer user_data);
-void quit_callback(GtkMenuItem *menuitem, gpointer user_data);
 void open_preferences (GtkMenuItem *menuitem, gpointer user_data);
 void on_search_tab_search_button_clicked (GtkWidget *gslapt, gpointer user_data);
 void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data);
