@@ -912,6 +912,7 @@ void unlock_toolbar_buttons(void){
 static void lhandle_transaction(GtkWidget *w){
 	GtkCheckButton *dl_only_checkbutton;
 	gboolean dl_only = FALSE;
+	extern transaction_t *trans;
 
 	gdk_threads_enter();
 	lock_toolbar_buttons();
@@ -929,6 +930,8 @@ static void lhandle_transaction(GtkWidget *w){
 
 	/* return early if download_only is set */
 	if( dl_only == TRUE ){
+		free_transaction(trans);
+		init_transaction(trans);
 		gdk_threads_enter();
 		unlock_toolbar_buttons();
 		gdk_threads_leave();
@@ -940,6 +943,9 @@ static void lhandle_transaction(GtkWidget *w){
 		/* error dialog here */
 		gtk_main_quit();
 	}
+
+	free_transaction(trans);
+	init_transaction(trans);
 
 	gdk_threads_enter();
 	unlock_toolbar_buttons();

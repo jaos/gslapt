@@ -506,6 +506,7 @@ create_gslapt (void)
   gslapt = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_widget_set_name (gslapt, "gslapt");
   gtk_window_set_title (GTK_WINDOW (gslapt), _("Gslapt"));
+  gtk_window_set_position (GTK_WINDOW (gslapt), GTK_WIN_POS_CENTER);
   gtk_window_set_default_size (GTK_WINDOW (gslapt), 600, 400);
   gtk_window_set_gravity (GTK_WINDOW (gslapt), GDK_GRAVITY_CENTER);
 
@@ -1365,6 +1366,7 @@ create_progress_window (void)
   gtk_widget_set_name (progress_window, "progress_window");
   gtk_container_set_border_width (GTK_CONTAINER (progress_window), 12);
   gtk_window_set_title (GTK_WINDOW (progress_window), _("window1"));
+  gtk_window_set_position (GTK_WINDOW (progress_window), GTK_WIN_POS_CENTER);
   gtk_window_set_gravity (GTK_WINDOW (progress_window), GDK_GRAVITY_CENTER);
 
   vbox49 = gtk_vbox_new (FALSE, 0);
