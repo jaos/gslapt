@@ -1,5 +1,6 @@
 
-0.3 Mar 18, 2005
+0.3 Mar 28, 2005
+ * borrowed Ubuntu's add/remove applications icon for new gslapt icon
  * fixed issue with reinstall request not completing
  * statusbar now gives notification when there are pending things to execute
 
