@@ -71,6 +71,7 @@ int main (int argc, char *argv[]){
 	gtk_widget_set_sensitive( lookup_widget(gslapt,"pkg_info_action_install_upgrade_button"), FALSE);
 	gtk_widget_set_sensitive( lookup_widget(gslapt,"pkg_info_action_remove_button"), FALSE);
 	gtk_widget_set_sensitive( lookup_widget(gslapt,"pkg_info_action_exclude_button"), FALSE);
+	gtk_widget_set_sensitive( lookup_widget(gslapt,"action_bar_execute_button"), FALSE);
 
 	init_transaction(trans);
 

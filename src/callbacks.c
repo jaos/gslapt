@@ -183,6 +183,7 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data) {
 				add_remove_to_transaction(trans,conflicted_pkg);
 			}
 			add_install_to_transaction(trans,pkg);
+			gtk_widget_set_sensitive(lookup_widget(gslapt,"action_bar_execute_button"), TRUE);
 			gtk_widget_set_sensitive(r,FALSE);
 			gtk_widget_set_sensitive(e,FALSE);
 			gtk_widget_set_sensitive(i,FALSE);
@@ -263,6 +264,7 @@ void add_pkg_for_removal (GtkWidget *gslapt, gpointer user_data) {
 		gtk_widget_set_sensitive(r,FALSE);
 		gtk_widget_set_sensitive(e,FALSE);
 		gtk_widget_set_sensitive(i,FALSE);
+		gtk_widget_set_sensitive(lookup_widget(gslapt,"action_bar_execute_button"), TRUE);
 
 	}
 
@@ -935,6 +937,8 @@ void lock_toolbar_buttons(void){
 
 void unlock_toolbar_buttons(void){
   extern GtkWidget *gslapt;
+	extern transaction_t *trans;
+
   GtkToolButton *action_bar_update_button = GTK_TOOL_BUTTON( lookup_widget(gslapt,"action_bar_update_button") );
   GtkToolButton *action_bar_upgrade_button = GTK_TOOL_BUTTON( lookup_widget(gslapt,"action_bar_upgrade_button") );
   GtkToolButton *action_bar_clean_button = GTK_TOOL_BUTTON( lookup_widget(gslapt,"action_bar_clean_button") );
@@ -943,7 +947,15 @@ void unlock_toolbar_buttons(void){
 	gtk_widget_set_sensitive((GtkWidget *)action_bar_update_button,TRUE);
 	gtk_widget_set_sensitive((GtkWidget *)action_bar_upgrade_button,TRUE);
 	gtk_widget_set_sensitive((GtkWidget *)action_bar_clean_button,TRUE);
-	gtk_widget_set_sensitive((GtkWidget *)action_bar_execute_button,TRUE);
+
+	if(
+		trans->upgrade_pkgs->pkg_count != 0
+		|| trans->remove_pkgs->pkg_count != 0
+		|| trans->install_pkgs->pkg_count != 0
+	){
+		gtk_widget_set_sensitive((GtkWidget *)action_bar_execute_button,TRUE);
+	}
+
 }
 
 static void lhandle_transaction(GtkWidget *w){
@@ -1636,9 +1648,11 @@ void cancel_transaction(GtkWidget *w, gpointer user_data){
 
 void cancel_upgrade_transaction(GtkWidget *w,gpointer user_data){
 	extern transaction_t *trans;
+	extern GtkWidget *gslapt;
 
 	free_transaction(trans);
 	init_transaction(trans);
+	gtk_widget_set_sensitive(lookup_widget(gslapt,"action_bar_execute_button"), FALSE);
 
 	gtk_widget_destroy(w);
 
