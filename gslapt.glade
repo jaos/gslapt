@@ -683,7 +683,7 @@
 	      <property name="use_stock">True</property>
 	      <property name="relief">GTK_RELIEF_NORMAL</property>
 	      <property name="focus_on_click">True</property>
-	      <signal name="clicked" handler="gtk_widget_destroy" object="window_preferences" last_modification_time="Sat, 05 Feb 2005 19:57:54 GMT"/>
+	      <signal name="clicked" handler="cancel_preferences" object="window_preferences" last_modification_time="Mon, 21 Feb 2005 21:26:16 GMT"/>
 	    </widget>
 	  </child>
 
@@ -781,28 +781,6 @@
 			<widget class="GtkImage" id="image845">
 			  <property name="visible">True</property>
 			  <property name="stock">gtk-goto-top</property>
-			  <property name="icon_size">1</property>
-			  <property name="xalign">0.5</property>
-			  <property name="yalign">0.5</property>
-			  <property name="xpad">0</property>
-			  <property name="ypad">0</property>
-			</widget>
-		      </child>
-		    </widget>
-		  </child>
-
-		  <child>
-		    <widget class="GtkImageMenuItem" id="dist-upgrade2">
-		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">_Dist-Upgrade</property>
-		      <property name="use_underline">True</property>
-		      <signal name="activate" handler="distupgrade_callback" last_modification_time="Sat, 05 Feb 2005 06:54:59 GMT"/>
-		      <accelerator key="d" modifiers="GDK_CONTROL_MASK" signal="activate"/>
-
-		      <child internal-child="image">
-			<widget class="GtkImage" id="image846">
-			  <property name="visible">True</property>
-			  <property name="stock">gtk-go-up</property>
 			  <property name="icon_size">1</property>
 			  <property name="xalign">0.5</property>
 			  <property name="yalign">0.5</property>
@@ -995,24 +973,6 @@
 	      <property name="visible_vertical">True</property>
 	      <property name="is_important">False</property>
 	      <signal name="clicked" handler="upgrade_callback" object="gslapt" last_modification_time="Fri, 14 Nov 2003 19:05:58 GMT"/>
-	    </widget>
-	    <packing>
-	      <property name="expand">False</property>
-	      <property name="homogeneous">True</property>
-	    </packing>
-	  </child>
-
-	  <child>
-	    <widget class="GtkToolButton" id="action_bar_dist_upgrade_button">
-	      <property name="visible">True</property>
-	      <property name="tooltip" translatable="yes">Upgrade to newer release</property>
-	      <property name="label" translatable="yes">Dist-Upgrade</property>
-	      <property name="use_underline">True</property>
-	      <property name="stock_id">gtk-go-up</property>
-	      <property name="visible_horizontal">True</property>
-	      <property name="visible_vertical">True</property>
-	      <property name="is_important">False</property>
-	      <signal name="clicked" handler="distupgrade_callback" object="gslapt" last_modification_time="Fri, 14 Nov 2003 19:06:29 GMT"/>
 	    </widget>
 	    <packing>
 	      <property name="expand">False</property>
@@ -2227,7 +2187,7 @@
 	      <property name="use_stock">True</property>
 	      <property name="relief">GTK_RELIEF_NORMAL</property>
 	      <property name="focus_on_click">True</property>
-	      <signal name="clicked" handler="gtk_widget_destroy" object="transaction_window" last_modification_time="Sat, 05 Feb 2005 18:18:03 GMT"/>
+	      <signal name="clicked" handler="cancel_transaction" object="transaction_window" last_modification_time="Mon, 21 Feb 2005 21:25:57 GMT"/>
 	    </widget>
 	  </child>
 

@@ -77,9 +77,6 @@ msgstr ""
 msgid "Dismiss"
 msgstr ""
 
-msgid "Dist-Upgrade"
-msgstr ""
-
 msgid "Download packages only"
 msgstr ""
 
@@ -255,9 +252,6 @@ msgid "_Actions"
 msgstr ""
 
 msgid "_Clean"
-msgstr ""
-
-msgid "_Dist-Upgrade"
 msgstr ""
 
 msgid "_Execute"

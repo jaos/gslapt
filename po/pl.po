@@ -86,9 +86,6 @@ msgstr "_Update"
 msgid "Up_grade"
 msgstr "Up_grade"
 
-msgid "_Dist-Upgrade"
-msgstr "_Dist-Upgrade"
-
 msgid "_Clean"
 msgstr "_Clean"
 
@@ -118,9 +115,6 @@ msgstr "Upgrade All"
 
 msgid "Upgrade installed packages"
 msgstr "Aktualizuj zainstalowane pakiety"
-
-msgid "Dist-Upgrade"
-msgstr "Dist-Upgrade"
 
 msgid "Upgrade to newer release"
 msgstr "Aktualizuj do nowszej wersji"

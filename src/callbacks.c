@@ -64,7 +64,6 @@ void upgrade_callback (GtkObject *object, gpointer user_data) {
 	(void)object;
 	(void)user_data;
 
-	/* clean this out in case dist-upgrade was previously called */
 	free_transaction(trans);
 	init_transaction(trans);
 
@@ -77,20 +76,14 @@ void upgrade_callback (GtkObject *object, gpointer user_data) {
 		w = (GtkWidget *)create_up_to_date();
 		gtk_widget_show(w);
 	}else{
+		GtkWidget *button;
 		w = (GtkWidget *)create_transaction_window();
+		button = lookup_widget(w,"button2");
+		g_signal_handlers_disconnect_by_func((gpointer)button,cancel_transaction,GTK_OBJECT(w));
+  	g_signal_connect_swapped((gpointer) button,"clicked",G_CALLBACK(cancel_upgrade_transaction),GTK_OBJECT(w));
 		populate_transaction_window(w);
 		gtk_widget_show(w);
 	}
-}
-
-void distupgrade_callback (GtkObject *object, gpointer user_data) {
-	extern rc_config *global_config;
-
-	global_config->dist_upgrade = TRUE;
-
-	upgrade_callback(object,user_data);
-
-	global_config->dist_upgrade = FALSE;
 }
 
 void execute_callback (GtkObject *object, gpointer user_data) {
@@ -1619,4 +1612,23 @@ static gboolean write_preferences(void){
 	return TRUE;
 }
 
+
+void cancel_preferences(GtkWidget *w, gpointer user_data){
+	gtk_widget_destroy(w);
+}
+
+
+void cancel_transaction(GtkWidget *w, gpointer user_data){
+	gtk_widget_destroy(w);
+}
+
+void cancel_upgrade_transaction(GtkWidget *w,gpointer user_data){
+	extern transaction_t *trans;
+
+	free_transaction(trans);
+	init_transaction(trans);
+
+	gtk_widget_destroy(w);
+
+}
 

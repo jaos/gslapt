@@ -24,7 +24,6 @@
 void on_gslapt_destroy (GtkObject *object, gpointer user_data);
 void update_callback (GtkObject *object, gpointer user_data);
 void upgrade_callback (GtkObject *object, gpointer user_data);
-void distupgrade_callback (GtkObject *object, gpointer user_data);
 void execute_callback (GtkObject *object, gpointer user_data);
 void open_preferences (GtkMenuItem *menuitem, gpointer user_data);
 void search_button_clicked (GtkWidget *gslapt, gpointer user_data);
@@ -70,4 +69,8 @@ void clean_callback(GtkMenuItem *menuitem, gpointer user_data);
 gboolean install_packages(void);
 void build_package_treeviewlist(GtkWidget *treeview);
 static gboolean write_preferences(void);
+
+void cancel_preferences(GtkWidget *w, gpointer user_data);
+void cancel_transaction(GtkWidget *w, gpointer user_data);
+void cancel_upgrade_transaction(GtkWidget *w,gpointer user_data);
 

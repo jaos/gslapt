@@ -358,7 +358,7 @@ create_window_preferences (void)
                             G_CALLBACK (preferences_exclude_add),
                             GTK_OBJECT (window_preferences));
   g_signal_connect_swapped ((gpointer) preferences_close_button, "clicked",
-                            G_CALLBACK (gtk_widget_destroy),
+                            G_CALLBACK (cancel_preferences),
                             GTK_OBJECT (window_preferences));
   g_signal_connect_swapped ((gpointer) preferences_ok_button, "clicked",
                             G_CALLBACK (preferences_on_ok_clicked),
@@ -426,8 +426,6 @@ create_gslapt (void)
   GtkWidget *image844;
   GtkWidget *upgrade2;
   GtkWidget *image845;
-  GtkWidget *dist_upgrade2;
-  GtkWidget *image846;
   GtkWidget *clean1;
   GtkWidget *image847;
   GtkWidget *separator6;
@@ -448,7 +446,6 @@ create_gslapt (void)
   GtkWidget *tmp_image;
   GtkWidget *action_bar_update_button;
   GtkWidget *action_bar_upgrade_button;
-  GtkWidget *action_bar_dist_upgrade_button;
   GtkWidget *action_bar_clean_button;
   GtkWidget *separatortoolitem1;
   GtkWidget *action_bar_execute_button;
@@ -571,19 +568,6 @@ create_gslapt (void)
   gtk_widget_show (image845);
   gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (upgrade2), image845);
 
-  dist_upgrade2 = gtk_image_menu_item_new_with_mnemonic (_("_Dist-Upgrade"));
-  gtk_widget_set_name (dist_upgrade2, "dist_upgrade2");
-  gtk_widget_show (dist_upgrade2);
-  gtk_container_add (GTK_CONTAINER (actions2_menu), dist_upgrade2);
-  gtk_widget_add_accelerator (dist_upgrade2, "activate", accel_group,
-                              GDK_d, GDK_CONTROL_MASK,
-                              GTK_ACCEL_VISIBLE);
-
-  image846 = gtk_image_new_from_stock ("gtk-go-up", GTK_ICON_SIZE_MENU);
-  gtk_widget_set_name (image846, "image846");
-  gtk_widget_show (image846);
-  gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (dist_upgrade2), image846);
-
   clean1 = gtk_image_menu_item_new_with_mnemonic (_("_Clean"));
   gtk_widget_set_name (clean1, "clean1");
   gtk_widget_show (clean1);
@@ -690,14 +674,6 @@ create_gslapt (void)
   gtk_widget_show (action_bar_upgrade_button);
   gtk_container_add (GTK_CONTAINER (action_toolbar), action_bar_upgrade_button);
   gtk_tool_item_set_tooltip (GTK_TOOL_ITEM (action_bar_upgrade_button), tooltips, _("Upgrade installed packages"), NULL);
-
-  tmp_image = gtk_image_new_from_stock ("gtk-go-up", tmp_toolbar_icon_size);
-  gtk_widget_show (tmp_image);
-  action_bar_dist_upgrade_button = (GtkWidget*) gtk_tool_button_new (tmp_image, _("Dist-Upgrade"));
-  gtk_widget_set_name (action_bar_dist_upgrade_button, "action_bar_dist_upgrade_button");
-  gtk_widget_show (action_bar_dist_upgrade_button);
-  gtk_container_add (GTK_CONTAINER (action_toolbar), action_bar_dist_upgrade_button);
-  gtk_tool_item_set_tooltip (GTK_TOOL_ITEM (action_bar_dist_upgrade_button), tooltips, _("Upgrade to newer release"), NULL);
 
   tmp_image = gtk_image_new_from_stock ("gtk-clear", tmp_toolbar_icon_size);
   gtk_widget_show (tmp_image);
@@ -1075,9 +1051,6 @@ create_gslapt (void)
   g_signal_connect ((gpointer) upgrade2, "activate",
                     G_CALLBACK (upgrade_callback),
                     NULL);
-  g_signal_connect ((gpointer) dist_upgrade2, "activate",
-                    G_CALLBACK (distupgrade_callback),
-                    NULL);
   g_signal_connect ((gpointer) clean1, "activate",
                     G_CALLBACK (clean_callback),
                     NULL);
@@ -1098,9 +1071,6 @@ create_gslapt (void)
                             GTK_OBJECT (gslapt));
   g_signal_connect_swapped ((gpointer) action_bar_upgrade_button, "clicked",
                             G_CALLBACK (upgrade_callback),
-                            GTK_OBJECT (gslapt));
-  g_signal_connect_swapped ((gpointer) action_bar_dist_upgrade_button, "clicked",
-                            G_CALLBACK (distupgrade_callback),
                             GTK_OBJECT (gslapt));
   g_signal_connect ((gpointer) action_bar_clean_button, "clicked",
                     G_CALLBACK (clean_callback),
@@ -1143,8 +1113,6 @@ create_gslapt (void)
   GLADE_HOOKUP_OBJECT (gslapt, image844, "image844");
   GLADE_HOOKUP_OBJECT (gslapt, upgrade2, "upgrade2");
   GLADE_HOOKUP_OBJECT (gslapt, image845, "image845");
-  GLADE_HOOKUP_OBJECT (gslapt, dist_upgrade2, "dist_upgrade2");
-  GLADE_HOOKUP_OBJECT (gslapt, image846, "image846");
   GLADE_HOOKUP_OBJECT (gslapt, clean1, "clean1");
   GLADE_HOOKUP_OBJECT (gslapt, image847, "image847");
   GLADE_HOOKUP_OBJECT (gslapt, separator6, "separator6");
@@ -1163,7 +1131,6 @@ create_gslapt (void)
   GLADE_HOOKUP_OBJECT (gslapt, action_toolbar, "action_toolbar");
   GLADE_HOOKUP_OBJECT (gslapt, action_bar_update_button, "action_bar_update_button");
   GLADE_HOOKUP_OBJECT (gslapt, action_bar_upgrade_button, "action_bar_upgrade_button");
-  GLADE_HOOKUP_OBJECT (gslapt, action_bar_dist_upgrade_button, "action_bar_dist_upgrade_button");
   GLADE_HOOKUP_OBJECT (gslapt, action_bar_clean_button, "action_bar_clean_button");
   GLADE_HOOKUP_OBJECT (gslapt, separatortoolitem1, "separatortoolitem1");
   GLADE_HOOKUP_OBJECT (gslapt, action_bar_execute_button, "action_bar_execute_button");
@@ -1349,7 +1316,7 @@ create_transaction_window (void)
                     G_CALLBACK (gtk_widget_destroy),
                     NULL);
   g_signal_connect_swapped ((gpointer) button2, "clicked",
-                            G_CALLBACK (gtk_widget_destroy),
+                            G_CALLBACK (cancel_transaction),
                             GTK_OBJECT (transaction_window));
   g_signal_connect_swapped ((gpointer) button3, "clicked",
                             G_CALLBACK (on_transaction_okbutton1_clicked),

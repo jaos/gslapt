@@ -1,5 +1,7 @@
 
 0.2 Feb 21, 2005
+ * cancelling summary has different callback when using dist-upgrade, clears transaction
+ * remove dist-upgrade option
  * only show the download dialog if there are packages to download
  * filled in total progress progress-bar when installing, upgrading, and removing
  * fixed bug when all package sources or exclude expressions where removed
