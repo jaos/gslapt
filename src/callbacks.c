@@ -1107,8 +1107,15 @@ void populate_transaction_window(GtkWidget *trans_window){
 		gtk_tree_store_append (store, &iter,NULL);
 		gtk_tree_store_set(store,&iter,0,_("Packages to be upgraded"),-1);
 		for(i = 0; i < trans->upgrade_pkgs->pkg_count;++i){
+			gchar buf[255];
+			buf[0] = '\0';
+			strcat(buf,trans->upgrade_pkgs->pkgs[i]->upgrade->name);
+			strcat(buf," (");
+			strcat(buf,trans->upgrade_pkgs->pkgs[i]->installed->version);
+			strcat(buf,") -> ");
+			strcat(buf,trans->upgrade_pkgs->pkgs[i]->upgrade->version);
 			gtk_tree_store_append (store, &child_iter, &iter);
-			gtk_tree_store_set(store,&child_iter,0,trans->upgrade_pkgs->pkgs[i]->upgrade->name,-1);
+			gtk_tree_store_set(store,&child_iter,0,buf,-1);
 			dl_size += trans->upgrade_pkgs->pkgs[i]->upgrade->size_c;
 			already_dl_size += get_pkg_file_size(global_config,trans->upgrade_pkgs->pkgs[i]->upgrade)/1024;
 			free_space += trans->upgrade_pkgs->pkgs[i]->upgrade->size_u;
