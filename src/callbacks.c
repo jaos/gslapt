@@ -215,7 +215,7 @@ void add_pkg_for_removal (GtkButton *button, gpointer user_data) {
 	entry = GTK_ENTRY( lookup_widget(gslapt,"pkg_info_action_version_entry") );
 	pkg_version = gtk_entry_get_text(GTK_ENTRY(entry));
 
-	if( (pkg = get_newest_pkg(installed,pkg_name)) != NULL ){
+	if( (pkg = get_exact_pkg(installed,pkg_name,pkg_version)) != NULL ){
 		guint c;
 		struct pkg_list *deps;
 		GtkWidget *b = lookup_widget(gslapt,"pkg_info_action_remove_button");
@@ -223,7 +223,7 @@ void add_pkg_for_removal (GtkButton *button, gpointer user_data) {
 		deps = is_required_by(global_config,all,pkg);
 
 		for(c = 0; c < deps->pkg_count;c++){
-			if( get_newest_pkg(installed,deps->pkgs[c]->name) != NULL )
+			if( get_exact_pkg(installed,deps->pkgs[c]->name,deps->pkgs[c]->version) != NULL )
 				add_remove_to_transaction(trans,deps->pkgs[c]);
 		}
 
@@ -899,6 +899,10 @@ static void lhandle_transaction(GtkWidget *w){
 	GtkCheckButton *dl_only_checkbutton;
 	gboolean dl_only = FALSE;
 
+	gdk_threads_enter();
+	lock_toolbar_buttons();
+	gdk_threads_leave();
+
 	dl_only_checkbutton = GTK_CHECK_BUTTON(lookup_widget(w,"download_only_checkbutton"));
 	dl_only = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(dl_only_checkbutton));
 	gtk_widget_destroy(w);
@@ -917,6 +921,11 @@ static void lhandle_transaction(GtkWidget *w){
 		/* error dialog here */
 		gtk_main_quit();
 	}
+
+	gdk_threads_enter();
+	unlock_toolbar_buttons();
+	rebuild_treeviews();
+	gdk_threads_leave();
 
 }
 
@@ -1263,13 +1272,15 @@ gboolean download_packages(void){
 			trans->install_pkgs->pkgs[i]->name,
 			trans->install_pkgs->pkgs[i]->version
 		);
-		download_pkg(global_config,trans->install_pkgs->pkgs[i]);
-		++count;
+
 		gdk_threads_enter();
 		gtk_label_set_text(progress_action_label,"Downloading...");
 		gtk_label_set_text(progress_message_label,msg);
 		gtk_progress_bar_set_fraction(p_bar,((count * 100)/pkgs_to_dl)/100);
 		gdk_threads_leave();
+
+		download_pkg(global_config,trans->install_pkgs->pkgs[i]);
+		++count;
 	}
 	for(i = 0; i < trans->upgrade_pkgs->pkg_count;++i){
 		gchar msg[ NAME_LEN + VERSION_LEN + 6 ];
@@ -1281,13 +1292,15 @@ gboolean download_packages(void){
 			trans->upgrade_pkgs->pkgs[i]->upgrade->name,
 			trans->upgrade_pkgs->pkgs[i]->upgrade->version
 		);
-		download_pkg(global_config,trans->upgrade_pkgs->pkgs[i]->upgrade);
-		++count;
+
 		gdk_threads_enter();
 		gtk_label_set_text(progress_action_label,"Downloading...");
 		gtk_label_set_text(progress_message_label,msg);
 		gtk_progress_bar_set_fraction(p_bar,((count * 100)/pkgs_to_dl)/100);
 		gdk_threads_leave();
+
+		download_pkg(global_config,trans->upgrade_pkgs->pkgs[i]->upgrade);
+		++count;
 	}
 
 	gtk_widget_destroy(progress_window);
@@ -1317,14 +1330,15 @@ gboolean install_packages(void){
 	gdk_threads_leave();
 
 	for(i = 0; i < trans->remove_pkgs->pkg_count;++i){
-		if( remove_pkg(global_config,trans->remove_pkgs->pkgs[i]) == -1 ){
-			gtk_widget_destroy(progress_window);
-			return FALSE;
-		}
 		gdk_threads_enter();
 		gtk_label_set_text(progress_action_label,"Uninstalling...");
 		gtk_label_set_text(progress_message_label,trans->remove_pkgs->pkgs[i]->name);
 		gdk_threads_leave();
+
+		if( remove_pkg(global_config,trans->remove_pkgs->pkgs[i]) == -1 ){
+			gtk_widget_destroy(progress_window);
+			return FALSE;
+		}
 	}
 
 	/* reset progress bar */
@@ -1334,14 +1348,15 @@ gboolean install_packages(void){
 
 	/* now for the installs */
 	for(i = 0; i < trans->install_pkgs->pkg_count;++i){
-		if( install_pkg(global_config,trans->install_pkgs->pkgs[i]) == -1 ){
-			gtk_widget_destroy(progress_window);
-			return FALSE;
-		}
 		gdk_threads_enter();
 		gtk_label_set_text(progress_action_label,"Installing...");
 		gtk_label_set_text(progress_message_label,trans->install_pkgs->pkgs[i]->name);
 		gdk_threads_leave();
+
+		if( install_pkg(global_config,trans->install_pkgs->pkgs[i]) == -1 ){
+			gtk_widget_destroy(progress_window);
+			return FALSE;
+		}
 	}
 
 	gdk_threads_enter();
@@ -1350,14 +1365,15 @@ gboolean install_packages(void){
 
 	/* now for the upgrades */
 	for(i = 0; i < trans->upgrade_pkgs->pkg_count;++i){
-		if( upgrade_pkg(global_config,trans->upgrade_pkgs->pkgs[i]->installed,trans->upgrade_pkgs->pkgs[i]->upgrade) == -1 ){
-			gtk_widget_destroy(progress_window);
-			return FALSE;
-		}
 		gdk_threads_enter();
 		gtk_label_set_text(progress_action_label,"Upgrading...");
 		gtk_label_set_text(progress_message_label,trans->upgrade_pkgs->pkgs[i]->upgrade->name);
 		gdk_threads_leave();
+
+		if( upgrade_pkg(global_config,trans->upgrade_pkgs->pkgs[i]->installed,trans->upgrade_pkgs->pkgs[i]->upgrade) == -1 ){
+			gtk_widget_destroy(progress_window);
+			return FALSE;
+		}
 	}
 
 	gtk_widget_destroy(progress_window);
