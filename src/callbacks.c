@@ -555,7 +555,6 @@ void fillin_pkg_details(pkg_info_t *pkg){
 
 	gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"pkg_info_action_name_entry")),pkg->name);
 	gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"pkg_info_action_version_entry")),pkg->version);
-	gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"pkg_info_action_location_entry")),pkg->location);
 	gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"pkg_info_action_mirror_entry")),pkg->mirror);
 	sprintf(size_c,"%d K",pkg->size_c);
 	sprintf(size_u,"%d K",pkg->size_u);

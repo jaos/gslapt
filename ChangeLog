@@ -1,5 +1,7 @@
 
-0.2 Feb 28, 2005
+0.2 Mar 01, 2005
+ * updated the interface, removing duplicate file menu entries, removed
+   location field.
  * requires slapt-get >= 0.9.9i
  * added downgrade capability
  * added reinstall capability
