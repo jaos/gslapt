@@ -1491,7 +1491,7 @@ create_about (void)
   gtk_widget_show (image853);
   gtk_box_pack_start (GTK_BOX (vbox50), image853, TRUE, TRUE, 0);
 
-  label146 = gtk_label_new ("<span weight=\"bold\" size=\"xx-large\">gslapt 0.2alpha</span>");
+  label146 = gtk_label_new ("<span weight=\"bold\" size=\"xx-large\"></span>");
   gtk_widget_set_name (label146, "label146");
   gtk_widget_show (label146);
   gtk_box_pack_start (GTK_BOX (vbox50), label146, TRUE, TRUE, 0);

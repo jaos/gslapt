@@ -485,6 +485,8 @@ void open_about (GtkObject *object, gpointer user_data) {
 	(void)object;
 	(void)user_data;
 	about = (GtkWidget *)create_about();
+	gtk_label_set_text(GTK_LABEL(lookup_widget(about,"label146")),"<span weight=\"bold\" size=\"xx-large\">" PACKAGE " " VERSION "</span>");
+  gtk_label_set_use_markup(GTK_LABEL(lookup_widget(about,"label146")),TRUE);
 	gtk_widget_show (about);
 }
 
