@@ -1,5 +1,6 @@
 
-0.2 Feb 26, 2005
+0.2 Feb 27, 2005
+ * requires slapt-get >= 0.9.9i
  * added downgrade capability
  * added reinstall capability
  * cancelling preference dialog restores configuration from slapt-getrc
