@@ -1,5 +1,5 @@
 
-0.2 Feb 22, 2005
+0.2 Feb 24, 2005
  * cancelling preference dialog restores configuration from slapt-getrc
  * updated summary report to show statistics
  * cancelling summary has different callback when using dist-upgrade, clears transaction
