@@ -399,11 +399,10 @@ void build_searched_treeviewlist(GtkWidget *treeview, gchar *pattern){
 		for(i = 0; i < a_matches->pkg_count; i++ ){
 			gchar installed_notification[4];
 			if(
-				get_pkg_by_details(
+				get_exact_pkg(
 					installed,
 					a_matches->pkgs[i]->name,
-					a_matches->pkgs[i]->version,
-					NULL
+					a_matches->pkgs[i]->version
 				) != NULL
 			){
 				strcpy(installed_notification,"Yes\0");
@@ -418,34 +417,23 @@ void build_searched_treeviewlist(GtkWidget *treeview, gchar *pattern){
 				3,installed_notification,-1
 			);
 		}
-		free(a_matches->pkgs);
-		free(a_matches);
 
 		i_matches = search_pkg_list(installed,pattern);
 		for(i = 0; i < i_matches->pkg_count; i++ ){
-			gchar installed_notification[4];
-			if(
-				get_pkg_by_details(
-					installed,
-					i_matches->pkgs[i]->name,
-					i_matches->pkgs[i]->version,
-					NULL
-				) != NULL
-			){
-				strcpy(installed_notification,"Yes\0");
-			}else{
-				strcpy(installed_notification,"No\0");
-			}
+
+			if( get_exact_pkg( a_matches, i_matches->pkgs[i]->name,
+				i_matches->pkgs[i]->version) != NULL ) continue;
+
 			gtk_list_store_append (store, &iter);
 			gtk_list_store_set ( store, &iter,
 				0,i_matches->pkgs[i]->name,
 				1,i_matches->pkgs[i]->version,
 				2,i_matches->pkgs[i]->location,
-				3,installed_notification,-1
+				3,"Yes", -1
 			);
 		}
-		free(i_matches->pkgs);
-		free(i_matches);
+		free_pkg_list(a_matches);
+		free_pkg_list(i_matches);
 
 	}
 
