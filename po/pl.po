@@ -186,10 +186,10 @@ msgid "Package Information"
 msgstr "Informacje pakietu"
 
 msgid "Install/Upgrade package"
-msgstr "Instaluj/Aktualizuj pakiet"
+msgstr "Instaluj/Re-instaluj/Aktualizuj pakiet"
 
 msgid "Install"
-msgstr "Zainstaluj"
+msgstr "Instaluj"
 
 msgid "Remove package"
 msgstr "Usuñ pakiet"
@@ -268,7 +268,7 @@ msgid "Checking for new package data..."
 msgstr "Sprawdzanie nowych aktualizacji..."
 
 msgid "Re-Install"
-msgstr "Re-Install"
+msgstr "Re-Instaluj"
 
 msgid "Downgrade"
 msgstr "Downgrade"
