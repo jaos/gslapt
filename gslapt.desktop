@@ -8,5 +8,5 @@ GenericName=slapt-get Gui
 Icon=/usr/share/pixmaps/gslapt.png
 Name=gslapt
 Terminal=false
-TerminalOptions=
+Categories=Application;System
 Type=Application
