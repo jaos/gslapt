@@ -47,3 +47,5 @@ void populate_transaction_window(GtkWidget *trans_window);
 
 
 void on_search_tab_clear_button_clicked(GtkWidget *button,gpointer user_data);
+void build_upgrade_list(void);
+
