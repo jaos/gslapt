@@ -40,8 +40,6 @@ void show_pkg_details (GtkTreeSelection *selection, gpointer data);
 void fillin_pkg_details(pkg_info_t *pkg);
 void clear_treeview(GtkTreeView *treeview);
 
-int ldownload_data(FILE *,const char *);
-int lget_mirror_data_from_source(FILE *,const char *,const char *);
 void get_package_data(void);
 void rebuild_treeviews(void);
 guint gslapt_set_status(const gchar *);

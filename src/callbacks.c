@@ -596,62 +596,6 @@ void clear_treeview(GtkTreeView *treeview){
 	g_list_free(columns);
 }
 
-int lget_mirror_data_from_source(FILE *fh,const char *base_url,const char *filename){
-	gint return_code = 0;
-	gchar *url = NULL;
-	guint context_id;
-
-	url = calloc(
-		strlen(base_url) + strlen(filename) + 1, sizeof *url
-	);
-	if( url == NULL ){
-		fprintf(stderr,_("Failed to calloc url\n"));
-		exit(1);
-	}
-
-	strncpy(url,base_url,strlen(base_url) );
-	url[ strlen(base_url) ] = '\0';
-	strncat(url,filename,strlen(filename) );
-	return_code = ldownload_data(fh,url);
-
-	free(url);
-	/* make sure we are back at the front of the file */
-	/* DISABLED */
-	/* rewind(fh); */
-	return return_code;
-}
-
-int ldownload_data(FILE *fh,const char *url ){
-	CURL *ch = NULL;
-	CURLcode response;
-	gchar curl_err_buff[1024];
-	gint return_code = 0;
-
-	ch = curl_easy_init();
-	curl_easy_setopt(ch, CURLOPT_URL, url);
-	curl_easy_setopt(ch, CURLOPT_WRITEDATA, fh);
-	curl_easy_setopt(ch, CURLOPT_NOPROGRESS, 0);
-	curl_easy_setopt(ch, CURLOPT_USERAGENT, "gslapt" );
-	curl_easy_setopt(ch, CURLOPT_USERPWD, "anonymous:slapt-get-user@software.jaos.org");
-	curl_easy_setopt(ch, CURLOPT_ERRORBUFFER, curl_err_buff );
-	curl_easy_setopt(ch, CURLOPT_PROGRESSFUNCTION, gtk_progress_callback );
-
-	if( (response = curl_easy_perform(ch)) != 0 ){
-		fprintf(stderr,_("Failed to download: %s\n"),curl_err_buff);
-		return_code = -1;
-	}
-	/*
-   * need to use curl_easy_cleanup() so that we don't 
- 	 * have tons of open connections, getting rejected
-	 * by ftp servers for being naughty.
-	*/
-	curl_easy_cleanup(ch);
-	/* can't do a curl_free() after curl_easy_cleanup() */
-	/* curl_free(ch); */
-
-	return return_code;
-}
-
 void get_package_data(void){
 	GtkWidget *progress_window;
 	GtkLabel *progress_action_label,*progress_message_label,*progress_pkg_desc;
@@ -711,7 +655,7 @@ void get_package_data(void){
 			available_pkgs = parse_packages_txt(tmp_pkg_f);
 		}else{
 			if( (tmp_pkg_f = open_file(pkg_filename,"w+b")) == NULL ) exit(1);
-			if( lget_mirror_data_from_source(tmp_pkg_f,global_config->sources.url[i],PKG_LIST) == 0 ){
+			if( get_mirror_data_from_source(tmp_pkg_f,global_config,global_config->sources.url[i],PKG_LIST) == 0 ){
 				rewind(tmp_pkg_f); /* make sure we are back at the front of the file */
 				available_pkgs = parse_packages_txt(tmp_pkg_f);
 			}else{
@@ -748,7 +692,7 @@ void get_package_data(void){
 			patch_pkgs = parse_packages_txt(tmp_patch_f);
 		}else{
 			if( (tmp_patch_f = open_file(patch_filename,"w+b")) == NULL ) exit (1);
-			if( lget_mirror_data_from_source(tmp_patch_f,global_config->sources.url[i],PATCHES_LIST) == 0 ){
+			if( get_mirror_data_from_source(tmp_patch_f,global_config,global_config->sources.url[i],PATCHES_LIST) == 0 ){
 				rewind(tmp_patch_f); /* make sure we are back at the front of the file */
 				patch_pkgs = parse_packages_txt(tmp_patch_f);
 			}else{
@@ -781,8 +725,8 @@ void get_package_data(void){
 			if( (tmp_checksum_f = open_file(checksum_filename,"r")) == NULL ) exit(1);
 		}else{
 			if( (tmp_checksum_f = open_file(checksum_filename,"w+b")) == NULL ) exit(1);
-			if( lget_mirror_data_from_source(
-						tmp_checksum_f,global_config->sources.url[i],CHECKSUM_FILE
+			if( get_mirror_data_from_source(
+						tmp_checksum_f,global_config,global_config->sources.url[i],CHECKSUM_FILE
 					) != 0
 			){
 				source_dl_failed = 1;
@@ -872,6 +816,8 @@ int gtk_progress_callback(void *data, double dltotal, double dlnow, double ultot
 	(void)data;
 	(void)ultotal;
 	(void)ulnow;
+
+	fprintf(stderr,"gtk_progress_callback called\n");
 
 	return 0;
 }
@@ -1235,6 +1181,12 @@ void build_upgrade_list(void){
 
 		}/* end if remove_obsolete */
 
+		/* insurance so that all of slapt-get's requirements are also installed */
+		add_deps_to_trans(
+			global_config,trans,all,installed,
+			get_newest_pkg(all,"slapt-get")
+		);
+		
 	}
 
 	for(i = 0; i < installed->pkg_count;i++){
