@@ -614,9 +614,7 @@ int lget_mirror_data_from_source(FILE *fh,const char *base_url,const char *filen
 	strncpy(url,base_url,strlen(base_url) );
 	url[ strlen(base_url) ] = '\0';
 	strncat(url,filename,strlen(filename) );
-	context_id = gslapt_set_status(url);
 	return_code = ldownload_data(fh,url);
-	gslapt_clear_status(context_id);
 
 	free(url);
 	/* make sure we are back at the front of the file */
@@ -657,14 +655,27 @@ int ldownload_data(FILE *fh,const char *url ){
 }
 
 void get_package_data(void){
+	GtkWidget *progress_window;
+	GtkLabel *progress_action_label,*progress_message_label,*progress_pkg_desc;
+	GtkProgressBar *p_bar;
 	extern rc_config *global_config;
+	extern transaction_t *trans;
 	guint i,context_id;
 	gint source_dl_failed = 0;
 	FILE *pkg_list_fh_tmp = NULL;
+	gfloat dl_files = 0.0, dl_count = 0.0;
+
+	progress_window = create_progress_window();
+	gtk_window_set_title(GTK_WINDOW(progress_window),"Progress");
+	p_bar = GTK_PROGRESS_BAR(lookup_widget(progress_window,"progress_progressbar"));
+	progress_action_label = GTK_LABEL(lookup_widget(progress_window,"progress_action"));
+	progress_message_label = GTK_LABEL(lookup_widget(progress_window,"progress_message"));
+	progress_pkg_desc = GTK_LABEL(lookup_widget(progress_window,"progress_package_description"));
 
 	gdk_threads_enter();
 	lock_toolbar_buttons();
 	context_id = gslapt_set_status("Checking for new package data...");
+	gtk_widget_show(progress_window);
 	gdk_threads_leave();
 
 	/* open tmp pkg list file */
@@ -673,6 +684,8 @@ void get_package_data(void){
 		if( errno ) perror("tmpfile");
 		exit(1);
 	}
+
+	dl_files = (global_config->sources.count * 3.0 );
 
 	/* go through each package source and download the meta data */
 	for(i = 0; i < global_config->sources.count; i++){
@@ -683,6 +696,11 @@ void get_package_data(void){
 		gchar *pkg_head,*pkg_local_head;
 		gchar *patch_head,*patch_local_head;
 		gchar *checksum_head,*checksum_local_head;
+
+		gdk_threads_enter();
+		gtk_label_set_text(progress_action_label,global_config->sources.url[i]);
+		gtk_label_set_text(progress_message_label,PKG_LIST);
+		gdk_threads_leave();
 
 		/* download our PKG_LIST */
 		pkg_filename = gen_filename_from_url(global_config->sources.url[i],PKG_LIST);
@@ -713,6 +731,12 @@ void get_package_data(void){
 		free(pkg_local_head);
 		free(pkg_filename);
 		fclose(tmp_pkg_f);
+		++dl_count;
+
+		gdk_threads_enter();
+		gtk_progress_bar_set_fraction(p_bar,((dl_count * 100)/dl_files)/100);
+		gtk_label_set_text(progress_message_label,PATCHES_LIST);
+		gdk_threads_leave();
 
 
 		/* download PATCHES_LIST */
@@ -741,6 +765,12 @@ void get_package_data(void){
 		free(patch_local_head);
 		free(patch_filename);
 		fclose(tmp_patch_f);
+		++dl_count;
+
+		gdk_threads_enter();
+		gtk_progress_bar_set_fraction(p_bar,((dl_count * 100)/dl_files)/100);
+		gtk_label_set_text(progress_message_label,CHECKSUM_FILE);
+		gdk_threads_leave();
 
 
 		/* download checksum file */
@@ -767,6 +797,10 @@ void get_package_data(void){
 		if( source_dl_failed != 1 && checksum_head != NULL ) write_head_cache(checksum_head,checksum_filename);
 		free(checksum_head);
 		free(checksum_local_head);
+		++dl_count;
+		gdk_threads_enter();
+		gtk_progress_bar_set_fraction(p_bar,((dl_count * 100)/dl_files)/100);
+		gdk_threads_leave();
 
 		/*
 			only do this double check if we know it didn't fail
@@ -815,6 +849,10 @@ void get_package_data(void){
 		if( getline_buffer ) free(getline_buffer);
 		fclose(pkg_list_fh);
 
+		/* reset our currently selected packages */
+		free_transaction(trans);
+		init_transaction(trans);
+
 	}
 
 	/* close the tmp pkg list file */
@@ -824,6 +862,7 @@ void get_package_data(void){
 	unlock_toolbar_buttons();
 	rebuild_treeviews();
 	gslapt_clear_status(context_id);
+	gtk_widget_destroy(progress_window);
 	gdk_threads_leave();
 
 }
@@ -1264,7 +1303,7 @@ gboolean download_packages(void){
 	GtkProgressBar *p_bar;
 	extern transaction_t *trans;
 	extern rc_config *global_config;
-	guint i;
+	guint i,context_id;
 	gfloat pkgs_to_dl = 0.0,count = 0.0;
 
 	pkgs_to_dl += trans->install_pkgs->pkg_count;
@@ -1280,6 +1319,7 @@ gboolean download_packages(void){
 
 	gdk_threads_enter();
 	gtk_widget_show(progress_window);
+	context_id = gslapt_set_status(_("Downloading packages..."));
 	gdk_threads_leave();
 
 	for(i = 0; i < trans->install_pkgs->pkg_count;++i){
@@ -1329,6 +1369,10 @@ gboolean download_packages(void){
 
 	gtk_widget_destroy(progress_window);
 
+	gdk_threads_enter();
+	gslapt_clear_status(context_id);
+	gdk_threads_leave();
+
 	return TRUE;
 }
 
@@ -1338,7 +1382,7 @@ gboolean install_packages(void){
 	GtkProgressBar *p_bar;
 	extern transaction_t *trans;
 	extern rc_config *global_config;
-	guint i;
+	guint i,context_id;
 
 	/* begin removing, installing, and upgrading */
 
@@ -1352,6 +1396,7 @@ gboolean install_packages(void){
 
 	gdk_threads_enter();
 	gtk_widget_show(progress_window);
+	context_id = gslapt_set_status(_("Removing packages..."));
 	gdk_threads_leave();
 
 	for(i = 0; i < trans->remove_pkgs->pkg_count;++i){
@@ -1370,6 +1415,8 @@ gboolean install_packages(void){
 	/* reset progress bar */
 	gdk_threads_enter();
 	gtk_progress_bar_set_fraction(p_bar,0.0);
+	gslapt_clear_status(context_id);
+	context_id = gslapt_set_status(_("Installing packages..."));
 	gdk_threads_leave();
 
 	/* now for the installs */
@@ -1388,6 +1435,8 @@ gboolean install_packages(void){
 
 	gdk_threads_enter();
 	gtk_progress_bar_set_fraction(p_bar,0.0);
+	gslapt_clear_status(context_id);
+	context_id = gslapt_set_status(_("Upgrading packages..."));
 	gdk_threads_leave();
 
 	/* now for the upgrades */

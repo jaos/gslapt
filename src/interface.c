@@ -1367,7 +1367,7 @@ create_progress_window (void)
   progress_window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_widget_set_name (progress_window, "progress_window");
   gtk_container_set_border_width (GTK_CONTAINER (progress_window), 12);
-  gtk_window_set_title (GTK_WINDOW (progress_window), _("window1"));
+  gtk_window_set_title (GTK_WINDOW (progress_window), _("working"));
   gtk_window_set_position (GTK_WINDOW (progress_window), GTK_WIN_POS_CENTER);
   gtk_window_set_gravity (GTK_WINDOW (progress_window), GDK_GRAVITY_CENTER);
 
@@ -1398,7 +1398,6 @@ create_progress_window (void)
   gtk_widget_show (progress_package_description);
   gtk_box_pack_start (GTK_BOX (vbox49), progress_package_description, TRUE, TRUE, 6);
   GTK_WIDGET_SET_FLAGS (progress_package_description, GTK_CAN_FOCUS);
-  gtk_label_set_line_wrap (GTK_LABEL (progress_package_description), TRUE);
   gtk_label_set_selectable (GTK_LABEL (progress_package_description), TRUE);
   gtk_misc_set_alignment (GTK_MISC (progress_package_description), 0, 0);
 
