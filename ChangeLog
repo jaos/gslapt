@@ -1,5 +1,5 @@
 
-0.2 Mar 03, 2005
+0.2_beta Mar 04, 2005
  * prevent progress window from being closed for the time being (see TODO)
  * changed slackpkg make target to pkg
  * upgrade summary shows current pkg version and new pkg version
