@@ -280,5 +280,5 @@ msgid "Upgrade"
 msgstr "Aktualizuj"
 
 msgid "Pending changes. Click execute when ready."
-msgstr "Pending changes. Click execute when ready."
+msgstr "W czasie zmian. Kliknij na Wykonaj je¶li gotowe."
 
