@@ -1,12 +1,12 @@
 [Desktop Entry]
 Encoding=UTF-8
-Exec=gslapt
+Exec=/usr/sbin/gslapt
 Comment=GTK version of slapt-get
 Comment[pl]=slapt-get w wersji GTK
 Comment[de]=GTK version für slapt-get
-GenericName=package management tool
+GenericName=gslapt
+Name=Gslapt Package Manager
 Icon=/usr/share/pixmaps/gslapt.png
-Name=gslapt
 Terminal=false
 Categories=GNOME;Application;System;Utility;
 StartupNotify=true
