@@ -181,6 +181,7 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data) {
 			/* if there is a conflict, we schedule the conflict for removal */
 			if ( (conflicted_pkg = is_conflicted(trans,all,installed,pkg)) != NULL ){
 				add_remove_to_transaction(trans,conflicted_pkg);
+				gtk_widget_set_sensitive(lookup_widget(gslapt,"action_bar_execute_button"), TRUE);
 			}
 			add_install_to_transaction(trans,pkg);
 			gtk_widget_set_sensitive(lookup_widget(gslapt,"action_bar_execute_button"), TRUE);
@@ -209,8 +210,10 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data) {
 
 				if ( (conflicted_pkg = is_conflicted(trans,all,installed,pkg)) != NULL ){
 					add_remove_to_transaction(trans,conflicted_pkg);
+					gtk_widget_set_sensitive(lookup_widget(gslapt,"action_bar_execute_button"), TRUE);
 				}
 				add_upgrade_to_transaction(trans,installed_pkg,pkg);
+				gtk_widget_set_sensitive(lookup_widget(gslapt,"action_bar_execute_button"), TRUE);
 				gtk_widget_set_sensitive(r,FALSE);
 				gtk_widget_set_sensitive(e,FALSE);
 				gtk_widget_set_sensitive(i,FALSE);
@@ -255,6 +258,7 @@ void add_pkg_for_removal (GtkWidget *gslapt, gpointer user_data) {
 		for(c = 0; c < deps->pkg_count;c++){
 			if( get_exact_pkg(installed,deps->pkgs[c]->name,deps->pkgs[c]->version) != NULL )
 				add_remove_to_transaction(trans,deps->pkgs[c]);
+				gtk_widget_set_sensitive(lookup_widget(gslapt,"action_bar_execute_button"), TRUE);
 		}
 
 		free(deps->pkgs);
@@ -1214,6 +1218,7 @@ void build_upgrade_list(void){
 	extern struct pkg_list *all;
 	extern struct pkg_list *installed;
 	extern transaction_t *trans;
+	extern GtkWidget *gslapt;
 	guint i;
 
 	for(i = 0; i < installed->pkg_count;i++){
@@ -1254,6 +1259,7 @@ void build_upgrade_list(void){
 						&& ( is_conflicted(trans,all,installed,update_pkg) == NULL )
 					){
 						add_upgrade_to_transaction(trans,installed->pkgs[i],update_pkg);
+						gtk_widget_set_sensitive(lookup_widget(gslapt,"action_bar_execute_button"), TRUE);
 					}else{
 						/* otherwise exclude */
 						add_exclude_to_transaction(trans,update_pkg);
