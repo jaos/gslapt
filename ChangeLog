@@ -1,4 +1,7 @@
 
+0.3 Mar 10, 2005
+ * statusbar now gives notification when there are pending things to execute
+
 0.2_beta Mar 06, 2005
  * prevent progress window from being closed for the time being (see TODO)
  * changed slackpkg make target to pkg
