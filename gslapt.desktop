@@ -5,7 +5,7 @@ Comment=This is a GTK version of slapt-get
 Comment[pl]=slapt-get w wersji GTK
 Comment[de]=GTK version für slapt-get
 GenericName=slapt-get Gui
-Icon=/usr/share/pixmaps/gslapt.png
+Icon=Icon=/usr/share/gslapt/pixmaps/gslapt.png
 Name=gslapt
 Terminal=false
 Categories=Application;System
