@@ -1,5 +1,6 @@
 
 0.2alpha Feb 17, 2005
+ * added slack-desc and slack-required
  * added initial translation files
  * added gslapt.desktop and gslapt.png contributed by Piotr Simon
  * hitting enter on search entry now invokes search callback (no clicking
