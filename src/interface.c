@@ -439,13 +439,14 @@ create_gslapt (void)
   GtkWidget *action_bar_clean_button;
   GtkWidget *separatortoolitem1;
   GtkWidget *action_bar_execute_button;
-  GtkWidget *pkg_box;
-  GtkWidget *search_and_list_vbox;
+  GtkWidget *search_vbox;
   GtkWidget *search_align;
   GtkWidget *search_hbox;
   GtkWidget *search_entry;
   GtkWidget *search_button;
   GtkWidget *clear_button;
+  GtkWidget *pkg_box;
+  GtkWidget *list_vbox;
   GtkWidget *pkg_list_scrolled;
   GtkWidget *pkg_listing_treeview;
   GtkWidget *pkg_info_action_hbox;
@@ -618,21 +619,15 @@ create_gslapt (void)
   gtk_container_add (GTK_CONTAINER (action_toolbar), action_bar_execute_button);
   gtk_tool_item_set_tooltip (GTK_TOOL_ITEM (action_bar_execute_button), tooltips, _("Execute all scheduled actions in current transaction"), NULL);
 
-  pkg_box = gtk_vbox_new (TRUE, 0);
-  gtk_widget_set_name (pkg_box, "pkg_box");
-  gtk_widget_show (pkg_box);
-  gtk_box_pack_start (GTK_BOX (gslapt_vbox), pkg_box, TRUE, TRUE, 0);
-
-  search_and_list_vbox = gtk_vbox_new (FALSE, 0);
-  gtk_widget_set_name (search_and_list_vbox, "search_and_list_vbox");
-  gtk_widget_show (search_and_list_vbox);
-  gtk_box_pack_start (GTK_BOX (pkg_box), search_and_list_vbox, TRUE, TRUE, 0);
-  gtk_container_set_border_width (GTK_CONTAINER (search_and_list_vbox), 1);
+  search_vbox = gtk_vbox_new (FALSE, 0);
+  gtk_widget_set_name (search_vbox, "search_vbox");
+  gtk_widget_show (search_vbox);
+  gtk_box_pack_start (GTK_BOX (gslapt_vbox), search_vbox, FALSE, FALSE, 0);
 
   search_align = gtk_alignment_new (0.5, 0.5, 1, 1);
   gtk_widget_set_name (search_align, "search_align");
   gtk_widget_show (search_align);
-  gtk_box_pack_start (GTK_BOX (search_and_list_vbox), search_align, FALSE, FALSE, 0);
+  gtk_box_pack_start (GTK_BOX (search_vbox), search_align, TRUE, TRUE, 0);
   gtk_container_set_border_width (GTK_CONTAINER (search_align), 1);
 
   search_hbox = gtk_hbox_new (FALSE, 0);
@@ -662,10 +657,21 @@ create_gslapt (void)
   gtk_box_pack_start (GTK_BOX (search_hbox), clear_button, FALSE, FALSE, 0);
   gtk_tooltips_set_tip (tooltips, clear_button, _("Clear search expression"), NULL);
 
+  pkg_box = gtk_vbox_new (TRUE, 0);
+  gtk_widget_set_name (pkg_box, "pkg_box");
+  gtk_widget_show (pkg_box);
+  gtk_box_pack_start (GTK_BOX (gslapt_vbox), pkg_box, TRUE, TRUE, 0);
+
+  list_vbox = gtk_vbox_new (TRUE, 0);
+  gtk_widget_set_name (list_vbox, "list_vbox");
+  gtk_widget_show (list_vbox);
+  gtk_box_pack_start (GTK_BOX (pkg_box), list_vbox, TRUE, TRUE, 0);
+  gtk_container_set_border_width (GTK_CONTAINER (list_vbox), 1);
+
   pkg_list_scrolled = gtk_scrolled_window_new (NULL, NULL);
   gtk_widget_set_name (pkg_list_scrolled, "pkg_list_scrolled");
   gtk_widget_show (pkg_list_scrolled);
-  gtk_box_pack_start (GTK_BOX (search_and_list_vbox), pkg_list_scrolled, TRUE, TRUE, 0);
+  gtk_box_pack_start (GTK_BOX (list_vbox), pkg_list_scrolled, TRUE, TRUE, 0);
   gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (pkg_list_scrolled), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
 
   pkg_listing_treeview = gtk_tree_view_new ();
@@ -678,12 +684,13 @@ create_gslapt (void)
   pkg_info_action_hbox = gtk_hbox_new (FALSE, 0);
   gtk_widget_set_name (pkg_info_action_hbox, "pkg_info_action_hbox");
   gtk_widget_show (pkg_info_action_hbox);
-  gtk_box_pack_start (GTK_BOX (pkg_box), pkg_info_action_hbox, TRUE, TRUE, 0);
+  gtk_box_pack_end (GTK_BOX (pkg_box), pkg_info_action_hbox, FALSE, FALSE, 0);
 
   pkg_info_frame = gtk_frame_new (NULL);
   gtk_widget_set_name (pkg_info_frame, "pkg_info_frame");
   gtk_widget_show (pkg_info_frame);
   gtk_box_pack_start (GTK_BOX (pkg_info_action_hbox), pkg_info_frame, TRUE, TRUE, 0);
+  gtk_frame_set_shadow_type (GTK_FRAME (pkg_info_frame), GTK_SHADOW_NONE);
 
   pkg_info_action_table = gtk_table_new (9, 2, FALSE);
   gtk_widget_set_name (pkg_info_action_table, "pkg_info_action_table");
@@ -846,6 +853,7 @@ create_gslapt (void)
   gtk_widget_set_name (pkg_action_frame, "pkg_action_frame");
   gtk_widget_show (pkg_action_frame);
   gtk_box_pack_start (GTK_BOX (pkg_info_action_hbox), pkg_action_frame, FALSE, TRUE, 0);
+  gtk_frame_set_shadow_type (GTK_FRAME (pkg_action_frame), GTK_SHADOW_NONE);
 
   pkg_action_vbox = gtk_vbox_new (FALSE, 0);
   gtk_widget_set_name (pkg_action_vbox, "pkg_action_vbox");
@@ -1007,13 +1015,14 @@ create_gslapt (void)
   GLADE_HOOKUP_OBJECT (gslapt, action_bar_clean_button, "action_bar_clean_button");
   GLADE_HOOKUP_OBJECT (gslapt, separatortoolitem1, "separatortoolitem1");
   GLADE_HOOKUP_OBJECT (gslapt, action_bar_execute_button, "action_bar_execute_button");
-  GLADE_HOOKUP_OBJECT (gslapt, pkg_box, "pkg_box");
-  GLADE_HOOKUP_OBJECT (gslapt, search_and_list_vbox, "search_and_list_vbox");
+  GLADE_HOOKUP_OBJECT (gslapt, search_vbox, "search_vbox");
   GLADE_HOOKUP_OBJECT (gslapt, search_align, "search_align");
   GLADE_HOOKUP_OBJECT (gslapt, search_hbox, "search_hbox");
   GLADE_HOOKUP_OBJECT (gslapt, search_entry, "search_entry");
   GLADE_HOOKUP_OBJECT (gslapt, search_button, "search_button");
   GLADE_HOOKUP_OBJECT (gslapt, clear_button, "clear_button");
+  GLADE_HOOKUP_OBJECT (gslapt, pkg_box, "pkg_box");
+  GLADE_HOOKUP_OBJECT (gslapt, list_vbox, "list_vbox");
   GLADE_HOOKUP_OBJECT (gslapt, pkg_list_scrolled, "pkg_list_scrolled");
   GLADE_HOOKUP_OBJECT (gslapt, pkg_listing_treeview, "pkg_listing_treeview");
   GLADE_HOOKUP_OBJECT (gslapt, pkg_info_action_hbox, "pkg_info_action_hbox");
