@@ -31,8 +31,19 @@
 static GtkWidget *progress_window;
 
 void on_gslapt_destroy (GtkObject *object, gpointer user_data) {
+	extern transaction_t *trans;
+	extern struct pkg_list *installed;
+	extern struct pkg_list *all;
+	extern rc_config *global_config;
+
 	(void)object;
 	(void)user_data;
+
+	free_transaction(trans);
+	free_pkg_list(all);
+	free_pkg_list(installed);
+	free_rc_config(global_config);
+
 	gtk_main_quit();
 }
 
@@ -913,7 +924,7 @@ static void lhandle_transaction(GtkWidget *w){
 	/* download the pkgs */
 	if( download_packages() == FALSE ){
 		/* error dialog here */
-		gtk_main_quit();
+		on_gslapt_destroy(NULL,NULL);
 	}
 
 	/* return early if download_only is set */
@@ -929,7 +940,7 @@ static void lhandle_transaction(GtkWidget *w){
 	/* begin removing, installing, and upgrading */
 	if( install_packages() == FALSE ){
 		/* error dialog here */
-		gtk_main_quit();
+		on_gslapt_destroy(NULL,NULL);
 	}
 
 	free_transaction(trans);
@@ -1511,7 +1522,7 @@ void preferences_on_ok_clicked(GtkWidget *w, gpointer user_data){
 
 	if( write_preferences() == FALSE ){
 		fprintf(stderr,"Failed to commit preferences\n");
-		gtk_main_quit();
+		on_gslapt_destroy(NULL,NULL);
 	}
 
 	gtk_widget_destroy(w);
