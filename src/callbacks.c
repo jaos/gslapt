@@ -562,9 +562,7 @@ void fillin_pkg_details(pkg_info_t *pkg){
 	gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"pkg_info_action_description_entry")),short_desc);
 	free(short_desc);
 
-	if( get_exact_pkg(trans->install_pkgs,pkg->name,pkg->version) == NULL
-		/* need a check for upgrades */
-	&& get_exact_pkg(trans->remove_pkgs,pkg->name,pkg->version) == NULL ){
+	if( search_transaction_by_pkg(trans,pkg) == 0 ){
 		if( (is_installed == 0 || is_newest == 0) && (is_exclude == 0) ){
 			gtk_widget_set_sensitive( GTK_WIDGET(install_upgrade),TRUE);
 			if( is_installed == 1 && is_newest == 0 ){
@@ -1480,6 +1478,7 @@ void preferences_sources_add(GtkWidget *w, gpointer user_data){
 	if( new_source == NULL || strlen(new_source) < 1 ) return;
 
 	if( strlen(new_source) <= MAX_SOURCE_URL_LEN ){
+		global_config->sources.url[global_config->sources.count][0] = '\0';
 		strncpy(
 			global_config->sources.url[global_config->sources.count],
 			new_source,
@@ -1491,7 +1490,7 @@ void preferences_sources_add(GtkWidget *w, gpointer user_data){
 				strlen(global_config->sources.url[global_config->sources.count]) - 1
 			] != '/'
 		){
-			strcat(global_config->sources.url[global_config->sources.count],"/");
+			strncat(global_config->sources.url[global_config->sources.count],"/",strlen("/"));
 		}
 		++global_config->sources.count;
 	}

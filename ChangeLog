@@ -1,5 +1,8 @@
 
-0.2alpha Feb 15, 2005
+0.2alpha Feb 16, 2005
+ * hitting enter on search entry now invokes search callback (no clicking
+   required)
+ * moved package description up just below the package name
  * removed work wrap for pkg description
  * package source update now uses progress window
  * added tooltip for clear button
