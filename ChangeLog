@@ -1,5 +1,6 @@
 
-0.2 Mar 01, 2005
+0.2 Mar 02, 2005
+ * changed slackpkg make target to pkg
  * upgrade summary shows current pkg version and new pkg version
  * added TODO
  * updated the interface, removing duplicate file menu entries, removed

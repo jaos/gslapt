@@ -35,7 +35,7 @@ dist-hook:
 	  done \
 	fi
 
-slackpkg: all
+pkg: all
 	-rm -rf $(SLACKPKGBUILDDIR)
 	@make install DESTDIR=$(SLACKPKGBUILDDIR)
 	$(mkinstalldirs) $(SLACKPKGBUILDDIR)/install
