@@ -1629,6 +1629,7 @@ GtkWidget*
 create_up_to_date (void)
 {
   GtkWidget *up_to_date;
+  GdkPixbuf *up_to_date_icon_pixbuf;
   GtkWidget *dialog_vbox3;
   GtkWidget *label171;
   GtkWidget *dialog_action_area3;
@@ -1639,6 +1640,12 @@ create_up_to_date (void)
   gtk_container_set_border_width (GTK_CONTAINER (up_to_date), 2);
   gtk_window_set_title (GTK_WINDOW (up_to_date), _("Up to Date"));
   gtk_window_set_position (GTK_WINDOW (up_to_date), GTK_WIN_POS_CENTER);
+  up_to_date_icon_pixbuf = create_pixbuf ("gslapt.png");
+  if (up_to_date_icon_pixbuf)
+    {
+      gtk_window_set_icon (GTK_WINDOW (up_to_date), up_to_date_icon_pixbuf);
+      gdk_pixbuf_unref (up_to_date_icon_pixbuf);
+    }
   gtk_window_set_type_hint (GTK_WINDOW (up_to_date), GDK_WINDOW_TYPE_HINT_DIALOG);
   gtk_window_set_gravity (GTK_WINDOW (up_to_date), GDK_GRAVITY_CENTER);
 

@@ -164,7 +164,9 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data) {
 	if( pkg_name == NULL || pkg_version == NULL ) return;
 
 	pkg = get_exact_pkg(all,pkg_name,pkg_version);
-	if( pkg == NULL ) pkg = get_newest_pkg(all,pkg_name);
+	if( pkg == NULL ){
+		pkg = get_newest_pkg(all,pkg_name);
+	}
 	installed_pkg = get_newest_pkg(installed,pkg_name);
 
 	/* if it is not already installed, install it */
@@ -190,6 +192,7 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data) {
 		}
 
 	}else{ /* else we upgrade or reinstall */
+
 
 		/* it is already installed, attempt an upgrade */
 		if(
@@ -515,7 +518,7 @@ void fillin_pkg_details(pkg_info_t *pkg){
 	extern transaction_t *trans;
 	gchar size_c[20],size_u[20],*short_desc;
 	pkg_info_t *upgrade_pkg = NULL;
-	guint is_installed = 0,is_newest = 1,is_exclude = 0;
+	guint is_installed = 0,is_newest = 1,is_exclude = 0,is_downloadable = 0;
 	GtkButton *install_upgrade,*remove,*exclude;
 	extern rc_config *global_config;
 
@@ -531,6 +534,9 @@ void fillin_pkg_details(pkg_info_t *pkg){
 
 	if( get_exact_pkg(installed,pkg->name,pkg->version) != NULL){
 		is_installed = 1;
+	}
+	if( get_exact_pkg(all,pkg->name,pkg->version) != NULL){
+		is_downloadable = 1;
 	}
 
 	upgrade_pkg = get_newest_pkg(all,pkg->name);
@@ -561,16 +567,26 @@ void fillin_pkg_details(pkg_info_t *pkg){
 	if( search_transaction_by_pkg(trans,pkg) == 0 ){
 
 		if( is_exclude == 0 ){
-			gtk_widget_set_sensitive( GTK_WIDGET(install_upgrade),TRUE);
-			gtk_widget_set_sensitive( GTK_WIDGET(exclude),TRUE);
 
-			if( is_installed == 1 && is_newest == 0 ){
+			if( is_installed == 1 && is_newest == 0 ){ /* upgrade */
+				gtk_widget_set_sensitive( GTK_WIDGET(install_upgrade),TRUE);
+				gtk_widget_set_sensitive( GTK_WIDGET(exclude),TRUE);
 				gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"label131")),_("Upgrade"));
-			}else if( is_installed == 1 && is_newest == 1 ){
+			}else if( is_installed == 1 && is_newest == 1 && is_downloadable == 1 ){ /* re-install */
+				gtk_widget_set_sensitive( GTK_WIDGET(install_upgrade),TRUE);
+				gtk_widget_set_sensitive( GTK_WIDGET(exclude),TRUE);
 				gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"label131")),_("Re-Install"));
 				g_signal_handlers_disconnect_by_func((gpointer)install_upgrade,add_pkg_for_install,GTK_OBJECT(gslapt));
   			g_signal_connect_swapped((gpointer) install_upgrade,"clicked",G_CALLBACK(add_pkg_for_reinstall),GTK_OBJECT(gslapt));
-			}else{
+			}else if( is_installed == 0 && upgrade_pkg != NULL ){ /* this is for downgrades */
+				gtk_widget_set_sensitive( GTK_WIDGET(install_upgrade),TRUE);
+				gtk_widget_set_sensitive( GTK_WIDGET(exclude),TRUE);
+				gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"label131")),_("Install"));
+				g_signal_handlers_disconnect_by_func((gpointer)install_upgrade,add_pkg_for_install,GTK_OBJECT(gslapt));
+  			g_signal_connect_swapped((gpointer) install_upgrade,"clicked",G_CALLBACK(add_pkg_for_reinstall),GTK_OBJECT(gslapt));
+			}else if( is_installed == 0 && upgrade_pkg == NULL ){ /* straight up install */
+				gtk_widget_set_sensitive( GTK_WIDGET(install_upgrade),TRUE);
+				gtk_widget_set_sensitive( GTK_WIDGET(exclude),TRUE);
 				gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"label131")),_("Install"));
 			}
 
@@ -594,8 +610,9 @@ void clear_treeview(GtkTreeView *treeview){
 	columns = gtk_tree_view_get_columns(treeview);
 	for(i = 0; i < g_list_length(columns); i++ ){
 		GtkTreeViewColumn *column = GTK_TREE_VIEW_COLUMN(g_list_nth_data(columns,i));
-		if( column != NULL )
+		if( column != NULL ){
 			gtk_tree_view_remove_column(treeview,column);
+		}
 	}
 	g_list_free(columns);
 }
@@ -626,7 +643,9 @@ void get_package_data(void){
 	/* open tmp pkg list file */
 	pkg_list_fh_tmp = tmpfile();
 	if( pkg_list_fh_tmp == NULL ){
+
 		if( errno ) perror("tmpfile");
+
 		exit(1);
 	}
 
@@ -654,10 +673,14 @@ void get_package_data(void){
 
 		/* open for reading if cached, otherwise write it from the downloaded data */
 		if( pkg_head != NULL && pkg_local_head != NULL && strcmp(pkg_head,pkg_local_head) == 0){
+
 			if( (tmp_pkg_f = open_file(pkg_filename,"r")) == NULL ) exit(1);
+
 			available_pkgs = parse_packages_txt(tmp_pkg_f);
 		}else{
+
 			if( (tmp_pkg_f = open_file(pkg_filename,"w+b")) == NULL ) exit(1);
+
 			if( get_mirror_data_from_source(tmp_pkg_f,global_config,global_config->sources->url[i],PKG_LIST) == 0 ){
 				rewind(tmp_pkg_f); /* make sure we are back at the front of the file */
 				available_pkgs = parse_packages_txt(tmp_pkg_f);
@@ -691,10 +714,14 @@ void get_package_data(void){
 
 		/* open for reading if cached, otherwise write it from the downloaded data */
 		if( patch_head != NULL && patch_local_head != NULL && strcmp(patch_head,patch_local_head) == 0){
+
 			if( (tmp_patch_f = open_file(patch_filename,"r")) == NULL ) exit(1);
+
 			patch_pkgs = parse_packages_txt(tmp_patch_f);
 		}else{
+
 			if( (tmp_patch_f = open_file(patch_filename,"w+b")) == NULL ) exit (1);
+
 			if( get_mirror_data_from_source(tmp_patch_f,global_config,global_config->sources->url[i],PATCHES_LIST) == 0 ){
 				rewind(tmp_patch_f); /* make sure we are back at the front of the file */
 				patch_pkgs = parse_packages_txt(tmp_patch_f);
@@ -727,19 +754,22 @@ void get_package_data(void){
 		if( checksum_head != NULL && checksum_local_head != NULL && strcmp(checksum_head,checksum_local_head) == 0){
 			if( (tmp_checksum_f = open_file(checksum_filename,"r")) == NULL ) exit(1);
 		}else{
+
 			if( (tmp_checksum_f = open_file(checksum_filename,"w+b")) == NULL ) exit(1);
+
 			if( get_mirror_data_from_source(
 						tmp_checksum_f,global_config,global_config->sources->url[i],CHECKSUM_FILE
 					) != 0
 			){
 				source_dl_failed = 1;
 				clear_head_cache(checksum_filename);
-			}else{
 			}
 			rewind(tmp_checksum_f); /* make sure we are back at the front of the file */
 		}
 		/* if all is good, write it */
+
 		if( source_dl_failed != 1 && checksum_head != NULL ) write_head_cache(checksum_head,checksum_filename);
+
 		free(checksum_head);
 		free(checksum_local_head);
 		++dl_count;
@@ -751,7 +781,9 @@ void get_package_data(void){
 			only do this double check if we know it didn't fail
 		*/
 		if( source_dl_failed != 1 ){
+
 			if( available_pkgs->pkg_count == 0 ) source_dl_failed = 1;
+
 		}
 
 		/* if the download failed don't do this, do it if cached or d/l was good */
@@ -771,8 +803,11 @@ void get_package_data(void){
 			write_pkg_data(global_config->sources->url[i],pkg_list_fh_tmp,patch_pkgs);
 
 		}
+
 		if ( available_pkgs ) free_pkg_list(available_pkgs);
+
 		if ( patch_pkgs ) free_pkg_list(patch_pkgs);
+
 		free(checksum_filename);
 		fclose(tmp_checksum_f);
 
@@ -786,12 +821,16 @@ void get_package_data(void){
 		FILE *pkg_list_fh;
 
 		if( (pkg_list_fh = open_file(PKG_LIST_L,"w+")) == NULL ) exit(1);
+
 		if( pkg_list_fh == NULL ) exit(1);
+
 		rewind(pkg_list_fh_tmp);
 		while( (bytes_read = getline(&getline_buffer,&getline_len,pkg_list_fh_tmp) ) != EOF ){
 			fprintf(pkg_list_fh,"%s",getline_buffer);
 		}
+
 		if( getline_buffer ) free(getline_buffer);
+
 		fclose(pkg_list_fh);
 
 		/* reset our currently selected packages */
@@ -967,7 +1006,9 @@ void build_sources_treeviewlist(GtkWidget *treeview, const rc_config *global_con
 	);
 
 	for(i = 0; i < global_config->sources->count; ++i ){
+
 		if( global_config->sources->url[i] == NULL ) continue;
+
 		gtk_list_store_append(store, &iter);
 		gtk_list_store_set(store,&iter,0,global_config->sources->url[i],-1);
 	}
@@ -1000,7 +1041,9 @@ void build_exclude_treeviewlist(GtkWidget *treeview, const rc_config *global_con
 	);
 
 	for(i = 0; i < global_config->exclude_list->count; i++ ){
+
 		if( global_config->exclude_list->excludes[i] == NULL ) continue;
+
 		gtk_list_store_append (store, &iter);
 		gtk_list_store_set(store,&iter,0,global_config->exclude_list->excludes[i],-1);
 	}
@@ -1152,7 +1195,9 @@ void build_upgrade_list(void){
 			package that is newer than this one
 		*/
 		if( (newer_installed_pkg = get_newest_pkg(installed,installed->pkgs[i]->name)) != NULL ){
+
 			if( cmp_pkg_versions(installed->pkgs[i]->version,newer_installed_pkg->version) < 0 ) continue;
+
 		}
 
 		/* see if we have an available update for the pkg */
@@ -1412,8 +1457,9 @@ void preferences_sources_remove(GtkWidget *w, gpointer user_data){
 		clear_treeview(source_tree);
 
 		while( i < global_config->sources->count ){
-			if( strcmp(source,global_config->sources->url[i]) == 0 && tmp == NULL )
+			if( strcmp(source,global_config->sources->url[i]) == 0 && tmp == NULL ){
 				tmp = global_config->sources->url[i];
+			}
 			if( tmp != NULL && (i+1 < global_config->sources->count) ){
 				global_config->sources->url[i] = global_config->sources->url[i + 1];
 			}
@@ -1503,8 +1549,9 @@ void preferences_exclude_remove(GtkWidget *w, gpointer user_data) {
 		clear_treeview(exclude_tree);
 
 		while(i < global_config->exclude_list->count){
-			if( strcmp(exclude,global_config->exclude_list->excludes[i]) == 0 && tmp == NULL )
+			if( strcmp(exclude,global_config->exclude_list->excludes[i]) == 0 && tmp == NULL ){
 				tmp = global_config->exclude_list->excludes[i];
+			}
 			if( tmp != NULL && (i+1 < global_config->exclude_list->count) ){
 				global_config->exclude_list->excludes[i] = global_config->exclude_list->excludes[i + 1];
 			}
@@ -1539,10 +1586,11 @@ static gboolean write_preferences(void){
 
 	fprintf(rc,"%s",EXCLUDE_TOKEN);
 	for(i = 0;i < global_config->exclude_list->count;++i){
-		if( i+1 == global_config->exclude_list->count)
+		if( i+1 == global_config->exclude_list->count){
 			fprintf(rc,"%s",global_config->exclude_list->excludes[i]);
-		else
+		}else{
 			fprintf(rc,"%s,",global_config->exclude_list->excludes[i]);
+		}
 	}
 	fprintf(rc,"\n");
 
@@ -1589,3 +1637,4 @@ void add_pkg_for_reinstall (GtkWidget *gslapt, gpointer user_data){
 	g_signal_handlers_disconnect_by_func((gpointer)install_upgrade,add_pkg_for_reinstall,GTK_OBJECT(gslapt));
 	g_signal_connect_swapped((gpointer) install_upgrade,"clicked",G_CALLBACK(add_pkg_for_install),GTK_OBJECT(gslapt));
 }
+
