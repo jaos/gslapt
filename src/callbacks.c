@@ -554,8 +554,14 @@ void fillin_pkg_details(pkg_info_t *pkg){
 	if( get_exact_pkg(trans->install_pkgs,pkg->name,pkg->version) == NULL
 		/* need a check for upgrades */
 	&& get_exact_pkg(trans->remove_pkgs,pkg->name,pkg->version) == NULL ){
-		if( (is_installed == 0 || is_newest == 0) && (is_exclude == 0) )
+		if( (is_installed == 0 || is_newest == 0) && (is_exclude == 0) ){
 			gtk_widget_set_sensitive( GTK_WIDGET(install_upgrade),TRUE);
+			if( is_installed == 1 && is_newest == 0 ){
+				gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"label131")),"Upgrade");
+			}else{
+				gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"label131")),"Install");
+			}
+		}
 		if( is_installed == 1 && get_exact_pkg(trans->remove_pkgs,pkg->name,pkg->version) == NULL )
 			gtk_widget_set_sensitive( GTK_WIDGET(remove),TRUE);
 		if( is_exclude == 0 )
@@ -1387,5 +1393,14 @@ gboolean install_packages(void){
 
 	gtk_widget_destroy(progress_window);
 	return TRUE;
+}
+
+
+void clean_callback(GtkMenuItem *menuitem, gpointer user_data){
+	GThread *gpd;
+	extern rc_config *global_config;
+
+	gpd = g_thread_create((GThreadFunc)clean_pkg_dir,global_config->working_dir,FALSE,NULL);
+
 }
 
