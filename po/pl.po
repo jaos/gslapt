@@ -171,10 +171,10 @@ msgid "Installed Size"
 msgstr "Rozmiar po instalacji"
 
 msgid "Conflicts"
-msgstr "Konfilkt"
+msgstr "Konfliktuje"
 
 msgid "Suggests"
-msgstr "Sugestia"
+msgstr "Sugerowane"
 
 msgid "Required"
 msgstr "Wymaga"
