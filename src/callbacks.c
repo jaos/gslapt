@@ -80,24 +80,11 @@ void upgrade_callback (GtkObject *object, gpointer user_data) {
 }
 
 void distupgrade_callback (GtkObject *object, gpointer user_data) {
-	GtkWidget *trans_window;
-	extern transaction_t *trans;
 	extern rc_config *global_config;
-	(void)object;
-	(void)user_data;
+
 	global_config->dist_upgrade = 1;
 
-	build_upgrade_list();
-
-	if( trans->install_pkgs->pkg_count == 0 
-		&& trans->remove_pkgs->pkg_count == 0 
-		&& trans->upgrade_pkgs->pkg_count == 0 
-	) return;
-
-	trans_window = (GtkWidget *)create_transaction_window();
-	populate_transaction_window(trans_window);
-
-	gtk_widget_show(trans_window);
+	upgrade_callback(object,user_data);
 }
 
 void execute_callback (GtkObject *object, gpointer user_data) {
