@@ -870,34 +870,6 @@ void gslapt_clear_status(guint context_id){
 	fprintf(stderr,"cleared status\n");
 }
 
-void on_preferences_buttons_cancel_clicked (GtkButton *button, gpointer user_data) {
-	GtkWidget *preferences = (GtkWidget *)user_data;
-	(void)button;
-	gtk_widget_destroy(preferences);
-}
-
-void on_preferences_buttons_ok_clicked (GtkButton *button, gpointer user_data) {
-	GtkWidget *preferences = (GtkWidget *)user_data;
-	(void)button;
-	gtk_widget_destroy(preferences);
-}
-
-void on_preferences_buttons_apply_clicked (GtkButton *button, gpointer user_data) { 
-	GtkWidget *preferences = (GtkWidget *)user_data;
-	(void)button;
-	gtk_widget_destroy(preferences);
-}
-
-void on_transaction_report_cancel_button_clicked (GtkButton *button, gpointer user_data) {
-	(void)button;
-	(void)user_data;
-}
-
-void on_transaction_report_ok_button_clicked (GtkButton *button, gpointer user_data) {
-	(void)button;
-	(void)user_data;
-}
-
 void lock_toolbar_buttons(void){
   extern GtkWidget *gslapt;
   GtkToolButton *action_bar_update_button = GTK_TOOL_BUTTON( lookup_widget(gslapt,"action_bar_update_button") );

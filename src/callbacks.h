@@ -32,12 +32,6 @@ void gslapt_clear_status(guint context_id);
 void lock_toolbar_buttons(void);
 void unlock_toolbar_buttons(void);
 
-void on_preferences_buttons_cancel_clicked(GtkButton *button,gpointer user_data);
-void on_preferences_buttons_ok_clicked(GtkButton *button,gpointer user_data);
-void on_preferences_buttons_apply_clicked(GtkButton *button,gpointer user_data);
-void on_transaction_report_cancel_button_clicked(GtkButton *button,gpointer user_data);
-void on_transaction_report_ok_button_clicked(GtkButton *button,gpointer user_data);
-
 void preferences_sources_add(GtkButton *button, gpointer user_data);
 void preferences_sources_remove(GtkButton *button, gpointer user_data);
 void preferences_on_apply_clicked(GtkWidget *w, gpointer user_data);
