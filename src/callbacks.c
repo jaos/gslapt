@@ -1548,7 +1548,10 @@ static gboolean write_preferences(void){
 
 
 void cancel_preferences(GtkWidget *w, gpointer user_data){
+	extern rc_config *global_config;
 	gtk_widget_destroy(w);
+	free_rc_config(global_config);
+	global_config = read_rc_config(RC_LOCATION);
 }
 
 
