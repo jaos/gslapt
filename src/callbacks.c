@@ -1417,9 +1417,41 @@ void preferences_sources_add(GtkWidget *w, gpointer user_data){
 
 }
 
-void preferences_sources_remove(GtkButton *button, gpointer user_data){
-	(void)button;
+void preferences_sources_remove(GtkWidget *w, gpointer user_data){
+	extern rc_config *global_config;
+	GtkTreeIter iter;
+	GtkTreeModel *model;
+	GtkTreeView *source_tree = GTK_TREE_VIEW(lookup_widget(w,"preferences_sources_treeview"));
+	GtkTreeSelection *select = gtk_tree_view_get_selection (GTK_TREE_VIEW (source_tree));
 	(void)user_data;
+
+	if( gtk_tree_selection_get_selected(select,&model,&iter)){
+		guint i = 0,found = 0;
+		gchar *source;
+
+		gtk_tree_model_get(model,&iter,0,&source, -1 );
+		while( i < global_config->sources.count ){
+			if( strcmp(source,global_config->sources.url[i]) == 0 ){
+				found = 1;
+			}
+			if( found == 1 && (i+1 < global_config->sources.count) ){
+				strncpy(
+					global_config->sources.url[i],
+					global_config->sources.url[i+1],
+					strlen(global_config->sources.url[i+1])
+				);
+				global_config->sources.url[i][strlen(global_config->sources.url[i+1])] = '\0';
+			}
+			++i;
+		}
+		if( found == 1 ) --global_config->sources.count;
+
+		g_free(source);
+
+		clear_treeview(source_tree);
+		build_sources_treeviewlist((GtkWidget *)source_tree,global_config);
+	}
+
 }
 
 void preferences_on_ok_clicked(GtkWidget *w, gpointer user_data){
@@ -1471,8 +1503,44 @@ void preferences_exclude_add(GtkWidget *w, gpointer user_data) {
 }
 
 
-void preferences_exclude_remove(GtkButton *button, gpointer user_data) {
+void preferences_exclude_remove(GtkWidget *w, gpointer user_data) {
+	extern rc_config *global_config;
+	GtkTreeIter iter;
+	GtkTreeModel *model;
+	GtkTreeView *exclude_tree = GTK_TREE_VIEW(lookup_widget(w,"preferences_exclude_treeview"));
+	GtkTreeSelection *select = gtk_tree_view_get_selection (GTK_TREE_VIEW (exclude_tree));
 	(void)user_data;
+
+	if( gtk_tree_selection_get_selected(select,&model,&iter)){
+		guint i = 0;
+		char *tmp = NULL;
+		gchar *exclude;
+
+		gtk_tree_model_get(model,&iter,0,&exclude, -1 );
+		while(i < global_config->exclude_list->count){
+			if( strcmp(exclude,global_config->exclude_list->excludes[i]) == 0 && tmp == NULL )
+				tmp = global_config->exclude_list->excludes[i];
+			if( tmp != NULL && (i+1 < global_config->exclude_list->count) ){
+				global_config->exclude_list->excludes[i] = global_config->exclude_list->excludes[i + 1];
+			}
+			++i;
+		}
+		if( tmp != NULL ){
+			free(tmp);
+			char **realloc_tmp;
+			realloc_tmp = realloc(global_config->exclude_list->excludes,sizeof *global_config->exclude_list->excludes * (global_config->exclude_list->count - 1));
+			if( realloc_tmp != NULL ){
+				global_config->exclude_list->excludes = realloc_tmp;
+				--global_config->exclude_list->count;
+			}
+		}
+
+		g_free(exclude);
+
+		clear_treeview(exclude_tree);
+		build_exclude_treeviewlist((GtkWidget *)exclude_tree,global_config);
+	}
+
 }
 
 static gboolean write_preferences(void){
