@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gslapt 0.2alpha\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-17 14:52-0500\n"
-"PO-Revision-Date: 2005-02-19 14:52-0500\n"
+"PO-Revision-Date: 2005-02-22 22:58-0500\n"
 "Last-Translator: Piotr Simon <sajmon@tenboard.com>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -165,7 +165,7 @@ msgid "Installed Size"
 msgstr "Rozmiar po instalacji"
 
 msgid "Installed"
-msgstr "Instalacji"
+msgstr "Zainstalowany"
 
 msgid "Conflicts"
 msgstr "Konfliktuje"
@@ -264,7 +264,7 @@ msgstr "Dismiss"
 
 #, c-format
 msgid "Couldn't find pixmap file: %s"
-msgstr "Nie znalazłem pixmap pliku: %s"
+msgstr "Nie mogę znależć pixmap pliku: %s"
 
 msgid "Up to Date"
 msgstr "Aktualny"
@@ -272,6 +272,20 @@ msgstr "Aktualny"
 msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
 msgstr  "<span weight=\"bold\" size=\"large\">Brak dostępnych aktualizacji</span>"
 
-msgid "Ready"
-msgstr ""
+msgid "%d upgraded, %d newly installed, %d to remove and %d not upgraded."
+msgstr "%d uaktualnione(ych), %d nowe zainstalowane, %d do usunięcia i %d nieuaktualnione."
 
+msgid "Need to get %0.1d%s/%0.1d%s of archives.\n"
+msgstr "Potrzeba ściągnąć %0.1d%s/%0.1d%s danych.\n"
+
+msgid "Need to get %0.1d%s of archives."
+msgstr "Potrzeba ściągnąć %0.1d%s danych."
+
+msgid "After unpacking %0.1d%s disk space will be freed."
+msgstr "Po rozpakowaniu %0.1d%s miejsca na dysku zostanie zwolnione."
+
+msgid "After unpacking %0.1d%s of additional disk space will be used."
+msgstr "Po rozpakowaniu %0.1d%s miejsca na dysku zostanie użyte."
+
+msgid "Ready"
+msgstr "Gotowe"
