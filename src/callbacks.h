@@ -44,4 +44,11 @@ void preferences_on_apply_clicked(GtkWidget *w, gpointer user_data);
 void preferences_on_ok_clicked(GtkWidget *w, gpointer user_data);
 
 void on_transaction_okbutton1_clicked(GtkWidget *w, gpointer user_data);
+void preferences_exclude_add(GtkButton *button, gpointer user_data);
+void preferences_exclude_remove(GtkButton *button, gpointer user_data);
+
+void build_sources_treeviewlist(GtkWidget *treeview, const rc_config *global_config);
+void build_exclude_treeviewlist(GtkWidget *treeview, const rc_config *global_config);
+
+void populate_transaction_window(GtkWidget *trans_window);
 
