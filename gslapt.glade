@@ -2134,7 +2134,7 @@
   <property name="skip_pager_hint">False</property>
   <property name="type_hint">GDK_WINDOW_TYPE_HINT_NORMAL</property>
   <property name="gravity">GDK_GRAVITY_CENTER</property>
-  <signal name="destroy_event" handler="gtk_main_quit" last_modification_time="Tue, 08 Feb 2005 20:30:58 GMT"/>
+  <signal name="destroy" handler="gtk_main_quit" last_modification_time="Wed, 02 Mar 2005 16:23:48 GMT"/>
 
   <child>
     <widget class="GtkVBox" id="vbox49">

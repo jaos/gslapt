@@ -1,6 +1,7 @@
 
 Things to do:
 
+* find a way to kill current thread if closing the download progress window
 * bug testing
 * Need to look into generating omf documentation for comprehensive help
  (but does that require gnome libs?)
