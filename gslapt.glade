@@ -2043,7 +2043,7 @@
   <property name="visible">True</property>
   <property name="title" translatable="yes">Summary</property>
   <property name="type">GTK_WINDOW_TOPLEVEL</property>
-  <property name="window_position">GTK_WIN_POS_NONE</property>
+  <property name="window_position">GTK_WIN_POS_CENTER</property>
   <property name="modal">False</property>
   <property name="default_width">200</property>
   <property name="default_height">400</property>
@@ -2372,7 +2372,7 @@
   <property name="skip_taskbar_hint">False</property>
   <property name="skip_pager_hint">False</property>
   <property name="type_hint">GDK_WINDOW_TYPE_HINT_DIALOG</property>
-  <property name="gravity">GDK_GRAVITY_NORTH_WEST</property>
+  <property name="gravity">GDK_GRAVITY_CENTER</property>
   <property name="has_separator">True</property>
 
   <child internal-child="vbox">

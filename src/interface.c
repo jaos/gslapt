@@ -1251,6 +1251,7 @@ create_transaction_window (void)
   gtk_widget_set_name (transaction_window, "transaction_window");
   gtk_container_set_border_width (GTK_CONTAINER (transaction_window), 12);
   gtk_window_set_title (GTK_WINDOW (transaction_window), _("Summary"));
+  gtk_window_set_position (GTK_WINDOW (transaction_window), GTK_WIN_POS_CENTER);
   gtk_window_set_default_size (GTK_WINDOW (transaction_window), 200, 400);
   transaction_window_icon_pixbuf = create_pixbuf ("gslapt.png");
   if (transaction_window_icon_pixbuf)
@@ -1467,6 +1468,7 @@ create_about (void)
       gdk_pixbuf_unref (about_icon_pixbuf);
     }
   gtk_window_set_type_hint (GTK_WINDOW (about), GDK_WINDOW_TYPE_HINT_DIALOG);
+  gtk_window_set_gravity (GTK_WINDOW (about), GDK_GRAVITY_CENTER);
 
   dialog_vbox1 = GTK_DIALOG (about)->vbox;
   gtk_widget_set_name (dialog_vbox1, "dialog_vbox1");
