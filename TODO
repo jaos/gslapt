@@ -1,11 +1,12 @@
 
 Things to do:
 
-* find a way to kill current thread if closing the download progress window
-* bug testing
-* Need to look into generating omf documentation for comprehensive help
- (but does that require gnome libs?)
-* more statusbar usage to notify what we are doing
-* ui cleanups, improvements
-* move to libglade instead of generated code
+ * find a way to kill current thread if closing the download progress window
+ * bug testing
+ * Need to look into generating omf documentation for comprehensive help
+   (but does that require gnome libs?)
+ * more statusbar usage to notify what we are doing
+ * ui cleanups, improvements
+ * move to libglade instead of generated code
+ * context menu for right click on package in list
 
