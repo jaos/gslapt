@@ -891,22 +891,6 @@ void unlock_toolbar_buttons(void){
 	gtk_widget_set_sensitive((GtkWidget *)action_bar_execute_button,TRUE);
 }
 
-void preferences_sources_add(GtkWidget *w, gpointer user_data){
-	(void)user_data;
-
-}
-
-void preferences_sources_remove(GtkButton *button, gpointer user_data){
-	(void)button;
-	(void)user_data;
-}
-
-void preferences_on_ok_clicked(GtkWidget *w, gpointer user_data){
-	(void)user_data;
-	gtk_widget_destroy(w);
-}
-
-
 static void lhandle_transaction(GtkWidget *w){
 	GtkCheckButton *dl_only_checkbutton;
 	gboolean dl_only = FALSE;
@@ -949,17 +933,6 @@ void on_transaction_okbutton1_clicked(GtkWidget *w, gpointer user_data){
 
 	return;
 
-}
-
-
-void preferences_exclude_add(GtkWidget *w, gpointer user_data) {
-	(void)user_data;
-
-}
-
-void preferences_exclude_remove(GtkButton *button, gpointer user_data) {
-	(void)button;
-	(void)user_data;
 }
 
 void build_sources_treeviewlist(GtkWidget *treeview, const rc_config *global_config){
@@ -1412,14 +1385,111 @@ void clean_callback(GtkMenuItem *menuitem, gpointer user_data){
 }
 
 
-void add_source(GtkWidget *w, gpointer user_data){
+void preferences_sources_add(GtkWidget *w, gpointer user_data){
+	extern rc_config *global_config;
+	GtkTreeView *source_tree = GTK_TREE_VIEW(lookup_widget(w,"preferences_sources_treeview"));
+	GtkEntry *new_source_entry = GTK_ENTRY(lookup_widget(w,"new_source_entry"));
+	const gchar *new_source = gtk_entry_get_text(new_source_entry);
+	(void)user_data;
+
+	if( new_source == NULL || strlen(new_source) < 1 ) return;
+
+	if( strlen(new_source) <= MAX_SOURCE_URL_LEN ){
+		strncpy(
+			global_config->sources.url[global_config->sources.count],
+			new_source,
+			strlen(new_source)
+		);
+		/* make sure our url has a trailing '/' */
+		if( global_config->sources.url[global_config->sources.count]
+			[
+				strlen(global_config->sources.url[global_config->sources.count]) - 1
+			] != '/'
+		){
+			strcat(global_config->sources.url[global_config->sources.count],"/");
+		}
+		++global_config->sources.count;
+	}
+
+	gtk_entry_set_text(new_source_entry,"");
+	clear_treeview(source_tree);
+	build_sources_treeviewlist((GtkWidget *)source_tree,global_config);
+
+}
+
+void preferences_sources_remove(GtkButton *button, gpointer user_data){
+	(void)button;
+	(void)user_data;
+}
+
+void preferences_on_ok_clicked(GtkWidget *w, gpointer user_data){
+	extern rc_config *global_config;
+  GtkEntry *preferences_working_dir_entry = GTK_ENTRY(lookup_widget(w,"preferences_working_dir_entry"));
+	const gchar *working_dir = gtk_entry_get_text(preferences_working_dir_entry);
+	(void)user_data;
+
+	strncpy(
+		global_config->working_dir,
+		working_dir,
+		strlen(working_dir)
+	);
+	global_config->working_dir[
+		strlen(working_dir)
+	] = '\0';
+
+	if( write_preferences() == FALSE ){
+		fprintf(stderr,"Failed to commit preferences\n");
+		gtk_main_quit();
+	}
+
 	gtk_widget_destroy(w);
-	open_preferences(NULL,NULL);
 }
 
 
-void add_exclude(GtkWidget *w, gpointer user_data){
-	gtk_widget_destroy(w);
-	open_preferences(NULL,NULL);
+void preferences_exclude_add(GtkWidget *w, gpointer user_data) {
+	extern rc_config *global_config;
+	GtkTreeView *exclude_tree = GTK_TREE_VIEW(lookup_widget(w,"preferences_exclude_treeview"));
+	GtkEntry *new_exclude_entry = GTK_ENTRY(lookup_widget(w,"new_exclude_entry"));
+	const gchar *new_exclude = gtk_entry_get_text(new_exclude_entry);
+	char **tmp_realloc = NULL;
+	(void)user_data;
+
+	if( new_exclude == NULL || strlen(new_exclude) < 1 ) return;
+
+	tmp_realloc = realloc(global_config->exclude_list->excludes, sizeof *global_config->exclude_list->excludes * (global_config->exclude_list->count + 1));
+	if( tmp_realloc != NULL ){
+		char *ne = strndup(new_exclude,strlen(new_exclude));
+		global_config->exclude_list->excludes = tmp_realloc;
+		global_config->exclude_list->excludes[global_config->exclude_list->count] = ne;
+		++global_config->exclude_list->count;
+	}
+
+	gtk_entry_set_text(new_exclude_entry,"");
+	clear_treeview(exclude_tree);
+	build_exclude_treeviewlist((GtkWidget *)exclude_tree,global_config);
+
 }
 
+
+void preferences_exclude_remove(GtkButton *button, gpointer user_data) {
+	(void)user_data;
+}
+
+static gboolean write_preferences(void){
+	extern rc_config *global_config;
+	guint i;
+
+	fprintf(stderr,"About to write configuration\n\n");
+
+	fprintf(stderr,"working_dir: %s\n",global_config->working_dir);
+	for(i = 0; i < global_config->exclude_list->count;++i){
+		fprintf(stderr,"exclude %d: %s\n",i,global_config->exclude_list->excludes[i]);
+	}
+	for(i = 0; i < global_config->sources.count;++i){
+		fprintf(stderr,"source %d: %s\n",i,global_config->sources.url[i]);
+	}
+
+	/* open RC_LOCATION */
+
+	return TRUE;
+}

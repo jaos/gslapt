@@ -52,7 +52,6 @@ int main (int argc, char *argv[]){
   gslapt = (GtkWidget *)create_gslapt ();
   gtk_widget_show (gslapt);
 
-	#define RC_LOCATION "/etc/slapt-get/slapt-getrc"
 	global_config = read_rc_config(RC_LOCATION);
 	working_dir_init(global_config);
 	chdir(global_config->working_dir);

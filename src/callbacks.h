@@ -1,6 +1,7 @@
 #define _LIBINTL_H
 #include <gtk/gtk.h>
 #include <slapt.h>
+#define RC_LOCATION "/etc/slapt-get/slapt-getrc"
 
 void on_gslapt_destroy (GtkObject *object, gpointer user_data);
 void update_callback (GtkObject *object, gpointer user_data);
@@ -52,7 +53,5 @@ int gtk_progress_callback(void *data, double dltotal, double dlnow, double ultot
 void clean_callback(GtkMenuItem *menuitem, gpointer user_data);
 gboolean install_packages(void);
 void build_package_treeviewlist(GtkWidget *treeview);
-
-void add_source(GtkWidget *w, gpointer user_data);
-void add_exclude(GtkWidget *w, gpointer user_data);
+static gboolean write_preferences(void);
 
