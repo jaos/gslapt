@@ -1,6 +1,7 @@
 ## Process this file with automake to produce Makefile.in
 
 SUBDIRS = src po
+SLACKPKGBUILDIR=/tmp/gslapt_build_dir
 
 EXTRA_DIST = \
 	autogen.sh \
@@ -34,5 +35,11 @@ dist-hook:
 	  done \
 	fi
 
-makepkg:
-	@$(NORMAL_INSTALL)
+slackpkg: all
+	@make install DESTDIR=$(SLACKPKGBUILDIR)
+	cp slack-desc $(SLACKPKGBUILDIR)
+	cp slack-required $(SLACKPKGBUILDIR)
+	chown root:bin $(SLACKPKGBUILDIR)/$(sbindir)
+	chown root:bin $(SLACKPKGBUILDIR)/$(sbindir)/@PACKAGE@
+	( cd $(SLACKPKGBUILDIR) && /sbin/makepkg -l y -c n @PACKAGE@-@VERSION@-i386-1.tgz )
+

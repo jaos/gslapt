@@ -1,5 +1,6 @@
 
 0.2alpha Feb 20, 2005
+ * added slackpkg make target to Makefile.am
  * fixed search duplication error
  * added pl.po translation contributed by Piotr Simon
  * install target is now /usr/sbin instead of /usr/bin (need to figure out
