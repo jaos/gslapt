@@ -1,5 +1,7 @@
 
 0.3 Mar 28, 2005
+ * fixed upgrade problem
+ * updated transaction code to follow new transaction_t struct use of queue 
  * borrowed Ubuntu's add/remove applications icon for new gslapt icon
  * fixed issue with reinstall request not completing
  * statusbar now gives notification when there are pending things to execute

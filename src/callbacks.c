@@ -167,7 +167,9 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data) {
 
 	if( pkg_name == NULL || pkg_version == NULL ) return;
 
-	pkg = get_exact_pkg(all,pkg_name,pkg_version);
+	if( global_config->re_install == TRUE ){
+		pkg = get_exact_pkg(all,pkg_name,pkg_version);
+	}
 	if( pkg == NULL ){
 		pkg = get_newest_pkg(all,pkg_name);
 	}
@@ -198,7 +200,6 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data) {
 		}
 
 	}else{ /* else we upgrade or reinstall */
-
 
 		/* it is already installed, attempt an upgrade */
 		if(
@@ -567,20 +568,20 @@ static void fillin_pkg_details(pkg_info_t *pkg){
 	gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"pkg_info_action_name_entry")),pkg->name);
 	gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"pkg_info_action_version_entry")),pkg->version);
 	if( pkg->mirror != NULL ){
-	gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"pkg_info_action_mirror_entry")),pkg->mirror);
+		gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"pkg_info_action_mirror_entry")),pkg->mirror);
 	}
 	sprintf(size_c,"%d K",pkg->size_c);
 	sprintf(size_u,"%d K",pkg->size_u);
 	gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"pkg_info_action_size_entry")),size_c);
 	gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"pkg_info_action_isize_entry")),size_u);
 	if( pkg->required != NULL ){
-	gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"pkg_info_action_required_entry")),pkg->required);
+		gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"pkg_info_action_required_entry")),pkg->required);
 	}
 	if( pkg->conflicts != NULL ){
-	gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"pkg_info_action_conflicts_entry")),pkg->conflicts);
+		gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"pkg_info_action_conflicts_entry")),pkg->conflicts);
 	}
 	if( pkg->suggests != NULL ){
-	gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"pkg_info_action_suggests_entry")),pkg->suggests);
+		gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"pkg_info_action_suggests_entry")),pkg->suggests);
 	}
 	short_desc = gen_short_pkg_description(pkg);
 	gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"pkg_info_action_description_entry")),short_desc);
@@ -1405,42 +1406,33 @@ static gboolean install_packages(void){
 	context_id = gslapt_set_status(_("Installing packages..."));
 	gdk_threads_leave();
 
-	/* now for the installs */
+	/* now for the installs and upgrades */
 	count = 0.0;
-	for(i = 0; i < trans->install_pkgs->pkg_count;++i){
-		gdk_threads_enter();
-		gtk_label_set_text(progress_pkg_desc,trans->install_pkgs->pkgs[i]->description);
-		gtk_label_set_text(progress_action_label,_("Installing..."));
-		gtk_label_set_text(progress_message_label,trans->install_pkgs->pkgs[i]->name);
-		gtk_progress_bar_set_fraction(p_bar,((count * 100)/trans->install_pkgs->pkg_count)/100);
-		gdk_threads_leave();
+	for(i = 0;i < trans->queue->count; ++i){
+		if( trans->queue->pkgs[i]->type == INSTALL ){
+			gdk_threads_enter();
+			gtk_label_set_text(progress_pkg_desc,trans->queue->pkgs[i]->pkg.i->description);
+			gtk_label_set_text(progress_action_label,_("Installing..."));
+			gtk_label_set_text(progress_message_label,trans->queue->pkgs[i]->pkg.i->name);
+			gtk_progress_bar_set_fraction(p_bar,((count * 100)/trans->queue->count)/100);
+			gdk_threads_leave();
 
-		if( install_pkg(global_config,trans->install_pkgs->pkgs[i]) == -1 ){
-			gtk_widget_destroy(progress_window);
-			return FALSE;
-		}
-		++count;
-	}
+			if( install_pkg(global_config,trans->queue->pkgs[i]->pkg.i) == -1 ){
+				gtk_widget_destroy(progress_window);
+				return FALSE;
+			}
+		}else if( trans->queue->pkgs[i]->type == UPGRADE ){
+			gdk_threads_enter();
+			gtk_label_set_text(progress_pkg_desc,trans->queue->pkgs[i]->pkg.u->upgrade->description);
+			gtk_label_set_text(progress_action_label,_("Upgrading..."));
+			gtk_label_set_text(progress_message_label,trans->queue->pkgs[i]->pkg.u->upgrade->name);
+			gtk_progress_bar_set_fraction(p_bar,((count * 100)/trans->queue->count)/100);
+			gdk_threads_leave();
 
-	gdk_threads_enter();
-	gtk_progress_bar_set_fraction(p_bar,0.0);
-	gslapt_clear_status(context_id);
-	context_id = gslapt_set_status(_("Upgrading packages..."));
-	gdk_threads_leave();
-
-	/* now for the upgrades */
-	count = 0.0;
-	for(i = 0; i < trans->upgrade_pkgs->pkg_count;++i){
-		gdk_threads_enter();
-		gtk_label_set_text(progress_pkg_desc,trans->upgrade_pkgs->pkgs[i]->upgrade->description);
-		gtk_label_set_text(progress_action_label,_("Upgrading..."));
-		gtk_label_set_text(progress_message_label,trans->upgrade_pkgs->pkgs[i]->upgrade->name);
-		gtk_progress_bar_set_fraction(p_bar,((count * 100)/trans->upgrade_pkgs->pkg_count)/100);
-		gdk_threads_leave();
-
-		if( upgrade_pkg(global_config,trans->upgrade_pkgs->pkgs[i]->installed,trans->upgrade_pkgs->pkgs[i]->upgrade) == -1 ){
-			gtk_widget_destroy(progress_window);
-			return FALSE;
+			if( upgrade_pkg(global_config,trans->queue->pkgs[i]->pkg.u->installed,trans->queue->pkgs[i]->pkg.u->upgrade) == -1 ){
+				gtk_widget_destroy(progress_window);
+				return FALSE;
+			}
 		}
 		++count;
 	}
