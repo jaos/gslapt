@@ -2475,7 +2475,7 @@ http://software.jaso.org/#gslapt&lt;/span&gt;</property>
 	<widget class="GtkLabel" id="label169">
 	  <property name="visible">True</property>
 	  <property name="can_focus">True</property>
-	  <property name="label" translatable="yes">&lt;b&gt;Gslapt&lt;/b&gt; is &lt;b&gt;alpha&lt;/b&gt; quality software.  &lt;span weight=&quot;bold&quot;&gt;It will crash and may leave your machine in an unusable state.&lt;/span&gt;  Please use with caution.
+	  <property name="label">&lt;b&gt;Gslapt&lt;/b&gt; is &lt;b&gt;beta&lt;/b&gt; quality software.  &lt;span weight=&quot;bold&quot;&gt;It may crash and may leave your machine in an unusable state.&lt;/span&gt;  Please use with caution.
 
 Bug reports should go to the slapt-get-devel mailing list: slapt-get-devel@software.jaos.org</property>
 	  <property name="use_underline">False</property>

@@ -19,15 +19,6 @@ msgstr ""
 msgid "<b>Exclude List</b>"
 msgstr ""
 
-msgid ""
-"<b>Gslapt</b> is <b>alpha</b> quality software.  <span weight=\"bold\">It "
-"will crash and may leave your machine in an unusable state.</span>  Please "
-"use with caution.\n"
-"\n"
-"Bug reports should go to the slapt-get-devel mailing list: slapt-get-"
-"devel@software.jaos.org"
-msgstr ""
-
 msgid "<b>Package Sources</b>"
 msgstr ""
 

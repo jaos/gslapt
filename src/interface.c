@@ -1465,7 +1465,7 @@ create_devel_warning_dialog (void)
   gtk_widget_set_name (dialog_vbox2, "dialog_vbox2");
   gtk_widget_show (dialog_vbox2);
 
-  label169 = gtk_label_new (_("<b>Gslapt</b> is <b>alpha</b> quality software.  <span weight=\"bold\">It will crash and may leave your machine in an unusable state.</span>  Please use with caution.\n\nBug reports should go to the slapt-get-devel mailing list: slapt-get-devel@software.jaos.org"));
+  label169 = gtk_label_new ("<b>Gslapt</b> is <b>beta</b> quality software.  <span weight=\"bold\">It may crash and may leave your machine in an unusable state.</span>  Please use with caution.\n\nBug reports should go to the slapt-get-devel mailing list: slapt-get-devel@software.jaos.org");
   gtk_widget_set_name (label169, "label169");
   gtk_widget_show (label169);
   gtk_box_pack_start (GTK_BOX (dialog_vbox2), label169, TRUE, TRUE, 2);
