@@ -10,12 +10,12 @@ EXTRA_DIST = \
 
 install-data-local:
 	@$(NORMAL_INSTALL)
-	$(mkinstalldirs) $(DESTDIR)/usr/share/applications; \
-	$(mkinstalldirs) $(DESTDIR)/usr/share/doc/@PACKAGE@ ; \
-	$(INSTALL_DATA) AUTHORS ChangeLog COPYING FAQ README $(DESTDIR)/usr/share/doc/@PACKAGE@ ; \
-	$(INSTALL_DATA) gslapt.desktop $(DESTDIR)/usr/share/applications/gslapt.desktop; \
-	$(mkinstalldirs) $(DESTDIR)/usr/share/pixmaps; \
-	$(INSTALL_DATA) pixmaps/gslapt.png $(DESTDIR)/usr/share/pixmaps/; \
+	$(mkinstalldirs) $(DESTDIR)/$(datadir)/applications; \
+	$(mkinstalldirs) $(DESTDIR)/$(datadir)/doc/@PACKAGE@ ; \
+	$(INSTALL_DATA) AUTHORS ChangeLog COPYING FAQ README $(DESTDIR)/$(datadir)/doc/@PACKAGE@ ; \
+	$(INSTALL_DATA) gslapt.desktop $(DESTDIR)/$(datadir)/applications/gslapt.desktop; \
+	$(mkinstalldirs) $(DESTDIR)/$(datadir)/pixmaps; \
+	$(INSTALL_DATA) pixmaps/gslapt.png $(DESTDIR)/$(datadir)/pixmaps/; \
 	if test -d $(srcdir)/pixmaps; then \
 	  $(mkinstalldirs) $(DESTDIR)$(pkgdatadir)/pixmaps; \
 	  for pixmap in $(srcdir)/pixmaps/*; do \
