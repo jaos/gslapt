@@ -1484,6 +1484,7 @@ void preferences_sources_add(GtkWidget *w, gpointer user_data){
 			new_source,
 			strlen(new_source)
 		);
+		global_config->sources.url[global_config->sources.count][strlen(new_source)] = '\0';
 		/* make sure our url has a trailing '/' */
 		if( global_config->sources.url[global_config->sources.count]
 			[
