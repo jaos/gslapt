@@ -5,7 +5,7 @@ INCLUDES = \
 	-DPACKAGE_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" \
 	@PACKAGE_CFLAGS@
 
-bin_PROGRAMS = gslapt
+sbin_PROGRAMS = gslapt
 
 gslapt_SOURCES = \
 	main.c \

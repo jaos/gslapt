@@ -1,5 +1,8 @@
 
 0.2alpha Feb 17, 2005
+ * install target is now /usr/sbin instead of /usr/bin (need to figure out
+   how to find out if gnome-sudo|gksu|etc are installed and use them
+   for the .desktop entry)
  * added slack-desc and slack-required
  * added initial translation files
  * added gslapt.desktop and gslapt.png contributed by Piotr Simon
