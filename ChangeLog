@@ -1,5 +1,6 @@
 
-0.2alpha Feb 16, 2005
+0.2alpha Feb 17, 2005
+ * added gslapt.desktop and gslapt.png contributed by Piotr Simon
  * hitting enter on search entry now invokes search callback (no clicking
    required)
  * moved package description up just below the package name
