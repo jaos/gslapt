@@ -410,6 +410,7 @@ GtkWidget*
 create_gslapt (void)
 {
   GtkWidget *gslapt;
+  GdkPixbuf *gslapt_icon_pixbuf;
   GtkWidget *gslapt_vbox;
   GtkWidget *top_menubar;
   GtkWidget *actions2;
@@ -512,6 +513,12 @@ create_gslapt (void)
   gtk_window_set_title (GTK_WINDOW (gslapt), _("Gslapt"));
   gtk_window_set_position (GTK_WINDOW (gslapt), GTK_WIN_POS_CENTER);
   gtk_window_set_default_size (GTK_WINDOW (gslapt), 600, 400);
+  gslapt_icon_pixbuf = create_pixbuf ("gslapt.png");
+  if (gslapt_icon_pixbuf)
+    {
+      gtk_window_set_icon (GTK_WINDOW (gslapt), gslapt_icon_pixbuf);
+      gdk_pixbuf_unref (gslapt_icon_pixbuf);
+    }
   gtk_window_set_gravity (GTK_WINDOW (gslapt), GDK_GRAVITY_CENTER);
 
   gslapt_vbox = gtk_vbox_new (FALSE, 0);
