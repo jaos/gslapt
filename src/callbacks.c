@@ -585,7 +585,7 @@ void fillin_pkg_details(pkg_info_t *pkg){
 
 		if( is_exclude == 0 ){
 
-			if( is_installed == 1 && is_newest == 0 ){ /* upgrade */
+			if( is_installed == 1 && is_newest == 0 && (search_transaction(trans,upgrade_pkg) == 0 ) ){ /* upgrade */
 				gtk_widget_set_sensitive( GTK_WIDGET(install_upgrade),TRUE);
 				gtk_widget_set_sensitive( GTK_WIDGET(exclude),TRUE);
 				gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"label131")),_("Upgrade"));
@@ -609,8 +609,11 @@ void fillin_pkg_details(pkg_info_t *pkg){
 
 		}
 
-		if( is_installed == 1 && get_exact_pkg(trans->remove_pkgs,pkg->name,pkg->version) == NULL )
-			gtk_widget_set_sensitive( GTK_WIDGET(remove),TRUE);
+		if(
+			is_installed == 1
+			&& (get_exact_pkg(trans->remove_pkgs,pkg->name,pkg->version) == NULL)
+			&& (search_transaction(trans,upgrade_pkg) == 0 )
+		) gtk_widget_set_sensitive( GTK_WIDGET(remove),TRUE);
 
 	}
 
