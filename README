@@ -17,3 +17,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
 This is a GTK version of slapt-get.  It requires slapt-get.
 
+To build from source, you must have these packages installed:
+ autoconf automake libtool m4 gettext gettext-tools pkgconfig
+ glibc atk glib2 gtk+2 pango x11 zlib
+ openssl curl slapt-get
+
