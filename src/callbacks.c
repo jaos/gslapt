@@ -240,7 +240,7 @@ void add_pkg_for_exclude (GtkButton *button, gpointer user_data) {
 	GtkEntry *entry;
 	const gchar *pkg_name;
 	const gchar *pkg_version;
-	guint i;
+	pkg_info_t *pkg = NULL;
 
 	(void)button;
 	(void)user_data;
@@ -252,21 +252,16 @@ void add_pkg_for_exclude (GtkButton *button, gpointer user_data) {
 	pkg_version = gtk_entry_get_text(GTK_ENTRY(entry));
 
 	/* exclude pkgs from available and installed */
-	for(i = 0; i < installed->pkg_count;i++){
-		if( strcmp(installed->pkgs[i]->name,pkg_name) == 0
-			&& strcmp(installed->pkgs[i]->version,pkg_version) == 0
-		){
-			fprintf(stderr,"Adding %s to exclude list\n",installed->pkgs[i]->name);
-			add_exclude_to_transaction(trans,installed->pkgs[i]);
-		}
+	pkg = get_exact_pkg(installed,pkg_name,pkg_version);
+	if( pkg != NULL ){
+		fprintf(stderr,"Adding %s to exclude list\n",pkg->name);
+		add_exclude_to_transaction(trans,pkg);
 	}
-	for(i = 0; i < all->pkg_count;i++){
-		if( strcmp(all->pkgs[i]->name,pkg_name) == 0
-			&& strcmp(all->pkgs[i]->version,pkg_version) == 0
-		){
-			fprintf(stderr,"Adding %s to exclude list\n",all->pkgs[i]->name);
-			add_exclude_to_transaction(trans,all->pkgs[i]);
-		}
+	pkg = NULL;
+	pkg = get_exact_pkg(all,pkg_name,pkg_version);
+	if( pkg != NULL ){
+		fprintf(stderr,"Adding %s to exclude list\n",pkg->name);
+		add_exclude_to_transaction(trans,pkg);
 	}
 
 	return;
