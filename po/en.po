@@ -312,3 +312,6 @@ msgstr "Ready"
 msgid "Re-Install"
 msgstr "Re-Install"
 
+msgid "Downgrade"
+msgstr "Downgrade"
+

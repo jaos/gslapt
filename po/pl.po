@@ -270,3 +270,6 @@ msgstr "Sprawdzanie nowych aktualizacji..."
 msgid "Re-Install"
 msgstr "Re-Install"
 
+msgid "Downgrade"
+msgstr "Downgrade"
+

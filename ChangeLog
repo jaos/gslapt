@@ -1,5 +1,6 @@
 
 0.2 Feb 26, 2005
+ * added downgrade capability
  * added reinstall capability
  * cancelling preference dialog restores configuration from slapt-getrc
  * updated summary report to show statistics

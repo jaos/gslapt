@@ -307,3 +307,6 @@ msgstr ""
 msgid "Re-Install"
 msgstr ""
 
+msgid "Downgrade"
+msgstr ""
+

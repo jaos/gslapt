@@ -581,7 +581,7 @@ void fillin_pkg_details(pkg_info_t *pkg){
 			}else if( is_installed == 0 && upgrade_pkg != NULL ){ /* this is for downgrades */
 				gtk_widget_set_sensitive( GTK_WIDGET(install_upgrade),TRUE);
 				gtk_widget_set_sensitive( GTK_WIDGET(exclude),TRUE);
-				gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"label131")),_("Install"));
+				gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"label131")),_("Downgrade"));
 				g_signal_handlers_disconnect_by_func((gpointer)install_upgrade,add_pkg_for_install,GTK_OBJECT(gslapt));
   			g_signal_connect_swapped((gpointer) install_upgrade,"clicked",G_CALLBACK(add_pkg_for_reinstall),GTK_OBJECT(gslapt));
 			}else if( is_installed == 0 && upgrade_pkg == NULL ){ /* straight up install */
