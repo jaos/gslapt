@@ -78,13 +78,11 @@ void execute_callback (GtkObject *object, gpointer user_data) {
 void open_preferences (GtkMenuItem *menuitem, gpointer user_data) {
 	GtkWidget *preferences;
 	extern rc_config *global_config;
-	GtkEntry *working_dir,*exclude_list;
+	GtkEntry *working_dir;
 	GtkTreeView *source_tree,*exclude_tree;
 
-	(void)exclude_list;
 	(void)menuitem;
 	(void)user_data;
-	(void)global_config;
 
 	preferences = (GtkWidget *)create_window_preferences();
 
@@ -893,9 +891,13 @@ void unlock_toolbar_buttons(void){
 	gtk_widget_set_sensitive((GtkWidget *)action_bar_execute_button,TRUE);
 }
 
-void preferences_sources_add(GtkButton *button, gpointer user_data){
-	(void)button;
+void preferences_sources_add(GtkWidget *w, gpointer user_data){
+	GtkWidget *add_sources_dialog;
 	(void)user_data;
+
+	gtk_widget_destroy(w);
+	add_sources_dialog = create_add_source_dialog();
+	gtk_widget_show(add_sources_dialog);
 }
 
 void preferences_sources_remove(GtkButton *button, gpointer user_data){
@@ -954,9 +956,13 @@ void on_transaction_okbutton1_clicked(GtkWidget *w, gpointer user_data){
 }
 
 
-void preferences_exclude_add(GtkButton *button, gpointer user_data) {
-	(void)button;
+void preferences_exclude_add(GtkWidget *w, gpointer user_data) {
+	GtkWidget *add_exclude_dialog;
 	(void)user_data;
+
+	gtk_widget_destroy(w);
+	add_exclude_dialog = create_add_exclude_dialog();
+	gtk_widget_show(add_exclude_dialog);
 }
 
 void preferences_exclude_remove(GtkButton *button, gpointer user_data) {
@@ -1411,5 +1417,17 @@ void clean_callback(GtkMenuItem *menuitem, gpointer user_data){
 
 	gpd = g_thread_create((GThreadFunc)clean_pkg_dir,global_config->working_dir,FALSE,NULL);
 
+}
+
+
+void add_source(GtkWidget *w, gpointer user_data){
+	gtk_widget_destroy(w);
+	open_preferences(NULL,NULL);
+}
+
+
+void add_exclude(GtkWidget *w, gpointer user_data){
+	gtk_widget_destroy(w);
+	open_preferences(NULL,NULL);
 }
 

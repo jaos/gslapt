@@ -30,12 +30,12 @@ void gslapt_clear_status(guint context_id);
 void lock_toolbar_buttons(void);
 void unlock_toolbar_buttons(void);
 
-void preferences_sources_add(GtkButton *button, gpointer user_data);
+void preferences_sources_add(GtkWidget *w, gpointer user_data);
 void preferences_sources_remove(GtkButton *button, gpointer user_data);
 void preferences_on_ok_clicked(GtkWidget *w, gpointer user_data);
 
 void on_transaction_okbutton1_clicked(GtkWidget *w, gpointer user_data);
-void preferences_exclude_add(GtkButton *button, gpointer user_data);
+void preferences_exclude_add(GtkWidget *w, gpointer user_data);
 void preferences_exclude_remove(GtkButton *button, gpointer user_data);
 
 void build_sources_treeviewlist(GtkWidget *treeview, const rc_config *global_config);
@@ -52,4 +52,7 @@ int gtk_progress_callback(void *data, double dltotal, double dlnow, double ultot
 void clean_callback(GtkMenuItem *menuitem, gpointer user_data);
 gboolean install_packages(void);
 void build_package_treeviewlist(GtkWidget *treeview);
+
+void add_source(GtkWidget *w, gpointer user_data);
+void add_exclude(GtkWidget *w, gpointer user_data);
 
