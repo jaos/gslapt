@@ -515,14 +515,12 @@ void show_pkg_details (GtkTreeSelection *selection, gpointer data) {
 
 void fillin_pkg_details(pkg_info_t *pkg){
   extern GtkWidget *gslapt;
-	extern struct pkg_list *installed;
-	extern struct pkg_list *all;
+	extern struct pkg_list *installed,*all;
 	gchar size_c[20],size_u[20],*short_desc;
-	GtkButton *install_upgrade;
-	GtkButton *remove;
-	GtkButton *exclude;
-	pkg_info_t *installed_pkg;
-	pkg_info_t *upgrade_pkg;
+	pkg_info_t *upgrade_pkg = NULL;
+	guint is_installed = 0,is_newest = 1,is_exclude = 0;
+	GtkButton *install_upgrade,*remove,*exclude;
+	extern rc_config *global_config;
 
 	/* lookup buttons */
 	install_upgrade = GTK_BUTTON( lookup_widget(gslapt,"pkg_info_action_install_upgrade_button") );
@@ -530,54 +528,42 @@ void fillin_pkg_details(pkg_info_t *pkg){
 	exclude = GTK_BUTTON( lookup_widget(gslapt,"pkg_info_action_exclude_button") );
 
 	/* set default state */
-	gtk_widget_set_sensitive( GTK_WIDGET(install_upgrade),TRUE);
-	gtk_widget_set_sensitive( GTK_WIDGET(remove),TRUE);
-	gtk_widget_set_sensitive( GTK_WIDGET(exclude),TRUE);
+	gtk_widget_set_sensitive( GTK_WIDGET(install_upgrade),FALSE);
+	gtk_widget_set_sensitive( GTK_WIDGET(remove),FALSE);
+	gtk_widget_set_sensitive( GTK_WIDGET(exclude),FALSE);
+
+	if( get_exact_pkg(installed,pkg->name,pkg->version) != NULL )
+		is_installed = 1;
+
+	upgrade_pkg = get_newest_pkg(all,pkg->name);
+	if( upgrade_pkg != NULL && cmp_pkg_versions(pkg->version,upgrade_pkg->version) < 0 )
+		is_newest = 0;
+
+	if( is_excluded(global_config,pkg) == 1 )
+		is_exclude = 1;
 
 	gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"pkg_info_action_name_entry")),pkg->name);
 	gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"pkg_info_action_version_entry")),pkg->version);
+	gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"pkg_info_action_location_entry")),pkg->location);
+	gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"pkg_info_action_mirror_entry")),pkg->mirror);
+	sprintf(size_c,"%d K",pkg->size_c);
+	sprintf(size_u,"%d K",pkg->size_u);
+	gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"pkg_info_action_size_entry")),size_c);
+	gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"pkg_info_action_isize_entry")),size_u);
+	gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"pkg_info_action_required_entry")),pkg->required);
+	gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"pkg_info_action_conflicts_entry")),pkg->conflicts);
+	gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"pkg_info_action_suggests_entry")),pkg->suggests);
+	short_desc = gen_short_pkg_description(pkg);
+	gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"pkg_info_action_description_entry")),short_desc);
+	free(short_desc);
 
-	/*
-		* we already have the package to work with
-		* we need to find out if it's installed
-		* we need to find out if it's the newest available
-		* we need to find out if it's excluded
-		* then fix this function
-	*/
+	if( is_installed == 0 || is_newest == 0 )
+		gtk_widget_set_sensitive( GTK_WIDGET(install_upgrade),TRUE);
+	if( is_installed == 1 )
+		gtk_widget_set_sensitive( GTK_WIDGET(remove),TRUE);
+	if( is_exclude == 0 )
+		gtk_widget_set_sensitive( GTK_WIDGET(exclude),TRUE);
 
-	installed_pkg = get_newest_pkg(installed,pkg->name);
-	upgrade_pkg = get_newest_pkg(all,pkg->name);
-
-	if( strcmp(pkg->location,"") != 0 && strcmp(pkg->description,"") != 0 ){
-		gtk_widget_set_sensitive( GTK_WIDGET(remove),FALSE);
-		gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"pkg_info_action_location_entry")),pkg->location);
-		gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"pkg_info_action_mirror_entry")),pkg->mirror);
-		sprintf(size_c,"%d K",pkg->size_c);
-		sprintf(size_u,"%d K",pkg->size_u);
-		gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"pkg_info_action_size_entry")),size_c);
-		gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"pkg_info_action_isize_entry")),size_u);
-		gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"pkg_info_action_required_entry")),pkg->required);
-		gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"pkg_info_action_conflicts_entry")),pkg->conflicts);
-		gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"pkg_info_action_suggests_entry")),pkg->suggests);
-		short_desc = gen_short_pkg_description(pkg);
-		gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"pkg_info_action_description_entry")),short_desc);
-		free(short_desc);
-	}else{
-		/* if there is no possible upgrade available */
-		if(
-			upgrade_pkg != NULL
-			&& installed_pkg != NULL
-			&& cmp_pkg_versions(installed_pkg->version,upgrade_pkg->version) >= 0
-		){
-			gtk_widget_set_sensitive( GTK_WIDGET(install_upgrade),FALSE);
-		}
-		gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"pkg_info_action_location_entry")),"");
-		gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"pkg_info_action_mirror_entry")),"");
-		gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"pkg_info_action_size_entry")),"");
-		gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"pkg_info_action_isize_entry")),"");
-		gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"pkg_info_action_required_entry")),"");
-		gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"pkg_info_action_description_entry")),"");
-	}
 
 }
 
@@ -1044,38 +1030,9 @@ void populate_transaction_window(GtkWidget *trans_window){
 	extern transaction_t *trans;
 	guint i;
 
-	fprintf(stderr,"%d excludes\n",trans->exclude_pkgs->pkg_count);
-	fprintf(stderr,"%d installes\n",trans->install_pkgs->pkg_count);
-	fprintf(stderr,"%d upgrades\n",trans->upgrade_pkgs->pkg_count);
-	fprintf(stderr,"%d removes\n",trans->remove_pkgs->pkg_count);
-
-	/*
-		* fix the segfaults here, something to do with the name && strlen()
-		* probably goes back into libslapt or somewhere in gslapt where
-		* i am trampling on memory.
-	*/
-
-	/*
-	for(i = 0; trans->exclude_pkgs->pkg_count;++i){
-		fprintf(stderr,"exclude [%s]\n",trans->exclude_pkgs->pkgs[i]->name);
-	}
-	for(i = 0; trans->install_pkgs->pkg_count;++i){
-		fprintf(stderr,"install [%s]\n",trans->install_pkgs->pkgs[i]->name);
-	}
-	for(i = 0; trans->upgrade_pkgs->pkg_count;++i){
-		fprintf(stderr,"upgrade [%s]\n",trans->upgrade_pkgs->pkgs[i]->upgrade->name);
-	}
-	for(i = 0; trans->remove_pkgs->pkg_count;++i){
-		fprintf(stderr,"remove [%s]\n",trans->remove_pkgs->pkgs[i]->name);
-	}
-	*/
-
-	/*
-	fprintf(stderr,"exclude treeview\n");
 	exclude_treeview = lookup_widget(trans_window,"transaction_exclude_treeview");
 	e_store = gtk_list_store_new(1,G_TYPE_STRING);
-	for(i = 0; trans->exclude_pkgs->pkg_count;++i){
-		fprintf(stderr,"%s\n",trans->exclude_pkgs->pkgs[i]->name);
+	for(i = 0; i < trans->exclude_pkgs->pkg_count;++i){
 		gtk_list_store_append (e_store, &e_iter);
 		gtk_list_store_set(e_store,&e_iter,0,trans->exclude_pkgs->pkgs[i]->name,-1);
 	}
@@ -1089,11 +1046,9 @@ void populate_transaction_window(GtkWidget *trans_window){
 	gtk_tree_selection_set_mode (select, GTK_SELECTION_SINGLE);
 
 
-	fprintf(stderr,"install treeview\n");
 	install_treeview = lookup_widget(trans_window,"transaction_install_treeview");
 	i_store = gtk_list_store_new(1,G_TYPE_STRING);
-	for(i = 0; trans->install_pkgs->pkg_count;++i){
-		fprintf(stderr,"%s\n",trans->install_pkgs->pkgs[i]->name);
+	for(i = 0; i < trans->install_pkgs->pkg_count;++i){
 		gtk_list_store_append (i_store, &i_iter);
 		gtk_list_store_set(i_store,&i_iter,0,trans->install_pkgs->pkgs[i]->name,-1);
 	}
@@ -1107,11 +1062,9 @@ void populate_transaction_window(GtkWidget *trans_window){
 	gtk_tree_selection_set_mode (select, GTK_SELECTION_SINGLE);
 
 
-	fprintf(stderr,"upgrade treeview\n");
 	upgrade_treeview = lookup_widget(trans_window,"transaction_upgrade_treeview");
 	u_store = gtk_list_store_new(1,G_TYPE_STRING);
-	for(i = 0; trans->upgrade_pkgs->pkg_count;++i){
-		fprintf(stderr,"%s\n",trans->upgrade_pkgs->pkgs[i]->upgrade->name);
+	for(i = 0; i < trans->upgrade_pkgs->pkg_count;++i){
 		gtk_list_store_append (u_store, &u_iter);
 		gtk_list_store_set(u_store,&u_iter,0,trans->upgrade_pkgs->pkgs[i]->upgrade->name,-1);
 	}
@@ -1125,11 +1078,9 @@ void populate_transaction_window(GtkWidget *trans_window){
 	gtk_tree_selection_set_mode (select, GTK_SELECTION_SINGLE);
 
 
-	fprintf(stderr,"remove treeview\n");
 	remove_treeview = lookup_widget(trans_window,"transaction_remove_treeview");
 	r_store = gtk_list_store_new(1,G_TYPE_STRING);
-	for(i = 0; trans->remove_pkgs->pkg_count;++i){
-		fprintf(stderr,"%s\n",trans->remove_pkgs->pkgs[i]->name);
+	for(i = 0; i < trans->remove_pkgs->pkg_count;++i){
 		gtk_list_store_append (r_store, &r_iter);
 		gtk_list_store_set(r_store,&r_iter,0,trans->remove_pkgs->pkgs[i]->name,-1);
 	}
@@ -1141,7 +1092,6 @@ void populate_transaction_window(GtkWidget *trans_window){
 	gtk_tree_view_set_model (GTK_TREE_VIEW(remove_treeview),GTK_TREE_MODEL(r_store));
 	select = gtk_tree_view_get_selection (GTK_TREE_VIEW (remove_treeview));
 	gtk_tree_selection_set_mode (select, GTK_SELECTION_SINGLE);
-	*/
 
 }
 
