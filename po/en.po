@@ -291,3 +291,18 @@ msgstr "Up to Date"
 msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
 msgstr "<span weight=\"bold\" size=\"large\">No updates available</span>"
 
+msgid "%d upgraded, %d newly installed, %d to remove and %d not upgraded."
+msgstr "%d upgraded, %d newly installed, %d to remove and %d not upgraded."
+
+msgid "Need to get %0.1d%s/%0.1d%s of archives.\n"
+msgstr "Need to get %0.1d%s/%0.1d%s of archives.\n"
+
+msgid "Need to get %0.1d%s of archives."
+msgstr "Need to get %0.1d%s of archives."
+
+msgid "After unpacking %0.1d%s disk space will be freed."
+msgstr "After unpacking %0.1d%s disk space will be freed."
+
+msgid "After unpacking %0.1d%s of additional disk space will be used."
+msgstr "After unpacking %0.1d%s of additional disk space will be used."
+

@@ -865,13 +865,11 @@ void lock_toolbar_buttons(void){
   extern GtkWidget *gslapt;
   GtkToolButton *action_bar_update_button = GTK_TOOL_BUTTON( lookup_widget(gslapt,"action_bar_update_button") );
   GtkToolButton *action_bar_upgrade_button = GTK_TOOL_BUTTON( lookup_widget(gslapt,"action_bar_upgrade_button") );
-  GtkToolButton *action_bar_dist_upgrade_button = GTK_TOOL_BUTTON( lookup_widget(gslapt,"action_bar_dist_upgrade_button") );
   GtkToolButton *action_bar_clean_button = GTK_TOOL_BUTTON( lookup_widget(gslapt,"action_bar_clean_button") );
   GtkToolButton *action_bar_execute_button = GTK_TOOL_BUTTON( lookup_widget(gslapt,"action_bar_execute_button") );
 
 	gtk_widget_set_sensitive((GtkWidget *)action_bar_update_button,FALSE);
 	gtk_widget_set_sensitive((GtkWidget *)action_bar_upgrade_button,FALSE);
-	gtk_widget_set_sensitive((GtkWidget *)action_bar_dist_upgrade_button,FALSE);
 	gtk_widget_set_sensitive((GtkWidget *)action_bar_clean_button,FALSE);
 	gtk_widget_set_sensitive((GtkWidget *)action_bar_execute_button,FALSE);
 }
@@ -880,13 +878,11 @@ void unlock_toolbar_buttons(void){
   extern GtkWidget *gslapt;
   GtkToolButton *action_bar_update_button = GTK_TOOL_BUTTON( lookup_widget(gslapt,"action_bar_update_button") );
   GtkToolButton *action_bar_upgrade_button = GTK_TOOL_BUTTON( lookup_widget(gslapt,"action_bar_upgrade_button") );
-  GtkToolButton *action_bar_dist_upgrade_button = GTK_TOOL_BUTTON( lookup_widget(gslapt,"action_bar_dist_upgrade_button") );
   GtkToolButton *action_bar_clean_button = GTK_TOOL_BUTTON( lookup_widget(gslapt,"action_bar_clean_button") );
   GtkToolButton *action_bar_execute_button = GTK_TOOL_BUTTON( lookup_widget(gslapt,"action_bar_execute_button") );
 
 	gtk_widget_set_sensitive((GtkWidget *)action_bar_update_button,TRUE);
 	gtk_widget_set_sensitive((GtkWidget *)action_bar_upgrade_button,TRUE);
-	gtk_widget_set_sensitive((GtkWidget *)action_bar_dist_upgrade_button,TRUE);
 	gtk_widget_set_sensitive((GtkWidget *)action_bar_clean_button,TRUE);
 	gtk_widget_set_sensitive((GtkWidget *)action_bar_execute_button,TRUE);
 }
@@ -1019,11 +1015,18 @@ void populate_transaction_window(GtkWidget *trans_window){
 	GtkTreeIter iter,child_iter;
   GtkCellRenderer *renderer;
   GtkTreeViewColumn *column;
+	GtkLabel *sum_pkg_num,*sum_dl_size,*sum_free_space;
 	extern transaction_t *trans;
+	extern rc_config *global_config;
 	guint i;
+	gint dl_size = 0,free_space = 0,already_dl_size = 0;
+	gchar buf[512];
 
 	summary_treeview = GTK_TREE_VIEW(lookup_widget(trans_window,"transaction_summary_treeview"));
 	store = gtk_tree_store_new (1,G_TYPE_STRING);
+	sum_pkg_num = GTK_LABEL(lookup_widget(trans_window,"summary_pkg_numbers"));
+	sum_dl_size = GTK_LABEL(lookup_widget(trans_window,"summary_dl_size"));
+	sum_free_space = GTK_LABEL(lookup_widget(trans_window,"summary_free_space"));
 
 	/* setup the store */
 	if( trans->exclude_pkgs->pkg_count > 0 ){
@@ -1040,6 +1043,9 @@ void populate_transaction_window(GtkWidget *trans_window){
 		for(i = 0; i < trans->install_pkgs->pkg_count;++i){
 			gtk_tree_store_append (store, &child_iter, &iter);
 			gtk_tree_store_set(store,&child_iter,0,trans->install_pkgs->pkgs[i]->name,-1);
+			dl_size += trans->install_pkgs->pkgs[i]->size_c;
+			already_dl_size += get_pkg_file_size(global_config,trans->install_pkgs->pkgs[i])/1024;
+			free_space += trans->install_pkgs->pkgs[i]->size_u;
 		}
 	}
 	if( trans->upgrade_pkgs->pkg_count > 0 ){
@@ -1048,6 +1054,10 @@ void populate_transaction_window(GtkWidget *trans_window){
 		for(i = 0; i < trans->upgrade_pkgs->pkg_count;++i){
 			gtk_tree_store_append (store, &child_iter, &iter);
 			gtk_tree_store_set(store,&child_iter,0,trans->upgrade_pkgs->pkgs[i]->upgrade->name,-1);
+			dl_size += trans->upgrade_pkgs->pkgs[i]->upgrade->size_c;
+			already_dl_size += get_pkg_file_size(global_config,trans->upgrade_pkgs->pkgs[i]->upgrade)/1024;
+			free_space += trans->upgrade_pkgs->pkgs[i]->upgrade->size_u;
+			free_space -= trans->upgrade_pkgs->pkgs[i]->installed->size_u;
 		}
 	}
 	if( trans->remove_pkgs->pkg_count > 0 ){
@@ -1056,6 +1066,7 @@ void populate_transaction_window(GtkWidget *trans_window){
 		for(i = 0; i < trans->remove_pkgs->pkg_count;++i){
 			gtk_tree_store_append (store, &child_iter, &iter);
 			gtk_tree_store_set(store,&child_iter,0,trans->remove_pkgs->pkgs[i]->name,-1);
+			free_space -= trans->remove_pkgs->pkgs[i]->size_u;
 		}
 	}
 	gtk_tree_view_set_model (GTK_TREE_VIEW(summary_treeview),GTK_TREE_MODEL(store));
@@ -1065,6 +1076,46 @@ void populate_transaction_window(GtkWidget *trans_window){
 		"text", 0, NULL);
   gtk_tree_view_column_set_sort_column_id (column, 0);
   gtk_tree_view_append_column (GTK_TREE_VIEW(summary_treeview), column);
+
+	snprintf(buf,512,_("%d upgraded, %d newly installed, %d to remove and %d not upgraded."),
+		trans->upgrade_pkgs->pkg_count,
+		trans->install_pkgs->pkg_count,
+		trans->remove_pkgs->pkg_count,
+		trans->exclude_pkgs->pkg_count
+	);
+	gtk_label_set_text(GTK_LABEL(sum_pkg_num),buf);
+
+	if( already_dl_size > 0 ){
+		int need_to_dl = dl_size - already_dl_size;
+		snprintf(buf,512,_("Need to get %0.1d%s/%0.1d%s of archives.\n"),
+			(need_to_dl > 1024 ) ? need_to_dl / 1024
+				: need_to_dl,
+			(need_to_dl > 1024 ) ? "MB" : "kB",
+			(dl_size > 1024 ) ? dl_size / 1024 : dl_size,
+			(dl_size > 1024 ) ? "MB" : "kB"
+		);
+	}else{
+		snprintf(buf,512,_("Need to get %0.1d%s of archives."),
+			(dl_size > 1024 ) ? dl_size / 1024 : dl_size,
+			(dl_size > 1024 ) ? "MB" : "kB"
+		);
+	}
+	gtk_label_set_text(GTK_LABEL(sum_dl_size),buf);
+
+	if( free_space < 0 ){
+		free_space *= -1;
+		snprintf(buf,512,_("After unpacking %0.1d%s disk space will be freed."),
+			(free_space > 1024 ) ? free_space / 1024
+				: free_space,
+			(free_space > 1024 ) ? "MB" : "kB"
+		);
+	}else{
+		snprintf(buf,512,_("After unpacking %0.1d%s of additional disk space will be used."),
+			(free_space > 1024 ) ? free_space / 1024 : free_space,
+				(free_space > 1024 ) ? "MB" : "kB"
+		);
+	}
+	gtk_label_set_text(GTK_LABEL(sum_free_space),buf);
 
 }
 

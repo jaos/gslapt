@@ -1209,6 +1209,10 @@ create_transaction_window (void)
   GtkWidget *label168;
   GtkWidget *scrolledwindow18;
   GtkWidget *transaction_summary_treeview;
+  GtkWidget *summary_breakdown;
+  GtkWidget *summary_pkg_numbers;
+  GtkWidget *summary_dl_size;
+  GtkWidget *summary_free_space;
   GtkWidget *download_only_checkbutton;
   GtkWidget *hbuttonbox1;
   GtkWidget *button2;
@@ -1287,6 +1291,36 @@ create_transaction_window (void)
   gtk_tree_view_set_headers_visible (GTK_TREE_VIEW (transaction_summary_treeview), FALSE);
   gtk_tree_view_set_rules_hint (GTK_TREE_VIEW (transaction_summary_treeview), TRUE);
 
+  summary_breakdown = gtk_vbox_new (FALSE, 2);
+  gtk_widget_set_name (summary_breakdown, "summary_breakdown");
+  gtk_widget_show (summary_breakdown);
+  gtk_box_pack_start (GTK_BOX (vbox61), summary_breakdown, FALSE, TRUE, 0);
+  gtk_container_set_border_width (GTK_CONTAINER (summary_breakdown), 6);
+
+  summary_pkg_numbers = gtk_label_new ("");
+  gtk_widget_set_name (summary_pkg_numbers, "summary_pkg_numbers");
+  gtk_widget_show (summary_pkg_numbers);
+  gtk_box_pack_start (GTK_BOX (summary_breakdown), summary_pkg_numbers, FALSE, TRUE, 0);
+  gtk_label_set_use_markup (GTK_LABEL (summary_pkg_numbers), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (summary_pkg_numbers), 0, 0);
+  gtk_misc_set_padding (GTK_MISC (summary_pkg_numbers), 6, 1);
+
+  summary_dl_size = gtk_label_new ("");
+  gtk_widget_set_name (summary_dl_size, "summary_dl_size");
+  gtk_widget_show (summary_dl_size);
+  gtk_box_pack_start (GTK_BOX (summary_breakdown), summary_dl_size, FALSE, TRUE, 0);
+  gtk_label_set_use_markup (GTK_LABEL (summary_dl_size), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (summary_dl_size), 0, 0);
+  gtk_misc_set_padding (GTK_MISC (summary_dl_size), 6, 1);
+
+  summary_free_space = gtk_label_new ("");
+  gtk_widget_set_name (summary_free_space, "summary_free_space");
+  gtk_widget_show (summary_free_space);
+  gtk_box_pack_start (GTK_BOX (summary_breakdown), summary_free_space, FALSE, TRUE, 0);
+  gtk_label_set_use_markup (GTK_LABEL (summary_free_space), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (summary_free_space), 0, 0);
+  gtk_misc_set_padding (GTK_MISC (summary_free_space), 6, 1);
+
   download_only_checkbutton = gtk_check_button_new_with_mnemonic (_("Download packages only"));
   gtk_widget_set_name (download_only_checkbutton, "download_only_checkbutton");
   gtk_widget_show (download_only_checkbutton);
@@ -1333,6 +1367,10 @@ create_transaction_window (void)
   GLADE_HOOKUP_OBJECT (transaction_window, label168, "label168");
   GLADE_HOOKUP_OBJECT (transaction_window, scrolledwindow18, "scrolledwindow18");
   GLADE_HOOKUP_OBJECT (transaction_window, transaction_summary_treeview, "transaction_summary_treeview");
+  GLADE_HOOKUP_OBJECT (transaction_window, summary_breakdown, "summary_breakdown");
+  GLADE_HOOKUP_OBJECT (transaction_window, summary_pkg_numbers, "summary_pkg_numbers");
+  GLADE_HOOKUP_OBJECT (transaction_window, summary_dl_size, "summary_dl_size");
+  GLADE_HOOKUP_OBJECT (transaction_window, summary_free_space, "summary_free_space");
   GLADE_HOOKUP_OBJECT (transaction_window, download_only_checkbutton, "download_only_checkbutton");
   GLADE_HOOKUP_OBJECT (transaction_window, hbuttonbox1, "hbuttonbox1");
   GLADE_HOOKUP_OBJECT (transaction_window, button2, "button2");

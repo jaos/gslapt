@@ -1,5 +1,6 @@
 
 0.2 Feb 21, 2005
+ * updated summary report to show statistics
  * cancelling summary has different callback when using dist-upgrade, clears transaction
  * remove dist-upgrade option
  * only show the download dialog if there are packages to download
