@@ -1313,9 +1313,8 @@ gboolean download_packages(void){
 		++count;
 	}
 
-	gtk_widget_destroy(progress_window);
-
 	gdk_threads_enter();
+	gtk_widget_destroy(progress_window);
 	gslapt_clear_status(context_id);
 	gdk_threads_leave();
 
@@ -1398,7 +1397,11 @@ gboolean install_packages(void){
 		}
 	}
 
+	gdk_threads_enter();
 	gtk_widget_destroy(progress_window);
+	gslapt_clear_status(context_id);
+	gdk_threads_leave();
+
 	return TRUE;
 }
 
