@@ -124,7 +124,7 @@ create_window_preferences (void)
   gtk_widget_show (hbox3);
   gtk_box_pack_start (GTK_BOX (preferences_working_dir_vbox_vbox), hbox3, TRUE, TRUE, 0);
 
-  label72 = gtk_label_new (_("    "));
+  label72 = gtk_label_new ("    ");
   gtk_widget_set_name (label72, "label72");
   gtk_widget_show (label72);
   gtk_box_pack_start (GTK_BOX (hbox3), label72, FALSE, FALSE, 0);
@@ -170,7 +170,7 @@ create_window_preferences (void)
   gtk_box_pack_start (GTK_BOX (vbox57), hbox92, TRUE, TRUE, 0);
   gtk_widget_set_size_request (hbox92, -1, 174);
 
-  label162 = gtk_label_new (_("    "));
+  label162 = gtk_label_new ("    ");
   gtk_widget_set_name (label162, "label162");
   gtk_widget_show (label162);
   gtk_box_pack_start (GTK_BOX (hbox92), label162, FALSE, FALSE, 0);
@@ -258,7 +258,7 @@ create_window_preferences (void)
   gtk_box_pack_start (GTK_BOX (preferences_exclude_vbox_vbox), hbox81, TRUE, TRUE, 0);
   gtk_widget_set_size_request (hbox81, -1, 174);
 
-  label140 = gtk_label_new (_("    "));
+  label140 = gtk_label_new ("    ");
   gtk_widget_set_name (label140, "label140");
   gtk_widget_show (label140);
   gtk_box_pack_start (GTK_BOX (hbox81), label140, FALSE, FALSE, 0);

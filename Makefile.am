@@ -32,3 +32,5 @@ dist-hook:
 	  done \
 	fi
 
+makepkg:
+	@$(NORMAL_INSTALL)
