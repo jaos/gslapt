@@ -61,9 +61,7 @@ int main (int argc, char *argv[]){
 	installed = get_installed_pkgs();
 	all = get_available_pkgs();
 
-	build_installed_treeviewlist((GtkWidget *)lookup_widget(gslapt,"inst_pkg_listing_treeview"));
-	build_available_treeviewlist((GtkWidget *)lookup_widget(gslapt,"available_pkg_listing_treeview"));
-	build_searched_treeviewlist((GtkWidget *)lookup_widget(gslapt,"search_pkg_listing_treeview"),NULL);
+	build_package_treeviewlist((GtkWidget *)lookup_widget(gslapt,"pkg_listing_treeview"));
 
 	bar = GTK_STATUSBAR(lookup_widget(gslapt,"bottom_statusbar"));
 	default_context_id = gtk_statusbar_get_context_id(bar,"default");

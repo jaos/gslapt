@@ -46,3 +46,5 @@ void build_exclude_treeviewlist(GtkWidget *treeview, const rc_config *global_con
 
 void populate_transaction_window(GtkWidget *trans_window);
 
+
+void on_search_tab_clear_button_clicked(GtkWidget *button,gpointer user_data);

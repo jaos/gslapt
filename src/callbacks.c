@@ -14,7 +14,7 @@
 void on_gslapt_destroy (GtkObject *object, gpointer user_data) {
 	(void)object;
 	(void)user_data;
-	gtk_main_quit ();
+	gtk_main_quit();
 }
 
 void update_callback (GtkObject *object, gpointer user_data) {
@@ -58,7 +58,7 @@ void execute_callback (GtkObject *object, gpointer user_data) {
 void quit_callback(GtkMenuItem *menuitem, gpointer user_data){
 	(void)menuitem;
 	(void)user_data;
-	gtk_main_quit ();
+	gtk_main_quit();
 }
 
 void open_preferences (GtkMenuItem *menuitem, gpointer user_data) {
@@ -95,7 +95,7 @@ void on_search_tab_search_button_clicked (GtkButton *button, gpointer user_data)
 	/* search_tab_search_entry */
 	pattern = (gchar *)gtk_entry_get_text(GTK_ENTRY(lookup_widget(gslapt,"search_tab_search_entry")));
 
-	treeview = GTK_TREE_VIEW(lookup_widget(gslapt,"search_pkg_listing_treeview"));
+	treeview = GTK_TREE_VIEW(lookup_widget(gslapt,"pkg_listing_treeview"));
 	clear_treeview(treeview);
 	build_searched_treeviewlist(GTK_WIDGET(treeview),pattern);
 }
@@ -256,52 +256,7 @@ void add_pkg_for_exclude (GtkButton *button, gpointer user_data) {
 	return;
 }
 
-void build_installed_treeviewlist(GtkWidget *treeview){
-	GtkListStore *store;
-	GtkTreeIter iter;
-  GtkCellRenderer *renderer;
-  GtkTreeViewColumn *column;
-	GtkTreeSelection *select;
-	extern struct pkg_list *installed;
-	guint i = 0;
-
-	store = gtk_list_store_new (
-		3, /* name, version */
-		G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING
-	);
-
-	for(i = 0; i < installed->pkg_count; i++ ){
-		gtk_list_store_append (store, &iter);
-		gtk_list_store_set ( store, &iter,
-			0,installed->pkgs[i]->name, 1,installed->pkgs[i]->version, 2,installed->pkgs[i]->location,-1
-		);
-	}
-
-  /* column for name */
-  renderer = gtk_cell_renderer_text_new ();
-	column = gtk_tree_view_column_new_with_attributes ("Name", renderer,
-		"text", 0, NULL);
-  gtk_tree_view_column_set_sort_column_id (column, 0);
-  gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
-
-  /* column for version */
-  renderer = gtk_cell_renderer_text_new ();
-	column = gtk_tree_view_column_new_with_attributes ("Version", renderer,
-		"text", 1, NULL);
-  gtk_tree_view_column_set_sort_column_id (column, 1);
-  gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
-
-	gtk_tree_view_set_model (GTK_TREE_VIEW(treeview),GTK_TREE_MODEL(store));
-
-	select = gtk_tree_view_get_selection (GTK_TREE_VIEW (treeview));
-	gtk_tree_selection_set_mode (select, GTK_SELECTION_SINGLE);
-	g_signal_connect (G_OBJECT (select), "changed",
-		G_CALLBACK (show_pkg_details), NULL);
-
-}
-
-
-void build_available_treeviewlist(GtkWidget *treeview){
+void build_package_treeviewlist(GtkWidget *treeview){
 	GtkListStore *store;
 	GtkTreeIter iter;
   GtkCellRenderer *renderer;
@@ -312,44 +267,53 @@ void build_available_treeviewlist(GtkWidget *treeview){
 	extern struct pkg_list *installed;
 
 	store = gtk_list_store_new (
-		3, /* name, version, location */
-		G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING
+		4, /* name, version, location, installed */
+		G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING
 	);
 
 	for(i = 0; i < all->pkg_count; i++ ){
+		guint is_inst = 0;
+		gtk_list_store_append (store, &iter);
 		if( get_pkg_by_details(
 					installed,
 					all->pkgs[i]->name,
 					all->pkgs[i]->version,
 					all->pkgs[i]->location
-				) == NULL
+				) != NULL
 		){
-			gtk_list_store_append (store, &iter);
-			gtk_list_store_set ( store, &iter,
-				0,all->pkgs[i]->name, 1,all->pkgs[i]->version, 2,all->pkgs[i]->location, -1
-			);
+			is_inst = 1;
 		}
+		gtk_list_store_set ( store, &iter,
+			0,all->pkgs[i]->name, 1,all->pkgs[i]->version, 2,all->pkgs[i]->location,3,(is_inst == 1 ) ? "Yes" : "No", -1
+		);
 	}
 
   /* column for name */
-  renderer = gtk_cell_renderer_text_new ();
+  renderer = gtk_cell_renderer_text_new();
 	column = gtk_tree_view_column_new_with_attributes ("Name", renderer,
 		"text", 0, NULL);
   gtk_tree_view_column_set_sort_column_id (column, 0);
   gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
 
   /* column for version */
-  renderer = gtk_cell_renderer_text_new ();
+  renderer = gtk_cell_renderer_text_new();
 	column = gtk_tree_view_column_new_with_attributes ("Version", renderer,
 		"text", 1, NULL);
   gtk_tree_view_column_set_sort_column_id (column, 1);
   gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
 
   /* column for location */
-  renderer = gtk_cell_renderer_text_new ();
+  renderer = gtk_cell_renderer_text_new();
 	column = gtk_tree_view_column_new_with_attributes ("Location", renderer,
 		"text", 2, NULL);
   gtk_tree_view_column_set_sort_column_id (column, 2);
+  gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
+
+	/* column for installed status */
+	renderer = gtk_cell_renderer_text_new();
+	column = gtk_tree_view_column_new_with_attributes ("Installed", renderer,
+		"text", 3, NULL);
+  gtk_tree_view_column_set_sort_column_id (column, 3);
   gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
 
 	gtk_tree_view_set_model (GTK_TREE_VIEW(treeview),GTK_TREE_MODEL(store));
@@ -435,29 +399,29 @@ void build_searched_treeviewlist(GtkWidget *treeview, gchar *pattern){
 	}
 
   /* column for name */
-  renderer = gtk_cell_renderer_text_new ();
+  renderer = gtk_cell_renderer_text_new();
 	column = gtk_tree_view_column_new_with_attributes ("Name", renderer,
 		"text", 0, NULL);
   gtk_tree_view_column_set_sort_column_id (column, 0);
   gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
 
   /* column for version */
-  renderer = gtk_cell_renderer_text_new ();
+  renderer = gtk_cell_renderer_text_new();
 	column = gtk_tree_view_column_new_with_attributes ("Version", renderer,
 		"text", 1, NULL);
   gtk_tree_view_column_set_sort_column_id (column, 1);
   gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
 
   /* column for location */
-  renderer = gtk_cell_renderer_text_new ();
+  renderer = gtk_cell_renderer_text_new();
 	column = gtk_tree_view_column_new_with_attributes ("Location", renderer,
 		"text", 2, NULL);
   gtk_tree_view_column_set_sort_column_id (column, 2);
   gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
 
-  /* column for install */
-  renderer = gtk_cell_renderer_text_new ();
-	column = gtk_tree_view_column_new_with_attributes ("Installed?", renderer,
+  /* column for installed status */
+  renderer = gtk_cell_renderer_text_new();
+	column = gtk_tree_view_column_new_with_attributes ("Installed", renderer,
 		"text", 3, NULL);
   gtk_tree_view_column_set_sort_column_id (column, 3);
   gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
@@ -834,18 +798,17 @@ void rebuild_treeviews(void){
 	extern struct pkg_list *all;
 	struct pkg_list *all_ptr,*installed_ptr;
 
-	treeview = (GtkWidget *)lookup_widget(gslapt,"inst_pkg_listing_treeview");
-	clear_treeview( GTK_TREE_VIEW(treeview) );
 	installed_ptr = installed;
-	installed = get_installed_pkgs();
-	build_installed_treeviewlist(treeview);
-	free_pkg_list(installed_ptr);
-
-	treeview = (GtkWidget *)lookup_widget(gslapt,"available_pkg_listing_treeview");
-	clear_treeview( GTK_TREE_VIEW(treeview) );
 	all_ptr = all;
+
+	installed = get_installed_pkgs();
 	all = get_available_pkgs();
-	build_available_treeviewlist(treeview);
+
+	treeview = (GtkWidget *)lookup_widget(gslapt,"pkg_listing_treeview");
+	clear_treeview( GTK_TREE_VIEW(treeview) );
+	build_package_treeviewlist(treeview);
+
+	free_pkg_list(installed_ptr);
 	free_pkg_list(all_ptr);
 
 }
@@ -948,7 +911,7 @@ void build_sources_treeviewlist(GtkWidget *treeview, const rc_config *global_con
 	}
 
   /* column for url */
-  renderer = gtk_cell_renderer_text_new ();
+  renderer = gtk_cell_renderer_text_new();
 	column = gtk_tree_view_column_new_with_attributes ("Source", renderer,
 		"text", 0, NULL);
   gtk_tree_view_column_set_sort_column_id (column, 0);
@@ -980,7 +943,7 @@ void build_exclude_treeviewlist(GtkWidget *treeview, const rc_config *global_con
 	}
 
   /* column for url */
-  renderer = gtk_cell_renderer_text_new ();
+  renderer = gtk_cell_renderer_text_new();
 	column = gtk_tree_view_column_new_with_attributes ("Expression", renderer,
 		"text", 0, NULL);
   gtk_tree_view_column_set_sort_column_id (column, 0);
@@ -1008,7 +971,7 @@ void populate_transaction_window(GtkWidget *trans_window){
 		gtk_list_store_append (e_store, &e_iter);
 		gtk_list_store_set(e_store,&e_iter,0,trans->exclude_pkgs->pkgs[i]->name,-1);
 	}
-  renderer = gtk_cell_renderer_text_new ();
+  renderer = gtk_cell_renderer_text_new();
 	column = gtk_tree_view_column_new_with_attributes ("Exclude", renderer,
 		"text", 0, NULL);
   gtk_tree_view_column_set_sort_column_id (column, 0);
@@ -1024,7 +987,7 @@ void populate_transaction_window(GtkWidget *trans_window){
 		gtk_list_store_append (i_store, &i_iter);
 		gtk_list_store_set(i_store,&i_iter,0,trans->install_pkgs->pkgs[i]->name,-1);
 	}
-  renderer = gtk_cell_renderer_text_new ();
+  renderer = gtk_cell_renderer_text_new();
 	column = gtk_tree_view_column_new_with_attributes ("Install", renderer,
 		"text", 0, NULL);
   gtk_tree_view_column_set_sort_column_id (column, 0);
@@ -1040,7 +1003,7 @@ void populate_transaction_window(GtkWidget *trans_window){
 		gtk_list_store_append (u_store, &u_iter);
 		gtk_list_store_set(u_store,&u_iter,0,trans->upgrade_pkgs->pkgs[i]->upgrade->name,-1);
 	}
-  renderer = gtk_cell_renderer_text_new ();
+  renderer = gtk_cell_renderer_text_new();
 	column = gtk_tree_view_column_new_with_attributes ("Upgrade", renderer,
 		"text", 0, NULL);
   gtk_tree_view_column_set_sort_column_id (column, 0);
@@ -1056,7 +1019,7 @@ void populate_transaction_window(GtkWidget *trans_window){
 		gtk_list_store_append (r_store, &r_iter);
 		gtk_list_store_set(r_store,&r_iter,0,trans->remove_pkgs->pkgs[i]->name,-1);
 	}
-  renderer = gtk_cell_renderer_text_new ();
+  renderer = gtk_cell_renderer_text_new();
 	column = gtk_tree_view_column_new_with_attributes ("Remove", renderer,
 		"text", 0, NULL);
   gtk_tree_view_column_set_sort_column_id (column, 0);
@@ -1065,5 +1028,12 @@ void populate_transaction_window(GtkWidget *trans_window){
 	select = gtk_tree_view_get_selection (GTK_TREE_VIEW (remove_treeview));
 	gtk_tree_selection_set_mode (select, GTK_SELECTION_SINGLE);
 
+}
+
+
+void on_search_tab_clear_button_clicked(GtkWidget *w, gpointer user_data) {
+	/* gtk_entry_set_text(working_dir,global_config->working_dir); */
+	gtk_entry_set_text(w,"");
+	rebuild_treeviews();
 }
 

@@ -649,20 +649,14 @@ create_gslapt (void)
   GtkWidget *action_bar_quit_button;
   GtkWidget *pkg_notebook_info_actionbox;
   GtkWidget *pkg_notebook;
-  GtkWidget *available_tab_viewport;
-  GtkWidget *available_tab_scroll;
-  GtkWidget *available_pkg_listing_treeview;
-  GtkWidget *available_tab;
-  GtkWidget *install_tab_scrolled;
-  GtkWidget *inst_pkg_listing_treeview;
-  GtkWidget *installed_tab;
   GtkWidget *search_tab_vbox;
   GtkWidget *search_tab_search_align;
   GtkWidget *search_tab_search_hbox;
   GtkWidget *search_tab_search_entry;
   GtkWidget *search_tab_search_button;
+  GtkWidget *search_tab_clear_button;
   GtkWidget *search_tab_search_results_scrolled;
-  GtkWidget *search_pkg_listing_treeview;
+  GtkWidget *pkg_listing_treeview;
   GtkWidget *search_tab;
   GtkWidget *pkg_info_action_hbox;
   GtkWidget *pkg_info_frame;
@@ -899,43 +893,6 @@ create_gslapt (void)
   gtk_box_pack_start (GTK_BOX (pkg_notebook_info_actionbox), pkg_notebook, TRUE, TRUE, 0);
   gtk_notebook_set_scrollable (GTK_NOTEBOOK (pkg_notebook), TRUE);
 
-  available_tab_viewport = gtk_viewport_new (NULL, NULL);
-  gtk_widget_set_name (available_tab_viewport, "available_tab_viewport");
-  gtk_widget_show (available_tab_viewport);
-  gtk_container_add (GTK_CONTAINER (pkg_notebook), available_tab_viewport);
-
-  available_tab_scroll = gtk_scrolled_window_new (NULL, NULL);
-  gtk_widget_set_name (available_tab_scroll, "available_tab_scroll");
-  gtk_widget_show (available_tab_scroll);
-  gtk_container_add (GTK_CONTAINER (available_tab_viewport), available_tab_scroll);
-  gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (available_tab_scroll), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
-
-  available_pkg_listing_treeview = gtk_tree_view_new ();
-  gtk_widget_set_name (available_pkg_listing_treeview, "available_pkg_listing_treeview");
-  gtk_widget_show (available_pkg_listing_treeview);
-  gtk_container_add (GTK_CONTAINER (available_tab_scroll), available_pkg_listing_treeview);
-
-  available_tab = gtk_label_new_with_mnemonic (_("_Available Packages"));
-  gtk_widget_set_name (available_tab, "available_tab");
-  gtk_widget_show (available_tab);
-  gtk_notebook_set_tab_label (GTK_NOTEBOOK (pkg_notebook), gtk_notebook_get_nth_page (GTK_NOTEBOOK (pkg_notebook), 0), available_tab);
-
-  install_tab_scrolled = gtk_scrolled_window_new (NULL, NULL);
-  gtk_widget_set_name (install_tab_scrolled, "install_tab_scrolled");
-  gtk_widget_show (install_tab_scrolled);
-  gtk_container_add (GTK_CONTAINER (pkg_notebook), install_tab_scrolled);
-  gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (install_tab_scrolled), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
-
-  inst_pkg_listing_treeview = gtk_tree_view_new ();
-  gtk_widget_set_name (inst_pkg_listing_treeview, "inst_pkg_listing_treeview");
-  gtk_widget_show (inst_pkg_listing_treeview);
-  gtk_container_add (GTK_CONTAINER (install_tab_scrolled), inst_pkg_listing_treeview);
-
-  installed_tab = gtk_label_new_with_mnemonic (_("_Installed Packages"));
-  gtk_widget_set_name (installed_tab, "installed_tab");
-  gtk_widget_show (installed_tab);
-  gtk_notebook_set_tab_label (GTK_NOTEBOOK (pkg_notebook), gtk_notebook_get_nth_page (GTK_NOTEBOOK (pkg_notebook), 1), installed_tab);
-
   search_tab_vbox = gtk_vbox_new (FALSE, 0);
   gtk_widget_set_name (search_tab_vbox, "search_tab_vbox");
   gtk_widget_show (search_tab_vbox);
@@ -963,21 +920,28 @@ create_gslapt (void)
   gtk_box_pack_start (GTK_BOX (search_tab_search_hbox), search_tab_search_button, FALSE, FALSE, 0);
   gtk_tooltips_set_tip (tooltips, search_tab_search_button, _("Search for expression"), NULL);
 
+  search_tab_clear_button = gtk_button_new_with_mnemonic (_("Clear"));
+  gtk_widget_set_name (search_tab_clear_button, "search_tab_clear_button");
+  gtk_widget_show (search_tab_clear_button);
+  gtk_box_pack_start (GTK_BOX (search_tab_search_hbox), search_tab_clear_button, FALSE, FALSE, 0);
+
   search_tab_search_results_scrolled = gtk_scrolled_window_new (NULL, NULL);
   gtk_widget_set_name (search_tab_search_results_scrolled, "search_tab_search_results_scrolled");
   gtk_widget_show (search_tab_search_results_scrolled);
   gtk_box_pack_start (GTK_BOX (search_tab_vbox), search_tab_search_results_scrolled, TRUE, TRUE, 0);
   gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (search_tab_search_results_scrolled), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
 
-  search_pkg_listing_treeview = gtk_tree_view_new ();
-  gtk_widget_set_name (search_pkg_listing_treeview, "search_pkg_listing_treeview");
-  gtk_widget_show (search_pkg_listing_treeview);
-  gtk_container_add (GTK_CONTAINER (search_tab_search_results_scrolled), search_pkg_listing_treeview);
+  pkg_listing_treeview = gtk_tree_view_new ();
+  gtk_widget_set_name (pkg_listing_treeview, "pkg_listing_treeview");
+  gtk_widget_show (pkg_listing_treeview);
+  gtk_container_add (GTK_CONTAINER (search_tab_search_results_scrolled), pkg_listing_treeview);
+  gtk_tree_view_set_rules_hint (GTK_TREE_VIEW (pkg_listing_treeview), TRUE);
+  gtk_tree_view_set_reorderable (GTK_TREE_VIEW (pkg_listing_treeview), TRUE);
 
-  search_tab = gtk_label_new_with_mnemonic (_("_Search Packages"));
+  search_tab = gtk_label_new_with_mnemonic (_("Packages"));
   gtk_widget_set_name (search_tab, "search_tab");
   gtk_widget_show (search_tab);
-  gtk_notebook_set_tab_label (GTK_NOTEBOOK (pkg_notebook), gtk_notebook_get_nth_page (GTK_NOTEBOOK (pkg_notebook), 2), search_tab);
+  gtk_notebook_set_tab_label (GTK_NOTEBOOK (pkg_notebook), gtk_notebook_get_nth_page (GTK_NOTEBOOK (pkg_notebook), 0), search_tab);
 
   pkg_info_action_hbox = gtk_hbox_new (FALSE, 0);
   gtk_widget_set_name (pkg_info_action_hbox, "pkg_info_action_hbox");
@@ -1302,6 +1266,9 @@ create_gslapt (void)
   g_signal_connect ((gpointer) search_tab_search_button, "clicked",
                     G_CALLBACK (on_search_tab_search_button_clicked),
                     NULL);
+  g_signal_connect_swapped ((gpointer) search_tab_clear_button, "clicked",
+                            G_CALLBACK (on_search_tab_clear_button_clicked),
+                            GTK_OBJECT (search_tab_search_entry));
   g_signal_connect ((gpointer) pkg_info_action_install_upgrade_button, "clicked",
                     G_CALLBACK (add_pkg_for_install),
                     NULL);
@@ -1344,20 +1311,14 @@ create_gslapt (void)
   GLADE_HOOKUP_OBJECT (gslapt, action_bar_quit_button, "action_bar_quit_button");
   GLADE_HOOKUP_OBJECT (gslapt, pkg_notebook_info_actionbox, "pkg_notebook_info_actionbox");
   GLADE_HOOKUP_OBJECT (gslapt, pkg_notebook, "pkg_notebook");
-  GLADE_HOOKUP_OBJECT (gslapt, available_tab_viewport, "available_tab_viewport");
-  GLADE_HOOKUP_OBJECT (gslapt, available_tab_scroll, "available_tab_scroll");
-  GLADE_HOOKUP_OBJECT (gslapt, available_pkg_listing_treeview, "available_pkg_listing_treeview");
-  GLADE_HOOKUP_OBJECT (gslapt, available_tab, "available_tab");
-  GLADE_HOOKUP_OBJECT (gslapt, install_tab_scrolled, "install_tab_scrolled");
-  GLADE_HOOKUP_OBJECT (gslapt, inst_pkg_listing_treeview, "inst_pkg_listing_treeview");
-  GLADE_HOOKUP_OBJECT (gslapt, installed_tab, "installed_tab");
   GLADE_HOOKUP_OBJECT (gslapt, search_tab_vbox, "search_tab_vbox");
   GLADE_HOOKUP_OBJECT (gslapt, search_tab_search_align, "search_tab_search_align");
   GLADE_HOOKUP_OBJECT (gslapt, search_tab_search_hbox, "search_tab_search_hbox");
   GLADE_HOOKUP_OBJECT (gslapt, search_tab_search_entry, "search_tab_search_entry");
   GLADE_HOOKUP_OBJECT (gslapt, search_tab_search_button, "search_tab_search_button");
+  GLADE_HOOKUP_OBJECT (gslapt, search_tab_clear_button, "search_tab_clear_button");
   GLADE_HOOKUP_OBJECT (gslapt, search_tab_search_results_scrolled, "search_tab_search_results_scrolled");
-  GLADE_HOOKUP_OBJECT (gslapt, search_pkg_listing_treeview, "search_pkg_listing_treeview");
+  GLADE_HOOKUP_OBJECT (gslapt, pkg_listing_treeview, "pkg_listing_treeview");
   GLADE_HOOKUP_OBJECT (gslapt, search_tab, "search_tab");
   GLADE_HOOKUP_OBJECT (gslapt, pkg_info_action_hbox, "pkg_info_action_hbox");
   GLADE_HOOKUP_OBJECT (gslapt, pkg_info_frame, "pkg_info_frame");
