@@ -36,10 +36,13 @@ dist-hook:
 	fi
 
 slackpkg: all
+	-rm -rf $(SLACKPKGBUILDIR)
 	@make install DESTDIR=$(SLACKPKGBUILDIR)
-	cp slack-desc $(SLACKPKGBUILDIR)
-	cp slack-required $(SLACKPKGBUILDIR)
+	$(mkinstalldirs) $(SLACKPKGBUILDIR)/install
+	install slack-desc $(SLACKPKGBUILDIR)/install/
+	install slack-required $(SLACKPKGBUILDIR)/install/
 	chown root:bin $(SLACKPKGBUILDIR)/$(sbindir)
 	chown root:bin $(SLACKPKGBUILDIR)/$(sbindir)/@PACKAGE@
+	strip --strip-unneeded $(SLACKPKGBUILDIR)/$(sbindir)/@PACKAGE@
 	( cd $(SLACKPKGBUILDIR) && /sbin/makepkg -l y -c n @PACKAGE@-@VERSION@-i386-1.tgz )
 
