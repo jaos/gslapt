@@ -892,12 +892,8 @@ void unlock_toolbar_buttons(void){
 }
 
 void preferences_sources_add(GtkWidget *w, gpointer user_data){
-	GtkWidget *add_sources_dialog;
 	(void)user_data;
 
-	gtk_widget_destroy(w);
-	add_sources_dialog = create_add_source_dialog();
-	gtk_widget_show(add_sources_dialog);
 }
 
 void preferences_sources_remove(GtkButton *button, gpointer user_data){
@@ -957,12 +953,8 @@ void on_transaction_okbutton1_clicked(GtkWidget *w, gpointer user_data){
 
 
 void preferences_exclude_add(GtkWidget *w, gpointer user_data) {
-	GtkWidget *add_exclude_dialog;
 	(void)user_data;
 
-	gtk_widget_destroy(w);
-	add_exclude_dialog = create_add_exclude_dialog();
-	gtk_widget_show(add_exclude_dialog);
 }
 
 void preferences_exclude_remove(GtkButton *button, gpointer user_data) {
