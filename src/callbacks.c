@@ -901,7 +901,7 @@ static void lhandle_transaction(GtkWidget *w){
 	gtk_widget_destroy(w);
 
 	/* download the pkgs */
-	if( trans->install_pkgs->pkg_count > 0 && trans->upgrade_pkgs->pkg_count > 0 ){
+	if( trans->install_pkgs->pkg_count > 0 || trans->upgrade_pkgs->pkg_count > 0 ){
 		if( download_packages() == FALSE ){
 			/* error dialog here */
 			on_gslapt_destroy(NULL,NULL);
@@ -1134,115 +1134,6 @@ void build_upgrade_list(void){
 	extern transaction_t *trans;
 	guint i;
 
-	if( global_config->dist_upgrade == TRUE ){
-		struct pkg_list *matches = search_pkg_list(all,SLACK_BASE_SET_REGEX);
-
-		for(i = 0; i < matches->pkg_count; i++){
-			pkg_info_t *installed_pkg = NULL;
-			pkg_info_t *newer_avail_pkg = NULL;
-			pkg_info_t *upgrade_pkg = NULL;
-
-			installed_pkg = get_newest_pkg(installed,matches->pkgs[i]->name);
-			newer_avail_pkg = get_newest_pkg(all,matches->pkgs[i]->name);
-
-			/* if there is a newer available version (such as from patches/) use it instead */
-			if( cmp_pkg_versions(matches->pkgs[i]->version,newer_avail_pkg->version) < 0 ){
-				upgrade_pkg = newer_avail_pkg;
-			}else{
-				upgrade_pkg = matches->pkgs[i];
-			}
-
-			/* add to install list if not already installed */
-			if( installed_pkg == NULL ){
-				if( is_excluded(global_config,upgrade_pkg) == 1 ){
-					add_exclude_to_transaction(trans,upgrade_pkg);
-				}else{
-
-					/* add install if all deps are good and it doesn't have conflicts */
-					if(
-						(add_deps_to_trans(global_config,trans,all,installed,upgrade_pkg) == 0)
-						&& ( is_conflicted(trans,all,installed,upgrade_pkg) == NULL )
-					){
-						add_install_to_transaction(trans,upgrade_pkg);
-					}else{
-						/* otherwise exclude */
-						add_exclude_to_transaction(trans,upgrade_pkg);
-					}
-
-				}
-			/* even if it's installed, check to see that the packages are different */
-			/* simply running a version comparison won't do it since sometimes the */
-			/* arch is the only thing that changes */
-			}else if(
-				(cmp_pkg_versions(installed_pkg->version,upgrade_pkg->version) <= 0) &&
-				strcmp(installed_pkg->version,upgrade_pkg->version) != 0
-			){
-
-				if( is_excluded(global_config,upgrade_pkg) == 1 ){
-					add_exclude_to_transaction(trans,upgrade_pkg);
-				}else{
-					/* if all deps are added and there is no conflicts, add on */
-					if(
-						(add_deps_to_trans(global_config,trans,all,installed,upgrade_pkg) == 0)
-						&& ( is_conflicted(trans,all,installed,upgrade_pkg) == NULL )
-					){
-						add_upgrade_to_transaction(trans,installed_pkg,upgrade_pkg);
-					}else{
-						/* otherwise exclude */
-						add_exclude_to_transaction(trans,upgrade_pkg);
-					}
-				}
-
-			}
-
-		}
-
-		free_pkg_list(matches);
-
-		/* remove obsolete packages if prompted to */
-		if( global_config->remove_obsolete == TRUE ){
-			unsigned int r;
-
-			for(r = 0; r < installed->pkg_count; r++){
-
-				/* if we can't find the installed package in our available pkg list, it must be obsolete */
-				if( get_newest_pkg(all,installed->pkgs[r]->name) == NULL ){
-						struct		pkg_list	*deps;
-						unsigned	int 			c;
-						/*
-							any packages that require this package we are about to remove should be
-							scheduled to remove as well
-						*/
-						deps = is_required_by(global_config,all,installed->pkgs[r]);
-						for(c = 0; c < deps->pkg_count; c++ ){
-							if( get_newest_pkg(all,deps->pkgs[c]->name) == NULL ){
-								if( is_excluded(global_config,deps->pkgs[c]) != 1 ){
-									add_remove_to_transaction(trans,deps->pkgs[c]);
-								}else{
-									add_exclude_to_transaction(trans,deps->pkgs[c]);
-								}
-							}
-						}
-						free_pkg_list(deps);
-						if( is_excluded(global_config,installed->pkgs[r]) != 1 ){
-							add_remove_to_transaction(trans,installed->pkgs[r]);
-						}else{
-							add_exclude_to_transaction(trans,installed->pkgs[r]);
-						}
-				}
-
-			}
-
-		}/* end if remove_obsolete */
-
-		/* insurance so that all of slapt-get's requirements are also installed */
-		add_deps_to_trans(
-			global_config,trans,all,installed,
-			get_newest_pkg(all,"slapt-get")
-		);
-		
-	}
-
 	for(i = 0; i < installed->pkg_count;i++){
 		pkg_info_t *update_pkg = NULL;
 		pkg_info_t *newer_installed_pkg = NULL;
@@ -1265,16 +1156,8 @@ void build_upgrade_list(void){
 
 			/* if the update has a newer version, attempt to upgrade */
 			cmp_r = cmp_pkg_versions(installed->pkgs[i]->version,update_pkg->version);
-			if(
-				/* either it's greater, or we want to reinstall */
-				cmp_r < 0 || (global_config->re_install == TRUE) ||
-				/* or this is a dist upgrade and the versions are the save except for the arch */
-				(
-					global_config->dist_upgrade == TRUE &&
-					cmp_r == 0 &&
-					strcmp(installed->pkgs[i]->version,update_pkg->version) != 0
-				)
-			){
+			/* either it's greater, or we want to reinstall */
+			if( cmp_r < 0 || (global_config->re_install == TRUE) ){
 
 				if( (is_excluded(global_config,update_pkg) == 1)
 					|| (is_excluded(global_config,installed->pkgs[i]) == 1)
