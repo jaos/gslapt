@@ -1,3 +1,7 @@
 
+0.2alpha Feb 14, 2005
+ * added tooltip for clear button
+ * progress dialog for download/install/remove/upgrade shows pkg description
+
 0.1alpha Feb 13, 2005
  * initial release

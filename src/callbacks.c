@@ -1260,7 +1260,7 @@ void build_upgrade_list(void){
 
 gboolean download_packages(void){
 	GtkWidget *progress_window;
-	GtkLabel *progress_action_label,*progress_message_label;
+	GtkLabel *progress_action_label,*progress_message_label,*progress_pkg_desc;
 	GtkProgressBar *p_bar;
 	extern transaction_t *trans;
 	extern rc_config *global_config;
@@ -1276,6 +1276,7 @@ gboolean download_packages(void){
 	p_bar = GTK_PROGRESS_BAR(lookup_widget(progress_window,"progress_progressbar"));
 	progress_action_label = GTK_LABEL(lookup_widget(progress_window,"progress_action"));
 	progress_message_label = GTK_LABEL(lookup_widget(progress_window,"progress_message"));
+	progress_pkg_desc = GTK_LABEL(lookup_widget(progress_window,"progress_package_description"));
 
 	gdk_threads_enter();
 	gtk_widget_show(progress_window);
@@ -1294,6 +1295,7 @@ gboolean download_packages(void){
 		);
 
 		gdk_threads_enter();
+		gtk_label_set_text(progress_pkg_desc,trans->install_pkgs->pkgs[i]->description);
 		gtk_label_set_text(progress_action_label,"Downloading...");
 		gtk_label_set_text(progress_message_label,msg);
 		gtk_progress_bar_set_fraction(p_bar,((count * 100)/pkgs_to_dl)/100);
@@ -1315,6 +1317,7 @@ gboolean download_packages(void){
 		);
 
 		gdk_threads_enter();
+		gtk_label_set_text(progress_pkg_desc,trans->upgrade_pkgs->pkgs[i]->upgrade->description);
 		gtk_label_set_text(progress_action_label,"Downloading...");
 		gtk_label_set_text(progress_message_label,msg);
 		gtk_progress_bar_set_fraction(p_bar,((count * 100)/pkgs_to_dl)/100);
@@ -1331,7 +1334,7 @@ gboolean download_packages(void){
 
 gboolean install_packages(void){
 	GtkWidget *progress_window;
-	GtkLabel *progress_action_label,*progress_message_label;
+	GtkLabel *progress_action_label,*progress_message_label,*progress_pkg_desc;
 	GtkProgressBar *p_bar;
 	extern transaction_t *trans;
 	extern rc_config *global_config;
@@ -1345,6 +1348,7 @@ gboolean install_packages(void){
 	p_bar = GTK_PROGRESS_BAR(lookup_widget(progress_window,"progress_progressbar"));
 	progress_action_label = GTK_LABEL(lookup_widget(progress_window,"progress_action"));
 	progress_message_label = GTK_LABEL(lookup_widget(progress_window,"progress_message"));
+	progress_pkg_desc = GTK_LABEL(lookup_widget(progress_window,"progress_package_description"));
 
 	gdk_threads_enter();
 	gtk_widget_show(progress_window);
@@ -1352,6 +1356,7 @@ gboolean install_packages(void){
 
 	for(i = 0; i < trans->remove_pkgs->pkg_count;++i){
 		gdk_threads_enter();
+		gtk_label_set_text(progress_pkg_desc,trans->remove_pkgs->pkgs[i]->description);
 		gtk_label_set_text(progress_action_label,"Uninstalling...");
 		gtk_label_set_text(progress_message_label,trans->remove_pkgs->pkgs[i]->name);
 		gdk_threads_leave();
@@ -1370,6 +1375,7 @@ gboolean install_packages(void){
 	/* now for the installs */
 	for(i = 0; i < trans->install_pkgs->pkg_count;++i){
 		gdk_threads_enter();
+		gtk_label_set_text(progress_pkg_desc,trans->install_pkgs->pkgs[i]->description);
 		gtk_label_set_text(progress_action_label,"Installing...");
 		gtk_label_set_text(progress_message_label,trans->install_pkgs->pkgs[i]->name);
 		gdk_threads_leave();
@@ -1387,6 +1393,7 @@ gboolean install_packages(void){
 	/* now for the upgrades */
 	for(i = 0; i < trans->upgrade_pkgs->pkg_count;++i){
 		gdk_threads_enter();
+		gtk_label_set_text(progress_pkg_desc,trans->upgrade_pkgs->pkgs[i]->upgrade->description);
 		gtk_label_set_text(progress_action_label,"Upgrading...");
 		gtk_label_set_text(progress_message_label,trans->upgrade_pkgs->pkgs[i]->upgrade->name);
 		gdk_threads_leave();

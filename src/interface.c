@@ -150,7 +150,7 @@ create_window_preferences (void)
   gtk_box_pack_start (GTK_BOX (preferences_sources_vbox), vbox57, TRUE, TRUE, 0);
   gtk_container_set_border_width (GTK_CONTAINER (vbox57), 12);
 
-  label161 = gtk_label_new (_("<b>Exclude List</b>"));
+  label161 = gtk_label_new (_("<b>Package Sources</b>"));
   gtk_widget_set_name (label161, "label161");
   gtk_widget_show (label161);
   gtk_box_pack_start (GTK_BOX (vbox57), label161, FALSE, FALSE, 0);
@@ -757,6 +757,7 @@ create_gslapt (void)
   gtk_widget_set_name (search_tab_clear_button, "search_tab_clear_button");
   gtk_widget_show (search_tab_clear_button);
   gtk_box_pack_start (GTK_BOX (search_tab_search_hbox), search_tab_clear_button, FALSE, FALSE, 0);
+  gtk_tooltips_set_tip (tooltips, search_tab_clear_button, _("Clear search expression"), NULL);
 
   search_tab_search_results_scrolled = gtk_scrolled_window_new (NULL, NULL);
   gtk_widget_set_name (search_tab_search_results_scrolled, "search_tab_search_results_scrolled");
@@ -1361,6 +1362,7 @@ create_progress_window (void)
   GtkWidget *progress_progressbar;
   GtkWidget *progress_action;
   GtkWidget *progress_message;
+  GtkWidget *progress_package_description;
 
   progress_window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_widget_set_name (progress_window, "progress_window");
@@ -1391,6 +1393,15 @@ create_progress_window (void)
   gtk_widget_show (progress_message);
   gtk_box_pack_start (GTK_BOX (vbox49), progress_message, TRUE, TRUE, 6);
 
+  progress_package_description = gtk_label_new ("");
+  gtk_widget_set_name (progress_package_description, "progress_package_description");
+  gtk_widget_show (progress_package_description);
+  gtk_box_pack_start (GTK_BOX (vbox49), progress_package_description, TRUE, TRUE, 6);
+  GTK_WIDGET_SET_FLAGS (progress_package_description, GTK_CAN_FOCUS);
+  gtk_label_set_line_wrap (GTK_LABEL (progress_package_description), TRUE);
+  gtk_label_set_selectable (GTK_LABEL (progress_package_description), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (progress_package_description), 0, 0);
+
   g_signal_connect ((gpointer) progress_window, "destroy_event",
                     G_CALLBACK (gtk_main_quit),
                     NULL);
@@ -1401,6 +1412,7 @@ create_progress_window (void)
   GLADE_HOOKUP_OBJECT (progress_window, progress_progressbar, "progress_progressbar");
   GLADE_HOOKUP_OBJECT (progress_window, progress_action, "progress_action");
   GLADE_HOOKUP_OBJECT (progress_window, progress_message, "progress_message");
+  GLADE_HOOKUP_OBJECT (progress_window, progress_package_description, "progress_package_description");
 
   return progress_window;
 }
