@@ -903,9 +903,11 @@ static void lhandle_transaction(GtkWidget *w){
 	gtk_widget_destroy(w);
 
 	/* download the pkgs */
-	if( download_packages() == FALSE ){
-		/* error dialog here */
-		on_gslapt_destroy(NULL,NULL);
+	if( trans->install_pkgs->pkg_count > 0 && trans->upgrade_pkgs->pkg_count > 0 ){
+		if( download_packages() == FALSE ){
+			/* error dialog here */
+			on_gslapt_destroy(NULL,NULL);
+		}
 	}
 
 	/* return early if download_only is set */
