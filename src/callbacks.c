@@ -45,6 +45,7 @@ void on_gslapt_destroy (GtkObject *object, gpointer user_data) {
 	free_rc_config(global_config);
 
 	gtk_main_quit();
+	exit(1);
 }
 
 void update_callback (GtkObject *object, gpointer user_data) {
@@ -558,18 +559,24 @@ void fillin_pkg_details(pkg_info_t *pkg){
 	free(short_desc);
 
 	if( search_transaction_by_pkg(trans,pkg) == 0 ){
-		if( (is_installed == 0 || is_newest == 0) && (is_exclude == 0) ){
+
+		if( is_exclude == 0 ){
 			gtk_widget_set_sensitive( GTK_WIDGET(install_upgrade),TRUE);
+			gtk_widget_set_sensitive( GTK_WIDGET(exclude),TRUE);
+
 			if( is_installed == 1 && is_newest == 0 ){
 				gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"label131")),_("Upgrade"));
+			}else if( is_installed == 1 && is_newest == 1 ){
+				gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"label131")),_("Re-Install"));
 			}else{
 				gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"label131")),_("Install"));
 			}
+
 		}
+
 		if( is_installed == 1 && get_exact_pkg(trans->remove_pkgs,pkg->name,pkg->version) == NULL )
 			gtk_widget_set_sensitive( GTK_WIDGET(remove),TRUE);
-		if( is_exclude == 0 )
-			gtk_widget_set_sensitive( GTK_WIDGET(exclude),TRUE);
+
 	}
 
 

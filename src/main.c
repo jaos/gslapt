@@ -57,6 +57,7 @@ int main (int argc, char *argv[]){
 	working_dir_init(global_config);
 	chdir(global_config->working_dir);
 	global_config->progress_cb = gtk_progress_callback;
+	global_config->re_install = TRUE;
 
 	/* read in all pkgs and installed pkgs */
 	installed = get_installed_pkgs();
