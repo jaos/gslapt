@@ -274,18 +274,22 @@ void build_package_treeviewlist(GtkWidget *treeview){
 	for(i = 0; i < all->pkg_count; i++ ){
 		guint is_inst = 0;
 		gtk_list_store_append (store, &iter);
-		if( get_pkg_by_details(
-					installed,
-					all->pkgs[i]->name,
-					all->pkgs[i]->version,
-					all->pkgs[i]->location
-				) != NULL
-		){
+		if(get_exact_pkg(installed,all->pkgs[i]->name,all->pkgs[i]->version) != NULL){
 			is_inst = 1;
 		}
 		gtk_list_store_set ( store, &iter,
-			0,all->pkgs[i]->name, 1,all->pkgs[i]->version, 2,all->pkgs[i]->location,3,(is_inst == 1 ) ? "Yes" : "No", -1
+			0,all->pkgs[i]->name, 1,all->pkgs[i]->version, 2,all->pkgs[i]->location,
+			3,(is_inst == 1 ) ? "Yes" : "No", -1
 		);
+	}
+	for(i = 0; i < installed->pkg_count; ++i){
+		if( get_exact_pkg(all,installed->pkgs[i]->name,installed->pkgs[i]->version) == NULL ){
+			gtk_list_store_append (store, &iter);
+			gtk_list_store_set ( store, &iter,
+				0,installed->pkgs[i]->name, 1,installed->pkgs[i]->version, 2,
+				installed->pkgs[i]->location,3,"Yes", -1
+			);
+		}
 	}
 
   /* column for name */
@@ -1033,7 +1037,7 @@ void populate_transaction_window(GtkWidget *trans_window){
 
 void on_search_tab_clear_button_clicked(GtkWidget *w, gpointer user_data) {
 	/* gtk_entry_set_text(working_dir,global_config->working_dir); */
-	gtk_entry_set_text(w,"");
+	gtk_entry_set_text(GTK_ENTRY(w),"");
 	rebuild_treeviews();
 }
 
