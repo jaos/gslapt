@@ -910,7 +910,12 @@ static void lhandle_transaction(GtkWidget *w){
 	}
 
 	/* return early if download_only is set */
-	if( dl_only == TRUE ) return;
+	if( dl_only == TRUE ){
+		gdk_threads_enter();
+		unlock_toolbar_buttons();
+		gdk_threads_leave();
+		return;
+	}
 
 	/* begin removing, installing, and upgrading */
 	if( install_packages() == FALSE ){
