@@ -55,6 +55,8 @@ void update_callback (GtkObject *object, gpointer user_data) {
 	(void)object;
 	(void)user_data;
 
+	clear_execute_active();
+
 	gpd = g_thread_create((GThreadFunc)get_package_data,NULL,FALSE,NULL);
 
 	return;
@@ -68,6 +70,7 @@ void upgrade_callback (GtkObject *object, gpointer user_data) {
 
 	free_transaction(trans);
 	init_transaction(trans);
+	clear_execute_active();
 
 	build_upgrade_list();
 
@@ -214,7 +217,6 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data) {
 					set_execute_active();
 				}
 				set_execute_active();
-				gtk_widget_set_sensitive(lookup_widget(gslapt,"action_bar_execute_button"), TRUE);
 				gtk_widget_set_sensitive(r,FALSE);
 				gtk_widget_set_sensitive(e,FALSE);
 				gtk_widget_set_sensitive(i,FALSE);
@@ -1265,7 +1267,6 @@ static void build_upgrade_list(void){
 						&& ( is_conflicted(trans,all,installed,update_pkg) == NULL )
 					){
 						add_upgrade_to_transaction(trans,installed->pkgs[i],update_pkg);
-						set_execute_active();
 					}else{
 						/* otherwise exclude */
 						add_exclude_to_transaction(trans,update_pkg);
@@ -1698,6 +1699,8 @@ void add_pkg_for_reinstall (GtkWidget *gslapt, gpointer user_data){
 static void set_execute_active(void){
 	extern GtkWidget *gslapt;
 
+	fprintf(stderr,"called set_execute_active()\n");
+
 	gtk_widget_set_sensitive(lookup_widget(gslapt,"action_bar_execute_button"), TRUE);
 
 	if( pending_trans_context_id == 0 ){
@@ -1708,6 +1711,8 @@ static void set_execute_active(void){
 
 static void clear_execute_active(void){
 	extern GtkWidget *gslapt;
+
+	fprintf(stderr,"called clear_execute_active()\n");
 
 	if( pending_trans_context_id > 0 ){
 		gtk_statusbar_pop(
