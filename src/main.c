@@ -67,6 +67,10 @@ int main (int argc, char *argv[]){
 	default_context_id = gtk_statusbar_get_context_id(bar,"default");
 	gtk_statusbar_push(bar,default_context_id,"Ready.");
 
+	gtk_widget_set_sensitive( lookup_widget(gslapt,"pkg_info_action_install_upgrade_button"), FALSE);
+	gtk_widget_set_sensitive( lookup_widget(gslapt,"pkg_info_action_remove_button"), FALSE);
+	gtk_widget_set_sensitive( lookup_widget(gslapt,"pkg_info_action_exclude_button"), FALSE);
+
 	init_transaction(trans);
 
 	gdk_threads_enter();

@@ -26,7 +26,6 @@ int ldownload_data(FILE *,const char *);
 int lget_mirror_data_from_source(FILE *,const char *,const char *);
 void get_package_data(void);
 void rebuild_treeviews(void);
-int gtk_progress_callback(void *, double, double, double, double);
 guint gslapt_set_status(const gchar *);
 void gslapt_clear_status(guint context_id);
 void lock_toolbar_buttons(void);
@@ -48,4 +47,7 @@ void populate_transaction_window(GtkWidget *trans_window);
 
 void on_search_tab_clear_button_clicked(GtkWidget *button,gpointer user_data);
 void build_upgrade_list(void);
+
+gboolean download_packages(void);
+int gtk_progress_callback(void *data, double dltotal, double dlnow, double ultotal, double ulnow);
 

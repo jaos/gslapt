@@ -73,6 +73,8 @@ create_window_preferences (void)
   gtk_window_set_title (GTK_WINDOW (window_preferences), _("Preferences"));
   gtk_window_set_position (GTK_WINDOW (window_preferences), GTK_WIN_POS_CENTER);
   gtk_window_set_modal (GTK_WINDOW (window_preferences), TRUE);
+  gtk_window_set_default_size (GTK_WINDOW (window_preferences), 200, 250);
+  gtk_window_set_gravity (GTK_WINDOW (window_preferences), GDK_GRAVITY_CENTER);
 
   preferences_vbox = gtk_vbox_new (FALSE, 0);
   gtk_widget_set_name (preferences_vbox, "preferences_vbox");
@@ -179,6 +181,8 @@ create_window_preferences (void)
   gtk_widget_set_name (preferences_sources_treeview, "preferences_sources_treeview");
   gtk_widget_show (preferences_sources_treeview);
   gtk_container_add (GTK_CONTAINER (scrolledwindow1), preferences_sources_treeview);
+  gtk_tree_view_set_headers_visible (GTK_TREE_VIEW (preferences_sources_treeview), FALSE);
+  gtk_tree_view_set_rules_hint (GTK_TREE_VIEW (preferences_sources_treeview), TRUE);
 
   vbox39 = gtk_vbox_new (FALSE, 6);
   gtk_widget_set_name (vbox39, "vbox39");
@@ -210,6 +214,7 @@ create_window_preferences (void)
   gtk_widget_set_name (preferences_exclude_vbox_vbox, "preferences_exclude_vbox_vbox");
   gtk_widget_show (preferences_exclude_vbox_vbox);
   gtk_box_pack_start (GTK_BOX (preferences_exclude_vbox), preferences_exclude_vbox_vbox, FALSE, FALSE, 0);
+  gtk_container_set_border_width (GTK_CONTAINER (preferences_exclude_vbox_vbox), 12);
 
   preferences_exclude_label = gtk_label_new (_("<b>Exclude List</b>"));
   gtk_widget_set_name (preferences_exclude_label, "preferences_exclude_label");
@@ -245,6 +250,8 @@ create_window_preferences (void)
   gtk_widget_set_name (preferences_exclude_treeview, "preferences_exclude_treeview");
   gtk_widget_show (preferences_exclude_treeview);
   gtk_container_add (GTK_CONTAINER (scrolledwindow12), preferences_exclude_treeview);
+  gtk_tree_view_set_headers_visible (GTK_TREE_VIEW (preferences_exclude_treeview), FALSE);
+  gtk_tree_view_set_rules_hint (GTK_TREE_VIEW (preferences_exclude_treeview), TRUE);
 
   vbox42 = gtk_vbox_new (FALSE, 6);
   gtk_widget_set_name (vbox42, "vbox42");
@@ -350,256 +357,6 @@ create_window_preferences (void)
   GLADE_HOOKUP_OBJECT (window_preferences, preferences_ok_button, "preferences_ok_button");
 
   return window_preferences;
-}
-
-GtkWidget*
-create_transaction_window (void)
-{
-  GtkWidget *transaction_window;
-  GtkWidget *transaction_vbox;
-  GtkWidget *transaction_vbox_vbox;
-  GtkWidget *vbox23;
-  GtkWidget *transaction_label;
-  GtkWidget *transaction_progressbar;
-  GtkWidget *transaction_exclude_expander;
-  GtkWidget *vbox27;
-  GtkWidget *scrolledwindow11;
-  GtkWidget *transaction_exclude_treeview;
-  GtkWidget *label9;
-  GtkWidget *transaction_install_expander;
-  GtkWidget *vbox24;
-  GtkWidget *transaction_install;
-  GtkWidget *transaction_install_treeview;
-  GtkWidget *label6;
-  GtkWidget *transaction_upgrade_expander;
-  GtkWidget *vbox25;
-  GtkWidget *scrolledwindow9;
-  GtkWidget *transaction_upgrade_treeview;
-  GtkWidget *label7;
-  GtkWidget *transaction_remove_expander;
-  GtkWidget *vbox26;
-  GtkWidget *scrolledwindow10;
-  GtkWidget *transaction_remove_treeview;
-  GtkWidget *label8;
-  GtkWidget *transaction_hbuttonbox;
-  GtkWidget *transaction_cancelbutton;
-  GtkWidget *transaction_okbutton1;
-
-  transaction_window = gtk_dialog_new ();
-  gtk_widget_set_name (transaction_window, "transaction_window");
-  gtk_window_set_title (GTK_WINDOW (transaction_window), _("Transaction Report"));
-  gtk_window_set_type_hint (GTK_WINDOW (transaction_window), GDK_WINDOW_TYPE_HINT_DIALOG);
-
-  transaction_vbox = GTK_DIALOG (transaction_window)->vbox;
-  gtk_widget_set_name (transaction_vbox, "transaction_vbox");
-  gtk_widget_show (transaction_vbox);
-
-  transaction_vbox_vbox = gtk_vbox_new (FALSE, 12);
-  gtk_widget_set_name (transaction_vbox_vbox, "transaction_vbox_vbox");
-  gtk_widget_show (transaction_vbox_vbox);
-  gtk_box_pack_start (GTK_BOX (transaction_vbox), transaction_vbox_vbox, TRUE, TRUE, 0);
-  gtk_container_set_border_width (GTK_CONTAINER (transaction_vbox_vbox), 6);
-
-  vbox23 = gtk_vbox_new (FALSE, 6);
-  gtk_widget_set_name (vbox23, "vbox23");
-  gtk_widget_show (vbox23);
-  gtk_box_pack_start (GTK_BOX (transaction_vbox_vbox), vbox23, FALSE, FALSE, 0);
-
-  transaction_label = gtk_label_new ("");
-  gtk_widget_set_name (transaction_label, "transaction_label");
-  gtk_widget_show (transaction_label);
-  gtk_box_pack_start (GTK_BOX (vbox23), transaction_label, FALSE, FALSE, 0);
-  gtk_label_set_use_markup (GTK_LABEL (transaction_label), TRUE);
-  gtk_label_set_line_wrap (GTK_LABEL (transaction_label), TRUE);
-  gtk_misc_set_alignment (GTK_MISC (transaction_label), 0, 0.5);
-
-  transaction_progressbar = gtk_progress_bar_new ();
-  gtk_widget_set_name (transaction_progressbar, "transaction_progressbar");
-  gtk_widget_show (transaction_progressbar);
-  gtk_box_pack_start (GTK_BOX (vbox23), transaction_progressbar, FALSE, FALSE, 0);
-
-  transaction_exclude_expander = gtk_expander_new (NULL);
-  gtk_widget_set_name (transaction_exclude_expander, "transaction_exclude_expander");
-  gtk_widget_show (transaction_exclude_expander);
-  gtk_box_pack_start (GTK_BOX (transaction_vbox_vbox), transaction_exclude_expander, FALSE, FALSE, 0);
-  gtk_expander_set_spacing (GTK_EXPANDER (transaction_exclude_expander), 6);
-
-  vbox27 = gtk_vbox_new (FALSE, 6);
-  gtk_widget_set_name (vbox27, "vbox27");
-  gtk_widget_show (vbox27);
-  gtk_container_add (GTK_CONTAINER (transaction_exclude_expander), vbox27);
-
-  scrolledwindow11 = gtk_scrolled_window_new (NULL, NULL);
-  gtk_widget_set_name (scrolledwindow11, "scrolledwindow11");
-  gtk_widget_show (scrolledwindow11);
-  gtk_box_pack_start (GTK_BOX (vbox27), scrolledwindow11, TRUE, TRUE, 0);
-  gtk_widget_set_size_request (scrolledwindow11, -1, 200);
-  gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolledwindow11), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
-  gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scrolledwindow11), GTK_SHADOW_IN);
-
-  transaction_exclude_treeview = gtk_tree_view_new ();
-  gtk_widget_set_name (transaction_exclude_treeview, "transaction_exclude_treeview");
-  gtk_widget_show (transaction_exclude_treeview);
-  gtk_container_add (GTK_CONTAINER (scrolledwindow11), transaction_exclude_treeview);
-  gtk_tree_view_set_enable_search (GTK_TREE_VIEW (transaction_exclude_treeview), FALSE);
-
-  label9 = gtk_label_new (_("Packages Excluded"));
-  gtk_widget_set_name (label9, "label9");
-  gtk_widget_show (label9);
-  gtk_expander_set_label_widget (GTK_EXPANDER (transaction_exclude_expander), label9);
-
-  transaction_install_expander = gtk_expander_new (NULL);
-  gtk_widget_set_name (transaction_install_expander, "transaction_install_expander");
-  gtk_widget_show (transaction_install_expander);
-  gtk_box_pack_start (GTK_BOX (transaction_vbox_vbox), transaction_install_expander, FALSE, FALSE, 0);
-  gtk_expander_set_spacing (GTK_EXPANDER (transaction_install_expander), 6);
-
-  vbox24 = gtk_vbox_new (FALSE, 6);
-  gtk_widget_set_name (vbox24, "vbox24");
-  gtk_widget_show (vbox24);
-  gtk_container_add (GTK_CONTAINER (transaction_install_expander), vbox24);
-
-  transaction_install = gtk_scrolled_window_new (NULL, NULL);
-  gtk_widget_set_name (transaction_install, "transaction_install");
-  gtk_widget_show (transaction_install);
-  gtk_box_pack_start (GTK_BOX (vbox24), transaction_install, TRUE, TRUE, 0);
-  gtk_widget_set_size_request (transaction_install, -1, 200);
-  gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (transaction_install), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
-  gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (transaction_install), GTK_SHADOW_IN);
-
-  transaction_install_treeview = gtk_tree_view_new ();
-  gtk_widget_set_name (transaction_install_treeview, "transaction_install_treeview");
-  gtk_widget_show (transaction_install_treeview);
-  gtk_container_add (GTK_CONTAINER (transaction_install), transaction_install_treeview);
-  gtk_tree_view_set_enable_search (GTK_TREE_VIEW (transaction_install_treeview), FALSE);
-
-  label6 = gtk_label_new (_("Packages to Install"));
-  gtk_widget_set_name (label6, "label6");
-  gtk_widget_show (label6);
-  gtk_expander_set_label_widget (GTK_EXPANDER (transaction_install_expander), label6);
-
-  transaction_upgrade_expander = gtk_expander_new (NULL);
-  gtk_widget_set_name (transaction_upgrade_expander, "transaction_upgrade_expander");
-  gtk_widget_show (transaction_upgrade_expander);
-  gtk_box_pack_start (GTK_BOX (transaction_vbox_vbox), transaction_upgrade_expander, FALSE, FALSE, 0);
-  gtk_expander_set_spacing (GTK_EXPANDER (transaction_upgrade_expander), 6);
-
-  vbox25 = gtk_vbox_new (FALSE, 6);
-  gtk_widget_set_name (vbox25, "vbox25");
-  gtk_widget_show (vbox25);
-  gtk_container_add (GTK_CONTAINER (transaction_upgrade_expander), vbox25);
-
-  scrolledwindow9 = gtk_scrolled_window_new (NULL, NULL);
-  gtk_widget_set_name (scrolledwindow9, "scrolledwindow9");
-  gtk_widget_show (scrolledwindow9);
-  gtk_box_pack_start (GTK_BOX (vbox25), scrolledwindow9, TRUE, TRUE, 0);
-  gtk_widget_set_size_request (scrolledwindow9, -1, 200);
-  gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolledwindow9), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
-  gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scrolledwindow9), GTK_SHADOW_IN);
-
-  transaction_upgrade_treeview = gtk_tree_view_new ();
-  gtk_widget_set_name (transaction_upgrade_treeview, "transaction_upgrade_treeview");
-  gtk_widget_show (transaction_upgrade_treeview);
-  gtk_container_add (GTK_CONTAINER (scrolledwindow9), transaction_upgrade_treeview);
-  gtk_tree_view_set_enable_search (GTK_TREE_VIEW (transaction_upgrade_treeview), FALSE);
-
-  label7 = gtk_label_new (_("Packages to Upgrade"));
-  gtk_widget_set_name (label7, "label7");
-  gtk_widget_show (label7);
-  gtk_expander_set_label_widget (GTK_EXPANDER (transaction_upgrade_expander), label7);
-
-  transaction_remove_expander = gtk_expander_new (NULL);
-  gtk_widget_set_name (transaction_remove_expander, "transaction_remove_expander");
-  gtk_widget_show (transaction_remove_expander);
-  gtk_box_pack_start (GTK_BOX (transaction_vbox_vbox), transaction_remove_expander, FALSE, FALSE, 0);
-  gtk_expander_set_spacing (GTK_EXPANDER (transaction_remove_expander), 6);
-
-  vbox26 = gtk_vbox_new (FALSE, 6);
-  gtk_widget_set_name (vbox26, "vbox26");
-  gtk_widget_show (vbox26);
-  gtk_container_add (GTK_CONTAINER (transaction_remove_expander), vbox26);
-
-  scrolledwindow10 = gtk_scrolled_window_new (NULL, NULL);
-  gtk_widget_set_name (scrolledwindow10, "scrolledwindow10");
-  gtk_widget_show (scrolledwindow10);
-  gtk_box_pack_start (GTK_BOX (vbox26), scrolledwindow10, TRUE, TRUE, 0);
-  gtk_widget_set_size_request (scrolledwindow10, -1, 200);
-  gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolledwindow10), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
-  gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scrolledwindow10), GTK_SHADOW_IN);
-
-  transaction_remove_treeview = gtk_tree_view_new ();
-  gtk_widget_set_name (transaction_remove_treeview, "transaction_remove_treeview");
-  gtk_widget_show (transaction_remove_treeview);
-  gtk_container_add (GTK_CONTAINER (scrolledwindow10), transaction_remove_treeview);
-  gtk_tree_view_set_enable_search (GTK_TREE_VIEW (transaction_remove_treeview), FALSE);
-
-  label8 = gtk_label_new (_("Packages to Remove"));
-  gtk_widget_set_name (label8, "label8");
-  gtk_widget_show (label8);
-  gtk_expander_set_label_widget (GTK_EXPANDER (transaction_remove_expander), label8);
-
-  transaction_hbuttonbox = GTK_DIALOG (transaction_window)->action_area;
-  gtk_widget_set_name (transaction_hbuttonbox, "transaction_hbuttonbox");
-  gtk_widget_show (transaction_hbuttonbox);
-  gtk_button_box_set_layout (GTK_BUTTON_BOX (transaction_hbuttonbox), GTK_BUTTONBOX_END);
-
-  transaction_cancelbutton = gtk_button_new_from_stock ("gtk-cancel");
-  gtk_widget_set_name (transaction_cancelbutton, "transaction_cancelbutton");
-  gtk_widget_show (transaction_cancelbutton);
-  gtk_dialog_add_action_widget (GTK_DIALOG (transaction_window), transaction_cancelbutton, GTK_RESPONSE_CANCEL);
-  GTK_WIDGET_SET_FLAGS (transaction_cancelbutton, GTK_CAN_DEFAULT);
-
-  transaction_okbutton1 = gtk_button_new_from_stock ("gtk-ok");
-  gtk_widget_set_name (transaction_okbutton1, "transaction_okbutton1");
-  gtk_widget_show (transaction_okbutton1);
-  gtk_dialog_add_action_widget (GTK_DIALOG (transaction_window), transaction_okbutton1, GTK_RESPONSE_OK);
-  GTK_WIDGET_SET_FLAGS (transaction_okbutton1, GTK_CAN_DEFAULT);
-
-  g_signal_connect ((gpointer) transaction_window, "close",
-                    G_CALLBACK (gtk_widget_destroy),
-                    NULL);
-  g_signal_connect ((gpointer) transaction_window, "destroy_event",
-                    G_CALLBACK (gtk_widget_destroy),
-                    NULL);
-  g_signal_connect_swapped ((gpointer) transaction_cancelbutton, "clicked",
-                            G_CALLBACK (gtk_widget_destroy),
-                            GTK_OBJECT (transaction_window));
-  g_signal_connect_swapped ((gpointer) transaction_okbutton1, "clicked",
-                            G_CALLBACK (on_transaction_okbutton1_clicked),
-                            GTK_OBJECT (transaction_window));
-
-  /* Store pointers to all widgets, for use by lookup_widget(). */
-  GLADE_HOOKUP_OBJECT_NO_REF (transaction_window, transaction_window, "transaction_window");
-  GLADE_HOOKUP_OBJECT_NO_REF (transaction_window, transaction_vbox, "transaction_vbox");
-  GLADE_HOOKUP_OBJECT (transaction_window, transaction_vbox_vbox, "transaction_vbox_vbox");
-  GLADE_HOOKUP_OBJECT (transaction_window, vbox23, "vbox23");
-  GLADE_HOOKUP_OBJECT (transaction_window, transaction_label, "transaction_label");
-  GLADE_HOOKUP_OBJECT (transaction_window, transaction_progressbar, "transaction_progressbar");
-  GLADE_HOOKUP_OBJECT (transaction_window, transaction_exclude_expander, "transaction_exclude_expander");
-  GLADE_HOOKUP_OBJECT (transaction_window, vbox27, "vbox27");
-  GLADE_HOOKUP_OBJECT (transaction_window, scrolledwindow11, "scrolledwindow11");
-  GLADE_HOOKUP_OBJECT (transaction_window, transaction_exclude_treeview, "transaction_exclude_treeview");
-  GLADE_HOOKUP_OBJECT (transaction_window, label9, "label9");
-  GLADE_HOOKUP_OBJECT (transaction_window, transaction_install_expander, "transaction_install_expander");
-  GLADE_HOOKUP_OBJECT (transaction_window, vbox24, "vbox24");
-  GLADE_HOOKUP_OBJECT (transaction_window, transaction_install, "transaction_install");
-  GLADE_HOOKUP_OBJECT (transaction_window, transaction_install_treeview, "transaction_install_treeview");
-  GLADE_HOOKUP_OBJECT (transaction_window, label6, "label6");
-  GLADE_HOOKUP_OBJECT (transaction_window, transaction_upgrade_expander, "transaction_upgrade_expander");
-  GLADE_HOOKUP_OBJECT (transaction_window, vbox25, "vbox25");
-  GLADE_HOOKUP_OBJECT (transaction_window, scrolledwindow9, "scrolledwindow9");
-  GLADE_HOOKUP_OBJECT (transaction_window, transaction_upgrade_treeview, "transaction_upgrade_treeview");
-  GLADE_HOOKUP_OBJECT (transaction_window, label7, "label7");
-  GLADE_HOOKUP_OBJECT (transaction_window, transaction_remove_expander, "transaction_remove_expander");
-  GLADE_HOOKUP_OBJECT (transaction_window, vbox26, "vbox26");
-  GLADE_HOOKUP_OBJECT (transaction_window, scrolledwindow10, "scrolledwindow10");
-  GLADE_HOOKUP_OBJECT (transaction_window, transaction_remove_treeview, "transaction_remove_treeview");
-  GLADE_HOOKUP_OBJECT (transaction_window, label8, "label8");
-  GLADE_HOOKUP_OBJECT_NO_REF (transaction_window, transaction_hbuttonbox, "transaction_hbuttonbox");
-  GLADE_HOOKUP_OBJECT (transaction_window, transaction_cancelbutton, "transaction_cancelbutton");
-  GLADE_HOOKUP_OBJECT (transaction_window, transaction_okbutton1, "transaction_okbutton1");
-
-  return transaction_window;
 }
 
 GtkWidget*
@@ -1373,6 +1130,7 @@ create_about (void)
   about = gtk_dialog_new ();
   gtk_widget_set_name (about, "about");
   gtk_window_set_title (GTK_WINDOW (about), _("About Gslapt"));
+  gtk_window_set_default_size (GTK_WINDOW (about), 80, 100);
   gtk_window_set_type_hint (GTK_WINDOW (about), GDK_WINDOW_TYPE_HINT_DIALOG);
 
   dialog_vbox1 = GTK_DIALOG (about)->vbox;
@@ -1425,5 +1183,184 @@ create_about (void)
   GLADE_HOOKUP_OBJECT (about, closebutton1, "closebutton1");
 
   return about;
+}
+
+GtkWidget*
+create_transaction_window (void)
+{
+  GtkWidget *transaction_window;
+  GtkWidget *vbox47;
+  GtkWidget *hbox83;
+  GtkWidget *image837;
+  GtkWidget *vbox48;
+  GtkWidget *label145;
+  GtkWidget *label144;
+  GtkWidget *scrolledwindow15;
+  GtkWidget *transaction_summary_treeview;
+  GtkWidget *download_only_checkbutton;
+  GtkWidget *hbuttonbox1;
+  GtkWidget *button2;
+  GtkWidget *button3;
+
+  transaction_window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+  gtk_widget_set_name (transaction_window, "transaction_window");
+  gtk_container_set_border_width (GTK_CONTAINER (transaction_window), 12);
+  gtk_window_set_title (GTK_WINDOW (transaction_window), _("Summary"));
+  gtk_window_set_default_size (GTK_WINDOW (transaction_window), 200, 400);
+  gtk_window_set_skip_taskbar_hint (GTK_WINDOW (transaction_window), TRUE);
+  gtk_window_set_gravity (GTK_WINDOW (transaction_window), GDK_GRAVITY_CENTER);
+
+  vbox47 = gtk_vbox_new (FALSE, 6);
+  gtk_widget_set_name (vbox47, "vbox47");
+  gtk_widget_show (vbox47);
+  gtk_container_add (GTK_CONTAINER (transaction_window), vbox47);
+
+  hbox83 = gtk_hbox_new (FALSE, 12);
+  gtk_widget_set_name (hbox83, "hbox83");
+  gtk_widget_show (hbox83);
+  gtk_box_pack_start (GTK_BOX (vbox47), hbox83, TRUE, TRUE, 2);
+
+  image837 = gtk_image_new_from_stock ("gtk-dialog-question", GTK_ICON_SIZE_DIALOG);
+  gtk_widget_set_name (image837, "image837");
+  gtk_widget_show (image837);
+  gtk_box_pack_start (GTK_BOX (hbox83), image837, FALSE, TRUE, 0);
+  gtk_misc_set_alignment (GTK_MISC (image837), 0, 0);
+
+  vbox48 = gtk_vbox_new (FALSE, 12);
+  gtk_widget_set_name (vbox48, "vbox48");
+  gtk_widget_show (vbox48);
+  gtk_box_pack_start (GTK_BOX (hbox83), vbox48, TRUE, TRUE, 0);
+
+  label145 = gtk_label_new (_("<span weight=\"bold\" size=\"large\">Apply the folowing changes?</span>"));
+  gtk_widget_set_name (label145, "label145");
+  gtk_widget_show (label145);
+  gtk_box_pack_start (GTK_BOX (vbox48), label145, FALSE, TRUE, 1);
+  gtk_label_set_use_markup (GTK_LABEL (label145), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label145), 0, 0);
+
+  label144 = gtk_label_new (_("This is a summary of the changes about to be performed."));
+  gtk_widget_set_name (label144, "label144");
+  gtk_widget_show (label144);
+  gtk_box_pack_start (GTK_BOX (vbox48), label144, FALSE, TRUE, 1);
+  gtk_label_set_line_wrap (GTK_LABEL (label144), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label144), 0, 0);
+  gtk_misc_set_padding (GTK_MISC (label144), 0, 6);
+
+  scrolledwindow15 = gtk_scrolled_window_new (NULL, NULL);
+  gtk_widget_set_name (scrolledwindow15, "scrolledwindow15");
+  gtk_widget_show (scrolledwindow15);
+  gtk_box_pack_start (GTK_BOX (vbox48), scrolledwindow15, TRUE, TRUE, 0);
+  gtk_container_set_border_width (GTK_CONTAINER (scrolledwindow15), 1);
+  gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolledwindow15), GTK_POLICY_AUTOMATIC, GTK_POLICY_ALWAYS);
+
+  transaction_summary_treeview = gtk_tree_view_new ();
+  gtk_widget_set_name (transaction_summary_treeview, "transaction_summary_treeview");
+  gtk_widget_show (transaction_summary_treeview);
+  gtk_container_add (GTK_CONTAINER (scrolledwindow15), transaction_summary_treeview);
+  gtk_tree_view_set_headers_visible (GTK_TREE_VIEW (transaction_summary_treeview), FALSE);
+  gtk_tree_view_set_rules_hint (GTK_TREE_VIEW (transaction_summary_treeview), TRUE);
+
+  download_only_checkbutton = gtk_check_button_new_with_mnemonic (_("Download packages only"));
+  gtk_widget_set_name (download_only_checkbutton, "download_only_checkbutton");
+  gtk_widget_show (download_only_checkbutton);
+  gtk_box_pack_start (GTK_BOX (vbox48), download_only_checkbutton, FALSE, TRUE, 1);
+
+  hbuttonbox1 = gtk_hbutton_box_new ();
+  gtk_widget_set_name (hbuttonbox1, "hbuttonbox1");
+  gtk_widget_show (hbuttonbox1);
+  gtk_box_pack_start (GTK_BOX (vbox47), hbuttonbox1, FALSE, TRUE, 1);
+  gtk_container_set_border_width (GTK_CONTAINER (hbuttonbox1), 2);
+  gtk_button_box_set_layout (GTK_BUTTON_BOX (hbuttonbox1), GTK_BUTTONBOX_END);
+  gtk_box_set_spacing (GTK_BOX (hbuttonbox1), 6);
+
+  button2 = gtk_button_new_from_stock ("gtk-cancel");
+  gtk_widget_set_name (button2, "button2");
+  gtk_widget_show (button2);
+  gtk_container_add (GTK_CONTAINER (hbuttonbox1), button2);
+  GTK_WIDGET_SET_FLAGS (button2, GTK_CAN_DEFAULT);
+
+  button3 = gtk_button_new_from_stock ("gtk-ok");
+  gtk_widget_set_name (button3, "button3");
+  gtk_widget_show (button3);
+  gtk_container_add (GTK_CONTAINER (hbuttonbox1), button3);
+  GTK_WIDGET_SET_FLAGS (button3, GTK_CAN_DEFAULT);
+
+  g_signal_connect ((gpointer) transaction_window, "destroy_event",
+                    G_CALLBACK (gtk_widget_destroy),
+                    NULL);
+  g_signal_connect_swapped ((gpointer) button2, "clicked",
+                            G_CALLBACK (gtk_widget_destroy),
+                            GTK_OBJECT (transaction_window));
+  g_signal_connect_swapped ((gpointer) button3, "clicked",
+                            G_CALLBACK (on_transaction_okbutton1_clicked),
+                            GTK_OBJECT (transaction_window));
+
+  /* Store pointers to all widgets, for use by lookup_widget(). */
+  GLADE_HOOKUP_OBJECT_NO_REF (transaction_window, transaction_window, "transaction_window");
+  GLADE_HOOKUP_OBJECT (transaction_window, vbox47, "vbox47");
+  GLADE_HOOKUP_OBJECT (transaction_window, hbox83, "hbox83");
+  GLADE_HOOKUP_OBJECT (transaction_window, image837, "image837");
+  GLADE_HOOKUP_OBJECT (transaction_window, vbox48, "vbox48");
+  GLADE_HOOKUP_OBJECT (transaction_window, label145, "label145");
+  GLADE_HOOKUP_OBJECT (transaction_window, label144, "label144");
+  GLADE_HOOKUP_OBJECT (transaction_window, scrolledwindow15, "scrolledwindow15");
+  GLADE_HOOKUP_OBJECT (transaction_window, transaction_summary_treeview, "transaction_summary_treeview");
+  GLADE_HOOKUP_OBJECT (transaction_window, download_only_checkbutton, "download_only_checkbutton");
+  GLADE_HOOKUP_OBJECT (transaction_window, hbuttonbox1, "hbuttonbox1");
+  GLADE_HOOKUP_OBJECT (transaction_window, button2, "button2");
+  GLADE_HOOKUP_OBJECT (transaction_window, button3, "button3");
+
+  return transaction_window;
+}
+
+GtkWidget*
+create_progress_window (void)
+{
+  GtkWidget *progress_window;
+  GtkWidget *vbox49;
+  GtkWidget *progress_progressbar;
+  GtkWidget *progress_action;
+  GtkWidget *progress_message;
+
+  progress_window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+  gtk_widget_set_name (progress_window, "progress_window");
+  gtk_container_set_border_width (GTK_CONTAINER (progress_window), 12);
+  gtk_window_set_title (GTK_WINDOW (progress_window), _("window1"));
+  gtk_window_set_gravity (GTK_WINDOW (progress_window), GDK_GRAVITY_CENTER);
+
+  vbox49 = gtk_vbox_new (FALSE, 0);
+  gtk_widget_set_name (vbox49, "vbox49");
+  gtk_widget_show (vbox49);
+  gtk_container_add (GTK_CONTAINER (progress_window), vbox49);
+  gtk_container_set_border_width (GTK_CONTAINER (vbox49), 6);
+
+  progress_progressbar = gtk_progress_bar_new ();
+  gtk_widget_set_name (progress_progressbar, "progress_progressbar");
+  gtk_widget_show (progress_progressbar);
+  gtk_box_pack_start (GTK_BOX (vbox49), progress_progressbar, FALSE, TRUE, 0);
+  gtk_progress_bar_set_text (GTK_PROGRESS_BAR (progress_progressbar), _("in progress..."));
+
+  progress_action = gtk_label_new ("");
+  gtk_widget_set_name (progress_action, "progress_action");
+  gtk_widget_show (progress_action);
+  gtk_box_pack_start (GTK_BOX (vbox49), progress_action, TRUE, TRUE, 6);
+
+  progress_message = gtk_label_new ("");
+  gtk_widget_set_name (progress_message, "progress_message");
+  gtk_widget_show (progress_message);
+  gtk_box_pack_start (GTK_BOX (vbox49), progress_message, TRUE, TRUE, 6);
+
+  g_signal_connect ((gpointer) progress_window, "destroy_event",
+                    G_CALLBACK (gtk_main_quit),
+                    NULL);
+
+  /* Store pointers to all widgets, for use by lookup_widget(). */
+  GLADE_HOOKUP_OBJECT_NO_REF (progress_window, progress_window, "progress_window");
+  GLADE_HOOKUP_OBJECT (progress_window, vbox49, "vbox49");
+  GLADE_HOOKUP_OBJECT (progress_window, progress_progressbar, "progress_progressbar");
+  GLADE_HOOKUP_OBJECT (progress_window, progress_action, "progress_action");
+  GLADE_HOOKUP_OBJECT (progress_window, progress_message, "progress_message");
+
+  return progress_window;
 }
 
