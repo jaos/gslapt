@@ -734,6 +734,9 @@ create_gslapt (void)
   gtk_widget_show (search_entry);
   gtk_box_pack_start (GTK_BOX (search_hbox), search_entry, TRUE, TRUE, 0);
   GTK_WIDGET_SET_FLAGS (search_entry, GTK_CAN_DEFAULT);
+  gtk_widget_add_accelerator (search_entry, "grab_focus", accel_group,
+                              GDK_L, GDK_CONTROL_MASK,
+                              GTK_ACCEL_VISIBLE);
 
   search_button = gtk_button_new_with_mnemonic (_("Search"));
   gtk_widget_set_name (search_button, "search_button");
@@ -1190,6 +1193,7 @@ create_gslapt (void)
   GLADE_HOOKUP_OBJECT (gslapt, bottom_statusbar, "bottom_statusbar");
   GLADE_HOOKUP_OBJECT_NO_REF (gslapt, tooltips, "tooltips");
 
+  gtk_widget_grab_default (search_entry);
   gtk_window_add_accel_group (GTK_WINDOW (gslapt), accel_group);
 
   return gslapt;
