@@ -51,4 +51,6 @@ void build_upgrade_list(void);
 gboolean download_packages(void);
 int gtk_progress_callback(void *data, double dltotal, double dlnow, double ultotal, double ulnow);
 void clean_callback(GtkMenuItem *menuitem, gpointer user_data);
+gboolean install_packages(void);
+void build_package_treeviewlist(GtkWidget *treeview);
 

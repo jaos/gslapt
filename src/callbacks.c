@@ -87,6 +87,7 @@ void open_preferences (GtkMenuItem *menuitem, gpointer user_data) {
 	GtkEntry *working_dir,*exclude_list;
 	GtkTreeView *source_tree,*exclude_tree;
 
+	(void)exclude_list;
 	(void)menuitem;
 	(void)user_data;
 	(void)global_config;
@@ -650,7 +651,6 @@ void get_package_data(void){
 	guint i,context_id;
 	gint source_dl_failed = 0;
 	FILE *pkg_list_fh_tmp = NULL;
-	extern GtkWidget *gslapt;
 
 	gdk_threads_enter();
 	lock_toolbar_buttons();
@@ -820,6 +820,8 @@ void get_package_data(void){
 
 int gtk_progress_callback(void *data, double dltotal, double dlnow, double ultotal, double ulnow){
 
+	(void)dltotal;
+	(void)dlnow;
 	(void)data;
 	(void)ultotal;
 	(void)ulnow;
@@ -955,9 +957,13 @@ void on_transaction_okbutton1_clicked(GtkWidget *w, gpointer user_data){
 
 
 void preferences_exclude_add(GtkButton *button, gpointer user_data) {
+	(void)button;
+	(void)user_data;
 }
 
 void preferences_exclude_remove(GtkButton *button, gpointer user_data) {
+	(void)button;
+	(void)user_data;
 }
 
 void build_sources_treeviewlist(GtkWidget *treeview, const rc_config *global_config){
@@ -1080,6 +1086,8 @@ void populate_transaction_window(GtkWidget *trans_window){
 
 
 void on_search_tab_clear_button_clicked(GtkWidget *w, gpointer user_data) {
+	(void)user_data;
+
 	gtk_entry_set_text(GTK_ENTRY(w),"");
 	rebuild_treeviews();
 }
@@ -1399,6 +1407,9 @@ gboolean install_packages(void){
 void clean_callback(GtkMenuItem *menuitem, gpointer user_data){
 	GThread *gpd;
 	extern rc_config *global_config;
+
+	(void)menuitem;
+	(void)user_data;
 
 	gpd = g_thread_create((GThreadFunc)clean_pkg_dir,global_config->working_dir,FALSE,NULL);
 
