@@ -11,8 +11,10 @@ install-data-local:
 	@$(NORMAL_INSTALL)
 	$(mkinstalldirs) $(DESTDIR)/usr/share/applications; \
 	$(mkinstalldirs) $(DESTDIR)/usr/share/doc/@PACKAGE@ ; \
-	$(INSTALL_DATA) AUTHORS ChangeLog COPYING FAQ README TODO $(DESTDIR)/usr/share/doc/@PACKAGE@ ; \
+	$(INSTALL_DATA) AUTHORS ChangeLog COPYING FAQ README $(DESTDIR)/usr/share/doc/@PACKAGE@ ; \
 	$(INSTALL_DATA) gslapt.desktop $(DESTDIR)/usr/share/applications/gslapt.desktop; \
+	$(mkinstalldirs) $(DESTDIR)/usr/share/pixmaps; \
+	$(INSTALL_DATA) pixmaps/gslapt.png $(DESTDIR)/usr/share/pixmaps/; \
 	if test -d $(srcdir)/pixmaps; then \
 	  $(mkinstalldirs) $(DESTDIR)$(pkgdatadir)/pixmaps; \
 	  for pixmap in $(srcdir)/pixmaps/*; do \
