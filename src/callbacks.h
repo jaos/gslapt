@@ -27,7 +27,7 @@ void upgrade_callback (GtkObject *object, gpointer user_data);
 void distupgrade_callback (GtkObject *object, gpointer user_data);
 void execute_callback (GtkObject *object, gpointer user_data);
 void open_preferences (GtkMenuItem *menuitem, gpointer user_data);
-void on_search_tab_search_button_clicked (GtkWidget *gslapt, gpointer user_data);
+void search_button_clicked (GtkWidget *gslapt, gpointer user_data);
 void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data);
 void add_pkg_for_removal (GtkWidget *gslapt, gpointer user_data);
 void add_pkg_for_exclude (GtkWidget *gslapt, gpointer user_data);
@@ -63,7 +63,7 @@ void build_exclude_treeviewlist(GtkWidget *treeview, const rc_config *global_con
 void populate_transaction_window(GtkWidget *trans_window);
 
 
-void on_search_tab_clear_button_clicked(GtkWidget *button,gpointer user_data);
+void clear_button_clicked(GtkWidget *button,gpointer user_data);
 void build_upgrade_list(void);
 
 gboolean download_packages(void);
