@@ -958,6 +958,7 @@ void build_sources_treeviewlist(GtkWidget *treeview, const rc_config *global_con
 	);
 
 	for(i = 0; i < global_config->sources->count; ++i ){
+		if( global_config->sources->url[i] == NULL ) continue;
 		gtk_list_store_append(store, &iter);
 		gtk_list_store_set(store,&iter,0,global_config->sources->url[i],-1);
 	}
@@ -990,6 +991,7 @@ void build_exclude_treeviewlist(GtkWidget *treeview, const rc_config *global_con
 	);
 
 	for(i = 0; i < global_config->exclude_list->count; i++ ){
+		if( global_config->exclude_list->excludes[i] == NULL ) continue;
 		gtk_list_store_append (store, &iter);
 		gtk_list_store_set(store,&iter,0,global_config->exclude_list->excludes[i],-1);
 	}
@@ -1445,11 +1447,14 @@ void preferences_sources_remove(GtkWidget *w, gpointer user_data){
 	(void)user_data;
 
 	if( gtk_tree_selection_get_selected(select,&model,&iter)){
-		guint i = 0,found = 0;
+		guint i = 0;
 		gchar *source;
 		gchar *tmp = NULL;
 
 		gtk_tree_model_get(model,&iter,0,&source, -1 );
+
+		clear_treeview(source_tree);
+
 		while( i < global_config->sources->count ){
 			if( strcmp(source,global_config->sources->url[i]) == 0 && tmp == NULL )
 				tmp = global_config->sources->url[i];
@@ -1464,13 +1469,12 @@ void preferences_sources_remove(GtkWidget *w, gpointer user_data){
 			realloc_tmp = realloc(global_config->sources->url,sizeof *global_config->sources->url * (global_config->sources->count - 1));
 			if( realloc_tmp != NULL ){
 				global_config->sources->url = realloc_tmp;
-				--global_config->sources->count;
+				if( global_config->sources->count > 0 ) --global_config->sources->count;
 			}
 		}
 
 		g_free(source);
 
-		clear_treeview(source_tree);
 		build_sources_treeviewlist((GtkWidget *)source_tree,global_config);
 	}
 
@@ -1539,6 +1543,9 @@ void preferences_exclude_remove(GtkWidget *w, gpointer user_data) {
 		gchar *exclude;
 
 		gtk_tree_model_get(model,&iter,0,&exclude, -1 );
+
+		clear_treeview(exclude_tree);
+
 		while(i < global_config->exclude_list->count){
 			if( strcmp(exclude,global_config->exclude_list->excludes[i]) == 0 && tmp == NULL )
 				tmp = global_config->exclude_list->excludes[i];
@@ -1553,13 +1560,12 @@ void preferences_exclude_remove(GtkWidget *w, gpointer user_data) {
 			realloc_tmp = realloc(global_config->exclude_list->excludes,sizeof *global_config->exclude_list->excludes * (global_config->exclude_list->count - 1));
 			if( realloc_tmp != NULL ){
 				global_config->exclude_list->excludes = realloc_tmp;
-				--global_config->exclude_list->count;
+				if( global_config->exclude_list->count > 0 ) --global_config->exclude_list->count;
 			}
 		}
 
 		g_free(exclude);
 
-		clear_treeview(exclude_tree);
 		build_exclude_treeviewlist((GtkWidget *)exclude_tree,global_config);
 	}
 
