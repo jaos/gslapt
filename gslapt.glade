@@ -2378,8 +2378,8 @@
 	    <widget class="GtkLabel" id="label149">
 	      <property name="visible">True</property>
 	      <property name="can_focus">True</property>
-	      <property name="label">Copyright Jason Woodward, 2005
-http://software.jaso.org/#gslapt</property>
+	      <property name="label">&lt;span size=&quot;small&quot;&gt;Copyright (c) 2005 Jason Woodward
+http://software.jaso.org/#gslapt&lt;/span&gt;</property>
 	      <property name="use_underline">False</property>
 	      <property name="use_markup">True</property>
 	      <property name="justify">GTK_JUSTIFY_CENTER</property>
