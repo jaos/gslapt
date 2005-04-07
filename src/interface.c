@@ -548,7 +548,7 @@ create_gslapt (void)
   gtk_widget_show (preferences2);
   gtk_container_add (GTK_CONTAINER (settings1_menu), preferences2);
   gtk_widget_add_accelerator (preferences2, "activate", accel_group,
-                              GDK_p, GDK_CONTROL_MASK,
+                              GDK_p, (GdkModifierType) GDK_CONTROL_MASK,
                               GTK_ACCEL_VISIBLE);
 
   image863 = gtk_image_new_from_stock ("gtk-preferences", GTK_ICON_SIZE_MENU);
@@ -641,7 +641,7 @@ create_gslapt (void)
   gtk_box_pack_start (GTK_BOX (search_hbox), search_entry, TRUE, TRUE, 0);
   GTK_WIDGET_SET_FLAGS (search_entry, GTK_CAN_DEFAULT);
   gtk_widget_add_accelerator (search_entry, "grab_focus", accel_group,
-                              GDK_L, GDK_CONTROL_MASK,
+                              GDK_L, (GdkModifierType) GDK_CONTROL_MASK,
                               GTK_ACCEL_VISIBLE);
 
   search_button = gtk_button_new_with_mnemonic (_("Search"));
@@ -865,6 +865,12 @@ create_gslapt (void)
   gtk_widget_show (pkg_info_action_install_upgrade_button);
   gtk_box_pack_start (GTK_BOX (pkg_action_vbox), pkg_info_action_install_upgrade_button, TRUE, TRUE, 0);
   gtk_tooltips_set_tip (tooltips, pkg_info_action_install_upgrade_button, _("Install/Upgrade package"), NULL);
+  gtk_widget_add_accelerator (pkg_info_action_install_upgrade_button, "clicked", accel_group,
+                              GDK_i, (GdkModifierType) GDK_CONTROL_MASK,
+                              GTK_ACCEL_VISIBLE);
+  gtk_widget_add_accelerator (pkg_info_action_install_upgrade_button, "clicked", accel_group,
+                              GDK_u, (GdkModifierType) GDK_CONTROL_MASK,
+                              GTK_ACCEL_VISIBLE);
 
   alignment27 = gtk_alignment_new (0.5, 0.5, 0, 0);
   gtk_widget_set_name (alignment27, "alignment27");
@@ -891,6 +897,9 @@ create_gslapt (void)
   gtk_widget_show (pkg_info_action_remove_button);
   gtk_box_pack_start (GTK_BOX (pkg_action_vbox), pkg_info_action_remove_button, TRUE, TRUE, 0);
   gtk_tooltips_set_tip (tooltips, pkg_info_action_remove_button, _("Remove package"), NULL);
+  gtk_widget_add_accelerator (pkg_info_action_remove_button, "clicked", accel_group,
+                              GDK_r, (GdkModifierType) GDK_CONTROL_MASK,
+                              GTK_ACCEL_VISIBLE);
 
   alignment28 = gtk_alignment_new (0.5, 0.5, 0, 0);
   gtk_widget_set_name (alignment28, "alignment28");
@@ -917,6 +926,9 @@ create_gslapt (void)
   gtk_widget_show (pkg_info_action_exclude_button);
   gtk_box_pack_start (GTK_BOX (pkg_action_vbox), pkg_info_action_exclude_button, TRUE, TRUE, 0);
   gtk_tooltips_set_tip (tooltips, pkg_info_action_exclude_button, _("Exclude package"), NULL);
+  gtk_widget_add_accelerator (pkg_info_action_exclude_button, "clicked", accel_group,
+                              GDK_x, (GdkModifierType) GDK_CONTROL_MASK,
+                              GTK_ACCEL_VISIBLE);
 
   alignment29 = gtk_alignment_new (0.5, 0.5, 0, 0);
   gtk_widget_set_name (alignment29, "alignment29");
