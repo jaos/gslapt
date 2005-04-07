@@ -1,5 +1,6 @@
 
 0.3 Apr 11, 2005
+ * fixed bug that allowed installing multiple versions of a package
  * added accelerators, ctrl [i,u] for (re-)install/upgrade, ctrl [r] for
    remove, and ctrl [x] for exclude
  * fixed crash when enabling the remove button on certain packages

@@ -587,7 +587,7 @@ static void fillin_pkg_details(pkg_info_t *pkg){
 	gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"pkg_info_action_description_entry")),short_desc);
 	free(short_desc);
 
-	if( search_transaction_by_pkg(trans,pkg) == 0 ){
+	if( search_transaction(trans,pkg->name) == 0 ){
 
 		if( is_exclude == 0 ){
 
