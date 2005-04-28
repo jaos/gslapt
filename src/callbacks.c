@@ -1309,7 +1309,12 @@ static gboolean download_packages(void){
 	gdk_threads_leave();
 
 	for(i = 0; i < trans->install_pkgs->pkg_count;++i){
-		gchar msg[ NAME_LEN + VERSION_LEN + 6 ];
+
+		guint msg_len = strlen(trans->install_pkgs->pkgs[i]->name)
+				+ strlen("-") + strlen(trans->install_pkgs->pkgs[i]->version)
+				+ strlen(".") + strlen(".tgz");
+		gchar *msg = slapt_malloc(msg_len * sizeof *msg);
+
 		snprintf(msg,
 			strlen(trans->install_pkgs->pkgs[i]->name)
 			+ strlen("-")
@@ -1331,7 +1336,12 @@ static gboolean download_packages(void){
 		++count;
 	}
 	for(i = 0; i < trans->upgrade_pkgs->pkg_count;++i){
-		gchar msg[ NAME_LEN + VERSION_LEN + 6 ];
+
+		guint msg_len = strlen(trans->upgrade_pkgs->pkgs[i]->upgrade->name)
+				+ strlen("-") + strlen(trans->upgrade_pkgs->pkgs[i]->upgrade->version)
+				+ strlen(".") + strlen(".tgz");
+		gchar *msg = slapt_malloc( sizeof *msg * msg_len);
+
 		snprintf(msg,
 			strlen(trans->upgrade_pkgs->pkgs[i]->upgrade->name)
 			+ strlen("-")
