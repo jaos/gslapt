@@ -1,5 +1,6 @@
 
-0.3 Apr 28, 2005
+0.3 May 06, 2005
+ * added pt translation by Pedro Pinto
  * updated to compile against current slapt-get cvs
  * fixed bug that allowed installing multiple versions of a package
  * added accelerators, ctrl [i,u] for (re-)install/upgrade, ctrl [r] for

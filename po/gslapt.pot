@@ -1,7 +1,7 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# gslapt translation template
+# Copyright (C) 2005 Jason Woodward
+# This file is distributed under the same license as the gslapt package.
+# FIRST AUTHOR Jason Woodward <woodwardj@jaos.org>, 2005.
 #
 #, fuzzy
 msgid ""

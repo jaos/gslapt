@@ -1,0 +1,310 @@
+# pt translation for gslapt
+# Copyright (C) 2005 Pedro Pinto
+# This file is distributed under the same license as the gslapt package.
+# FIRST AUTHOR <pedro_nuno_pn@zmail.pt>, 2005.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: gslapt 0.3\n"
+"Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
+"POT-Creation-Date: 2005-05-06 11:10-0500\n"
+"PO-Revision-Date: 2005-05-06 11:10-0500\n"
+"Last-Translator: Pedro Pinto [aka _PN_boy] <pedro_nuno_pn@zmail.pt>\n"
+"Language-Team: slapt-get devel <slapt-get-devel@software.jaos.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "<b>Exclude List</b>"
+msgstr "<b>Lista de Exclusão</b>"
+
+msgid "<b>Package Sources</b>"
+msgstr "<b>Fonte de Pacotes</b>"
+
+msgid "<b>Package and data storage</b>"
+msgstr "<b>Gravar Pacotes e data em</b>"
+
+msgid "<span weight=\"bold\" size=\"large\">Apply the folowing changes?</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Aplicar as seguintes alterações?</span>"
+
+msgid "<span weight=\"bold\">Exclude Expression:</span>"
+msgstr "<span weight=\"bold\">Expressão de Exclusão:</span>"
+
+msgid "<span weight=\"bold\">SOURCE=</span>"
+msgstr "<span weight=\"bold\">FONTE=</span>"
+
+msgid "About gslapt"
+msgstr "Acerca do gslapt"
+
+msgid "About"
+msgstr "Acerca"
+
+msgid "Checking for new package data..."
+msgstr "A Verificar os novos pacotes de dados..."
+
+msgid "Clean archived packages off filesystem"
+msgstr "Limpar pacotes arquivados"
+
+msgid "Clean"
+msgstr "Limpar"
+
+msgid "Clear search expression"
+msgstr "Limpar a expressão de procura"
+
+msgid "Clear"
+msgstr "Limpar"
+
+msgid "Conflicts"
+msgstr "Conflictos"
+
+#, c-format
+msgid "Couldn't find pixmap file: %s"
+msgstr "Não consegui encontrar o ficheiro de pixmap: %s"
+
+msgid "Description"
+msgstr "Descrição"
+
+msgid "Dismiss"
+msgstr "Anular"
+
+msgid "Download packages only"
+msgstr "Transferir apenas os pacotes"
+
+msgid "Downloading packages..."
+msgstr "A transferir os pacotes..."
+
+msgid "Downloading..."
+msgstr "A transferir..."
+
+msgid "Exclude package"
+msgstr "Excluir pacote"
+
+msgid "Exclude"
+msgstr "Excluir"
+
+msgid "Excludes"
+msgstr "Excluidos"
+
+msgid "Execute all scheduled actions in current transaction"
+msgstr "Executar todas as acções programadas na transação a decorrer"
+
+msgid "Execute"
+msgstr "Executar"
+
+msgid "Expression"
+msgstr "Expressão"
+
+msgid "Gslapt"
+msgstr "Gslapt"
+
+msgid "Install"
+msgstr "Instalar"
+
+msgid "Install/Upgrade package"
+msgstr "Instalar/Upgrade aos pacotes"
+
+msgid "Installed Size"
+msgstr "Tamanho ocupado após a instalação"
+
+msgid "Installed"
+msgstr "Instalado"
+
+msgid "Installing packages..."
+msgstr "A instalar pacotes..."
+
+msgid "Installing..."
+msgstr "A instalar"
+
+msgid "Location"
+msgstr "Localização"
+
+msgid "Mirror"
+msgstr "Mirror"
+
+msgid "NO"
+msgstr "NÃO"
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "No"
+msgstr "Não"
+
+msgid "Package Action"
+msgstr "Acção do pacote"
+
+msgid "Package Information"
+msgstr "Informação do pacote"
+
+msgid "Package"
+msgstr "Pacote"
+
+msgid "Packages excluded"
+msgstr "Pacotes excluidos"
+
+msgid "Packages to be installed"
+msgstr "Pacotes a instalar"
+
+msgid "Packages to be removed"
+msgstr "Pacotes a remover"
+
+msgid "Packages to be upgraded"
+msgstr "Pacotes a fazer o upgrade"
+
+msgid "Preferences"
+msgstr "Preferencias"
+
+msgid "Progress"
+msgstr "Progresso"
+
+msgid "Quit"
+msgstr "Sair"
+
+msgid "Remove package"
+msgstr "Apagar pacotes"
+
+msgid "Remove"
+msgstr "Apagar"
+
+msgid "Removing packages..."
+msgstr "A a apagar pacotes..."
+
+msgid "Required"
+msgstr "Necessário"
+
+msgid "Search for expression"
+msgstr "Procurar por expressão"
+
+msgid "Search"
+msgstr "Procurar"
+
+msgid "Size"
+msgstr "Tamanho"
+
+msgid "Source"
+msgstr "Fonte"
+
+msgid "Sources"
+msgstr "Fontes"
+
+msgid "Suggests"
+msgstr "Sugestões"
+
+msgid "Summary"
+msgstr "Sumário"
+
+msgid "This is a summary of the changes about to be performed."
+msgstr "Isto é um sumários das alterações que vão ser feitas"
+
+msgid "Uninstalling..."
+msgstr "A desinstalar..."
+
+msgid "Up_grade"
+msgstr "Up_grade"
+
+msgid "Update local package cache"
+msgstr "Actualizar a cache dos pacotes locais"
+
+msgid "Update"
+msgstr "Actualizar"
+
+msgid "Upgrade All"
+msgstr "Upgrade a todos"
+
+msgid "Upgrade installed packages"
+msgstr "Upgrade aos pacotes instalados"
+
+msgid "Upgrade to newer release"
+msgstr "Upgrade aos novos pacotes"
+
+msgid "Upgrade"
+msgstr "Upgrade"
+
+msgid "Upgrading packages..."
+msgstr "A fazer o Upgrade dos pacotes..."
+
+msgid "Upgrading..."
+msgstr "A fazer o Upgrade..."
+
+msgid "Version"
+msgstr "Versão"
+
+msgid "WARNING"
+msgstr "AVISO"
+
+msgid "Working Directory"
+msgstr "Directoria de trabalho"
+
+msgid "Yes"
+msgstr "Sim"
+
+msgid "_Actions"
+msgstr "_Acções"
+
+msgid "_Clean"
+msgstr "_Limpar"
+
+msgid "_Execute"
+msgstr "_Executar"
+
+msgid "_Help"
+msgstr "_Ajuda"
+
+msgid "_Preferences"
+msgstr "_Preferências"
+
+msgid "_Settings"
+msgstr "_Configurações"
+
+msgid "_Update"
+msgstr "_Actualizar"
+
+msgid ""
+"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
+"Slackware"
+msgstr ""
+"gslapt é um frontend em GTK+ para o slapt-get, uma aplicação de gestão "
+"de sistemas de pacotes do tipo APT para o Slackware"
+msgid "total progress"
+msgstr "progresso total"
+
+msgid "working"
+msgstr "a trabalhar"
+
+msgid "Up to Date"
+msgstr "Actualizado"
+
+msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Não exite nenhum update disponivel</span>"
+
+msgid "%d upgraded, %d newly installed, %d to remove and %d not upgraded."
+msgstr "%d upgrade, %d instalados de novo, %d para remover e %d que não vão sofrer upgrade."
+
+msgid "Need to get %0.1d%s/%0.1d%s of archives.\n"
+msgstr "É necessário obter %0.1d%s/%0.1d%s de ficheiros.\n"
+
+msgid "Need to get %0.1d%s of archives."
+msgstr "É necessário obter %0.1d%s de ficheiros."
+
+msgid "After unpacking %0.1d%s disk space will be freed."
+msgstr "Após descompactar %0.1d%s de espaço em disco vai ser libertado."
+
+msgid "After unpacking %0.1d%s of additional disk space will be used."
+msgstr "Após descompactar %0.1d%s de espaço adicional em disco vai ser usado."
+
+msgid "Ready"
+msgstr "Pronto"
+
+msgid "Re-Install"
+msgstr "Re-Instalar"
+
+msgid "Downgrade"
+msgstr "Downgrade"
+
+msgid "_File"
+msgstr "_Ficheiro"
+
+msgid "Pending changes. Click execute when ready."
+msgstr "Alterações pendentes. Carrega em executar quando estiveres pronto."
+
