@@ -6,10 +6,10 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: gslapt 0.3\n"
+"Project-Id-Version: gslapt 0.2.1\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-17 14:52-0500\n"
-"PO-Revision-Date: 2005-03-10 10:52+0500\n"
+"PO-Revision-Date: 2005-05-19 11:29+0500\n"
 "Last-Translator: Piotr Simon <sajmon@tenboard.com>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -281,4 +281,19 @@ msgstr "Aktualizuj"
 
 msgid "Pending changes. Click execute when ready."
 msgstr "W czasie zmian. Kliknij na Wykonaj je¶li gotowe."
+
+msgid "Packages with unmet dependencies"
+msgstr "Packages with unmet dependencies"
+
+msgid ": Depends: "
+msgstr ": Depends: "
+
+msgid "Package conflicts"
+msgstr "Package conflicts"
+
+msgid ", which is required by "
+msgstr ", which is required by "
+
+msgid ", is excluded"
+msgstr ", is excluded"
 

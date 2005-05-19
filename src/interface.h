@@ -7,5 +7,4 @@ GtkWidget* create_gslapt (void);
 GtkWidget* create_transaction_window (void);
 GtkWidget* create_progress_window (void);
 GtkWidget* create_about (void);
-GtkWidget* create_devel_warning_dialog (void);
-GtkWidget* create_up_to_date (void);
+GtkWidget* create_notification (void);

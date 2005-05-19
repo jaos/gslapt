@@ -60,7 +60,7 @@ static void build_sources_treeviewlist(GtkWidget *treeview,
 static void build_exclude_treeviewlist(GtkWidget *treeview,
                                        const rc_config *global_config);
 
-static void populate_transaction_window(GtkWidget *trans_window);
+static int populate_transaction_window(GtkWidget *trans_window);
 
 
 void clear_button_clicked(GtkWidget *button,gpointer user_data);
@@ -81,3 +81,4 @@ void cancel_upgrade_transaction(GtkWidget *w,gpointer user_data);
 static void set_execute_active(void);
 static void clear_execute_active(void);
 
+static void notify(const char *title,const char *message);

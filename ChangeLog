@@ -1,5 +1,11 @@
 
-0.3 May 10, 2005
+0.2.1 May 19, 2005
+ * removed beta warning dialog
+ * the clear button only rebuilds the view when it has to, as it's so expensive
+ * added "not enough free space" notification
+ * updated translations
+ * added more notification for errors during source updates and transaction
+   messages for missing deps and conflicts via new error api
  * formatting updates
  * added pt translation by Pedro Pinto
  * updated to compile against current slapt-get cvs
@@ -7,7 +13,7 @@
  * added accelerators, ctrl [i,u] for (re-)install/upgrade, ctrl [r] for
    remove, and ctrl [x] for exclude
  * fixed crash when enabling the remove button on certain packages
- * requires slapt-get >= 0.9.9j
+ * requires slapt-get >= 0.9.9k
  * fixed upgrade problem
  * updated transaction code to follow new transaction_t struct use of queue 
  * borrowed Ubuntu's add/remove applications icon for new gslapt icon

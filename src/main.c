@@ -32,9 +32,9 @@ GtkWidget *gslapt;
 transaction_t tran;
 transaction_t *trans = &tran;
 
-int main (int argc, char *argv[]){
-	GtkStatusbar *bar;
-	guint default_context_id;
+int main (int argc, char *argv[]) {
+  GtkStatusbar *bar;
+  guint default_context_id;
 
 #ifdef ENABLE_NLS
   bindtextdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR);
@@ -43,41 +43,45 @@ int main (int argc, char *argv[]){
 #endif
 
   gtk_set_locale ();
-	g_thread_init(NULL);
-	gdk_threads_init();
+  g_thread_init(NULL);
+  gdk_threads_init();
   gtk_init (&argc, &argv);
 
   add_pixmap_directory (PACKAGE_DATA_DIR "/" PACKAGE "/pixmaps");
 
   gslapt = (GtkWidget *)create_gslapt ();
   gtk_widget_show (gslapt);
-	gtk_widget_show(create_devel_warning_dialog());
 
-	global_config = read_rc_config(RC_LOCATION);
-	working_dir_init(global_config);
-	chdir(global_config->working_dir);
-	global_config->progress_cb = gtk_progress_callback;
+  global_config = read_rc_config(RC_LOCATION);
+  working_dir_init(global_config);
+  chdir(global_config->working_dir);
+  global_config->progress_cb = gtk_progress_callback;
 
-	/* read in all pkgs and installed pkgs */
-	installed = get_installed_pkgs();
-	all = get_available_pkgs();
+  /* read in all pkgs and installed pkgs */
+  installed = get_installed_pkgs();
+  all = get_available_pkgs();
 
-	build_package_treeviewlist((GtkWidget *)lookup_widget(gslapt,"pkg_listing_treeview"));
+  build_package_treeviewlist(
+     (GtkWidget *)lookup_widget(gslapt,"pkg_listing_treeview"));
 
-	bar = GTK_STATUSBAR(lookup_widget(gslapt,"bottom_statusbar"));
-	default_context_id = gtk_statusbar_get_context_id(bar,"default");
-	gtk_statusbar_push(bar,default_context_id,_("Ready"));
+  bar = GTK_STATUSBAR(lookup_widget(gslapt,"bottom_statusbar"));
+  default_context_id = gtk_statusbar_get_context_id(bar,"default");
+  gtk_statusbar_push(bar,default_context_id,_("Ready"));
 
-	gtk_widget_set_sensitive( lookup_widget(gslapt,"pkg_info_action_install_upgrade_button"), FALSE);
-	gtk_widget_set_sensitive( lookup_widget(gslapt,"pkg_info_action_remove_button"), FALSE);
-	gtk_widget_set_sensitive( lookup_widget(gslapt,"pkg_info_action_exclude_button"), FALSE);
-	gtk_widget_set_sensitive( lookup_widget(gslapt,"action_bar_execute_button"), FALSE);
+  gtk_widget_set_sensitive( lookup_widget(gslapt,
+                            "pkg_info_action_install_upgrade_button"), FALSE);
+  gtk_widget_set_sensitive( lookup_widget(gslapt,
+                            "pkg_info_action_remove_button"), FALSE);
+  gtk_widget_set_sensitive( lookup_widget(gslapt,
+                            "pkg_info_action_exclude_button"), FALSE);
+  gtk_widget_set_sensitive( lookup_widget(gslapt,
+                            "action_bar_execute_button"), FALSE);
 
-	init_transaction(trans);
+  init_transaction(trans);
 
-	gdk_threads_enter();
+  gdk_threads_enter();
   gtk_main ();
-	gdk_threads_leave();
+  gdk_threads_leave();
 
   return 0;
 }

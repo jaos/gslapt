@@ -1410,7 +1410,7 @@ create_about (void)
   gtk_widget_show (label170);
   gtk_box_pack_start (GTK_BOX (vbox50), label170, FALSE, FALSE, 0);
 
-  label149 = gtk_label_new ("<span size=\"small\">Copyright (c) 2005 Jason Woodward\nhttp://software.jaso.org/#gslapt</span>");
+  label149 = gtk_label_new ("<span size=\"small\">Copyright (c) 2005 Jason Woodward\nhttp://software.jaos.org/#gslapt</span>");
   gtk_widget_set_name (label149, "label149");
   gtk_widget_show (label149);
   gtk_box_pack_start (GTK_BOX (vbox50), label149, TRUE, TRUE, 0);
@@ -1450,103 +1450,39 @@ create_about (void)
 }
 
 GtkWidget*
-create_devel_warning_dialog (void)
+create_notification (void)
 {
-  GtkWidget *devel_warning_dialog;
-  GdkPixbuf *devel_warning_dialog_icon_pixbuf;
-  GtkWidget *dialog_vbox2;
-  GtkWidget *label169;
-  GtkWidget *dialog_action_area2;
-  GtkWidget *okbutton1;
-
-  devel_warning_dialog = gtk_dialog_new ();
-  gtk_widget_set_name (devel_warning_dialog, "devel_warning_dialog");
-  gtk_container_set_border_width (GTK_CONTAINER (devel_warning_dialog), 6);
-  gtk_window_set_title (GTK_WINDOW (devel_warning_dialog), _("WARNING"));
-  gtk_window_set_position (GTK_WINDOW (devel_warning_dialog), GTK_WIN_POS_CENTER);
-  devel_warning_dialog_icon_pixbuf = create_pixbuf ("gslapt.png");
-  if (devel_warning_dialog_icon_pixbuf)
-    {
-      gtk_window_set_icon (GTK_WINDOW (devel_warning_dialog), devel_warning_dialog_icon_pixbuf);
-      gdk_pixbuf_unref (devel_warning_dialog_icon_pixbuf);
-    }
-  gtk_window_set_type_hint (GTK_WINDOW (devel_warning_dialog), GDK_WINDOW_TYPE_HINT_DIALOG);
-  gtk_window_set_gravity (GTK_WINDOW (devel_warning_dialog), GDK_GRAVITY_CENTER);
-
-  dialog_vbox2 = GTK_DIALOG (devel_warning_dialog)->vbox;
-  gtk_widget_set_name (dialog_vbox2, "dialog_vbox2");
-  gtk_widget_show (dialog_vbox2);
-
-  label169 = gtk_label_new ("<b>Gslapt</b> is <b>beta</b> quality software.  <span weight=\"bold\">It may crash and may leave your machine in an unusable state.</span>  Please use with caution.\n\nBug reports should go to the slapt-get-devel mailing list: slapt-get-devel@software.jaos.org");
-  gtk_widget_set_name (label169, "label169");
-  gtk_widget_show (label169);
-  gtk_box_pack_start (GTK_BOX (dialog_vbox2), label169, TRUE, TRUE, 2);
-  GTK_WIDGET_SET_FLAGS (label169, GTK_CAN_FOCUS);
-  gtk_label_set_use_markup (GTK_LABEL (label169), TRUE);
-  gtk_label_set_line_wrap (GTK_LABEL (label169), TRUE);
-  gtk_label_set_selectable (GTK_LABEL (label169), TRUE);
-  gtk_misc_set_alignment (GTK_MISC (label169), 0, 0);
-
-  dialog_action_area2 = GTK_DIALOG (devel_warning_dialog)->action_area;
-  gtk_widget_set_name (dialog_action_area2, "dialog_action_area2");
-  gtk_widget_show (dialog_action_area2);
-  gtk_button_box_set_layout (GTK_BUTTON_BOX (dialog_action_area2), GTK_BUTTONBOX_END);
-
-  okbutton1 = gtk_button_new_with_mnemonic (_("Dismiss"));
-  gtk_widget_set_name (okbutton1, "okbutton1");
-  gtk_widget_show (okbutton1);
-  gtk_dialog_add_action_widget (GTK_DIALOG (devel_warning_dialog), okbutton1, GTK_RESPONSE_OK);
-  GTK_WIDGET_SET_FLAGS (okbutton1, GTK_CAN_DEFAULT);
-
-  g_signal_connect_swapped ((gpointer) okbutton1, "clicked",
-                            G_CALLBACK (gtk_widget_destroy),
-                            GTK_OBJECT (devel_warning_dialog));
-
-  /* Store pointers to all widgets, for use by lookup_widget(). */
-  GLADE_HOOKUP_OBJECT_NO_REF (devel_warning_dialog, devel_warning_dialog, "devel_warning_dialog");
-  GLADE_HOOKUP_OBJECT_NO_REF (devel_warning_dialog, dialog_vbox2, "dialog_vbox2");
-  GLADE_HOOKUP_OBJECT (devel_warning_dialog, label169, "label169");
-  GLADE_HOOKUP_OBJECT_NO_REF (devel_warning_dialog, dialog_action_area2, "dialog_action_area2");
-  GLADE_HOOKUP_OBJECT (devel_warning_dialog, okbutton1, "okbutton1");
-
-  return devel_warning_dialog;
-}
-
-GtkWidget*
-create_up_to_date (void)
-{
-  GtkWidget *up_to_date;
-  GdkPixbuf *up_to_date_icon_pixbuf;
+  GtkWidget *notification;
+  GdkPixbuf *notification_icon_pixbuf;
   GtkWidget *dialog_vbox3;
-  GtkWidget *label171;
+  GtkWidget *notification_label;
   GtkWidget *dialog_action_area3;
   GtkWidget *okbutton2;
 
-  up_to_date = gtk_dialog_new ();
-  gtk_widget_set_name (up_to_date, "up_to_date");
-  gtk_container_set_border_width (GTK_CONTAINER (up_to_date), 2);
-  gtk_window_set_title (GTK_WINDOW (up_to_date), _("Up to Date"));
-  gtk_window_set_position (GTK_WINDOW (up_to_date), GTK_WIN_POS_CENTER);
-  up_to_date_icon_pixbuf = create_pixbuf ("gslapt.png");
-  if (up_to_date_icon_pixbuf)
+  notification = gtk_dialog_new ();
+  gtk_widget_set_name (notification, "notification");
+  gtk_container_set_border_width (GTK_CONTAINER (notification), 2);
+  gtk_window_set_position (GTK_WINDOW (notification), GTK_WIN_POS_CENTER);
+  notification_icon_pixbuf = create_pixbuf ("gslapt.png");
+  if (notification_icon_pixbuf)
     {
-      gtk_window_set_icon (GTK_WINDOW (up_to_date), up_to_date_icon_pixbuf);
-      gdk_pixbuf_unref (up_to_date_icon_pixbuf);
+      gtk_window_set_icon (GTK_WINDOW (notification), notification_icon_pixbuf);
+      gdk_pixbuf_unref (notification_icon_pixbuf);
     }
-  gtk_window_set_type_hint (GTK_WINDOW (up_to_date), GDK_WINDOW_TYPE_HINT_DIALOG);
-  gtk_window_set_gravity (GTK_WINDOW (up_to_date), GDK_GRAVITY_CENTER);
+  gtk_window_set_type_hint (GTK_WINDOW (notification), GDK_WINDOW_TYPE_HINT_DIALOG);
+  gtk_window_set_gravity (GTK_WINDOW (notification), GDK_GRAVITY_CENTER);
 
-  dialog_vbox3 = GTK_DIALOG (up_to_date)->vbox;
+  dialog_vbox3 = GTK_DIALOG (notification)->vbox;
   gtk_widget_set_name (dialog_vbox3, "dialog_vbox3");
   gtk_widget_show (dialog_vbox3);
 
-  label171 = gtk_label_new (_("<span weight=\"bold\" size=\"large\">No updates available</span>"));
-  gtk_widget_set_name (label171, "label171");
-  gtk_widget_show (label171);
-  gtk_box_pack_start (GTK_BOX (dialog_vbox3), label171, TRUE, TRUE, 2);
-  gtk_label_set_use_markup (GTK_LABEL (label171), TRUE);
+  notification_label = gtk_label_new ("");
+  gtk_widget_set_name (notification_label, "notification_label");
+  gtk_widget_show (notification_label);
+  gtk_box_pack_start (GTK_BOX (dialog_vbox3), notification_label, TRUE, TRUE, 2);
+  gtk_label_set_use_markup (GTK_LABEL (notification_label), TRUE);
 
-  dialog_action_area3 = GTK_DIALOG (up_to_date)->action_area;
+  dialog_action_area3 = GTK_DIALOG (notification)->action_area;
   gtk_widget_set_name (dialog_action_area3, "dialog_action_area3");
   gtk_widget_show (dialog_action_area3);
   gtk_button_box_set_layout (GTK_BUTTON_BOX (dialog_action_area3), GTK_BUTTONBOX_END);
@@ -1554,20 +1490,20 @@ create_up_to_date (void)
   okbutton2 = gtk_button_new_from_stock ("gtk-ok");
   gtk_widget_set_name (okbutton2, "okbutton2");
   gtk_widget_show (okbutton2);
-  gtk_dialog_add_action_widget (GTK_DIALOG (up_to_date), okbutton2, GTK_RESPONSE_OK);
+  gtk_dialog_add_action_widget (GTK_DIALOG (notification), okbutton2, GTK_RESPONSE_OK);
   GTK_WIDGET_SET_FLAGS (okbutton2, GTK_CAN_DEFAULT);
 
   g_signal_connect_swapped ((gpointer) okbutton2, "clicked",
                             G_CALLBACK (gtk_widget_destroy),
-                            GTK_OBJECT (up_to_date));
+                            GTK_OBJECT (notification));
 
   /* Store pointers to all widgets, for use by lookup_widget(). */
-  GLADE_HOOKUP_OBJECT_NO_REF (up_to_date, up_to_date, "up_to_date");
-  GLADE_HOOKUP_OBJECT_NO_REF (up_to_date, dialog_vbox3, "dialog_vbox3");
-  GLADE_HOOKUP_OBJECT (up_to_date, label171, "label171");
-  GLADE_HOOKUP_OBJECT_NO_REF (up_to_date, dialog_action_area3, "dialog_action_area3");
-  GLADE_HOOKUP_OBJECT (up_to_date, okbutton2, "okbutton2");
+  GLADE_HOOKUP_OBJECT_NO_REF (notification, notification, "notification");
+  GLADE_HOOKUP_OBJECT_NO_REF (notification, dialog_vbox3, "dialog_vbox3");
+  GLADE_HOOKUP_OBJECT (notification, notification_label, "notification_label");
+  GLADE_HOOKUP_OBJECT_NO_REF (notification, dialog_action_area3, "dialog_action_area3");
+  GLADE_HOOKUP_OBJECT (notification, okbutton2, "okbutton2");
 
-  return up_to_date;
+  return notification;
 }
 
