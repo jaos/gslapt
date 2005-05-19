@@ -1,3 +1,29 @@
 Frequently Asked Questions:
 
-todo
+*Contents
+1.  I have a problem or a suggestion for gslapt, where do I take it?
+2.  Why do I get permission denied on /var/slapt-get ?
+
+
+
+1.  I have a problem or a suggestion for gslapt, where do I take it?
+
+  Please subscribe to slapt-get-devel@software.jaos.org:
+
+  http://software.jaos.org/cgi-bin/mailman/listinfo/slapt-get-devel
+
+
+2.  Why do I get permission denied on /var/slapt-get ?
+
+  If gslapt doesn't start from the panel or you get a message like:
+
+  /var/slapt-get: Permission denied
+  Please update permissions on /var/slapt-get or run with appropriate privileges
+
+  then you are trying to run gslapt as a non root user.  At the moment, there
+  are no guaranteed solutions such as gnomesu, gtksu, etc.  The user can modify
+  the /usr/share/applications/gslapt.desktop file to call one of these before
+  gslapt if present.  Otherwise you need to run it from the command line with
+  sudo or as root with access to your current X session.
+
+

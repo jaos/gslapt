@@ -1,5 +1,6 @@
 
 0.2.1 May 19, 2005
+ * added FAQs to the FAQ
  * set package listing columns to be resizeable
  * removed beta warning dialog
  * the clear button only rebuilds the view when it has to, as it's so expensive
