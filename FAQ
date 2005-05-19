@@ -21,9 +21,10 @@ Frequently Asked Questions:
   Please update permissions on /var/slapt-get or run with appropriate privileges
 
   then you are trying to run gslapt as a non root user.  At the moment, there
-  are no guaranteed solutions such as gnomesu, gtksu, etc.  The user can modify
-  the /usr/share/applications/gslapt.desktop file to call one of these before
-  gslapt if present.  Otherwise you need to run it from the command line with
-  sudo or as root with access to your current X session.
+  are no guaranteed to be present solutions such as gnomesu, gtksu, etc.  You
+  can modify the /usr/share/applications/gslapt.desktop file to call one of
+  these utilities, if present, before the call to gslapt.  Otherwise you need
+  to run gslapt from the command line with sudo or as root (if as root, make
+  sure root has access to your current X session).
 
 
