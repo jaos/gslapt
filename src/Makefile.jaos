@@ -1,5 +1,5 @@
 PROGRAM=gslapt
-VERSION=0.2.1
+VERSION=0.2.2
 PACKAGE_DATA_DIR="/usr/share/$(PROGRAM)-$(VERSION)"
 
 #CFLAGS = -W -Wall -Werror -ansi -pedantic -pthread -DXTHREADS -I/usr/include/gtk-2.0 -I/usr/lib/gtk-2.0/include -I/usr/X11R6/include -I/usr/include/atk-1.0 -I/usr/include/pango-1.0 -I/usr/include/freetype2 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include  -DVERSION="\"$(VERSION)\"" -DPACKAGE="\"$(PROGRAM)\"" -DPACKAGE_DATA_DIR=\""$(PACKAGE_DATA_DIR)"\"  -DPACKAGE_LOCALE_DIR=\""$(PACKAGE_DATA_DIR)/locale"\" -g -O2 

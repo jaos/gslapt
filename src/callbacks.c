@@ -1215,6 +1215,7 @@ static int populate_transaction_window(GtkWidget *trans_window)
                trans->missing_err->errs[i]->error);
       gtk_tree_store_append (store, &child_iter, &iter);
       gtk_tree_store_set(store,&child_iter,0,err,-1);
+      free(err);
     }
   }
   if ( trans->conflict_err->err_count > 0 ) {
@@ -1233,6 +1234,7 @@ static int populate_transaction_window(GtkWidget *trans_window)
                _(", is excluded"));
       gtk_tree_store_append (store, &child_iter, &iter);
       gtk_tree_store_set(store,&child_iter,0,err,-1);
+      free(err);
     }
   }
   if ( trans->exclude_pkgs->pkg_count > 0 ) {
@@ -1465,6 +1467,8 @@ static gboolean download_packages(void)
     gtk_progress_bar_set_fraction(p_bar,((count * 100)/pkgs_to_dl)/100);
     gdk_threads_leave();
 
+    free(msg);
+
     download_pkg(global_config,trans->install_pkgs->pkgs[i]);
     ++count;
   }
@@ -1491,6 +1495,8 @@ static gboolean download_packages(void)
     gtk_label_set_text(progress_message_label,msg);
     gtk_progress_bar_set_fraction(p_bar,((count * 100)/pkgs_to_dl)/100);
     gdk_threads_leave();
+
+    free(msg);
 
     download_pkg(global_config,trans->upgrade_pkgs->pkgs[i]->upgrade);
     ++count;
