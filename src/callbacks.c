@@ -369,7 +369,7 @@ void build_package_treeviewlist(GtkWidget *treeview)
   select = gtk_tree_view_get_selection (GTK_TREE_VIEW (treeview));
   gtk_tree_selection_set_mode (select, GTK_SELECTION_SINGLE);
   g_signal_connect (G_OBJECT (select), "changed",
-    G_CALLBACK (show_pkg_details), all);
+    G_CALLBACK (show_pkg_details), NULL);
 
 }
 
@@ -459,7 +459,7 @@ void build_searched_treeviewlist(GtkWidget *treeview, gchar *pattern)
   select = gtk_tree_view_get_selection (GTK_TREE_VIEW (treeview));
   gtk_tree_selection_set_mode (select, GTK_SELECTION_SINGLE);
   g_signal_connect (G_OBJECT (select), "changed",
-    G_CALLBACK (show_pkg_details), all);
+    G_CALLBACK (show_pkg_details), NULL);
 
 }
 

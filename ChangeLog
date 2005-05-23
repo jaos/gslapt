@@ -1,5 +1,6 @@
 
 0.2.2 May 23, 2005
+ * removed unused signal handler paramter
  * updated translations with new strings
  * removed the unneeded exclude button since exclude prefs are working 
  * changed order of package list column, moving installed before location
