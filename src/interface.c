@@ -445,34 +445,48 @@ create_gslapt (void)
   GtkWidget *search_entry;
   GtkWidget *search_button;
   GtkWidget *clear_button;
-  GtkWidget *pkg_box;
-  GtkWidget *list_vbox;
+  GtkWidget *pkg_vpaned;
   GtkWidget *pkg_list_scrolled;
   GtkWidget *pkg_listing_treeview;
   GtkWidget *pkg_info_action_hbox;
-  GtkWidget *pkg_info_frame;
-  GtkWidget *pkg_info_action_table;
-  GtkWidget *pkg_info_action_name_label;
-  GtkWidget *pkg_info_action_name_entry;
-  GtkWidget *pkg_info_action_description_label;
-  GtkWidget *pkg_info_action_description_entry;
-  GtkWidget *pkg_info_action_version_label;
-  GtkWidget *pkg_info_action_version_entry;
-  GtkWidget *pkg_info_action_size_label;
-  GtkWidget *pkg_info_action_size_entry;
-  GtkWidget *pkg_info_action_isize_label;
-  GtkWidget *pkg_info_action_isize_entry;
-  GtkWidget *pkg_info_action_required_label;
-  GtkWidget *pkg_info_action_required_entry;
-  GtkWidget *pkg_info_action_conflicts_label;
-  GtkWidget *pkg_info_action_conflicts_entry;
-  GtkWidget *pkg_info_action_suggests_label;
-  GtkWidget *pkg_info_action_suggests_entry;
-  GtkWidget *pkg_info_action_mirror_label;
-  GtkWidget *pkg_info_action_mirror_entry;
-  GtkWidget *pkg_info_label;
-  GtkWidget *pkg_action_frame;
+  GtkWidget *pkg_info_notebook;
+  GtkWidget *scrolledwindow20;
+  GtkWidget *viewport1;
+  GtkWidget *vbox63;
+  GtkWidget *table2;
+  GtkWidget *label226;
+  GtkWidget *label227;
+  GtkWidget *label244;
+  GtkWidget *pkg_info_name;
+  GtkWidget *pkg_info_description;
+  GtkWidget *pkg_info_location;
+  GtkWidget *table3;
+  GtkWidget *label237;
+  GtkWidget *label238;
+  GtkWidget *label239;
+  GtkWidget *label245;
+  GtkWidget *pkg_info_version;
+  GtkWidget *pkg_info_size;
+  GtkWidget *pkg_info_installed_size;
+  GtkWidget *pkg_info_mirror;
+  GtkWidget *pkg_info_common_label;
+  GtkWidget *vbox64;
+  GtkWidget *scrolledwindow19;
+  GtkWidget *pkg_description_textview;
+  GtkWidget *pkg_info_description_label;
+  GtkWidget *scrolledwindow21;
+  GtkWidget *viewport2;
+  GtkWidget *pkg_info_dep_vbox;
+  GtkWidget *table4;
+  GtkWidget *label247;
+  GtkWidget *label248;
+  GtkWidget *label249;
+  GtkWidget *pkg_info_required;
+  GtkWidget *pkg_info_conflicts;
+  GtkWidget *pkg_info_suggests;
+  GtkWidget *pkg_info_dependencies_label;
   GtkWidget *pkg_action_vbox;
+  GtkWidget *label246;
   GtkWidget *pkg_info_action_install_upgrade_button;
   GtkWidget *alignment27;
   GtkWidget *hbox78;
@@ -483,12 +497,6 @@ create_gslapt (void)
   GtkWidget *hbox79;
   GtkWidget *image747;
   GtkWidget *label132;
-  GtkWidget *pkg_info_action_exclude_button;
-  GtkWidget *alignment29;
-  GtkWidget *hbox80;
-  GtkWidget *image748;
-  GtkWidget *label133;
-  GtkWidget *pkg_action_label;
   GtkWidget *bottom_statusbar;
   GtkAccelGroup *accel_group;
   GtkTooltips *tooltips;
@@ -619,10 +627,11 @@ create_gslapt (void)
   gtk_container_add (GTK_CONTAINER (action_toolbar), action_bar_execute_button);
   gtk_tool_item_set_tooltip (GTK_TOOL_ITEM (action_bar_execute_button), tooltips, _("Execute all scheduled actions in current transaction"), NULL);
 
-  search_vbox = gtk_vbox_new (FALSE, 0);
+  search_vbox = gtk_vbox_new (FALSE, 6);
   gtk_widget_set_name (search_vbox, "search_vbox");
   gtk_widget_show (search_vbox);
   gtk_box_pack_start (GTK_BOX (gslapt_vbox), search_vbox, FALSE, FALSE, 0);
+  gtk_container_set_border_width (GTK_CONTAINER (search_vbox), 6);
 
   search_align = gtk_alignment_new (0.5, 0.5, 1, 1);
   gtk_widget_set_name (search_align, "search_align");
@@ -657,21 +666,16 @@ create_gslapt (void)
   gtk_box_pack_start (GTK_BOX (search_hbox), clear_button, FALSE, FALSE, 0);
   gtk_tooltips_set_tip (tooltips, clear_button, _("Clear search expression"), NULL);
 
-  pkg_box = gtk_vbox_new (TRUE, 0);
-  gtk_widget_set_name (pkg_box, "pkg_box");
-  gtk_widget_show (pkg_box);
-  gtk_box_pack_start (GTK_BOX (gslapt_vbox), pkg_box, TRUE, TRUE, 0);
-
-  list_vbox = gtk_vbox_new (TRUE, 0);
-  gtk_widget_set_name (list_vbox, "list_vbox");
-  gtk_widget_show (list_vbox);
-  gtk_box_pack_start (GTK_BOX (pkg_box), list_vbox, TRUE, TRUE, 0);
-  gtk_container_set_border_width (GTK_CONTAINER (list_vbox), 1);
+  pkg_vpaned = gtk_vpaned_new ();
+  gtk_widget_set_name (pkg_vpaned, "pkg_vpaned");
+  gtk_widget_show (pkg_vpaned);
+  gtk_box_pack_start (GTK_BOX (gslapt_vbox), pkg_vpaned, TRUE, TRUE, 0);
+  gtk_container_set_border_width (GTK_CONTAINER (pkg_vpaned), 6);
 
   pkg_list_scrolled = gtk_scrolled_window_new (NULL, NULL);
   gtk_widget_set_name (pkg_list_scrolled, "pkg_list_scrolled");
   gtk_widget_show (pkg_list_scrolled);
-  gtk_box_pack_start (GTK_BOX (list_vbox), pkg_list_scrolled, TRUE, TRUE, 0);
+  gtk_paned_pack1 (GTK_PANED (pkg_vpaned), pkg_list_scrolled, TRUE, FALSE);
   gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (pkg_list_scrolled), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
 
   pkg_listing_treeview = gtk_tree_view_new ();
@@ -681,189 +685,326 @@ create_gslapt (void)
   gtk_tree_view_set_rules_hint (GTK_TREE_VIEW (pkg_listing_treeview), TRUE);
   gtk_tree_view_set_reorderable (GTK_TREE_VIEW (pkg_listing_treeview), TRUE);
 
-  pkg_info_action_hbox = gtk_hbox_new (FALSE, 0);
+  pkg_info_action_hbox = gtk_hbox_new (FALSE, 6);
   gtk_widget_set_name (pkg_info_action_hbox, "pkg_info_action_hbox");
   gtk_widget_show (pkg_info_action_hbox);
-  gtk_box_pack_end (GTK_BOX (pkg_box), pkg_info_action_hbox, FALSE, FALSE, 0);
+  gtk_paned_pack2 (GTK_PANED (pkg_vpaned), pkg_info_action_hbox, TRUE, FALSE);
+  gtk_container_set_border_width (GTK_CONTAINER (pkg_info_action_hbox), 6);
 
-  pkg_info_frame = gtk_frame_new (NULL);
-  gtk_widget_set_name (pkg_info_frame, "pkg_info_frame");
-  gtk_widget_show (pkg_info_frame);
-  gtk_box_pack_start (GTK_BOX (pkg_info_action_hbox), pkg_info_frame, TRUE, TRUE, 0);
-  gtk_frame_set_shadow_type (GTK_FRAME (pkg_info_frame), GTK_SHADOW_NONE);
+  pkg_info_notebook = gtk_notebook_new ();
+  gtk_widget_set_name (pkg_info_notebook, "pkg_info_notebook");
+  gtk_widget_show (pkg_info_notebook);
+  gtk_box_pack_start (GTK_BOX (pkg_info_action_hbox), pkg_info_notebook, TRUE, TRUE, 0);
+  gtk_notebook_set_show_border (GTK_NOTEBOOK (pkg_info_notebook), FALSE);
+  gtk_notebook_set_scrollable (GTK_NOTEBOOK (pkg_info_notebook), TRUE);
 
-  pkg_info_action_table = gtk_table_new (9, 2, FALSE);
-  gtk_widget_set_name (pkg_info_action_table, "pkg_info_action_table");
-  gtk_widget_show (pkg_info_action_table);
-  gtk_container_add (GTK_CONTAINER (pkg_info_frame), pkg_info_action_table);
-  gtk_container_set_border_width (GTK_CONTAINER (pkg_info_action_table), 1);
-  gtk_table_set_row_spacings (GTK_TABLE (pkg_info_action_table), 2);
-  gtk_table_set_col_spacings (GTK_TABLE (pkg_info_action_table), 2);
+  scrolledwindow20 = gtk_scrolled_window_new (NULL, NULL);
+  gtk_widget_set_name (scrolledwindow20, "scrolledwindow20");
+  gtk_widget_show (scrolledwindow20);
+  gtk_container_add (GTK_CONTAINER (pkg_info_notebook), scrolledwindow20);
+  gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolledwindow20), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
+  gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scrolledwindow20), GTK_SHADOW_IN);
 
-  pkg_info_action_name_label = gtk_label_new (_("Name"));
-  gtk_widget_set_name (pkg_info_action_name_label, "pkg_info_action_name_label");
-  gtk_widget_show (pkg_info_action_name_label);
-  gtk_table_attach (GTK_TABLE (pkg_info_action_table), pkg_info_action_name_label, 0, 1, 0, 1,
+  viewport1 = gtk_viewport_new (NULL, NULL);
+  gtk_widget_set_name (viewport1, "viewport1");
+  gtk_widget_show (viewport1);
+  gtk_container_add (GTK_CONTAINER (scrolledwindow20), viewport1);
+
+  vbox63 = gtk_vbox_new (FALSE, 18);
+  gtk_widget_set_name (vbox63, "vbox63");
+  gtk_widget_show (vbox63);
+  gtk_container_add (GTK_CONTAINER (viewport1), vbox63);
+  gtk_container_set_border_width (GTK_CONTAINER (vbox63), 6);
+
+  table2 = gtk_table_new (3, 2, FALSE);
+  gtk_widget_set_name (table2, "table2");
+  gtk_widget_show (table2);
+  gtk_box_pack_start (GTK_BOX (vbox63), table2, FALSE, FALSE, 0);
+  gtk_table_set_row_spacings (GTK_TABLE (table2), 6);
+  gtk_table_set_col_spacings (GTK_TABLE (table2), 12);
+
+  label226 = gtk_label_new (_("<b>Name</b>"));
+  gtk_widget_set_name (label226, "label226");
+  gtk_widget_show (label226);
+  gtk_table_attach (GTK_TABLE (table2), label226, 0, 1, 0, 1,
                     (GtkAttachOptions) (GTK_FILL),
                     (GtkAttachOptions) (0), 0, 0);
-  gtk_misc_set_alignment (GTK_MISC (pkg_info_action_name_label), 0, 0.5);
+  gtk_label_set_use_markup (GTK_LABEL (label226), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label226), 0, 0.5);
 
-  pkg_info_action_name_entry = gtk_entry_new ();
-  gtk_widget_set_name (pkg_info_action_name_entry, "pkg_info_action_name_entry");
-  gtk_widget_show (pkg_info_action_name_entry);
-  gtk_table_attach (GTK_TABLE (pkg_info_action_table), pkg_info_action_name_entry, 1, 2, 0, 1,
-                    (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
-                    (GtkAttachOptions) (0), 0, 0);
-  gtk_editable_set_editable (GTK_EDITABLE (pkg_info_action_name_entry), FALSE);
-
-  pkg_info_action_description_label = gtk_label_new (_("Description"));
-  gtk_widget_set_name (pkg_info_action_description_label, "pkg_info_action_description_label");
-  gtk_widget_show (pkg_info_action_description_label);
-  gtk_table_attach (GTK_TABLE (pkg_info_action_table), pkg_info_action_description_label, 0, 1, 1, 2,
+  label227 = gtk_label_new (_("<b>Description</b>"));
+  gtk_widget_set_name (label227, "label227");
+  gtk_widget_show (label227);
+  gtk_table_attach (GTK_TABLE (table2), label227, 0, 1, 1, 2,
                     (GtkAttachOptions) (GTK_FILL),
                     (GtkAttachOptions) (0), 0, 0);
-  gtk_misc_set_alignment (GTK_MISC (pkg_info_action_description_label), 0, 0.5);
+  gtk_label_set_use_markup (GTK_LABEL (label227), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label227), 0, 0.5);
 
-  pkg_info_action_description_entry = gtk_entry_new ();
-  gtk_widget_set_name (pkg_info_action_description_entry, "pkg_info_action_description_entry");
-  gtk_widget_show (pkg_info_action_description_entry);
-  gtk_table_attach (GTK_TABLE (pkg_info_action_table), pkg_info_action_description_entry, 1, 2, 1, 2,
-                    (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
-                    (GtkAttachOptions) (0), 0, 0);
-  gtk_editable_set_editable (GTK_EDITABLE (pkg_info_action_description_entry), FALSE);
-
-  pkg_info_action_version_label = gtk_label_new (_("Version"));
-  gtk_widget_set_name (pkg_info_action_version_label, "pkg_info_action_version_label");
-  gtk_widget_show (pkg_info_action_version_label);
-  gtk_table_attach (GTK_TABLE (pkg_info_action_table), pkg_info_action_version_label, 0, 1, 2, 3,
+  label244 = gtk_label_new (_("<b>Location</b>"));
+  gtk_widget_set_name (label244, "label244");
+  gtk_widget_show (label244);
+  gtk_table_attach (GTK_TABLE (table2), label244, 0, 1, 2, 3,
                     (GtkAttachOptions) (GTK_FILL),
                     (GtkAttachOptions) (0), 0, 0);
-  gtk_misc_set_alignment (GTK_MISC (pkg_info_action_version_label), 0, 0.5);
+  gtk_label_set_use_markup (GTK_LABEL (label244), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label244), 0, 0.5);
 
-  pkg_info_action_version_entry = gtk_entry_new ();
-  gtk_widget_set_name (pkg_info_action_version_entry, "pkg_info_action_version_entry");
-  gtk_widget_show (pkg_info_action_version_entry);
-  gtk_table_attach (GTK_TABLE (pkg_info_action_table), pkg_info_action_version_entry, 1, 2, 2, 3,
-                    (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
-                    (GtkAttachOptions) (0), 0, 0);
-  gtk_editable_set_editable (GTK_EDITABLE (pkg_info_action_version_entry), FALSE);
-
-  pkg_info_action_size_label = gtk_label_new (_("Size"));
-  gtk_widget_set_name (pkg_info_action_size_label, "pkg_info_action_size_label");
-  gtk_widget_show (pkg_info_action_size_label);
-  gtk_table_attach (GTK_TABLE (pkg_info_action_table), pkg_info_action_size_label, 0, 1, 3, 4,
+  pkg_info_name = gtk_label_new (_("No package is selected.\n"));
+  gtk_widget_set_name (pkg_info_name, "pkg_info_name");
+  gtk_widget_show (pkg_info_name);
+  gtk_table_attach (GTK_TABLE (table2), pkg_info_name, 1, 2, 0, 1,
                     (GtkAttachOptions) (GTK_FILL),
                     (GtkAttachOptions) (0), 0, 0);
-  gtk_misc_set_alignment (GTK_MISC (pkg_info_action_size_label), 0, 0.5);
+  GTK_WIDGET_SET_FLAGS (pkg_info_name, GTK_CAN_FOCUS);
+  gtk_label_set_use_markup (GTK_LABEL (pkg_info_name), TRUE);
+  gtk_label_set_selectable (GTK_LABEL (pkg_info_name), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (pkg_info_name), 0, 0.5);
 
-  pkg_info_action_size_entry = gtk_entry_new ();
-  gtk_widget_set_name (pkg_info_action_size_entry, "pkg_info_action_size_entry");
-  gtk_widget_show (pkg_info_action_size_entry);
-  gtk_table_attach (GTK_TABLE (pkg_info_action_table), pkg_info_action_size_entry, 1, 2, 3, 4,
-                    (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
-                    (GtkAttachOptions) (0), 0, 0);
-  gtk_editable_set_editable (GTK_EDITABLE (pkg_info_action_size_entry), FALSE);
-
-  pkg_info_action_isize_label = gtk_label_new (_("Installed Size"));
-  gtk_widget_set_name (pkg_info_action_isize_label, "pkg_info_action_isize_label");
-  gtk_widget_show (pkg_info_action_isize_label);
-  gtk_table_attach (GTK_TABLE (pkg_info_action_table), pkg_info_action_isize_label, 0, 1, 4, 5,
+  pkg_info_description = gtk_label_new ("");
+  gtk_widget_set_name (pkg_info_description, "pkg_info_description");
+  gtk_widget_show (pkg_info_description);
+  gtk_table_attach (GTK_TABLE (table2), pkg_info_description, 1, 2, 1, 2,
                     (GtkAttachOptions) (GTK_FILL),
                     (GtkAttachOptions) (0), 0, 0);
-  gtk_misc_set_alignment (GTK_MISC (pkg_info_action_isize_label), 0, 0.5);
+  GTK_WIDGET_SET_FLAGS (pkg_info_description, GTK_CAN_FOCUS);
+  gtk_label_set_use_markup (GTK_LABEL (pkg_info_description), TRUE);
+  gtk_label_set_selectable (GTK_LABEL (pkg_info_description), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (pkg_info_description), 0, 0.5);
 
-  pkg_info_action_isize_entry = gtk_entry_new ();
-  gtk_widget_set_name (pkg_info_action_isize_entry, "pkg_info_action_isize_entry");
-  gtk_widget_show (pkg_info_action_isize_entry);
-  gtk_table_attach (GTK_TABLE (pkg_info_action_table), pkg_info_action_isize_entry, 1, 2, 4, 5,
-                    (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
-                    (GtkAttachOptions) (0), 0, 0);
-  gtk_editable_set_editable (GTK_EDITABLE (pkg_info_action_isize_entry), FALSE);
-
-  pkg_info_action_required_label = gtk_label_new (_("Required"));
-  gtk_widget_set_name (pkg_info_action_required_label, "pkg_info_action_required_label");
-  gtk_widget_show (pkg_info_action_required_label);
-  gtk_table_attach (GTK_TABLE (pkg_info_action_table), pkg_info_action_required_label, 0, 1, 5, 6,
+  pkg_info_location = gtk_label_new ("");
+  gtk_widget_set_name (pkg_info_location, "pkg_info_location");
+  gtk_widget_show (pkg_info_location);
+  gtk_table_attach (GTK_TABLE (table2), pkg_info_location, 1, 2, 2, 3,
                     (GtkAttachOptions) (GTK_FILL),
                     (GtkAttachOptions) (0), 0, 0);
-  gtk_misc_set_alignment (GTK_MISC (pkg_info_action_required_label), 0, 0.5);
+  GTK_WIDGET_SET_FLAGS (pkg_info_location, GTK_CAN_FOCUS);
+  gtk_label_set_use_markup (GTK_LABEL (pkg_info_location), TRUE);
+  gtk_label_set_selectable (GTK_LABEL (pkg_info_location), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (pkg_info_location), 0, 0.5);
 
-  pkg_info_action_required_entry = gtk_entry_new ();
-  gtk_widget_set_name (pkg_info_action_required_entry, "pkg_info_action_required_entry");
-  gtk_widget_show (pkg_info_action_required_entry);
-  gtk_table_attach (GTK_TABLE (pkg_info_action_table), pkg_info_action_required_entry, 1, 2, 5, 6,
-                    (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
-                    (GtkAttachOptions) (0), 0, 0);
-  gtk_editable_set_editable (GTK_EDITABLE (pkg_info_action_required_entry), FALSE);
+  table3 = gtk_table_new (4, 2, FALSE);
+  gtk_widget_set_name (table3, "table3");
+  gtk_widget_show (table3);
+  gtk_box_pack_start (GTK_BOX (vbox63), table3, FALSE, FALSE, 0);
+  gtk_container_set_border_width (GTK_CONTAINER (table3), 1);
+  gtk_table_set_row_spacings (GTK_TABLE (table3), 6);
+  gtk_table_set_col_spacings (GTK_TABLE (table3), 12);
 
-  pkg_info_action_conflicts_label = gtk_label_new (_("Conflicts"));
-  gtk_widget_set_name (pkg_info_action_conflicts_label, "pkg_info_action_conflicts_label");
-  gtk_widget_show (pkg_info_action_conflicts_label);
-  gtk_table_attach (GTK_TABLE (pkg_info_action_table), pkg_info_action_conflicts_label, 0, 1, 6, 7,
+  label237 = gtk_label_new (_("<b>Version</b>"));
+  gtk_widget_set_name (label237, "label237");
+  gtk_widget_show (label237);
+  gtk_table_attach (GTK_TABLE (table3), label237, 0, 1, 0, 1,
                     (GtkAttachOptions) (GTK_FILL),
                     (GtkAttachOptions) (0), 0, 0);
-  gtk_misc_set_alignment (GTK_MISC (pkg_info_action_conflicts_label), 0, 0.5);
+  gtk_label_set_use_markup (GTK_LABEL (label237), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label237), 0, 0.5);
 
-  pkg_info_action_conflicts_entry = gtk_entry_new ();
-  gtk_widget_set_name (pkg_info_action_conflicts_entry, "pkg_info_action_conflicts_entry");
-  gtk_widget_show (pkg_info_action_conflicts_entry);
-  gtk_table_attach (GTK_TABLE (pkg_info_action_table), pkg_info_action_conflicts_entry, 1, 2, 6, 7,
-                    (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
-                    (GtkAttachOptions) (0), 0, 0);
-  gtk_editable_set_editable (GTK_EDITABLE (pkg_info_action_conflicts_entry), FALSE);
-
-  pkg_info_action_suggests_label = gtk_label_new (_("Suggests"));
-  gtk_widget_set_name (pkg_info_action_suggests_label, "pkg_info_action_suggests_label");
-  gtk_widget_show (pkg_info_action_suggests_label);
-  gtk_table_attach (GTK_TABLE (pkg_info_action_table), pkg_info_action_suggests_label, 0, 1, 7, 8,
+  label238 = gtk_label_new (_("<b>Size</b>"));
+  gtk_widget_set_name (label238, "label238");
+  gtk_widget_show (label238);
+  gtk_table_attach (GTK_TABLE (table3), label238, 0, 1, 1, 2,
                     (GtkAttachOptions) (GTK_FILL),
                     (GtkAttachOptions) (0), 0, 0);
-  gtk_misc_set_alignment (GTK_MISC (pkg_info_action_suggests_label), 0, 0.5);
+  gtk_label_set_use_markup (GTK_LABEL (label238), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label238), 0, 0.5);
 
-  pkg_info_action_suggests_entry = gtk_entry_new ();
-  gtk_widget_set_name (pkg_info_action_suggests_entry, "pkg_info_action_suggests_entry");
-  gtk_widget_show (pkg_info_action_suggests_entry);
-  gtk_table_attach (GTK_TABLE (pkg_info_action_table), pkg_info_action_suggests_entry, 1, 2, 7, 8,
-                    (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
-                    (GtkAttachOptions) (0), 0, 0);
-  gtk_editable_set_editable (GTK_EDITABLE (pkg_info_action_suggests_entry), FALSE);
-
-  pkg_info_action_mirror_label = gtk_label_new (_("Mirror"));
-  gtk_widget_set_name (pkg_info_action_mirror_label, "pkg_info_action_mirror_label");
-  gtk_widget_show (pkg_info_action_mirror_label);
-  gtk_table_attach (GTK_TABLE (pkg_info_action_table), pkg_info_action_mirror_label, 0, 1, 8, 9,
+  label239 = gtk_label_new (_("<b>Installed Size</b>"));
+  gtk_widget_set_name (label239, "label239");
+  gtk_widget_show (label239);
+  gtk_table_attach (GTK_TABLE (table3), label239, 0, 1, 2, 3,
                     (GtkAttachOptions) (GTK_FILL),
                     (GtkAttachOptions) (0), 0, 0);
-  gtk_misc_set_alignment (GTK_MISC (pkg_info_action_mirror_label), 0, 0.5);
+  gtk_label_set_use_markup (GTK_LABEL (label239), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label239), 0, 0.5);
 
-  pkg_info_action_mirror_entry = gtk_entry_new ();
-  gtk_widget_set_name (pkg_info_action_mirror_entry, "pkg_info_action_mirror_entry");
-  gtk_widget_show (pkg_info_action_mirror_entry);
-  gtk_table_attach (GTK_TABLE (pkg_info_action_table), pkg_info_action_mirror_entry, 1, 2, 8, 9,
-                    (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
+  label245 = gtk_label_new (_("<b>Mirror</b>"));
+  gtk_widget_set_name (label245, "label245");
+  gtk_widget_show (label245);
+  gtk_table_attach (GTK_TABLE (table3), label245, 0, 1, 3, 4,
+                    (GtkAttachOptions) (GTK_FILL),
                     (GtkAttachOptions) (0), 0, 0);
-  gtk_editable_set_editable (GTK_EDITABLE (pkg_info_action_mirror_entry), FALSE);
+  gtk_label_set_use_markup (GTK_LABEL (label245), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label245), 0, 0.5);
 
-  pkg_info_label = gtk_label_new (_("Package Information"));
-  gtk_widget_set_name (pkg_info_label, "pkg_info_label");
-  gtk_widget_show (pkg_info_label);
-  gtk_frame_set_label_widget (GTK_FRAME (pkg_info_frame), pkg_info_label);
+  pkg_info_version = gtk_label_new ("");
+  gtk_widget_set_name (pkg_info_version, "pkg_info_version");
+  gtk_widget_show (pkg_info_version);
+  gtk_table_attach (GTK_TABLE (table3), pkg_info_version, 1, 2, 0, 1,
+                    (GtkAttachOptions) (GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 0);
+  GTK_WIDGET_SET_FLAGS (pkg_info_version, GTK_CAN_FOCUS);
+  gtk_label_set_use_markup (GTK_LABEL (pkg_info_version), TRUE);
+  gtk_label_set_selectable (GTK_LABEL (pkg_info_version), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (pkg_info_version), 0, 0.5);
 
-  pkg_action_frame = gtk_frame_new (NULL);
-  gtk_widget_set_name (pkg_action_frame, "pkg_action_frame");
-  gtk_widget_show (pkg_action_frame);
-  gtk_box_pack_start (GTK_BOX (pkg_info_action_hbox), pkg_action_frame, FALSE, TRUE, 0);
-  gtk_frame_set_shadow_type (GTK_FRAME (pkg_action_frame), GTK_SHADOW_NONE);
+  pkg_info_size = gtk_label_new ("");
+  gtk_widget_set_name (pkg_info_size, "pkg_info_size");
+  gtk_widget_show (pkg_info_size);
+  gtk_table_attach (GTK_TABLE (table3), pkg_info_size, 1, 2, 1, 2,
+                    (GtkAttachOptions) (GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 0);
+  GTK_WIDGET_SET_FLAGS (pkg_info_size, GTK_CAN_FOCUS);
+  gtk_label_set_use_markup (GTK_LABEL (pkg_info_size), TRUE);
+  gtk_label_set_selectable (GTK_LABEL (pkg_info_size), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (pkg_info_size), 0, 0.5);
 
-  pkg_action_vbox = gtk_vbox_new (FALSE, 0);
+  pkg_info_installed_size = gtk_label_new ("");
+  gtk_widget_set_name (pkg_info_installed_size, "pkg_info_installed_size");
+  gtk_widget_show (pkg_info_installed_size);
+  gtk_table_attach (GTK_TABLE (table3), pkg_info_installed_size, 1, 2, 2, 3,
+                    (GtkAttachOptions) (GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 0);
+  GTK_WIDGET_SET_FLAGS (pkg_info_installed_size, GTK_CAN_FOCUS);
+  gtk_label_set_use_markup (GTK_LABEL (pkg_info_installed_size), TRUE);
+  gtk_label_set_selectable (GTK_LABEL (pkg_info_installed_size), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (pkg_info_installed_size), 0, 0.5);
+
+  pkg_info_mirror = gtk_label_new ("");
+  gtk_widget_set_name (pkg_info_mirror, "pkg_info_mirror");
+  gtk_widget_show (pkg_info_mirror);
+  gtk_table_attach (GTK_TABLE (table3), pkg_info_mirror, 1, 2, 3, 4,
+                    (GtkAttachOptions) (GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 0);
+  GTK_WIDGET_SET_FLAGS (pkg_info_mirror, GTK_CAN_FOCUS);
+  gtk_label_set_use_markup (GTK_LABEL (pkg_info_mirror), TRUE);
+  gtk_label_set_selectable (GTK_LABEL (pkg_info_mirror), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (pkg_info_mirror), 0, 0.5);
+
+  pkg_info_common_label = gtk_label_new (_("Common"));
+  gtk_widget_set_name (pkg_info_common_label, "pkg_info_common_label");
+  gtk_widget_show (pkg_info_common_label);
+  gtk_notebook_set_tab_label (GTK_NOTEBOOK (pkg_info_notebook), gtk_notebook_get_nth_page (GTK_NOTEBOOK (pkg_info_notebook), 0), pkg_info_common_label);
+
+  vbox64 = gtk_vbox_new (FALSE, 0);
+  gtk_widget_set_name (vbox64, "vbox64");
+  gtk_widget_show (vbox64);
+  gtk_container_add (GTK_CONTAINER (pkg_info_notebook), vbox64);
+  gtk_container_set_border_width (GTK_CONTAINER (vbox64), 12);
+
+  scrolledwindow19 = gtk_scrolled_window_new (NULL, NULL);
+  gtk_widget_set_name (scrolledwindow19, "scrolledwindow19");
+  gtk_widget_show (scrolledwindow19);
+  gtk_box_pack_start (GTK_BOX (vbox64), scrolledwindow19, TRUE, TRUE, 0);
+  gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolledwindow19), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
+  gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scrolledwindow19), GTK_SHADOW_IN);
+
+  pkg_description_textview = gtk_text_view_new ();
+  gtk_widget_set_name (pkg_description_textview, "pkg_description_textview");
+  gtk_widget_show (pkg_description_textview);
+  gtk_container_add (GTK_CONTAINER (scrolledwindow19), pkg_description_textview);
+  gtk_text_view_set_editable (GTK_TEXT_VIEW (pkg_description_textview), FALSE);
+
+  pkg_info_description_label = gtk_label_new (_("Description"));
+  gtk_widget_set_name (pkg_info_description_label, "pkg_info_description_label");
+  gtk_widget_show (pkg_info_description_label);
+  gtk_notebook_set_tab_label (GTK_NOTEBOOK (pkg_info_notebook), gtk_notebook_get_nth_page (GTK_NOTEBOOK (pkg_info_notebook), 1), pkg_info_description_label);
+
+  scrolledwindow21 = gtk_scrolled_window_new (NULL, NULL);
+  gtk_widget_set_name (scrolledwindow21, "scrolledwindow21");
+  gtk_widget_show (scrolledwindow21);
+  gtk_container_add (GTK_CONTAINER (pkg_info_notebook), scrolledwindow21);
+  gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolledwindow21), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
+  gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scrolledwindow21), GTK_SHADOW_IN);
+
+  viewport2 = gtk_viewport_new (NULL, NULL);
+  gtk_widget_set_name (viewport2, "viewport2");
+  gtk_widget_show (viewport2);
+  gtk_container_add (GTK_CONTAINER (scrolledwindow21), viewport2);
+
+  pkg_info_dep_vbox = gtk_vbox_new (FALSE, 18);
+  gtk_widget_set_name (pkg_info_dep_vbox, "pkg_info_dep_vbox");
+  gtk_widget_show (pkg_info_dep_vbox);
+  gtk_container_add (GTK_CONTAINER (viewport2), pkg_info_dep_vbox);
+  gtk_container_set_border_width (GTK_CONTAINER (pkg_info_dep_vbox), 6);
+
+  table4 = gtk_table_new (3, 2, FALSE);
+  gtk_widget_set_name (table4, "table4");
+  gtk_widget_show (table4);
+  gtk_box_pack_start (GTK_BOX (pkg_info_dep_vbox), table4, FALSE, FALSE, 0);
+  gtk_table_set_row_spacings (GTK_TABLE (table4), 6);
+  gtk_table_set_col_spacings (GTK_TABLE (table4), 12);
+
+  label247 = gtk_label_new (_("<b>Required</b>"));
+  gtk_widget_set_name (label247, "label247");
+  gtk_widget_show (label247);
+  gtk_table_attach (GTK_TABLE (table4), label247, 0, 1, 0, 1,
+                    (GtkAttachOptions) (GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 0);
+  gtk_label_set_use_markup (GTK_LABEL (label247), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label247), 0, 0.5);
+
+  label248 = gtk_label_new (_("<b>Conflicts</b>"));
+  gtk_widget_set_name (label248, "label248");
+  gtk_widget_show (label248);
+  gtk_table_attach (GTK_TABLE (table4), label248, 0, 1, 1, 2,
+                    (GtkAttachOptions) (GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 0);
+  gtk_label_set_use_markup (GTK_LABEL (label248), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label248), 0, 0.5);
+
+  label249 = gtk_label_new (_("<b>Suggests</b>"));
+  gtk_widget_set_name (label249, "label249");
+  gtk_widget_show (label249);
+  gtk_table_attach (GTK_TABLE (table4), label249, 0, 1, 2, 3,
+                    (GtkAttachOptions) (GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 0);
+  gtk_label_set_use_markup (GTK_LABEL (label249), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label249), 0, 0.5);
+
+  pkg_info_required = gtk_label_new ("");
+  gtk_widget_set_name (pkg_info_required, "pkg_info_required");
+  gtk_widget_show (pkg_info_required);
+  gtk_table_attach (GTK_TABLE (table4), pkg_info_required, 1, 2, 0, 1,
+                    (GtkAttachOptions) (GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 0);
+  GTK_WIDGET_SET_FLAGS (pkg_info_required, GTK_CAN_FOCUS);
+  gtk_label_set_use_markup (GTK_LABEL (pkg_info_required), TRUE);
+  gtk_label_set_selectable (GTK_LABEL (pkg_info_required), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (pkg_info_required), 0, 0.5);
+
+  pkg_info_conflicts = gtk_label_new ("");
+  gtk_widget_set_name (pkg_info_conflicts, "pkg_info_conflicts");
+  gtk_widget_show (pkg_info_conflicts);
+  gtk_table_attach (GTK_TABLE (table4), pkg_info_conflicts, 1, 2, 1, 2,
+                    (GtkAttachOptions) (GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 0);
+  GTK_WIDGET_SET_FLAGS (pkg_info_conflicts, GTK_CAN_FOCUS);
+  gtk_label_set_use_markup (GTK_LABEL (pkg_info_conflicts), TRUE);
+  gtk_label_set_selectable (GTK_LABEL (pkg_info_conflicts), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (pkg_info_conflicts), 0, 0.5);
+
+  pkg_info_suggests = gtk_label_new ("");
+  gtk_widget_set_name (pkg_info_suggests, "pkg_info_suggests");
+  gtk_widget_show (pkg_info_suggests);
+  gtk_table_attach (GTK_TABLE (table4), pkg_info_suggests, 1, 2, 2, 3,
+                    (GtkAttachOptions) (GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 0);
+  GTK_WIDGET_SET_FLAGS (pkg_info_suggests, GTK_CAN_FOCUS);
+  gtk_label_set_use_markup (GTK_LABEL (pkg_info_suggests), TRUE);
+  gtk_label_set_selectable (GTK_LABEL (pkg_info_suggests), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (pkg_info_suggests), 0, 0.5);
+
+  pkg_info_dependencies_label = gtk_label_new (_("Dependencies"));
+  gtk_widget_set_name (pkg_info_dependencies_label, "pkg_info_dependencies_label");
+  gtk_widget_show (pkg_info_dependencies_label);
+  gtk_notebook_set_tab_label (GTK_NOTEBOOK (pkg_info_notebook), gtk_notebook_get_nth_page (GTK_NOTEBOOK (pkg_info_notebook), 2), pkg_info_dependencies_label);
+
+  pkg_action_vbox = gtk_vbox_new (FALSE, 6);
   gtk_widget_set_name (pkg_action_vbox, "pkg_action_vbox");
   gtk_widget_show (pkg_action_vbox);
-  gtk_container_add (GTK_CONTAINER (pkg_action_frame), pkg_action_vbox);
+  gtk_box_pack_start (GTK_BOX (pkg_info_action_hbox), pkg_action_vbox, FALSE, TRUE, 0);
+  gtk_container_set_border_width (GTK_CONTAINER (pkg_action_vbox), 6);
+
+  label246 = gtk_label_new ("");
+  gtk_widget_set_name (label246, "label246");
+  gtk_widget_show (label246);
+  gtk_box_pack_start (GTK_BOX (pkg_action_vbox), label246, FALSE, FALSE, 0);
 
   pkg_info_action_install_upgrade_button = gtk_button_new ();
   gtk_widget_set_name (pkg_info_action_install_upgrade_button, "pkg_info_action_install_upgrade_button");
   gtk_widget_show (pkg_info_action_install_upgrade_button);
-  gtk_box_pack_start (GTK_BOX (pkg_action_vbox), pkg_info_action_install_upgrade_button, TRUE, TRUE, 0);
+  gtk_box_pack_start (GTK_BOX (pkg_action_vbox), pkg_info_action_install_upgrade_button, FALSE, TRUE, 0);
   gtk_tooltips_set_tip (tooltips, pkg_info_action_install_upgrade_button, _("Install/Upgrade package"), NULL);
   gtk_widget_add_accelerator (pkg_info_action_install_upgrade_button, "clicked", accel_group,
                               GDK_i, (GdkModifierType) GDK_CONTROL_MASK,
@@ -895,7 +1036,7 @@ create_gslapt (void)
   pkg_info_action_remove_button = gtk_button_new ();
   gtk_widget_set_name (pkg_info_action_remove_button, "pkg_info_action_remove_button");
   gtk_widget_show (pkg_info_action_remove_button);
-  gtk_box_pack_start (GTK_BOX (pkg_action_vbox), pkg_info_action_remove_button, TRUE, TRUE, 0);
+  gtk_box_pack_start (GTK_BOX (pkg_action_vbox), pkg_info_action_remove_button, FALSE, TRUE, 0);
   gtk_tooltips_set_tip (tooltips, pkg_info_action_remove_button, _("Remove package"), NULL);
   gtk_widget_add_accelerator (pkg_info_action_remove_button, "clicked", accel_group,
                               GDK_r, (GdkModifierType) GDK_CONTROL_MASK,
@@ -920,40 +1061,6 @@ create_gslapt (void)
   gtk_widget_set_name (label132, "label132");
   gtk_widget_show (label132);
   gtk_box_pack_start (GTK_BOX (hbox79), label132, FALSE, FALSE, 0);
-
-  pkg_info_action_exclude_button = gtk_button_new ();
-  gtk_widget_set_name (pkg_info_action_exclude_button, "pkg_info_action_exclude_button");
-  gtk_widget_show (pkg_info_action_exclude_button);
-  gtk_box_pack_start (GTK_BOX (pkg_action_vbox), pkg_info_action_exclude_button, TRUE, TRUE, 0);
-  gtk_tooltips_set_tip (tooltips, pkg_info_action_exclude_button, _("Exclude package"), NULL);
-  gtk_widget_add_accelerator (pkg_info_action_exclude_button, "clicked", accel_group,
-                              GDK_x, (GdkModifierType) GDK_CONTROL_MASK,
-                              GTK_ACCEL_VISIBLE);
-
-  alignment29 = gtk_alignment_new (0.5, 0.5, 0, 0);
-  gtk_widget_set_name (alignment29, "alignment29");
-  gtk_widget_show (alignment29);
-  gtk_container_add (GTK_CONTAINER (pkg_info_action_exclude_button), alignment29);
-
-  hbox80 = gtk_hbox_new (FALSE, 2);
-  gtk_widget_set_name (hbox80, "hbox80");
-  gtk_widget_show (hbox80);
-  gtk_container_add (GTK_CONTAINER (alignment29), hbox80);
-
-  image748 = gtk_image_new_from_stock ("gtk-no", GTK_ICON_SIZE_BUTTON);
-  gtk_widget_set_name (image748, "image748");
-  gtk_widget_show (image748);
-  gtk_box_pack_start (GTK_BOX (hbox80), image748, FALSE, FALSE, 0);
-
-  label133 = gtk_label_new_with_mnemonic (_("Exclude"));
-  gtk_widget_set_name (label133, "label133");
-  gtk_widget_show (label133);
-  gtk_box_pack_start (GTK_BOX (hbox80), label133, FALSE, FALSE, 0);
-
-  pkg_action_label = gtk_label_new (_("Package Action"));
-  gtk_widget_set_name (pkg_action_label, "pkg_action_label");
-  gtk_widget_show (pkg_action_label);
-  gtk_frame_set_label_widget (GTK_FRAME (pkg_action_frame), pkg_action_label);
 
   bottom_statusbar = gtk_statusbar_new ();
   gtk_widget_set_name (bottom_statusbar, "bottom_statusbar");
@@ -1002,9 +1109,6 @@ create_gslapt (void)
   g_signal_connect_swapped ((gpointer) pkg_info_action_remove_button, "clicked",
                             G_CALLBACK (add_pkg_for_removal),
                             GTK_OBJECT (gslapt));
-  g_signal_connect_swapped ((gpointer) pkg_info_action_exclude_button, "clicked",
-                            G_CALLBACK (add_pkg_for_exclude),
-                            GTK_OBJECT (gslapt));
 
   /* Store pointers to all widgets, for use by lookup_widget(). */
   GLADE_HOOKUP_OBJECT_NO_REF (gslapt, gslapt, "gslapt");
@@ -1033,34 +1137,48 @@ create_gslapt (void)
   GLADE_HOOKUP_OBJECT (gslapt, search_entry, "search_entry");
   GLADE_HOOKUP_OBJECT (gslapt, search_button, "search_button");
   GLADE_HOOKUP_OBJECT (gslapt, clear_button, "clear_button");
-  GLADE_HOOKUP_OBJECT (gslapt, pkg_box, "pkg_box");
-  GLADE_HOOKUP_OBJECT (gslapt, list_vbox, "list_vbox");
+  GLADE_HOOKUP_OBJECT (gslapt, pkg_vpaned, "pkg_vpaned");
   GLADE_HOOKUP_OBJECT (gslapt, pkg_list_scrolled, "pkg_list_scrolled");
   GLADE_HOOKUP_OBJECT (gslapt, pkg_listing_treeview, "pkg_listing_treeview");
   GLADE_HOOKUP_OBJECT (gslapt, pkg_info_action_hbox, "pkg_info_action_hbox");
-  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_frame, "pkg_info_frame");
-  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_action_table, "pkg_info_action_table");
-  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_action_name_label, "pkg_info_action_name_label");
-  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_action_name_entry, "pkg_info_action_name_entry");
-  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_action_description_label, "pkg_info_action_description_label");
-  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_action_description_entry, "pkg_info_action_description_entry");
-  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_action_version_label, "pkg_info_action_version_label");
-  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_action_version_entry, "pkg_info_action_version_entry");
-  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_action_size_label, "pkg_info_action_size_label");
-  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_action_size_entry, "pkg_info_action_size_entry");
-  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_action_isize_label, "pkg_info_action_isize_label");
-  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_action_isize_entry, "pkg_info_action_isize_entry");
-  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_action_required_label, "pkg_info_action_required_label");
-  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_action_required_entry, "pkg_info_action_required_entry");
-  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_action_conflicts_label, "pkg_info_action_conflicts_label");
-  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_action_conflicts_entry, "pkg_info_action_conflicts_entry");
-  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_action_suggests_label, "pkg_info_action_suggests_label");
-  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_action_suggests_entry, "pkg_info_action_suggests_entry");
-  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_action_mirror_label, "pkg_info_action_mirror_label");
-  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_action_mirror_entry, "pkg_info_action_mirror_entry");
-  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_label, "pkg_info_label");
-  GLADE_HOOKUP_OBJECT (gslapt, pkg_action_frame, "pkg_action_frame");
+  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_notebook, "pkg_info_notebook");
+  GLADE_HOOKUP_OBJECT (gslapt, scrolledwindow20, "scrolledwindow20");
+  GLADE_HOOKUP_OBJECT (gslapt, viewport1, "viewport1");
+  GLADE_HOOKUP_OBJECT (gslapt, vbox63, "vbox63");
+  GLADE_HOOKUP_OBJECT (gslapt, table2, "table2");
+  GLADE_HOOKUP_OBJECT (gslapt, label226, "label226");
+  GLADE_HOOKUP_OBJECT (gslapt, label227, "label227");
+  GLADE_HOOKUP_OBJECT (gslapt, label244, "label244");
+  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_name, "pkg_info_name");
+  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_description, "pkg_info_description");
+  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_location, "pkg_info_location");
+  GLADE_HOOKUP_OBJECT (gslapt, table3, "table3");
+  GLADE_HOOKUP_OBJECT (gslapt, label237, "label237");
+  GLADE_HOOKUP_OBJECT (gslapt, label238, "label238");
+  GLADE_HOOKUP_OBJECT (gslapt, label239, "label239");
+  GLADE_HOOKUP_OBJECT (gslapt, label245, "label245");
+  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_version, "pkg_info_version");
+  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_size, "pkg_info_size");
+  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_installed_size, "pkg_info_installed_size");
+  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_mirror, "pkg_info_mirror");
+  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_common_label, "pkg_info_common_label");
+  GLADE_HOOKUP_OBJECT (gslapt, vbox64, "vbox64");
+  GLADE_HOOKUP_OBJECT (gslapt, scrolledwindow19, "scrolledwindow19");
+  GLADE_HOOKUP_OBJECT (gslapt, pkg_description_textview, "pkg_description_textview");
+  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_description_label, "pkg_info_description_label");
+  GLADE_HOOKUP_OBJECT (gslapt, scrolledwindow21, "scrolledwindow21");
+  GLADE_HOOKUP_OBJECT (gslapt, viewport2, "viewport2");
+  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_dep_vbox, "pkg_info_dep_vbox");
+  GLADE_HOOKUP_OBJECT (gslapt, table4, "table4");
+  GLADE_HOOKUP_OBJECT (gslapt, label247, "label247");
+  GLADE_HOOKUP_OBJECT (gslapt, label248, "label248");
+  GLADE_HOOKUP_OBJECT (gslapt, label249, "label249");
+  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_required, "pkg_info_required");
+  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_conflicts, "pkg_info_conflicts");
+  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_suggests, "pkg_info_suggests");
+  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_dependencies_label, "pkg_info_dependencies_label");
   GLADE_HOOKUP_OBJECT (gslapt, pkg_action_vbox, "pkg_action_vbox");
+  GLADE_HOOKUP_OBJECT (gslapt, label246, "label246");
   GLADE_HOOKUP_OBJECT (gslapt, pkg_info_action_install_upgrade_button, "pkg_info_action_install_upgrade_button");
   GLADE_HOOKUP_OBJECT (gslapt, alignment27, "alignment27");
   GLADE_HOOKUP_OBJECT (gslapt, hbox78, "hbox78");
@@ -1071,12 +1189,6 @@ create_gslapt (void)
   GLADE_HOOKUP_OBJECT (gslapt, hbox79, "hbox79");
   GLADE_HOOKUP_OBJECT (gslapt, image747, "image747");
   GLADE_HOOKUP_OBJECT (gslapt, label132, "label132");
-  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_action_exclude_button, "pkg_info_action_exclude_button");
-  GLADE_HOOKUP_OBJECT (gslapt, alignment29, "alignment29");
-  GLADE_HOOKUP_OBJECT (gslapt, hbox80, "hbox80");
-  GLADE_HOOKUP_OBJECT (gslapt, image748, "image748");
-  GLADE_HOOKUP_OBJECT (gslapt, label133, "label133");
-  GLADE_HOOKUP_OBJECT (gslapt, pkg_action_label, "pkg_action_label");
   GLADE_HOOKUP_OBJECT (gslapt, bottom_statusbar, "bottom_statusbar");
   GLADE_HOOKUP_OBJECT_NO_REF (gslapt, tooltips, "tooltips");
 
@@ -1505,5 +1617,249 @@ create_notification (void)
   GLADE_HOOKUP_OBJECT (notification, okbutton2, "okbutton2");
 
   return notification;
+}
+
+GtkWidget*
+create_trash (void)
+{
+  GtkWidget *trash;
+  GtkWidget *frame1;
+  GtkWidget *alignment30;
+  GtkWidget *pkg_info_frame;
+  GtkWidget *pkg_info_action_table;
+  GtkWidget *pkg_info_action_name_label;
+  GtkWidget *pkg_info_action_name_entry;
+  GtkWidget *pkg_info_action_description_label;
+  GtkWidget *pkg_info_action_description_entry;
+  GtkWidget *pkg_info_action_version_label;
+  GtkWidget *pkg_info_action_version_entry;
+  GtkWidget *pkg_info_action_size_label;
+  GtkWidget *pkg_info_action_size_entry;
+  GtkWidget *pkg_info_action_isize_label;
+  GtkWidget *pkg_info_action_isize_entry;
+  GtkWidget *pkg_info_action_required_label;
+  GtkWidget *pkg_info_action_required_entry;
+  GtkWidget *pkg_info_action_conflicts_label;
+  GtkWidget *pkg_info_action_conflicts_entry;
+  GtkWidget *pkg_info_action_suggests_label;
+  GtkWidget *pkg_info_action_suggests_entry;
+  GtkWidget *pkg_info_action_mirror_label;
+  GtkWidget *pkg_info_action_mirror_entry;
+  GtkWidget *pkg_info_label;
+  GtkWidget *label171;
+
+  trash = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+  gtk_widget_set_name (trash, "trash");
+  gtk_window_set_title (GTK_WINDOW (trash), _("window1"));
+
+  frame1 = gtk_frame_new (NULL);
+  gtk_widget_set_name (frame1, "frame1");
+  gtk_widget_show (frame1);
+  gtk_container_add (GTK_CONTAINER (trash), frame1);
+  gtk_frame_set_shadow_type (GTK_FRAME (frame1), GTK_SHADOW_NONE);
+
+  alignment30 = gtk_alignment_new (0.5, 0.5, 1, 1);
+  gtk_widget_set_name (alignment30, "alignment30");
+  gtk_widget_show (alignment30);
+  gtk_container_add (GTK_CONTAINER (frame1), alignment30);
+  gtk_alignment_set_padding (GTK_ALIGNMENT (alignment30), 0, 0, 12, 0);
+
+  pkg_info_frame = gtk_frame_new (NULL);
+  gtk_widget_set_name (pkg_info_frame, "pkg_info_frame");
+  gtk_widget_show (pkg_info_frame);
+  gtk_container_add (GTK_CONTAINER (alignment30), pkg_info_frame);
+  gtk_frame_set_shadow_type (GTK_FRAME (pkg_info_frame), GTK_SHADOW_NONE);
+
+  pkg_info_action_table = gtk_table_new (9, 2, FALSE);
+  gtk_widget_set_name (pkg_info_action_table, "pkg_info_action_table");
+  gtk_widget_show (pkg_info_action_table);
+  gtk_container_add (GTK_CONTAINER (pkg_info_frame), pkg_info_action_table);
+  gtk_container_set_border_width (GTK_CONTAINER (pkg_info_action_table), 1);
+  gtk_table_set_row_spacings (GTK_TABLE (pkg_info_action_table), 2);
+  gtk_table_set_col_spacings (GTK_TABLE (pkg_info_action_table), 2);
+
+  pkg_info_action_name_label = gtk_label_new (_("Name"));
+  gtk_widget_set_name (pkg_info_action_name_label, "pkg_info_action_name_label");
+  gtk_widget_show (pkg_info_action_name_label);
+  gtk_table_attach (GTK_TABLE (pkg_info_action_table), pkg_info_action_name_label, 0, 1, 0, 1,
+                    (GtkAttachOptions) (GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 0);
+  gtk_misc_set_alignment (GTK_MISC (pkg_info_action_name_label), 0, 0.5);
+
+  pkg_info_action_name_entry = gtk_entry_new ();
+  gtk_widget_set_name (pkg_info_action_name_entry, "pkg_info_action_name_entry");
+  gtk_widget_show (pkg_info_action_name_entry);
+  gtk_table_attach (GTK_TABLE (pkg_info_action_table), pkg_info_action_name_entry, 1, 2, 0, 1,
+                    (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 0);
+  gtk_editable_set_editable (GTK_EDITABLE (pkg_info_action_name_entry), FALSE);
+
+  pkg_info_action_description_label = gtk_label_new (_("Description"));
+  gtk_widget_set_name (pkg_info_action_description_label, "pkg_info_action_description_label");
+  gtk_widget_show (pkg_info_action_description_label);
+  gtk_table_attach (GTK_TABLE (pkg_info_action_table), pkg_info_action_description_label, 0, 1, 1, 2,
+                    (GtkAttachOptions) (GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 0);
+  gtk_misc_set_alignment (GTK_MISC (pkg_info_action_description_label), 0, 0.5);
+
+  pkg_info_action_description_entry = gtk_entry_new ();
+  gtk_widget_set_name (pkg_info_action_description_entry, "pkg_info_action_description_entry");
+  gtk_widget_show (pkg_info_action_description_entry);
+  gtk_table_attach (GTK_TABLE (pkg_info_action_table), pkg_info_action_description_entry, 1, 2, 1, 2,
+                    (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 0);
+  gtk_editable_set_editable (GTK_EDITABLE (pkg_info_action_description_entry), FALSE);
+
+  pkg_info_action_version_label = gtk_label_new (_("Version"));
+  gtk_widget_set_name (pkg_info_action_version_label, "pkg_info_action_version_label");
+  gtk_widget_show (pkg_info_action_version_label);
+  gtk_table_attach (GTK_TABLE (pkg_info_action_table), pkg_info_action_version_label, 0, 1, 2, 3,
+                    (GtkAttachOptions) (GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 0);
+  gtk_misc_set_alignment (GTK_MISC (pkg_info_action_version_label), 0, 0.5);
+
+  pkg_info_action_version_entry = gtk_entry_new ();
+  gtk_widget_set_name (pkg_info_action_version_entry, "pkg_info_action_version_entry");
+  gtk_widget_show (pkg_info_action_version_entry);
+  gtk_table_attach (GTK_TABLE (pkg_info_action_table), pkg_info_action_version_entry, 1, 2, 2, 3,
+                    (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 0);
+  gtk_editable_set_editable (GTK_EDITABLE (pkg_info_action_version_entry), FALSE);
+
+  pkg_info_action_size_label = gtk_label_new (_("Size"));
+  gtk_widget_set_name (pkg_info_action_size_label, "pkg_info_action_size_label");
+  gtk_widget_show (pkg_info_action_size_label);
+  gtk_table_attach (GTK_TABLE (pkg_info_action_table), pkg_info_action_size_label, 0, 1, 3, 4,
+                    (GtkAttachOptions) (GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 0);
+  gtk_misc_set_alignment (GTK_MISC (pkg_info_action_size_label), 0, 0.5);
+
+  pkg_info_action_size_entry = gtk_entry_new ();
+  gtk_widget_set_name (pkg_info_action_size_entry, "pkg_info_action_size_entry");
+  gtk_widget_show (pkg_info_action_size_entry);
+  gtk_table_attach (GTK_TABLE (pkg_info_action_table), pkg_info_action_size_entry, 1, 2, 3, 4,
+                    (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 0);
+  gtk_editable_set_editable (GTK_EDITABLE (pkg_info_action_size_entry), FALSE);
+
+  pkg_info_action_isize_label = gtk_label_new (_("Installed Size"));
+  gtk_widget_set_name (pkg_info_action_isize_label, "pkg_info_action_isize_label");
+  gtk_widget_show (pkg_info_action_isize_label);
+  gtk_table_attach (GTK_TABLE (pkg_info_action_table), pkg_info_action_isize_label, 0, 1, 4, 5,
+                    (GtkAttachOptions) (GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 0);
+  gtk_misc_set_alignment (GTK_MISC (pkg_info_action_isize_label), 0, 0.5);
+
+  pkg_info_action_isize_entry = gtk_entry_new ();
+  gtk_widget_set_name (pkg_info_action_isize_entry, "pkg_info_action_isize_entry");
+  gtk_widget_show (pkg_info_action_isize_entry);
+  gtk_table_attach (GTK_TABLE (pkg_info_action_table), pkg_info_action_isize_entry, 1, 2, 4, 5,
+                    (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 0);
+  gtk_editable_set_editable (GTK_EDITABLE (pkg_info_action_isize_entry), FALSE);
+
+  pkg_info_action_required_label = gtk_label_new (_("Required"));
+  gtk_widget_set_name (pkg_info_action_required_label, "pkg_info_action_required_label");
+  gtk_widget_show (pkg_info_action_required_label);
+  gtk_table_attach (GTK_TABLE (pkg_info_action_table), pkg_info_action_required_label, 0, 1, 5, 6,
+                    (GtkAttachOptions) (GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 0);
+  gtk_misc_set_alignment (GTK_MISC (pkg_info_action_required_label), 0, 0.5);
+
+  pkg_info_action_required_entry = gtk_entry_new ();
+  gtk_widget_set_name (pkg_info_action_required_entry, "pkg_info_action_required_entry");
+  gtk_widget_show (pkg_info_action_required_entry);
+  gtk_table_attach (GTK_TABLE (pkg_info_action_table), pkg_info_action_required_entry, 1, 2, 5, 6,
+                    (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 0);
+  gtk_editable_set_editable (GTK_EDITABLE (pkg_info_action_required_entry), FALSE);
+
+  pkg_info_action_conflicts_label = gtk_label_new (_("Conflicts"));
+  gtk_widget_set_name (pkg_info_action_conflicts_label, "pkg_info_action_conflicts_label");
+  gtk_widget_show (pkg_info_action_conflicts_label);
+  gtk_table_attach (GTK_TABLE (pkg_info_action_table), pkg_info_action_conflicts_label, 0, 1, 6, 7,
+                    (GtkAttachOptions) (GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 0);
+  gtk_misc_set_alignment (GTK_MISC (pkg_info_action_conflicts_label), 0, 0.5);
+
+  pkg_info_action_conflicts_entry = gtk_entry_new ();
+  gtk_widget_set_name (pkg_info_action_conflicts_entry, "pkg_info_action_conflicts_entry");
+  gtk_widget_show (pkg_info_action_conflicts_entry);
+  gtk_table_attach (GTK_TABLE (pkg_info_action_table), pkg_info_action_conflicts_entry, 1, 2, 6, 7,
+                    (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 0);
+  gtk_editable_set_editable (GTK_EDITABLE (pkg_info_action_conflicts_entry), FALSE);
+
+  pkg_info_action_suggests_label = gtk_label_new (_("Suggests"));
+  gtk_widget_set_name (pkg_info_action_suggests_label, "pkg_info_action_suggests_label");
+  gtk_widget_show (pkg_info_action_suggests_label);
+  gtk_table_attach (GTK_TABLE (pkg_info_action_table), pkg_info_action_suggests_label, 0, 1, 7, 8,
+                    (GtkAttachOptions) (GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 0);
+  gtk_misc_set_alignment (GTK_MISC (pkg_info_action_suggests_label), 0, 0.5);
+
+  pkg_info_action_suggests_entry = gtk_entry_new ();
+  gtk_widget_set_name (pkg_info_action_suggests_entry, "pkg_info_action_suggests_entry");
+  gtk_widget_show (pkg_info_action_suggests_entry);
+  gtk_table_attach (GTK_TABLE (pkg_info_action_table), pkg_info_action_suggests_entry, 1, 2, 7, 8,
+                    (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 0);
+  gtk_editable_set_editable (GTK_EDITABLE (pkg_info_action_suggests_entry), FALSE);
+
+  pkg_info_action_mirror_label = gtk_label_new (_("Mirror"));
+  gtk_widget_set_name (pkg_info_action_mirror_label, "pkg_info_action_mirror_label");
+  gtk_widget_show (pkg_info_action_mirror_label);
+  gtk_table_attach (GTK_TABLE (pkg_info_action_table), pkg_info_action_mirror_label, 0, 1, 8, 9,
+                    (GtkAttachOptions) (GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 0);
+  gtk_misc_set_alignment (GTK_MISC (pkg_info_action_mirror_label), 0, 0.5);
+
+  pkg_info_action_mirror_entry = gtk_entry_new ();
+  gtk_widget_set_name (pkg_info_action_mirror_entry, "pkg_info_action_mirror_entry");
+  gtk_widget_show (pkg_info_action_mirror_entry);
+  gtk_table_attach (GTK_TABLE (pkg_info_action_table), pkg_info_action_mirror_entry, 1, 2, 8, 9,
+                    (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 0);
+  gtk_editable_set_editable (GTK_EDITABLE (pkg_info_action_mirror_entry), FALSE);
+
+  pkg_info_label = gtk_label_new (_("Package Information"));
+  gtk_widget_set_name (pkg_info_label, "pkg_info_label");
+  gtk_widget_show (pkg_info_label);
+  gtk_frame_set_label_widget (GTK_FRAME (pkg_info_frame), pkg_info_label);
+
+  label171 = gtk_label_new (_("<b>frame1</b>"));
+  gtk_widget_set_name (label171, "label171");
+  gtk_widget_show (label171);
+  gtk_frame_set_label_widget (GTK_FRAME (frame1), label171);
+  gtk_label_set_use_markup (GTK_LABEL (label171), TRUE);
+
+  /* Store pointers to all widgets, for use by lookup_widget(). */
+  GLADE_HOOKUP_OBJECT_NO_REF (trash, trash, "trash");
+  GLADE_HOOKUP_OBJECT (trash, frame1, "frame1");
+  GLADE_HOOKUP_OBJECT (trash, alignment30, "alignment30");
+  GLADE_HOOKUP_OBJECT (trash, pkg_info_frame, "pkg_info_frame");
+  GLADE_HOOKUP_OBJECT (trash, pkg_info_action_table, "pkg_info_action_table");
+  GLADE_HOOKUP_OBJECT (trash, pkg_info_action_name_label, "pkg_info_action_name_label");
+  GLADE_HOOKUP_OBJECT (trash, pkg_info_action_name_entry, "pkg_info_action_name_entry");
+  GLADE_HOOKUP_OBJECT (trash, pkg_info_action_description_label, "pkg_info_action_description_label");
+  GLADE_HOOKUP_OBJECT (trash, pkg_info_action_description_entry, "pkg_info_action_description_entry");
+  GLADE_HOOKUP_OBJECT (trash, pkg_info_action_version_label, "pkg_info_action_version_label");
+  GLADE_HOOKUP_OBJECT (trash, pkg_info_action_version_entry, "pkg_info_action_version_entry");
+  GLADE_HOOKUP_OBJECT (trash, pkg_info_action_size_label, "pkg_info_action_size_label");
+  GLADE_HOOKUP_OBJECT (trash, pkg_info_action_size_entry, "pkg_info_action_size_entry");
+  GLADE_HOOKUP_OBJECT (trash, pkg_info_action_isize_label, "pkg_info_action_isize_label");
+  GLADE_HOOKUP_OBJECT (trash, pkg_info_action_isize_entry, "pkg_info_action_isize_entry");
+  GLADE_HOOKUP_OBJECT (trash, pkg_info_action_required_label, "pkg_info_action_required_label");
+  GLADE_HOOKUP_OBJECT (trash, pkg_info_action_required_entry, "pkg_info_action_required_entry");
+  GLADE_HOOKUP_OBJECT (trash, pkg_info_action_conflicts_label, "pkg_info_action_conflicts_label");
+  GLADE_HOOKUP_OBJECT (trash, pkg_info_action_conflicts_entry, "pkg_info_action_conflicts_entry");
+  GLADE_HOOKUP_OBJECT (trash, pkg_info_action_suggests_label, "pkg_info_action_suggests_label");
+  GLADE_HOOKUP_OBJECT (trash, pkg_info_action_suggests_entry, "pkg_info_action_suggests_entry");
+  GLADE_HOOKUP_OBJECT (trash, pkg_info_action_mirror_label, "pkg_info_action_mirror_label");
+  GLADE_HOOKUP_OBJECT (trash, pkg_info_action_mirror_entry, "pkg_info_action_mirror_entry");
+  GLADE_HOOKUP_OBJECT (trash, pkg_info_label, "pkg_info_label");
+  GLADE_HOOKUP_OBJECT (trash, label171, "label171");
+
+  return trash;
 }
 

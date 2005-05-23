@@ -6,10 +6,10 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: gslapt 0.2.1\n"
+"Project-Id-Version: gslapt 0.2.2\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-05-06 11:10-0500\n"
-"PO-Revision-Date: 2005-05-19 11:29-0500\n"
+"PO-Revision-Date: 2005-05-23 14:18+0500\n"
 "Last-Translator: Pedro Pinto [aka _PN_boy] <pedro_nuno_pn@zmail.pt>\n"
 "Language-Team: slapt-get devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -322,4 +322,43 @@ msgstr ", which is required by "
 
 msgid ", is excluded"
 msgstr ", is excluded"
+
+msgid "<b>Conflicts</b>"
+msgstr "<b>Conflicts</b>"
+
+msgid "<b>Description</b>"
+msgstr "<b>Description</b>"
+
+msgid "<b>Installed Size</b>"
+msgstr "<b>Installed Size</b>"
+
+msgid "<b>Location</b>"
+msgstr "<b>Location</b>"
+
+msgid "<b>Mirror</b>"
+msgstr "<b>Mirror</b>"
+
+msgid "<b>Name</b>"
+msgstr "<b>Name</b>"
+
+msgid "<b>Required</b>"
+msgstr "<b>Required</b>"
+
+msgid "<b>Size</b>"
+msgstr "<b>Size</b>"
+
+msgid "<b>Suggests</b>"
+msgstr "<b>Suggests</b>"
+
+msgid "<b>Version</b>"
+msgstr "<b>Version</b>"
+
+msgid "Common"
+msgstr "Common"
+
+msgid "Dependencies"
+msgstr "Dependencies"
+
+msgid "No package is selected.\n"
+msgstr "No package is selected.\n"
 

@@ -30,7 +30,6 @@ void search_button_clicked(GtkWidget *gslapt, gpointer user_data);
 void add_pkg_for_install(GtkWidget *gslapt, gpointer user_data);
 void add_pkg_for_reinstall(GtkWidget *gslapt, gpointer user_data);
 void add_pkg_for_removal(GtkWidget *gslapt, gpointer user_data);
-void add_pkg_for_exclude(GtkWidget *gslapt, gpointer user_data);
 void build_installed_treeviewlist(GtkWidget *);
 void build_available_treeviewlist(GtkWidget *);
 void build_searched_treeviewlist(GtkWidget *,gchar *pattern);

@@ -1,5 +1,10 @@
 
-0.2.2 May 20, 2005
+0.2.2 May 23, 2005
+ * updated translations with new strings
+ * removed the unneeded exclude button since exclude prefs are working 
+ * changed order of package list column, moving installed before location
+ * updated UI, creating a paned view, and the package information is now
+   tabbed.
  * free'd several allocated variables
 
 0.2.1 May 19, 2005
