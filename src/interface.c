@@ -724,7 +724,7 @@ create_gslapt (void)
   gtk_table_set_row_spacings (GTK_TABLE (table2), 6);
   gtk_table_set_col_spacings (GTK_TABLE (table2), 12);
 
-  label226 = gtk_label_new (_("<b>Name</b>"));
+  label226 = gtk_label_new (_("<b>Name:</b>"));
   gtk_widget_set_name (label226, "label226");
   gtk_widget_show (label226);
   gtk_table_attach (GTK_TABLE (table2), label226, 0, 1, 0, 1,
@@ -733,7 +733,7 @@ create_gslapt (void)
   gtk_label_set_use_markup (GTK_LABEL (label226), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label226), 0, 0.5);
 
-  label227 = gtk_label_new (_("<b>Description</b>"));
+  label227 = gtk_label_new (_("<b>Description:</b>"));
   gtk_widget_set_name (label227, "label227");
   gtk_widget_show (label227);
   gtk_table_attach (GTK_TABLE (table2), label227, 0, 1, 1, 2,
@@ -742,7 +742,7 @@ create_gslapt (void)
   gtk_label_set_use_markup (GTK_LABEL (label227), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label227), 0, 0.5);
 
-  label244 = gtk_label_new (_("<b>Location</b>"));
+  label244 = gtk_label_new (_("<b>Location:</b>"));
   gtk_widget_set_name (label244, "label244");
   gtk_widget_show (label244);
   gtk_table_attach (GTK_TABLE (table2), label244, 0, 1, 2, 3,
@@ -792,7 +792,7 @@ create_gslapt (void)
   gtk_table_set_row_spacings (GTK_TABLE (table3), 6);
   gtk_table_set_col_spacings (GTK_TABLE (table3), 12);
 
-  label237 = gtk_label_new (_("<b>Version</b>"));
+  label237 = gtk_label_new (_("<b>Version:</b>"));
   gtk_widget_set_name (label237, "label237");
   gtk_widget_show (label237);
   gtk_table_attach (GTK_TABLE (table3), label237, 0, 1, 0, 1,
@@ -801,7 +801,7 @@ create_gslapt (void)
   gtk_label_set_use_markup (GTK_LABEL (label237), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label237), 0, 0.5);
 
-  label238 = gtk_label_new (_("<b>Size</b>"));
+  label238 = gtk_label_new (_("<b>Size:</b>"));
   gtk_widget_set_name (label238, "label238");
   gtk_widget_show (label238);
   gtk_table_attach (GTK_TABLE (table3), label238, 0, 1, 1, 2,
@@ -810,7 +810,7 @@ create_gslapt (void)
   gtk_label_set_use_markup (GTK_LABEL (label238), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label238), 0, 0.5);
 
-  label239 = gtk_label_new (_("<b>Installed Size</b>"));
+  label239 = gtk_label_new (_("<b>Installed Size:</b>"));
   gtk_widget_set_name (label239, "label239");
   gtk_widget_show (label239);
   gtk_table_attach (GTK_TABLE (table3), label239, 0, 1, 2, 3,
@@ -819,7 +819,7 @@ create_gslapt (void)
   gtk_label_set_use_markup (GTK_LABEL (label239), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label239), 0, 0.5);
 
-  label245 = gtk_label_new (_("<b>Mirror</b>"));
+  label245 = gtk_label_new (_("<b>Mirror:</b>"));
   gtk_widget_set_name (label245, "label245");
   gtk_widget_show (label245);
   gtk_table_attach (GTK_TABLE (table3), label245, 0, 1, 3, 4,
@@ -927,7 +927,7 @@ create_gslapt (void)
   gtk_table_set_row_spacings (GTK_TABLE (table4), 6);
   gtk_table_set_col_spacings (GTK_TABLE (table4), 12);
 
-  label247 = gtk_label_new (_("<b>Required</b>"));
+  label247 = gtk_label_new (_("<b>Required:</b>"));
   gtk_widget_set_name (label247, "label247");
   gtk_widget_show (label247);
   gtk_table_attach (GTK_TABLE (table4), label247, 0, 1, 0, 1,
@@ -936,7 +936,7 @@ create_gslapt (void)
   gtk_label_set_use_markup (GTK_LABEL (label247), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label247), 0, 0.5);
 
-  label248 = gtk_label_new (_("<b>Conflicts</b>"));
+  label248 = gtk_label_new (_("<b>Conflicts:</b>"));
   gtk_widget_set_name (label248, "label248");
   gtk_widget_show (label248);
   gtk_table_attach (GTK_TABLE (table4), label248, 0, 1, 1, 2,
@@ -945,7 +945,7 @@ create_gslapt (void)
   gtk_label_set_use_markup (GTK_LABEL (label248), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label248), 0, 0.5);
 
-  label249 = gtk_label_new (_("<b>Suggests</b>"));
+  label249 = gtk_label_new (_("<b>Suggests:</b>"));
   gtk_widget_set_name (label249, "label249");
   gtk_widget_show (label249);
   gtk_table_attach (GTK_TABLE (table4), label249, 0, 1, 2, 3,

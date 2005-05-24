@@ -1177,7 +1177,7 @@
 				  <child>
 				    <widget class="GtkLabel" id="label226">
 				      <property name="visible">True</property>
-				      <property name="label" translatable="yes">&lt;b&gt;Name&lt;/b&gt;</property>
+				      <property name="label" translatable="yes">&lt;b&gt;Name:&lt;/b&gt;</property>
 				      <property name="use_underline">False</property>
 				      <property name="use_markup">True</property>
 				      <property name="justify">GTK_JUSTIFY_LEFT</property>
@@ -1205,7 +1205,7 @@
 				  <child>
 				    <widget class="GtkLabel" id="label227">
 				      <property name="visible">True</property>
-				      <property name="label" translatable="yes">&lt;b&gt;Description&lt;/b&gt;</property>
+				      <property name="label" translatable="yes">&lt;b&gt;Description:&lt;/b&gt;</property>
 				      <property name="use_underline">False</property>
 				      <property name="use_markup">True</property>
 				      <property name="justify">GTK_JUSTIFY_LEFT</property>
@@ -1233,7 +1233,7 @@
 				  <child>
 				    <widget class="GtkLabel" id="label244">
 				      <property name="visible">True</property>
-				      <property name="label" translatable="yes">&lt;b&gt;Location&lt;/b&gt;</property>
+				      <property name="label" translatable="yes">&lt;b&gt;Location:&lt;/b&gt;</property>
 				      <property name="use_underline">False</property>
 				      <property name="use_markup">True</property>
 				      <property name="justify">GTK_JUSTIFY_LEFT</property>
@@ -1366,7 +1366,7 @@
 				  <child>
 				    <widget class="GtkLabel" id="label237">
 				      <property name="visible">True</property>
-				      <property name="label" translatable="yes">&lt;b&gt;Version&lt;/b&gt;</property>
+				      <property name="label" translatable="yes">&lt;b&gt;Version:&lt;/b&gt;</property>
 				      <property name="use_underline">False</property>
 				      <property name="use_markup">True</property>
 				      <property name="justify">GTK_JUSTIFY_LEFT</property>
@@ -1394,7 +1394,7 @@
 				  <child>
 				    <widget class="GtkLabel" id="label238">
 				      <property name="visible">True</property>
-				      <property name="label" translatable="yes">&lt;b&gt;Size&lt;/b&gt;</property>
+				      <property name="label" translatable="yes">&lt;b&gt;Size:&lt;/b&gt;</property>
 				      <property name="use_underline">False</property>
 				      <property name="use_markup">True</property>
 				      <property name="justify">GTK_JUSTIFY_LEFT</property>
@@ -1422,7 +1422,7 @@
 				  <child>
 				    <widget class="GtkLabel" id="label239">
 				      <property name="visible">True</property>
-				      <property name="label" translatable="yes">&lt;b&gt;Installed Size&lt;/b&gt;</property>
+				      <property name="label" translatable="yes">&lt;b&gt;Installed Size:&lt;/b&gt;</property>
 				      <property name="use_underline">False</property>
 				      <property name="use_markup">True</property>
 				      <property name="justify">GTK_JUSTIFY_LEFT</property>
@@ -1450,7 +1450,7 @@
 				  <child>
 				    <widget class="GtkLabel" id="label245">
 				      <property name="visible">True</property>
-				      <property name="label" translatable="yes">&lt;b&gt;Mirror&lt;/b&gt;</property>
+				      <property name="label" translatable="yes">&lt;b&gt;Mirror:&lt;/b&gt;</property>
 				      <property name="use_underline">False</property>
 				      <property name="use_markup">True</property>
 				      <property name="justify">GTK_JUSTIFY_LEFT</property>
@@ -1737,7 +1737,7 @@
 				  <child>
 				    <widget class="GtkLabel" id="label247">
 				      <property name="visible">True</property>
-				      <property name="label" translatable="yes">&lt;b&gt;Required&lt;/b&gt;</property>
+				      <property name="label" translatable="yes">&lt;b&gt;Required:&lt;/b&gt;</property>
 				      <property name="use_underline">False</property>
 				      <property name="use_markup">True</property>
 				      <property name="justify">GTK_JUSTIFY_LEFT</property>
@@ -1765,7 +1765,7 @@
 				  <child>
 				    <widget class="GtkLabel" id="label248">
 				      <property name="visible">True</property>
-				      <property name="label" translatable="yes">&lt;b&gt;Conflicts&lt;/b&gt;</property>
+				      <property name="label" translatable="yes">&lt;b&gt;Conflicts:&lt;/b&gt;</property>
 				      <property name="use_underline">False</property>
 				      <property name="use_markup">True</property>
 				      <property name="justify">GTK_JUSTIFY_LEFT</property>
@@ -1793,7 +1793,7 @@
 				  <child>
 				    <widget class="GtkLabel" id="label249">
 				      <property name="visible">True</property>
-				      <property name="label" translatable="yes">&lt;b&gt;Suggests&lt;/b&gt;</property>
+				      <property name="label" translatable="yes">&lt;b&gt;Suggests:&lt;/b&gt;</property>
 				      <property name="use_underline">False</property>
 				      <property name="use_markup">True</property>
 				      <property name="justify">GTK_JUSTIFY_LEFT</property>
