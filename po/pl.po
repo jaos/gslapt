@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gslapt 0.2.2\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-17 14:52-0500\n"
-"PO-Revision-Date: 2005-05-23 20:27+0500\n"
+"PO-Revision-Date: 2005-05-24 15:26+0500\n"
 "Last-Translator: Piotr Simon <sajmon@tenboard.com>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -283,56 +283,56 @@ msgid "Pending changes. Click execute when ready."
 msgstr "W czasie zmian. Kliknij na Wykonaj je¶li gotowe."
 
 msgid "Packages with unmet dependencies"
-msgstr "Packages with unmet dependencies"
+msgstr "Pakiety z nieodpowiednimi zale¿no¶ciami"
 
 msgid ": Depends: "
-msgstr ": Depends: "
+msgstr ": Zale¿y: "
 
 msgid "Package conflicts"
-msgstr "Package conflicts"
+msgstr "Konflikt pakietu"
 
 msgid ", which is required by "
-msgstr ", which is required by "
+msgstr ", który jest wymagany przez "
 
 msgid ", is excluded"
-msgstr ", is excluded"
+msgstr ", jest wykluczony"
 
 msgid "<b>Conflicts:</b>"
-msgstr "<b>Conflicts:</b>"
+msgstr "<b>Konflikt:</b>"
 
 msgid "<b>Description:</b>"
-msgstr "<b>Description:</b>"
+msgstr "<b>Opis:</b>"
 
 msgid "<b>Installed Size:</b>"
-msgstr "<b>Installed Size:</b>"
+msgstr "<b>Rozmiar po instalacji:</b>"
 
 msgid "<b>Location:</b>"
-msgstr "<b>Location:</b>"
+msgstr "<b>Lokacja:</b>"
 
 msgid "<b>Mirror:</b>"
 msgstr "<b>Mirror:</b>"
 
 msgid "<b>Name:</b>"
-msgstr "<b>Name:</b>"
+msgstr "<b>Nazwa:</b>"
 
 msgid "<b>Required:</b>"
-msgstr "<b>Required:</b>"
+msgstr "<b>Wymaga:</b>"
 
 msgid "<b>Size:</b>"
-msgstr "<b>Size:</b>"
+msgstr "<b>Rozmiar:</b>"
 
 msgid "<b>Suggests:</b>"
-msgstr "<b>Suggests:</b>"
+msgstr "<b>Sugerowane:</b>"
 
 msgid "<b>Version:</b>"
-msgstr "<b>Version:</b>"
+msgstr "<b>Wersja:</b>"
 
 msgid "Common"
-msgstr "Common"
+msgstr "Ogólne"
 
 msgid "Dependencies"
-msgstr "Dependencies"
+msgstr "Zale¿no¶ci"
 
 msgid "No package is selected.\n"
-msgstr "No package is selected.\n"
+msgstr "¯aden pakiet nie wybrany.\n"
 

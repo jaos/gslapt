@@ -1,5 +1,6 @@
 
-0.2.2 May 23, 2005
+0.2.2 May 24, 2005
+ * updated pl translation (thanks Piotr)
  * switched order of tabs in preferences, so sources is last
  * added pt to configure.in for language installation
  * fixed some formatting
