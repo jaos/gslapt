@@ -1,5 +1,6 @@
 
 0.2.2 May 23, 2005
+ * added pt to configure.in for language installation
  * fixed some formatting
  * removed unused signal handler paramter
  * updated translations with new strings
