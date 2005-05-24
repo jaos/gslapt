@@ -42,7 +42,7 @@ int main (int argc, char *argv[]) {
   textdomain (GETTEXT_PACKAGE);
 #endif
 
-  gtk_set_locale ();
+  /* gtk_set_locale (); */
   g_thread_init(NULL);
   gdk_threads_init();
   gtk_init (&argc, &argv);
