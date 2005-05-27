@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gslapt 0.2.2\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2005-05-23 20:27+0500\n"
+"PO-Revision-Date: 2005-05-27 17:13+0500\n"
 "Last-Translator: Hakan Lindqvist <tfy00hlt@cs.umu.se>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -362,4 +362,22 @@ msgstr "Beroenden"
 
 msgid "No package is selected.\n"
 msgstr "Inga paket är valda.\n"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Source download failed"
+msgstr "Source download failed"
+
+msgid "Package(s) failed to download"
+msgstr "Package(s) failed to download"
+
+msgid "pkgtools returned an error"
+msgstr "pkgtools returned an error"
+
+msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgstr "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+
+msgid "Excluding %s due to dependency failure\n"
+msgstr "Excluding %s due to dependency failure\n"
 

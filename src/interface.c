@@ -448,7 +448,6 @@ create_gslapt (void)
   GtkWidget *pkg_vpaned;
   GtkWidget *pkg_list_scrolled;
   GtkWidget *pkg_listing_treeview;
-  GtkWidget *pkg_info_action_hbox;
   GtkWidget *pkg_info_notebook;
   GtkWidget *scrolledwindow20;
   GtkWidget *viewport1;
@@ -485,18 +484,6 @@ create_gslapt (void)
   GtkWidget *pkg_info_conflicts;
   GtkWidget *pkg_info_suggests;
   GtkWidget *pkg_info_dependencies_label;
-  GtkWidget *pkg_action_vbox;
-  GtkWidget *label246;
-  GtkWidget *pkg_info_action_install_upgrade_button;
-  GtkWidget *alignment27;
-  GtkWidget *hbox78;
-  GtkWidget *image746;
-  GtkWidget *label131;
-  GtkWidget *pkg_info_action_remove_button;
-  GtkWidget *alignment28;
-  GtkWidget *hbox79;
-  GtkWidget *image747;
-  GtkWidget *label132;
   GtkWidget *bottom_statusbar;
   GtkAccelGroup *accel_group;
   GtkTooltips *tooltips;
@@ -675,7 +662,7 @@ create_gslapt (void)
   pkg_list_scrolled = gtk_scrolled_window_new (NULL, NULL);
   gtk_widget_set_name (pkg_list_scrolled, "pkg_list_scrolled");
   gtk_widget_show (pkg_list_scrolled);
-  gtk_paned_pack1 (GTK_PANED (pkg_vpaned), pkg_list_scrolled, TRUE, FALSE);
+  gtk_paned_pack1 (GTK_PANED (pkg_vpaned), pkg_list_scrolled, TRUE, TRUE);
   gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (pkg_list_scrolled), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
 
   pkg_listing_treeview = gtk_tree_view_new ();
@@ -685,16 +672,11 @@ create_gslapt (void)
   gtk_tree_view_set_rules_hint (GTK_TREE_VIEW (pkg_listing_treeview), TRUE);
   gtk_tree_view_set_reorderable (GTK_TREE_VIEW (pkg_listing_treeview), TRUE);
 
-  pkg_info_action_hbox = gtk_hbox_new (FALSE, 6);
-  gtk_widget_set_name (pkg_info_action_hbox, "pkg_info_action_hbox");
-  gtk_widget_show (pkg_info_action_hbox);
-  gtk_paned_pack2 (GTK_PANED (pkg_vpaned), pkg_info_action_hbox, TRUE, FALSE);
-  gtk_container_set_border_width (GTK_CONTAINER (pkg_info_action_hbox), 6);
-
   pkg_info_notebook = gtk_notebook_new ();
   gtk_widget_set_name (pkg_info_notebook, "pkg_info_notebook");
   gtk_widget_show (pkg_info_notebook);
-  gtk_box_pack_start (GTK_BOX (pkg_info_action_hbox), pkg_info_notebook, TRUE, TRUE, 0);
+  gtk_paned_pack2 (GTK_PANED (pkg_vpaned), pkg_info_notebook, TRUE, TRUE);
+  gtk_container_set_border_width (GTK_CONTAINER (pkg_info_notebook), 6);
   gtk_notebook_set_show_border (GTK_NOTEBOOK (pkg_info_notebook), FALSE);
   gtk_notebook_set_scrollable (GTK_NOTEBOOK (pkg_info_notebook), TRUE);
 
@@ -992,78 +974,6 @@ create_gslapt (void)
   gtk_widget_show (pkg_info_dependencies_label);
   gtk_notebook_set_tab_label (GTK_NOTEBOOK (pkg_info_notebook), gtk_notebook_get_nth_page (GTK_NOTEBOOK (pkg_info_notebook), 2), pkg_info_dependencies_label);
 
-  pkg_action_vbox = gtk_vbox_new (FALSE, 6);
-  gtk_widget_set_name (pkg_action_vbox, "pkg_action_vbox");
-  gtk_widget_show (pkg_action_vbox);
-  gtk_box_pack_start (GTK_BOX (pkg_info_action_hbox), pkg_action_vbox, FALSE, TRUE, 0);
-  gtk_container_set_border_width (GTK_CONTAINER (pkg_action_vbox), 6);
-
-  label246 = gtk_label_new ("");
-  gtk_widget_set_name (label246, "label246");
-  gtk_widget_show (label246);
-  gtk_box_pack_start (GTK_BOX (pkg_action_vbox), label246, FALSE, FALSE, 0);
-
-  pkg_info_action_install_upgrade_button = gtk_button_new ();
-  gtk_widget_set_name (pkg_info_action_install_upgrade_button, "pkg_info_action_install_upgrade_button");
-  gtk_widget_show (pkg_info_action_install_upgrade_button);
-  gtk_box_pack_start (GTK_BOX (pkg_action_vbox), pkg_info_action_install_upgrade_button, FALSE, TRUE, 0);
-  gtk_tooltips_set_tip (tooltips, pkg_info_action_install_upgrade_button, _("Install/Upgrade package"), NULL);
-  gtk_widget_add_accelerator (pkg_info_action_install_upgrade_button, "clicked", accel_group,
-                              GDK_i, (GdkModifierType) GDK_CONTROL_MASK,
-                              GTK_ACCEL_VISIBLE);
-  gtk_widget_add_accelerator (pkg_info_action_install_upgrade_button, "clicked", accel_group,
-                              GDK_u, (GdkModifierType) GDK_CONTROL_MASK,
-                              GTK_ACCEL_VISIBLE);
-
-  alignment27 = gtk_alignment_new (0.5, 0.5, 0, 0);
-  gtk_widget_set_name (alignment27, "alignment27");
-  gtk_widget_show (alignment27);
-  gtk_container_add (GTK_CONTAINER (pkg_info_action_install_upgrade_button), alignment27);
-
-  hbox78 = gtk_hbox_new (FALSE, 2);
-  gtk_widget_set_name (hbox78, "hbox78");
-  gtk_widget_show (hbox78);
-  gtk_container_add (GTK_CONTAINER (alignment27), hbox78);
-
-  image746 = gtk_image_new_from_stock ("gtk-add", GTK_ICON_SIZE_BUTTON);
-  gtk_widget_set_name (image746, "image746");
-  gtk_widget_show (image746);
-  gtk_box_pack_start (GTK_BOX (hbox78), image746, FALSE, FALSE, 0);
-
-  label131 = gtk_label_new_with_mnemonic (_("Install"));
-  gtk_widget_set_name (label131, "label131");
-  gtk_widget_show (label131);
-  gtk_box_pack_start (GTK_BOX (hbox78), label131, FALSE, FALSE, 0);
-
-  pkg_info_action_remove_button = gtk_button_new ();
-  gtk_widget_set_name (pkg_info_action_remove_button, "pkg_info_action_remove_button");
-  gtk_widget_show (pkg_info_action_remove_button);
-  gtk_box_pack_start (GTK_BOX (pkg_action_vbox), pkg_info_action_remove_button, FALSE, TRUE, 0);
-  gtk_tooltips_set_tip (tooltips, pkg_info_action_remove_button, _("Remove package"), NULL);
-  gtk_widget_add_accelerator (pkg_info_action_remove_button, "clicked", accel_group,
-                              GDK_r, (GdkModifierType) GDK_CONTROL_MASK,
-                              GTK_ACCEL_VISIBLE);
-
-  alignment28 = gtk_alignment_new (0.5, 0.5, 0, 0);
-  gtk_widget_set_name (alignment28, "alignment28");
-  gtk_widget_show (alignment28);
-  gtk_container_add (GTK_CONTAINER (pkg_info_action_remove_button), alignment28);
-
-  hbox79 = gtk_hbox_new (FALSE, 2);
-  gtk_widget_set_name (hbox79, "hbox79");
-  gtk_widget_show (hbox79);
-  gtk_container_add (GTK_CONTAINER (alignment28), hbox79);
-
-  image747 = gtk_image_new_from_stock ("gtk-stop", GTK_ICON_SIZE_BUTTON);
-  gtk_widget_set_name (image747, "image747");
-  gtk_widget_show (image747);
-  gtk_box_pack_start (GTK_BOX (hbox79), image747, FALSE, FALSE, 0);
-
-  label132 = gtk_label_new_with_mnemonic (_("Remove"));
-  gtk_widget_set_name (label132, "label132");
-  gtk_widget_show (label132);
-  gtk_box_pack_start (GTK_BOX (hbox79), label132, FALSE, FALSE, 0);
-
   bottom_statusbar = gtk_statusbar_new ();
   gtk_widget_set_name (bottom_statusbar, "bottom_statusbar");
   gtk_widget_show (bottom_statusbar);
@@ -1105,12 +1015,6 @@ create_gslapt (void)
   g_signal_connect_swapped ((gpointer) clear_button, "clicked",
                             G_CALLBACK (clear_button_clicked),
                             GTK_OBJECT (search_entry));
-  g_signal_connect_swapped ((gpointer) pkg_info_action_install_upgrade_button, "clicked",
-                            G_CALLBACK (add_pkg_for_install),
-                            GTK_OBJECT (gslapt));
-  g_signal_connect_swapped ((gpointer) pkg_info_action_remove_button, "clicked",
-                            G_CALLBACK (add_pkg_for_removal),
-                            GTK_OBJECT (gslapt));
 
   /* Store pointers to all widgets, for use by lookup_widget(). */
   GLADE_HOOKUP_OBJECT_NO_REF (gslapt, gslapt, "gslapt");
@@ -1142,7 +1046,6 @@ create_gslapt (void)
   GLADE_HOOKUP_OBJECT (gslapt, pkg_vpaned, "pkg_vpaned");
   GLADE_HOOKUP_OBJECT (gslapt, pkg_list_scrolled, "pkg_list_scrolled");
   GLADE_HOOKUP_OBJECT (gslapt, pkg_listing_treeview, "pkg_listing_treeview");
-  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_action_hbox, "pkg_info_action_hbox");
   GLADE_HOOKUP_OBJECT (gslapt, pkg_info_notebook, "pkg_info_notebook");
   GLADE_HOOKUP_OBJECT (gslapt, scrolledwindow20, "scrolledwindow20");
   GLADE_HOOKUP_OBJECT (gslapt, viewport1, "viewport1");
@@ -1179,18 +1082,6 @@ create_gslapt (void)
   GLADE_HOOKUP_OBJECT (gslapt, pkg_info_conflicts, "pkg_info_conflicts");
   GLADE_HOOKUP_OBJECT (gslapt, pkg_info_suggests, "pkg_info_suggests");
   GLADE_HOOKUP_OBJECT (gslapt, pkg_info_dependencies_label, "pkg_info_dependencies_label");
-  GLADE_HOOKUP_OBJECT (gslapt, pkg_action_vbox, "pkg_action_vbox");
-  GLADE_HOOKUP_OBJECT (gslapt, label246, "label246");
-  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_action_install_upgrade_button, "pkg_info_action_install_upgrade_button");
-  GLADE_HOOKUP_OBJECT (gslapt, alignment27, "alignment27");
-  GLADE_HOOKUP_OBJECT (gslapt, hbox78, "hbox78");
-  GLADE_HOOKUP_OBJECT (gslapt, image746, "image746");
-  GLADE_HOOKUP_OBJECT (gslapt, label131, "label131");
-  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_action_remove_button, "pkg_info_action_remove_button");
-  GLADE_HOOKUP_OBJECT (gslapt, alignment28, "alignment28");
-  GLADE_HOOKUP_OBJECT (gslapt, hbox79, "hbox79");
-  GLADE_HOOKUP_OBJECT (gslapt, image747, "image747");
-  GLADE_HOOKUP_OBJECT (gslapt, label132, "label132");
   GLADE_HOOKUP_OBJECT (gslapt, bottom_statusbar, "bottom_statusbar");
   GLADE_HOOKUP_OBJECT_NO_REF (gslapt, tooltips, "tooltips");
 

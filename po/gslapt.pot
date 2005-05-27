@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gslapt 0.2.2\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2005-05-23 20:27+0500\n"
+"PO-Revision-Date: 2005-05-27 17:13+0500\n"
 "Last-Translator: Jason Woodward <woodwardj@jaos.org>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -359,5 +359,23 @@ msgid "Dependencies"
 msgstr ""
 
 msgid "No package is selected.\n"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Source download failed"
+msgstr ""
+
+msgid "Package(s) failed to download"
+msgstr ""
+
+msgid "pkgtools returned an error"
+msgstr ""
+
+msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgstr ""
+
+msgid "Excluding %s due to dependency failure\n"
 msgstr ""
 

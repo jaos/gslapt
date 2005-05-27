@@ -47,6 +47,8 @@ int main (int argc, char *argv[]) {
   gdk_threads_init();
   gtk_init (&argc, &argv);
 
+  init_transaction(trans);
+
   add_pixmap_directory (PACKAGE_DATA_DIR "/" PACKAGE "/pixmaps");
 
   gslapt = (GtkWidget *)create_gslapt ();
@@ -69,13 +71,7 @@ int main (int argc, char *argv[]) {
   gtk_statusbar_push(bar,default_context_id,_("Ready"));
 
   gtk_widget_set_sensitive( lookup_widget(gslapt,
-                            "pkg_info_action_install_upgrade_button"), FALSE);
-  gtk_widget_set_sensitive( lookup_widget(gslapt,
-                            "pkg_info_action_remove_button"), FALSE);
-  gtk_widget_set_sensitive( lookup_widget(gslapt,
                             "action_bar_execute_button"), FALSE);
-
-  init_transaction(trans);
 
   gdk_threads_enter();
   gtk_main ();

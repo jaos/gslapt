@@ -1,5 +1,6 @@
 
-0.2.2 May 24, 2005
+0.2.2 May 27, 2005
+ * new ui in hopes it will make gslapt more usable
  * added Swedish translation by Hakan Lindqvist
  * updated pl translation (thanks Piotr)
  * switched order of tabs in preferences, so sources is last
