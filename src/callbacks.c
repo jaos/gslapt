@@ -2140,6 +2140,7 @@ void unmark_package(GtkWidget *gslapt, gpointer user_data)
   extern transaction_t *trans;
   extern struct pkg_list *installed;
   extern struct pkg_list *all;
+  guint is_installed = 0;
 
   treeview = GTK_TREE_VIEW(lookup_widget(gslapt,"pkg_listing_treeview"));
   selection = gtk_tree_view_get_selection(treeview);
@@ -2171,6 +2172,7 @@ void unmark_package(GtkWidget *gslapt, gpointer user_data)
 
     if (((pkg = get_pkg_by_details(all,pkg_name,pkg_version,pkg_location)) == NULL)) {
       pkg = get_pkg_by_details(installed,pkg_name,pkg_version,pkg_location);
+      is_installed = 1;
     }
     if (pkg == NULL) {
       fprintf(stderr,"Failed to find package: %s-%s@%s\n",pkg_name,pkg_version,pkg_location);
@@ -2187,7 +2189,11 @@ void unmark_package(GtkWidget *gslapt, gpointer user_data)
     ) {
       clear_execute_active();
     }
-    gtk_list_store_set(model,&iter,0,create_pixbuf("pkg_action_available.png"),-1);
+    if (is_installed == 1) {
+      gtk_list_store_set(model,&iter,0,create_pixbuf("pkg_action_installed.png"),-1);
+    } else {
+      gtk_list_store_set(model,&iter,0,create_pixbuf("pkg_action_available.png"),-1);
+    }
     status = g_strdup_printf("i%s",pkg->name);
     gtk_list_store_set(model,&iter,4,status,-1);
     g_free(status);
