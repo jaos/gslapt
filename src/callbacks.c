@@ -292,10 +292,12 @@ void add_pkg_for_removal (GtkWidget *gslapt, gpointer user_data)
   if ( gtk_tree_selection_get_selected(selection,&model,&iter) == TRUE) {
     const gchar *pkg_name;
     const gchar *pkg_version;
+    const gchar *pkg_location;
     pkg_info_t *pkg;
 
     gtk_tree_model_get (model, &iter, 1, &pkg_name, -1);
     gtk_tree_model_get (model, &iter, 2, &pkg_version, -1);
+    gtk_tree_model_get (model, &iter, 3, &pkg_location, -1);
 
     /*
       can't use get_pkg_by_details() as the location field will be different
@@ -318,6 +320,14 @@ void add_pkg_for_removal (GtkWidget *gslapt, gpointer user_data)
       free(deps->pkgs);
       free(deps);
 
+      /*
+        this solves the problem where an available package that is installed
+        cannot be unmarked b/c the installed package has a different location
+        than the available package (even though we treat them the same)
+      */
+      free(pkg->location);
+      pkg->location = g_strdup(pkg_location);
+
       add_remove_to_transaction(trans,pkg);
       gtk_list_store_set(model,&iter,0,create_pixbuf("pkg_action_remove.png"),-1);
       status = g_strdup_printf("r%s",pkg->name);
@@ -329,6 +339,7 @@ void add_pkg_for_removal (GtkWidget *gslapt, gpointer user_data)
 
     g_free(pkg_name);
     g_free(pkg_version);
+    g_free(pkg_location);
 
   }
 
@@ -2171,8 +2182,12 @@ void unmark_package(GtkWidget *gslapt, gpointer user_data)
     }
 
     if (((pkg = get_pkg_by_details(all,pkg_name,pkg_version,pkg_location)) == NULL)) {
-      pkg = get_pkg_by_details(installed,pkg_name,pkg_version,pkg_location);
+      pkg = get_exact_pkg(installed,pkg_name,pkg_version);
       is_installed = 1;
+    } else {
+      if (get_exact_pkg(installed,pkg_name,pkg_version) != NULL) {
+        is_installed = 1;
+      }
     }
     if (pkg == NULL) {
       fprintf(stderr,"Failed to find package: %s-%s@%s\n",pkg_name,pkg_version,pkg_location);
