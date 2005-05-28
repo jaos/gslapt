@@ -68,7 +68,7 @@ int main (int argc, char *argv[]) {
 
   bar = GTK_STATUSBAR(lookup_widget(gslapt,"bottom_statusbar"));
   default_context_id = gtk_statusbar_get_context_id(bar,"default");
-  gtk_statusbar_push(bar,default_context_id,_("Ready"));
+  gtk_statusbar_push(bar,default_context_id,(gchar *)_("Ready"));
 
   gtk_widget_set_sensitive( lookup_widget(gslapt,
                             "action_bar_execute_button"), FALSE);
