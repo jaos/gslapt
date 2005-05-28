@@ -1,5 +1,7 @@
 
-0.2.2 May 28, 2005
+0.3.0 May 28, 2005
+ * generated a notify window warning of failure to locate the specified
+   dependent packages
  * silenced compiled time warnings for main.c and callbacks.c
  * added ability to remove a package from transaction (unmark)
  * new ui in hopes it will make gslapt more usable

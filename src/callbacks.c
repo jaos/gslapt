@@ -236,8 +236,10 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
       g_free(status);
 
     }else{
-      fprintf(stderr,"Excluding %s due to dependency failure\n",pkg->name);
+      gchar *msg = g_strdup_printf("Excluding %s due to dependency failure\n",pkg->name);
+      notify((gchar *)_("Error"),msg);
       add_exclude_to_transaction(trans,pkg);
+      g_free(msg);
     }
 
   }else{ /* else we upgrade or reinstall */
@@ -269,8 +271,10 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
         }
 
       }else{
-        fprintf(stderr,"Excluding %s due to dependency failure\n",pkg->name);
+        gchar *msg = g_strdup_printf("Excluding %s due to dependency failure\n",pkg->name);
+        notify((gchar *)_("Error"),msg);
         add_exclude_to_transaction(trans,pkg);
+        g_free(msg);
       }
 
     }
