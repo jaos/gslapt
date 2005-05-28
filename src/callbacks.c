@@ -175,6 +175,16 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
 
     if ( pkg_name == NULL || pkg_version == NULL || pkg_location == NULL) {
       fprintf(stderr,"failed to get package name and version from selection\n");
+
+      if (pkg_name != NULL)
+        g_free(pkg_name);
+
+      if (pkg_version != NULL)
+        g_free(pkg_version);
+
+      if (pkg_location != NULL)
+        g_free(pkg_location);
+
       return;
     }
 
@@ -2144,13 +2154,26 @@ void unmark_package(GtkWidget *gslapt, gpointer user_data)
     gtk_tree_model_get (model, &iter, 2, &pkg_version, -1);
     gtk_tree_model_get (model, &iter, 3, &pkg_location, -1);
 
-    if ( pkg_name == NULL || pkg_version == NULL ) {
+    if (pkg_name == NULL || pkg_version == NULL || pkg_location == NULL) {
       fprintf(stderr,"failed to get package name and version from selection\n");
+
+      if (pkg_name != NULL)
+        g_free(pkg_name);
+
+      if (pkg_version != NULL)
+        g_free(pkg_version);
+
+      if (pkg_location != NULL)
+        g_free(pkg_location);
+
       return;
     }
 
-    if ( (pkg = get_pkg_by_details(all,pkg_name,pkg_version,pkg_location))  == NULL) {
-      fprintf(stderr,"Failed to find package: %s-%s\n",pkg_name,pkg_version);
+    if (((pkg = get_pkg_by_details(all,pkg_name,pkg_version,pkg_location)) == NULL)) {
+      pkg = get_pkg_by_details(installed,pkg_name,pkg_version,pkg_location);
+    }
+    if (pkg == NULL) {
+      fprintf(stderr,"Failed to find package: %s-%s@%s\n",pkg_name,pkg_version,pkg_location);
       g_free(pkg_name);
       g_free(pkg_version);
       g_free(pkg_location);
