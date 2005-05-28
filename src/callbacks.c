@@ -754,13 +754,6 @@ static void get_package_data(void)
   size_t getline_len = 0;
   gchar *getline_buffer = NULL;
   FILE *pkg_list_fh;
-  guint trans_has_pkgs = 0;
-
-  if (trans->install_pkgs->pkg_count > 0 ||
-      trans->remove_pkgs->pkg_count > 0 ||
-      trans->upgrade_pkgs->pkg_count > 0) {
-    trans_has_pkgs = 1;
-  }
 
   progress_window = create_progress_window();
   gtk_window_set_title(GTK_WINDOW(progress_window),_("Progress"));
@@ -1009,10 +1002,7 @@ static void get_package_data(void)
 
   gdk_threads_enter();
   unlock_toolbar_buttons();
-  /* only rebuild if we have to, costly */
-  if (trans_has_pkgs == 1) {
-    rebuild_treeviews();
-  }
+  rebuild_treeviews();
   gslapt_clear_status(context_id);
   gtk_widget_destroy(progress_window);
   gdk_threads_leave();
