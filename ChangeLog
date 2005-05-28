@@ -1,5 +1,6 @@
 
 0.2.2 May 27, 2005
+ * added ability to remove a package from transaction (unmark)
  * new ui in hopes it will make gslapt more usable
  * added Swedish translation by Hakan Lindqvist
  * updated pl translation (thanks Piotr)

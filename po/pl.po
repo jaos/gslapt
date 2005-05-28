@@ -354,3 +354,6 @@ msgstr "<span weight=\"bold\" size=\"large\">Nie masz wystarczaj±co wolnego miej
 msgid "Excluding %s due to dependency failure\n"
 msgstr "Wy³±czenie %s dziêki niepowodzeniu zale¿no¶ci\n"
 
+msgid "Unmark"
+msgstr "Unmark"
+

@@ -81,3 +81,5 @@ static void set_execute_active(void);
 static void clear_execute_active(void);
 
 static void notify(const char *title,const char *message);
+void unmark_package(GtkWidget *gslapt, gpointer user_data);
+
