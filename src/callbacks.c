@@ -2079,14 +2079,14 @@ static void pkg_action_popup_menu(GtkTreeView *treeview, gpointer data)
 
   gtk_widget_show (install);
   gtk_container_add (GTK_CONTAINER (menu), install);
-  image = gtk_image_new_from_stock ("gtk-add", GTK_ICON_SIZE_MENU);
+  image = gtk_image_new_from_pixbuf(create_pixbuf("pkg_action_install.png"));
   gtk_widget_show (image);
   gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (install), image);
 
   remove = gtk_image_menu_item_new_with_mnemonic (_("Remove"));
   gtk_widget_show (remove);
   gtk_container_add (GTK_CONTAINER (menu), remove);
-  image = gtk_image_new_from_stock ("gtk-remove", GTK_ICON_SIZE_MENU);
+  image = gtk_image_new_from_pixbuf(create_pixbuf("pkg_action_remove.png"));
   gtk_widget_show (image);
   gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (remove), image);
   gtk_widget_set_sensitive(GTK_WIDGET(remove),FALSE);
