@@ -258,7 +258,11 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
         }else{
           gchar *status = g_strdup_printf("u%s",pkg->name);
           add_upgrade_to_transaction(trans,installed_pkg,pkg);
-          gtk_list_store_set(model,&iter,0,create_pixbuf("pkg_action_upgrade.png"),-1);
+          if (global_config->re_install == TRUE) {
+            gtk_list_store_set(model,&iter,0,create_pixbuf("pkg_action_reinstall.png"),-1);
+          } else {
+            gtk_list_store_set(model,&iter,0,create_pixbuf("pkg_action_upgrade.png"),-1);
+          }
           gtk_list_store_set(model,&iter,4,status,-1);
           set_execute_active();
           g_free(status);
@@ -1986,7 +1990,7 @@ static int disk_space(const rc_config *global_config,int space_needed )
 
 static void pkg_action_popup_menu(GtkTreeView *treeview, gpointer data)
 {
-  GtkWidget *menu, *install = NULL, *remove, *image, *unmark;
+  GtkWidget *menu, *install = NULL, *remove, *image = NULL, *unmark;
   GdkEventButton *event = gtk_get_current_event();
   GtkTreeViewColumn *column;
   GtkTreePath *path;
@@ -2074,26 +2078,33 @@ static void pkg_action_popup_menu(GtkTreeView *treeview, gpointer data)
         install = gtk_image_menu_item_new_with_mnemonic(_("Upgrade"));
         g_signal_connect_swapped(G_OBJECT (install), "activate",
           G_CALLBACK (add_pkg_for_install), GTK_WIDGET(gslapt));
+        image = gtk_image_new_from_pixbuf(create_pixbuf("pkg_action_upgrade.png"));
       /* re-install */
       }else if ( is_installed == 1 && is_newest == 1 && is_downloadable == 1 ) {
         install = gtk_image_menu_item_new_with_mnemonic(_("Re-Install"));
         g_signal_connect_swapped((gpointer) install,"activate",
           G_CALLBACK(add_pkg_for_reinstall),GTK_OBJECT(gslapt));
+        image = gtk_image_new_from_pixbuf(create_pixbuf("pkg_action_reinstall.png"));
       /* this is for downgrades */
       }else if ( is_installed == 0 && is_downgrade == 1 && is_downloadable == 1 ) {
         install = gtk_image_menu_item_new_with_mnemonic(_("Downgrade"));
         g_signal_connect_swapped((gpointer) install,"activate",
           G_CALLBACK(add_pkg_for_reinstall),GTK_OBJECT(gslapt));
+        image = gtk_image_new_from_pixbuf(create_pixbuf("pkg_action_downupgrade.png"));
       /* straight up install */
       }else if ( is_installed == 0 && is_downloadable == 1 ) {
         install = gtk_image_menu_item_new_with_mnemonic(_("Install"));
         g_signal_connect_swapped(G_OBJECT (install), "activate",
           G_CALLBACK (add_pkg_for_install), GTK_WIDGET(gslapt));
+        image = gtk_image_new_from_pixbuf(create_pixbuf("pkg_action_install.png"));
       }
     }
 
   }
 
+  if (image == NULL) {
+    image = gtk_image_new_from_pixbuf(create_pixbuf("pkg_action_install.png"));
+  }
   if ( install == NULL) {
     install = gtk_image_menu_item_new_with_mnemonic(_("Install"));
     gtk_widget_set_sensitive(GTK_WIDGET(install),FALSE);
@@ -2101,7 +2112,6 @@ static void pkg_action_popup_menu(GtkTreeView *treeview, gpointer data)
 
   gtk_widget_show (install);
   gtk_container_add (GTK_CONTAINER (menu), install);
-  image = gtk_image_new_from_pixbuf(create_pixbuf("pkg_action_install.png"));
   gtk_widget_show (image);
   gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (install), image);
 
