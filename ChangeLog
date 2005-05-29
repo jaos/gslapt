@@ -1,5 +1,6 @@
 
-0.3.0 May 28, 2005
+0.3.0 May 29, 2005
+ * requires slapt-get >= 0.9.9l
  * small optimization in generating package treeviews
  * generated a notify window warning of failure to locate the specified
    dependent packages

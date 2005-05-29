@@ -33,7 +33,6 @@ static guint pending_trans_context_id = 0;
 static int disk_space(const rc_config *global_config,int space_needed );
 static void pkg_action_popup_menu(GtkTreeView *treeview, gpointer data);
 static transaction_t *lremove_from_transaction(transaction_t *tran,pkg_info_t *pkg);
-static int search_upgrade_transaction(transaction_t *tran,pkg_info_t *pkg);
 
 void on_gslapt_destroy (GtkObject *object, gpointer user_data) 
 {
@@ -2222,7 +2221,7 @@ void unmark_package(GtkWidget *gslapt, gpointer user_data)
       return;
     }
 
-    trans = lremove_from_transaction(trans,pkg);
+    trans = remove_from_transaction(trans,pkg);
     if (trans->install_pkgs->pkg_count == 0 &&
         trans->remove_pkgs->pkg_count == 0 &&
         trans->upgrade_pkgs->pkg_count == 0
@@ -2243,82 +2242,5 @@ void unmark_package(GtkWidget *gslapt, gpointer user_data)
     g_free(pkg_location);
   }
 
-}
-
-static transaction_t *lremove_from_transaction(transaction_t *tran,pkg_info_t *pkg)
-{
-  unsigned int i;
-  transaction_t *new_tran = NULL;
-
-  if ( search_transaction_by_pkg(tran,pkg) == 0 )
-    return tran;
-
-  /* since this is a pointer, slapt_malloc before calling init */
-  new_tran = slapt_malloc(sizeof *new_tran);
-  new_tran->install_pkgs = slapt_malloc( sizeof *new_tran->install_pkgs );
-  new_tran->remove_pkgs = slapt_malloc( sizeof *new_tran->remove_pkgs );
-  new_tran->upgrade_pkgs = slapt_malloc( sizeof *new_tran->upgrade_pkgs );
-  new_tran->exclude_pkgs = slapt_malloc( sizeof *new_tran->exclude_pkgs );
-  init_transaction(new_tran);
-
-  for (i = 0;i < tran->install_pkgs->pkg_count; i++) {
-
-    if (
-      strcmp(pkg->name,tran->install_pkgs->pkgs[i]->name) == 0 &&
-      strcmp(pkg->version,tran->install_pkgs->pkgs[i]->version) == 0 &&
-      strcmp(pkg->location,tran->install_pkgs->pkgs[i]->location) == 0
-    ) continue;
-
-    add_install_to_transaction(new_tran,tran->install_pkgs->pkgs[i]);
-  }
-
-  for (i = 0;i < tran->remove_pkgs->pkg_count; i++) {
-
-    if (
-      strcmp(pkg->name,tran->remove_pkgs->pkgs[i]->name) == 0 &&
-      strcmp(pkg->version,tran->remove_pkgs->pkgs[i]->version) == 0 &&
-      strcmp(pkg->location,tran->remove_pkgs->pkgs[i]->location) == 0
-    ) continue;
-
-    add_remove_to_transaction(new_tran,tran->remove_pkgs->pkgs[i]);
-  }
-
-  for (i = 0;i < tran->upgrade_pkgs->pkg_count; i++) {
-
-    if (
-      strcmp(pkg->name,tran->upgrade_pkgs->pkgs[i]->upgrade->name) == 0 &&
-      strcmp(pkg->version,tran->upgrade_pkgs->pkgs[i]->upgrade->version) == 0 &&
-      strcmp(pkg->location,tran->upgrade_pkgs->pkgs[i]->upgrade->location) == 0
-    ) continue;
-
-    add_upgrade_to_transaction(
-      new_tran,
-      tran->upgrade_pkgs->pkgs[i]->installed,
-      tran->upgrade_pkgs->pkgs[i]->upgrade
-    );
-  }
-
-  for (i = 0; i < tran->exclude_pkgs->pkg_count;i++) {
-
-    if (
-      strcmp(pkg->name,tran->exclude_pkgs->pkgs[i]->name) == 0 &&
-      strcmp(pkg->version,tran->exclude_pkgs->pkgs[i]->version) == 0 &&
-      strcmp(pkg->location,tran->exclude_pkgs->pkgs[i]->location) == 0
-    ) continue;
-
-    add_exclude_to_transaction(new_tran,tran->exclude_pkgs->pkgs[i]);
-  }
-
-  return new_tran;
-}
-
-static int search_upgrade_transaction(transaction_t *tran,pkg_info_t *pkg)
-{
-  unsigned int i,found = 1, not_found = 0;
-  for (i = 0; i < tran->upgrade_pkgs->pkg_count;i++) {
-    if ( strcmp(pkg->name,tran->upgrade_pkgs->pkgs[i]->upgrade->name) == 0 )
-      return found;
-  }
-  return not_found;
 }
 
