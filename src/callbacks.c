@@ -33,6 +33,7 @@ static guint pending_trans_context_id = 0;
 static int disk_space(const rc_config *global_config,int space_needed );
 static void pkg_action_popup_menu(GtkTreeView *treeview, gpointer data);
 static transaction_t *lremove_from_transaction(transaction_t *tran,pkg_info_t *pkg);
+static int search_upgrade_transaction(transaction_t *tran,pkg_info_t *pkg);
 
 void on_gslapt_destroy (GtkObject *object, gpointer user_data) 
 {
@@ -383,16 +384,19 @@ void build_package_treeviewlist(GtkWidget *treeview)
       is_inst = 1;
     }
 
-    if (get_exact_pkg(trans->exclude_pkgs,all->pkgs[i]->name,all->pkgs[i]->version) != NULL) {
+    if (trans->exclude_pkgs->pkg_count > 0 &&
+    get_exact_pkg(trans->exclude_pkgs,all->pkgs[i]->name,all->pkgs[i]->version) != NULL) {
       status_icon = create_pixbuf("pkg_action_available.png");
       status = g_strdup_printf("z%s",all->pkgs[i]->name);
-    } else if (get_exact_pkg(trans->remove_pkgs,all->pkgs[i]->name,all->pkgs[i]->version) != NULL) {
+    } else if (trans->remove_pkgs->pkg_count > 0 &&
+    get_exact_pkg(trans->remove_pkgs,all->pkgs[i]->name,all->pkgs[i]->version) != NULL) {
       status_icon = create_pixbuf("pkg_action_remove.png");
       status = g_strdup_printf("r%s",all->pkgs[i]->name);
-    } else if (get_exact_pkg(trans->install_pkgs,all->pkgs[i]->name,all->pkgs[i]->version) != NULL) {
+    } else if (trans->install_pkgs->pkg_count > 0 &&
+    get_exact_pkg(trans->install_pkgs,all->pkgs[i]->name,all->pkgs[i]->version) != NULL) {
       status_icon = create_pixbuf("pkg_action_install.png");
       status = g_strdup_printf("i%s",all->pkgs[i]->name);
-    } else if (search_transaction_by_pkg(trans,all->pkgs[i]) == 1) {
+    } else if (trans->upgrade_pkgs->pkg_count > 0 && search_upgrade_transaction(trans,all->pkgs[i]) == 1) {
       status_icon = create_pixbuf("pkg_action_upgrade.png");
       status = g_strdup_printf("u%s",all->pkgs[i]->name);
     } else if (is_inst == 1) {
@@ -422,7 +426,8 @@ void build_package_treeviewlist(GtkWidget *treeview)
       gchar *status = NULL;
       GdkPixbuf *status_icon = NULL;
 
-      if (get_exact_pkg(trans->remove_pkgs,installed->pkgs[i]->name,installed->pkgs[i]->version) != NULL) {
+      if (trans->remove_pkgs->pkg_count > 0 &&
+      get_exact_pkg(trans->remove_pkgs,installed->pkgs[i]->name,installed->pkgs[i]->version) != NULL) {
         status_icon = create_pixbuf("pkg_action_remove.png");
         status = g_strdup_printf("r%s",installed->pkgs[i]->name);
       } else {
@@ -529,16 +534,19 @@ void build_searched_treeviewlist(GtkWidget *treeview, gchar *pattern)
         is_inst = 1;
       }
 
-      if (get_exact_pkg(trans->exclude_pkgs,a_matches->pkgs[i]->name,a_matches->pkgs[i]->version) != NULL) {
+      if (trans->exclude_pkgs->pkg_count > 0 &&
+      get_exact_pkg(trans->exclude_pkgs,a_matches->pkgs[i]->name,a_matches->pkgs[i]->version) != NULL) {
         status_icon = create_pixbuf("pkg_action_available.png");
         status = g_strdup_printf("z%s",a_matches->pkgs[i]->name);
-      } else if (get_exact_pkg(trans->remove_pkgs,a_matches->pkgs[i]->name,a_matches->pkgs[i]->version) != NULL) {
+      } else if (trans->remove_pkgs->pkg_count > 0 &&
+      get_exact_pkg(trans->remove_pkgs,a_matches->pkgs[i]->name,a_matches->pkgs[i]->version) != NULL) {
         status_icon = create_pixbuf("pkg_action_remove.png");
         status = g_strdup_printf("r%s",a_matches->pkgs[i]->name);
-      } else if (get_exact_pkg(trans->install_pkgs,a_matches->pkgs[i]->name,a_matches->pkgs[i]->version) != NULL) {
+      } else if (trans->install_pkgs->pkg_count > 0 &&
+      get_exact_pkg(trans->install_pkgs,a_matches->pkgs[i]->name,a_matches->pkgs[i]->version) != NULL) {
         status_icon = create_pixbuf("pkg_action_install.png");
         status = g_strdup_printf("i%s",a_matches->pkgs[i]->name);
-      } else if (search_transaction_by_pkg(trans,a_matches->pkgs[i]) == 1) {
+      } else if (trans->upgrade_pkgs->pkg_count > 0 && search_upgrade_transaction(trans,a_matches->pkgs[i]) == 1) {
         status_icon = create_pixbuf("pkg_action_upgrade.png");
         status = g_strdup_printf("u%s",a_matches->pkgs[i]->name);
       } else if (is_inst == 1) {
@@ -573,7 +581,8 @@ void build_searched_treeviewlist(GtkWidget *treeview, gchar *pattern)
          continue;
       }
 
-      if (get_exact_pkg(trans->remove_pkgs,i_matches->pkgs[i]->name,i_matches->pkgs[i]->version) != NULL) {
+      if (trans->remove_pkgs->pkg_count > 0 &&
+      get_exact_pkg(trans->remove_pkgs,i_matches->pkgs[i]->name,i_matches->pkgs[i]->version) != NULL) {
         status_icon = create_pixbuf("pkg_action_remove.png");
         status = g_strdup_printf("r%s",i_matches->pkgs[i]->name);
       } else {
@@ -2301,5 +2310,15 @@ static transaction_t *lremove_from_transaction(transaction_t *tran,pkg_info_t *p
   }
 
   return new_tran;
+}
+
+static int search_upgrade_transaction(transaction_t *tran,pkg_info_t *pkg)
+{
+  unsigned int i,found = 1, not_found = 0;
+  for (i = 0; i < tran->upgrade_pkgs->pkg_count;i++) {
+    if ( strcmp(pkg->name,tran->upgrade_pkgs->pkgs[i]->upgrade->name) == 0 )
+      return found;
+  }
+  return not_found;
 }
 

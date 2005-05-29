@@ -1,5 +1,6 @@
 
 0.3.0 May 28, 2005
+ * small optimization in generating package treeviews
  * generated a notify window warning of failure to locate the specified
    dependent packages
  * silenced compiled time warnings for main.c and callbacks.c
