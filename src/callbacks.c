@@ -1344,13 +1344,8 @@ void clear_button_clicked(GtkWidget *w, gpointer user_data)
 {
   const gchar *search_text = gtk_entry_get_text(GTK_ENTRY(w));
 
-  /* only rebuild if we have to, costly */
-  if ( strcmp(search_text,"") != 0 ) {
-    gtk_entry_set_text(GTK_ENTRY(w),"");
-    rebuild_treeviews();
-  } else {
-    gtk_entry_set_text(GTK_ENTRY(w),"");
-  }
+  gtk_entry_set_text(GTK_ENTRY(w),"");
+  rebuild_treeviews();
 
 }
 
