@@ -1,5 +1,6 @@
 
 0.3.1 May 30, 2005
+ * added missing pkg_action_reinstall.png
  * set status icon for downgrades correctly
  * unmark correctly sets status column so status sorting after unmark works as expected
  * removed duplicate code to setup treeview columns for package listing and search listing
