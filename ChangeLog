@@ -1,5 +1,6 @@
 
 0.3.1 May 30, 2005
+ * set status icon for downgrades correctly
  * unmark correctly sets status column so status sorting after unmark works as expected
  * removed duplicate code to setup treeview columns for package listing and search listing
  * added reset_pkg_view_status() to reset status of package treeview

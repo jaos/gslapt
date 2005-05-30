@@ -247,10 +247,11 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
     }
 
   }else{ /* else we upgrade or reinstall */
+     int ver_cmp;
 
     /* it is already installed, attempt an upgrade */
     if (
-      ((cmp_pkg_versions(installed_pkg->version,pkg->version)) < 0) ||
+      ((ver_cmp = cmp_pkg_versions(installed_pkg->version,pkg->version)) < 0) ||
       (global_config->re_install == TRUE)
     ) {
 
@@ -271,7 +272,11 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
           gchar *status = g_strdup_printf("u%s",pkg->name);
           add_upgrade_to_transaction(trans,installed_pkg,pkg);
           if (global_config->re_install == TRUE) {
-            gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_reinstall.png"),-1);
+            if (ver_cmp == 0) {
+              gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_reinstall.png"),-1);
+            } else {
+              gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_downgrade.png"),-1);
+            }
           } else {
             gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_upgrade.png"),-1);
           }
