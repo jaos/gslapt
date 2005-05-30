@@ -231,7 +231,7 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
       add_install_to_transaction(trans,pkg);
       gtk_list_store_set(GTK_LIST_STORE(model),&iter,0,create_pixbuf("pkg_action_install.png"),-1);
       status = g_strdup_printf("i%s",pkg->name);
-      gtk_list_store_set(GTK_LIST_STORE(model),&iter,4,status,-1);
+      gtk_list_store_set(GTK_LIST_STORE(model),&iter,5,status,-1);
       set_execute_active();
       g_free(status);
 
@@ -265,7 +265,7 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
           } else {
             gtk_list_store_set(GTK_LIST_STORE(model),&iter,0,create_pixbuf("pkg_action_upgrade.png"),-1);
           }
-          gtk_list_store_set(GTK_LIST_STORE(model),&iter,4,status,-1);
+          gtk_list_store_set(GTK_LIST_STORE(model),&iter,5,status,-1);
           set_execute_active();
           g_free(status);
         }
@@ -339,7 +339,7 @@ void add_pkg_for_removal (GtkWidget *gslapt, gpointer user_data)
       add_remove_to_transaction(trans,pkg);
       gtk_list_store_set(GTK_LIST_STORE(model),&iter,0,create_pixbuf("pkg_action_remove.png"),-1);
       status = g_strdup_printf("r%s",pkg->name);
-      gtk_list_store_set(GTK_LIST_STORE(model),&iter,4,status,-1);
+      gtk_list_store_set(GTK_LIST_STORE(model),&iter,5,status,-1);
       g_free(status);
       set_execute_active();
 
@@ -2263,7 +2263,7 @@ void unmark_package(GtkWidget *gslapt, gpointer user_data)
       gtk_list_store_set(GTK_LIST_STORE(model),&iter,0,create_pixbuf("pkg_action_available.png"),-1);
     }
     status = g_strdup_printf("i%s",pkg->name);
-    gtk_list_store_set(GTK_LIST_STORE(model),&iter,4,status,-1);
+    gtk_list_store_set(GTK_LIST_STORE(model),&iter,5,status,-1);
     g_free(status);
 
     g_free(pkg_name);
