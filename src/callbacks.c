@@ -459,7 +459,7 @@ void build_package_treeviewlist(GtkWidget *treeview)
   renderer = gtk_cell_renderer_pixbuf_new();
   column = gtk_tree_view_column_new_with_attributes ((gchar *)_("Status"), renderer,
     "pixbuf", 0, NULL);
-  gtk_tree_view_column_set_sort_column_id (column, 4);
+  gtk_tree_view_column_set_sort_column_id (column, 5);
   gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
   gtk_tree_view_column_set_resizable(column, TRUE);
 
@@ -487,13 +487,6 @@ void build_package_treeviewlist(GtkWidget *treeview)
   gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
   gtk_tree_view_column_set_resizable(column, TRUE);
 
-  /* invisible column to sort installed by */
-  renderer = gtk_cell_renderer_text_new();
-  column = gtk_tree_view_column_new_with_attributes ((gchar *)_("Installed"), renderer,
-    "text", 4, NULL);
-  gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
-  gtk_tree_view_column_set_visible(column,FALSE);
-
   /* column for short description */
   renderer = gtk_cell_renderer_text_new();
   column = gtk_tree_view_column_new_with_attributes ((gchar *)_("Description"), renderer,
@@ -501,6 +494,13 @@ void build_package_treeviewlist(GtkWidget *treeview)
   gtk_tree_view_column_set_sort_column_id (column, 4);
   gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
   gtk_tree_view_column_set_resizable(column, TRUE);
+
+  /* invisible column to sort installed by */
+  renderer = gtk_cell_renderer_text_new();
+  column = gtk_tree_view_column_new_with_attributes ((gchar *)_("Installed"), renderer,
+    "text", 5, NULL);
+  gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
+  gtk_tree_view_column_set_visible(column,FALSE);
 
   gtk_tree_view_set_model (GTK_TREE_VIEW(treeview),GTK_TREE_MODEL(store));
 
@@ -631,7 +631,7 @@ void build_searched_treeviewlist(GtkWidget *treeview, gchar *pattern)
   renderer = gtk_cell_renderer_pixbuf_new();
   column = gtk_tree_view_column_new_with_attributes ((gchar *)_("Status"), renderer,
     "pixbuf", 0, NULL);
-  gtk_tree_view_column_set_sort_column_id (column, 4);
+  gtk_tree_view_column_set_sort_column_id (column, 5);
   gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
   gtk_tree_view_column_set_resizable(column, TRUE);
 
@@ -659,13 +659,6 @@ void build_searched_treeviewlist(GtkWidget *treeview, gchar *pattern)
   gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
   gtk_tree_view_column_set_resizable(column, TRUE);
 
-  /* invisible column to sort installed by */
-  renderer = gtk_cell_renderer_text_new();
-  column = gtk_tree_view_column_new_with_attributes ("", renderer,
-    "text", 4, NULL);
-  gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
-  gtk_tree_view_column_set_visible(column,FALSE);
-
   /* column for location */
   renderer = gtk_cell_renderer_text_new();
   column = gtk_tree_view_column_new_with_attributes ((gchar *)_("Description"), renderer,
@@ -673,6 +666,13 @@ void build_searched_treeviewlist(GtkWidget *treeview, gchar *pattern)
   gtk_tree_view_column_set_sort_column_id (column, 4);
   gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
   gtk_tree_view_column_set_resizable(column, TRUE);
+
+  /* invisible column to sort installed by */
+  renderer = gtk_cell_renderer_text_new();
+  column = gtk_tree_view_column_new_with_attributes ("", renderer,
+    "text", 5, NULL);
+  gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
+  gtk_tree_view_column_set_visible(column,FALSE);
 
   gtk_tree_view_set_model (GTK_TREE_VIEW(treeview),GTK_TREE_MODEL(store));
 
