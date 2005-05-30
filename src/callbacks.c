@@ -2147,10 +2147,11 @@ void unmark_package(GtkWidget *gslapt, gpointer user_data)
     }
     if (is_installed == 1) {
       gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_installed.png"),-1);
+      status = g_strdup_printf("a%s",pkg->name);
     } else {
       gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_available.png"),-1);
+      status = g_strdup_printf("z%s",pkg->name);
     }
-    status = g_strdup_printf("i%s",pkg->name);
     gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_COLUMN,status,-1);
     g_free(status);
 
