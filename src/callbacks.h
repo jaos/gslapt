@@ -21,6 +21,16 @@
 #include <slapt.h>
 #define RC_LOCATION "/etc/slapt-get/slapt-getrc"
 
+enum {
+  STATUS_ICON_COLUMN,
+  NAME_COLUMN,
+  VERSION_COLUMN,
+  LOCATION_COLUMN,
+  DESC_COLUMN,
+  STATUS_COLUMN,
+  NUMBER_OF_COLUMNS
+};
+
 void on_gslapt_destroy(GtkObject *object, gpointer user_data);
 void update_callback(GtkObject *object, gpointer user_data);
 void upgrade_callback(GtkObject *object, gpointer user_data);

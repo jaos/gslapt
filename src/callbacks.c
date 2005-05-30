@@ -229,9 +229,9 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
       }
 
       add_install_to_transaction(trans,pkg);
-      gtk_list_store_set(GTK_LIST_STORE(model),&iter,0,create_pixbuf("pkg_action_install.png"),-1);
+      gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_install.png"),-1);
       status = g_strdup_printf("i%s",pkg->name);
-      gtk_list_store_set(GTK_LIST_STORE(model),&iter,5,status,-1);
+      gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_COLUMN,status,-1);
       set_execute_active();
       g_free(status);
 
@@ -261,11 +261,11 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
           gchar *status = g_strdup_printf("u%s",pkg->name);
           add_upgrade_to_transaction(trans,installed_pkg,pkg);
           if (global_config->re_install == TRUE) {
-            gtk_list_store_set(GTK_LIST_STORE(model),&iter,0,create_pixbuf("pkg_action_reinstall.png"),-1);
+            gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_reinstall.png"),-1);
           } else {
-            gtk_list_store_set(GTK_LIST_STORE(model),&iter,0,create_pixbuf("pkg_action_upgrade.png"),-1);
+            gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_upgrade.png"),-1);
           }
-          gtk_list_store_set(GTK_LIST_STORE(model),&iter,5,status,-1);
+          gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_COLUMN,status,-1);
           set_execute_active();
           g_free(status);
         }
@@ -337,9 +337,9 @@ void add_pkg_for_removal (GtkWidget *gslapt, gpointer user_data)
       pkg->location = g_strdup(pkg_location);
 
       add_remove_to_transaction(trans,pkg);
-      gtk_list_store_set(GTK_LIST_STORE(model),&iter,0,create_pixbuf("pkg_action_remove.png"),-1);
+      gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_remove.png"),-1);
       status = g_strdup_printf("r%s",pkg->name);
-      gtk_list_store_set(GTK_LIST_STORE(model),&iter,5,status,-1);
+      gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_COLUMN,status,-1);
       g_free(status);
       set_execute_active();
 
@@ -368,7 +368,7 @@ void build_package_treeviewlist(GtkWidget *treeview)
   extern transaction_t *trans;
 
   store = gtk_list_store_new (
-    6, /* name, version, location, installed */
+    NUMBER_OF_COLUMNS,
     GDK_TYPE_PIXBUF, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING
   );
 
@@ -409,12 +409,12 @@ void build_package_treeviewlist(GtkWidget *treeview)
 
     gtk_list_store_append (store, &iter);
     gtk_list_store_set ( store, &iter,
-      0,status_icon,
-      1,all->pkgs[i]->name,
-      2,all->pkgs[i]->version,
-      3,all->pkgs[i]->location,
-      4,short_desc,
-      5,status,
+      STATUS_ICON_COLUMN,status_icon,
+      NAME_COLUMN,all->pkgs[i]->name,
+      VERSION_COLUMN,all->pkgs[i]->version,
+      LOCATION_COLUMN,all->pkgs[i]->location,
+      DESC_COLUMN,short_desc,
+      STATUS_COLUMN,status,
       -1
     );
 
@@ -441,12 +441,12 @@ void build_package_treeviewlist(GtkWidget *treeview)
 
       gtk_list_store_append (store, &iter);
       gtk_list_store_set ( store, &iter,
-        0,status_icon,
-        1,installed->pkgs[i]->name,
-        2,installed->pkgs[i]->version,
-        3,installed->pkgs[i]->location,
-        4,short_desc,
-        5,status,
+        STATUS_ICON_COLUMN,status_icon,
+        NAME_COLUMN,installed->pkgs[i]->name,
+        VERSION_COLUMN,installed->pkgs[i]->version,
+        LOCATION_COLUMN,installed->pkgs[i]->location,
+        DESC_COLUMN,short_desc,
+        STATUS_COLUMN,status,
         -1
       );
 
@@ -458,47 +458,47 @@ void build_package_treeviewlist(GtkWidget *treeview)
   /* column for installed status */
   renderer = gtk_cell_renderer_pixbuf_new();
   column = gtk_tree_view_column_new_with_attributes ((gchar *)_("Status"), renderer,
-    "pixbuf", 0, NULL);
-  gtk_tree_view_column_set_sort_column_id (column, 5);
+    "pixbuf", STATUS_ICON_COLUMN, NULL);
+  gtk_tree_view_column_set_sort_column_id (column, STATUS_COLUMN);
   gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
   gtk_tree_view_column_set_resizable(column, TRUE);
 
   /* column for name */
   renderer = gtk_cell_renderer_text_new();
   column = gtk_tree_view_column_new_with_attributes ((gchar *)_("Name"), renderer,
-    "text", 1, NULL);
-  gtk_tree_view_column_set_sort_column_id (column, 1);
+    "text", NAME_COLUMN, NULL);
+  gtk_tree_view_column_set_sort_column_id (column, NAME_COLUMN);
   gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
   gtk_tree_view_column_set_resizable(column, TRUE);
 
   /* column for version */
   renderer = gtk_cell_renderer_text_new();
   column = gtk_tree_view_column_new_with_attributes ((gchar *)_("Version"), renderer,
-    "text", 2, NULL);
-  gtk_tree_view_column_set_sort_column_id (column, 2);
+    "text", VERSION_COLUMN, NULL);
+  gtk_tree_view_column_set_sort_column_id (column, VERSION_COLUMN);
   gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
   gtk_tree_view_column_set_resizable(column, TRUE);
 
   /* column for location */
   renderer = gtk_cell_renderer_text_new();
   column = gtk_tree_view_column_new_with_attributes ((gchar *)_("Location"), renderer,
-    "text", 3, NULL);
-  gtk_tree_view_column_set_sort_column_id (column, 3);
+    "text", LOCATION_COLUMN, NULL);
+  gtk_tree_view_column_set_sort_column_id (column, LOCATION_COLUMN);
   gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
   gtk_tree_view_column_set_resizable(column, TRUE);
 
   /* column for short description */
   renderer = gtk_cell_renderer_text_new();
   column = gtk_tree_view_column_new_with_attributes ((gchar *)_("Description"), renderer,
-    "text", 4, NULL);
-  gtk_tree_view_column_set_sort_column_id (column, 4);
+    "text", DESC_COLUMN, NULL);
+  gtk_tree_view_column_set_sort_column_id (column, DESC_COLUMN);
   gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
   gtk_tree_view_column_set_resizable(column, TRUE);
 
   /* invisible column to sort installed by */
   renderer = gtk_cell_renderer_text_new();
   column = gtk_tree_view_column_new_with_attributes ((gchar *)_("Installed"), renderer,
-    "text", 5, NULL);
+    "text", STATUS_COLUMN, NULL);
   gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
   gtk_tree_view_column_set_visible(column,FALSE);
 
@@ -529,7 +529,7 @@ void build_searched_treeviewlist(GtkWidget *treeview, gchar *pattern)
   extern transaction_t *trans;
 
   store = gtk_list_store_new (
-    5, /* name, version, location, installed */
+    NUMBER_OF_COLUMNS,
     GDK_TYPE_PIXBUF, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING
   );
 
@@ -574,12 +574,12 @@ void build_searched_treeviewlist(GtkWidget *treeview, gchar *pattern)
 
       gtk_list_store_append (store, &iter);
       gtk_list_store_set ( store, &iter,
-        0,status_icon,
-        1,a_matches->pkgs[i]->name,
-        2,a_matches->pkgs[i]->version,
-        3,a_matches->pkgs[i]->location,
-        4,short_desc,
-        5,status,
+        STATUS_ICON_COLUMN,status_icon,
+        NAME_COLUMN,a_matches->pkgs[i]->name,
+        VERSION_COLUMN,a_matches->pkgs[i]->version,
+        LOCATION_COLUMN,a_matches->pkgs[i]->location,
+        DESC_COLUMN,short_desc,
+        STATUS_COLUMN,status,
         -1
       );
       g_free(status);
@@ -610,12 +610,12 @@ void build_searched_treeviewlist(GtkWidget *treeview, gchar *pattern)
 
       gtk_list_store_append (store, &iter);
       gtk_list_store_set ( store, &iter,
-        0,status_icon,
-        1,i_matches->pkgs[i]->name,
-        2,i_matches->pkgs[i]->version,
-        3,i_matches->pkgs[i]->location,
-        4,short_desc,
-        5,status,
+        STATUS_ICON_COLUMN,status_icon,
+        NAME_COLUMN,i_matches->pkgs[i]->name,
+        VERSION_COLUMN,i_matches->pkgs[i]->version,
+        LOCATION_COLUMN,i_matches->pkgs[i]->location,
+        DESC_COLUMN,short_desc,
+        STATUS_COLUMN,status,
         -1
       );
 
@@ -630,47 +630,47 @@ void build_searched_treeviewlist(GtkWidget *treeview, gchar *pattern)
   /* column for installed status */
   renderer = gtk_cell_renderer_pixbuf_new();
   column = gtk_tree_view_column_new_with_attributes ((gchar *)_("Status"), renderer,
-    "pixbuf", 0, NULL);
-  gtk_tree_view_column_set_sort_column_id (column, 5);
+    "pixbuf", STATUS_ICON_COLUMN, NULL);
+  gtk_tree_view_column_set_sort_column_id (column, STATUS_COLUMN);
   gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
   gtk_tree_view_column_set_resizable(column, TRUE);
 
   /* column for name */
   renderer = gtk_cell_renderer_text_new();
   column = gtk_tree_view_column_new_with_attributes ((gchar *)_("Name"), renderer,
-    "text", 1, NULL);
-  gtk_tree_view_column_set_sort_column_id (column, 1);
+    "text", NAME_COLUMN, NULL);
+  gtk_tree_view_column_set_sort_column_id (column, NAME_COLUMN);
   gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
   gtk_tree_view_column_set_resizable(column, TRUE);
 
   /* column for version */
   renderer = gtk_cell_renderer_text_new();
   column = gtk_tree_view_column_new_with_attributes ((gchar *)_("Version"), renderer,
-    "text", 2, NULL);
-  gtk_tree_view_column_set_sort_column_id (column, 2);
+    "text", VERSION_COLUMN, NULL);
+  gtk_tree_view_column_set_sort_column_id (column, VERSION_COLUMN);
   gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
   gtk_tree_view_column_set_resizable(column, TRUE);
 
   /* column for location */
   renderer = gtk_cell_renderer_text_new();
   column = gtk_tree_view_column_new_with_attributes ((gchar *)_("Location"), renderer,
-    "text", 3, NULL);
-  gtk_tree_view_column_set_sort_column_id (column, 3);
+    "text", LOCATION_COLUMN, NULL);
+  gtk_tree_view_column_set_sort_column_id (column, LOCATION_COLUMN);
   gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
   gtk_tree_view_column_set_resizable(column, TRUE);
 
-  /* column for location */
+  /* column for description */
   renderer = gtk_cell_renderer_text_new();
   column = gtk_tree_view_column_new_with_attributes ((gchar *)_("Description"), renderer,
-    "text", 4, NULL);
-  gtk_tree_view_column_set_sort_column_id (column, 4);
+    "text", DESC_COLUMN, NULL);
+  gtk_tree_view_column_set_sort_column_id (column, DESC_COLUMN);
   gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
   gtk_tree_view_column_set_resizable(column, TRUE);
 
   /* invisible column to sort installed by */
   renderer = gtk_cell_renderer_text_new();
   column = gtk_tree_view_column_new_with_attributes ("", renderer,
-    "text", 5, NULL);
+    "text", STATUS_COLUMN, NULL);
   gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
   gtk_tree_view_column_set_visible(column,FALSE);
 
@@ -2258,12 +2258,12 @@ void unmark_package(GtkWidget *gslapt, gpointer user_data)
       clear_execute_active();
     }
     if (is_installed == 1) {
-      gtk_list_store_set(GTK_LIST_STORE(model),&iter,0,create_pixbuf("pkg_action_installed.png"),-1);
+      gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_installed.png"),-1);
     } else {
-      gtk_list_store_set(GTK_LIST_STORE(model),&iter,0,create_pixbuf("pkg_action_available.png"),-1);
+      gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_available.png"),-1);
     }
     status = g_strdup_printf("i%s",pkg->name);
-    gtk_list_store_set(GTK_LIST_STORE(model),&iter,5,status,-1);
+    gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_COLUMN,status,-1);
     g_free(status);
 
     g_free(pkg_name);

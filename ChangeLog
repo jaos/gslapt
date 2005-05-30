@@ -1,4 +1,7 @@
 
+0.3.1 May 30, 2005
+ * now using enum for column names
+
 0.3.0 May 29, 2005
  * added package description to treeview
  * requires slapt-get >= 0.9.9l
