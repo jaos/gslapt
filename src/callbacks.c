@@ -34,6 +34,7 @@ static int disk_space(const rc_config *global_config,int space_needed );
 static void pkg_action_popup_menu(GtkTreeView *treeview, gpointer data);
 static int set_iter_to_pkg(GtkTreeModel *model, GtkTreeIter *iter,
                            pkg_info_t *pkg);
+static void reset_pkg_view_status(void);
 
 void on_gslapt_destroy (GtkObject *object, gpointer user_data) 
 {
@@ -1194,7 +1195,7 @@ static void lhandle_transaction(GtkWidget *w)
     init_transaction(trans);
     gdk_threads_enter();
     unlock_toolbar_buttons();
-    rebuild_treeviews();
+    reset_pkg_view_status();
     clear_execute_active();
     gdk_threads_leave();
     return;
@@ -1214,7 +1215,7 @@ static void lhandle_transaction(GtkWidget *w)
 
   gdk_threads_enter();
   unlock_toolbar_buttons();
-  rebuild_treeviews();
+  reset_pkg_view_status();
   clear_execute_active();
   gdk_threads_leave();
 
@@ -1961,7 +1962,7 @@ void cancel_upgrade_transaction(GtkWidget *w,gpointer user_data)
 
   gtk_widget_set_sensitive(lookup_widget(gslapt,"action_bar_execute_button"), FALSE);
 
-  rebuild_treeviews();
+  reset_pkg_view_status();
 
   gtk_widget_destroy(w);
 
@@ -2405,5 +2406,40 @@ static int set_iter_to_pkg(GtkTreeModel *model, GtkTreeIter *iter,
     valid = gtk_tree_model_iter_next(model,iter);
   }
   return 0;
+}
+
+static void reset_pkg_view_status(void)
+{
+  extern struct pkg_list *installed;
+  extern GtkWidget *gslapt;
+  gboolean valid;
+  GtkTreeIter iter;
+  GtkTreeView *treeview = GTK_TREE_VIEW(lookup_widget(gslapt,"pkg_listing_treeview"));
+  GtkTreeModel *model = gtk_tree_view_get_model(treeview);
+
+  valid = gtk_tree_model_get_iter_first(model,&iter);
+  while (valid) {
+    gchar *name,*version, *status = NULL;
+    gtk_tree_model_get(model,&iter,
+      NAME_COLUMN,&name,
+      VERSION_COLUMN,&version,
+      -1
+    );
+
+    if (get_exact_pkg(installed,name,version) == NULL) {
+      status = g_strdup_printf("z%s",name);
+      gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_available.png"),-1);
+    } else {
+      status = g_strdup_printf("a%s",name);
+      gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_installed.png"),-1);
+    }
+    gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_COLUMN,status,-1);
+    g_free(status);
+
+    g_free(name);
+    g_free(version);
+
+    valid = gtk_tree_model_iter_next(model,&iter);
+  }
 }
 
