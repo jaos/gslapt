@@ -1,5 +1,6 @@
 
 0.3.1 May 30, 2005
+ * removed duplicate code to setup treeview columns for package listing and search listing
  * added reset_pkg_view_status() to reset status of package treeview
    rather than perform costly clear and repopulate treeview
  * properly mark dependencies for install/upgrade/remove

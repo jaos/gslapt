@@ -63,6 +63,8 @@ int main (int argc, char *argv[]) {
   installed = get_installed_pkgs();
   all = get_available_pkgs();
 
+  build_treeview_columns(
+     (GtkWidget *)lookup_widget(gslapt,"pkg_listing_treeview"));
   build_package_treeviewlist(
      (GtkWidget *)lookup_widget(gslapt,"pkg_listing_treeview"));
 
