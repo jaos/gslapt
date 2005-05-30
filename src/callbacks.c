@@ -32,7 +32,8 @@ static GtkWidget *progress_window;
 static guint pending_trans_context_id = 0;
 static int disk_space(const rc_config *global_config,int space_needed );
 static void pkg_action_popup_menu(GtkTreeView *treeview, gpointer data);
-static transaction_t *lremove_from_transaction(transaction_t *tran,pkg_info_t *pkg);
+static int set_iter_to_pkg(GtkTreeModel *model, GtkTreeIter *iter,
+                           pkg_info_t *pkg);
 
 void on_gslapt_destroy (GtkObject *object, gpointer user_data) 
 {
@@ -218,22 +219,28 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
   /* if it is not already installed, install it */
   if ( installed_pkg == NULL ) {
 
-    if ( add_deps_to_trans(global_config,trans,all,installed,pkg) == 0 ) {
+    if ( ladd_deps_to_trans(global_config,trans,all,installed,pkg) == 0 ) {
       pkg_info_t *conflicted_pkg = NULL;
       gchar *status = NULL;
+
+      add_install_to_transaction(trans,pkg);
+      status = g_strdup_printf("i%s",pkg->name);
+      gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_install.png"),-1);
+      gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_COLUMN,status,-1);
+      set_execute_active();
+      g_free(status);
 
       /* if there is a conflict, we schedule the conflict for removal */
       if ( (conflicted_pkg = is_conflicted(trans,all,installed,pkg)) != NULL ) {
         add_remove_to_transaction(trans,conflicted_pkg);
         set_execute_active();
+        if (set_iter_to_pkg(model,&iter,conflicted_pkg)) {
+          gchar *rstatus = g_strdup_printf("r%s",conflicted_pkg->name);
+          gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_remove.png"),-1);
+          gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_COLUMN,rstatus,-1);
+          g_free(rstatus);
+        }
       }
-
-      add_install_to_transaction(trans,pkg);
-      gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_install.png"),-1);
-      status = g_strdup_printf("i%s",pkg->name);
-      gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_COLUMN,status,-1);
-      set_execute_active();
-      g_free(status);
 
     }else{
       gchar *msg = g_strdup_printf("Excluding %s due to dependency failure\n",pkg->name);
@@ -250,13 +257,19 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
       (global_config->re_install == TRUE)
     ) {
 
-      if ( add_deps_to_trans(global_config,trans,all,installed,pkg) == 0 ) {
+      if ( ladd_deps_to_trans(global_config,trans,all,installed,pkg) == 0 ) {
         pkg_info_t *conflicted_pkg = NULL;
 
         if ( (conflicted_pkg = is_conflicted(trans,all,installed,pkg)) != NULL ) {
           fprintf(stderr,"%s conflicts with %s\n",pkg->name,conflicted_pkg->name);
           add_remove_to_transaction(trans,conflicted_pkg);
           set_execute_active();
+          if (set_iter_to_pkg(model,&iter,conflicted_pkg)) {
+            gchar *rstatus = g_strdup_printf("r%s",conflicted_pkg->name);
+            gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_remove.png"),-1);
+            gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_COLUMN,rstatus,-1);
+            g_free(rstatus);
+          }
         }else{
           gchar *status = g_strdup_printf("u%s",pkg->name);
           add_upgrade_to_transaction(trans,installed_pkg,pkg);
@@ -316,17 +329,7 @@ void add_pkg_for_removal (GtkWidget *gslapt, gpointer user_data)
       struct pkg_list *deps;
       gchar *status = NULL;
 
-      deps = is_required_by(global_config,all,pkg);
-
-      for (c = 0; c < deps->pkg_count;c++) {
-        if ( get_exact_pkg(installed,deps->pkgs[c]->name,deps->pkgs[c]->version) != NULL ) {
-          add_remove_to_transaction(trans,deps->pkgs[c]);
-        }
-          set_execute_active();
-      }
-
-      free(deps->pkgs);
-      free(deps);
+      deps = is_required_by(global_config,installed,pkg);
 
       /*
         this solves the problem where an available package that is installed
@@ -342,6 +345,19 @@ void add_pkg_for_removal (GtkWidget *gslapt, gpointer user_data)
       gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_COLUMN,status,-1);
       g_free(status);
       set_execute_active();
+
+      for (c = 0; c < deps->pkg_count;c++) {
+        add_remove_to_transaction(trans,deps->pkgs[c]);
+        if (set_iter_to_pkg(model,&iter,deps->pkgs[c])) {
+          gchar *status = g_strdup_printf("u%s",deps->pkgs[c]->name);
+          gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_remove.png"),-1);
+          gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_COLUMN,status,-1);
+          g_free(status);
+        }
+      }
+
+      free(deps->pkgs);
+      free(deps);
 
     }
 
@@ -1504,7 +1520,7 @@ static void build_upgrade_list(void)
         }else{
           /* if all deps are added and there is no conflicts, add on */
           if (
-            (add_deps_to_trans(global_config,trans,all,installed,update_pkg) == 0)
+            (ladd_deps_to_trans(global_config,trans,all,installed,update_pkg) == 0)
             && ( is_conflicted(trans,all,installed,update_pkg) == NULL )
           ) {
             add_upgrade_to_transaction(trans,installed->pkgs[i],update_pkg);
@@ -2271,5 +2287,123 @@ void unmark_package(GtkWidget *gslapt, gpointer user_data)
     g_free(pkg_location);
   }
 
+}
+
+/* parse the dependencies for a package, and add them to the transaction as */
+/* needed check to see if a package is conflicted */
+int ladd_deps_to_trans(const rc_config *global_config, transaction_t *tran,
+                      struct pkg_list *avail_pkgs,
+                      struct pkg_list *installed_pkgs, pkg_info_t *pkg)
+{
+  unsigned int c;
+  int dep_return = -1;
+  struct pkg_list *deps = NULL;
+  extern GtkWidget *gslapt;
+  GtkTreeView *treeview = GTK_TREE_VIEW(lookup_widget(gslapt,"pkg_listing_treeview"));
+  GtkTreeModel *model = gtk_tree_view_get_model(treeview);
+  GtkTreeIter iter;
+
+  if ( global_config->disable_dep_check == TRUE ) return 0;
+  if ( pkg == NULL ) return 0;
+
+  deps = init_pkg_list();
+
+  dep_return = get_pkg_dependencies(
+    global_config,avail_pkgs,installed_pkgs,pkg,
+    deps,tran->conflict_err,tran->missing_err
+  );
+
+  /* check to see if there where issues with dep checking */
+  /* exclude the package if dep check barfed */
+  if ( (dep_return == -1) && (global_config->ignore_dep == FALSE) &&
+      (get_exact_pkg(tran->exclude_pkgs,pkg->name,pkg->version) == NULL)
+  ) {
+    add_exclude_to_transaction(tran,pkg);
+    free_pkg_list(deps);
+    return -1;
+  }
+
+  /* loop through the deps */
+  for (c = 0; c < deps->pkg_count;c++) {
+    pkg_info_t *dep_installed;
+    pkg_info_t *conflicted_pkg = NULL;
+
+    /*
+     * the dep wouldn't get this far if it where excluded,
+     * so we don't check for that here
+     */
+
+    conflicted_pkg = is_conflicted(tran,avail_pkgs,installed_pkgs,deps->pkgs[c]);
+    if ( conflicted_pkg != NULL ) {
+      add_remove_to_transaction(tran,conflicted_pkg);
+      if (set_iter_to_pkg(model,&iter,conflicted_pkg)) {
+        gchar *status = g_strdup_printf("r%s",conflicted_pkg->name);
+        gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_remove.png"),-1);
+        gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_COLUMN,status,-1);
+        set_execute_active();
+        g_free(status);
+      }
+    }
+
+    dep_installed = get_newest_pkg(installed_pkgs,deps->pkgs[c]->name);
+    if ( dep_installed == NULL ) {
+      add_install_to_transaction(tran,deps->pkgs[c]);
+      if (set_iter_to_pkg(model,&iter,deps->pkgs[c])) {
+        gchar *status = g_strdup_printf("i%s",deps->pkgs[c]->name);
+        gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_install.png"),-1);
+        gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_COLUMN,status,-1);
+        set_execute_active();
+        g_free(status);
+      }
+    } else {
+      /* add only if its a valid upgrade */
+      if (cmp_pkg_versions(dep_installed->version,deps->pkgs[c]->version) < 0 )
+        add_upgrade_to_transaction(tran,dep_installed,deps->pkgs[c]);
+        if (set_iter_to_pkg(model,&iter,deps->pkgs[c])) {
+          gchar *status = g_strdup_printf("u%s",deps->pkgs[c]->name);
+          gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_upgrade.png"),-1);
+          gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_COLUMN,status,-1);
+          set_execute_active();
+          g_free(status);
+        }
+    }
+
+  }
+
+  free_pkg_list(deps);
+
+  return 0;
+}
+
+static int set_iter_to_pkg(GtkTreeModel *model, GtkTreeIter *iter,
+                           pkg_info_t *pkg)
+{
+  gboolean valid;
+
+  valid = gtk_tree_model_get_iter_first(model,iter);
+  while (valid) {
+    gchar *name,*version,*location;
+    gtk_tree_model_get(model,iter,
+      NAME_COLUMN,&name,
+      VERSION_COLUMN,&version,
+      LOCATION_COLUMN,&location,
+      -1
+    );
+
+    if (strcmp(name,pkg->name) == 0 &&
+        strcmp(version,pkg->version) == 0 &&
+        strcmp(location,pkg->location) == 0) {
+      g_free(name);
+      g_free(version);
+      g_free(location);
+      return 1;
+    }
+    g_free(name);
+    g_free(version);
+    g_free(location);
+
+    valid = gtk_tree_model_iter_next(model,iter);
+  }
+  return 0;
 }
 
