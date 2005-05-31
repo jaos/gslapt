@@ -83,6 +83,7 @@ void upgrade_callback (GtkObject *object, gpointer user_data)
   ) {
     notify((gchar *)_("Up to Date"),
            (gchar *)_("<span weight=\"bold\" size=\"large\">No updates available</span>"));
+    unlock_toolbar_buttons();
   }else{
     GtkWidget *button;
     w = (GtkWidget *)create_transaction_window();
