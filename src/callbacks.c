@@ -35,6 +35,7 @@ static void pkg_action_popup_menu(GtkTreeView *treeview, gpointer data);
 static int set_iter_to_pkg(GtkTreeModel *model, GtkTreeIter *iter,
                            pkg_info_t *pkg);
 static void reset_pkg_view_status(void);
+static int lsearch_upgrade_transaction(transaction_t *tran,pkg_info_t *pkg);
 
 void on_gslapt_destroy (GtkObject *object, gpointer user_data) 
 {
@@ -413,7 +414,7 @@ void build_package_treeviewlist(GtkWidget *treeview)
     get_exact_pkg(trans->install_pkgs,all->pkgs[i]->name,all->pkgs[i]->version) != NULL) {
       status_icon = create_pixbuf("pkg_action_install.png");
       status = g_strdup_printf("i%s",all->pkgs[i]->name);
-    } else if (trans->upgrade_pkgs->pkg_count > 0 && search_upgrade_transaction(trans,all->pkgs[i]) == 1) {
+    } else if (trans->upgrade_pkgs->pkg_count > 0 && lsearch_upgrade_transaction(trans,all->pkgs[i]) == 1) {
       status_icon = create_pixbuf("pkg_action_upgrade.png");
       status = g_strdup_printf("u%s",all->pkgs[i]->name);
     } else if (is_inst == 1) {
@@ -520,7 +521,7 @@ void build_searched_treeviewlist(GtkWidget *treeview, gchar *pattern)
       get_exact_pkg(trans->install_pkgs,a_matches->pkgs[i]->name,a_matches->pkgs[i]->version) != NULL) {
         status_icon = create_pixbuf("pkg_action_install.png");
         status = g_strdup_printf("i%s",a_matches->pkgs[i]->name);
-      } else if (trans->upgrade_pkgs->pkg_count > 0 && search_upgrade_transaction(trans,a_matches->pkgs[i]) == 1) {
+      } else if (trans->upgrade_pkgs->pkg_count > 0 && lsearch_upgrade_transaction(trans,a_matches->pkgs[i]) == 1) {
         status_icon = create_pixbuf("pkg_action_upgrade.png");
         status = g_strdup_printf("u%s",a_matches->pkgs[i]->name);
       } else if (is_inst == 1) {
@@ -2377,5 +2378,15 @@ void build_treeview_columns(GtkWidget *treeview)
   g_signal_connect(G_OBJECT(treeview),"cursor-changed",
     G_CALLBACK(pkg_action_popup_menu),NULL);
 
+}
+
+static int lsearch_upgrade_transaction(transaction_t *tran,pkg_info_t *pkg)
+{
+  unsigned int i,found = 1, not_found = 0;
+  for (i = 0; i < tran->upgrade_pkgs->pkg_count;i++) {
+    if ( strcmp(pkg->name,tran->upgrade_pkgs->pkgs[i]->upgrade->name) == 0 )
+      return found;
+  }
+  return not_found;
 }
 
