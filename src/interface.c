@@ -801,7 +801,7 @@ create_gslapt (void)
   gtk_label_set_use_markup (GTK_LABEL (label239), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label239), 0, 0.5);
 
-  label245 = gtk_label_new (_("<b>Mirror:</b>"));
+  label245 = gtk_label_new (_("<b>Source:</b>"));
   gtk_widget_set_name (label245, "label245");
   gtk_widget_show (label245);
   gtk_table_attach (GTK_TABLE (table3), label245, 0, 1, 3, 4,
@@ -1158,7 +1158,7 @@ create_transaction_window (void)
   gtk_box_pack_start (GTK_BOX (hbox97), vbox62, TRUE, TRUE, 0);
   gtk_container_set_border_width (GTK_CONTAINER (vbox62), 6);
 
-  label167 = gtk_label_new (_("<span weight=\"bold\" size=\"large\">Apply the folowing changes?</span>"));
+  label167 = gtk_label_new (_("<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"));
   gtk_widget_set_name (label167, "label167");
   gtk_widget_show (label167);
   gtk_box_pack_start (GTK_BOX (vbox62), label167, FALSE, FALSE, 0);

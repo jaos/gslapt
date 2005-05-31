@@ -6,7 +6,7 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: gslapt 0.3.0\n"
+"Project-Id-Version: gslapt 0.3.1\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
 "PO-Revision-Date: 2005-05-27 22:49+0500\n"
@@ -25,7 +25,7 @@ msgstr "<b>Paket Källor</b>"
 msgid "<b>Package and data storage</b>"
 msgstr "<b>Paket och datalagring</b>"
 
-msgid "<span weight=\"bold\" size=\"large\">Apply the folowing changes?</span>"
+msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Aktivera de följande ändringarna?</span>"
 
 msgid "<span weight=\"bold\">Exclude Expression:</span>"
@@ -118,9 +118,6 @@ msgstr "Installerar..."
 
 msgid "Location"
 msgstr "Lokalisering"
-
-msgid "Mirror"
-msgstr "Spegling"
 
 msgid "NO"
 msgstr "NEJ"
@@ -336,7 +333,7 @@ msgstr "<b>Storlek som installerad:</b>"
 msgid "<b>Location:</b>"
 msgstr "<b>Lokalisering:</b>"
 
-msgid "<b>Mirror:</b>"
+msgid "<b>Source:</b>"
 msgstr "<b>Spegling:</b>"
 
 msgid "<b>Name:</b>"

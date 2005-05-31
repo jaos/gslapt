@@ -1,5 +1,7 @@
 
-0.3.1 May 30, 2005
+0.3.1 May 31, 2005
+ * added german translation by Sebastian Jauch
+ * translation updates
  * added missing pkg_action_reinstall.png
  * set status icon for downgrades correctly
  * unmark correctly sets status column so status sorting after unmark works as expected
