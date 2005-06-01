@@ -672,7 +672,6 @@ static void fillin_pkg_details(pkg_info_t *pkg)
   gtk_text_buffer_set_text(pkg_full_desc,pkg->description,-1);
 
   /* set status */
-  /* TODO "To be Downgraded" "To be Re-Installed" */
   if ((trans->exclude_pkgs->pkg_count > 0 &&
   get_exact_pkg(trans->exclude_pkgs,pkg->name,pkg->version) != NULL) ||
   is_excluded(global_config,pkg) == 1) {
@@ -684,7 +683,15 @@ static void fillin_pkg_details(pkg_info_t *pkg)
   get_exact_pkg(trans->install_pkgs,pkg->name,pkg->version) != NULL) {
     gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_status")),(gchar *)_("To be Installed"));
   } else if (trans->upgrade_pkgs->pkg_count > 0 && lsearch_upgrade_transaction(trans,pkg) == 1) {
-    gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_status")),(gchar *)_("To be Upgraded"));
+    pkg_info_t *installed_pkg = get_newest_pkg(installed,pkg->name);
+    int cmp = cmp_pkg_versions(pkg->version,installed_pkg->version);
+    if (cmp == 0) {
+      gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_status")),(gchar *)_("To be Re-Installed"));
+    } else if (cmp < 0 ) {
+      gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_status")),(gchar *)_("To be Downgraded"));
+    } else {
+      gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_status")),(gchar *)_("To be Upgraded"));
+    }
   } else if (get_exact_pkg(installed,pkg->name,pkg->version) != NULL) {
     gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_status")),(gchar *)_("Installed"));
   } else {
@@ -2404,8 +2411,11 @@ static int lsearch_upgrade_transaction(transaction_t *tran,pkg_info_t *pkg)
 {
   unsigned int i,found = 1, not_found = 0;
   for (i = 0; i < tran->upgrade_pkgs->pkg_count;i++) {
-    if ( strcmp(pkg->name,tran->upgrade_pkgs->pkgs[i]->upgrade->name) == 0 )
+    if (strcmp(pkg->name,tran->upgrade_pkgs->pkgs[i]->upgrade->name) == 0 &&
+    strcmp(pkg->version,tran->upgrade_pkgs->pkgs[i]->upgrade->version) == 0 &&
+    strcmp(pkg->location,tran->upgrade_pkgs->pkgs[i]->upgrade->location) == 0) {
       return found;
+    }
   }
   return not_found;
 }
