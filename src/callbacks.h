@@ -94,3 +94,5 @@ static void notify(const char *title,const char *message);
 void unmark_package(GtkWidget *gslapt, gpointer user_data);
 
 void build_treeview_columns(GtkWidget *treeview);
+
+void open_icon_legend (GtkObject *object, gpointer user_data);

@@ -1,5 +1,7 @@
 
-0.3.1 May 31, 2005
+0.3.1 June 01, 2005
+ * added icon legend to the help menu
+ * added status field to package information tab
  * added german translation by Sebastian Jauch
  * translation updates
  * added missing pkg_action_reinstall.png

@@ -426,11 +426,12 @@ create_gslapt (void)
   GtkWidget *settings1;
   GtkWidget *settings1_menu;
   GtkWidget *preferences2;
-  GtkWidget *image863;
+  GtkWidget *image873;
   GtkWidget *help3;
   GtkWidget *help3_menu;
+  GtkWidget *icon_legend1;
   GtkWidget *about3;
-  GtkWidget *image864;
+  GtkWidget *image874;
   GtkWidget *action_toolbar;
   GtkIconSize tmp_toolbar_icon_size;
   GtkWidget *tmp_image;
@@ -454,10 +455,12 @@ create_gslapt (void)
   GtkWidget *vbox63;
   GtkWidget *table2;
   GtkWidget *label226;
-  GtkWidget *label227;
-  GtkWidget *label244;
   GtkWidget *pkg_info_name;
+  GtkWidget *label227;
   GtkWidget *pkg_info_description;
+  GtkWidget *label250;
+  GtkWidget *pkg_info_status;
+  GtkWidget *label244;
   GtkWidget *pkg_info_location;
   GtkWidget *table3;
   GtkWidget *label237;
@@ -546,10 +549,10 @@ create_gslapt (void)
                               GDK_p, (GdkModifierType) GDK_CONTROL_MASK,
                               GTK_ACCEL_VISIBLE);
 
-  image863 = gtk_image_new_from_stock ("gtk-preferences", GTK_ICON_SIZE_MENU);
-  gtk_widget_set_name (image863, "image863");
-  gtk_widget_show (image863);
-  gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (preferences2), image863);
+  image873 = gtk_image_new_from_stock ("gtk-preferences", GTK_ICON_SIZE_MENU);
+  gtk_widget_set_name (image873, "image873");
+  gtk_widget_show (image873);
+  gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (preferences2), image873);
 
   help3 = gtk_menu_item_new_with_mnemonic (_("_Help"));
   gtk_widget_set_name (help3, "help3");
@@ -560,15 +563,20 @@ create_gslapt (void)
   gtk_widget_set_name (help3_menu, "help3_menu");
   gtk_menu_item_set_submenu (GTK_MENU_ITEM (help3), help3_menu);
 
+  icon_legend1 = gtk_menu_item_new_with_mnemonic (_("Icon Legend"));
+  gtk_widget_set_name (icon_legend1, "icon_legend1");
+  gtk_widget_show (icon_legend1);
+  gtk_container_add (GTK_CONTAINER (help3_menu), icon_legend1);
+
   about3 = gtk_image_menu_item_new_with_mnemonic (_("About"));
   gtk_widget_set_name (about3, "about3");
   gtk_widget_show (about3);
   gtk_container_add (GTK_CONTAINER (help3_menu), about3);
 
-  image864 = gtk_image_new_from_stock ("gtk-about", GTK_ICON_SIZE_MENU);
-  gtk_widget_set_name (image864, "image864");
-  gtk_widget_show (image864);
-  gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (about3), image864);
+  image874 = gtk_image_new_from_stock ("gtk-about", GTK_ICON_SIZE_MENU);
+  gtk_widget_set_name (image874, "image874");
+  gtk_widget_show (image874);
+  gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (about3), image874);
 
   action_toolbar = gtk_toolbar_new ();
   gtk_widget_set_name (action_toolbar, "action_toolbar");
@@ -699,7 +707,7 @@ create_gslapt (void)
   gtk_container_add (GTK_CONTAINER (viewport1), vbox63);
   gtk_container_set_border_width (GTK_CONTAINER (vbox63), 6);
 
-  table2 = gtk_table_new (3, 2, FALSE);
+  table2 = gtk_table_new (4, 2, FALSE);
   gtk_widget_set_name (table2, "table2");
   gtk_widget_show (table2);
   gtk_box_pack_start (GTK_BOX (vbox63), table2, FALSE, FALSE, 0);
@@ -715,24 +723,6 @@ create_gslapt (void)
   gtk_label_set_use_markup (GTK_LABEL (label226), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label226), 0, 0.5);
 
-  label227 = gtk_label_new (_("<b>Description:</b>"));
-  gtk_widget_set_name (label227, "label227");
-  gtk_widget_show (label227);
-  gtk_table_attach (GTK_TABLE (table2), label227, 0, 1, 1, 2,
-                    (GtkAttachOptions) (GTK_FILL),
-                    (GtkAttachOptions) (0), 0, 0);
-  gtk_label_set_use_markup (GTK_LABEL (label227), TRUE);
-  gtk_misc_set_alignment (GTK_MISC (label227), 0, 0.5);
-
-  label244 = gtk_label_new (_("<b>Location:</b>"));
-  gtk_widget_set_name (label244, "label244");
-  gtk_widget_show (label244);
-  gtk_table_attach (GTK_TABLE (table2), label244, 0, 1, 2, 3,
-                    (GtkAttachOptions) (GTK_FILL),
-                    (GtkAttachOptions) (0), 0, 0);
-  gtk_label_set_use_markup (GTK_LABEL (label244), TRUE);
-  gtk_misc_set_alignment (GTK_MISC (label244), 0, 0.5);
-
   pkg_info_name = gtk_label_new (_("No package is selected.\n"));
   gtk_widget_set_name (pkg_info_name, "pkg_info_name");
   gtk_widget_show (pkg_info_name);
@@ -744,10 +734,19 @@ create_gslapt (void)
   gtk_label_set_selectable (GTK_LABEL (pkg_info_name), TRUE);
   gtk_misc_set_alignment (GTK_MISC (pkg_info_name), 0, 0.5);
 
+  label227 = gtk_label_new (_("<b>Description:</b>"));
+  gtk_widget_set_name (label227, "label227");
+  gtk_widget_show (label227);
+  gtk_table_attach (GTK_TABLE (table2), label227, 0, 1, 2, 3,
+                    (GtkAttachOptions) (GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 0);
+  gtk_label_set_use_markup (GTK_LABEL (label227), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label227), 0, 0.5);
+
   pkg_info_description = gtk_label_new ("");
   gtk_widget_set_name (pkg_info_description, "pkg_info_description");
   gtk_widget_show (pkg_info_description);
-  gtk_table_attach (GTK_TABLE (table2), pkg_info_description, 1, 2, 1, 2,
+  gtk_table_attach (GTK_TABLE (table2), pkg_info_description, 1, 2, 2, 3,
                     (GtkAttachOptions) (GTK_FILL),
                     (GtkAttachOptions) (0), 0, 0);
   GTK_WIDGET_SET_FLAGS (pkg_info_description, GTK_CAN_FOCUS);
@@ -755,10 +754,37 @@ create_gslapt (void)
   gtk_label_set_selectable (GTK_LABEL (pkg_info_description), TRUE);
   gtk_misc_set_alignment (GTK_MISC (pkg_info_description), 0, 0.5);
 
+  label250 = gtk_label_new (_("<b>Status:</b>"));
+  gtk_widget_set_name (label250, "label250");
+  gtk_widget_show (label250);
+  gtk_table_attach (GTK_TABLE (table2), label250, 0, 1, 1, 2,
+                    (GtkAttachOptions) (GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 0);
+  gtk_label_set_use_markup (GTK_LABEL (label250), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label250), 0, 0.5);
+
+  pkg_info_status = gtk_label_new ("");
+  gtk_widget_set_name (pkg_info_status, "pkg_info_status");
+  gtk_widget_show (pkg_info_status);
+  gtk_table_attach (GTK_TABLE (table2), pkg_info_status, 1, 2, 1, 2,
+                    (GtkAttachOptions) (GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 0);
+  gtk_label_set_use_markup (GTK_LABEL (pkg_info_status), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (pkg_info_status), 0, 0.5);
+
+  label244 = gtk_label_new (_("<b>Location:</b>"));
+  gtk_widget_set_name (label244, "label244");
+  gtk_widget_show (label244);
+  gtk_table_attach (GTK_TABLE (table2), label244, 0, 1, 3, 4,
+                    (GtkAttachOptions) (GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 0);
+  gtk_label_set_use_markup (GTK_LABEL (label244), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label244), 0, 0.5);
+
   pkg_info_location = gtk_label_new ("");
   gtk_widget_set_name (pkg_info_location, "pkg_info_location");
   gtk_widget_show (pkg_info_location);
-  gtk_table_attach (GTK_TABLE (table2), pkg_info_location, 1, 2, 2, 3,
+  gtk_table_attach (GTK_TABLE (table2), pkg_info_location, 1, 2, 3, 4,
                     (GtkAttachOptions) (GTK_FILL),
                     (GtkAttachOptions) (0), 0, 0);
   GTK_WIDGET_SET_FLAGS (pkg_info_location, GTK_CAN_FOCUS);
@@ -988,6 +1014,9 @@ create_gslapt (void)
   g_signal_connect ((gpointer) preferences2, "activate",
                     G_CALLBACK (open_preferences),
                     NULL);
+  g_signal_connect ((gpointer) icon_legend1, "activate",
+                    G_CALLBACK (open_icon_legend),
+                    NULL);
   g_signal_connect ((gpointer) about3, "activate",
                     G_CALLBACK (open_about),
                     NULL);
@@ -1026,11 +1055,12 @@ create_gslapt (void)
   GLADE_HOOKUP_OBJECT (gslapt, settings1, "settings1");
   GLADE_HOOKUP_OBJECT (gslapt, settings1_menu, "settings1_menu");
   GLADE_HOOKUP_OBJECT (gslapt, preferences2, "preferences2");
-  GLADE_HOOKUP_OBJECT (gslapt, image863, "image863");
+  GLADE_HOOKUP_OBJECT (gslapt, image873, "image873");
   GLADE_HOOKUP_OBJECT (gslapt, help3, "help3");
   GLADE_HOOKUP_OBJECT (gslapt, help3_menu, "help3_menu");
+  GLADE_HOOKUP_OBJECT (gslapt, icon_legend1, "icon_legend1");
   GLADE_HOOKUP_OBJECT (gslapt, about3, "about3");
-  GLADE_HOOKUP_OBJECT (gslapt, image864, "image864");
+  GLADE_HOOKUP_OBJECT (gslapt, image874, "image874");
   GLADE_HOOKUP_OBJECT (gslapt, action_toolbar, "action_toolbar");
   GLADE_HOOKUP_OBJECT (gslapt, action_bar_update_button, "action_bar_update_button");
   GLADE_HOOKUP_OBJECT (gslapt, action_bar_upgrade_button, "action_bar_upgrade_button");
@@ -1052,10 +1082,12 @@ create_gslapt (void)
   GLADE_HOOKUP_OBJECT (gslapt, vbox63, "vbox63");
   GLADE_HOOKUP_OBJECT (gslapt, table2, "table2");
   GLADE_HOOKUP_OBJECT (gslapt, label226, "label226");
-  GLADE_HOOKUP_OBJECT (gslapt, label227, "label227");
-  GLADE_HOOKUP_OBJECT (gslapt, label244, "label244");
   GLADE_HOOKUP_OBJECT (gslapt, pkg_info_name, "pkg_info_name");
+  GLADE_HOOKUP_OBJECT (gslapt, label227, "label227");
   GLADE_HOOKUP_OBJECT (gslapt, pkg_info_description, "pkg_info_description");
+  GLADE_HOOKUP_OBJECT (gslapt, label250, "label250");
+  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_status, "pkg_info_status");
+  GLADE_HOOKUP_OBJECT (gslapt, label244, "label244");
   GLADE_HOOKUP_OBJECT (gslapt, pkg_info_location, "pkg_info_location");
   GLADE_HOOKUP_OBJECT (gslapt, table3, "table3");
   GLADE_HOOKUP_OBJECT (gslapt, label237, "label237");
@@ -1510,5 +1542,227 @@ create_notification (void)
   GLADE_HOOKUP_OBJECT (notification, okbutton2, "okbutton2");
 
   return notification;
+}
+
+GtkWidget*
+create_icon_legend (void)
+{
+  GtkWidget *icon_legend;
+  GdkPixbuf *icon_legend_icon_pixbuf;
+  GtkWidget *dialog_vbox4;
+  GtkWidget *vbox65;
+  GtkWidget *label252;
+  GtkWidget *label260;
+  GtkWidget *hbox98;
+  GtkWidget *image865;
+  GtkWidget *label253;
+  GtkWidget *hbox99;
+  GtkWidget *image866;
+  GtkWidget *label254;
+  GtkWidget *hbox100;
+  GtkWidget *image867;
+  GtkWidget *label255;
+  GtkWidget *hbox101;
+  GtkWidget *image868;
+  GtkWidget *label256;
+  GtkWidget *hbox102;
+  GtkWidget *image869;
+  GtkWidget *label257;
+  GtkWidget *hbox103;
+  GtkWidget *image870;
+  GtkWidget *label258;
+  GtkWidget *hbox104;
+  GtkWidget *image871;
+  GtkWidget *label259;
+  GtkWidget *dialog_action_area4;
+  GtkWidget *closebutton2;
+
+  icon_legend = gtk_dialog_new ();
+  gtk_widget_set_name (icon_legend, "icon_legend");
+  gtk_container_set_border_width (GTK_CONTAINER (icon_legend), 2);
+  gtk_window_set_title (GTK_WINDOW (icon_legend), _("Icon Legend"));
+  gtk_window_set_position (GTK_WINDOW (icon_legend), GTK_WIN_POS_CENTER);
+  icon_legend_icon_pixbuf = create_pixbuf ("gslapt.png");
+  if (icon_legend_icon_pixbuf)
+    {
+      gtk_window_set_icon (GTK_WINDOW (icon_legend), icon_legend_icon_pixbuf);
+      gdk_pixbuf_unref (icon_legend_icon_pixbuf);
+    }
+  gtk_window_set_type_hint (GTK_WINDOW (icon_legend), GDK_WINDOW_TYPE_HINT_DIALOG);
+  gtk_window_set_gravity (GTK_WINDOW (icon_legend), GDK_GRAVITY_CENTER);
+
+  dialog_vbox4 = GTK_DIALOG (icon_legend)->vbox;
+  gtk_widget_set_name (dialog_vbox4, "dialog_vbox4");
+  gtk_widget_show (dialog_vbox4);
+
+  vbox65 = gtk_vbox_new (FALSE, 6);
+  gtk_widget_set_name (vbox65, "vbox65");
+  gtk_widget_show (vbox65);
+  gtk_box_pack_start (GTK_BOX (dialog_vbox4), vbox65, TRUE, TRUE, 0);
+  gtk_container_set_border_width (GTK_CONTAINER (vbox65), 6);
+
+  label252 = gtk_label_new (_("<b>The following icons are used to indicate the current status of a package:</b>"));
+  gtk_widget_set_name (label252, "label252");
+  gtk_widget_show (label252);
+  gtk_box_pack_start (GTK_BOX (vbox65), label252, FALSE, FALSE, 0);
+  gtk_label_set_use_markup (GTK_LABEL (label252), TRUE);
+  gtk_label_set_line_wrap (GTK_LABEL (label252), TRUE);
+
+  label260 = gtk_label_new ("");
+  gtk_widget_set_name (label260, "label260");
+  gtk_widget_show (label260);
+  gtk_box_pack_start (GTK_BOX (vbox65), label260, FALSE, FALSE, 0);
+
+  hbox98 = gtk_hbox_new (FALSE, 0);
+  gtk_widget_set_name (hbox98, "hbox98");
+  gtk_widget_show (hbox98);
+  gtk_box_pack_start (GTK_BOX (vbox65), hbox98, TRUE, TRUE, 0);
+
+  image865 = create_pixmap (icon_legend, "pkg_action_available.png");
+  gtk_widget_set_name (image865, "image865");
+  gtk_widget_show (image865);
+  gtk_box_pack_start (GTK_BOX (hbox98), image865, FALSE, TRUE, 6);
+
+  label253 = gtk_label_new (_("Not Installed"));
+  gtk_widget_set_name (label253, "label253");
+  gtk_widget_show (label253);
+  gtk_box_pack_start (GTK_BOX (hbox98), label253, FALSE, TRUE, 6);
+
+  hbox99 = gtk_hbox_new (FALSE, 0);
+  gtk_widget_set_name (hbox99, "hbox99");
+  gtk_widget_show (hbox99);
+  gtk_box_pack_start (GTK_BOX (vbox65), hbox99, TRUE, TRUE, 0);
+
+  image866 = create_pixmap (icon_legend, "pkg_action_installed.png");
+  gtk_widget_set_name (image866, "image866");
+  gtk_widget_show (image866);
+  gtk_box_pack_start (GTK_BOX (hbox99), image866, FALSE, TRUE, 6);
+
+  label254 = gtk_label_new (_("Installed"));
+  gtk_widget_set_name (label254, "label254");
+  gtk_widget_show (label254);
+  gtk_box_pack_start (GTK_BOX (hbox99), label254, FALSE, TRUE, 6);
+
+  hbox100 = gtk_hbox_new (FALSE, 0);
+  gtk_widget_set_name (hbox100, "hbox100");
+  gtk_widget_show (hbox100);
+  gtk_box_pack_start (GTK_BOX (vbox65), hbox100, TRUE, TRUE, 0);
+
+  image867 = create_pixmap (icon_legend, "pkg_action_install.png");
+  gtk_widget_set_name (image867, "image867");
+  gtk_widget_show (image867);
+  gtk_box_pack_start (GTK_BOX (hbox100), image867, FALSE, TRUE, 6);
+
+  label255 = gtk_label_new (_("To be Installed"));
+  gtk_widget_set_name (label255, "label255");
+  gtk_widget_show (label255);
+  gtk_box_pack_start (GTK_BOX (hbox100), label255, FALSE, TRUE, 6);
+
+  hbox101 = gtk_hbox_new (FALSE, 0);
+  gtk_widget_set_name (hbox101, "hbox101");
+  gtk_widget_show (hbox101);
+  gtk_box_pack_start (GTK_BOX (vbox65), hbox101, TRUE, TRUE, 0);
+
+  image868 = create_pixmap (icon_legend, "pkg_action_reinstall.png");
+  gtk_widget_set_name (image868, "image868");
+  gtk_widget_show (image868);
+  gtk_box_pack_start (GTK_BOX (hbox101), image868, FALSE, TRUE, 6);
+
+  label256 = gtk_label_new (_("To be Re-Installed"));
+  gtk_widget_set_name (label256, "label256");
+  gtk_widget_show (label256);
+  gtk_box_pack_start (GTK_BOX (hbox101), label256, FALSE, TRUE, 6);
+
+  hbox102 = gtk_hbox_new (FALSE, 0);
+  gtk_widget_set_name (hbox102, "hbox102");
+  gtk_widget_show (hbox102);
+  gtk_box_pack_start (GTK_BOX (vbox65), hbox102, TRUE, TRUE, 0);
+
+  image869 = create_pixmap (icon_legend, "pkg_action_upgrade.png");
+  gtk_widget_set_name (image869, "image869");
+  gtk_widget_show (image869);
+  gtk_box_pack_start (GTK_BOX (hbox102), image869, FALSE, TRUE, 6);
+
+  label257 = gtk_label_new (_("To be Upgraded"));
+  gtk_widget_set_name (label257, "label257");
+  gtk_widget_show (label257);
+  gtk_box_pack_start (GTK_BOX (hbox102), label257, FALSE, TRUE, 6);
+
+  hbox103 = gtk_hbox_new (FALSE, 0);
+  gtk_widget_set_name (hbox103, "hbox103");
+  gtk_widget_show (hbox103);
+  gtk_box_pack_start (GTK_BOX (vbox65), hbox103, TRUE, TRUE, 0);
+
+  image870 = create_pixmap (icon_legend, "pkg_action_remove.png");
+  gtk_widget_set_name (image870, "image870");
+  gtk_widget_show (image870);
+  gtk_box_pack_start (GTK_BOX (hbox103), image870, FALSE, TRUE, 6);
+
+  label258 = gtk_label_new (_("To be Removed"));
+  gtk_widget_set_name (label258, "label258");
+  gtk_widget_show (label258);
+  gtk_box_pack_start (GTK_BOX (hbox103), label258, FALSE, TRUE, 6);
+
+  hbox104 = gtk_hbox_new (FALSE, 0);
+  gtk_widget_set_name (hbox104, "hbox104");
+  gtk_widget_show (hbox104);
+  gtk_box_pack_start (GTK_BOX (vbox65), hbox104, TRUE, TRUE, 0);
+
+  image871 = create_pixmap (icon_legend, "pkg_action_downgrade.png");
+  gtk_widget_set_name (image871, "image871");
+  gtk_widget_show (image871);
+  gtk_box_pack_start (GTK_BOX (hbox104), image871, FALSE, TRUE, 6);
+
+  label259 = gtk_label_new (_("To be Downgraded"));
+  gtk_widget_set_name (label259, "label259");
+  gtk_widget_show (label259);
+  gtk_box_pack_start (GTK_BOX (hbox104), label259, FALSE, TRUE, 6);
+
+  dialog_action_area4 = GTK_DIALOG (icon_legend)->action_area;
+  gtk_widget_set_name (dialog_action_area4, "dialog_action_area4");
+  gtk_widget_show (dialog_action_area4);
+  gtk_button_box_set_layout (GTK_BUTTON_BOX (dialog_action_area4), GTK_BUTTONBOX_END);
+
+  closebutton2 = gtk_button_new_from_stock ("gtk-close");
+  gtk_widget_set_name (closebutton2, "closebutton2");
+  gtk_widget_show (closebutton2);
+  gtk_dialog_add_action_widget (GTK_DIALOG (icon_legend), closebutton2, GTK_RESPONSE_CLOSE);
+  GTK_WIDGET_SET_FLAGS (closebutton2, GTK_CAN_DEFAULT);
+
+  g_signal_connect_swapped ((gpointer) closebutton2, "clicked",
+                            G_CALLBACK (gtk_widget_destroy),
+                            GTK_OBJECT (icon_legend));
+
+  /* Store pointers to all widgets, for use by lookup_widget(). */
+  GLADE_HOOKUP_OBJECT_NO_REF (icon_legend, icon_legend, "icon_legend");
+  GLADE_HOOKUP_OBJECT_NO_REF (icon_legend, dialog_vbox4, "dialog_vbox4");
+  GLADE_HOOKUP_OBJECT (icon_legend, vbox65, "vbox65");
+  GLADE_HOOKUP_OBJECT (icon_legend, label252, "label252");
+  GLADE_HOOKUP_OBJECT (icon_legend, label260, "label260");
+  GLADE_HOOKUP_OBJECT (icon_legend, hbox98, "hbox98");
+  GLADE_HOOKUP_OBJECT (icon_legend, image865, "image865");
+  GLADE_HOOKUP_OBJECT (icon_legend, label253, "label253");
+  GLADE_HOOKUP_OBJECT (icon_legend, hbox99, "hbox99");
+  GLADE_HOOKUP_OBJECT (icon_legend, image866, "image866");
+  GLADE_HOOKUP_OBJECT (icon_legend, label254, "label254");
+  GLADE_HOOKUP_OBJECT (icon_legend, hbox100, "hbox100");
+  GLADE_HOOKUP_OBJECT (icon_legend, image867, "image867");
+  GLADE_HOOKUP_OBJECT (icon_legend, label255, "label255");
+  GLADE_HOOKUP_OBJECT (icon_legend, hbox101, "hbox101");
+  GLADE_HOOKUP_OBJECT (icon_legend, image868, "image868");
+  GLADE_HOOKUP_OBJECT (icon_legend, label256, "label256");
+  GLADE_HOOKUP_OBJECT (icon_legend, hbox102, "hbox102");
+  GLADE_HOOKUP_OBJECT (icon_legend, image869, "image869");
+  GLADE_HOOKUP_OBJECT (icon_legend, label257, "label257");
+  GLADE_HOOKUP_OBJECT (icon_legend, hbox103, "hbox103");
+  GLADE_HOOKUP_OBJECT (icon_legend, image870, "image870");
+  GLADE_HOOKUP_OBJECT (icon_legend, label258, "label258");
+  GLADE_HOOKUP_OBJECT (icon_legend, hbox104, "hbox104");
+  GLADE_HOOKUP_OBJECT (icon_legend, image871, "image871");
+  GLADE_HOOKUP_OBJECT (icon_legend, label259, "label259");
+  GLADE_HOOKUP_OBJECT_NO_REF (icon_legend, dialog_action_area4, "dialog_action_area4");
+  GLADE_HOOKUP_OBJECT (icon_legend, closebutton2, "closebutton2");
+
+  return icon_legend;
 }
 

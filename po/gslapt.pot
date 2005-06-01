@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gslapt 0.3.1\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2005-05-27 22:49+0500\n"
+"PO-Revision-Date: 2005-05-31 23:25+0500\n"
 "Last-Translator: Jason Woodward <woodwardj@jaos.org>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -377,5 +377,32 @@ msgid "Excluding %s due to dependency failure\n"
 msgstr ""
 
 msgid "Unmark"
+msgstr ""
+
+msgid "<b>Status:</b>"
+msgstr ""
+
+msgid "Excluded"
+msgstr ""
+
+msgid "<b>The following icons are used to indicate the current status of a package:</b>"
+msgstr ""
+
+msgid "Not Installed"
+msgstr ""
+
+msgid "To be Installed"
+msgstr ""
+
+msgid "To be Re-Installed"
+msgstr ""
+
+msgid "To be Upgraded"
+msgstr ""
+
+msgid "To be Removed"
+msgstr ""
+
+msgid "To be Downgraded"
 msgstr ""
 
