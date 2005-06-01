@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gslapt 0.3.1\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-20 16:24-0500\n"
-"PO-Revision-Date: 2005-05-31 23:25+0500\n"
+"PO-Revision-Date: 2005-06-01 10:10+0500\n"
 "Last-Translator: Jason Woodward <woodwardj@jaos.org>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgid "<b>Package and data storage</b>"
 msgstr "<b>Package and data storage</b>"
 
 msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Apply the folowing changes?</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
 
 msgid "<span weight=\"bold\">Exclude Expression:</span>"
 msgstr "<span weight=\"bold\">Exclude Expression:</span>"
@@ -404,4 +404,7 @@ msgstr "To be Removed"
 
 msgid "To be Downgraded"
 msgstr "To be Downgraded"
+
+msgid "Icon Legend"
+msgstr "Icon Legend"
 

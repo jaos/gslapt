@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gslapt 0.3.1\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-17 14:52-0500\n"
-"PO-Revision-Date: 2005-05-31 23:25+0500\n"
+"PO-Revision-Date: 2005-06-01 10:10+0500\n"
 "Last-Translator: Piotr Simon <sajmon@tenboard.com>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -268,7 +268,7 @@ msgid "Re-Install"
 msgstr "Re-Instaluj"
 
 msgid "Downgrade"
-msgstr "Downgrade"
+msgstr "Wgraj starsz± wersjê"
 
 msgid "_File"
 msgstr "Plik"
@@ -358,26 +358,29 @@ msgid "<b>Status:</b>"
 msgstr "<b>Status:</b>"
 
 msgid "Excluded"
-msgstr "Excluded"
+msgstr "Wy³±czony"
 
 msgid "<b>The following icons are used to indicate the current status of a package:</b>"
-msgstr "<b>The following icons are used to indicate the current status of a package:</b>"
+msgstr "<b>Nastêpuj±ce ikony zostan± u¿yte aby wskazaæ aktualny status pakietu:</b>"
 
 msgid "Not Installed"
-msgstr "Not Installed"
+msgstr "Jest nie zainstalowany"
 
 msgid "To be Installed"
-msgstr "To be Installed"
+msgstr "Do Instalacji"
 
 msgid "To be Re-Installed"
-msgstr "To be Re-Installed"
+msgstr "Do Re-Instalacji"
 
 msgid "To be Upgraded"
-msgstr "To be Upgraded"
+msgstr "Do Aktualizacji"
 
 msgid "To be Removed"
-msgstr "To be Removed"
+msgstr "Do Usuniêcia"
 
 msgid "To be Downgraded"
-msgstr "To be Downgraded"
+msgstr "Do wgrania starszej wersji"
+
+msgid "Icon Legend"
+msgstr "Legenda ikon"
 
