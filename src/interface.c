@@ -1524,10 +1524,10 @@ create_notification (void)
   gtk_widget_show (dialog_action_area3);
   gtk_button_box_set_layout (GTK_BUTTON_BOX (dialog_action_area3), GTK_BUTTONBOX_END);
 
-  okbutton2 = gtk_button_new_from_stock ("gtk-ok");
+  okbutton2 = gtk_button_new_from_stock ("gtk-close");
   gtk_widget_set_name (okbutton2, "okbutton2");
   gtk_widget_show (okbutton2);
-  gtk_dialog_add_action_widget (GTK_DIALOG (notification), okbutton2, GTK_RESPONSE_OK);
+  gtk_dialog_add_action_widget (GTK_DIALOG (notification), okbutton2, GTK_RESPONSE_CLOSE);
   GTK_WIDGET_SET_FLAGS (okbutton2, GTK_CAN_DEFAULT);
 
   g_signal_connect_swapped ((gpointer) okbutton2, "clicked",
