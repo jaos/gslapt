@@ -1648,6 +1648,7 @@ void preferences_sources_add(GtkWidget *w, gpointer user_data)
   GtkTreeView *source_tree = GTK_TREE_VIEW(lookup_widget(w,"preferences_sources_treeview"));
   GtkEntry *new_source_entry = GTK_ENTRY(lookup_widget(w,"new_source_entry"));
   const gchar *new_source = gtk_entry_get_text(new_source_entry);
+  GList *columns;
   guint i;
 
   if ( new_source == NULL || strlen(new_source) < 1 ) return;
@@ -1655,7 +1656,17 @@ void preferences_sources_add(GtkWidget *w, gpointer user_data)
   add_source(global_config->sources,new_source);
 
   gtk_entry_set_text(new_source_entry,"");
+
   clear_treeview(source_tree);
+  columns = gtk_tree_view_get_columns(source_tree);
+  for (i = 0; i < g_list_length(columns); i++ ) {
+    GtkTreeViewColumn *column = GTK_TREE_VIEW_COLUMN(g_list_nth_data(columns,i));
+    if ( column != NULL ) {
+      gtk_tree_view_remove_column(source_tree,column);
+    }
+  }
+  g_list_free(columns);
+
   build_sources_treeviewlist((GtkWidget *)source_tree,global_config);
 
 }
@@ -1672,11 +1683,21 @@ void preferences_sources_remove(GtkWidget *w, gpointer user_data)
     guint i = 0;
     gchar *source;
     gchar *tmp = NULL;
+    GList *columns;
 
     gtk_tree_model_get(model,&iter,0,&source, -1 );
 
     clear_treeview(source_tree);
+    columns = gtk_tree_view_get_columns(source_tree);
+    for (i = 0; i < g_list_length(columns); i++ ) {
+      GtkTreeViewColumn *column = GTK_TREE_VIEW_COLUMN(g_list_nth_data(columns,i));
+      if ( column != NULL ) {
+        gtk_tree_view_remove_column(source_tree,column);
+      }
+    }
+    g_list_free(columns);
 
+    i = 0;
     while ( i < global_config->sources->count ) {
       if ( strcmp(source,global_config->sources->url[i]) == 0 && tmp == NULL ) {
         tmp = global_config->sources->url[i];
@@ -1739,6 +1760,8 @@ void preferences_exclude_add(GtkWidget *w, gpointer user_data)
   GtkEntry *new_exclude_entry = GTK_ENTRY(lookup_widget(w,"new_exclude_entry"));
   const gchar *new_exclude = gtk_entry_get_text(new_exclude_entry);
   char **tmp_realloc = NULL;
+  GList *columns;
+  guint i;
 
   if ( new_exclude == NULL || strlen(new_exclude) < 1 ) return;
 
@@ -1753,7 +1776,17 @@ void preferences_exclude_add(GtkWidget *w, gpointer user_data)
   }
 
   gtk_entry_set_text(new_exclude_entry,"");
+
   clear_treeview(exclude_tree);
+  columns = gtk_tree_view_get_columns(exclude_tree);
+  for (i = 0; i < g_list_length(columns); i++ ) {
+    GtkTreeViewColumn *column = GTK_TREE_VIEW_COLUMN(g_list_nth_data(columns,i));
+    if ( column != NULL ) {
+      gtk_tree_view_remove_column(exclude_tree,column);
+    }
+  }
+  g_list_free(columns);
+
   build_exclude_treeviewlist((GtkWidget *)exclude_tree,global_config);
 
 }
@@ -1771,11 +1804,21 @@ void preferences_exclude_remove(GtkWidget *w, gpointer user_data)
     guint i = 0;
     gchar *tmp = NULL;
     gchar *exclude;
+    GList *columns;
 
     gtk_tree_model_get(model,&iter,0,&exclude, -1 );
 
     clear_treeview(exclude_tree);
+    columns = gtk_tree_view_get_columns(exclude_tree);
+    for (i = 0; i < g_list_length(columns); i++ ) {
+      GtkTreeViewColumn *column = GTK_TREE_VIEW_COLUMN(g_list_nth_data(columns,i));
+      if ( column != NULL ) {
+        gtk_tree_view_remove_column(exclude_tree,column);
+      }
+    }
+    g_list_free(columns);
 
+    i = 0;
     while (i < global_config->exclude_list->count) {
       if ( strcmp(exclude,global_config->exclude_list->excludes[i]) == 0 && tmp == NULL ) {
         tmp = global_config->exclude_list->excludes[i];
