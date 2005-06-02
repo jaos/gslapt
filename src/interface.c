@@ -694,7 +694,6 @@ create_gslapt (void)
   gtk_container_add (GTK_CONTAINER (pkg_info_notebook), scrolledwindow20);
   gtk_container_set_border_width (GTK_CONTAINER (scrolledwindow20), 12);
   gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolledwindow20), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
-  gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scrolledwindow20), GTK_SHADOW_IN);
 
   viewport1 = gtk_viewport_new (NULL, NULL);
   gtk_widget_set_name (viewport1, "viewport1");
@@ -915,7 +914,6 @@ create_gslapt (void)
   gtk_container_add (GTK_CONTAINER (pkg_info_notebook), scrolledwindow21);
   gtk_container_set_border_width (GTK_CONTAINER (scrolledwindow21), 12);
   gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolledwindow21), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
-  gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scrolledwindow21), GTK_SHADOW_IN);
 
   viewport2 = gtk_viewport_new (NULL, NULL);
   gtk_widget_set_name (viewport2, "viewport2");
