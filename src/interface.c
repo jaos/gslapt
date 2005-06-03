@@ -722,7 +722,7 @@ create_gslapt (void)
   gtk_label_set_use_markup (GTK_LABEL (label226), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label226), 0, 0.5);
 
-  pkg_info_name = gtk_label_new (_("No package is selected.\n"));
+  pkg_info_name = gtk_label_new (_("No package is selected."));
   gtk_widget_set_name (pkg_info_name, "pkg_info_name");
   gtk_widget_show (pkg_info_name);
   gtk_table_attach (GTK_TABLE (table2), pkg_info_name, 1, 2, 0, 1,
