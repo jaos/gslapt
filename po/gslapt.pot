@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gslapt 0.3.1\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2005-06-03 00:14+0500\n"
+"PO-Revision-Date: 2005-06-03 13:46+0500\n"
 "Last-Translator: Jason Woodward <woodwardj@jaos.org>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -104,7 +104,7 @@ msgstr ""
 msgid "Install/Upgrade package"
 msgstr ""
 
-msgid "Installed Size"
+msgid "Installed Size:"
 msgstr ""
 
 msgid "Installed"
@@ -176,7 +176,7 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-msgid "Size"
+msgid "Size:"
 msgstr ""
 
 msgid "Source"
@@ -325,13 +325,10 @@ msgstr ""
 msgid "<b>Description:</b>"
 msgstr ""
 
-msgid "<b>Installed Size:</b>"
-msgstr ""
-
 msgid "<b>Location:</b>"
 msgstr ""
 
-msgid "<b>Source:</b>"
+msgid "Source:"
 msgstr ""
 
 msgid "<b>Name:</b>"
@@ -344,6 +341,9 @@ msgid "<b>Size:</b>"
 msgstr ""
 
 msgid "<b>Suggests:</b>"
+msgstr ""
+
+msgid "Version:"
 msgstr ""
 
 msgid "<b>Version:</b>"
@@ -407,5 +407,20 @@ msgid "To be Downgraded"
 msgstr ""
 
 msgid "Icon Legend"
+msgstr ""
+
+msgid "Completed actions"
+msgstr ""
+
+msgid "Successfully executed all actions."
+msgstr ""
+
+msgid "<b>Installed Version</b>"
+msgstr ""
+
+msgid "<b>Latest Available Version</b>"
+msgstr ""
+
+msgid "N/A"
 msgstr ""
 

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gslapt 0.3.1\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2005-06-03 00:14+0500\n"
+"PO-Revision-Date: 2005-06-03 13:46+0500\n"
 "Last-Translator: Hakan Lindqvist <tfy00hlt@cs.umu.se>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -104,8 +104,8 @@ msgstr "Installera"
 msgid "Install/Upgrade package"
 msgstr "Installera/Uppgradera paket"
 
-msgid "Installed Size"
-msgstr "Storlek som installerad"
+msgid "Installed Size:"
+msgstr "Storlek som installerad:"
 
 msgid "Installed"
 msgstr "Installerad"
@@ -176,8 +176,8 @@ msgstr "Sök efter uttrycket"
 msgid "Search"
 msgstr "Sök"
 
-msgid "Size"
-msgstr "Storlek"
+msgid "Size:"
+msgstr "Storlek:"
 
 msgid "Source"
 msgstr "Källa"
@@ -327,14 +327,11 @@ msgstr "<b>Konflikter:</b>"
 msgid "<b>Description:</b>"
 msgstr "<b>Beskrivning</b>"
 
-msgid "<b>Installed Size:</b>"
-msgstr "<b>Storlek som installerad:</b>"
-
 msgid "<b>Location:</b>"
 msgstr "<b>Lokalisering:</b>"
 
-msgid "<b>Source:</b>"
-msgstr "<b>Spegling:</b>"
+msgid "Source:"
+msgstr "Spegling:"
 
 msgid "<b>Name:</b>"
 msgstr "<b>Namn:<b>"
@@ -347,6 +344,9 @@ msgstr "<b>Storlek:</b>"
 
 msgid "<b>Suggests:</b>"
 msgstr "<b>Föreslår:</b>"
+
+msgid "Version:"
+msgstr "Version:"
 
 msgid "<b>Version:</b>"
 msgstr "<b>Version:</b>"

@@ -642,36 +642,42 @@ static void fillin_pkg_details(pkg_info_t *pkg)
   extern struct pkg_list *all;
   extern struct pkg_list *installed;
   extern transaction_t *trans;
-  gchar size_c[20],size_u[20],*short_desc;
+  gchar *short_desc;
   GtkTextBuffer *pkg_full_desc;
+  pkg_info_t *latest_pkg = get_newest_pkg(all,pkg->name);
+  pkg_info_t *installed_pkg = get_newest_pkg(installed,pkg->name);
 
+  /* set package details */
   gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_name")),pkg->name);
   gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_location")),pkg->location);
   gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_version")),pkg->version);
-  if ( pkg->mirror != NULL ) {
-    gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_mirror")),pkg->mirror);
+  short_desc = gen_short_pkg_description(pkg);
+  if (short_desc != NULL) {
+    gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_description")),short_desc);
+    free(short_desc);
+  } else {
+    gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_description")),"");
   }
-  sprintf(size_c,"%d K",pkg->size_c);
-  sprintf(size_u,"%d K",pkg->size_u);
-  gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_size")),size_c);
-  gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_installed_size")),size_u);
-
+  /* dependency information tab */
   if ( pkg->required != NULL ) {
     gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_required")),pkg->required);
+  } else {
+    gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_required")),"");
   }
   if ( pkg->conflicts != NULL ) {
     gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_conflicts")),pkg->conflicts);
+  } else {
+    gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_conflicts")),"");
   }
   if ( pkg->suggests != NULL ) {
     gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_suggests")),pkg->suggests);
+  } else {
+    gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_suggests")),"");
   }
-
-  short_desc = gen_short_pkg_description(pkg);
-  gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_description")),short_desc);
-  free(short_desc);
-
+  /* description tab */
   pkg_full_desc = gtk_text_view_get_buffer(GTK_TEXT_VIEW(lookup_widget(gslapt,"pkg_description_textview")));
   gtk_text_buffer_set_text(pkg_full_desc,pkg->description,-1);
+
 
   /* set status */
   if ((trans->exclude_pkgs->pkg_count > 0 &&
@@ -699,6 +705,34 @@ static void fillin_pkg_details(pkg_info_t *pkg)
   } else {
     gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_status")),(gchar *)_("Not Installed"));
   }
+
+  /* set installed info */
+  if (installed_pkg != NULL) {
+    gchar size_u[20];
+    sprintf(size_u,"%d K",installed_pkg->size_u);
+    gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_installed_installed_size")),size_u);
+    gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_installed_version")),installed_pkg->version);
+  } else {
+    gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_installed_installed_size")),"");
+    gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_installed_version")),"");
+  }
+
+  /* set latest available info */
+  if (latest_pkg != NULL) {
+    gchar latest_size_c[20],latest_size_u[20];
+    sprintf(latest_size_c,"%d K",latest_pkg->size_c);
+    sprintf(latest_size_u,"%d K",latest_pkg->size_u);
+    gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_available_version")),latest_pkg->version);
+    gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_available_source")),latest_pkg->mirror);
+    gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_available_size")),latest_size_c);
+    gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_available_installed_size")),latest_size_u);
+  } else {
+    gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_available_version")),"");
+    gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_available_source")),"");
+    gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_available_size")),"");
+    gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_available_installed_size")),"");
+  }
+
 }
 
 static void clear_treeview(GtkTreeView *treeview)
@@ -1083,7 +1117,11 @@ static void lhandle_transaction(GtkWidget *w)
 {
   GtkCheckButton *dl_only_checkbutton;
   gboolean dl_only = FALSE;
+  extern GtkWidget *gslapt;
   extern transaction_t *trans;
+  extern struct pkg_list *installed;
+  struct pkg_list *installed_ptr;
+  GdkCursor *c;
 
   gdk_threads_enter();
   lock_toolbar_buttons();
@@ -1125,13 +1163,29 @@ static void lhandle_transaction(GtkWidget *w)
     return;
   }
 
+  /* set busy cursor */
+  c = gdk_cursor_new(GDK_WATCH);
+  gdk_threads_enter();
+  clear_execute_active();
+  gdk_window_set_cursor(gslapt->window,c);
+  gdk_flush();
+  gdk_threads_leave();
+  gdk_cursor_destroy(c);
+
   free_transaction(trans);
   init_transaction(trans);
+  /* rebuild the installed list */
+  installed_ptr = installed;
+  installed = get_installed_pkgs();
+  free_pkg_list(installed_ptr);
 
   gdk_threads_enter();
-  unlock_toolbar_buttons();
+  /* reset cursor */
+  gdk_window_set_cursor(gslapt->window,NULL);
+  gdk_flush();
   reset_pkg_view_status();
-  clear_execute_active();
+  unlock_toolbar_buttons();
+  notify((gchar *)_("Completed actions"),(gchar *)_("Successfully executed all actions."));
   gdk_threads_leave();
 
 }

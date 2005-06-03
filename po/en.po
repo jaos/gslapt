@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gslapt 0.3.1\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-20 16:24-0500\n"
-"PO-Revision-Date: 2005-06-03 00:14+0500\n"
+"PO-Revision-Date: 2005-06-03 13:46+0500\n"
 "Last-Translator: Jason Woodward <woodwardj@jaos.org>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -104,8 +104,8 @@ msgstr "Install"
 msgid "Install/Upgrade package"
 msgstr "Install/Upgrade package"
 
-msgid "Installed Size"
-msgstr "Installed Size"
+msgid "Installed Size:"
+msgstr "Installed Size:"
 
 msgid "Installed"
 msgstr "Installed"
@@ -173,8 +173,8 @@ msgstr "Search for expression"
 msgid "Search"
 msgstr "Search"
 
-msgid "Size"
-msgstr "Size"
+msgid "Size:"
+msgstr "Size:"
 
 msgid "Source"
 msgstr "Source"
@@ -324,14 +324,11 @@ msgstr "<b>Conflicts:</b>"
 msgid "<b>Description:</b>"
 msgstr "<b>Description:</b>"
 
-msgid "<b>Installed Size:</b>"
-msgstr "<b>Installed Size:</b>"
-
 msgid "<b>Location:</b>"
 msgstr "<b>Location:</b>"
 
-msgid "<b>Source:</b>"
-msgstr "<b>Source:</b>"
+msgid "Source:"
+msgstr "Source:"
 
 msgid "<b>Name:</b>"
 msgstr "<b>Name:</b>"
@@ -344,6 +341,9 @@ msgstr "<b>Size:</b>"
 
 msgid "<b>Suggests:</b>"
 msgstr "<b>Suggests:</b>"
+
+msgid "Version:"
+msgstr "Version:"
 
 msgid "<b>Version:</b>"
 msgstr "<b>Version:</b>"

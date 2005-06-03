@@ -1,15 +1,24 @@
 
 0.3.1 June 03, 2005
- * set busy cursor when rebuilding treeviews, and made most dialogs (except helps) modals
- * fixed duplicate column bug in adding/removing sources and excludes in preferences
+ * regenerated list of installed packages after install/remove/upgrade is
+   complete to correctly display post execute status in treeview
+ * added information in package info notebook about latest available and
+   installed versions
+ * added notification when install/remove/upgrade is complete
+ * set busy cursor when rebuilding treeviews, and made most dialogs (except
+   helps) modals
+ * fixed duplicate column bug in adding/removing sources and excludes in
+   preferences
  * added icon legend to the help menu
  * added status field to package information tab
  * added german translation by Sebastian Jauch
  * translation updates
  * added missing pkg_action_reinstall.png
  * set status icon for downgrades correctly
- * unmark correctly sets status column so status sorting after unmark works as expected
- * removed duplicate code to setup treeview columns for package listing and search listing
+ * unmark correctly sets status column so status sorting after unmark works as
+   expected
+ * removed duplicate code to setup treeview columns for package listing and
+   search listing
  * added reset_pkg_view_status() to reset status of package treeview
    rather than perform costly clear and repopulate treeview
  * properly mark dependencies for install/upgrade/remove
