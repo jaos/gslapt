@@ -1,5 +1,7 @@
 
 0.3.1 June 03, 2005
+ * updated marking and unmarking upgrades so that installed versions of
+   upgrades are marked and unmarked appropriately
  * regenerated list of installed packages after install/remove/upgrade is
    complete to correctly display post execute status in treeview
  * added information in package info notebook about latest available and

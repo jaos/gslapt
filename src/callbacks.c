@@ -271,20 +271,49 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
             g_free(rstatus);
           }
         }else{
-          gchar *status = g_strdup_printf("u%s",pkg->name);
           add_upgrade_to_transaction(trans,installed_pkg,pkg);
           if (global_config->re_install == TRUE) {
             if (ver_cmp == 0) {
+              gchar *status = g_strdup_printf("u%s",pkg->name);
               gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_reinstall.png"),-1);
+              g_free(status);
             } else {
+              gchar *status = g_strdup_printf("u%s",pkg->name);
               gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_downgrade.png"),-1);
+              g_free(status);
+              if (set_iter_to_pkg(model,&iter,installed_pkg)) {
+                gchar *ustatus = g_strdup_printf("u%s",installed_pkg->name);
+                gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_downgrade.png"),-1);
+                gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_COLUMN,ustatus,-1);
+                g_free(ustatus);
+              }
             }
           } else {
+            pkg_info_t *inst_avail = get_exact_pkg(all,installed_pkg->name,installed_pkg->version);
+            gchar *status = g_strdup_printf("u%s",pkg->name);
             gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_upgrade.png"),-1);
+            gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_COLUMN,status,-1);
+            g_free(status);
+            if (set_iter_to_pkg(model,&iter,pkg)) {
+              gchar *ustatus = g_strdup_printf("u%s",pkg->name);
+              gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_upgrade.png"),-1);
+              gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_COLUMN,ustatus,-1);
+              g_free(ustatus);
+            }
+            if (set_iter_to_pkg(model,&iter,installed_pkg)) {
+              gchar *ustatus = g_strdup_printf("u%s",installed_pkg->name);
+              gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_upgrade.png"),-1);
+              gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_COLUMN,ustatus,-1);
+              g_free(ustatus);
+            }
+            if (set_iter_to_pkg(model,&iter,inst_avail)) {
+              gchar *ustatus = g_strdup_printf("u%s",inst_avail->name);
+              gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_upgrade.png"),-1);
+              gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_COLUMN,ustatus,-1);
+              g_free(ustatus);
+            }
           }
-          gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_COLUMN,status,-1);
           set_execute_active();
-          g_free(status);
         }
 
       }else{
@@ -2228,7 +2257,7 @@ void unmark_package(GtkWidget *gslapt, gpointer user_data)
   extern transaction_t *trans;
   extern struct pkg_list *installed;
   extern struct pkg_list *all;
-  guint is_installed = 0;
+  guint is_installed = 0,i;
 
   treeview = GTK_TREE_VIEW(lookup_widget(gslapt,"pkg_listing_treeview"));
   selection = gtk_tree_view_get_selection(treeview);
@@ -2273,14 +2302,10 @@ void unmark_package(GtkWidget *gslapt, gpointer user_data)
       g_free(pkg_location);
       return;
     }
+    g_free(pkg_name);
+    g_free(pkg_version);
+    g_free(pkg_location);
 
-    trans = remove_from_transaction(trans,pkg);
-    if (trans->install_pkgs->pkg_count == 0 &&
-        trans->remove_pkgs->pkg_count == 0 &&
-        trans->upgrade_pkgs->pkg_count == 0
-    ) {
-      clear_execute_active();
-    }
     if (is_installed == 1) {
       gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_installed.png"),-1);
       status = g_strdup_printf("a%s",pkg->name);
@@ -2291,9 +2316,33 @@ void unmark_package(GtkWidget *gslapt, gpointer user_data)
     gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_COLUMN,status,-1);
     g_free(status);
 
-    g_free(pkg_name);
-    g_free(pkg_version);
-    g_free(pkg_location);
+    /* clear the installed version as well if this was an upgrade */
+    for (i = 0; i < trans->upgrade_pkgs->pkg_count; ++i) {
+      if (strcmp(trans->upgrade_pkgs->pkgs[i]->installed->name,pkg->name) == 0) {
+        pkg_info_t *avail_pkg = get_exact_pkg(all,
+          trans->upgrade_pkgs->pkgs[i]->installed->name,
+          trans->upgrade_pkgs->pkgs[i]->installed->version
+        );
+        if (avail_pkg == NULL) {
+          continue;
+        }
+        if (set_iter_to_pkg(model,&iter,avail_pkg)) {
+          gchar *istatus = g_strdup_printf("i%s",avail_pkg->name);
+          gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_installed.png"),-1);
+          gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_COLUMN,istatus,-1);
+          g_free(istatus);
+        }
+      }
+    }
+
+    trans = remove_from_transaction(trans,pkg);
+    if (trans->install_pkgs->pkg_count == 0 &&
+        trans->remove_pkgs->pkg_count == 0 &&
+        trans->upgrade_pkgs->pkg_count == 0
+    ) {
+      clear_execute_active();
+    }
+
   }
 
 }
