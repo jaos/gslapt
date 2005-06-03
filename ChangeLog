@@ -1,5 +1,6 @@
 
-0.3.1 June 02, 2005
+0.3.1 June 03, 2005
+ * set busy cursor when rebuilding treeviews, and made most dialogs (except helps) modals
  * fixed duplicate column bug in adding/removing sources and excludes in preferences
  * added icon legend to the help menu
  * added status field to package information tab

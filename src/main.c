@@ -35,6 +35,7 @@ transaction_t *trans = &tran;
 int main (int argc, char *argv[]) {
   GtkStatusbar *bar;
   guint default_context_id;
+  GdkCursor *c;
 
 #ifdef ENABLE_NLS
   bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
@@ -54,6 +55,11 @@ int main (int argc, char *argv[]) {
   gslapt = (GtkWidget *)create_gslapt ();
   gtk_widget_show (gslapt);
 
+  c = gdk_cursor_new(GDK_WATCH);
+  gdk_window_set_cursor(gslapt->window,c);
+  gdk_flush();
+  gdk_cursor_destroy(c);
+
   global_config = read_rc_config(RC_LOCATION);
   working_dir_init(global_config);
   chdir(global_config->working_dir);
@@ -65,8 +71,8 @@ int main (int argc, char *argv[]) {
 
   build_treeview_columns(
      (GtkWidget *)lookup_widget(gslapt,"pkg_listing_treeview"));
-  build_package_treeviewlist(
-     (GtkWidget *)lookup_widget(gslapt,"pkg_listing_treeview"));
+  g_thread_create((GThreadFunc)build_package_treeviewlist,
+     (GtkWidget *)lookup_widget(gslapt,"pkg_listing_treeview"),FALSE,NULL);
 
   bar = GTK_STATUSBAR(lookup_widget(gslapt,"bottom_statusbar"));
   default_context_id = gtk_statusbar_get_context_id(bar,"default");

@@ -1149,6 +1149,7 @@ create_transaction_window (void)
   gtk_container_set_border_width (GTK_CONTAINER (transaction_window), 12);
   gtk_window_set_title (GTK_WINDOW (transaction_window), _("Summary"));
   gtk_window_set_position (GTK_WINDOW (transaction_window), GTK_WIN_POS_CENTER);
+  gtk_window_set_modal (GTK_WINDOW (transaction_window), TRUE);
   gtk_window_set_default_size (GTK_WINDOW (transaction_window), 200, 400);
   transaction_window_icon_pixbuf = create_pixbuf ("gslapt.png");
   if (transaction_window_icon_pixbuf)
@@ -1322,6 +1323,7 @@ create_progress_window (void)
   gtk_container_set_border_width (GTK_CONTAINER (progress_window), 12);
   gtk_window_set_title (GTK_WINDOW (progress_window), _("working"));
   gtk_window_set_position (GTK_WINDOW (progress_window), GTK_WIN_POS_CENTER);
+  gtk_window_set_modal (GTK_WINDOW (progress_window), TRUE);
   progress_window_icon_pixbuf = create_pixbuf ("gslapt.png");
   if (progress_window_icon_pixbuf)
     {
@@ -1498,6 +1500,7 @@ create_notification (void)
   gtk_widget_set_name (notification, "notification");
   gtk_container_set_border_width (GTK_CONTAINER (notification), 2);
   gtk_window_set_position (GTK_WINDOW (notification), GTK_WIN_POS_CENTER);
+  gtk_window_set_modal (GTK_WINDOW (notification), TRUE);
   notification_icon_pixbuf = create_pixbuf ("gslapt.png");
   if (notification_icon_pixbuf)
     {

@@ -384,6 +384,7 @@ void build_package_treeviewlist(GtkWidget *treeview)
   extern struct pkg_list *all;
   extern struct pkg_list *installed;
   extern transaction_t *trans;
+  extern GtkWidget *gslapt;
 
   store = gtk_list_store_new (
     NUMBER_OF_COLUMNS,
@@ -475,6 +476,7 @@ void build_package_treeviewlist(GtkWidget *treeview)
 
   gtk_tree_view_set_model (GTK_TREE_VIEW(treeview),GTK_TREE_MODEL(store));
 
+  gdk_window_set_cursor(gslapt->window,NULL);
 }
 
 
@@ -998,6 +1000,11 @@ static void rebuild_treeviews(void)
   extern struct pkg_list *installed;
   extern struct pkg_list *all;
   struct pkg_list *all_ptr,*installed_ptr;
+  GdkCursor *c = gdk_cursor_new(GDK_WATCH);
+
+  gdk_window_set_cursor(gslapt->window,c);
+  gdk_flush();
+  gdk_cursor_destroy(c);
 
   installed_ptr = installed;
   all_ptr = all;
