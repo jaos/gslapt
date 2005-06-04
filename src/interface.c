@@ -815,12 +815,13 @@ create_gslapt (void)
   gtk_label_set_use_markup (GTK_LABEL (label273), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label273), 0, 0.5);
 
-  pkg_info_version = gtk_label_new (_("label274"));
+  pkg_info_version = gtk_label_new ("");
   gtk_widget_set_name (pkg_info_version, "pkg_info_version");
   gtk_widget_show (pkg_info_version);
   gtk_table_attach (GTK_TABLE (table2), pkg_info_version, 1, 2, 4, 5,
                     (GtkAttachOptions) (GTK_FILL),
                     (GtkAttachOptions) (0), 0, 0);
+  gtk_label_set_use_markup (GTK_LABEL (pkg_info_version), TRUE);
   gtk_misc_set_alignment (GTK_MISC (pkg_info_version), 0, 0.5);
 
   vbox67 = gtk_vbox_new (FALSE, 0);
