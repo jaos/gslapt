@@ -1669,6 +1669,7 @@ static gboolean download_packages(void)
         + strlen("-") + strlen(trans->install_pkgs->pkgs[i]->version)
         + strlen(".") + strlen(".tgz");
     gchar *msg = slapt_malloc(msg_len * sizeof *msg);
+    gchar dl_size[20];
 
     snprintf(msg,
       strlen(trans->install_pkgs->pkgs[i]->name)
@@ -1679,12 +1680,15 @@ static gboolean download_packages(void)
       trans->install_pkgs->pkgs[i]->name,
       trans->install_pkgs->pkgs[i]->version
     );
+    sprintf(dl_size,"%d K",trans->install_pkgs->pkgs[i]->size_c);
 
     gdk_threads_enter();
-    gtk_label_set_text(progress_pkg_desc,trans->install_pkgs->pkgs[i]->description);
+    gtk_label_set_text(progress_pkg_desc,trans->install_pkgs->pkgs[i]->mirror);
     gtk_label_set_text(progress_action_label,(gchar *)_("Downloading..."));
     gtk_label_set_text(progress_message_label,msg);
     gtk_progress_bar_set_fraction(p_bar,((count * 100)/pkgs_to_dl)/100);
+    gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(lookup_widget(progress_window,"dl_progress")),0.0);
+    gtk_progress_bar_set_text(GTK_PROGRESS_BAR(lookup_widget(progress_window,"dl_progress")),dl_size);
     gdk_threads_leave();
 
     free(msg);
@@ -1712,6 +1716,7 @@ static gboolean download_packages(void)
         + strlen("-") + strlen(trans->upgrade_pkgs->pkgs[i]->upgrade->version)
         + strlen(".") + strlen(".tgz");
     gchar *msg = slapt_malloc( sizeof *msg * msg_len);
+    gchar dl_size[20];
 
     snprintf(msg,
       strlen(trans->upgrade_pkgs->pkgs[i]->upgrade->name)
@@ -1722,12 +1727,15 @@ static gboolean download_packages(void)
       trans->upgrade_pkgs->pkgs[i]->upgrade->name,
       trans->upgrade_pkgs->pkgs[i]->upgrade->version
     );
+    sprintf(dl_size,"%d K",trans->upgrade_pkgs->pkgs[i]->upgrade->size_c);
 
     gdk_threads_enter();
-    gtk_label_set_text(progress_pkg_desc,trans->upgrade_pkgs->pkgs[i]->upgrade->description);
+    gtk_label_set_text(progress_pkg_desc,trans->upgrade_pkgs->pkgs[i]->upgrade->mirror);
     gtk_label_set_text(progress_action_label,(gchar *)_("Downloading..."));
     gtk_label_set_text(progress_message_label,msg);
     gtk_progress_bar_set_fraction(p_bar,((count * 100)/pkgs_to_dl)/100);
+    gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(lookup_widget(progress_window,"dl_progress")),0.0);
+    gtk_progress_bar_set_text(GTK_PROGRESS_BAR(lookup_widget(progress_window,"dl_progress")),dl_size);
     gdk_threads_leave();
 
     free(msg);

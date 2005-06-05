@@ -1,5 +1,6 @@
 
 0.3.2 June 05, 2005
+ * updated download dialog to show mirror and package download size
  * added notify if unable to write preferences (updated translations)
  * downloads can now be cancelled
 
