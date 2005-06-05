@@ -1957,7 +1957,7 @@ void preferences_on_ok_clicked(GtkWidget *w, gpointer user_data)
   ] = '\0';
 
   if ( write_preferences() == FALSE ) {
-    fprintf(stderr,"Failed to commit preferences\n");
+    notify((gchar *)_("Error"),(gchar *)_("Failed to commit preferences"));
     on_gslapt_destroy(NULL,NULL);
   }
 

@@ -5,10 +5,10 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: gslapt 0.3.1\n"
+"Project-Id-Version: gslapt 0.3.2\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2005-06-03 13:46+0500\n"
+"PO-Revision-Date: 2005-06-05 16:28+0500\n"
 "Last-Translator: Sebastian Jauch <stellarboy653-minislack@yahoo.de>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -411,4 +411,7 @@ msgstr "To be Downgraded"
 
 msgid "Icon Legend"
 msgstr "Icon Legend"
+
+msgid "Failed to commit preferences"
+msgstr "Failed to commit preferences"
 
