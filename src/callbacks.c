@@ -1138,7 +1138,6 @@ int gtk_progress_callback(void *data, double dltotal, double dlnow,
   double perc = 1.0;
 
   if (_cancelled == 1) {
-    fprintf(stderr,"gtk_progress_callback cancelled\n");
     return -1;
   }
 
@@ -2705,7 +2704,6 @@ void open_icon_legend (GtkObject *object, gpointer user_data)
 
 void on_button_cancel_clicked(GtkButton *button, gpointer user_data)
 {
-  fprintf(stderr,"on_button_cancel_clicked called\n");
   _cancelled = 1;
 }
 
