@@ -2273,6 +2273,8 @@ static void pkg_action_popup_menu(GtkTreeView *treeview, gpointer data)
       is_exclude = 1;
     }
 
+  } else {
+    return;
   }
 
   menu = GTK_MENU(gtk_menu_new ());
