@@ -1,4 +1,7 @@
 
+0.3.2 June 05, 2005
+ * downloads can now be cancelled
+
 0.3.1 June 04, 2005
  * updated marking and unmarking upgrades so that installed versions of
    upgrades are marked and unmarked appropriately

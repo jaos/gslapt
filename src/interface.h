@@ -5,7 +5,8 @@
 GtkWidget* create_window_preferences (void);
 GtkWidget* create_gslapt (void);
 GtkWidget* create_transaction_window (void);
-GtkWidget* create_progress_window (void);
+GtkWidget* create_dl_progress_window (void);
 GtkWidget* create_about (void);
 GtkWidget* create_notification (void);
 GtkWidget* create_icon_legend (void);
+GtkWidget* create_pkgtools_progress_window (void);

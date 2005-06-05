@@ -36,6 +36,7 @@ static int set_iter_to_pkg(GtkTreeModel *model, GtkTreeIter *iter,
                            pkg_info_t *pkg);
 static void reset_pkg_view_status(void);
 static int lsearch_upgrade_transaction(transaction_t *tran,pkg_info_t *pkg);
+static guint _cancelled = 0;
 
 void on_gslapt_destroy (GtkObject *object, gpointer user_data) 
 {
@@ -786,7 +787,7 @@ static void get_package_data(void)
   gchar *getline_buffer = NULL;
   FILE *pkg_list_fh;
 
-  progress_window = create_progress_window();
+  progress_window = create_dl_progress_window();
   gtk_window_set_title(GTK_WINDOW(progress_window),(gchar *)_("Progress"));
   p_bar = GTK_PROGRESS_BAR(lookup_widget(progress_window,"progress_progressbar"));
   progress_action_label = GTK_LABEL(lookup_widget(progress_window,"progress_action"));
@@ -810,6 +811,17 @@ static void get_package_data(void)
 
   dl_files = (global_config->sources->count * 3.0 );
 
+  if (_cancelled == 1) {
+    _cancelled = 0;
+    fclose(pkg_list_fh_tmp);
+    gdk_threads_enter();
+    gslapt_clear_status(context_id);
+    gtk_widget_destroy(progress_window);
+    unlock_toolbar_buttons();
+    gdk_threads_leave();
+    return;
+  }
+
   /* go through each package source and download the meta data */
   for (i = 0; i < global_config->sources->count; i++) {
     FILE *tmp_pkg_f,*tmp_patch_f,*tmp_checksum_f;
@@ -821,6 +833,17 @@ static void get_package_data(void)
     gchar *checksum_head,*checksum_local_head;
     guint a;
 
+    if (_cancelled == 1) {
+      _cancelled = 0;
+      fclose(pkg_list_fh_tmp);
+      gdk_threads_enter();
+      gslapt_clear_status(context_id);
+      gtk_widget_destroy(progress_window);
+      unlock_toolbar_buttons();
+      gdk_threads_leave();
+      return;
+    }
+
     gdk_threads_enter();
     gtk_label_set_text(progress_action_label,global_config->sources->url[i]);
     gtk_label_set_text(progress_message_label,PKG_LIST);
@@ -830,6 +853,20 @@ static void get_package_data(void)
     pkg_filename = gen_filename_from_url(global_config->sources->url[i],PKG_LIST);
     pkg_head = head_mirror_data(global_config->sources->url[i],PKG_LIST);
     pkg_local_head = read_head_cache(pkg_filename);
+
+    if (_cancelled == 1) {
+      _cancelled = 0;
+      fclose(pkg_list_fh_tmp);
+      free(pkg_head);
+      free(pkg_local_head);
+      free(pkg_filename);
+      gdk_threads_enter();
+      gslapt_clear_status(context_id);
+      gtk_widget_destroy(progress_window);
+      unlock_toolbar_buttons();
+      gdk_threads_leave();
+      return;
+    }
 
     /* open for reading if cached, otherwise write it from the downloaded data */
     if ( pkg_head != NULL && pkg_local_head != NULL && strcmp(pkg_head,pkg_local_head) == 0) {
@@ -853,7 +890,12 @@ static void get_package_data(void)
         fclose(pkg_list_fh_tmp);
         gdk_threads_enter();
         gtk_widget_destroy(progress_window);
-        notify((gchar *)_("Source download failed"),global_config->sources->url[i]);
+        if (_cancelled == 1) {
+          unlock_toolbar_buttons();
+          _cancelled = 0;
+        } else {
+          notify((gchar *)_("Source download failed"),global_config->sources->url[i]);
+        }
         gslapt_clear_status(context_id);
         unlock_toolbar_buttons();
         gdk_threads_leave();
@@ -896,6 +938,20 @@ static void get_package_data(void)
     patch_head = head_mirror_data(global_config->sources->url[i],PATCHES_LIST);
     patch_local_head = read_head_cache(patch_filename);
 
+    if (_cancelled == 1) {
+      _cancelled = 0;
+      fclose(pkg_list_fh_tmp);
+      free(patch_head);
+      free(patch_local_head);
+      free(patch_filename);
+      gdk_threads_enter();
+      gslapt_clear_status(context_id);
+      gtk_widget_destroy(progress_window);
+      unlock_toolbar_buttons();
+      gdk_threads_leave();
+      return;
+    }
+
     /* open for reading if cached, otherwise write it from the downloaded data */
     if ( patch_head != NULL && patch_local_head != NULL && strcmp(patch_head,patch_local_head) == 0) {
 
@@ -912,6 +968,21 @@ static void get_package_data(void)
       }else{
         /* we don't care if the patch fails, for example current doesn't have patches */
         clear_head_cache(patch_filename);
+        if (_cancelled == 1) {
+          _cancelled = 0;
+          fclose(pkg_list_fh_tmp);
+          free(patch_head);
+          free(patch_local_head);
+          free(patch_filename);
+          fclose(tmp_patch_f);
+          gdk_threads_enter();
+          gslapt_clear_status(context_id);
+          gtk_widget_destroy(progress_window);
+          unlock_toolbar_buttons();
+          gdk_threads_leave();
+          return;
+        }
+
       }
     }
     /* if all is good, write it */
@@ -933,6 +1004,20 @@ static void get_package_data(void)
     checksum_head = head_mirror_data(global_config->sources->url[i],CHECKSUM_FILE);
     checksum_local_head = read_head_cache(checksum_filename);
 
+    if (_cancelled == 1) {
+      _cancelled = 0;
+      fclose(pkg_list_fh_tmp);
+      free(checksum_head);
+      free(checksum_local_head);
+      free(checksum_filename);
+      gdk_threads_enter();
+      gslapt_clear_status(context_id);
+      gtk_widget_destroy(progress_window);
+      unlock_toolbar_buttons();
+      gdk_threads_leave();
+      return;
+    }
+
     /* open for reading if cached, otherwise write it from the downloaded data */
     if ( checksum_head != NULL && checksum_local_head != NULL && strcmp(checksum_head,checksum_local_head) == 0) {
       if ( (tmp_checksum_f = open_file(checksum_filename,"r")) == NULL ) exit(1);
@@ -952,7 +1037,12 @@ static void get_package_data(void)
         fclose(pkg_list_fh_tmp);
         gdk_threads_enter();
         gtk_widget_destroy(progress_window);
-        notify((gchar *)_("Source download failed"),global_config->sources->url[i]);
+        if (_cancelled == 1) {
+          unlock_toolbar_buttons();
+          _cancelled = 0;
+        } else {
+          notify((gchar *)_("Source download failed"),global_config->sources->url[i]);
+        }
         gslapt_clear_status(context_id);
         unlock_toolbar_buttons();
         gdk_threads_leave();
@@ -1046,6 +1136,11 @@ int gtk_progress_callback(void *data, double dltotal, double dlnow,
   extern GtkWidget *gslapt;
   GtkProgressBar *p_bar = GTK_PROGRESS_BAR(lookup_widget(progress_window,"dl_progress"));
   double perc = 1.0;
+
+  if (_cancelled == 1) {
+    fprintf(stderr,"gtk_progress_callback cancelled\n");
+    return -1;
+  }
 
   if ( dltotal != 0.0 ) perc = ((dlnow * 100)/dltotal)/100;
 
@@ -1164,7 +1259,11 @@ static void lhandle_transaction(GtkWidget *w)
   if ( trans->install_pkgs->pkg_count > 0 || trans->upgrade_pkgs->pkg_count > 0 ) {
     if ( download_packages() == FALSE ) {
       gdk_threads_enter();
-      notify((gchar *)_("Error"),(gchar *)_("Package(s) failed to download"));
+      if (_cancelled == 1) {
+        _cancelled = 0;
+      } else {
+        notify((gchar *)_("Error"),(gchar *)_("Package(s) failed to download"));
+      }
       unlock_toolbar_buttons();
       gdk_threads_leave();
       return;
@@ -1544,7 +1643,7 @@ static gboolean download_packages(void)
   pkgs_to_dl += trans->install_pkgs->pkg_count;
   pkgs_to_dl += trans->upgrade_pkgs->pkg_count;
 
-  progress_window = create_progress_window();
+  progress_window = create_dl_progress_window();
   gtk_window_set_title(GTK_WINDOW(progress_window),(gchar *)_("Progress"));
 
   p_bar = GTK_PROGRESS_BAR(lookup_widget(progress_window,"progress_progressbar"));
@@ -1556,6 +1655,14 @@ static gboolean download_packages(void)
   gtk_widget_show(progress_window);
   context_id = gslapt_set_status((gchar *)_("Downloading packages..."));
   gdk_threads_leave();
+
+  if (_cancelled == 1) {
+    gdk_threads_enter();
+    gtk_widget_destroy(progress_window);
+    gslapt_clear_status(context_id);
+    gdk_threads_leave();
+    return FALSE;
+  }
 
   for (i = 0; i < trans->install_pkgs->pkg_count;++i) {
 
@@ -1582,6 +1689,14 @@ static gboolean download_packages(void)
     gdk_threads_leave();
 
     free(msg);
+
+    if (_cancelled == 1) {
+      gdk_threads_enter();
+      gtk_widget_destroy(progress_window);
+      gslapt_clear_status(context_id);
+      gdk_threads_leave();
+      return FALSE;
+    }
 
     if ( download_pkg(global_config,trans->install_pkgs->pkgs[i]) == -1) {
       gdk_threads_enter();
@@ -1618,6 +1733,14 @@ static gboolean download_packages(void)
 
     free(msg);
 
+    if (_cancelled == 1) {
+      gdk_threads_enter();
+      gtk_widget_destroy(progress_window);
+      gslapt_clear_status(context_id);
+      gdk_threads_leave();
+      return FALSE;
+    }
+
     if (download_pkg(global_config,trans->upgrade_pkgs->pkgs[i]->upgrade) == -1) {
       gdk_threads_enter();
       gtk_widget_destroy(progress_window);
@@ -1647,7 +1770,7 @@ static gboolean install_packages(void)
 
   /* begin removing, installing, and upgrading */
 
-  progress_window = create_progress_window();
+  progress_window = create_pkgtools_progress_window();
   gtk_window_set_title(GTK_WINDOW(progress_window),(gchar *)_("Progress"));
 
   p_bar = GTK_PROGRESS_BAR(lookup_widget(progress_window,"progress_progressbar"));
@@ -2577,5 +2700,12 @@ void open_icon_legend (GtkObject *object, gpointer user_data)
 {
   GtkWidget *icon_legend = create_icon_legend();
   gtk_widget_show(icon_legend);
+}
+
+
+void on_button_cancel_clicked(GtkButton *button, gpointer user_data)
+{
+  fprintf(stderr,"on_button_cancel_clicked called\n");
+  _cancelled = 1;
 }
 

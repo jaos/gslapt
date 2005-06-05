@@ -1439,35 +1439,37 @@ create_transaction_window (void)
 }
 
 GtkWidget*
-create_progress_window (void)
+create_dl_progress_window (void)
 {
-  GtkWidget *progress_window;
-  GdkPixbuf *progress_window_icon_pixbuf;
+  GtkWidget *dl_progress_window;
+  GdkPixbuf *dl_progress_window_icon_pixbuf;
   GtkWidget *vbox49;
   GtkWidget *progress_progressbar;
   GtkWidget *dl_progress;
   GtkWidget *progress_action;
   GtkWidget *progress_message;
   GtkWidget *progress_package_description;
+  GtkWidget *hbuttonbox2;
+  GtkWidget *button4;
 
-  progress_window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
-  gtk_widget_set_name (progress_window, "progress_window");
-  gtk_container_set_border_width (GTK_CONTAINER (progress_window), 12);
-  gtk_window_set_title (GTK_WINDOW (progress_window), _("working"));
-  gtk_window_set_position (GTK_WINDOW (progress_window), GTK_WIN_POS_CENTER);
-  gtk_window_set_modal (GTK_WINDOW (progress_window), TRUE);
-  progress_window_icon_pixbuf = create_pixbuf ("gslapt.png");
-  if (progress_window_icon_pixbuf)
+  dl_progress_window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+  gtk_widget_set_name (dl_progress_window, "dl_progress_window");
+  gtk_container_set_border_width (GTK_CONTAINER (dl_progress_window), 12);
+  gtk_window_set_title (GTK_WINDOW (dl_progress_window), _("working"));
+  gtk_window_set_position (GTK_WINDOW (dl_progress_window), GTK_WIN_POS_CENTER);
+  gtk_window_set_modal (GTK_WINDOW (dl_progress_window), TRUE);
+  dl_progress_window_icon_pixbuf = create_pixbuf ("gslapt.png");
+  if (dl_progress_window_icon_pixbuf)
     {
-      gtk_window_set_icon (GTK_WINDOW (progress_window), progress_window_icon_pixbuf);
-      gdk_pixbuf_unref (progress_window_icon_pixbuf);
+      gtk_window_set_icon (GTK_WINDOW (dl_progress_window), dl_progress_window_icon_pixbuf);
+      gdk_pixbuf_unref (dl_progress_window_icon_pixbuf);
     }
-  gtk_window_set_gravity (GTK_WINDOW (progress_window), GDK_GRAVITY_CENTER);
+  gtk_window_set_gravity (GTK_WINDOW (dl_progress_window), GDK_GRAVITY_CENTER);
 
   vbox49 = gtk_vbox_new (FALSE, 2);
   gtk_widget_set_name (vbox49, "vbox49");
   gtk_widget_show (vbox49);
-  gtk_container_add (GTK_CONTAINER (progress_window), vbox49);
+  gtk_container_add (GTK_CONTAINER (dl_progress_window), vbox49);
   gtk_container_set_border_width (GTK_CONTAINER (vbox49), 6);
 
   progress_progressbar = gtk_progress_bar_new ();
@@ -1497,20 +1499,37 @@ create_progress_window (void)
   gtk_box_pack_start (GTK_BOX (vbox49), progress_package_description, TRUE, TRUE, 6);
   gtk_misc_set_alignment (GTK_MISC (progress_package_description), 0, 0);
 
-  g_signal_connect ((gpointer) progress_window, "delete_event",
+  hbuttonbox2 = gtk_hbutton_box_new ();
+  gtk_widget_set_name (hbuttonbox2, "hbuttonbox2");
+  gtk_widget_show (hbuttonbox2);
+  gtk_box_pack_start (GTK_BOX (vbox49), hbuttonbox2, FALSE, TRUE, 0);
+  gtk_button_box_set_layout (GTK_BUTTON_BOX (hbuttonbox2), GTK_BUTTONBOX_END);
+
+  button4 = gtk_button_new_from_stock ("gtk-cancel");
+  gtk_widget_set_name (button4, "button4");
+  gtk_widget_show (button4);
+  gtk_container_add (GTK_CONTAINER (hbuttonbox2), button4);
+  GTK_WIDGET_SET_FLAGS (button4, GTK_CAN_DEFAULT);
+
+  g_signal_connect ((gpointer) dl_progress_window, "delete_event",
                     G_CALLBACK (gtk_true),
+                    NULL);
+  g_signal_connect ((gpointer) button4, "clicked",
+                    G_CALLBACK (on_button_cancel_clicked),
                     NULL);
 
   /* Store pointers to all widgets, for use by lookup_widget(). */
-  GLADE_HOOKUP_OBJECT_NO_REF (progress_window, progress_window, "progress_window");
-  GLADE_HOOKUP_OBJECT (progress_window, vbox49, "vbox49");
-  GLADE_HOOKUP_OBJECT (progress_window, progress_progressbar, "progress_progressbar");
-  GLADE_HOOKUP_OBJECT (progress_window, dl_progress, "dl_progress");
-  GLADE_HOOKUP_OBJECT (progress_window, progress_action, "progress_action");
-  GLADE_HOOKUP_OBJECT (progress_window, progress_message, "progress_message");
-  GLADE_HOOKUP_OBJECT (progress_window, progress_package_description, "progress_package_description");
+  GLADE_HOOKUP_OBJECT_NO_REF (dl_progress_window, dl_progress_window, "dl_progress_window");
+  GLADE_HOOKUP_OBJECT (dl_progress_window, vbox49, "vbox49");
+  GLADE_HOOKUP_OBJECT (dl_progress_window, progress_progressbar, "progress_progressbar");
+  GLADE_HOOKUP_OBJECT (dl_progress_window, dl_progress, "dl_progress");
+  GLADE_HOOKUP_OBJECT (dl_progress_window, progress_action, "progress_action");
+  GLADE_HOOKUP_OBJECT (dl_progress_window, progress_message, "progress_message");
+  GLADE_HOOKUP_OBJECT (dl_progress_window, progress_package_description, "progress_package_description");
+  GLADE_HOOKUP_OBJECT (dl_progress_window, hbuttonbox2, "hbuttonbox2");
+  GLADE_HOOKUP_OBJECT (dl_progress_window, button4, "button4");
 
-  return progress_window;
+  return dl_progress_window;
 }
 
 GtkWidget*
@@ -1897,5 +1916,73 @@ create_icon_legend (void)
   GLADE_HOOKUP_OBJECT (icon_legend, closebutton2, "closebutton2");
 
   return icon_legend;
+}
+
+GtkWidget*
+create_pkgtools_progress_window (void)
+{
+  GtkWidget *pkgtools_progress_window;
+  GdkPixbuf *pkgtools_progress_window_icon_pixbuf;
+  GtkWidget *vbox68;
+  GtkWidget *progress_progressbar;
+  GtkWidget *progress_action;
+  GtkWidget *progress_message;
+  GtkWidget *progress_package_description;
+
+  pkgtools_progress_window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+  gtk_widget_set_name (pkgtools_progress_window, "pkgtools_progress_window");
+  gtk_container_set_border_width (GTK_CONTAINER (pkgtools_progress_window), 12);
+  gtk_window_set_title (GTK_WINDOW (pkgtools_progress_window), _("working"));
+  gtk_window_set_position (GTK_WINDOW (pkgtools_progress_window), GTK_WIN_POS_CENTER);
+  gtk_window_set_modal (GTK_WINDOW (pkgtools_progress_window), TRUE);
+  pkgtools_progress_window_icon_pixbuf = create_pixbuf ("gslapt.png");
+  if (pkgtools_progress_window_icon_pixbuf)
+    {
+      gtk_window_set_icon (GTK_WINDOW (pkgtools_progress_window), pkgtools_progress_window_icon_pixbuf);
+      gdk_pixbuf_unref (pkgtools_progress_window_icon_pixbuf);
+    }
+  gtk_window_set_gravity (GTK_WINDOW (pkgtools_progress_window), GDK_GRAVITY_CENTER);
+
+  vbox68 = gtk_vbox_new (FALSE, 2);
+  gtk_widget_set_name (vbox68, "vbox68");
+  gtk_widget_show (vbox68);
+  gtk_container_add (GTK_CONTAINER (pkgtools_progress_window), vbox68);
+  gtk_container_set_border_width (GTK_CONTAINER (vbox68), 6);
+
+  progress_progressbar = gtk_progress_bar_new ();
+  gtk_widget_set_name (progress_progressbar, "progress_progressbar");
+  gtk_widget_show (progress_progressbar);
+  gtk_box_pack_start (GTK_BOX (vbox68), progress_progressbar, FALSE, TRUE, 0);
+  gtk_progress_bar_set_text (GTK_PROGRESS_BAR (progress_progressbar), _("total progress"));
+
+  progress_action = gtk_label_new ("");
+  gtk_widget_set_name (progress_action, "progress_action");
+  gtk_widget_show (progress_action);
+  gtk_box_pack_start (GTK_BOX (vbox68), progress_action, FALSE, FALSE, 2);
+
+  progress_message = gtk_label_new ("");
+  gtk_widget_set_name (progress_message, "progress_message");
+  gtk_widget_show (progress_message);
+  gtk_box_pack_start (GTK_BOX (vbox68), progress_message, FALSE, FALSE, 6);
+
+  progress_package_description = gtk_label_new ("");
+  gtk_widget_set_name (progress_package_description, "progress_package_description");
+  gtk_widget_show (progress_package_description);
+  gtk_box_pack_start (GTK_BOX (vbox68), progress_package_description, FALSE, FALSE, 6);
+  gtk_misc_set_alignment (GTK_MISC (progress_package_description), 0, 0);
+
+  g_signal_connect ((gpointer) pkgtools_progress_window, "delete_event",
+                    G_CALLBACK (gtk_true),
+                    NULL);
+
+  /* Store pointers to all widgets, for use by lookup_widget(). */
+  GLADE_HOOKUP_OBJECT_NO_REF (pkgtools_progress_window, pkgtools_progress_window, "pkgtools_progress_window");
+  GLADE_HOOKUP_OBJECT (pkgtools_progress_window, vbox68, "vbox68");
+  GLADE_HOOKUP_OBJECT (pkgtools_progress_window, progress_progressbar, "progress_progressbar");
+  GLADE_HOOKUP_OBJECT (pkgtools_progress_window, progress_action, "progress_action");
+  GLADE_HOOKUP_OBJECT (pkgtools_progress_window, progress_message, "progress_message");
+  GLADE_HOOKUP_OBJECT (pkgtools_progress_window, progress_package_description, "progress_package_description");
+
+  return pkgtools_progress_window;
 }
 
