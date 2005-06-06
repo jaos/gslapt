@@ -1,5 +1,6 @@
 
 0.3.2 June 06, 2005
+ * only show the main window after initializing model (at startup)
  * changed upgrade button to just mark upgradeable packages
  * disconnected callbacks to package menu before recreating them
  * show all icons in the package menu, not just active/sensitive ones
