@@ -31,11 +31,13 @@
 static GtkWidget *progress_window;
 static guint pending_trans_context_id = 0;
 static int disk_space(const rc_config *global_config,int space_needed );
-static void pkg_action_popup_menu(GtkTreeView *treeview, gpointer data);
+static gboolean pkg_action_popup_menu(GtkTreeView *treeview, gpointer data);
 static int set_iter_to_pkg(GtkTreeModel *model, GtkTreeIter *iter,
                            pkg_info_t *pkg);
 static void reset_pkg_view_status(void);
 static int lsearch_upgrade_transaction(transaction_t *tran,pkg_info_t *pkg);
+static void build_package_action_menu(pkg_info_t *pkg);
+static void rebuild_package_action_menu(void);
 static guint _cancelled = 0;
 
 void on_gslapt_destroy (GtkObject *object, gpointer user_data) 
@@ -328,6 +330,7 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
 
   }
 
+  rebuild_package_action_menu();
 }
 
 void add_pkg_for_removal (GtkWidget *gslapt, gpointer user_data) 
@@ -401,6 +404,7 @@ void add_pkg_for_removal (GtkWidget *gslapt, gpointer user_data)
 
   }
 
+  rebuild_package_action_menu();
 
 }
 
@@ -650,12 +654,15 @@ void show_pkg_details (GtkTreeSelection *selection, gpointer data)
     gtk_tree_model_get (model, &iter, 3, &p_location, -1);
 
     pkg = get_pkg_by_details(all,p_name,p_version,p_location);
-    if ( pkg != NULL ) {
+    if (pkg != NULL) {
       fillin_pkg_details(pkg);
+      build_package_action_menu(pkg);
     }else{
       pkg = get_pkg_by_details(installed,p_name,p_version,p_location);
-      if ( pkg != NULL )
+      if (pkg != NULL) {
         fillin_pkg_details(pkg);
+        build_package_action_menu(pkg);
+      }
     }
 
     g_free (p_name);
@@ -2202,9 +2209,8 @@ static int disk_space(const rc_config *global_config,int space_needed )
   return 0;
 }
 
-static void pkg_action_popup_menu(GtkTreeView *treeview, gpointer data)
+static gboolean pkg_action_popup_menu(GtkTreeView *treeview, gpointer data)
 {
-  GtkWidget *install = NULL, *remove, *image = NULL, *unmark;
   GtkMenu *menu;
   GdkEventButton *event = (GdkEventButton *)gtk_get_current_event();
   GtkTreeViewColumn *column;
@@ -2221,152 +2227,18 @@ static void pkg_action_popup_menu(GtkTreeView *treeview, gpointer data)
   guint is_installed = 0,is_newest = 1,is_exclude = 0,is_downloadable = 0,is_downgrade = 0;
 
   if (event->type != GDK_BUTTON_PRESS)
-    return;
+    return FALSE;
 
   if ( !gtk_tree_view_get_path_at_pos(treeview,event->x,event->y,&path,&column,NULL,NULL) )
-    return;
+    return FALSE;
 
   if (event->button != 3 && (event->button == 1 && strcmp(column->title,(gchar *)_("Status")) != 0))
-    return;
+    return FALSE;
 
   gtk_tree_path_free(path);
 
-  /* get selection */
-  select = gtk_tree_view_get_selection (GTK_TREE_VIEW (treeview));
-  if (gtk_tree_selection_get_selected(select,&model,&iter)) {
-    gchar *p_name,*p_version,*p_location;
+  menu = GTK_MENU(gtk_menu_item_get_submenu(GTK_MENU_ITEM(lookup_widget(gslapt,"package1"))));
 
-    gtk_tree_model_get (model, &iter, 1, &p_name, -1);
-    gtk_tree_model_get (model, &iter, 2, &p_version, -1);
-    gtk_tree_model_get (model, &iter, 3, &p_location, -1);
-
-    pkg = get_pkg_by_details(all,p_name,p_version,p_location);
-
-    if (pkg == NULL) {
-      pkg = get_pkg_by_details(installed,p_name,p_version,p_location);
-      is_installed = 1;
-    }
-
-    g_free (p_name);
-    g_free (p_version);
-    g_free (p_location);
-
-
-    if ( pkg == NULL ) {
-      return;
-    }
-
-    if (is_installed != 1 &&
-      get_exact_pkg(installed,pkg->name,pkg->version) != NULL
-    ) {
-      is_installed = 1;
-    }
-
-    if ( get_pkg_by_details(all,pkg->name,pkg->version,pkg->location) != NULL) {
-      is_downloadable = 1;
-    }
-
-    newest_installed = get_newest_pkg(installed,pkg->name);
-    if ( newest_installed != NULL && cmp_pkg_versions(pkg->version,newest_installed->version) < 0 ) {
-      is_downgrade = 1;
-    }
-
-    upgrade_pkg = get_newest_pkg(all,pkg->name);
-    if ( upgrade_pkg != NULL && cmp_pkg_versions(pkg->version,upgrade_pkg->version) < 0 ) {
-      is_newest = 0;
-    }
-
-    if ( is_excluded(global_config,pkg) == 1 
-    || get_exact_pkg(trans->exclude_pkgs,pkg->name,pkg->version) != NULL) {
-      is_exclude = 1;
-    }
-
-  } else {
-    return;
-  }
-
-  menu = GTK_MENU(gtk_menu_new ());
-  gtk_widget_show ((GtkWidget *)menu);
-
-  if ( search_transaction(trans,pkg->name) == 0 ) {
-    if ( is_exclude == 0 ) {
-      /* upgrade */
-      if ( is_installed == 1 && is_newest == 0 && (search_transaction_by_pkg(trans,upgrade_pkg) == 0 ) ) {
-        install = gtk_image_menu_item_new_with_mnemonic((gchar *)_("Upgrade"));
-        g_signal_connect_swapped(G_OBJECT (install), "activate",
-          G_CALLBACK (add_pkg_for_install), GTK_WIDGET(gslapt));
-        image = gtk_image_new_from_pixbuf(create_pixbuf("pkg_action_upgrade.png"));
-      /* re-install */
-      }else if ( is_installed == 1 && is_newest == 1 && is_downloadable == 1 ) {
-        install = gtk_image_menu_item_new_with_mnemonic((gchar *)_("Re-Install"));
-        g_signal_connect_swapped((gpointer) install,"activate",
-          G_CALLBACK(add_pkg_for_reinstall),GTK_OBJECT(gslapt));
-        image = gtk_image_new_from_pixbuf(create_pixbuf("pkg_action_reinstall.png"));
-      /* this is for downgrades */
-      }else if ( is_installed == 0 && is_downgrade == 1 && is_downloadable == 1 ) {
-        install = gtk_image_menu_item_new_with_mnemonic((gchar *)_("Downgrade"));
-        g_signal_connect_swapped((gpointer) install,"activate",
-          G_CALLBACK(add_pkg_for_reinstall),GTK_OBJECT(gslapt));
-        image = gtk_image_new_from_pixbuf(create_pixbuf("pkg_action_downgrade.png"));
-      /* straight up install */
-      }else if ( is_installed == 0 && is_downloadable == 1 ) {
-        install = gtk_image_menu_item_new_with_mnemonic((gchar *)_("Install"));
-        g_signal_connect_swapped(G_OBJECT (install), "activate",
-          G_CALLBACK (add_pkg_for_install), GTK_WIDGET(gslapt));
-        image = gtk_image_new_from_pixbuf(create_pixbuf("pkg_action_install.png"));
-      }
-    }
-
-  }
-
-  if (image == NULL) {
-    image = gtk_image_new_from_pixbuf(create_pixbuf("pkg_action_install.png"));
-  }
-  if ( install == NULL) {
-    install = gtk_image_menu_item_new_with_mnemonic((gchar *)_("Install"));
-    gtk_widget_set_sensitive(GTK_WIDGET(install),FALSE);
-  }
-
-  gtk_widget_show (install);
-  gtk_container_add (GTK_CONTAINER (menu), install);
-  gtk_widget_show (image);
-  gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (install), image);
-
-  remove = gtk_image_menu_item_new_with_mnemonic ((gchar *)_("Remove"));
-  gtk_widget_show (remove);
-  gtk_container_add (GTK_CONTAINER (menu), remove);
-  image = gtk_image_new_from_pixbuf(create_pixbuf("pkg_action_remove.png"));
-  gtk_widget_show (image);
-  gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (remove), image);
-  gtk_widget_set_sensitive(GTK_WIDGET(remove),FALSE);
-
-  g_signal_connect_swapped(G_OBJECT (remove), "activate",
-    G_CALLBACK (add_pkg_for_removal), GTK_WIDGET(gslapt));
-
-  if (
-    is_installed == 1 && is_exclude != 1 &&
-    (search_transaction(trans,pkg->name) == 0 )
-  ) {
-    gtk_widget_set_sensitive( GTK_WIDGET(remove),TRUE);
-  }
-
-  unmark = gtk_image_menu_item_new_with_mnemonic ((gchar *)_("Unmark"));
-  gtk_widget_show (unmark);
-  gtk_container_add (GTK_CONTAINER (menu), unmark);
-  image = gtk_image_new_from_pixbuf(create_pixbuf("pkg_action_available.png"));
-  gtk_widget_show (image);
-  gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (unmark), image);
-  gtk_widget_set_sensitive(GTK_WIDGET(unmark),FALSE);
-
-  if ((get_exact_pkg(trans->exclude_pkgs,pkg->name,pkg->version) == NULL) && 
-    (search_transaction_by_pkg(trans,pkg) == 1)
-  ) {
-    gtk_widget_set_sensitive(GTK_WIDGET(unmark),TRUE);
-    g_signal_connect_swapped(G_OBJECT (unmark), "activate",
-      G_CALLBACK (unmark_package), GTK_WIDGET(gslapt));
-  }
-
-  
   gtk_menu_popup(
     menu,
    NULL,
@@ -2377,6 +2249,7 @@ static void pkg_action_popup_menu(GtkTreeView *treeview, gpointer data)
    gtk_get_current_event_time()
   );
 
+  return TRUE;
 }
 
 void unmark_package(GtkWidget *gslapt, gpointer user_data) 
@@ -2477,6 +2350,7 @@ void unmark_package(GtkWidget *gslapt, gpointer user_data)
 
   }
 
+  rebuild_package_action_menu();
 }
 
 /* parse the dependencies for a package, and add them to the transaction as */
@@ -2715,5 +2589,148 @@ void open_icon_legend (GtkObject *object, gpointer user_data)
 void on_button_cancel_clicked(GtkButton *button, gpointer user_data)
 {
   _cancelled = 1;
+}
+
+static void build_package_action_menu(pkg_info_t *pkg)
+{
+  GtkMenu *menu;
+  extern struct pkg_list *installed;
+  extern struct pkg_list *all;
+  extern transaction_t *trans;
+  extern rc_config *global_config;
+  extern GtkWidget *gslapt;
+  pkg_info_t *newest_installed = NULL, *upgrade_pkg = NULL;
+  guint is_installed = 0,is_newest = 1,is_exclude = 0,is_downloadable = 0,is_downgrade = 0;
+
+  if (is_installed != 1 &&
+    get_exact_pkg(installed,pkg->name,pkg->version) != NULL
+  ) {
+    is_installed = 1;
+  }
+
+  if ( get_pkg_by_details(all,pkg->name,pkg->version,pkg->location) != NULL) {
+    is_downloadable = 1;
+  }
+
+  newest_installed = get_newest_pkg(installed,pkg->name);
+  if ( newest_installed != NULL && cmp_pkg_versions(pkg->version,newest_installed->version) < 0 ) {
+    is_downgrade = 1;
+  }
+
+  upgrade_pkg = get_newest_pkg(all,pkg->name);
+  if ( upgrade_pkg != NULL && cmp_pkg_versions(pkg->version,upgrade_pkg->version) < 0 ) {
+    is_newest = 0;
+  }
+
+  if ( is_excluded(global_config,pkg) == 1 
+  || get_exact_pkg(trans->exclude_pkgs,pkg->name,pkg->version) != NULL) {
+    is_exclude = 1;
+  }
+
+  menu = GTK_MENU(gtk_menu_item_get_submenu(GTK_MENU_ITEM(lookup_widget(gslapt,"package1"))));
+  gtk_widget_set_sensitive(lookup_widget(GTK_WIDGET(menu),"upgrade1"),FALSE);
+  gtk_widget_set_sensitive(lookup_widget(GTK_WIDGET(menu),"re_install1"),FALSE);
+  gtk_widget_set_sensitive(lookup_widget(GTK_WIDGET(menu),"re_install1"),FALSE);
+  gtk_widget_set_sensitive(lookup_widget(GTK_WIDGET(menu),"downgrade1"),FALSE);
+  gtk_widget_set_sensitive(lookup_widget(GTK_WIDGET(menu),"install1"),FALSE);
+  gtk_widget_set_sensitive(lookup_widget(GTK_WIDGET(menu),"remove1"),FALSE);
+  gtk_widget_set_sensitive(lookup_widget(GTK_WIDGET(menu),"unmark1"),FALSE);
+
+  if ( search_transaction(trans,pkg->name) == 0 ) {
+    if ( is_exclude == 0 ) {
+      /* upgrade */
+      if ( is_installed == 1 && is_newest == 0 && (search_transaction_by_pkg(trans,upgrade_pkg) == 0 ) ) {
+        gtk_widget_set_sensitive(lookup_widget(GTK_WIDGET(menu),"upgrade1"),TRUE);
+        g_signal_connect_swapped(G_OBJECT(lookup_widget(GTK_WIDGET(menu),"upgrade1")),
+          "activate", G_CALLBACK (add_pkg_for_install), GTK_WIDGET(gslapt));
+      /* re-install */
+      }else if ( is_installed == 1 && is_newest == 1 && is_downloadable == 1 ) {
+        gtk_widget_set_sensitive(lookup_widget(GTK_WIDGET(menu),"re_install1"),TRUE);
+        g_signal_connect_swapped((gpointer)lookup_widget(GTK_WIDGET(menu),"re_install1"),
+          "activate", G_CALLBACK(add_pkg_for_reinstall),GTK_OBJECT(gslapt));
+      /* this is for downgrades */
+      }else if ( is_installed == 0 && is_downgrade == 1 && is_downloadable == 1 ) {
+        gtk_widget_set_sensitive(lookup_widget(GTK_WIDGET(menu),"downgrade1"),TRUE);
+        g_signal_connect_swapped((gpointer)lookup_widget(GTK_WIDGET(menu),"downgrade1"),
+          "activate", G_CALLBACK(add_pkg_for_reinstall),GTK_OBJECT(gslapt));
+      /* straight up install */
+      }else if ( is_installed == 0 && is_downloadable == 1 ) {
+        gtk_widget_set_sensitive(lookup_widget(GTK_WIDGET(menu),"install1"),TRUE);
+        g_signal_connect_swapped(G_OBJECT(lookup_widget(GTK_WIDGET(menu),"install1")),
+          "activate", G_CALLBACK (add_pkg_for_install), GTK_WIDGET(gslapt));
+      }
+    }
+
+  }
+
+  if (
+    is_installed == 1 && is_exclude != 1 &&
+    (search_transaction(trans,pkg->name) == 0 )
+  ) {
+    gtk_widget_set_sensitive(lookup_widget(GTK_WIDGET(menu),"remove1"),TRUE);
+    g_signal_connect_swapped(G_OBJECT(lookup_widget(GTK_WIDGET(menu),"remove1")),
+      "activate",G_CALLBACK (add_pkg_for_removal), GTK_WIDGET(gslapt));
+  }
+
+  if ((get_exact_pkg(trans->exclude_pkgs,pkg->name,pkg->version) == NULL) && 
+    (search_transaction_by_pkg(trans,pkg) == 1)
+  ) {
+    gtk_widget_set_sensitive(lookup_widget(GTK_WIDGET(menu),"unmark1"),TRUE);
+    g_signal_connect_swapped(G_OBJECT(lookup_widget(GTK_WIDGET(menu),"unmark1")),
+      "activate",G_CALLBACK (unmark_package), GTK_WIDGET(gslapt));
+  }
+
+}
+
+static void rebuild_package_action_menu(void)
+{
+  GtkTreeView *treeview;
+  GtkTreeModel *model;
+  GtkTreeSelection *selection;
+  GtkTreeIter iter;
+  extern GtkWidget *gslapt;
+  extern struct pkg_list *installed;
+  extern struct pkg_list *all;
+
+  treeview = GTK_TREE_VIEW(lookup_widget(gslapt,"pkg_listing_treeview"));
+  selection = gtk_tree_view_get_selection(treeview);
+
+  if ( gtk_tree_selection_get_selected(selection,&model,&iter) == TRUE) {
+    gchar *pkg_name;
+    gchar *pkg_version;
+    gchar *pkg_location;
+    pkg_info_t *pkg = NULL;
+
+    gtk_tree_model_get (model, &iter, 1, &pkg_name, -1);
+    gtk_tree_model_get (model, &iter, 2, &pkg_version, -1);
+    gtk_tree_model_get (model, &iter, 3, &pkg_location, -1);
+
+    if (pkg_name == NULL || pkg_version == NULL || pkg_location == NULL) {
+      if (pkg_name != NULL)
+        g_free(pkg_name);
+
+      if (pkg_version != NULL)
+        g_free(pkg_version);
+
+      if (pkg_location != NULL)
+        g_free(pkg_location);
+
+      return;
+    }
+
+    pkg = get_pkg_by_details(all,pkg_name,pkg_version,pkg_location);
+    if (pkg == NULL) {
+      pkg = get_pkg_by_details(installed,pkg_name,pkg_version,pkg_location);
+    }
+    g_free(pkg_name);
+    g_free(pkg_version);
+    g_free(pkg_location);
+
+    if (pkg != NULL) {
+      build_package_action_menu(pkg);
+    }
+
+  }
+
 }
 
