@@ -1,5 +1,7 @@
 
-0.3.2 June 05, 2005
+0.3.2 June 06, 2005
+ * changed upgrade button to just mark upgradeable packages
+ * disconnected callbacks to package menu before recreating them
  * show all icons in the package menu, not just active/sensitive ones
  * added package menu to mimick the right click context menu
  * updated download dialog to show mirror and package download size

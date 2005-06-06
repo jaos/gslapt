@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gslapt 0.3.2\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-05-06 11:10-0500\n"
-"PO-Revision-Date: 2005-06-05 16:28+0500\n"
+"PO-Revision-Date: 2005-06-06 16:18+0500\n"
 "Last-Translator: Pedro Pinto [aka _PN_boy] <pedro_nuno_pn@zmail.pt>\n"
 "Language-Team: slapt-get devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -205,9 +205,6 @@ msgstr "Actualizar a cache dos pacotes locais"
 
 msgid "Update"
 msgstr "Actualizar"
-
-msgid "Upgrade All"
-msgstr "Upgrade a todos"
 
 msgid "Upgrade installed packages"
 msgstr "Upgrade aos pacotes instalados"
@@ -412,4 +409,7 @@ msgstr "Icon Legend"
 
 msgid "Failed to commit preferences"
 msgstr "Failed to commit preferences"
+
+msgid "Mark All Upgrades"
+msgstr "Mark All Upgrades"
 

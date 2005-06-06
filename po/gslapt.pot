@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gslapt 0.3.2\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2005-06-05 16:28+0500\n"
+"PO-Revision-Date: 2005-06-06 16:18+0500\n"
 "Last-Translator: Jason Woodward <woodwardj@jaos.org>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -204,9 +204,6 @@ msgid "Update local package cache"
 msgstr ""
 
 msgid "Update"
-msgstr ""
-
-msgid "Upgrade All"
 msgstr ""
 
 msgid "Upgrade installed packages"
@@ -425,5 +422,8 @@ msgid "N/A"
 msgstr ""
 
 msgid "Failed to commit preferences"
+msgstr ""
+
+msgid "Mark All Upgrades"
 msgstr ""
 

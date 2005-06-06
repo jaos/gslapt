@@ -71,8 +71,12 @@ int main (int argc, char *argv[]) {
 
   build_treeview_columns(
      (GtkWidget *)lookup_widget(gslapt,"pkg_listing_treeview"));
+  /*
+    this sometimes screws up resizing of the window (why?)
   g_thread_create((GThreadFunc)build_package_treeviewlist,
      (GtkWidget *)lookup_widget(gslapt,"pkg_listing_treeview"),FALSE,NULL);
+  */
+  build_package_treeviewlist((GtkWidget *)lookup_widget(gslapt,"pkg_listing_treeview"));
 
   bar = GTK_STATUSBAR(lookup_widget(gslapt,"bottom_statusbar"));
   default_context_id = gtk_statusbar_get_context_id(bar,"default");

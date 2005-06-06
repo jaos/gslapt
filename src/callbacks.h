@@ -46,15 +46,6 @@ void build_searched_treeviewlist(GtkWidget *,gchar *pattern);
 void open_about(GtkObject *object, gpointer user_data);
 
 void show_pkg_details(GtkTreeSelection *selection, gpointer data);
-static void fillin_pkg_details(pkg_info_t *pkg);
-static void clear_treeview(GtkTreeView *treeview);
-
-static void get_package_data(void);
-static void rebuild_treeviews(void);
-static guint gslapt_set_status(const gchar *);
-static void gslapt_clear_status(guint context_id);
-static void lock_toolbar_buttons(void);
-static void unlock_toolbar_buttons(void);
 
 void preferences_sources_add(GtkWidget *w, gpointer user_data);
 void preferences_sources_remove(GtkWidget *w, gpointer user_data);
@@ -64,33 +55,16 @@ void on_transaction_okbutton1_clicked(GtkWidget *w, gpointer user_data);
 void preferences_exclude_add(GtkWidget *w, gpointer user_data);
 void preferences_exclude_remove(GtkWidget *w, gpointer user_data);
 
-static void build_sources_treeviewlist(GtkWidget *treeview,
-                                       const rc_config *global_config);
-static void build_exclude_treeviewlist(GtkWidget *treeview,
-                                       const rc_config *global_config);
-
-static int populate_transaction_window(GtkWidget *trans_window);
-
-
 void clear_button_clicked(GtkWidget *button,gpointer user_data);
-static void build_upgrade_list(void);
 
-static gboolean download_packages(void);
 int gtk_progress_callback(void *data, double dltotal, double dlnow,
                           double ultotal, double ulnow);
 void clean_callback(GtkMenuItem *menuitem, gpointer user_data);
-static gboolean install_packages(void);
 void build_package_treeviewlist(GtkWidget *treeview);
-static gboolean write_preferences(void);
 
 void cancel_preferences(GtkWidget *w, gpointer user_data);
 void cancel_transaction(GtkWidget *w, gpointer user_data);
-void cancel_upgrade_transaction(GtkWidget *w,gpointer user_data);
 
-static void set_execute_active(void);
-static void clear_execute_active(void);
-
-static void notify(const char *title,const char *message);
 void unmark_package(GtkWidget *gslapt, gpointer user_data);
 
 void build_treeview_columns(GtkWidget *treeview);
@@ -98,4 +72,6 @@ void build_treeview_columns(GtkWidget *treeview);
 void open_icon_legend (GtkObject *object, gpointer user_data);
 
 void on_button_cancel_clicked(GtkButton *button, gpointer user_data);
+
+void on_unmark_all1_activate(GtkMenuItem *menuitem, gpointer user_data);
 
