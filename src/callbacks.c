@@ -2503,7 +2503,6 @@ static void reset_pkg_view_status(void)
       continue;
     }
 
-    fprintf(stderr,"found package  %s-%s\n",name,version);
     if (get_exact_pkg(installed,name,version) == NULL) {
       status = g_strdup_printf("z%s",name);
       gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_available.png"),-1);
