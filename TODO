@@ -9,6 +9,4 @@ Things to do:
  * move to libglade instead of generated code
  * need to figure out how to find out if gnome-sudo|gksu|etc are installed and
    use them for the .desktop entry
- * change search to hide non match packages in existing treeview rather than
-   throw out the old and create a new one
 

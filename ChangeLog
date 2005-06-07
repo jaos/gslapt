@@ -1,5 +1,8 @@
 
 0.3.2 June 07, 2005
+ * updated search to use the same GtkTreeModel, only I'm filtering on the
+   basis of a column value using GtkTreeModelFilter.  This improves the speed
+   of building search listings and clearing out the search listings greatly.
  * only show the main window after initializing model (at startup)
  * changed upgrade button to just mark upgradeable packages
  * disconnected callbacks to package menu before recreating them
