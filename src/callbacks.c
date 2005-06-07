@@ -1227,7 +1227,6 @@ static void lhandle_transaction(GtkWidget *w)
       gdk_threads_enter();
       if (_cancelled == 1) {
         _cancelled = 0;
-        rebuild_treeviews();
       } else {
         notify((gchar *)_("Error"),(gchar *)_("Package(s) failed to download"));
       }
