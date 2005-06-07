@@ -2216,16 +2216,7 @@ static gboolean pkg_action_popup_menu(GtkTreeView *treeview, gpointer data)
   GdkEventButton *event = (GdkEventButton *)gtk_get_current_event();
   GtkTreeViewColumn *column;
   GtkTreePath *path;
-  GtkTreeSelection *select;
-  GtkTreeIter iter;
-  GtkTreeModel *model;
-  extern struct pkg_list *installed;
-  extern struct pkg_list *all;
-  extern transaction_t *trans;
-  extern rc_config *global_config;
   extern GtkWidget *gslapt;
-  pkg_info_t *pkg = NULL, *newest_installed = NULL, *upgrade_pkg = NULL;
-  guint is_installed = 0,is_newest = 1,is_exclude = 0,is_downloadable = 0,is_downgrade = 0;
 
   if (event->type != GDK_BUTTON_PRESS)
     return FALSE;
