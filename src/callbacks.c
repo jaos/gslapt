@@ -44,7 +44,7 @@ static void mark_upgrade_packages(void);
 static void fillin_pkg_details(pkg_info_t *pkg);
 static void clear_treeview(GtkTreeView *treeview);
 static void get_package_data(void);
-static void rebuild_treeviews(void);
+static void rebuild_treeviews(GtkWidget *current_window);
 static guint gslapt_set_status(const gchar *);
 static void gslapt_clear_status(guint context_id);
 static void lock_toolbar_buttons(void);
@@ -1090,7 +1090,7 @@ static void get_package_data(void)
 
   gdk_threads_enter();
   unlock_toolbar_buttons();
-  rebuild_treeviews();
+  rebuild_treeviews(progress_window);
   gslapt_clear_status(context_id);
   gtk_widget_destroy(progress_window);
   gdk_threads_leave();
@@ -1117,7 +1117,7 @@ int gtk_progress_callback(void *data, double dltotal, double dlnow,
   return 0;
 }
 
-static void rebuild_treeviews(void)
+static void rebuild_treeviews(GtkWidget *current_window)
 {
   extern GtkWidget *gslapt;
   GtkWidget *treeview;
@@ -1126,7 +1126,11 @@ static void rebuild_treeviews(void)
   struct pkg_list *all_ptr,*installed_ptr;
   GdkCursor *c = gdk_cursor_new(GDK_WATCH);
 
-  gdk_window_set_cursor(gslapt->window,c);
+  if (current_window == NULL) {
+    gdk_window_set_cursor(gslapt->window,c);
+  } else {
+    gdk_window_set_cursor(current_window->window,c);
+  }
   gdk_flush();
   gdk_cursor_destroy(c);
 
@@ -1138,11 +1142,11 @@ static void rebuild_treeviews(void)
 
   treeview = (GtkWidget *)lookup_widget(gslapt,"pkg_listing_treeview");
   clear_treeview( GTK_TREE_VIEW(treeview) );
-  build_package_treeviewlist(treeview);
 
   free_pkg_list(installed_ptr);
   free_pkg_list(all_ptr);
 
+  build_package_treeviewlist(treeview);
 }
 
 static guint gslapt_set_status(const gchar *msg)
@@ -1241,7 +1245,7 @@ static void lhandle_transaction(GtkWidget *w)
     free_transaction(trans);
     init_transaction(trans);
     gdk_threads_enter();
-    rebuild_treeviews();
+    rebuild_treeviews(NULL);
     unlock_toolbar_buttons();
     reset_pkg_view_status();
     clear_execute_active();
@@ -2760,7 +2764,7 @@ void on_unmark_all1_activate(GtkMenuItem *menuitem, gpointer user_data)
   free_transaction(trans);
   init_transaction(trans);
 
-  /* rebuild_treeviews(); */
+  /* rebuild_treeviews(NULL); */
   reset_pkg_view_status();
   unlock_toolbar_buttons();
   clear_execute_active();
