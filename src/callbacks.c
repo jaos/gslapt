@@ -1130,6 +1130,7 @@ static void rebuild_treeviews(GtkWidget *current_window)
     gdk_window_set_cursor(gslapt->window,c);
   } else {
     gdk_window_set_cursor(current_window->window,c);
+    gdk_window_set_cursor(gslapt->window,c);
   }
   gdk_flush();
   gdk_cursor_destroy(c);
