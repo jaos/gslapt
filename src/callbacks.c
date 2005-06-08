@@ -1873,7 +1873,7 @@ void preferences_sources_add(GtkWidget *w, gpointer user_data)
   gtk_entry_set_text(new_source_entry,"");
 
   store = GTK_LIST_STORE(gtk_tree_view_get_model(source_tree));
-  gtk_list_stor_clear(store);
+  gtk_list_store_clear(store);
 
   columns = gtk_tree_view_get_columns(source_tree);
   for (i = 0; i < g_list_length(columns); i++ ) {
@@ -1906,7 +1906,7 @@ void preferences_sources_remove(GtkWidget *w, gpointer user_data)
     gtk_tree_model_get(model,&iter,0,&source, -1 );
 
     store = GTK_LIST_STORE(gtk_tree_view_get_model(source_tree));
-    gtk_list_stor_clear(store);
+    gtk_list_store_clear(store);
 
     columns = gtk_tree_view_get_columns(source_tree);
     for (i = 0; i < g_list_length(columns); i++ ) {
@@ -1999,7 +1999,7 @@ void preferences_exclude_add(GtkWidget *w, gpointer user_data)
   gtk_entry_set_text(new_exclude_entry,"");
 
   store = GTK_LIST_STORE(gtk_tree_view_get_model(exclude_tree));
-  gtk_list_stor_clear(store);
+  gtk_list_store_clear(store);
 
   columns = gtk_tree_view_get_columns(exclude_tree);
   for (i = 0; i < g_list_length(columns); i++ ) {
@@ -2033,7 +2033,7 @@ void preferences_exclude_remove(GtkWidget *w, gpointer user_data)
     gtk_tree_model_get(model,&iter,0,&exclude, -1 );
 
     store = GTK_LIST_STORE(gtk_tree_view_get_model(exclude_tree));
-    gtk_list_stor_clear(store);
+    gtk_list_store_clear(store);
 
     columns = gtk_tree_view_get_columns(exclude_tree);
     for (i = 0; i < g_list_length(columns); i++ ) {
