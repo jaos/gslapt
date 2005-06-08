@@ -74,7 +74,7 @@ void on_gslapt_destroy (GtkObject *object, gpointer user_data)
   free_rc_config(global_config);
 
   gtk_main_quit();
-  exit(1);
+  exit(0);
 }
 
 void update_callback (GtkObject *object, gpointer user_data) 
