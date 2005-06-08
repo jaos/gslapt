@@ -1559,7 +1559,7 @@ static void mark_upgrade_packages(void)
   GtkTreeIter iter;
   GtkTreeModelFilter *filter_model;
   GtkTreeModel *base_model;
-  guint i;
+  guint i,mark_count = 0;
 
   filter_model = GTK_TREE_MODEL_FILTER(gtk_tree_model_sort_get_model(GTK_TREE_MODEL_SORT(package_model)));
   base_model = GTK_TREE_MODEL(gtk_tree_model_filter_get_model(GTK_TREE_MODEL_FILTER(filter_model)));
@@ -1608,6 +1608,7 @@ static void mark_upgrade_packages(void)
               gtk_list_store_set(GTK_LIST_STORE(base_model),&iter,STATUS_COLUMN,ustatus,-1);
               g_free(ustatus);
             }
+            ++mark_count;
           }else{
             /* otherwise exclude */
             add_exclude_to_transaction(trans,update_pkg);
@@ -1620,6 +1621,10 @@ static void mark_upgrade_packages(void)
 
   }/* end for */
 
+  if (mark_count == 0) {
+    notify((gchar *)_("Up to Date"),
+      (gchar *)_("<span weight=\"bold\" size=\"large\">No updates available</span>")); 
+  }
 }
 
 static gboolean download_packages(void)
