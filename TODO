@@ -7,6 +7,4 @@ Things to do:
  * more statusbar usage to notify what we are doing
  * ui cleanups, improvements
  * move to libglade instead of generated code
- * need to figure out how to find out if gnome-sudo|gksu|etc are installed and
-   use them for the .desktop entry
 

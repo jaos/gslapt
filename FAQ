@@ -20,11 +20,10 @@ Frequently Asked Questions:
   /var/slapt-get: Permission denied
   Please update permissions on /var/slapt-get or run with appropriate privileges
 
-  then you are trying to run gslapt as a non root user.  At the moment, there
-  are no guaranteed to be present solutions such as gnomesu, gtksu, etc.  You
-  can modify the /usr/share/applications/gslapt.desktop file to call one of
-  these utilities, if present, before the call to gslapt.  Otherwise you need
-  to run gslapt from the command line with sudo or as root (if as root, make
-  sure root has access to your current X session).
+  then you are trying to run gslapt as a non root user.  At the moment, the
+  install script for the slackware packages attempts to detect utilities such
+  as gnomesu, gtksudo, gksu, or kdesu.  You can modify the
+  /usr/share/applications/gslapt.desktop file to call one of these utilities,
+  if present, before the call to gslapt.
 
 
