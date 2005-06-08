@@ -2231,8 +2231,7 @@ void unmark_package(GtkWidget *gslapt, gpointer user_data)
     gchar *pkg_location;
     gchar *status = NULL;
     GtkTreeModel *model;
-    GtkTreeIter a_iter;
-    GtkTreeIter *actual_iter = &a_iter;
+    GtkTreeIter actual_iter;
 
     gtk_tree_model_get(GTK_TREE_MODEL(package_model), &iter, 1, &pkg_name, -1);
     gtk_tree_model_get(GTK_TREE_MODEL(package_model), &iter, 2, &pkg_version, -1);
@@ -2272,32 +2271,24 @@ void unmark_package(GtkWidget *gslapt, gpointer user_data)
     g_free(pkg_version);
     g_free(pkg_location);
 
-    if (GTK_IS_TREE_MODEL_SORT(package_model)) {
-      GtkTreeIter filter_iter;
-      GtkTreeModelFilter *filter_model;
-      /* convert sort model and iter to filter */
-      gtk_tree_model_sort_convert_iter_to_child_iter(GTK_TREE_MODEL_SORT(package_model),&filter_iter,&iter);
-      filter_model = GTK_TREE_MODEL_FILTER(gtk_tree_model_sort_get_model(GTK_TREE_MODEL_SORT(package_model)));
-      /* convert filter to regular tree */
-      gtk_tree_model_filter_convert_iter_to_child_iter(GTK_TREE_MODEL_FILTER(filter_model),actual_iter,&filter_iter);
-      model = GTK_TREE_MODEL(gtk_tree_model_filter_get_model(GTK_TREE_MODEL_FILTER(filter_model)));
-    } else if (GTK_IS_TREE_MODEL_FILTER(package_model)) {
-      gtk_tree_model_filter_convert_iter_to_child_iter(GTK_TREE_MODEL_FILTER(package_model),actual_iter,&iter);
-      model = GTK_TREE_MODEL(gtk_tree_model_filter_get_model(GTK_TREE_MODEL_FILTER(package_model)));
-    } else if (GTK_IS_TREE_MODEL(package_model)) {
-      model = GTK_TREE_MODEL(package_model);
-      actual_iter = gtk_tree_iter_copy(&iter);
-    }
-
+    /* FIXME */
+    GtkTreeIter filter_iter;
+    GtkTreeModelFilter *filter_model;
+    /* convert sort model and iter to filter */
+    gtk_tree_model_sort_convert_iter_to_child_iter(GTK_TREE_MODEL_SORT(package_model),&filter_iter,&iter);
+    filter_model = GTK_TREE_MODEL_FILTER(gtk_tree_model_sort_get_model(GTK_TREE_MODEL_SORT(package_model)));
+    /* convert filter to regular tree */
+    gtk_tree_model_filter_convert_iter_to_child_iter(GTK_TREE_MODEL_FILTER(filter_model),&actual_iter,&filter_iter);
+    model = GTK_TREE_MODEL(gtk_tree_model_filter_get_model(GTK_TREE_MODEL_FILTER(filter_model)));
 
     if (is_installed == 1) {
-      gtk_list_store_set(GTK_LIST_STORE(model),actual_iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_installed.png"),-1);
+      gtk_list_store_set(GTK_LIST_STORE(model),&actual_iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_installed.png"),-1);
       status = g_strdup_printf("a%s",pkg->name);
     } else {
-      gtk_list_store_set(GTK_LIST_STORE(model),actual_iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_available.png"),-1);
+      gtk_list_store_set(GTK_LIST_STORE(model),&actual_iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_available.png"),-1);
       status = g_strdup_printf("z%s",pkg->name);
     }
-    gtk_list_store_set(GTK_LIST_STORE(model),actual_iter,STATUS_COLUMN,status,-1);
+    gtk_list_store_set(GTK_LIST_STORE(model),&actual_iter,STATUS_COLUMN,status,-1);
     g_free(status);
 
     /* clear the installed version as well if this was an upgrade */
@@ -2310,10 +2301,10 @@ void unmark_package(GtkWidget *gslapt, gpointer user_data)
         if (avail_pkg == NULL) {
           continue;
         }
-        if (set_iter_to_pkg(model,actual_iter,avail_pkg)) {
+        if (set_iter_to_pkg(model,&actual_iter,avail_pkg)) {
           gchar *istatus = g_strdup_printf("i%s",avail_pkg->name);
-          gtk_list_store_set(GTK_LIST_STORE(model),actual_iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_installed.png"),-1);
-          gtk_list_store_set(GTK_LIST_STORE(model),actual_iter,STATUS_COLUMN,istatus,-1);
+          gtk_list_store_set(GTK_LIST_STORE(model),&actual_iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_installed.png"),-1);
+          gtk_list_store_set(GTK_LIST_STORE(model),&actual_iter,STATUS_COLUMN,istatus,-1);
           g_free(istatus);
         }
       }
