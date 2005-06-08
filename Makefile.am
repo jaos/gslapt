@@ -43,6 +43,9 @@ pkg: all
 	install slack-required $(SLACKPKGBUILDDIR)/install/
 	chown root:bin $(SLACKPKGBUILDDIR)/$(sbindir)
 	chown root:bin $(SLACKPKGBUILDDIR)/$(sbindir)/@PACKAGE@
+	@echo -n DESKTOPFILE= > $(SLACKPKGBUILDDIR)/install/doinst.sh
+	@echo "$(DESTDIR)/$(datadir)/applications/gslapt.desktop" |sed -re "s/^\/+//" >> $(SLACKPKGBUILDDIR)/install/doinst.sh
+	@echo 'if [ -f $$DESKTOPFILE ]; then if [ -x usr/bin/gksudo ]; then sed -i.bak -re "s/(Exec=)(\/usr\/sbin\/gslapt)/\1gksudo \2/" $$DESKTOPFILE; elif [ -x usr/bin/gksu ]; then sed -i.bak -re "s/(Exec=)(\/usr\/sbin\/gslapt)/\1gksu \2/" $$DESKTOPFILE; elif [ -x usr/bin/gnomesu ]; then sed -i.bak -re "s/(Exec=)(\/usr\/sbin\/gslapt)/\1gnomesu \2/" $$DESKTOPFILE; elif [ -x usr/bin/kdesu ]; then sed -i.bak -re "s/(Exec=)(\/usr\/sbin\/gslapt)/\1kdesu \2/" $$DESKTOPFILE; fi; fi' >> $(SLACKPKGBUILDDIR)/install/doinst.sh
 	strip --strip-unneeded $(SLACKPKGBUILDDIR)/$(sbindir)/@PACKAGE@
 	( cd $(SLACKPKGBUILDDIR) && /sbin/makepkg -l y -c n @PACKAGE@-@VERSION@-i386-1.tgz )
 

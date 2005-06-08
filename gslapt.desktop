@@ -10,6 +10,6 @@ Name[pl]=Menadżer pakietów
 Name[de]=Paket Manager
 Icon=/usr/share/pixmaps/gslapt.png
 Terminal=false
-Categories=GNOME;Application;System;Utility;
+Categories=GNOME;Application;System;Utility;Settings;
 StartupNotify=true
 Type=Application
