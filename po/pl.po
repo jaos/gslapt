@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gslapt 0.3.2\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-17 14:52-0500\n"
-"PO-Revision-Date: 2005-06-06 16:18+0500\n"
+"PO-Revision-Date: 2005-06-08 12:58+0500\n"
 "Last-Translator: Piotr Simon <sajmon@tenboard.com>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -117,7 +117,7 @@ msgid "Upgrade to newer release"
 msgstr "Aktualizuj do nowszej wersji"
 
 msgid "Clean"
-msgstr "Clean"
+msgstr "Wyczy¶æ"
 
 msgid "Clean archived packages off filesystem"
 msgstr "Wyczy¶æ pakiety w cache"
@@ -385,5 +385,14 @@ msgid "Failed to commit preferences"
 msgstr "Failed to commit preferences"
 
 msgid "Mark All Upgrades"
-msgstr "Mark All Upgrades"
+msgstr "Zaznacz wszystkie"
+
+msgid "_Edit"
+msgstr "_Edytuj"
+
+msgid "Unmark All"
+msgstr "Odznacz wszystkie"
+
+msgid "P_ackage"
+msgstr "P_akiet"
 
