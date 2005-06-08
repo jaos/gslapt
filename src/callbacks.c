@@ -2230,8 +2230,9 @@ void unmark_package(GtkWidget *gslapt, gpointer user_data)
     gchar *pkg_version;
     gchar *pkg_location;
     gchar *status = NULL;
+    GtkTreeModelFilter *filter_model;
     GtkTreeModel *model;
-    GtkTreeIter actual_iter;
+    GtkTreeIter actual_iter, filter_iter;
 
     gtk_tree_model_get(GTK_TREE_MODEL(package_model), &iter, 1, &pkg_name, -1);
     gtk_tree_model_get(GTK_TREE_MODEL(package_model), &iter, 2, &pkg_version, -1);
@@ -2271,9 +2272,6 @@ void unmark_package(GtkWidget *gslapt, gpointer user_data)
     g_free(pkg_version);
     g_free(pkg_location);
 
-    /* FIXME */
-    GtkTreeIter filter_iter;
-    GtkTreeModelFilter *filter_model;
     /* convert sort model and iter to filter */
     gtk_tree_model_sort_convert_iter_to_child_iter(GTK_TREE_MODEL_SORT(package_model),&filter_iter,&iter);
     filter_model = GTK_TREE_MODEL_FILTER(gtk_tree_model_sort_get_model(GTK_TREE_MODEL_SORT(package_model)));
