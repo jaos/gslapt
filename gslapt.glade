@@ -378,6 +378,8 @@
 			  <property name="has_frame">True</property>
 			  <property name="invisible_char">*</property>
 			  <property name="activates_default">False</property>
+			  <signal name="editing_done" handler="preferences_exclude_add" object="window_preferences" last_modification_time="Wed, 08 Jun 2005 18:22:36 GMT"/>
+			  <signal name="activate" handler="preferences_exclude_add" object="window_preferences" last_modification_time="Wed, 08 Jun 2005 18:22:28 GMT"/>
 			</widget>
 			<packing>
 			  <property name="padding">0</property>
@@ -642,6 +644,8 @@
 			  <property name="has_frame">True</property>
 			  <property name="invisible_char">*</property>
 			  <property name="activates_default">False</property>
+			  <signal name="editing_done" handler="preferences_sources_add" object="window_preferences" last_modification_time="Wed, 08 Jun 2005 18:21:48 GMT"/>
+			  <signal name="activate" handler="preferences_sources_add" object="window_preferences" last_modification_time="Wed, 08 Jun 2005 18:21:54 GMT"/>
 			</widget>
 			<packing>
 			  <property name="padding">0</property>

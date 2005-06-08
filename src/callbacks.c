@@ -2829,3 +2829,4 @@ GtkEntryCompletion *build_search_completions(void)
 
   return completion;
 }
+

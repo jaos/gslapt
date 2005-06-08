@@ -348,11 +348,23 @@ create_window_preferences (void)
   g_signal_connect_swapped ((gpointer) preferences_remove_exclude_button, "clicked",
                             G_CALLBACK (preferences_exclude_remove),
                             GTK_OBJECT (window_preferences));
+  g_signal_connect_swapped ((gpointer) new_exclude_entry, "editing_done",
+                            G_CALLBACK (preferences_exclude_add),
+                            GTK_OBJECT (window_preferences));
+  g_signal_connect_swapped ((gpointer) new_exclude_entry, "activate",
+                            G_CALLBACK (preferences_exclude_add),
+                            GTK_OBJECT (window_preferences));
   g_signal_connect_swapped ((gpointer) preferences_add_exclude_button, "clicked",
                             G_CALLBACK (preferences_exclude_add),
                             GTK_OBJECT (window_preferences));
   g_signal_connect_swapped ((gpointer) preferences_remove_source_button, "clicked",
                             G_CALLBACK (preferences_sources_remove),
+                            GTK_OBJECT (window_preferences));
+  g_signal_connect_swapped ((gpointer) new_source_entry, "editing_done",
+                            G_CALLBACK (preferences_sources_add),
+                            GTK_OBJECT (window_preferences));
+  g_signal_connect_swapped ((gpointer) new_source_entry, "activate",
+                            G_CALLBACK (preferences_sources_add),
                             GTK_OBJECT (window_preferences));
   g_signal_connect_swapped ((gpointer) preferences_add_source_button, "clicked",
                             G_CALLBACK (preferences_sources_add),
