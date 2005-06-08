@@ -1165,15 +1165,12 @@ static void gslapt_clear_status(guint context_id)
 static void lock_toolbar_buttons(void)
 {
   extern GtkWidget *gslapt;
-  GtkToolButton *action_bar_update_button = GTK_TOOL_BUTTON( lookup_widget(gslapt,"action_bar_update_button") );
-  GtkToolButton *action_bar_upgrade_button = GTK_TOOL_BUTTON( lookup_widget(gslapt,"action_bar_upgrade_button") );
-  GtkToolButton *action_bar_clean_button = GTK_TOOL_BUTTON( lookup_widget(gslapt,"action_bar_clean_button") );
-  GtkToolButton *action_bar_execute_button = GTK_TOOL_BUTTON( lookup_widget(gslapt,"action_bar_execute_button") );
+  gtk_widget_set_sensitive(lookup_widget(gslapt,"top_menubar"),FALSE);
 
-  gtk_widget_set_sensitive((GtkWidget *)action_bar_update_button,FALSE);
-  gtk_widget_set_sensitive((GtkWidget *)action_bar_upgrade_button,FALSE);
-  gtk_widget_set_sensitive((GtkWidget *)action_bar_clean_button,FALSE);
-  gtk_widget_set_sensitive((GtkWidget *)action_bar_execute_button,FALSE);
+  gtk_widget_set_sensitive(lookup_widget(gslapt,"action_bar_update_button"),FALSE);
+  gtk_widget_set_sensitive(lookup_widget(gslapt,"action_bar_upgrade_button"),FALSE);
+  gtk_widget_set_sensitive(lookup_widget(gslapt,"action_bar_clean_button"),FALSE);
+  gtk_widget_set_sensitive(lookup_widget(gslapt,"action_bar_execute_button"),FALSE);
 }
 
 static void unlock_toolbar_buttons(void)
@@ -1181,14 +1178,11 @@ static void unlock_toolbar_buttons(void)
   extern GtkWidget *gslapt;
   extern transaction_t *trans;
 
-  GtkToolButton *action_bar_update_button = GTK_TOOL_BUTTON( lookup_widget(gslapt,"action_bar_update_button") );
-  GtkToolButton *action_bar_upgrade_button = GTK_TOOL_BUTTON( lookup_widget(gslapt,"action_bar_upgrade_button") );
-  GtkToolButton *action_bar_clean_button = GTK_TOOL_BUTTON( lookup_widget(gslapt,"action_bar_clean_button") );
-  GtkToolButton *action_bar_execute_button = GTK_TOOL_BUTTON( lookup_widget(gslapt,"action_bar_execute_button") );
+  gtk_widget_set_sensitive(lookup_widget(gslapt,"top_menubar"),TRUE);
 
-  gtk_widget_set_sensitive((GtkWidget *)action_bar_update_button,TRUE);
-  gtk_widget_set_sensitive((GtkWidget *)action_bar_upgrade_button,TRUE);
-  gtk_widget_set_sensitive((GtkWidget *)action_bar_clean_button,TRUE);
+  gtk_widget_set_sensitive(lookup_widget(gslapt,"action_bar_update_button"),TRUE);
+  gtk_widget_set_sensitive(lookup_widget(gslapt,"action_bar_upgrade_button"),TRUE);
+  gtk_widget_set_sensitive(lookup_widget(gslapt,"action_bar_clean_button"),TRUE);
 
   if (
     trans->upgrade_pkgs->pkg_count != 0

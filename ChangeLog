@@ -1,5 +1,6 @@
 
 0.3.2 June 08, 2005
+ * when locking toolbars, lock the top menu as well
  * updated search to use the same GtkTreeModel, only I'm filtering on the
    basis of a column value using GtkTreeModelFilter.  This improves the speed
    of building search listings and clearing out the search listings greatly.
