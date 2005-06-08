@@ -35,6 +35,7 @@ transaction_t *trans = &tran;
 int main (int argc, char *argv[]) {
   GtkStatusbar *bar;
   guint default_context_id;
+  GtkEntryCompletion *completions;
 
 #ifdef ENABLE_NLS
   bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
@@ -51,7 +52,7 @@ int main (int argc, char *argv[]) {
 
   add_pixmap_directory (PACKAGE_DATA_DIR "/" PACKAGE "/pixmaps");
 
-  gslapt = (GtkWidget *)create_gslapt ();
+  gslapt = (GtkWidget *)create_gslapt();
 
   global_config = read_rc_config(RC_LOCATION);
   working_dir_init(global_config);
@@ -61,6 +62,12 @@ int main (int argc, char *argv[]) {
   /* read in all pkgs and installed pkgs */
   installed = get_installed_pkgs();
   all = get_available_pkgs();
+
+  /*
+    not sure about this
+  completions = build_search_completions();
+  gtk_entry_set_completion(GTK_ENTRY(lookup_widget(gslapt,"search_entry")),completions);
+  */
 
   build_treeview_columns(
      (GtkWidget *)lookup_widget(gslapt,"pkg_listing_treeview"));

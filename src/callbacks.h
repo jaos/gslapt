@@ -76,3 +76,5 @@ void on_button_cancel_clicked(GtkButton *button, gpointer user_data);
 
 void on_unmark_all1_activate(GtkMenuItem *menuitem, gpointer user_data);
 
+GtkEntryCompletion *build_search_completions(void);
+
