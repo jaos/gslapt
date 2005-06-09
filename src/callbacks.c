@@ -1247,7 +1247,6 @@ static void lhandle_transaction(GtkWidget *w)
     free_transaction(trans);
     init_transaction(trans);
     gdk_threads_enter();
-    rebuild_treeviews(NULL);
     unlock_toolbar_buttons();
     reset_pkg_view_status();
     clear_execute_active();
