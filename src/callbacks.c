@@ -31,7 +31,6 @@
 static GtkWidget *progress_window;
 static guint _cancelled = 0;
 static guint pending_trans_context_id = 0;
-static GtkTreeModelSort *package_model;
 static int disk_space(const rc_config *global_config,int space_needed );
 static gboolean pkg_action_popup_menu(GtkTreeView *treeview, gpointer data);
 static int set_iter_to_pkg(GtkTreeModel *model, GtkTreeIter *iter,
@@ -162,9 +161,11 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
   GtkTreeModel *model;
   GtkTreeIter actual_iter,filter_iter;
   GtkTreeModelFilter *filter_model;
+  GtkTreeModelSort *package_model;
 
   treeview = GTK_TREE_VIEW(lookup_widget(gslapt,"pkg_listing_treeview"));
   selection = gtk_tree_view_get_selection(treeview);
+  package_model = GTK_TREE_MODEL_SORT(gtk_tree_view_get_model(treeview));
 
   if ( gtk_tree_selection_get_selected(selection,(GtkTreeModel **)&package_model,&iter) == TRUE) {
     gchar *pkg_name;
@@ -348,9 +349,11 @@ void add_pkg_for_removal (GtkWidget *gslapt, gpointer user_data)
   GtkTreeView *treeview;
   GtkTreeIter iter;
   GtkTreeSelection *selection;
+  GtkTreeModelSort *package_model;
 
   treeview = GTK_TREE_VIEW(lookup_widget(gslapt,"pkg_listing_treeview"));
   selection = gtk_tree_view_get_selection(treeview);
+  package_model = GTK_TREE_MODEL_SORT(gtk_tree_view_get_model(treeview));
 
   if ( gtk_tree_selection_get_selected(selection,(GtkTreeModel **)&package_model,&iter) == TRUE) {
     gchar *pkg_name;
@@ -433,6 +436,7 @@ void build_package_treeviewlist(GtkWidget *treeview)
   extern GtkWidget *gslapt;
   GtkTreeModel *base_model;
   GtkTreeModelFilter *filter_model;
+  GtkTreeModelSort *package_model;
 
   base_model = GTK_TREE_MODEL(gtk_list_store_new (
     NUMBER_OF_COLUMNS,
@@ -537,6 +541,7 @@ void build_package_treeviewlist(GtkWidget *treeview)
 
 void build_searched_treeviewlist(GtkWidget *treeview, gchar *pattern)
 {
+  extern GtkWidget *gslapt;
   extern struct pkg_list *all;
   extern struct pkg_list *installed;
   gboolean valid;
@@ -544,10 +549,13 @@ void build_searched_treeviewlist(GtkWidget *treeview, gchar *pattern)
   GtkTreeModelFilter *filter_model;
   GtkTreeModel *base_model;
   struct pkg_list *a_matches = NULL,*i_matches = NULL;
+  GtkTreeModelSort *package_model;
 
   if (pattern == NULL) {
     return;
   }
+
+  package_model = GTK_TREE_MODEL_SORT(gtk_tree_view_get_model(GTK_TREE_VIEW(treeview)));
 
   filter_model = GTK_TREE_MODEL_FILTER(gtk_tree_model_sort_get_model(GTK_TREE_MODEL_SORT(package_model)));
   base_model = GTK_TREE_MODEL(gtk_tree_model_filter_get_model(GTK_TREE_MODEL_FILTER(filter_model)));
@@ -595,9 +603,15 @@ void open_about (GtkObject *object, gpointer user_data)
 
 void show_pkg_details (GtkTreeSelection *selection, gpointer data) 
 {
+  extern GtkWidget *gslapt;
   GtkTreeIter iter;
   extern struct pkg_list *installed;
   extern struct pkg_list *all;
+  GtkTreeModelSort *package_model;
+  GtkTreeView *treeview;
+
+  treeview = GTK_TREE_VIEW(lookup_widget(gslapt,"pkg_listing_treeview"));
+  package_model = GTK_TREE_MODEL_SORT(gtk_tree_view_get_model(treeview));
 
   if (gtk_tree_selection_get_selected(selection,(GtkTreeModel **)&package_model, &iter)) {
     gchar *p_name,*p_version,*p_location;
@@ -1112,6 +1126,7 @@ static void rebuild_treeviews(GtkWidget *current_window)
   GdkCursor *c = gdk_cursor_new(GDK_WATCH);
   GtkListStore *store;
   GtkTreeModelFilter *filter_model;
+  GtkTreeModelSort *package_model;
 
   if (current_window == NULL) {
     gdk_window_set_cursor(gslapt->window,c);
@@ -1129,6 +1144,7 @@ static void rebuild_treeviews(GtkWidget *current_window)
   all = get_available_pkgs();
 
   treeview = (GtkWidget *)lookup_widget(gslapt,"pkg_listing_treeview");
+  package_model = GTK_TREE_MODEL_SORT(gtk_tree_view_get_model(GTK_TREE_VIEW(treeview)));
 
   filter_model = GTK_TREE_MODEL_FILTER(gtk_tree_model_sort_get_model(GTK_TREE_MODEL_SORT(package_model)));
   store = GTK_LIST_STORE(gtk_tree_model_filter_get_model(GTK_TREE_MODEL_FILTER(filter_model)));
@@ -1536,6 +1552,7 @@ void clear_button_clicked(GtkWidget *w, gpointer user_data)
 
 static void mark_upgrade_packages(void)
 {
+  extern GtkWidget *gslapt;
   extern rc_config *global_config;
   extern struct pkg_list *all;
   extern struct pkg_list *installed;
@@ -1544,6 +1561,11 @@ static void mark_upgrade_packages(void)
   GtkTreeModelFilter *filter_model;
   GtkTreeModel *base_model;
   guint i,mark_count = 0;
+  GtkTreeModelSort *package_model;
+  GtkTreeView *treeview;
+
+  treeview = GTK_TREE_VIEW(lookup_widget(gslapt,"pkg_listing_treeview"));
+  package_model = GTK_TREE_MODEL_SORT(gtk_tree_view_get_model(treeview));
 
   filter_model = GTK_TREE_MODEL_FILTER(gtk_tree_model_sort_get_model(GTK_TREE_MODEL_SORT(package_model)));
   base_model = GTK_TREE_MODEL(gtk_tree_model_filter_get_model(GTK_TREE_MODEL_FILTER(filter_model)));
@@ -2222,9 +2244,11 @@ void unmark_package(GtkWidget *gslapt, gpointer user_data)
   extern struct pkg_list *installed;
   extern struct pkg_list *all;
   guint is_installed = 0,i;
+  GtkTreeModelSort *package_model;
 
   treeview = GTK_TREE_VIEW(lookup_widget(gslapt,"pkg_listing_treeview"));
   selection = gtk_tree_view_get_selection(treeview);
+  package_model = GTK_TREE_MODEL_SORT(gtk_tree_view_get_model(treeview));
 
   if (gtk_tree_selection_get_selected(selection,(GtkTreeModel **)&package_model,&iter) == TRUE) {
     gchar *pkg_name;
@@ -2328,12 +2352,15 @@ static int ladd_deps_to_trans(const rc_config *global_config, transaction_t *tra
                       struct pkg_list *avail_pkgs,
                       struct pkg_list *installed_pkgs, pkg_info_t *pkg)
 {
+  extern GtkWidget *gslapt;
   unsigned int c;
   int dep_return = -1;
   struct pkg_list *deps = NULL;
   GtkTreeIter iter;
   GtkTreeModelFilter *filter_model;
   GtkTreeModel *base_model;
+  GtkTreeModelSort *package_model;
+  GtkTreeView *treeview;
 
   if ( global_config->disable_dep_check == TRUE ) return 0;
   if ( pkg == NULL ) return 0;
@@ -2354,6 +2381,9 @@ static int ladd_deps_to_trans(const rc_config *global_config, transaction_t *tra
     free_pkg_list(deps);
     return -1;
   }
+
+  treeview = GTK_TREE_VIEW(lookup_widget(gslapt,"pkg_listing_treeview"));
+  package_model = GTK_TREE_MODEL_SORT(gtk_tree_view_get_model(treeview));
 
   filter_model = GTK_TREE_MODEL_FILTER(gtk_tree_model_sort_get_model(GTK_TREE_MODEL_SORT(package_model)));
   base_model = GTK_TREE_MODEL(gtk_tree_model_filter_get_model(GTK_TREE_MODEL_FILTER(filter_model)));
@@ -2446,11 +2476,17 @@ static int set_iter_to_pkg(GtkTreeModel *model, GtkTreeIter *iter,
 
 static void reset_pkg_view_status(void)
 {
+  extern GtkWidget *gslapt;
   extern struct pkg_list *installed;
   gboolean valid;
   GtkTreeIter iter;
   GtkTreeModelFilter *filter_model;
   GtkTreeModel *base_model;
+  GtkTreeView *treeview;
+  GtkTreeModelSort *package_model;
+
+  treeview = GTK_TREE_VIEW(lookup_widget(gslapt,"pkg_listing_treeview"));
+  package_model = GTK_TREE_MODEL_SORT(gtk_tree_view_get_model(treeview));
 
   filter_model = GTK_TREE_MODEL_FILTER(gtk_tree_model_sort_get_model(GTK_TREE_MODEL_SORT(package_model)));
   base_model = GTK_TREE_MODEL(gtk_tree_model_filter_get_model(GTK_TREE_MODEL_FILTER(filter_model)));
@@ -2589,12 +2625,12 @@ void on_button_cancel_clicked(GtkButton *button, gpointer user_data)
 
 static void build_package_action_menu(pkg_info_t *pkg)
 {
+  extern GtkWidget *gslapt;
   GtkMenu *menu;
   extern struct pkg_list *installed;
   extern struct pkg_list *all;
   extern transaction_t *trans;
   extern rc_config *global_config;
-  extern GtkWidget *gslapt;
   pkg_info_t *newest_installed = NULL, *upgrade_pkg = NULL;
   guint is_installed = 0,is_newest = 1,is_exclude = 0,is_downloadable = 0,is_downgrade = 0;
 
@@ -2689,14 +2725,16 @@ static void build_package_action_menu(pkg_info_t *pkg)
 
 static void rebuild_package_action_menu(void)
 {
+  extern GtkWidget *gslapt;
   GtkTreeView *treeview;
   GtkTreeSelection *selection;
   GtkTreeIter iter;
-  extern GtkWidget *gslapt;
   extern struct pkg_list *installed;
   extern struct pkg_list *all;
+  GtkTreeModelSort *package_model;
 
   treeview = GTK_TREE_VIEW(lookup_widget(gslapt,"pkg_listing_treeview"));
+  package_model = GTK_TREE_MODEL_SORT(gtk_tree_view_get_model(treeview));
   selection = gtk_tree_view_get_selection(treeview);
 
   if (gtk_tree_selection_get_selected(selection,(GtkTreeModel **)&package_model,&iter) == TRUE) {
@@ -2763,10 +2801,16 @@ void on_unmark_all1_activate(GtkMenuItem *menuitem, gpointer user_data)
 
 static void reset_search_list(void)
 {
+  extern GtkWidget *gslapt;
   GtkTreeModelFilter *filter_model;
   GtkTreeModel *base_model;
   GtkTreeIter iter;
   gboolean valid;
+  GtkTreeView *treeview;
+  GtkTreeModelSort *package_model;
+
+  treeview = GTK_TREE_VIEW(lookup_widget(gslapt,"pkg_listing_treeview"));
+  package_model = GTK_TREE_MODEL_SORT(gtk_tree_view_get_model(treeview));
 
   filter_model = GTK_TREE_MODEL_FILTER(gtk_tree_model_sort_get_model(GTK_TREE_MODEL_SORT(package_model)));
   base_model = GTK_TREE_MODEL(gtk_tree_model_filter_get_model(GTK_TREE_MODEL_FILTER(filter_model)));
