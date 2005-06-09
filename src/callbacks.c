@@ -2799,6 +2799,7 @@ void on_unmark_all1_activate(GtkMenuItem *menuitem, gpointer user_data)
   reset_pkg_view_status();
   unlock_toolbar_buttons();
   clear_execute_active();
+  rebuild_package_action_menu();
 
   gdk_cursor_destroy(c);
 }
