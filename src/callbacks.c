@@ -1154,6 +1154,7 @@ static void rebuild_treeviews(GtkWidget *current_window)
   free_pkg_list(installed_ptr);
   free_pkg_list(all_ptr);
 
+  rebuild_package_action_menu();
   build_package_treeviewlist(treeview);
 }
 
@@ -2633,23 +2634,21 @@ static void build_package_action_menu(pkg_info_t *pkg)
   pkg_info_t *newest_installed = NULL, *upgrade_pkg = NULL;
   guint is_installed = 0,is_newest = 1,is_exclude = 0,is_downloadable = 0,is_downgrade = 0;
 
-  if (is_installed != 1 &&
-    get_exact_pkg(installed,pkg->name,pkg->version) != NULL
-  ) {
+  if (get_exact_pkg(installed,pkg->name,pkg->version) != NULL) {
     is_installed = 1;
   }
 
-  if ( get_pkg_by_details(all,pkg->name,pkg->version,pkg->location) != NULL) {
+  if (get_pkg_by_details(all,pkg->name,pkg->version,pkg->location) != NULL) {
     is_downloadable = 1;
   }
 
   newest_installed = get_newest_pkg(installed,pkg->name);
-  if ( newest_installed != NULL && cmp_pkg_versions(pkg->version,newest_installed->version) < 0 ) {
+  if (newest_installed != NULL && cmp_pkg_versions(pkg->version,newest_installed->version) < 0) {
     is_downgrade = 1;
   }
 
   upgrade_pkg = get_newest_pkg(all,pkg->name);
-  if ( upgrade_pkg != NULL && cmp_pkg_versions(pkg->version,upgrade_pkg->version) < 0 ) {
+  if (upgrade_pkg != NULL && cmp_pkg_versions(pkg->version,upgrade_pkg->version) < 0) {
     is_newest = 0;
   }
 
@@ -2661,7 +2660,6 @@ static void build_package_action_menu(pkg_info_t *pkg)
   menu = GTK_MENU(gtk_menu_item_get_submenu(GTK_MENU_ITEM(lookup_widget(gslapt,"package1"))));
 
   gtk_widget_set_sensitive(lookup_widget(GTK_WIDGET(menu),"upgrade1"),FALSE);
-  gtk_widget_set_sensitive(lookup_widget(GTK_WIDGET(menu),"re_install1"),FALSE);
   gtk_widget_set_sensitive(lookup_widget(GTK_WIDGET(menu),"re_install1"),FALSE);
   gtk_widget_set_sensitive(lookup_widget(GTK_WIDGET(menu),"downgrade1"),FALSE);
   gtk_widget_set_sensitive(lookup_widget(GTK_WIDGET(menu),"install1"),FALSE);
@@ -2771,6 +2769,13 @@ static void rebuild_package_action_menu(void)
       build_package_action_menu(pkg);
     }
 
+  } else {
+    gtk_widget_set_sensitive(lookup_widget(GTK_WIDGET(gslapt),"upgrade1"),FALSE);
+    gtk_widget_set_sensitive(lookup_widget(GTK_WIDGET(gslapt),"re_install1"),FALSE);
+    gtk_widget_set_sensitive(lookup_widget(GTK_WIDGET(gslapt),"downgrade1"),FALSE);
+    gtk_widget_set_sensitive(lookup_widget(GTK_WIDGET(gslapt),"install1"),FALSE);
+    gtk_widget_set_sensitive(lookup_widget(GTK_WIDGET(gslapt),"remove1"),FALSE);
+    gtk_widget_set_sensitive(lookup_widget(GTK_WIDGET(gslapt),"unmark1"),FALSE);
   }
 
 }
