@@ -2420,7 +2420,7 @@ static int ladd_deps_to_trans(const rc_config *global_config, transaction_t *tra
       }
     } else {
       /* add only if its a valid upgrade */
-      if (cmp_pkg_versions(dep_installed->version,deps->pkgs[c]->version) < 0 )
+      if (cmp_pkg_versions(dep_installed->version,deps->pkgs[c]->version) < 0 ) {
         add_upgrade_to_transaction(tran,dep_installed,deps->pkgs[c]);
         if (set_iter_to_pkg(GTK_TREE_MODEL(base_model),&iter,deps->pkgs[c])) {
           gchar *status = g_strdup_printf("u%s",deps->pkgs[c]->name);
@@ -2428,6 +2428,7 @@ static int ladd_deps_to_trans(const rc_config *global_config, transaction_t *tra
           gtk_list_store_set(GTK_LIST_STORE(base_model),&iter,STATUS_COLUMN,status,-1);
           g_free(status);
         }
+      }
     }
 
   }
