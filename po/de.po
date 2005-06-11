@@ -1,14 +1,15 @@
-# gslapt translation template
-# Copyright (C) 2005 Jason Woodward
+# gslapt german translation
+# Copyright (C) 2005 Sebastian Jauch
 # This file is distributed under the same license as the gslapt package.
-# FIRST AUTHOR Sebastian Jauch, stellarboy653-minislack@yahoo.de
+# Sebastian Jauch <stellarboy653-minislack@yahoo.de>, 2005
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: gslapt 0.3.2\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2005-06-06 16:18+0500\n"
+"PO-Revision-Date: 2005-06-11 12:09+0500\n"
 "Last-Translator: Sebastian Jauch <stellarboy653-minislack@yahoo.de>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -46,7 +47,7 @@ msgid "Clean archived packages off filesystem"
 msgstr "Lösche archivierte Pakete"
 
 msgid "Clean"
-msgstr "Bereinigt"
+msgstr "Bereinigen"
 
 msgid "Clear search expression"
 msgstr "Suchausdruck löschen"
@@ -71,7 +72,7 @@ msgid "Download packages only"
 msgstr "Pakete nur herunterladen"
 
 msgid "Downloading packages..."
-msgstr "Pakete herunterladen"
+msgstr "Pakete herunterladen..."
 
 msgid "Downloading..."
 msgstr "Lade herunter..."
@@ -83,7 +84,7 @@ msgid "Exclude"
 msgstr "Ausschliessen"
 
 msgid "Excludes"
-msgstr "Gesperrt"
+msgstr "Ausgeschlossen"
 
 msgid "Execute all scheduled actions in current transaction"
 msgstr "Alle geplanten Aktionen der Tansaktion ausführen"
@@ -92,7 +93,7 @@ msgid "Execute"
 msgstr "Ausführen"
 
 msgid "Expression"
-msgstr "Ausrduck"
+msgstr "Ausdruck"
 
 msgid "Gslapt"
 msgstr "Gslapt"
@@ -137,7 +138,7 @@ msgid "Package"
 msgstr "Paket"
 
 msgid "Packages excluded"
-msgstr "Gesperrte Pakete"
+msgstr "ausgeschlossene Pakete"
 
 msgid "Packages to be installed"
 msgstr "Zu installierende Pakete"
@@ -164,28 +165,28 @@ msgid "Remove"
 msgstr "Entfernen"
 
 msgid "Removing packages..."
-msgstr "Pakete entfernen"
+msgstr "Entferne Pakete..."
 
 msgid "Required"
 msgstr "Benötigt"
 
 msgid "Search for expression"
-msgstr "Nach Ausdruck suchen"
+msgstr "Nach Asudruck suchen"
 
 msgid "Search"
 msgstr "Suchen"
 
 msgid "Size:"
-msgstr "Größe:"
+msgstr "Grösse"
 
 msgid "Source"
 msgstr "Quelle"
 
 msgid "Sources"
-msgstr "Quelle"
+msgstr "Quellen"
 
 msgid "Suggests"
-msgstr "Vorschlag"
+msgstr "Vorschläge"
 
 msgid "Summary"
 msgstr "Zusammenfassung"
@@ -224,7 +225,7 @@ msgid "Version"
 msgstr "Version"
 
 msgid "WARNING"
-msgstr "Warnung"
+msgstr "WARNUNG"
 
 msgid "Working Directory"
 msgstr "Arbeitsverzeichnis"
@@ -239,7 +240,7 @@ msgid "_Clean"
 msgstr "_Löschen"
 
 msgid "_Execute"
-msgstr "_Ausführen"
+msgstr "Ausführen"
 
 msgid "_Help"
 msgstr "_Hilfe"
@@ -248,7 +249,7 @@ msgid "_Preferences"
 msgstr "_Einstellungen"
 
 msgid "_Settings"
-msgstr "_Einstellungen"
+msgstr "Einstellungen"
 
 msgid "_Update"
 msgstr "_Aktualisieren"
@@ -259,7 +260,6 @@ msgid ""
 msgstr ""
 "gslapt ist ein GTK+Oberfläche für slapt-get, ein APT-ähnliches Paketsystem für "
 "Slackware"
-
 
 msgid "total progress"
 msgstr "absoluter Fortschritt"
@@ -285,7 +285,6 @@ msgstr "Benötige %0.1d%s Archive"
 msgid "After unpacking %0.1d%s disk space will be freed."
 msgstr "Nach dem Entpacken werden %0.1d%s zusätzlicher Speicher frei."
 
-
 msgid "After unpacking %0.1d%s of additional disk space will be used."
 msgstr "Nach dem Entpacken werden %0.1d%s zusätzlicher Speicher belegt."
 
@@ -302,7 +301,7 @@ msgid "_File"
 msgstr "_Datei"
 
 msgid "Pending changes. Click execute when ready."
-msgstr "Änderungen werden durchgeführt. Klicken sie Ausgführen wenn fertig."
+msgstr "Änderungen in der Warteschlange. Klicken sie Ausführen wenn fertig."
 
 msgid "Packages with unmet dependencies"
 msgstr "Pakete mit nicht aufgelösten Abhängigkeiten"
@@ -323,7 +322,7 @@ msgid "<b>Conflicts:</b>"
 msgstr "<b>Konflikte:</b>"
 
 msgid "<b>Description:</b>"
-msgstr "<b>Beschreibung</b>"
+msgstr "<b>Konflikte:</b>"
 
 msgid "<b>Location:</b>"
 msgstr "<b>Ort:</b>"
@@ -341,7 +340,7 @@ msgid "<b>Size:</b>"
 msgstr "<b>Größe:</b>"
 
 msgid "<b>Suggests:</b>"
-msgstr "<b>Vorschlag:</b>"
+msgstr "<b>Vorschläge:</b>"
 
 msgid "Version:"
 msgstr "Version:"
@@ -356,13 +355,13 @@ msgid "Dependencies"
 msgstr "Abhängigkeiten"
 
 msgid "No package is selected."
-msgstr "No package is selected."
+msgstr "Kein Paket ausgewählt"
 
 msgid "Status"
 msgstr "Status"
 
 msgid "Source download failed"
-msgstr "Herunterladen der Quelle fehlgeschlagen"
+msgstr "Herunterladen von der Quelle fehlgeschlagen"
 
 msgid "Package(s) failed to download"
 msgstr "Paket(e) konnte nicht heruntergeladen werden"
@@ -383,35 +382,50 @@ msgid "<b>Status:</b>"
 msgstr "<b>Status:</b>"
 
 msgid "Excluded"
-msgstr "Excluded"
+msgstr "Ausgeschlossen"
 
 msgid "<b>The following icons are used to indicate the current status of a package:</b>"
-msgstr "<b>The following icons are used to indicate the current status of a package:</b>"
+msgstr "msgstr "<b>Folgende Symbole zeigen den aktuellen Status eines Paketes an</b>""
 
 msgid "Not Installed"
-msgstr "Not Installed"
+msgstr "Nicht Installiert"
 
 msgid "To be Installed"
-msgstr "To be Installed"
+msgstr "Wird installiert"
 
 msgid "To be Re-Installed"
-msgstr "To be Re-Installed"
+msgstr "Wird Reinstalliert"
 
 msgid "To be Upgraded"
-msgstr "To be Upgraded"
+msgstr "Wird akutalisiert"
 
 msgid "To be Removed"
-msgstr "To be Removed"
+msgstr "Wird entfernt"
 
 msgid "To be Downgraded"
-msgstr "To be Downgraded"
+msgstr "Wird durch alte Version ersetzt"
 
 msgid "Icon Legend"
-msgstr "Icon Legend"
+msgstr "Symbolerklärung"
+
+msgid "Completed actions"
+msgstr "Durchgeführte Aktionen"
+
+msgid "Successfully executed all actions."
+msgstr "Erfolgreich alle Aktionen ausgeführt"
+
+msgid "<b>Installed Version</b>"
+msgstr "<b>Installierte Version</b>"
+
+msgid "<b>Latest Available Version</b>"
+msgstr "<b>Neueste verfügbare Version</b>"
+
+msgid "N/A"
+msgstr "nicht Verfügbar"
 
 msgid "Failed to commit preferences"
-msgstr "Failed to commit preferences"
+msgstr "Einstellungen auszuführen fehlgeschlagen"
 
 msgid "Mark All Upgrades"
-msgstr ""
+msgstr "Alle Aktualisierungen markieren"
 
