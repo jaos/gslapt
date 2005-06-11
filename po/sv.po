@@ -331,7 +331,7 @@ msgid "Source:"
 msgstr "Spegling:"
 
 msgid "<b>Name:</b>"
-msgstr "<b>Namn:<b>"
+msgstr "<b>Namn:</b>"
 
 msgid "<b>Required:</b>"
 msgstr "<b>Krävs:</b>"
