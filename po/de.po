@@ -1,7 +1,8 @@
 # gslapt german translation
-# Copyright (C) 2005 Sebastian Jauch
+# Copyright (C) 2005 Sebastian Jauch, Manfred Mueller
 # This file is distributed under the same license as the gslapt package.
 # Sebastian Jauch <stellarboy653-minislack@yahoo.de>, 2005
+# Manfred Mueller <linux@nass-ek.de>, 2005
 #
 #, fuzzy
 msgid ""
@@ -9,73 +10,73 @@ msgstr ""
 "Project-Id-Version: gslapt 0.3.2\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2005-06-11 12:09+0500\n"
-"Last-Translator: Sebastian Jauch <stellarboy653-minislack@yahoo.de>\n"
+"PO-Revision-Date: 2005-06-13 21:48+0200\n"
+"Last-Translator: Manfred Mueller <linux@nass-ek.de>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "<b>Exclude List</b>"
-msgstr "<b>Sperrliste</b>"
+msgstr "<b>Ausschluesse</b>"
 
 msgid "<b>Package Sources</b>"
-msgstr "<b>Paketquellen</b>"
+msgstr "<b>Paket-Quellen</b>"
 
 msgid "<b>Package and data storage</b>"
-msgstr "<b>Pakete und Zwischenspeicher</b>"
+msgstr "<b>Paket-/Daten-Speicher</b>"
 
 msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Änderungen anwenden?</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Aenderungen aktivieren?</span>"
 
 msgid "<span weight=\"bold\">Exclude Expression:</span>"
-msgstr "<span weight=\"bold\">Ausdruck sperren:</span>"
+msgstr "<span weight=\"bold\">Ausschluesse:</span>"
 
 msgid "<span weight=\"bold\">SOURCE=</span>"
 msgstr "<span weight=\"bold\">QUELLE=</span>"
 
 msgid "About gslapt"
-msgstr "Über gslapt"
+msgstr "Ueber gslapt"
 
 msgid "About"
-msgstr "Über"
+msgstr "Ueber"
 
 msgid "Checking for new package data..."
-msgstr "Prüfe auf neue Pakete"
+msgstr "Pruefe auf neue Paket-Daten"
 
 msgid "Clean archived packages off filesystem"
-msgstr "Lösche archivierte Pakete"
+msgstr "Entferne archivierte Pakete"
 
 msgid "Clean"
-msgstr "Bereinigen"
+msgstr "Entferne"
 
 msgid "Clear search expression"
-msgstr "Suchausdruck löschen"
+msgstr "Loesche Suchbegriff"
 
 msgid "Clear"
-msgstr "Löschen"
+msgstr "Entferne"
 
 msgid "Conflicts"
 msgstr "Konflikte"
 
 #, c-format
 msgid "Couldn't find pixmap file: %s"
-msgstr "Konnte Bilddatei nicht finden: %s"
+msgstr "Finde keine Pixmap-Datei: %s"
 
 msgid "Description"
 msgstr "Beschreibung"
 
 msgid "Dismiss"
-msgstr "Anullieren"
+msgstr "Abwaehlen"
 
 msgid "Download packages only"
-msgstr "Pakete nur herunterladen"
+msgstr "Pakete nur laden"
 
 msgid "Downloading packages..."
-msgstr "Pakete herunterladen..."
+msgstr "Lade Pakete..."
 
 msgid "Downloading..."
-msgstr "Lade herunter..."
+msgstr "Lade..."
 
 msgid "Exclude package"
 msgstr "Paket ausschliessen"
@@ -84,13 +85,13 @@ msgid "Exclude"
 msgstr "Ausschliessen"
 
 msgid "Excludes"
-msgstr "Ausgeschlossen"
+msgstr "Ausschluesse"
 
 msgid "Execute all scheduled actions in current transaction"
-msgstr "Alle geplanten Aktionen der Tansaktion ausführen"
+msgstr "Alle ausstehenden Aktionen durchfuehren"
 
 msgid "Execute"
-msgstr "Ausführen"
+msgstr "Ausfuehren"
 
 msgid "Expression"
 msgstr "Ausdruck"
@@ -102,10 +103,10 @@ msgid "Install"
 msgstr "Installiere"
 
 msgid "Install/Upgrade package"
-msgstr "Installiere/Aktualisiere Pakete"
+msgstr "Installiere/Aktualisiere Paket"
 
 msgid "Installed Size:"
-msgstr "Größe (installiert):"
+msgstr "Installierte Groesse:"
 
 msgid "Installed"
 msgstr "Installiert"
@@ -129,16 +130,16 @@ msgid "No"
 msgstr "Nein"
 
 msgid "Package Action"
-msgstr "Paketaktion"
+msgstr "Paket-Befehl"
 
 msgid "Package Information"
-msgstr "Paketinformation"
+msgstr "Paket-Information"
 
 msgid "Package"
 msgstr "Paket"
 
 msgid "Packages excluded"
-msgstr "ausgeschlossene Pakete"
+msgstr "Ausgeschlossene Pakete"
 
 msgid "Packages to be installed"
 msgstr "Zu installierende Pakete"
@@ -150,34 +151,34 @@ msgid "Packages to be upgraded"
 msgstr "Zu aktualisierende Pakete"
 
 msgid "Preferences"
-msgstr "Einstellungen"
+msgstr "Optionen"
 
 msgid "Progress"
 msgstr "Fortschritt"
 
 msgid "Quit"
-msgstr "Beenden"
+msgstr "Ende"
 
 msgid "Remove package"
-msgstr "Paket entfernen"
+msgstr "Entferne Paket"
 
 msgid "Remove"
-msgstr "Entfernen"
+msgstr "Entferne"
 
 msgid "Removing packages..."
-msgstr "Entferne Pakete..."
+msgstr "Entferne Pakete"
 
 msgid "Required"
-msgstr "Benötigt"
+msgstr "Erforderlich"
 
 msgid "Search for expression"
-msgstr "Nach Asudruck suchen"
+msgstr "Suche Ausdruck"
 
 msgid "Search"
-msgstr "Suchen"
+msgstr "Suche"
 
 msgid "Size:"
-msgstr "Grösse"
+msgstr "Groesse:"
 
 msgid "Source"
 msgstr "Quelle"
@@ -186,37 +187,37 @@ msgid "Sources"
 msgstr "Quellen"
 
 msgid "Suggests"
-msgstr "Vorschläge"
+msgstr "Empfehlungen"
 
 msgid "Summary"
-msgstr "Zusammenfassung"
+msgstr "Resuemee"
 
 msgid "This is a summary of the changes about to be performed."
-msgstr "Dies ist eine Zusammenfassung der auszuführenden Änderungen"
+msgstr "Resumee der durchzufuehrenden Aenderungen"
 
 msgid "Uninstalling..."
-msgstr "Deinstalliere..."
+msgstr "Deinstalliere"
 
 msgid "Up_grade"
-msgstr "Aktualisieren"
+msgstr "Up_grade"
 
 msgid "Update local package cache"
-msgstr "Lokale Paketspeicher aktualisieren"
+msgstr "Aktualisiere Paket-Cache"
 
 msgid "Update"
-msgstr "Aktualisieren"
+msgstr "Aktualisiere"
 
 msgid "Upgrade installed packages"
-msgstr "Aktualisiere installierte Pakete"
+msgstr "Upgrade installierter Pakete"
 
 msgid "Upgrade to newer release"
-msgstr "Auf neues Version aktualisieren"
+msgstr "Upgrade auf neue Version"
 
 msgid "Upgrade"
-msgstr "Aktualisieren"
+msgstr "Upgrade"
 
 msgid "Upgrading packages..."
-msgstr "Aktualisiere Pakete..."
+msgstr "Paket-Upgrade"
 
 msgid "Upgrading..."
 msgstr "Aktualisiere..."
@@ -234,113 +235,119 @@ msgid "Yes"
 msgstr "Ja"
 
 msgid "_Actions"
-msgstr "_Aktionen"
+msgstr "_Aktion"
 
 msgid "_Clean"
-msgstr "_Löschen"
+msgstr "Entfe_rne"
 
 msgid "_Execute"
-msgstr "Ausführen"
+msgstr "Aus_fuehren"
+
+msgid "_Edit"
+msgstr "B_earbeiten"
+
+msgid "P_ackage"
+msgstr "P_aket"
 
 msgid "_Help"
 msgstr "_Hilfe"
 
 msgid "_Preferences"
-msgstr "_Einstellungen"
+msgstr "_Optionen"
 
 msgid "_Settings"
-msgstr "Einstellungen"
+msgstr "Ein_stellungen"
 
 msgid "_Update"
-msgstr "_Aktualisieren"
+msgstr "_Update"
 
 msgid ""
 "gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
 "Slackware"
 msgstr ""
-"gslapt ist ein GTK+Oberfläche für slapt-get, ein APT-ähnliches Paketsystem für "
-"Slackware"
+"Gslapt ist ein GTK+-Frontend fuer slapt-get, dem Slackware-Pendant "
+"von Debian's APT"
 
 msgid "total progress"
-msgstr "absoluter Fortschritt"
+msgstr "Gesamt-Fortschritt"
 
 msgid "working"
-msgstr "Beschäftigt"
+msgstr "arbeite"
 
 msgid "Up to Date"
-msgstr "Aktualisiert"
+msgstr "Aktuell"
 
 msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Keine Aktualisierung verfügbar</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Keine Updates vorhanden</span>"
 
 msgid "%d upgraded, %d newly installed, %d to remove and %d not upgraded."
-msgstr "%d aktualisiert, %d neuinstalliert, %d entfern und %d nicht aktualisiert."
+msgstr "%d erneuert, %d neu installiert, %d zu entfernen %d nicht erneuert."
 
 msgid "Need to get %0.1d%s/%0.1d%s of archives.\n"
-msgstr "Benötige %0.1d%s von %0.1d%s of Archiven.\n"
+msgstr "Muss %0.1d%s/%0.1d%s an Archiven holen.\n"
 
 msgid "Need to get %0.1d%s of archives."
-msgstr "Benötige %0.1d%s Archive"
+msgstr "Muss %0.1d%s an Archiven holen."
 
 msgid "After unpacking %0.1d%s disk space will be freed."
-msgstr "Nach dem Entpacken werden %0.1d%s zusätzlicher Speicher frei."
+msgstr "Nach Entpacken sind %0.1d%s mehr Plattenplatz frei."
 
 msgid "After unpacking %0.1d%s of additional disk space will be used."
-msgstr "Nach dem Entpacken werden %0.1d%s zusätzlicher Speicher belegt."
+msgstr "Nach Entpacken werden %0.1d%s mehr Plattenplatz benutzt."
 
 msgid "Ready"
 msgstr "Fertig"
 
 msgid "Re-Install"
-msgstr "Erneut installieren"
+msgstr "Re-Install"
 
 msgid "Downgrade"
-msgstr "Alte Version einspielen"
+msgstr "Downgrade"
 
 msgid "_File"
 msgstr "_Datei"
 
 msgid "Pending changes. Click execute when ready."
-msgstr "Änderungen in der Warteschlange. Klicken sie Ausführen wenn fertig."
+msgstr "Aenderungen erforderlich - Klick auf Ausfuehren zum Start"
 
 msgid "Packages with unmet dependencies"
-msgstr "Pakete mit nicht aufgelösten Abhängigkeiten"
+msgstr "Nicht geloeste Abhaengigkeiten"
 
 msgid ": Depends: "
-msgstr ": Benötigt: "
+msgstr ": Erfordert: "
 
 msgid "Package conflicts"
-msgstr "Paketkonflikte"
+msgstr "Paket-Konflikt mit"
 
 msgid ", which is required by "
-msgstr ", wird benötigt von"
+msgstr ", erforderlich fuer"
 
 msgid ", is excluded"
-msgstr ", ausgeschlossen"
+msgstr ", ist ausgeschlossen"
 
 msgid "<b>Conflicts:</b>"
-msgstr "<b>Konflikte:</b>"
+msgstr "<b>Konflikt mit:</b>"
 
 msgid "<b>Description:</b>"
-msgstr "<b>Konflikte:</b>"
+msgstr "<b>Beschreibung:</b>"
 
 msgid "<b>Location:</b>"
 msgstr "<b>Ort:</b>"
 
 msgid "Source:"
-msgstr "Source:"
+msgstr "Quelle:"
 
 msgid "<b>Name:</b>"
 msgstr "<b>Name:</b>"
 
 msgid "<b>Required:</b>"
-msgstr "<b>Benötigt:</b>"
+msgstr "<b>Erforderlich:</b>"
 
 msgid "<b>Size:</b>"
-msgstr "<b>Größe:</b>"
+msgstr "<b>Groesse:</b>"
 
 msgid "<b>Suggests:</b>"
-msgstr "<b>Vorschläge:</b>"
+msgstr "<b>Hinweise:</b>"
 
 msgid "Version:"
 msgstr "Version:"
@@ -352,80 +359,79 @@ msgid "Common"
 msgstr "Allgemein"
 
 msgid "Dependencies"
-msgstr "Abhängigkeiten"
+msgstr "Abhaengigkeiten"
 
 msgid "No package is selected."
-msgstr "Kein Paket ausgewählt"
+msgstr "Kein Paket ausgewaehlt."
 
 msgid "Status"
 msgstr "Status"
 
 msgid "Source download failed"
-msgstr "Herunterladen von der Quelle fehlgeschlagen"
+msgstr "Quell-Download gescheitert"
 
 msgid "Package(s) failed to download"
-msgstr "Paket(e) konnte nicht heruntergeladen werden"
+msgstr "Nicht geladene(s) Paket(e)"
 
 msgid "pkgtools returned an error"
-msgstr "pkgtools meldet einen Fehler"
+msgstr "pkgtools meldete Fehler"
 
 msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Sie haben nicht genügend freien Speicher</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Nicht genug Speicherplatz</span>"
 
 msgid "Excluding %s due to dependency failure\n"
-msgstr "%s wegen fehlender Abhängigkeiten ausgeschlossen\n"
+msgstr "Schliesse %s wegen Depend-Fehler aus\n"
 
 msgid "Unmark"
-msgstr "Demarkieren"
+msgstr "Abwaehlen"
 
 msgid "<b>Status:</b>"
 msgstr "<b>Status:</b>"
 
 msgid "Excluded"
-msgstr "Ausgeschlossen"
+msgstr "Ausschluss"
 
 msgid "<b>The following icons are used to indicate the current status of a package:</b>"
-msgstr "msgstr "<b>Folgende Symbole zeigen den aktuellen Status eines Paketes an</b>""
+msgstr "<b>Die folgenden Icons zeigen den momentanen Status eines Paketes an:</b>"
 
 msgid "Not Installed"
-msgstr "Nicht Installiert"
+msgstr "Nicht installiert"
 
 msgid "To be Installed"
-msgstr "Wird installiert"
+msgstr "Zu Installieren"
 
 msgid "To be Re-Installed"
-msgstr "Wird Reinstalliert"
+msgstr "Neu zu installieren"
 
 msgid "To be Upgraded"
-msgstr "Wird akutalisiert"
+msgstr "Zu erneuern"
 
 msgid "To be Removed"
-msgstr "Wird entfernt"
+msgstr "Zu entfernen"
 
 msgid "To be Downgraded"
-msgstr "Wird durch alte Version ersetzt"
+msgstr "Herabzusetzen"
 
 msgid "Icon Legend"
-msgstr "Symbolerklärung"
+msgstr "Icon-Legende"
 
 msgid "Completed actions"
-msgstr "Durchgeführte Aktionen"
+msgstr "Abgeschlossen"
 
 msgid "Successfully executed all actions."
-msgstr "Erfolgreich alle Aktionen ausgeführt"
+msgstr "Alles erfolgreich abgeschlossen."
 
 msgid "<b>Installed Version</b>"
 msgstr "<b>Installierte Version</b>"
 
 msgid "<b>Latest Available Version</b>"
-msgstr "<b>Neueste verfügbare Version</b>"
+msgstr "<b>Aktuellste Version</b>"
 
 msgid "N/A"
-msgstr "nicht Verfügbar"
+msgstr "N/V"
 
 msgid "Failed to commit preferences"
-msgstr "Einstellungen auszuführen fehlgeschlagen"
+msgstr "Optionen nicht angewandt"
 
 msgid "Mark All Upgrades"
-msgstr "Alle Aktualisierungen markieren"
-
+msgstr "Alle Upgrades markieren"
