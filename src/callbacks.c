@@ -142,8 +142,17 @@ void search_button_clicked (GtkWidget *gslapt, gpointer user_data)
 {
   GtkTreeView *treeview = GTK_TREE_VIEW(lookup_widget(gslapt,"pkg_listing_treeview"));
   gchar *pattern = (gchar *)gtk_entry_get_text(GTK_ENTRY(lookup_widget(gslapt,"search_entry")));
+  GtkEntryCompletion *completion = gtk_entry_get_completion(GTK_ENTRY(lookup_widget(gslapt,"search_entry")));
+  GtkTreeModel *completions = gtk_entry_completion_get_model(completion);
 
   build_searched_treeviewlist(GTK_WIDGET(treeview),pattern);
+
+  /* add search to completion */
+  gtk_list_store_append(GTK_LIST_STORE(completions),&iter);
+  gtk_list_store_set(GTK_LIST_STORE(completions),&iter,
+    0,pattern,
+    -1
+  );
 }
 
 void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data) 
@@ -2836,26 +2845,8 @@ GtkEntryCompletion *build_search_completions(void)
   GtkTreeModel *completions;
   GtkEntryCompletion *completion;
   guint i;
-  GString *locations = g_string_new("");
 
   completions = GTK_TREE_MODEL(gtk_list_store_new(1,G_TYPE_STRING));
-
-  for (i = 0; i < all->pkg_count; ++i) {
-    gtk_list_store_append(GTK_LIST_STORE(completions),&iter);
-    gtk_list_store_set(GTK_LIST_STORE(completions),&iter,
-      0,all->pkgs[i]->name,
-      -1
-    );
-    if (strstr((char *)locations->str,all->pkgs[i]->location) == NULL) {
-      gtk_list_store_append(GTK_LIST_STORE(completions),&iter);
-      gtk_list_store_set(GTK_LIST_STORE(completions),&iter,
-        0,all->pkgs[i]->location,
-        -1
-      );
-      locations = g_string_append(locations,all->pkgs[i]->location);
-    }
-  }
-  g_string_free(locations,TRUE);
 
   completion = gtk_entry_completion_new();
   gtk_entry_completion_set_model(completion,completions);

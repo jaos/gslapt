@@ -63,11 +63,8 @@ int main (int argc, char *argv[]) {
   installed = get_installed_pkgs();
   all = get_available_pkgs();
 
-  /*
-    not sure about this
   completions = build_search_completions();
   gtk_entry_set_completion(GTK_ENTRY(lookup_widget(gslapt,"search_entry")),completions);
-  */
 
   build_treeview_columns(
      (GtkWidget *)lookup_widget(gslapt,"pkg_listing_treeview"));
