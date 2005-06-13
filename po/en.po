@@ -6,10 +6,10 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: gslapt 0.3.2\n"
+"Project-Id-Version: gslapt 0.3.3\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-20 16:24-0500\n"
-"PO-Revision-Date: 2005-06-06 16:18+0500\n"
+"PO-Revision-Date: 2005-06-12 22:07+0500\n"
 "Last-Translator: Jason Woodward <woodwardj@jaos.org>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -410,4 +410,13 @@ msgstr "Failed to commit preferences"
 
 msgid "Mark All Upgrades"
 msgstr "Mark All Upgrades"
+
+msgid "_Edit"
+msgstr "_Edit"
+
+msgid "Unmark All"
+msgstr "Unmark All"
+
+msgid "P_ackage"
+msgstr "P_ackage"
 
