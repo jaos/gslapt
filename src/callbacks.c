@@ -148,11 +148,23 @@ void search_button_clicked (GtkWidget *gslapt, gpointer user_data)
   build_searched_treeviewlist(GTK_WIDGET(treeview),pattern);
 
   /* add search to completion */
-  gtk_list_store_append(GTK_LIST_STORE(completions),&iter);
-  gtk_list_store_set(GTK_LIST_STORE(completions),&iter,
-    0,pattern,
-    -1
-  );
+  valid = gtk_tree_model_get_iter_first(completions,&iter);
+  while (valid) {
+    gchar *string = NULL;
+    gtk_tree_model_get(completions,&iter,0,&string,-1);
+    if (strcmp(string,pattern) == 0)
+      exists = TRUE;
+    g_free(string);
+    valid = gtk_tree_model_iter_next(completions,&iter);
+  }
+  if (!exists) {
+    gtk_list_store_append(GTK_LIST_STORE(completions),&iter);
+    gtk_list_store_set(GTK_LIST_STORE(completions),&iter,
+      0,pattern,
+      -1
+    );
+  }
+
 }
 
 void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data) 
