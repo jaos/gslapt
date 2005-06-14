@@ -436,12 +436,6 @@ msgstr "Optionen nicht angewandt"
 msgid "Mark All Upgrades"
 msgstr "Alle Upgrades markieren"
 
-msgid "_Edit"
-msgstr "_Edit"
-
 msgid "Unmark All"
 msgstr "Unmark All"
-
-msgid "P_ackage"
-msgstr "P_ackage"
 

@@ -140,6 +140,8 @@ void open_preferences (GtkMenuItem *menuitem, gpointer user_data)
 
 void search_button_clicked (GtkWidget *gslapt, gpointer user_data) 
 {
+  gboolean valid = FALSE, exists = FALSE;
+  GtkTreeIter iter;
   GtkTreeView *treeview = GTK_TREE_VIEW(lookup_widget(gslapt,"pkg_listing_treeview"));
   gchar *pattern = (gchar *)gtk_entry_get_text(GTK_ENTRY(lookup_widget(gslapt,"search_entry")));
   GtkEntryCompletion *completion = gtk_entry_get_completion(GTK_ENTRY(lookup_widget(gslapt,"search_entry")));
