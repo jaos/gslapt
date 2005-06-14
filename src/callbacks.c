@@ -1318,6 +1318,7 @@ static void lhandle_transaction(GtkWidget *w)
   gdk_window_set_cursor(gslapt->window,NULL);
   gdk_flush();
   reset_pkg_view_status();
+  rebuild_package_action_menu();
   unlock_toolbar_buttons();
   notify((gchar *)_("Completed actions"),(gchar *)_("Successfully executed all actions."));
   gdk_threads_leave();
