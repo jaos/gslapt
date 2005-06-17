@@ -3,14 +3,13 @@
 # This file is distributed under the same license as the gslapt package.
 # FIRST AUTHOR <pedro_nuno_pn@zmail.pt>, 2005.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: gslapt 0.3.3\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-05-06 11:10-0500\n"
-"PO-Revision-Date: 2005-06-12 22:07+0500\n"
-"Last-Translator: Pedro Pinto [aka _PN_boy] <pedro_nuno_pn@zmail.pt>\n"
+"PO-Revision-Date: 2005-06-17 00:14+0100\n"
+"Last-Translator: Pedro Pinto aka _PN_boy <pedro_nuno_pn@zmail.pt>\n"
 "Language-Team: slapt-get devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -254,12 +253,9 @@ msgstr "_Configurações"
 msgid "_Update"
 msgstr "_Actualizar"
 
-msgid ""
-"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
-"Slackware"
-msgstr ""
-"gslapt é um frontend em GTK+ para o slapt-get, uma aplicação de gestão "
-"de sistemas de pacotes do tipo APT para o Slackware"
+msgid "gslapt is a GTK+ frontend to slapt-get, an APT like package system for Slackware"
+msgstr "gslapt é um frontend em GTK+ para o slapt-get, uma aplicação de gestão de sistemas de pacotes do tipo APT para o Slackware"
+
 msgid "total progress"
 msgstr "progresso total"
 
@@ -303,122 +299,122 @@ msgid "Pending changes. Click execute when ready."
 msgstr "Alterações pendentes. Carrega em executar quando estiveres pronto."
 
 msgid "Packages with unmet dependencies"
-msgstr "Packages with unmet dependencies"
+msgstr "Pacotes com dependencias unmet"
 
 msgid ": Depends: "
-msgstr ": Depends: "
+msgstr ": Depende: "
 
 msgid "Package conflicts"
-msgstr "Package conflicts"
+msgstr "O Pacote entra em conflito"
 
 msgid ", which is required by "
-msgstr ", which is required by "
+msgstr ", que é requerido por "
 
 msgid ", is excluded"
-msgstr ", is excluded"
+msgstr ", está excluido"
 
 msgid "<b>Conflicts:</b>"
-msgstr "<b>Conflicts:</b>"
+msgstr "<b>Conflitos:</b>"
 
 msgid "<b>Description:</b>"
-msgstr "<b>Description:</b>"
+msgstr "<b>Descrição:</b>"
 
 msgid "<b>Location:</b>"
-msgstr "<b>Location:</b>"
+msgstr "<b>Localização:</b>"
 
 msgid "Source:"
-msgstr "Source:"
+msgstr "Fonte:"
 
 msgid "<b>Name:</b>"
-msgstr "<b>Name:</b>"
+msgstr "<b>Nome:</b>"
 
 msgid "<b>Required:</b>"
-msgstr "<b>Required:</b>"
+msgstr "<b>Requerido:</b>"
 
 msgid "<b>Size:</b>"
-msgstr "<b>Size:</b>"
+msgstr "<b>Tamanho:</b>"
 
 msgid "<b>Suggests:</b>"
-msgstr "<b>Suggests:</b>"
+msgstr "<b>Sugestão:</b>"
 
 msgid "Version:"
-msgstr "Version:"
+msgstr "Versão:"
 
 msgid "<b>Version:</b>"
-msgstr "<b>Version:</b>"
+msgstr "<b>Versão:</b>"
 
 msgid "Common"
-msgstr "Common"
+msgstr "Comum"
 
 msgid "Dependencies"
-msgstr "Dependencies"
+msgstr "Dependencias"
 
 msgid "No package is selected."
-msgstr "No package is selected."
+msgstr "Nenhum pacote está seleccionado."
 
 msgid "Status"
-msgstr "Status"
+msgstr "Estado"
 
 msgid "Source download failed"
-msgstr "Source download failed"
+msgstr "Download da fonte falhou"
 
 msgid "Package(s) failed to download"
-msgstr "Package(s) failed to download"
+msgstr "Falhou ao descarregar o(s) Pacote(s)"
 
 msgid "pkgtools returned an error"
-msgstr "pkgtools returned an error"
+msgstr "pkgtools returnou um erro"
 
 msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
-msgstr "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Não tens espaço suficiente</span>"
 
 msgid "Excluding %s due to dependency failure\n"
-msgstr "Excluding %s due to dependency failure\n"
+msgstr "Excluindo %s por falha na dependencia\n"
 
 msgid "Unmark"
-msgstr "Unmark"
+msgstr "Desmarcar"
 
 msgid "<b>Status:</b>"
-msgstr "<b>Status:</b>"
+msgstr "<b>Estado:</b>"
 
 msgid "Excluded"
-msgstr "Excluded"
+msgstr "Excluido"
 
 msgid "<b>The following icons are used to indicate the current status of a package:</b>"
-msgstr "<b>The following icons are used to indicate the current status of a package:</b>"
+msgstr "<b>Os seguintes icons são usados para indicar o estado corrente dum pacote:</b>"
 
 msgid "Not Installed"
-msgstr "Not Installed"
+msgstr "Não Instalado"
 
 msgid "To be Installed"
-msgstr "To be Installed"
+msgstr "A ser Instalado"
 
 msgid "To be Re-Installed"
-msgstr "To be Re-Installed"
+msgstr "A ser Re-Instalado"
 
 msgid "To be Upgraded"
-msgstr "To be Upgraded"
+msgstr "A ser Upgraded"
 
 msgid "To be Removed"
-msgstr "To be Removed"
+msgstr "A ser Removido"
 
 msgid "To be Downgraded"
-msgstr "To be Downgraded"
+msgstr "A ser Downgraded"
 
 msgid "Icon Legend"
-msgstr "Icon Legend"
+msgstr "Legenda do Icon"
 
 msgid "Failed to commit preferences"
-msgstr "Failed to commit preferences"
+msgstr "Alguma coisa falhou ao aplicar as preferencias"
 
 msgid "Mark All Upgrades"
-msgstr "Mark All Upgrades"
+msgstr "Marcar Todos os Upgrades"
 
 msgid "_Edit"
-msgstr "_Edit"
+msgstr "_Editar"
 
 msgid "Unmark All"
-msgstr "Unmark All"
+msgstr "Desmarcar Todos"
 
 msgid "P_ackage"
-msgstr "P_ackage"
+msgstr "P_acote"
 
