@@ -1,0 +1,440 @@
+# vi gslapt translation
+# Copyright (C) 2005 Vu Nguyen
+# This file is distributed under the same license as the gslapt package.
+# FIRST AUTHOR Vu Nguyen <vncasper@yahoo.com>, 2005.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: gslapt 0.3.3\n"
+"Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
+"POT-Creation-Date: 2005-02-26 22:25-0500\n"
+"PO-Revision-Date: 2005-06-12 22:07+0500\n"
+"Last-Translator: Nguyễn Văn Vũ <vncasper@yahoo.com>\n"
+"Language-Team: gnome-vi <gnomevi-list@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "<b>Exclude List</b>"
+msgstr "<b>Danh sách loại trừ</b>"
+
+msgid "<b>Package Sources</b>"
+msgstr "<b>Nguồn các gói phần mềm</b>"
+
+msgid "<b>Package and data storage</b>"
+msgstr "<b>Kho gói phần mềm và dữ liệu</b>"
+
+msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Áp dụng những thay đổi sau?</span>"
+
+msgid "<span weight=\"bold\">Exclude Expression:</span>"
+msgstr "<span weight=\"bold\">Biểu thức loại trừ:</span>"
+
+msgid "<span weight=\"bold\">SOURCE=</span>"
+msgstr "<span weight=\"bold\">NGUỒN=</span>"
+
+msgid "About gslapt"
+msgstr "Giới thiệu gslapt"
+
+msgid "About"
+msgstr "Giới thiệu"
+
+msgid "Checking for new package data..."
+msgstr "Kiểm tra cho gói dữ liệu mới..."
+
+msgid "Clean archived packages off filesystem"
+msgstr "Gỡ bỏ những gói phần mềm bảo lưu ra khỏi hệ thống"
+
+msgid "Clean"
+msgstr "Làm sạch"
+
+msgid "Clear search expression"
+msgstr "Xoá biểu thức tìm kiếm"
+
+msgid "Clear"
+msgstr "Xóa"
+
+msgid "Conflicts"
+msgstr "Các xung đột"
+
+#, c-format
+msgid "Couldn't find pixmap file: %s"
+msgstr "Không tìm thấy tập tin hình ảnh: %s"
+
+msgid "Description"
+msgstr "Mô tả"
+
+msgid "Dismiss"
+msgstr "Hủy bỏ"
+
+msgid "Download packages only"
+msgstr "Chỉ lấy dữ liệu gói phần mềm"
+
+msgid "Downloading packages..."
+msgstr "Đang lấy danh sách gói phần mềm..."
+
+msgid "Downloading..."
+msgstr "Đang lấy dữ liệu..."
+
+msgid "Exclude package"
+msgstr "Gói phần mềm bị loại trừ"
+
+msgid "Exclude"
+msgstr "Loại trừ"
+
+msgid "Excludes"
+msgstr "Danh sách loại trừ"
+
+msgid "Execute all scheduled actions in current transaction"
+msgstr "Thực hiện các hành động được lập lịch trong phiên làm việc hiện tại"
+
+msgid "Execute"
+msgstr "Thực hiện"
+
+msgid "Expression"
+msgstr "Biểu thức"
+
+msgid "Gslapt"
+msgstr "Gslapt"
+
+msgid "Install"
+msgstr "Cài đặt"
+
+msgid "Install/Upgrade package"
+msgstr "Cài đặt/Nâng cấp gói"
+
+msgid "Installed Size:"
+msgstr "Kích thước đã cài đặt:"
+
+msgid "Installed"
+msgstr "Đã cài đặt"
+
+msgid "Installing packages..."
+msgstr "Đang cài đặt các gói..."
+
+msgid "Installing..."
+msgstr "Đang cài đặt..."
+
+msgid "Location"
+msgstr "Vị trí"
+
+msgid "NO"
+msgstr "KHÔNG"
+
+msgid "Name"
+msgstr "Tên"
+
+msgid "No"
+msgstr "Không"
+
+msgid "Package Action"
+msgstr "Hoạt động gói"
+
+msgid "Package Information"
+msgstr "Thông tin gói"
+
+msgid "Package"
+msgstr "Gói"
+
+msgid "Packages excluded"
+msgstr "Các gói bị loại trừ"
+
+msgid "Packages to be installed"
+msgstr "Các gói được cài đặt"
+
+msgid "Packages to be removed"
+msgstr "Các gói bị gỡ bỏ"
+
+msgid "Packages to be upgraded"
+msgstr "Các gói được nâng cấp"
+
+msgid "Preferences"
+msgstr "Tuỳ chỉnh"
+
+msgid "Progress"
+msgstr "Quá trình"
+
+msgid "Quit"
+msgstr "Thoát"
+
+msgid "Remove package"
+msgstr "Gỡ bỏ gói"
+
+msgid "Remove"
+msgstr "Gỡ bỏ"
+
+msgid "Removing packages..."
+msgstr "Đang gỡ bỏ các gói..."
+
+msgid "Required"
+msgstr "Yêu cầu"
+
+msgid "Search for expression"
+msgstr "Tìm kiếm theo biểu thức"
+
+msgid "Search"
+msgstr "Tìm kiếm"
+
+msgid "Size:"
+msgstr "Kích thước:"
+
+msgid "Source"
+msgstr "Nguồn"
+
+msgid "Sources"
+msgstr "Danh sách nguồn"
+
+msgid "Suggests"
+msgstr "Các đề nghị"
+
+msgid "Summary"
+msgstr "Tóm tắt"
+
+msgid "This is a summary of the changes about to be performed."
+msgstr "Đây là bản tóm tắt các thay đổi về hiệu năng."
+
+msgid "Uninstalling..."
+msgstr "Đang gỡ bỏ..."
+
+msgid "Up_grade"
+msgstr "Nâng cấp"
+
+msgid "Update local package cache"
+msgstr "Cập nhật danh sách gói sao lưu cục bộ"
+
+msgid "Update"
+msgstr "Cập nhật"
+
+msgid "Upgrade installed packages"
+msgstr "Nâng cấp danh sách gói được cài đặt"
+
+msgid "Upgrade to newer release"
+msgstr "Nâng cấp hệ thống lên phiên bản mới hơn"
+
+msgid "Upgrade"
+msgstr "Nâng cấp"
+
+msgid "Upgrading packages..."
+msgstr "Đang nâng cấp các gói..."
+
+msgid "Upgrading..."
+msgstr "Đang nâng cấp..."
+
+msgid "Version"
+msgstr "Phiên bản"
+
+msgid "WARNING"
+msgstr "CẢNH BÁO"
+
+msgid "Working Directory"
+msgstr "Thư mục làm việc"
+
+msgid "Yes"
+msgstr "Đồng ý"
+
+msgid "_Actions"
+msgstr "_Hành động"
+
+msgid "_Clean"
+msgstr "_Xoá"
+
+msgid "_Execute"
+msgstr "_Thực hiện"
+
+msgid "_Help"
+msgstr "_Giúp đỡ"
+
+msgid "_Preferences"
+msgstr "_Tùy chỉnh"
+
+msgid "_Settings"
+msgstr "Xác _lập"
+
+msgid "_Update"
+msgstr "_Cập nhật"
+
+msgid ""
+"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
+"Slackware"
+msgstr ""
+"gslapt là giao diện GTK+ cho slapt-get, một hệ thống quản lý gói giống APT "
+"Slackware"
+
+msgid "total progress"
+msgstr "toàn bộ quá trình"
+
+msgid "working"
+msgstr "đang thực hiện"
+
+msgid "Up to Date"
+msgstr "Cập nhật mới"
+
+msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Cập nhật không có sẵn</span>"
+
+msgid "%d upgraded, %d newly installed, %d to remove and %d not upgraded."
+msgstr "%d gói được nâng cấp, %d gói được cài đặt mới, %d gói bị gỡ bỏ và %d gói giữ nguyên"
+
+msgid "Need to get %0.1d%s/%0.1d%s of archives.\n"
+msgstr "Cần lấy %0.1d%s/%0.1d%s từ kho lưu trữ.\n"
+
+msgid "Need to get %0.1d%s of archives."
+msgstr "Cần lấy %0.1d%s từ kho lưu trữ."
+
+msgid "After unpacking %0.1d%s disk space will be freed."
+msgstr "Sau khi giải nén %0.1d%s không gian đĩa sẽ được giải phóng."
+
+msgid "After unpacking %0.1d%s of additional disk space will be used."
+msgstr "Sau khi giải nén %0.1d%s không gian đĩa sẽ được sử dụng"
+
+msgid "Ready"
+msgstr "Sẵn sàng"
+
+msgid "Re-Install"
+msgstr "Cài đặt lại"
+
+msgid "Downgrade"
+msgstr "Trở về phiên bản trước"
+
+msgid "_File"
+msgstr "_Tập tin"
+
+msgid "Pending changes. Click execute when ready."
+msgstr "Tạm dừng các thay đổi. Chọn thực hiện khi sẵn sàng."
+
+msgid "Packages with unmet dependencies"
+msgstr "Các gói không thoả điều kiện phụ thuộc"
+
+msgid ": Depends: "
+msgstr ": Các phụ thuộc: "
+
+msgid "Package conflicts"
+msgstr "Các xung đột"
+
+msgid ", which is required by "
+msgstr ", được yêu cầu bởi "
+
+msgid ", is excluded"
+msgstr ", được thực hiện"
+
+msgid "<b>Conflicts:</b>"
+msgstr "<b>Danh sách xung đột:</b>"
+
+msgid "<b>Description:</b>"
+msgstr "<b>Mô tả</b>"
+
+msgid "<b>Location:</b>"
+msgstr "<b>Vị trí</b>"
+
+msgid "Source:"
+msgstr "Nguồn:"
+
+msgid "<b>Name:</b>"
+msgstr "<b>Tên</b>"
+
+msgid "<b>Required:</b>"
+msgstr "<b>Yêu cầu:</b>"
+
+msgid "<b>Size:</b>"
+msgstr "<b>Kích thước:</b>"
+
+msgid "<b>Suggests:</b>"
+msgstr "<b>Danh sách đề nghị:</b>"
+
+msgid "Version:"
+msgstr "Phiên bản:"
+
+msgid "<b>Version:</b>"
+msgstr "<b>Phiên bản:</b>"
+
+msgid "Common"
+msgstr "Tổng quát"
+
+msgid "Dependencies"
+msgstr "Danh sách phụ thuộc"
+
+msgid "No package is selected."
+msgstr "Không có gói nào được chọn"
+
+msgid "Status"
+msgstr "Trạng thái"
+
+msgid "Source download failed"
+msgstr "Nguồn dữ liệu bị lỗi"
+
+msgid "Package(s) failed to download"
+msgstr "Bị lỗi trong khi lấy dữ liệu"
+
+msgid "pkgtools returned an error"
+msgstr "pkgtools trả về một lỗi"
+
+msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Bạn không có đủ không gian trống</span>"
+
+msgid "Excluding %s due to dependency failure\n"
+msgstr "Loại bỏ %s do lỗi phụ thuộc\n"
+
+msgid "Unmark"
+msgstr "Không đánh dấu"
+
+msgid "<b>Status:</b>"
+msgstr "<b>Trạng thái:</b>"
+
+msgid "Excluded"
+msgstr "Loại bỏ"
+
+msgid "<b>The following icons are used to indicate the current status of a package:</b>"
+msgstr "<b>Các biểu tượng sau được sử dụng để nhận biết trạng thái hiện tại của một gói dữ liệu:</b>"
+
+msgid "Not Installed"
+msgstr "Không được cài đặt"
+
+msgid "To be Installed"
+msgstr "Được cài đặt"
+
+msgid "To be Re-Installed"
+msgstr "Được cài đặt lại"
+
+msgid "To be Upgraded"
+msgstr "Được nâng cấp"
+
+msgid "To be Removed"
+msgstr "Bị gỡ bỏ"
+
+msgid "To be Downgraded"
+msgstr "Bị xuống cấp :)"
+
+msgid "Icon Legend"
+msgstr "Chú thích biểu tượng"
+
+msgid "Completed actions"
+msgstr "Các hành động đã hoàn tất"
+
+msgid "Successfully executed all actions."
+msgstr "Đã thực hiện thành công tất cả các hành động."
+
+msgid "<b>Installed Version</b>"
+msgstr "<b>Phiên bản được cài đặt</b>"
+
+msgid "<b>Latest Available Version</b>"
+msgstr "<b>Phiên bản hiện có mới nhất</b>"
+
+msgid "N/A"
+msgstr "N/A"
+
+msgid "Failed to commit preferences"
+msgstr "Bị lỗi khi đồng ý các tuỳ chỉnh"
+
+msgid "Mark All Upgrades"
+msgstr "Đánh dấu nâng cấp tất cả"
+
+msgid "_Edit"
+msgstr "_Hiệu chỉnh"
+
+msgid "Unmark All"
+msgstr "Không đánh dấu tất cả"
+
+msgid "P_ackage"
+msgstr "G_ói phần mềm"
+
