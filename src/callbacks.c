@@ -2670,6 +2670,12 @@ static void build_package_action_menu(pkg_info_t *pkg)
   newest_installed = get_newest_pkg(installed,pkg->name);
   if (newest_installed != NULL && cmp_pkg_versions(pkg->version,newest_installed->version) < 0) {
     is_downgrade = 1;
+  } else if (newest_installed != NULL && cmp_pkg_versions(pkg->version,newest_installed->version) == 0) {
+    /*
+      maybe this isn't the exact installed package, but it's different enough
+      to warrant reinstall-ability
+    */
+    is_installed = 1;
   }
 
   upgrade_pkg = get_newest_pkg(all,pkg->name);

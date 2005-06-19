@@ -1,5 +1,6 @@
 
-0.3.3 June 17, 2005
+0.3.3 June 19, 2005
+ * allow reinstall of installed packages with different build identifiers
  * added vi translation by Vu Nguyen
  * reset package menu after install/upgrade/remove is complete
  * added search completion for previous searches in the session
