@@ -828,7 +828,6 @@ create_gslapt (void)
   gtk_widget_show (pkg_listing_treeview);
   gtk_container_add (GTK_CONTAINER (pkg_list_scrolled), pkg_listing_treeview);
   gtk_tree_view_set_rules_hint (GTK_TREE_VIEW (pkg_listing_treeview), TRUE);
-  gtk_tree_view_set_reorderable (GTK_TREE_VIEW (pkg_listing_treeview), TRUE);
 
   pkg_info_notebook = gtk_notebook_new ();
   gtk_widget_set_name (pkg_info_notebook, "pkg_info_notebook");
