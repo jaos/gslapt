@@ -179,6 +179,10 @@ int main (int argc, char *argv[]) {
       for (i = 0; i < pkg_inst_args_count; ++i) {
         pkg_info_t *p = get_newest_pkg(all,pkg_inst_args[i]);
         pkg_info_t *inst_p = get_newest_pkg(installed,pkg_inst_args[i]);
+
+        if (p == NULL)
+          continue;
+
         if ( inst_p != NULL && cmp_pkg_versions(inst_p->version,p->version) < 0) {
           if (add_deps_to_trans(global_config,trans,all,installed,p) == 0) {
             add_upgrade_to_transaction(trans,inst_p,p);
