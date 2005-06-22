@@ -1,5 +1,7 @@
 
-0.3.3 June 21, 2005
+0.3.3 June 22, 2005
+ * added commandline options, --upgrade to start up in automatic upgrade mode,
+   and --install --remove to pass in packages to install/upgrade or remove.
  * disabled reordering the package treeview
  * allow reinstall of installed packages with different build identifiers
  * added vi translation by Vu Nguyen

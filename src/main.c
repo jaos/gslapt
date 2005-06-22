@@ -36,6 +36,13 @@ int main (int argc, char *argv[]) {
   GtkStatusbar *bar;
   guint default_context_id;
   GtkEntryCompletion *completions;
+  gchar **pkg_inst_args = NULL;
+  guint pkg_inst_args_count = 0;
+  gchar **pkg_rem_args = NULL;
+  guint pkg_rem_args_count = 0;
+  gchar *rc = NULL;
+  guint option_index = 0;
+  guint do_upgrade = 0;
 
 #ifdef ENABLE_NLS
   bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
@@ -54,7 +61,65 @@ int main (int argc, char *argv[]) {
 
   gslapt = (GtkWidget *)create_gslapt();
 
-  global_config = read_rc_config(RC_LOCATION);
+  for (option_index = 1; option_index < argc; ++option_index) {
+
+    if (strcmp(argv[option_index],"--upgrade") == 0) {
+      do_upgrade = 1;
+    } else if (strcmp(argv[option_index],"--install") == 0) {
+      char *next_opt = NULL;
+
+      if (argc > (option_index + 1) && strcmp(argv[option_index + 1],"--upgrade") != 0 && strcmp(argv[option_index + 1],"--remove") != 0)
+        next_opt = argv[++option_index];
+
+      while (next_opt != NULL) {
+        char **tmp = NULL;
+
+        tmp = realloc(pkg_inst_args, sizeof *pkg_inst_args * (pkg_inst_args_count + 1));
+        if (tmp == NULL)
+          exit(1);
+        pkg_inst_args = tmp;
+        pkg_inst_args[pkg_inst_args_count] = strdup(next_opt);
+        ++pkg_inst_args_count;
+
+        if (argc > (option_index + 1) && strcmp(argv[option_index + 1],"--upgrade") != 0 && strcmp(argv[option_index + 1],"--remove") != 0)
+          next_opt = argv[++option_index];
+        else
+          next_opt = NULL;
+
+      }
+
+    } else if (strcmp(argv[option_index],"--remove") == 0) {
+      char *next_opt = NULL;
+
+      if (argc > (option_index + 1) && strcmp(argv[option_index + 1],"--upgrade") != 0 && strcmp(argv[option_index + 1],"--install") != 0)
+        next_opt = argv[++option_index];
+
+      while (next_opt != NULL) {
+        char **tmp = NULL;
+
+        tmp = realloc(pkg_rem_args, sizeof *pkg_rem_args * (pkg_rem_args_count + 1));
+        if (tmp == NULL)
+          exit(1);
+        pkg_rem_args = tmp;
+        pkg_rem_args[pkg_rem_args_count] = strdup(next_opt);
+        ++pkg_rem_args_count;
+
+        if (argc > (option_index + 1) && strcmp(argv[option_index + 1],"--upgrade") != 0 && strcmp(argv[option_index + 1],"--install") != 0)
+          next_opt = argv[++option_index];
+        else
+          next_opt = NULL;
+
+      }
+    }
+
+  }
+
+  if (rc == NULL) {
+    global_config = read_rc_config(RC_LOCATION);
+  } else {
+    global_config = read_rc_config(rc);
+    g_free(rc);
+  }
   working_dir_init(global_config);
   chdir(global_config->working_dir);
   global_config->progress_cb = gtk_progress_callback;
@@ -83,6 +148,47 @@ int main (int argc, char *argv[]) {
                             "action_bar_execute_button"), FALSE);
 
   gtk_widget_show (gslapt);
+
+  if (do_upgrade == 1) {
+    g_signal_emit_by_name(lookup_widget(gslapt,"action_bar_upgrade_button"),"clicked");
+  } else {
+    if (pkg_inst_args_count > 0){
+      int i;
+      for (i = 0; i < pkg_inst_args_count; ++i) {
+        pkg_info_t *p = get_newest_pkg(all,pkg_inst_args[i]);
+        pkg_info_t *inst_p = get_newest_pkg(installed,pkg_inst_args[i]);
+        if ( inst_p != NULL && cmp_pkg_versions(inst_p->version,p->version) < 0) {
+          if (add_deps_to_trans(global_config,trans,all,installed,p) == 0) {
+            add_upgrade_to_transaction(trans,inst_p,p);
+          } else {
+            exit(1);
+          }
+        } else {
+          if (add_deps_to_trans(global_config,trans,all,installed,p) == 0) {
+            pkg_info_t *conflict_p;
+            add_install_to_transaction(trans,p);
+            if ( (conflict_p = is_conflicted(trans,all,installed,p)) != NULL) {
+              add_remove_to_transaction(trans,conflict_p);
+            }
+          } else {
+            exit(1);
+          }
+        }
+      }
+    }
+    if (pkg_rem_args_count > 0) {
+      int i;
+      for (i = 0; i < pkg_rem_args_count; ++i) {
+        pkg_info_t *r = get_newest_pkg(installed,pkg_rem_args[i]);
+        if (r != NULL) {
+          add_remove_to_transaction(trans,r);
+        }
+      }
+    }
+  }
+  if ( trans->remove_pkgs->pkg_count > 0 || trans->install_pkgs->pkg_count > 0 || trans->upgrade_pkgs->pkg_count > 0) {
+    g_signal_emit_by_name(lookup_widget(gslapt,"action_bar_execute_button"),"clicked");
+  }
 
   gdk_threads_enter();
   gtk_main ();
