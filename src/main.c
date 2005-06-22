@@ -36,9 +36,9 @@ int main (int argc, char *argv[]) {
   GtkStatusbar *bar;
   guint default_context_id;
   GtkEntryCompletion *completions;
-  gchar **pkg_inst_args = NULL;
+  gchar **pkg_inst_args = malloc(sizeof **pkg_inst_args);
   guint pkg_inst_args_count = 0;
-  gchar **pkg_rem_args = NULL;
+  gchar **pkg_rem_args = malloc(sizeof **pkg_rem_args);
   guint pkg_rem_args_count = 0;
   gchar *rc = NULL;
   guint option_index = 0;
@@ -64,11 +64,24 @@ int main (int argc, char *argv[]) {
   for (option_index = 1; option_index < argc; ++option_index) {
 
     if (strcmp(argv[option_index],"--upgrade") == 0) {
+
       do_upgrade = 1;
+
+    } else if (strcmp(argv[option_index],"--config") == 0) {
+
+      if (argc > (option_index + 1) &&
+      strcmp(argv[option_index + 1],"--upgrade") != 0 &&
+      strcmp(argv[option_index + 1],"--config") != 0 &&
+      strcmp(argv[option_index + 1],"--remove") != 0)
+        rc = argv[++option_index];
+
     } else if (strcmp(argv[option_index],"--install") == 0) {
       char *next_opt = NULL;
 
-      if (argc > (option_index + 1) && strcmp(argv[option_index + 1],"--upgrade") != 0 && strcmp(argv[option_index + 1],"--remove") != 0)
+      if (argc > (option_index + 1) &&
+      strcmp(argv[option_index + 1],"--upgrade") != 0 &&
+      strcmp(argv[option_index + 1],"--config") != 0 &&
+      strcmp(argv[option_index + 1],"--remove") != 0)
         next_opt = argv[++option_index];
 
       while (next_opt != NULL) {
@@ -81,7 +94,10 @@ int main (int argc, char *argv[]) {
         pkg_inst_args[pkg_inst_args_count] = strdup(next_opt);
         ++pkg_inst_args_count;
 
-        if (argc > (option_index + 1) && strcmp(argv[option_index + 1],"--upgrade") != 0 && strcmp(argv[option_index + 1],"--remove") != 0)
+        if (argc > (option_index + 1) &&
+        strcmp(argv[option_index + 1],"--upgrade") != 0 &&
+        strcmp(argv[option_index + 1],"--config") != 0 &&
+        strcmp(argv[option_index + 1],"--remove") != 0)
           next_opt = argv[++option_index];
         else
           next_opt = NULL;
@@ -91,7 +107,10 @@ int main (int argc, char *argv[]) {
     } else if (strcmp(argv[option_index],"--remove") == 0) {
       char *next_opt = NULL;
 
-      if (argc > (option_index + 1) && strcmp(argv[option_index + 1],"--upgrade") != 0 && strcmp(argv[option_index + 1],"--install") != 0)
+      if (argc > (option_index + 1) &&
+      strcmp(argv[option_index + 1],"--upgrade") != 0 &&
+      strcmp(argv[option_index + 1],"--config") != 0 &&
+      strcmp(argv[option_index + 1],"--install") != 0)
         next_opt = argv[++option_index];
 
       while (next_opt != NULL) {
@@ -104,7 +123,10 @@ int main (int argc, char *argv[]) {
         pkg_rem_args[pkg_rem_args_count] = strdup(next_opt);
         ++pkg_rem_args_count;
 
-        if (argc > (option_index + 1) && strcmp(argv[option_index + 1],"--upgrade") != 0 && strcmp(argv[option_index + 1],"--install") != 0)
+        if (argc > (option_index + 1) &&
+        strcmp(argv[option_index + 1],"--upgrade") != 0 &&
+        strcmp(argv[option_index + 1],"--config") != 0 &&
+        strcmp(argv[option_index + 1],"--install") != 0)
           next_opt = argv[++option_index];
         else
           next_opt = NULL;
@@ -186,6 +208,16 @@ int main (int argc, char *argv[]) {
       }
     }
   }
+
+  for (option_index = 0; option_index < pkg_inst_args_count; ++option_index) {
+    g_free(pkg_inst_args[option_index]);
+  }
+  g_free(pkg_inst_args[option_index]);
+  for (option_index = 0; option_index < pkg_rem_args_count; ++option_index) {
+    g_free(pkg_rem_args[option_index]);
+  }
+  g_free(pkg_rem_args[option_index]);
+
   if ( trans->remove_pkgs->pkg_count > 0 || trans->install_pkgs->pkg_count > 0 || trans->upgrade_pkgs->pkg_count > 0) {
     g_signal_emit_by_name(lookup_widget(gslapt,"action_bar_execute_button"),"clicked");
   }
