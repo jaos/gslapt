@@ -1,5 +1,6 @@
 
-0.3.3 June 22, 2005
+0.3.3 June 23, 2005
+ * added Slovak translation by Erik Gyepes
  * added commandline option --config to specify alternate config to use for
    session
  * added commandline options, --upgrade to start up in automatic upgrade mode,

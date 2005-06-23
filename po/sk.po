@@ -1,0 +1,413 @@
+# slovak translation for gslapt
+# Copyright (C) 2005 Jason Woodward
+# This file is distributed under the same license as the gslapt package.
+# FIRST AUTHOR Erik Gyepes <depi@depi.sk>, 2005.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: gslapt 0.3.2\n"
+"Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
+"POT-Creation-Date: 2005-06-23 21:28-0500\n"
+"PO-Revision-Date: 2005-06-06 21:28+0500\n"
+"Last-Translator: Erik Gyepes <depi@depi.sk>\n"
+"Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-2\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "<b>Exclude List</b>"
+msgstr "<b>Vylúèené</b>"
+
+msgid "<b>Package Sources</b>"
+msgstr "<b>Zdroje balíkov</b>"
+
+msgid "<b>Package and data storage</b>"
+msgstr "<b>Úlo¾né miesto dát a balíkov</b>"
+
+msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Potvrdi» nasledovné zmeny?</span>"
+
+msgid "<span weight=\"bold\">Exclude Expression:</span>"
+msgstr "<span weight=\"bold\">Vylúèi» výraz:</span>"
+
+msgid "<span weight=\"bold\">SOURCE=</span>"
+msgstr "<span weight=\"bold\">ZDROJ=</span>"
+
+msgid "About gslapt"
+msgstr "O gslapt"
+
+msgid "About"
+msgstr "Info"
+
+msgid "Checking for new package data..."
+msgstr "Hµadajú sa nové balíky..."
+
+msgid "Clean archived packages off filesystem"
+msgstr "Vymaza» archovivané balíky zo systému"
+
+msgid "Clean"
+msgstr "Vymaza»"
+
+msgid "Clear search expression"
+msgstr "Vymaza» hµadaný výraz"
+
+msgid "Clear"
+msgstr "Vymaza»"
+
+msgid "Conflicts"
+msgstr "Konflikty"
+
+#, c-format
+msgid "Couldn't find pixmap file: %s"
+msgstr "Nemô¾em nájs» pixmap súbor: %s"
+
+msgid "Description"
+msgstr "Popis"
+
+msgid "Dismiss"
+msgstr "Vyradi»"
+
+msgid "Download packages only"
+msgstr "Len stiahnu» balík"
+
+msgid "Downloading packages..."
+msgstr "S»ahujem balíky..."
+
+msgid "Downloading..."
+msgstr "S»ahujem..."
+
+msgid "Exclude package"
+msgstr "Vylúèi» balík"
+
+msgid "Exclude"
+msgstr "Vylúèi»"
+
+msgid "Excludes"
+msgstr "Vylúèenia"
+
+msgid "Execute all scheduled actions in current transaction"
+msgstr "Spusti» v¹etky naplánované akcie v aktuálnej transakcii"
+
+msgid "Execute"
+msgstr "Spusti»"
+
+msgid "Expression"
+msgstr "Výraz"
+
+msgid "Gslapt"
+msgstr "Gslapt"
+
+msgid "Install"
+msgstr "In¹talova»"
+
+msgid "Install/Upgrade package"
+msgstr "In¹talova»/Upgradova» balík"
+
+msgid "Installed Size:"
+msgstr "Nain¹talovaná veµkos»:"
+
+msgid "Installed"
+msgstr "Nain¹talovaný"
+
+msgid "Installing packages..."
+msgstr "In¹talujem balíky..."
+
+msgid "Installing..."
+msgstr "In¹talujem..."
+
+msgid "Location"
+msgstr "Umiestnenie"
+
+msgid "Name"
+msgstr "Názov"
+
+msgid "No"
+msgstr "Nie"
+
+msgid "Package Action"
+msgstr "Funkcia balíka"
+
+msgid "Package Information"
+msgstr "Informácia o balíku"
+
+msgid "Package"
+msgstr "Balík"
+
+msgid "Packages excluded"
+msgstr "Vylúèené balíky"
+
+msgid "Packages to be installed"
+msgstr "Balíky, ktoré budú nain¹talované"
+
+msgid "Packages to be removed"
+msgstr "Balíky, ktoré budú vymazané"
+
+msgid "Packages to be upgraded"
+msgstr "Balíky, ktoré budú upgradnuté"
+
+msgid "Preferences"
+msgstr "Nastavenia"
+
+msgid "Progress"
+msgstr "Spracova»"
+
+msgid "Quit"
+msgstr "Koniec"
+
+msgid "Remove package"
+msgstr "Vymaza» balík"
+
+msgid "Remove"
+msgstr "Vymaza»"
+
+msgid "Removing packages..."
+msgstr "Vymazávam balíky..."
+
+msgid "Required"
+msgstr "Potrebné"
+
+msgid "Search for expression"
+msgstr "Hµada» výraz"
+
+msgid "Search"
+msgstr "Hµada»"
+
+msgid "Size:"
+msgstr "Veµkos»:"
+
+msgid "Source"
+msgstr "Zdroj"
+
+msgid "Sources"
+msgstr "Zdroje"
+
+msgid "Suggests"
+msgstr "Doporuèenia"
+
+msgid "Summary"
+msgstr "Zhrnutie"
+
+msgid "This is a summary of the changes about to be performed."
+msgstr "Toto je zhrnutie o zmenách, ktoré budú vykonané."
+
+msgid "Uninstalling..."
+msgstr "Odin¹talovávam..."
+
+msgid "Up_grade"
+msgstr "Up_grade"
+
+msgid "Update local package cache"
+msgstr "Aktualizova» lokálnu cache balíkov"
+
+msgid "Update"
+msgstr "Aktualizova»"
+
+msgid "Upgrade installed packages"
+msgstr "Upgradnu» nain¹talované balíky"
+
+msgid "Upgrade to newer release"
+msgstr "Upgradnu» na nov¹ie vydanie"
+
+msgid "Upgrade"
+msgstr "Upgrade"
+
+msgid "Upgrading packages..."
+msgstr "Upgradujem balíky..."
+
+msgid "Upgrading..."
+msgstr "Upgradujem..."
+
+msgid "Version"
+msgstr "Verzia"
+
+msgid "WARNING"
+msgstr "UPOZORNENIE"
+
+msgid "Working Directory"
+msgstr "Pracovný Adresár"
+
+msgid "Yes"
+msgstr "Áno"
+
+msgid "_Actions"
+msgstr "_Akcie"
+
+msgid "_Clean"
+msgstr "_Vyèisti»"
+
+msgid "_Execute"
+msgstr "_Spusti»"
+
+msgid "_Help"
+msgstr "_Pomoc"
+
+msgid "_Preferences"
+msgstr "_Preferencie"
+
+msgid "_Settings"
+msgstr "_Nastavenia"
+
+msgid "_Update"
+msgstr "_Aktualizácia"
+
+msgid ""
+"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
+"Slackware"
+msgstr ""
+"gslapt je GTK+ nadstavba k slapt-get, ktorý je zalo¾ený na báze APT pre"
+"Slackware"
+
+msgid "total progress"
+msgstr "celkovo spracova»"
+
+msgid "working"
+msgstr "pracujem"
+
+msgid "Up to Date"
+msgstr "Je aktuálny"
+
+msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Nie sú k dispozícii ¾iadne aktualizácie</span>"
+
+msgid "%d upgraded, %d newly installed, %d to remove and %d not upgraded."
+msgstr "%d upgradnutých, %d novo nain¹talovaných, %d na vymazanie a %d neupgradnutých."
+
+msgid "Need to get %0.1d%s/%0.1d%s of archives.\n"
+msgstr "Potrebné stiahnu» %0.1d%s/%0.1d%s z archívov.\n"
+
+msgid "Need to get %0.1d%s of archives."
+msgstr "Potrebné stiahnu» %0.1d%s z archívov."
+
+msgid "After unpacking %0.1d%s disk space will be freed."
+msgstr "Po rozbalení %0.1d%s diskového priestoru bude uvoµnených."
+
+msgid "After unpacking %0.1d%s of additional disk space will be used."
+msgstr "Po rozbalení bude pou¾itých ïaµ¹ích %0.1d%s diskového priestoru."
+
+msgid "Ready"
+msgstr "Pripravený"
+
+msgid "Re-Install"
+msgstr "Pre-In¹talova»"
+
+msgid "Downgrade"
+msgstr "Downgradnu»"
+
+msgid "_File"
+msgstr "_Súbor"
+
+msgid "Pending changes. Click execute when ready."
+msgstr "Èakajúce zmeny. Klikni spusti», keï budú pripravené."
+
+msgid "Packages with unmet dependencies"
+msgstr "Balíky s nesplnenými závislos»ami"
+
+msgid ": Depends: "
+msgstr ": Závislosti: "
+
+msgid "Package conflicts"
+msgstr "Konflikty balíkov"
+
+msgid ", which is required by "
+msgstr ", ktorý po¾aduje "
+
+msgid ", is excluded"
+msgstr ", je spustený"
+
+msgid "<b>Conflicts:</b>"
+msgstr "<b>Konflikty:</b>"
+
+msgid "<b>Description:</b>"
+msgstr "<b>Popis:</b>"
+
+msgid "<b>Location:</b>"
+msgstr "<b>Umiestnenie:</b>"
+
+msgid "Source:"
+msgstr "Zdroj:"
+
+msgid "<b>Name:</b>"
+msgstr "<b>Názov:</b>"
+
+msgid "<b>Required:</b>"
+msgstr "<b>Po¾adovaný:</b>"
+
+msgid "<b>Size:</b>"
+msgstr "<b>Veµkos»:</b>"
+
+msgid "<b>Suggests:</b>"
+msgstr "<b>Doporuèenia:</b>"
+
+msgid "Version:"
+msgstr "Verzia:"
+
+msgid "<b>Version:</b>"
+msgstr "<b>Verzia:</b>"
+
+msgid "Common"
+msgstr "Spoloèný"
+
+msgid "Dependencies"
+msgstr "Závislosti"
+
+msgid "No package is selected."
+msgstr "Nebol oznaèený ¾iadny balík."
+
+msgid "Status"
+msgstr "Stav"
+
+msgid "Source download failed"
+msgstr "S»ahovanie zlyhalo"
+
+msgid "Package(s) failed to download"
+msgstr "Zlyhalo s»ahovanie balíka(ov)"
+
+msgid "pkgtools returned an error"
+msgstr "pkgtools vrátil chybu"
+
+msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Nemáte dostatok voµného miesta</span>"
+
+msgid "Excluding %s due to dependency failure\n"
+msgstr "Vyluèujem %s chybu so závislo»ou\n"
+
+msgid "Unmark"
+msgstr "Odznaèi»"
+
+msgid "<b>Status:</b>"
+msgstr "<b>Stav:</b>"
+
+msgid "Excluded"
+msgstr "Vylúèené"
+
+msgid "<b>The following icons are used to indicate the current status of a package:</b>"
+msgstr "<b>Nasledovné ikony sú pou¾ité pre oznaèenie aktuálneho stavu balíku:</b>"
+
+msgid "Not Installed"
+msgstr "Nenain¹talovaný"
+
+msgid "To be Installed"
+msgstr "Bude in¹talovaný"
+
+msgid "To be Re-Installed"
+msgstr "Bude pre-in¹talovaný"
+
+msgid "To be Upgraded"
+msgstr "Bude upgradnutý"
+
+msgid "To be Removed"
+msgstr "Bude vymazaný"
+
+msgid "To be Downgraded"
+msgstr "Bude downgradnutý"
+
+msgid "Icon Legend"
+msgstr "Legenda ikôn"
+
+msgid "Failed to commit preferences"
+msgstr "Neúspe¹né vykonanie preferencií"
+
+msgid "Mark All Upgrades"
+msgstr "Oznaèi» v¹etky upgrady"
+
