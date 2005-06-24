@@ -28,6 +28,13 @@
 #include "interface.h"
 #include "support.h"
 
+extern GtkWidget *gslapt;
+extern rc_config *global_config;
+extern struct pkg_list *all;
+extern struct pkg_list *installed;
+extern transaction_t *trans;
+
+
 static GtkWidget *progress_window;
 static guint _cancelled = 0;
 static guint pending_trans_context_id = 0;
@@ -65,10 +72,6 @@ static int ladd_deps_to_trans(const rc_config *global_config, transaction_t *tra
 
 void on_gslapt_destroy (GtkObject *object, gpointer user_data) 
 {
-  extern transaction_t *trans;
-  extern struct pkg_list *installed;
-  extern struct pkg_list *all;
-  extern rc_config *global_config;
 
   free_transaction(trans);
   free_pkg_list(all);
@@ -92,7 +95,6 @@ void update_callback (GtkObject *object, gpointer user_data)
 
 void upgrade_callback (GtkObject *object, gpointer user_data) 
 {
-  extern transaction_t *trans;
   mark_upgrade_packages();
   if (trans->install_pkgs->pkg_count > 0 || trans->upgrade_pkgs->pkg_count > 0) {
     set_execute_active();
@@ -102,7 +104,6 @@ void upgrade_callback (GtkObject *object, gpointer user_data)
 void execute_callback (GtkObject *object, gpointer user_data) 
 {
   GtkWidget *trans_window;
-  extern transaction_t *trans;
 
   if (
     trans->install_pkgs->pkg_count == 0
@@ -121,7 +122,6 @@ void execute_callback (GtkObject *object, gpointer user_data)
 void open_preferences (GtkMenuItem *menuitem, gpointer user_data) 
 {
   GtkWidget *preferences;
-  extern rc_config *global_config;
   GtkEntry *working_dir;
   GtkTreeView *source_tree,*exclude_tree;
 
@@ -171,10 +171,6 @@ void search_button_clicked (GtkWidget *gslapt, gpointer user_data)
 
 void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data) 
 {
-  extern transaction_t *trans;
-  extern struct pkg_list *installed;
-  extern struct pkg_list *all;
-  extern rc_config *global_config;
   pkg_info_t *pkg = NULL, *installed_pkg = NULL;
   GtkTreeView *treeview;
   GtkTreeIter iter;
@@ -366,9 +362,6 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
 
 void add_pkg_for_removal (GtkWidget *gslapt, gpointer user_data) 
 {
-  extern transaction_t *trans;
-  extern struct pkg_list *installed;
-  extern rc_config *global_config;
   GtkTreeView *treeview;
   GtkTreeIter iter;
   GtkTreeSelection *selection;
@@ -453,10 +446,6 @@ void build_package_treeviewlist(GtkWidget *treeview)
 {
   GtkTreeIter iter;
   guint i = 0;
-  extern struct pkg_list *all;
-  extern struct pkg_list *installed;
-  extern transaction_t *trans;
-  extern GtkWidget *gslapt;
   GtkTreeModel *base_model;
   GtkTreeModelFilter *filter_model;
   GtkTreeModelSort *package_model;
@@ -564,9 +553,6 @@ void build_package_treeviewlist(GtkWidget *treeview)
 
 void build_searched_treeviewlist(GtkWidget *treeview, gchar *pattern)
 {
-  extern GtkWidget *gslapt;
-  extern struct pkg_list *all;
-  extern struct pkg_list *installed;
   gboolean valid;
   GtkTreeIter iter;
   GtkTreeModelFilter *filter_model;
@@ -626,10 +612,7 @@ void open_about (GtkObject *object, gpointer user_data)
 
 void show_pkg_details (GtkTreeSelection *selection, gpointer data) 
 {
-  extern GtkWidget *gslapt;
   GtkTreeIter iter;
-  extern struct pkg_list *installed;
-  extern struct pkg_list *all;
   GtkTreeModelSort *package_model;
   GtkTreeView *treeview;
 
@@ -665,11 +648,6 @@ void show_pkg_details (GtkTreeSelection *selection, gpointer data)
 
 static void fillin_pkg_details(pkg_info_t *pkg)
 {
-  extern GtkWidget *gslapt;
-  extern rc_config *global_config;
-  extern struct pkg_list *all;
-  extern struct pkg_list *installed;
-  extern transaction_t *trans;
   gchar *short_desc;
   GtkTextBuffer *pkg_full_desc;
   pkg_info_t *latest_pkg = get_newest_pkg(all,pkg->name);
@@ -767,8 +745,6 @@ static void get_package_data(void)
 {
   GtkLabel *progress_action_label,*progress_message_label,*progress_pkg_desc;
   GtkProgressBar *p_bar;
-  extern rc_config *global_config;
-  extern transaction_t *trans;
   guint i,context_id;
   FILE *pkg_list_fh_tmp = NULL;
   gfloat dl_files = 0.0, dl_count = 0.0;
@@ -1141,10 +1117,7 @@ int gtk_progress_callback(void *data, double dltotal, double dlnow,
 
 static void rebuild_treeviews(GtkWidget *current_window)
 {
-  extern GtkWidget *gslapt;
   GtkWidget *treeview;
-  extern struct pkg_list *installed;
-  extern struct pkg_list *all;
   struct pkg_list *all_ptr,*installed_ptr;
   GdkCursor *c = gdk_cursor_new(GDK_WATCH);
   GtkListStore *store;
@@ -1183,7 +1156,6 @@ static void rebuild_treeviews(GtkWidget *current_window)
 
 static guint gslapt_set_status(const gchar *msg)
 {
-  extern GtkWidget *gslapt;
   guint context_id;
   GtkStatusbar *bar = GTK_STATUSBAR(lookup_widget(gslapt,"bottom_statusbar"));
   context_id = gtk_statusbar_get_context_id(bar,msg);
@@ -1195,7 +1167,6 @@ static guint gslapt_set_status(const gchar *msg)
 
 static void gslapt_clear_status(guint context_id)
 {
-  extern GtkWidget *gslapt;
   GtkStatusbar *bar = GTK_STATUSBAR(lookup_widget(gslapt,"bottom_statusbar"));
 
   gtk_statusbar_pop(bar,context_id);
@@ -1203,7 +1174,6 @@ static void gslapt_clear_status(guint context_id)
 
 static void lock_toolbar_buttons(void)
 {
-  extern GtkWidget *gslapt;
   gtk_widget_set_sensitive(lookup_widget(gslapt,"top_menubar"),FALSE);
 
   gtk_widget_set_sensitive(lookup_widget(gslapt,"action_bar_update_button"),FALSE);
@@ -1214,8 +1184,6 @@ static void lock_toolbar_buttons(void)
 
 static void unlock_toolbar_buttons(void)
 {
-  extern GtkWidget *gslapt;
-  extern transaction_t *trans;
 
   gtk_widget_set_sensitive(lookup_widget(gslapt,"top_menubar"),TRUE);
 
@@ -1237,9 +1205,6 @@ static void lhandle_transaction(GtkWidget *w)
 {
   GtkCheckButton *dl_only_checkbutton;
   gboolean dl_only = FALSE;
-  extern GtkWidget *gslapt;
-  extern transaction_t *trans;
-  extern struct pkg_list *installed;
   struct pkg_list *installed_ptr;
   GdkCursor *c;
 
@@ -1416,8 +1381,6 @@ static int populate_transaction_window(GtkWidget *trans_window)
   GtkCellRenderer *renderer;
   GtkTreeViewColumn *column;
   GtkLabel *sum_pkg_num,*sum_dl_size,*sum_free_space;
-  extern transaction_t *trans;
-  extern rc_config *global_config;
   guint i;
   gint dl_size = 0,free_space = 0,already_dl_size = 0;
   gchar buf[512];
@@ -1576,11 +1539,6 @@ void clear_button_clicked(GtkWidget *w, gpointer user_data)
 
 static void mark_upgrade_packages(void)
 {
-  extern GtkWidget *gslapt;
-  extern rc_config *global_config;
-  extern struct pkg_list *all;
-  extern struct pkg_list *installed;
-  extern transaction_t *trans;
   GtkTreeIter iter;
   GtkTreeModelFilter *filter_model;
   GtkTreeModel *base_model;
@@ -1661,8 +1619,6 @@ static gboolean download_packages(void)
 {
   GtkLabel *progress_action_label,*progress_message_label,*progress_pkg_desc;
   GtkProgressBar *p_bar;
-  extern transaction_t *trans;
-  extern rc_config *global_config;
   guint i,context_id;
   gfloat pkgs_to_dl = 0.0,count = 0.0;
 
@@ -1797,8 +1753,6 @@ static gboolean install_packages(void)
 {
   GtkLabel *progress_action_label,*progress_message_label,*progress_pkg_desc;
   GtkProgressBar *p_bar;
-  extern transaction_t *trans;
-  extern rc_config *global_config;
   guint i,context_id;
   gfloat count = 0.0;
 
@@ -1882,7 +1836,6 @@ static gboolean install_packages(void)
 void clean_callback(GtkMenuItem *menuitem, gpointer user_data)
 {
   GThread *gpd;
-  extern rc_config *global_config;
 
   gpd = g_thread_create((GThreadFunc)clean_pkg_dir,global_config->working_dir,FALSE,NULL);
 
@@ -1891,7 +1844,6 @@ void clean_callback(GtkMenuItem *menuitem, gpointer user_data)
 
 void preferences_sources_add(GtkWidget *w, gpointer user_data)
 {
-  extern rc_config *global_config;
   GtkTreeView *source_tree = GTK_TREE_VIEW(lookup_widget(w,"preferences_sources_treeview"));
   GtkEntry *new_source_entry = GTK_ENTRY(lookup_widget(w,"new_source_entry"));
   const gchar *new_source = gtk_entry_get_text(new_source_entry);
@@ -1923,7 +1875,6 @@ void preferences_sources_add(GtkWidget *w, gpointer user_data)
 
 void preferences_sources_remove(GtkWidget *w, gpointer user_data)
 {
-  extern rc_config *global_config;
   GtkTreeIter iter;
   GtkTreeModel *model;
   GtkTreeView *source_tree = GTK_TREE_VIEW(lookup_widget(w,"preferences_sources_treeview"));
@@ -1984,7 +1935,6 @@ void preferences_sources_remove(GtkWidget *w, gpointer user_data)
 
 void preferences_on_ok_clicked(GtkWidget *w, gpointer user_data)
 {
-  extern rc_config *global_config;
   GtkEntry *preferences_working_dir_entry = GTK_ENTRY(lookup_widget(w,"preferences_working_dir_entry"));
   const gchar *working_dir = gtk_entry_get_text(preferences_working_dir_entry);
 
@@ -2008,7 +1958,6 @@ void preferences_on_ok_clicked(GtkWidget *w, gpointer user_data)
 
 void preferences_exclude_add(GtkWidget *w, gpointer user_data) 
 {
-  extern rc_config *global_config;
   GtkTreeView *exclude_tree = GTK_TREE_VIEW(lookup_widget(w,"preferences_exclude_treeview"));
   GtkEntry *new_exclude_entry = GTK_ENTRY(lookup_widget(w,"new_exclude_entry"));
   const gchar *new_exclude = gtk_entry_get_text(new_exclude_entry);
@@ -2050,7 +1999,6 @@ void preferences_exclude_add(GtkWidget *w, gpointer user_data)
 
 void preferences_exclude_remove(GtkWidget *w, gpointer user_data) 
 {
-  extern rc_config *global_config;
   GtkTreeIter iter;
   GtkTreeModel *model;
   GtkTreeView *exclude_tree = GTK_TREE_VIEW(lookup_widget(w,"preferences_exclude_treeview"));
@@ -2114,7 +2062,6 @@ void preferences_exclude_remove(GtkWidget *w, gpointer user_data)
 
 static gboolean write_preferences(void)
 {
-  extern rc_config *global_config;
   guint i;
   FILE *rc;
 
@@ -2145,7 +2092,6 @@ static gboolean write_preferences(void)
 
 void cancel_preferences(GtkWidget *w, gpointer user_data)
 {
-  extern rc_config *global_config;
   gtk_widget_destroy(w);
   free_rc_config(global_config);
   global_config = read_rc_config(RC_LOCATION);
@@ -2159,7 +2105,6 @@ void cancel_transaction(GtkWidget *w, gpointer user_data)
 
 void add_pkg_for_reinstall (GtkWidget *gslapt, gpointer user_data)
 {
-  extern rc_config *global_config;
 
   global_config->re_install = TRUE;
   add_pkg_for_install(gslapt,user_data);
@@ -2169,7 +2114,6 @@ void add_pkg_for_reinstall (GtkWidget *gslapt, gpointer user_data)
 
 static void set_execute_active(void)
 {
-  extern GtkWidget *gslapt;
 
   gtk_widget_set_sensitive(lookup_widget(gslapt,"action_bar_execute_button"), TRUE);
 
@@ -2181,7 +2125,6 @@ static void set_execute_active(void)
 
 static void clear_execute_active(void)
 {
-  extern GtkWidget *gslapt;
 
   if ( pending_trans_context_id > 0 ) {
     gtk_statusbar_pop(
@@ -2230,7 +2173,6 @@ static gboolean pkg_action_popup_menu(GtkTreeView *treeview, gpointer data)
   GdkEventButton *event = (GdkEventButton *)gtk_get_current_event();
   GtkTreeViewColumn *column;
   GtkTreePath *path;
-  extern GtkWidget *gslapt;
 
   if (event->type != GDK_BUTTON_PRESS)
     return FALSE;
@@ -2264,9 +2206,6 @@ void unmark_package(GtkWidget *gslapt, gpointer user_data)
   GtkTreeIter iter;
   GtkTreeSelection *selection;
   pkg_info_t *pkg = NULL;
-  extern transaction_t *trans;
-  extern struct pkg_list *installed;
-  extern struct pkg_list *all;
   guint is_installed = 0,i;
   GtkTreeModelSort *package_model;
 
@@ -2376,7 +2315,6 @@ static int ladd_deps_to_trans(const rc_config *global_config, transaction_t *tra
                       struct pkg_list *avail_pkgs,
                       struct pkg_list *installed_pkgs, pkg_info_t *pkg)
 {
-  extern GtkWidget *gslapt;
   unsigned int c;
   int dep_return = -1;
   struct pkg_list *deps = NULL;
@@ -2501,8 +2439,6 @@ static int set_iter_to_pkg(GtkTreeModel *model, GtkTreeIter *iter,
 
 static void reset_pkg_view_status(void)
 {
-  extern GtkWidget *gslapt;
-  extern struct pkg_list *installed;
   gboolean valid;
   GtkTreeIter iter;
   GtkTreeModelFilter *filter_model;
@@ -2650,12 +2586,7 @@ void on_button_cancel_clicked(GtkButton *button, gpointer user_data)
 
 static void build_package_action_menu(pkg_info_t *pkg)
 {
-  extern GtkWidget *gslapt;
   GtkMenu *menu;
-  extern struct pkg_list *installed;
-  extern struct pkg_list *all;
-  extern transaction_t *trans;
-  extern rc_config *global_config;
   pkg_info_t *newest_installed = NULL, *upgrade_pkg = NULL;
   guint is_installed = 0,is_newest = 1,is_exclude = 0,is_downloadable = 0,is_downgrade = 0;
 
@@ -2753,12 +2684,9 @@ static void build_package_action_menu(pkg_info_t *pkg)
 
 static void rebuild_package_action_menu(void)
 {
-  extern GtkWidget *gslapt;
   GtkTreeView *treeview;
   GtkTreeSelection *selection;
   GtkTreeIter iter;
-  extern struct pkg_list *installed;
-  extern struct pkg_list *all;
   GtkTreeModelSort *package_model;
 
   treeview = GTK_TREE_VIEW(lookup_widget(gslapt,"pkg_listing_treeview"));
@@ -2814,7 +2742,6 @@ static void rebuild_package_action_menu(void)
 
 void on_unmark_all1_activate(GtkMenuItem *menuitem, gpointer user_data)
 {
-  extern transaction_t *trans;
   GdkCursor *c;
 
   c = gdk_cursor_new(GDK_WATCH);
@@ -2837,7 +2764,6 @@ void on_unmark_all1_activate(GtkMenuItem *menuitem, gpointer user_data)
 
 static void reset_search_list(void)
 {
-  extern GtkWidget *gslapt;
   GtkTreeModelFilter *filter_model;
   GtkTreeModel *base_model;
   GtkTreeIter iter;
@@ -2861,7 +2787,6 @@ static void reset_search_list(void)
 
 GtkEntryCompletion *build_search_completions(void)
 {
-  extern struct pkg_list *all;
   GtkTreeIter iter;
   GtkTreeModel *completions;
   GtkEntryCompletion *completion;
