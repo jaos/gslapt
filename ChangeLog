@@ -1,5 +1,7 @@
 
-0.3.3 June 24, 2005
+0.3.3 June 29, 2005
+ * configure script should now check for newest libslapt, falling back on
+   libslapt.so otherwise
  * removed duplicate extern declarations
  * added Slovak translation by Erik Gyepes
  * added commandline option --config to specify alternate config to use for
