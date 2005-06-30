@@ -147,6 +147,9 @@ void search_button_clicked (GtkWidget *gslapt, gpointer user_data)
   GtkEntryCompletion *completion = gtk_entry_get_completion(GTK_ENTRY(lookup_widget(gslapt,"search_entry")));
   GtkTreeModel *completions = gtk_entry_completion_get_model(completion);
 
+  gtk_widget_set_sensitive( lookup_widget(gslapt,
+                            "clear_button"), TRUE);
+
   build_searched_treeviewlist(GTK_WIDGET(treeview),pattern);
 
   /* add search to completion */
@@ -1534,6 +1537,8 @@ static int populate_transaction_window(GtkWidget *trans_window)
 void clear_button_clicked(GtkWidget *w, gpointer user_data) 
 {
   gtk_entry_set_text(GTK_ENTRY(w),"");
+  gtk_widget_set_sensitive( lookup_widget((GtkWidget *)user_data,
+                            "clear_button"), FALSE);
   reset_search_list();
 }
 
