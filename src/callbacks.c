@@ -1768,11 +1768,11 @@ static gboolean install_packages(void)
 
   gdk_threads_enter();
   gtk_widget_show(progress_window);
-  context_id = gslapt_set_status((gchar *)_("Removing packages..."));
   gdk_threads_leave();
 
   for (i = 0; i < trans->remove_pkgs->pkg_count;++i) {
     gdk_threads_enter();
+    context_id = gslapt_set_status((gchar *)_("Removing packages..."));
     gtk_label_set_text(progress_pkg_desc,trans->remove_pkgs->pkgs[i]->description);
     gtk_label_set_text(progress_action_label,(gchar *)_("Uninstalling..."));
     gtk_label_set_text(progress_message_label,trans->remove_pkgs->pkgs[i]->name);
@@ -1780,24 +1780,32 @@ static gboolean install_packages(void)
     gdk_threads_leave();
 
     if ( remove_pkg(global_config,trans->remove_pkgs->pkgs[i]) == -1 ) {
+      gdk_threads_enter();
+      gslapt_clear_status(context_id);
+      gdk_threads_leave();
       gtk_widget_destroy(progress_window);
       return FALSE;
     }
+    gdk_threads_enter();
+    gslapt_clear_status(context_id);
+    gdk_threads_leave();
     ++count;
   }
 
   /* reset progress bar */
   gdk_threads_enter();
   gtk_progress_bar_set_fraction(p_bar,0.0);
-  gslapt_clear_status(context_id);
-  context_id = gslapt_set_status((gchar *)_("Installing packages..."));
   gdk_threads_leave();
 
   /* now for the installs and upgrades */
   count = 0.0;
   for (i = 0;i < trans->queue->count; ++i) {
+    gdk_threads_enter();
+    context_id = gslapt_set_status((gchar *)_("Installing packages..."));
+    gdk_threads_leave();
     if ( trans->queue->pkgs[i]->type == INSTALL ) {
       gdk_threads_enter();
+      context_id = gslapt_set_status((gchar *)_("Installing packages..."));
       gtk_label_set_text(progress_pkg_desc,trans->queue->pkgs[i]->pkg.i->description);
       gtk_label_set_text(progress_action_label,(gchar *)_("Installing..."));
       gtk_label_set_text(progress_message_label,trans->queue->pkgs[i]->pkg.i->name);
@@ -1805,6 +1813,9 @@ static gboolean install_packages(void)
       gdk_threads_leave();
 
       if ( install_pkg(global_config,trans->queue->pkgs[i]->pkg.i) == -1 ) {
+        gdk_threads_enter();
+        gslapt_clear_status(context_id);
+        gdk_threads_leave();
         gtk_widget_destroy(progress_window);
         return FALSE;
       }
@@ -1817,16 +1828,21 @@ static gboolean install_packages(void)
       gdk_threads_leave();
 
       if ( upgrade_pkg(global_config,trans->queue->pkgs[i]->pkg.u->installed,trans->queue->pkgs[i]->pkg.u->upgrade) == -1 ) {
+        gdk_threads_enter();
+        gslapt_clear_status(context_id);
+        gdk_threads_leave();
         gtk_widget_destroy(progress_window);
         return FALSE;
       }
     }
+    gdk_threads_enter();
+    gslapt_clear_status(context_id);
+    gdk_threads_leave();
     ++count;
   }
 
   gdk_threads_enter();
   gtk_widget_destroy(progress_window);
-  gslapt_clear_status(context_id);
   gdk_threads_leave();
 
   return TRUE;

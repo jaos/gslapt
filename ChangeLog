@@ -1,5 +1,6 @@
 
-0.3.3 June 29, 2005
+0.3.3 June 30, 2005
+ * reset status when calls to pkgtools fails
  * configure script should now check for newest libslapt, falling back on
    libslapt.so otherwise
  * removed duplicate extern declarations
