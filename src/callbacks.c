@@ -2301,7 +2301,7 @@ void unmark_package(GtkWidget *gslapt, gpointer user_data)
     /* clear the installed version as well if this was an upgrade */
     for (i = 0; i < trans->upgrade_pkgs->pkg_count; ++i) {
       if (strcmp(trans->upgrade_pkgs->pkgs[i]->installed->name,pkg->name) == 0) {
-        pkg_info_t *avail_pkg = get_exact_pkg(all,
+        pkg_info_t *avail_pkg = get_exact_pkg(installed,
           trans->upgrade_pkgs->pkgs[i]->installed->name,
           trans->upgrade_pkgs->pkgs[i]->installed->version
         );

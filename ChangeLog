@@ -1,5 +1,7 @@
 
 0.3.4 July 06, 2005
+ * when unmarking upgrades, make sure to reset the installed packages status
+   icon as well
  * added spanish translation by Manuel Barallobre Seoane
 
 0.3.3 June 30, 2005
