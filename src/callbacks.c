@@ -445,7 +445,7 @@ void add_pkg_for_removal (GtkWidget *gslapt, gpointer user_data)
 
 }
 
-void build_package_treeviewlist(GtkWidget *treeview)
+void build_package_treeviewlist (GtkWidget *treeview)
 {
   GtkTreeIter iter;
   guint i = 0;
@@ -554,7 +554,7 @@ void build_package_treeviewlist(GtkWidget *treeview)
 }
 
 
-void build_searched_treeviewlist(GtkWidget *treeview, gchar *pattern)
+void build_searched_treeviewlist (GtkWidget *treeview, gchar *pattern)
 {
   gboolean valid;
   GtkTreeIter iter;
@@ -649,7 +649,7 @@ void show_pkg_details (GtkTreeSelection *selection, gpointer data)
 
 }
 
-static void fillin_pkg_details(pkg_info_t *pkg)
+static void fillin_pkg_details (pkg_info_t *pkg)
 {
   gchar *short_desc;
   GtkTextBuffer *pkg_full_desc;
@@ -744,7 +744,7 @@ static void fillin_pkg_details(pkg_info_t *pkg)
 
 }
 
-static void get_package_data(void)
+static void get_package_data (void)
 {
   GtkLabel *progress_action_label,*progress_message_label,*progress_pkg_desc;
   GtkProgressBar *p_bar;
@@ -1118,7 +1118,7 @@ int gtk_progress_callback(void *data, double dltotal, double dlnow,
   return 0;
 }
 
-static void rebuild_treeviews(GtkWidget *current_window)
+static void rebuild_treeviews (GtkWidget *current_window)
 {
   GtkWidget *treeview;
   struct pkg_list *all_ptr,*installed_ptr;
@@ -1157,7 +1157,7 @@ static void rebuild_treeviews(GtkWidget *current_window)
   build_package_treeviewlist(treeview);
 }
 
-static guint gslapt_set_status(const gchar *msg)
+static guint gslapt_set_status (const gchar *msg)
 {
   guint context_id;
   GtkStatusbar *bar = GTK_STATUSBAR(lookup_widget(gslapt,"bottom_statusbar"));
@@ -1168,14 +1168,14 @@ static guint gslapt_set_status(const gchar *msg)
   return context_id;
 }
 
-static void gslapt_clear_status(guint context_id)
+static void gslapt_clear_status (guint context_id)
 {
   GtkStatusbar *bar = GTK_STATUSBAR(lookup_widget(gslapt,"bottom_statusbar"));
 
   gtk_statusbar_pop(bar,context_id);
 }
 
-static void lock_toolbar_buttons(void)
+static void lock_toolbar_buttons (void)
 {
   gtk_widget_set_sensitive(lookup_widget(gslapt,"top_menubar"),FALSE);
 
@@ -1185,7 +1185,7 @@ static void lock_toolbar_buttons(void)
   gtk_widget_set_sensitive(lookup_widget(gslapt,"action_bar_execute_button"),FALSE);
 }
 
-static void unlock_toolbar_buttons(void)
+static void unlock_toolbar_buttons (void)
 {
 
   gtk_widget_set_sensitive(lookup_widget(gslapt,"top_menubar"),TRUE);
@@ -1204,7 +1204,7 @@ static void unlock_toolbar_buttons(void)
 
 }
 
-static void lhandle_transaction(GtkWidget *w)
+static void lhandle_transaction (GtkWidget *w)
 {
   GtkCheckButton *dl_only_checkbutton;
   gboolean dl_only = FALSE;
@@ -1293,7 +1293,7 @@ static void lhandle_transaction(GtkWidget *w)
 
 }
 
-void on_transaction_okbutton1_clicked(GtkWidget *w, gpointer user_data)
+void on_transaction_okbutton1_clicked (GtkWidget *w, gpointer user_data)
 {
   GThread *gdp;
 
@@ -1376,7 +1376,7 @@ static void build_exclude_treeviewlist(GtkWidget *treeview,
 
 }
 
-static int populate_transaction_window(GtkWidget *trans_window)
+static int populate_transaction_window (GtkWidget *trans_window)
 {
   GtkTreeView *summary_treeview;
   GtkTreeStore *store;
@@ -1542,7 +1542,7 @@ void clear_button_clicked(GtkWidget *w, gpointer user_data)
   reset_search_list();
 }
 
-static void mark_upgrade_packages(void)
+static void mark_upgrade_packages (void)
 {
   GtkTreeIter iter;
   GtkTreeModelFilter *filter_model;
@@ -1584,7 +1584,7 @@ static void mark_upgrade_packages(void)
       /* either it's greater, or we want to reinstall */
       if ( cmp_r < 0 || (global_config->re_install == TRUE) ) {
 
-        if ( (is_excluded(global_config,update_pkg) == 1)
+        if ((is_excluded(global_config,update_pkg) == 1)
           || (is_excluded(global_config,installed->pkgs[i]) == 1)
         ) {
           add_exclude_to_transaction(trans,update_pkg);
@@ -1592,7 +1592,7 @@ static void mark_upgrade_packages(void)
           /* if all deps are added and there is no conflicts, add on */
           if (
             (ladd_deps_to_trans(global_config,trans,all,installed,update_pkg) == 0)
-            && ( is_conflicted(trans,all,installed,update_pkg) == NULL )
+            && (is_conflicted(trans,all,installed,update_pkg) == NULL)
           ) {
             add_upgrade_to_transaction(trans,installed->pkgs[i],update_pkg);
             if (set_iter_to_pkg(base_model,&iter,update_pkg)) {
@@ -1620,7 +1620,7 @@ static void mark_upgrade_packages(void)
   }
 }
 
-static gboolean download_packages(void)
+static gboolean download_packages (void)
 {
   GtkLabel *progress_action_label,*progress_message_label,*progress_pkg_desc;
   GtkProgressBar *p_bar;
@@ -1754,7 +1754,7 @@ static gboolean download_packages(void)
   return TRUE;
 }
 
-static gboolean install_packages(void)
+static gboolean install_packages (void)
 {
   GtkLabel *progress_action_label,*progress_message_label,*progress_pkg_desc;
   GtkProgressBar *p_bar;
@@ -1854,7 +1854,7 @@ static gboolean install_packages(void)
 }
 
 
-void clean_callback(GtkMenuItem *menuitem, gpointer user_data)
+void clean_callback (GtkMenuItem *menuitem, gpointer user_data)
 {
   GThread *gpd;
 
@@ -1863,7 +1863,7 @@ void clean_callback(GtkMenuItem *menuitem, gpointer user_data)
 }
 
 
-void preferences_sources_add(GtkWidget *w, gpointer user_data)
+void preferences_sources_add (GtkWidget *w, gpointer user_data)
 {
   GtkTreeView *source_tree = GTK_TREE_VIEW(lookup_widget(w,"preferences_sources_treeview"));
   GtkEntry *new_source_entry = GTK_ENTRY(lookup_widget(w,"new_source_entry"));
@@ -1894,7 +1894,7 @@ void preferences_sources_add(GtkWidget *w, gpointer user_data)
 
 }
 
-void preferences_sources_remove(GtkWidget *w, gpointer user_data)
+void preferences_sources_remove (GtkWidget *w, gpointer user_data)
 {
   GtkTreeIter iter;
   GtkTreeModel *model;
@@ -1954,7 +1954,7 @@ void preferences_sources_remove(GtkWidget *w, gpointer user_data)
 
 }
 
-void preferences_on_ok_clicked(GtkWidget *w, gpointer user_data)
+void preferences_on_ok_clicked (GtkWidget *w, gpointer user_data)
 {
   GtkEntry *preferences_working_dir_entry = GTK_ENTRY(lookup_widget(w,"preferences_working_dir_entry"));
   const gchar *working_dir = gtk_entry_get_text(preferences_working_dir_entry);
@@ -2081,7 +2081,7 @@ void preferences_exclude_remove(GtkWidget *w, gpointer user_data)
 
 }
 
-static gboolean write_preferences(void)
+static gboolean write_preferences (void)
 {
   guint i;
   FILE *rc;
@@ -2111,7 +2111,7 @@ static gboolean write_preferences(void)
 }
 
 
-void cancel_preferences(GtkWidget *w, gpointer user_data)
+void cancel_preferences (GtkWidget *w, gpointer user_data)
 {
   gtk_widget_destroy(w);
   free_rc_config(global_config);
@@ -2119,7 +2119,7 @@ void cancel_preferences(GtkWidget *w, gpointer user_data)
 }
 
 
-void cancel_transaction(GtkWidget *w, gpointer user_data)
+void cancel_transaction (GtkWidget *w, gpointer user_data)
 {
   gtk_widget_destroy(w);
 }
@@ -2133,18 +2133,19 @@ void add_pkg_for_reinstall (GtkWidget *gslapt, gpointer user_data)
 
 }
 
-static void set_execute_active(void)
+static void set_execute_active (void)
 {
 
-  gtk_widget_set_sensitive(lookup_widget(gslapt,"action_bar_execute_button"), TRUE);
+  gtk_widget_set_sensitive(lookup_widget(gslapt,"action_bar_execute_button"),TRUE);
+  gtk_widget_set_sensitive(lookup_widget(gslapt,"unmark_all1"),TRUE);
 
-  if ( pending_trans_context_id == 0 ) {
+  if (pending_trans_context_id == 0) {
     pending_trans_context_id = gslapt_set_status((gchar *)_("Pending changes. Click execute when ready."));
   }
 
 }
 
-static void clear_execute_active(void)
+static void clear_execute_active (void)
 {
 
   if ( pending_trans_context_id > 0 ) {
@@ -2155,11 +2156,12 @@ static void clear_execute_active(void)
     pending_trans_context_id = 0;
   }
 
-  gtk_widget_set_sensitive(lookup_widget(gslapt,"action_bar_execute_button"), FALSE);
+  gtk_widget_set_sensitive(lookup_widget(gslapt,"action_bar_execute_button"),FALSE);
+  gtk_widget_set_sensitive(lookup_widget(gslapt,"unmark_all1"),FALSE);
 
 }
 
-static void notify(const char *title,const char *message)
+static void notify (const char *title,const char *message)
 {
   GtkWidget *w = create_notification();
   gtk_window_set_title (GTK_WINDOW (w), title);
@@ -2169,26 +2171,27 @@ static void notify(const char *title,const char *message)
   gtk_widget_show(w);
 }
 
-static int disk_space(const rc_config *global_config,int space_needed )
+static int disk_space (const rc_config *global_config,int space_needed )
 {
   struct statvfs statvfs_buf;
 
   space_needed *= 1024;
 
-  if ( space_needed < 0 ) return 0;
+  if (space_needed < 0) return 0;
 
-  if ( statvfs(global_config->working_dir,&statvfs_buf) != 0 ) {
-    if ( errno ) perror("statvfs");
+  if (statvfs(global_config->working_dir,&statvfs_buf) != 0) {
+    if (errno)
+      perror("statvfs");
     return 1;
   } else {
-    if ( statvfs_buf.f_bfree < ( space_needed / statvfs_buf.f_bsize) )
+    if (statvfs_buf.f_bfree < (space_needed / statvfs_buf.f_bsize))
       return 1;
   }
 
   return 0;
 }
 
-static gboolean pkg_action_popup_menu(GtkTreeView *treeview, gpointer data)
+static gboolean pkg_action_popup_menu (GtkTreeView *treeview, gpointer data)
 {
   GtkMenu *menu;
   GdkEventButton *event = (GdkEventButton *)gtk_get_current_event();
@@ -2198,7 +2201,7 @@ static gboolean pkg_action_popup_menu(GtkTreeView *treeview, gpointer data)
   if (event->type != GDK_BUTTON_PRESS)
     return FALSE;
 
-  if ( !gtk_tree_view_get_path_at_pos(treeview,event->x,event->y,&path,&column,NULL,NULL) )
+  if (!gtk_tree_view_get_path_at_pos(treeview,event->x,event->y,&path,&column,NULL,NULL))
     return FALSE;
 
   if (event->button != 3 && (event->button == 1 && strcmp(column->title,(gchar *)_("Status")) != 0))
@@ -2458,7 +2461,7 @@ static int set_iter_to_pkg(GtkTreeModel *model, GtkTreeIter *iter,
   return 0;
 }
 
-static void reset_pkg_view_status(void)
+static void reset_pkg_view_status (void)
 {
   gboolean valid;
   GtkTreeIter iter;
@@ -2510,7 +2513,7 @@ static void reset_pkg_view_status(void)
   }
 }
 
-void build_treeview_columns(GtkWidget *treeview)
+void build_treeview_columns (GtkWidget *treeview)
 {
   GtkTreeSelection *select;
   GtkTreeViewColumn *column;
@@ -2580,7 +2583,7 @@ void build_treeview_columns(GtkWidget *treeview)
 
 }
 
-static int lsearch_upgrade_transaction(transaction_t *tran,pkg_info_t *pkg)
+static int lsearch_upgrade_transaction (transaction_t *tran,pkg_info_t *pkg)
 {
   unsigned int i,found = 1, not_found = 0;
   for (i = 0; i < tran->upgrade_pkgs->pkg_count;i++) {
@@ -2600,12 +2603,12 @@ void open_icon_legend (GtkObject *object, gpointer user_data)
 }
 
 
-void on_button_cancel_clicked(GtkButton *button, gpointer user_data)
+void on_button_cancel_clicked (GtkButton *button, gpointer user_data)
 {
   _cancelled = 1;
 }
 
-static void build_package_action_menu(pkg_info_t *pkg)
+static void build_package_action_menu (pkg_info_t *pkg)
 {
   GtkMenu *menu;
   pkg_info_t *newest_installed = NULL, *upgrade_pkg = NULL;
@@ -2690,7 +2693,7 @@ static void build_package_action_menu(pkg_info_t *pkg)
 
   if (
     is_installed == 1 && is_exclude != 1 &&
-    (search_transaction(trans,pkg->name) == 0 )
+    (search_transaction(trans,pkg->name) == 0)
   ) {
     gtk_widget_set_sensitive(lookup_widget(GTK_WIDGET(menu),"remove1"),TRUE);
   }
@@ -2703,7 +2706,7 @@ static void build_package_action_menu(pkg_info_t *pkg)
 
 }
 
-static void rebuild_package_action_menu(void)
+static void rebuild_package_action_menu (void)
 {
   GtkTreeView *treeview;
   GtkTreeSelection *selection;
@@ -2761,7 +2764,7 @@ static void rebuild_package_action_menu(void)
 }
 
 
-void on_unmark_all1_activate(GtkMenuItem *menuitem, gpointer user_data)
+void on_unmark_all1_activate (GtkMenuItem *menuitem, gpointer user_data)
 {
   GdkCursor *c;
 
@@ -2783,7 +2786,7 @@ void on_unmark_all1_activate(GtkMenuItem *menuitem, gpointer user_data)
   gdk_cursor_destroy(c);
 }
 
-static void reset_search_list(void)
+static void reset_search_list (void)
 {
   GtkTreeModelFilter *filter_model;
   GtkTreeModel *base_model;
@@ -2806,7 +2809,7 @@ static void reset_search_list(void)
 
 }
 
-GtkEntryCompletion *build_search_completions(void)
+GtkEntryCompletion *build_search_completions (void)
 {
   GtkTreeIter iter;
   GtkTreeModel *completions;

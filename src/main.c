@@ -166,10 +166,10 @@ int main (int argc, char *argv[]) {
   default_context_id = gtk_statusbar_get_context_id(bar,"default");
   gtk_statusbar_push(bar,default_context_id,(gchar *)_("Ready"));
 
-  gtk_widget_set_sensitive( lookup_widget(gslapt,
-                            "action_bar_execute_button"), FALSE);
-  gtk_widget_set_sensitive( lookup_widget(gslapt,
-                            "clear_button"), FALSE);
+  gtk_widget_set_sensitive(lookup_widget(gslapt,
+                            "action_bar_execute_button"),FALSE);
+  gtk_widget_set_sensitive(lookup_widget(gslapt,"clear_button"),FALSE);
+  gtk_widget_set_sensitive(lookup_widget(gslapt,"unmark_all1"),FALSE);
 
   gtk_widget_show (gslapt);
 
