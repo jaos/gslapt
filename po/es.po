@@ -406,7 +406,7 @@ msgid "To be Downgraded"
 msgstr "Para Desactualizarlo"
 
 msgid "Icon Legend"
-msgstr "Legenda de Iconos"
+msgstr "Leyenda de Iconos"
 
 msgid "Completed actions"
 msgstr "Aciones completadas"
