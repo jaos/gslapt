@@ -45,5 +45,5 @@ pkg: all
 	@echo "$(DESTDIR)/$(datadir)/applications/gslapt.desktop" |sed -re "s/^\/+//" >> pkg/install/doinst.sh
 	@echo 'if [ -f $$DESKTOPFILE ]; then if [ -x usr/bin/gksudo ]; then sed -i.bak -re "s/(Exec=)(\/usr\/sbin\/gslapt)/\1gksudo \2/" $$DESKTOPFILE; elif [ -x usr/bin/gksu ]; then sed -i.bak -re "s/(Exec=)(\/usr\/sbin\/gslapt)/\1gksu \2/" $$DESKTOPFILE; elif [ -x usr/bin/gnomesu ]; then sed -i.bak -re "s/(Exec=)(\/usr\/sbin\/gslapt)/\1gnomesu \2/" $$DESKTOPFILE; elif [ -x usr/bin/kdesu ]; then sed -i.bak -re "s/(Exec=)(\/usr\/sbin\/gslapt)/\1kdesu \2/" $$DESKTOPFILE; fi; fi' >> pkg/install/doinst.sh
 	strip --strip-unneeded pkg/$(sbindir)/@PACKAGE@
-	( cd pkg && /sbin/makepkg -l y -c n @PACKAGE@-@VERSION@-i386-1.tgz )
+	( cd pkg && /sbin/makepkg -l y -c n @PACKAGE@-@VERSION@-@host_cpu@-1.tgz )
 
