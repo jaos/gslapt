@@ -2,6 +2,8 @@
 
 SUBDIRS = src po
 
+PKGDIR := `pwd`/pkg
+
 EXTRA_DIST = \
 	autogen.sh \
 	gslapt.glade \
@@ -35,15 +37,15 @@ dist-hook:
 	fi
 
 pkg: all
-	@make install DESTDIR=`pwd`/pkg
-	$(mkinstalldirs) pkg/install
-	install slack-desc pkg/install/
-	install slack-required pkg/install/
-	-chown root:bin pkg/$(sbindir)
-	-chown root:bin pkg/$(sbindir)/@PACKAGE@
-	@echo -n DESKTOPFILE= > pkg/install/doinst.sh
-	@echo "$(DESTDIR)/$(datadir)/applications/gslapt.desktop" |sed -re "s/^\/+//" >> pkg/install/doinst.sh
-	@echo 'if [ -f $$DESKTOPFILE ]; then if [ -x usr/bin/gksudo ]; then sed -i.bak -re "s/(Exec=)(\/usr\/sbin\/gslapt)/\1gksudo \2/" $$DESKTOPFILE; elif [ -x usr/bin/gksu ]; then sed -i.bak -re "s/(Exec=)(\/usr\/sbin\/gslapt)/\1gksu \2/" $$DESKTOPFILE; elif [ -x usr/bin/gnomesu ]; then sed -i.bak -re "s/(Exec=)(\/usr\/sbin\/gslapt)/\1gnomesu \2/" $$DESKTOPFILE; elif [ -x usr/bin/kdesu ]; then sed -i.bak -re "s/(Exec=)(\/usr\/sbin\/gslapt)/\1kdesu \2/" $$DESKTOPFILE; fi; fi' >> pkg/install/doinst.sh
-	strip --strip-unneeded pkg/$(sbindir)/@PACKAGE@
-	( cd pkg && /sbin/makepkg -l y -c n @PACKAGE@-@VERSION@-@host_cpu@-1.tgz )
+	@make install DESTDIR=$(PKGDIR)
+	$(mkinstalldirs) $(PKGDIR)/install
+	install slack-desc $(PKGDIR)/install/
+	install slack-required $(PKGDIR)/install/
+	-chown root:bin $(PKGDIR)/$(sbindir)
+	-chown root:bin $(PKGDIR)/$(sbindir)/@PACKAGE@
+	@echo -n DESKTOPFILE= > $(PKGDIR)/install/doinst.sh
+	@echo "$(DESTDIR)/$(datadir)/applications/gslapt.desktop" |sed -re "s/^\/+//" >> $(PKGDIR)/install/doinst.sh
+	@echo 'if [ -f $$DESKTOPFILE ]; then if [ -x usr/bin/gksudo ]; then sed -i.bak -re "s/(Exec=)(\/usr\/sbin\/gslapt)/\1gksudo \2/" $$DESKTOPFILE; elif [ -x usr/bin/gksu ]; then sed -i.bak -re "s/(Exec=)(\/usr\/sbin\/gslapt)/\1gksu \2/" $$DESKTOPFILE; elif [ -x usr/bin/gnomesu ]; then sed -i.bak -re "s/(Exec=)(\/usr\/sbin\/gslapt)/\1gnomesu \2/" $$DESKTOPFILE; elif [ -x usr/bin/kdesu ]; then sed -i.bak -re "s/(Exec=)(\/usr\/sbin\/gslapt)/\1kdesu \2/" $$DESKTOPFILE; fi; fi' >> $(PKGDIR)/install/doinst.sh
+	strip --strip-unneeded $(PKGDIR)/$(sbindir)/@PACKAGE@
+	( cd $(PKGDIR) && /sbin/makepkg -l y -c n @PACKAGE@-@VERSION@-@host_cpu@-1.tgz )
 

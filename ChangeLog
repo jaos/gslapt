@@ -1,5 +1,6 @@
 
 0.3.4 July 07, 2005
+ * updated pkg target to follow PKGDIR if set, or ./pkg/ by default
  * use AC_CANONICAL_HOST for arch detection in configure.in
  * disable unmark all menu option if nothing is currently marked
  * when unmarking upgrades, make sure to reset the installed packages status
