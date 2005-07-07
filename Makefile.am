@@ -1,7 +1,6 @@
 ## Process this file with automake to produce Makefile.in
 
 SUBDIRS = src po
-SLACKPKGBUILDDIR=/tmp/gslapt_build_dir
 
 EXTRA_DIST = \
 	autogen.sh \
@@ -36,16 +35,15 @@ dist-hook:
 	fi
 
 pkg: all
-	-rm -rf $(SLACKPKGBUILDDIR)
-	@make install DESTDIR=$(SLACKPKGBUILDDIR)
-	$(mkinstalldirs) $(SLACKPKGBUILDDIR)/install
-	install slack-desc $(SLACKPKGBUILDDIR)/install/
-	install slack-required $(SLACKPKGBUILDDIR)/install/
-	chown root:bin $(SLACKPKGBUILDDIR)/$(sbindir)
-	chown root:bin $(SLACKPKGBUILDDIR)/$(sbindir)/@PACKAGE@
-	@echo -n DESKTOPFILE= > $(SLACKPKGBUILDDIR)/install/doinst.sh
-	@echo "$(DESTDIR)/$(datadir)/applications/gslapt.desktop" |sed -re "s/^\/+//" >> $(SLACKPKGBUILDDIR)/install/doinst.sh
-	@echo 'if [ -f $$DESKTOPFILE ]; then if [ -x usr/bin/gksudo ]; then sed -i.bak -re "s/(Exec=)(\/usr\/sbin\/gslapt)/\1gksudo \2/" $$DESKTOPFILE; elif [ -x usr/bin/gksu ]; then sed -i.bak -re "s/(Exec=)(\/usr\/sbin\/gslapt)/\1gksu \2/" $$DESKTOPFILE; elif [ -x usr/bin/gnomesu ]; then sed -i.bak -re "s/(Exec=)(\/usr\/sbin\/gslapt)/\1gnomesu \2/" $$DESKTOPFILE; elif [ -x usr/bin/kdesu ]; then sed -i.bak -re "s/(Exec=)(\/usr\/sbin\/gslapt)/\1kdesu \2/" $$DESKTOPFILE; fi; fi' >> $(SLACKPKGBUILDDIR)/install/doinst.sh
-	strip --strip-unneeded $(SLACKPKGBUILDDIR)/$(sbindir)/@PACKAGE@
-	( cd $(SLACKPKGBUILDDIR) && /sbin/makepkg -l y -c n @PACKAGE@-@VERSION@-i386-1.tgz )
+	@make install DESTDIR=`pwd`/pkg
+	$(mkinstalldirs) pkg/install
+	install slack-desc pkg/install/
+	install slack-required pkg/install/
+	-chown root:bin pkg/$(sbindir)
+	-chown root:bin pkg/$(sbindir)/@PACKAGE@
+	@echo -n DESKTOPFILE= > pkg/install/doinst.sh
+	@echo "$(DESTDIR)/$(datadir)/applications/gslapt.desktop" |sed -re "s/^\/+//" >> pkg/install/doinst.sh
+	@echo 'if [ -f $$DESKTOPFILE ]; then if [ -x usr/bin/gksudo ]; then sed -i.bak -re "s/(Exec=)(\/usr\/sbin\/gslapt)/\1gksudo \2/" $$DESKTOPFILE; elif [ -x usr/bin/gksu ]; then sed -i.bak -re "s/(Exec=)(\/usr\/sbin\/gslapt)/\1gksu \2/" $$DESKTOPFILE; elif [ -x usr/bin/gnomesu ]; then sed -i.bak -re "s/(Exec=)(\/usr\/sbin\/gslapt)/\1gnomesu \2/" $$DESKTOPFILE; elif [ -x usr/bin/kdesu ]; then sed -i.bak -re "s/(Exec=)(\/usr\/sbin\/gslapt)/\1kdesu \2/" $$DESKTOPFILE; fi; fi' >> pkg/install/doinst.sh
+	strip --strip-unneeded pkg/$(sbindir)/@PACKAGE@
+	( cd pkg && /sbin/makepkg -l y -c n @PACKAGE@-@VERSION@-i386-1.tgz )
 
