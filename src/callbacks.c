@@ -38,7 +38,7 @@ extern transaction_t *trans;
 static GtkWidget *progress_window;
 static guint _cancelled = 0;
 static guint pending_trans_context_id = 0;
-static int disk_space(const rc_config *global_config,int space_needed );
+static int disk_space(int space_needed);
 static gboolean pkg_action_popup_menu(GtkTreeView *treeview, gpointer data);
 static int set_iter_to_pkg(GtkTreeModel *model, GtkTreeIter *iter,
                            pkg_info_t *pkg);
@@ -54,10 +54,8 @@ static guint gslapt_set_status(const gchar *);
 static void gslapt_clear_status(guint context_id);
 static void lock_toolbar_buttons(void);
 static void unlock_toolbar_buttons(void);
-static void build_sources_treeviewlist(GtkWidget *treeview,
-                                       const rc_config *global_config);
-static void build_exclude_treeviewlist(GtkWidget *treeview,
-                                       const rc_config *global_config);
+static void build_sources_treeviewlist(GtkWidget *treeview);
+static void build_exclude_treeviewlist(GtkWidget *treeview);
 static int populate_transaction_window(GtkWidget *trans_window);
 static gboolean download_packages(void);
 static gboolean install_packages(void);
@@ -66,9 +64,8 @@ static void set_execute_active(void);
 static void clear_execute_active(void);
 static void notify(const char *title,const char *message);
 static void reset_search_list(void);
-static int ladd_deps_to_trans(const rc_config *global_config, transaction_t *tran,
-                      struct pkg_list *avail_pkgs,
-                      struct pkg_list *installed_pkgs, pkg_info_t *pkg);
+static int ladd_deps_to_trans(transaction_t *tran, struct pkg_list *avail_pkgs,
+                              struct pkg_list *installed_pkgs, pkg_info_t *pkg);
 
 void on_gslapt_destroy (GtkObject *object, gpointer user_data) 
 {
@@ -131,9 +128,9 @@ void open_preferences (GtkMenuItem *menuitem, gpointer user_data)
   gtk_entry_set_text(working_dir,global_config->working_dir);
 
   source_tree = GTK_TREE_VIEW(lookup_widget(preferences,"preferences_sources_treeview"));
-  build_sources_treeviewlist((GtkWidget *)source_tree,global_config);
+  build_sources_treeviewlist((GtkWidget *)source_tree);
   exclude_tree = GTK_TREE_VIEW(lookup_widget(preferences,"preferences_exclude_treeview"));
-  build_exclude_treeviewlist((GtkWidget *)exclude_tree,global_config);
+  build_exclude_treeviewlist((GtkWidget *)exclude_tree);
 
   gtk_widget_show(preferences);
 }
@@ -251,7 +248,7 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
   /* if it is not already installed, install it */
   if ( installed_pkg == NULL ) {
 
-    if ( ladd_deps_to_trans(global_config,trans,all,installed,pkg) == 0 ) {
+    if ( ladd_deps_to_trans(trans,all,installed,pkg) == 0 ) {
       pkg_info_t *conflicted_pkg = NULL;
       gchar *status = NULL;
 
@@ -290,7 +287,7 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
       (global_config->re_install == TRUE)
     ) {
 
-      if ( ladd_deps_to_trans(global_config,trans,all,installed,pkg) == 0 ) {
+      if ( ladd_deps_to_trans(trans,all,installed,pkg) == 0 ) {
         pkg_info_t *conflicted_pkg = NULL;
 
         if ( (conflicted_pkg = is_conflicted(trans,all,installed,pkg)) != NULL ) {
@@ -1303,8 +1300,7 @@ void on_transaction_okbutton1_clicked (GtkWidget *w, gpointer user_data)
 
 }
 
-static void build_sources_treeviewlist(GtkWidget *treeview,
-                                       const rc_config *global_config)
+static void build_sources_treeviewlist(GtkWidget *treeview)
 {
   GtkListStore *store;
   GtkTreeIter iter;
@@ -1340,8 +1336,7 @@ static void build_sources_treeviewlist(GtkWidget *treeview,
 
 }
 
-static void build_exclude_treeviewlist(GtkWidget *treeview,
-                                       const rc_config *global_config)
+static void build_exclude_treeviewlist(GtkWidget *treeview)
 {
   GtkListStore *store;
   GtkTreeIter iter;
@@ -1493,7 +1488,7 @@ static int populate_transaction_window (GtkWidget *trans_window)
   gtk_label_set_text(GTK_LABEL(sum_pkg_num),buf);
 
   /* if we don't have enough free space */
-  if ( disk_space(global_config,dl_size - already_dl_size + free_space) != 0 ) {
+  if (disk_space(dl_size - already_dl_size + free_space) != 0) {
     notify((gchar *)_("Error"),(gchar *)_("<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"));
     return -1;
   }
@@ -1591,7 +1586,7 @@ static void mark_upgrade_packages (void)
         }else{
           /* if all deps are added and there is no conflicts, add on */
           if (
-            (ladd_deps_to_trans(global_config,trans,all,installed,update_pkg) == 0)
+            (ladd_deps_to_trans(trans,all,installed,update_pkg) == 0)
             && (is_conflicted(trans,all,installed,update_pkg) == NULL)
           ) {
             add_upgrade_to_transaction(trans,installed->pkgs[i],update_pkg);
@@ -1784,7 +1779,7 @@ static gboolean install_packages (void)
     gtk_progress_bar_set_fraction(p_bar,((count * 100)/trans->remove_pkgs->pkg_count)/100);
     gdk_threads_leave();
 
-    if ( remove_pkg(global_config,trans->remove_pkgs->pkgs[i]) == -1 ) {
+    if (remove_pkg(global_config,trans->remove_pkgs->pkgs[i]) == -1) {
       gdk_threads_enter();
       gslapt_clear_status(context_id);
       gdk_threads_leave();
@@ -1817,7 +1812,7 @@ static gboolean install_packages (void)
       gtk_progress_bar_set_fraction(p_bar,((count * 100)/trans->queue->count)/100);
       gdk_threads_leave();
 
-      if ( install_pkg(global_config,trans->queue->pkgs[i]->pkg.i) == -1 ) {
+      if (install_pkg(global_config,trans->queue->pkgs[i]->pkg.i) == -1) {
         gdk_threads_enter();
         gslapt_clear_status(context_id);
         gdk_threads_leave();
@@ -1832,7 +1827,8 @@ static gboolean install_packages (void)
       gtk_progress_bar_set_fraction(p_bar,((count * 100)/trans->queue->count)/100);
       gdk_threads_leave();
 
-      if ( upgrade_pkg(global_config,trans->queue->pkgs[i]->pkg.u->installed,trans->queue->pkgs[i]->pkg.u->upgrade) == -1 ) {
+      if (upgrade_pkg(global_config,trans->queue->pkgs[i]->pkg.u->installed,
+                      trans->queue->pkgs[i]->pkg.u->upgrade) == -1) {
         gdk_threads_enter();
         gslapt_clear_status(context_id);
         gdk_threads_leave();
@@ -1890,7 +1886,7 @@ void preferences_sources_add (GtkWidget *w, gpointer user_data)
   }
   g_list_free(columns);
 
-  build_sources_treeviewlist((GtkWidget *)source_tree,global_config);
+  build_sources_treeviewlist((GtkWidget *)source_tree);
 
 }
 
@@ -1949,7 +1945,7 @@ void preferences_sources_remove (GtkWidget *w, gpointer user_data)
 
     g_free(source);
 
-    build_sources_treeviewlist((GtkWidget *)source_tree,global_config);
+    build_sources_treeviewlist((GtkWidget *)source_tree);
   }
 
 }
@@ -2013,7 +2009,7 @@ void preferences_exclude_add(GtkWidget *w, gpointer user_data)
   }
   g_list_free(columns);
 
-  build_exclude_treeviewlist((GtkWidget *)exclude_tree,global_config);
+  build_exclude_treeviewlist((GtkWidget *)exclude_tree);
 
 }
 
@@ -2076,7 +2072,7 @@ void preferences_exclude_remove(GtkWidget *w, gpointer user_data)
 
     g_free(exclude);
 
-    build_exclude_treeviewlist((GtkWidget *)exclude_tree,global_config);
+    build_exclude_treeviewlist((GtkWidget *)exclude_tree);
   }
 
 }
@@ -2171,7 +2167,7 @@ static void notify (const char *title,const char *message)
   gtk_widget_show(w);
 }
 
-static int disk_space (const rc_config *global_config,int space_needed )
+static int disk_space (int space_needed)
 {
   struct statvfs statvfs_buf;
 
@@ -2335,9 +2331,8 @@ void unmark_package(GtkWidget *gslapt, gpointer user_data)
 
 /* parse the dependencies for a package, and add them to the transaction as */
 /* needed check to see if a package is conflicted */
-static int ladd_deps_to_trans(const rc_config *global_config, transaction_t *tran,
-                      struct pkg_list *avail_pkgs,
-                      struct pkg_list *installed_pkgs, pkg_info_t *pkg)
+static int ladd_deps_to_trans (transaction_t *tran, struct pkg_list *avail_pkgs,
+                               struct pkg_list *installed_pkgs, pkg_info_t *pkg)
 {
   unsigned int c;
   int dep_return = -1;

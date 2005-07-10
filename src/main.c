@@ -59,8 +59,6 @@ int main (int argc, char *argv[]) {
 
   add_pixmap_directory (PACKAGE_DATA_DIR "/" PACKAGE "/pixmaps");
 
-  gslapt = (GtkWidget *)create_gslapt();
-
   for (option_index = 1; option_index < argc; ++option_index) {
 
     if (strcmp(argv[option_index],"--upgrade") == 0) {
@@ -149,6 +147,8 @@ int main (int argc, char *argv[]) {
   /* read in all pkgs and installed pkgs */
   installed = get_installed_pkgs();
   all = get_available_pkgs();
+
+  gslapt = (GtkWidget *)create_gslapt();
 
   completions = build_search_completions();
   gtk_entry_set_completion(GTK_ENTRY(lookup_widget(gslapt,"search_entry")),completions);
