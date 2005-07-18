@@ -78,3 +78,6 @@ void on_unmark_all1_activate (GtkMenuItem *menuitem, gpointer user_data);
 
 GtkEntryCompletion *build_search_completions (void);
 
+
+void repositories_changed_callback (GtkWidget *repositories_changed,
+                                    gpointer user_data);

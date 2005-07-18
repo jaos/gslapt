@@ -2142,3 +2142,105 @@ create_pkgtools_progress_window (void)
   return pkgtools_progress_window;
 }
 
+GtkWidget*
+create_repositories_changed (void)
+{
+  GtkWidget *repositories_changed;
+  GdkPixbuf *repositories_changed_icon_pixbuf;
+  GtkWidget *dialog_vbox5;
+  GtkWidget *hbox107;
+  GtkWidget *image982;
+  GtkWidget *vbox70;
+  GtkWidget *label274;
+  GtkWidget *label275;
+  GtkWidget *dialog_action_area5;
+  GtkWidget *button5;
+  GtkWidget *button6;
+
+  repositories_changed = gtk_dialog_new ();
+  gtk_widget_set_name (repositories_changed, "repositories_changed");
+  gtk_window_set_title (GTK_WINDOW (repositories_changed), _("Repositories changed"));
+  repositories_changed_icon_pixbuf = create_pixbuf ("gslapt.png");
+  if (repositories_changed_icon_pixbuf)
+    {
+      gtk_window_set_icon (GTK_WINDOW (repositories_changed), repositories_changed_icon_pixbuf);
+      gdk_pixbuf_unref (repositories_changed_icon_pixbuf);
+    }
+  gtk_window_set_type_hint (GTK_WINDOW (repositories_changed), GDK_WINDOW_TYPE_HINT_DIALOG);
+
+  dialog_vbox5 = GTK_DIALOG (repositories_changed)->vbox;
+  gtk_widget_set_name (dialog_vbox5, "dialog_vbox5");
+  gtk_widget_show (dialog_vbox5);
+
+  hbox107 = gtk_hbox_new (FALSE, 6);
+  gtk_widget_set_name (hbox107, "hbox107");
+  gtk_widget_show (hbox107);
+  gtk_box_pack_start (GTK_BOX (dialog_vbox5), hbox107, TRUE, TRUE, 6);
+  gtk_container_set_border_width (GTK_CONTAINER (hbox107), 2);
+
+  image982 = gtk_image_new_from_stock ("gtk-dialog-info", GTK_ICON_SIZE_DIALOG);
+  gtk_widget_set_name (image982, "image982");
+  gtk_widget_show (image982);
+  gtk_box_pack_start (GTK_BOX (hbox107), image982, TRUE, TRUE, 6);
+  gtk_misc_set_alignment (GTK_MISC (image982), 0.5, 0.2);
+
+  vbox70 = gtk_vbox_new (FALSE, 6);
+  gtk_widget_set_name (vbox70, "vbox70");
+  gtk_widget_show (vbox70);
+  gtk_box_pack_start (GTK_BOX (hbox107), vbox70, TRUE, TRUE, 0);
+  gtk_container_set_border_width (GTK_CONTAINER (vbox70), 6);
+
+  label274 = gtk_label_new (_("<span size=\"large\" weight=\"bold\">Repositories changed</span>"));
+  gtk_widget_set_name (label274, "label274");
+  gtk_widget_show (label274);
+  gtk_box_pack_start (GTK_BOX (vbox70), label274, FALSE, FALSE, 6);
+  gtk_label_set_use_markup (GTK_LABEL (label274), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label274), 0, 0.5);
+
+  label275 = gtk_label_new (_("You need to reload the package list from the sources you have listed.  Do you want to do this now?"));
+  gtk_widget_set_name (label275, "label275");
+  gtk_widget_show (label275);
+  gtk_box_pack_start (GTK_BOX (vbox70), label275, TRUE, TRUE, 6);
+  gtk_label_set_use_markup (GTK_LABEL (label275), TRUE);
+  gtk_label_set_line_wrap (GTK_LABEL (label275), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label275), 0, 0);
+
+  dialog_action_area5 = GTK_DIALOG (repositories_changed)->action_area;
+  gtk_widget_set_name (dialog_action_area5, "dialog_action_area5");
+  gtk_widget_show (dialog_action_area5);
+  gtk_button_box_set_layout (GTK_BUTTON_BOX (dialog_action_area5), GTK_BUTTONBOX_END);
+
+  button5 = gtk_button_new_from_stock ("gtk-no");
+  gtk_widget_set_name (button5, "button5");
+  gtk_widget_show (button5);
+  gtk_dialog_add_action_widget (GTK_DIALOG (repositories_changed), button5, GTK_RESPONSE_NO);
+  GTK_WIDGET_SET_FLAGS (button5, GTK_CAN_DEFAULT);
+
+  button6 = gtk_button_new_from_stock ("gtk-yes");
+  gtk_widget_set_name (button6, "button6");
+  gtk_widget_show (button6);
+  gtk_dialog_add_action_widget (GTK_DIALOG (repositories_changed), button6, GTK_RESPONSE_YES);
+  GTK_WIDGET_SET_FLAGS (button6, GTK_CAN_DEFAULT);
+
+  g_signal_connect_swapped ((gpointer) button5, "clicked",
+                            G_CALLBACK (gtk_widget_destroy),
+                            GTK_OBJECT (repositories_changed));
+  g_signal_connect_swapped ((gpointer) button6, "clicked",
+                            G_CALLBACK (repositories_changed_callback),
+                            GTK_OBJECT (repositories_changed));
+
+  /* Store pointers to all widgets, for use by lookup_widget(). */
+  GLADE_HOOKUP_OBJECT_NO_REF (repositories_changed, repositories_changed, "repositories_changed");
+  GLADE_HOOKUP_OBJECT_NO_REF (repositories_changed, dialog_vbox5, "dialog_vbox5");
+  GLADE_HOOKUP_OBJECT (repositories_changed, hbox107, "hbox107");
+  GLADE_HOOKUP_OBJECT (repositories_changed, image982, "image982");
+  GLADE_HOOKUP_OBJECT (repositories_changed, vbox70, "vbox70");
+  GLADE_HOOKUP_OBJECT (repositories_changed, label274, "label274");
+  GLADE_HOOKUP_OBJECT (repositories_changed, label275, "label275");
+  GLADE_HOOKUP_OBJECT_NO_REF (repositories_changed, dialog_action_area5, "dialog_action_area5");
+  GLADE_HOOKUP_OBJECT (repositories_changed, button5, "button5");
+  GLADE_HOOKUP_OBJECT (repositories_changed, button6, "button6");
+
+  return repositories_changed;
+}
+

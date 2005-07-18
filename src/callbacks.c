@@ -37,6 +37,7 @@ extern transaction_t *trans;
 
 static GtkWidget *progress_window;
 static guint _cancelled = 0;
+static gboolean sources_modified = FALSE;
 static guint pending_trans_context_id = 0;
 static int disk_space(int space_needed);
 static gboolean pkg_action_popup_menu(GtkTreeView *treeview, gpointer data);
@@ -1887,6 +1888,7 @@ void preferences_sources_add (GtkWidget *w, gpointer user_data)
   g_list_free(columns);
 
   build_sources_treeviewlist((GtkWidget *)source_tree);
+  sources_modified = TRUE;
 
 }
 
@@ -1946,6 +1948,7 @@ void preferences_sources_remove (GtkWidget *w, gpointer user_data)
     g_free(source);
 
     build_sources_treeviewlist((GtkWidget *)source_tree);
+    sources_modified = TRUE;
   }
 
 }
@@ -1970,6 +1973,13 @@ void preferences_on_ok_clicked (GtkWidget *w, gpointer user_data)
   }
 
   gtk_widget_destroy(w);
+
+  /* TODO add a dialog to resync package sources */
+  if (sources_modified == TRUE) {
+    sources_modified = FALSE;
+    GtkWidget *rc = create_repositories_changed();
+    gtk_widget_show(rc);
+  }
 }
 
 
@@ -2818,5 +2828,14 @@ GtkEntryCompletion *build_search_completions (void)
   gtk_entry_completion_set_text_column(completion,0);
 
   return completion;
+}
+
+
+void repositories_changed_callback (GtkWidget *repositories_changed,
+                                    gpointer user_data)
+{
+  gtk_widget_destroy(GTK_WIDGET(repositories_changed));
+  g_signal_emit_by_name(lookup_widget(gslapt,"action_bar_update_button"),
+                        "clicked");
 }
 
