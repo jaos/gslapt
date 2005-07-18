@@ -6,10 +6,10 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: gslapt 0.3.3\n"
+"Project-Id-Version: gslapt 0.3.4\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2005-06-12 22:07+0500\n"
+"PO-Revision-Date: 2005-07-17 22:51+0500\n"
 "Last-Translator: Jason Woodward <woodwardj@jaos.org>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -117,9 +117,6 @@ msgid "Installing..."
 msgstr ""
 
 msgid "Location"
-msgstr ""
-
-msgid "NO"
 msgstr ""
 
 msgid "Name"
@@ -418,9 +415,6 @@ msgstr ""
 msgid "<b>Latest Available Version</b>"
 msgstr ""
 
-msgid "N/A"
-msgstr ""
-
 msgid "Failed to commit preferences"
 msgstr ""
 
@@ -434,5 +428,14 @@ msgid "Unmark All"
 msgstr ""
 
 msgid "P_ackage"
+msgstr ""
+
+msgid "You need to reload the package list from the sources you have listed.  Do you want to do this now?"
+msgstr ""
+
+msgid "Repositories changed"
+msgstr ""
+
+msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
 msgstr ""
 

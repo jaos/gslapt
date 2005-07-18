@@ -6,10 +6,10 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: gslapt 0.3.3\n"
+"Project-Id-Version: gslapt 0.3.4\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2005-06-12 22:07+0500\n"
+"PO-Revision-Date: 2005-07-17 22:51+0500\n"
 "Last-Translator: Nguyễn Văn Vũ <vncasper@yahoo.com>\n"
 "Language-Team: gnome-vi <gnomevi-list@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -118,9 +118,6 @@ msgstr "Đang cài đặt..."
 
 msgid "Location"
 msgstr "Vị trí"
-
-msgid "NO"
-msgstr "KHÔNG"
 
 msgid "Name"
 msgstr "Tên"
@@ -420,9 +417,6 @@ msgstr "<b>Phiên bản được cài đặt</b>"
 msgid "<b>Latest Available Version</b>"
 msgstr "<b>Phiên bản hiện có mới nhất</b>"
 
-msgid "N/A"
-msgstr "N/A"
-
 msgid "Failed to commit preferences"
 msgstr "Bị lỗi khi đồng ý các tuỳ chỉnh"
 
@@ -437,4 +431,13 @@ msgstr "Không đánh dấu tất cả"
 
 msgid "P_ackage"
 msgstr "G_ói phần mềm"
+
+msgid "You need to reload the package list from the sources you have listed.  Do you want to do this now?"
+msgstr "You need to reload the package list from the sources you have listed.  Do you want to do this now?"
+
+msgid "Repositories changed"
+msgstr "Repositories changed"
+
+msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
+msgstr "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
 

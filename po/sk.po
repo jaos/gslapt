@@ -6,10 +6,10 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: gslapt 0.3.2\n"
+"Project-Id-Version: gslapt 0.3.4\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-06-23 21:28-0500\n"
-"PO-Revision-Date: 2005-06-06 21:28+0500\n"
+"PO-Revision-Date: 2005-07-17 22:51+0500\n"
 "Last-Translator: Erik Gyepes <depi@depi.sk>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -405,9 +405,39 @@ msgstr "Bude downgradnutý"
 msgid "Icon Legend"
 msgstr "Legenda ikôn"
 
+msgid "Completed actions"
+msgstr "Completed actions"
+
+msgid "Successfully executed all actions."
+msgstr "Successfully executed all actions."
+
+msgid "<b>Installed Version</b>"
+msgstr "<b>Installed Version</b>"
+
+msgid "<b>Latest Available Version</b>"
+msgstr "<b>Latest Available Version</b>"
+
 msgid "Failed to commit preferences"
 msgstr "Neúspe¹né vykonanie preferencií"
 
 msgid "Mark All Upgrades"
 msgstr "Oznaèi» v¹etky upgrady"
+
+msgid "_Edit"
+msgstr "_Edit"
+
+msgid "Unmark All"
+msgstr "Unmark All"
+
+msgid "P_ackage"
+msgstr "P_ackage"
+
+msgid "You need to reload the package list from the sources you have listed.  Do you want to do this now?"
+msgstr "You need to reload the package list from the sources you have listed.  Do you want to do this now?"
+
+msgid "Repositories changed"
+msgstr "Repositories changed"
+
+msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
+msgstr "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
 

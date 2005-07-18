@@ -7,10 +7,10 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: gslapt 0.3.3\n"
+"Project-Id-Version: gslapt 0.3.4\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2005-06-12 22:07+0500\n"
+"PO-Revision-Date: 2005-07-17 22:51+0500\n"
 "Last-Translator: Manfred Mueller <linux@nass-ek.de>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -119,9 +119,6 @@ msgstr "Installiere..."
 
 msgid "Location"
 msgstr "Ort"
-
-msgid "NO"
-msgstr "NEIN"
 
 msgid "Name"
 msgstr "Name"
@@ -242,12 +239,6 @@ msgstr "Entfe_rne"
 
 msgid "_Execute"
 msgstr "Aus_fuehren"
-
-msgid "_Edit"
-msgstr "B_earbeiten"
-
-msgid "P_ackage"
-msgstr "P_aket"
 
 msgid "_Help"
 msgstr "_Hilfe"
@@ -427,15 +418,27 @@ msgstr "<b>Installierte Version</b>"
 msgid "<b>Latest Available Version</b>"
 msgstr "<b>Aktuellste Version</b>"
 
-msgid "N/A"
-msgstr "N/V"
-
 msgid "Failed to commit preferences"
 msgstr "Optionen nicht angewandt"
 
 msgid "Mark All Upgrades"
 msgstr "Alle Upgrades markieren"
 
+msgid "_Edit"
+msgstr "B_earbeiten"
+
 msgid "Unmark All"
 msgstr "Unmark All"
+
+msgid "P_ackage"
+msgstr "P_aket"
+
+msgid "You need to reload the package list from the sources you have listed.  Do you want to do this now?"
+msgstr "You need to reload the package list from the sources you have listed.  Do you want to do this now?"
+
+msgid "Repositories changed"
+msgstr "Repositories changed"
+
+msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
+msgstr "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
 
