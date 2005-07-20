@@ -439,3 +439,12 @@ msgstr ""
 msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
 msgstr ""
 
+msgid "Retrieving package data..."
+msgstr ""
+
+msgid "Retrieving patch list..."
+msgstr ""
+
+msgid "Retrieving checksum list..."
+msgstr ""
+

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gslapt 0.3.4\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-05-06 11:10-0500\n"
-"PO-Revision-Date: 2005-07-17 22:51+0500\n"
+"PO-Revision-Date: 2005-07-20 01:41+0500\n"
 "Last-Translator: Pedro Pinto aka _PN_boy <pedro_nuno_pn@zmail.pt>\n"
 "Language-Team: slapt-get devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -435,4 +435,13 @@ msgstr "Repositories changed"
 
 msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
 msgstr "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
+
+msgid "Retrieving package data..."
+msgstr "Retrieving package data..."
+
+msgid "Retrieving patch list..."
+msgstr "Retrieving patch list..."
+
+msgid "Retrieving checksum list..."
+msgstr "Retrieving checksum list..."
 

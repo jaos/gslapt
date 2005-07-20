@@ -745,7 +745,8 @@ static void fillin_pkg_details (slapt_pkg_info_t *pkg)
 
 static void get_package_data (void)
 {
-  GtkLabel *progress_action_label,*progress_message_label,*progress_pkg_desc;
+  GtkLabel *progress_action_label,
+           *progress_message_label;
   GtkProgressBar *p_bar;
   guint i,context_id;
   FILE *pkg_list_fh_tmp = NULL;
@@ -760,7 +761,6 @@ static void get_package_data (void)
   p_bar = GTK_PROGRESS_BAR(lookup_widget(progress_window,"progress_progressbar"));
   progress_action_label = GTK_LABEL(lookup_widget(progress_window,"progress_action"));
   progress_message_label = GTK_LABEL(lookup_widget(progress_window,"progress_message"));
-  progress_pkg_desc = GTK_LABEL(lookup_widget(progress_window,"progress_package_description"));
 
   gdk_threads_enter();
   lock_toolbar_buttons();
@@ -809,8 +809,8 @@ static void get_package_data (void)
     }
 
     gdk_threads_enter();
-    gtk_label_set_text(progress_action_label,global_config->sources->url[i]);
-    gtk_label_set_text(progress_message_label,SLAPT_PKG_LIST);
+    gtk_label_set_text(progress_action_label,(gchar *)_("Retrieving package data..."));
+    gtk_label_set_text(progress_message_label,global_config->sources->url[i]);
     gdk_threads_leave();
 
     /* download our SLAPT_PKG_LIST */
@@ -847,7 +847,7 @@ static void get_package_data (void)
 
     gdk_threads_enter();
     gtk_progress_bar_set_fraction(p_bar,((dl_count * 100)/dl_files)/100);
-    gtk_label_set_text(progress_message_label,SLAPT_PATCHES_LIST);
+    gtk_label_set_text(progress_action_label,(gchar *)_("Retrieving patch list..."));
     gdk_threads_leave();
 
 
@@ -872,7 +872,7 @@ static void get_package_data (void)
 
     gdk_threads_enter();
     gtk_progress_bar_set_fraction(p_bar,((dl_count * 100)/dl_files)/100);
-    gtk_label_set_text(progress_message_label,SLAPT_CHECKSUM_FILE);
+    gtk_label_set_text(progress_action_label,(gchar *)_("Retrieving checksum list..."));
     gdk_threads_leave();
 
 
