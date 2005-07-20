@@ -1056,7 +1056,8 @@ static void get_package_data (void)
 
     /* write package listings to disk */
     write_pkg_data(global_config->sources->url[i],pkg_list_fh_tmp,available_pkgs);
-    write_pkg_data(global_config->sources->url[i],pkg_list_fh_tmp,patch_pkgs);
+    if (patch_pkgs)
+      write_pkg_data(global_config->sources->url[i],pkg_list_fh_tmp,patch_pkgs);
 
     if ( available_pkgs ) free_pkg_list(available_pkgs);
 

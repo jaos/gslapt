@@ -1,5 +1,5 @@
 
-0.3.4 July 17, 2005
+0.3.4 July 19, 2005
  * translation updates
  * added dialog asking to update package cache when sources are modified
  * updated pkg target to follow PKGDIR if set, or ./pkg/ by default
