@@ -792,13 +792,9 @@ static void get_package_data (void)
 
   /* go through each package source and download the meta data */
   for (i = 0; i < global_config->sources->count; i++) {
-    FILE *tmp_pkg_f,*tmp_patch_f,*tmp_checksum_f;
     struct slapt_pkg_list *available_pkgs = NULL;
     struct slapt_pkg_list *patch_pkgs = NULL;
-    gchar *pkg_filename,*patch_filename,*checksum_filename;
-    gchar *pkg_head,*pkg_local_head;
-    gchar *patch_head,*patch_local_head;
-    gchar *checksum_head,*checksum_local_head;
+    FILE *tmp_checksum_f = NULL;
     guint a;
 
     if (_cancelled == 1) {
@@ -817,17 +813,30 @@ static void get_package_data (void)
     gtk_label_set_text(progress_message_label,SLAPT_PKG_LIST);
     gdk_threads_leave();
 
-    /* download our PKG_LIST */
-    pkg_filename = slapt_gen_filename_from_url(global_config->sources->url[i],SLAPT_PKG_LIST);
-    pkg_head = slapt_head_mirror_data(global_config->sources->url[i],SLAPT_PKG_LIST);
-    pkg_local_head = slapt_read_head_cache(pkg_filename);
+    /* download our SLAPT_PKG_LIST */
+    available_pkgs =
+      slapt_get_pkg_source_packages(global_config,
+                                    global_config->sources->url[i]);
+    if (available_pkgs == NULL) {
+      gdk_threads_enter();
+      gtk_widget_destroy(progress_window);
+      if (_cancelled == 1) {
+        unlock_toolbar_buttons();
+        _cancelled = 0;
+      } else {
+        notify((gchar *)_("Source download failed"),global_config->sources->url[i]);
+      }
+      gslapt_clear_status(context_id);
+      unlock_toolbar_buttons();
+      gdk_threads_leave();
+      return;
+    }
+
+    ++dl_count;
 
     if (_cancelled == 1) {
       _cancelled = 0;
       fclose(pkg_list_fh_tmp);
-      free(pkg_head);
-      free(pkg_local_head);
-      free(pkg_filename);
       gdk_threads_enter();
       gslapt_clear_status(context_id);
       gtk_widget_destroy(progress_window);
@@ -835,65 +844,6 @@ static void get_package_data (void)
       gdk_threads_leave();
       return;
     }
-
-    /* open for reading if cached, otherwise write it from the downloaded data */
-    if ( pkg_head != NULL && pkg_local_head != NULL && strcmp(pkg_head,pkg_local_head) == 0) {
-
-      if ( (tmp_pkg_f = slapt_open_file(pkg_filename,"r")) == NULL ) exit(1);
-
-      available_pkgs = slapt_parse_packages_txt(tmp_pkg_f);
-    }else{
-
-      if ( (tmp_pkg_f = slapt_open_file(pkg_filename,"w+b")) == NULL ) exit(1);
-
-      if ( slapt_get_mirror_data_from_source(tmp_pkg_f,global_config,global_config->sources->url[i],SLAPT_PKG_LIST) == 0 ) {
-        rewind(tmp_pkg_f); /* make sure we are back at the front of the file */
-        available_pkgs = slapt_parse_packages_txt(tmp_pkg_f);
-      }else{
-        slapt_clear_head_cache(pkg_filename);
-        free(pkg_head);
-        free(pkg_local_head);
-        free(pkg_filename);
-        fclose(tmp_pkg_f);
-        fclose(pkg_list_fh_tmp);
-        gdk_threads_enter();
-        gtk_widget_destroy(progress_window);
-        if (_cancelled == 1) {
-          unlock_toolbar_buttons();
-          _cancelled = 0;
-        } else {
-          notify((gchar *)_("Source download failed"),global_config->sources->url[i]);
-        }
-        gslapt_clear_status(context_id);
-        unlock_toolbar_buttons();
-        gdk_threads_leave();
-        return;
-      }
-    }
-    if ( available_pkgs == NULL || available_pkgs->pkg_count < 1 ) {
-      slapt_clear_head_cache(pkg_filename);
-      free(pkg_head);
-      free(pkg_local_head);
-      free(pkg_filename);
-      fclose(tmp_pkg_f);
-      fclose(pkg_list_fh_tmp);
-      gdk_threads_enter();
-      gtk_widget_destroy(progress_window);
-      notify((gchar *)_("Source download failed"),global_config->sources->url[i]);
-      gslapt_clear_status(context_id);
-      unlock_toolbar_buttons();
-      gdk_threads_leave();
-      return;
-    }
-    /* if all is good, write it */
-    if ( pkg_head != NULL ) {
-      slapt_write_head_cache(pkg_head,pkg_filename);
-    }
-    free(pkg_head);
-    free(pkg_local_head);
-    free(pkg_filename);
-    fclose(tmp_pkg_f);
-    ++dl_count;
 
     gdk_threads_enter();
     gtk_progress_bar_set_fraction(p_bar,((dl_count * 100)/dl_files)/100);
@@ -902,16 +852,14 @@ static void get_package_data (void)
 
 
     /* download SLAPT_PATCHES_LIST */
-    patch_filename = slapt_gen_filename_from_url(global_config->sources->url[i],SLAPT_PATCHES_LIST);
-    patch_head = slapt_head_mirror_data(global_config->sources->url[i],SLAPT_PATCHES_LIST);
-    patch_local_head = slapt_read_head_cache(patch_filename);
+    patch_pkgs =
+      slapt_get_pkg_source_patches(global_config,
+                                   global_config->sources->url[i]);
+
 
     if (_cancelled == 1) {
       _cancelled = 0;
       fclose(pkg_list_fh_tmp);
-      free(patch_head);
-      free(patch_local_head);
-      free(patch_filename);
       gdk_threads_enter();
       gslapt_clear_status(context_id);
       gtk_widget_destroy(progress_window);
@@ -920,45 +868,6 @@ static void get_package_data (void)
       return;
     }
 
-    /* open for reading if cached, otherwise write it from the downloaded data */
-    if ( patch_head != NULL && patch_local_head != NULL && strcmp(patch_head,patch_local_head) == 0) {
-
-      if ( (tmp_patch_f = slapt_open_file(patch_filename,"r")) == NULL ) exit(1);
-
-      patch_pkgs = slapt_parse_packages_txt(tmp_patch_f);
-    }else{
-
-      if ( (tmp_patch_f = slapt_open_file(patch_filename,"w+b")) == NULL ) exit (1);
-
-      if ( slapt_get_mirror_data_from_source(tmp_patch_f,global_config,global_config->sources->url[i],SLAPT_PATCHES_LIST) == 0 ) {
-        rewind(tmp_patch_f); /* make sure we are back at the front of the file */
-        patch_pkgs = slapt_parse_packages_txt(tmp_patch_f);
-      }else{
-        /* we don't care if the patch fails, for example current doesn't have patches */
-        slapt_clear_head_cache(patch_filename);
-        if (_cancelled == 1) {
-          _cancelled = 0;
-          fclose(pkg_list_fh_tmp);
-          free(patch_head);
-          free(patch_local_head);
-          free(patch_filename);
-          fclose(tmp_patch_f);
-          gdk_threads_enter();
-          gslapt_clear_status(context_id);
-          gtk_widget_destroy(progress_window);
-          unlock_toolbar_buttons();
-          gdk_threads_leave();
-          return;
-        }
-
-      }
-    }
-    /* if all is good, write it */
-    if ( patch_head != NULL ) slapt_write_head_cache(patch_head,patch_filename);
-    free(patch_head);
-    free(patch_local_head);
-    free(patch_filename);
-    fclose(tmp_patch_f);
     ++dl_count;
 
     gdk_threads_enter();
@@ -968,84 +877,26 @@ static void get_package_data (void)
 
 
     /* download checksum file */
-    checksum_filename = slapt_gen_filename_from_url(global_config->sources->url[i],SLAPT_CHECKSUM_FILE);
-    checksum_head = slapt_head_mirror_data(global_config->sources->url[i],SLAPT_CHECKSUM_FILE);
-    checksum_local_head = slapt_read_head_cache(checksum_filename);
+    tmp_checksum_f =
+      slapt_get_pkg_source_checksums(global_config,
+                                     global_config->sources->url[i]);
 
-    if (_cancelled == 1) {
-      _cancelled = 0;
+    if (tmp_checksum_f == NULL) {
       fclose(pkg_list_fh_tmp);
-      free(checksum_head);
-      free(checksum_local_head);
-      free(checksum_filename);
       gdk_threads_enter();
       gslapt_clear_status(context_id);
       gtk_widget_destroy(progress_window);
-      unlock_toolbar_buttons();
-      gdk_threads_leave();
-      return;
-    }
-
-    /* open for reading if cached, otherwise write it from the downloaded data */
-    if ( checksum_head != NULL && checksum_local_head != NULL && strcmp(checksum_head,checksum_local_head) == 0) {
-      if ( (tmp_checksum_f = slapt_open_file(checksum_filename,"r")) == NULL ) exit(1);
-    }else{
-
-      if ( (tmp_checksum_f = slapt_open_file(checksum_filename,"w+b")) == NULL ) exit(1);
-
-      if ( slapt_get_mirror_data_from_source(
-            tmp_checksum_f,global_config,global_config->sources->url[i],SLAPT_CHECKSUM_FILE
-          ) != 0
-      ) {
-        slapt_clear_head_cache(checksum_filename);
-        free(checksum_head);
-        free(checksum_local_head);
-        free(checksum_filename);
-        fclose(tmp_checksum_f);
-        fclose(pkg_list_fh_tmp);
-        gdk_threads_enter();
-        gtk_widget_destroy(progress_window);
-        if (_cancelled == 1) {
-          unlock_toolbar_buttons();
-          _cancelled = 0;
-        } else {
-          notify((gchar *)_("Source download failed"),global_config->sources->url[i]);
-        }
-        gslapt_clear_status(context_id);
+      if (_cancelled == 1) {
+        _cancelled = 0;
         unlock_toolbar_buttons();
-        gdk_threads_leave();
-        return;
+      } else {
+        notify((gchar *)_("Source download failed"),global_config->sources->url[i]);
       }
-      rewind(tmp_checksum_f); /* make sure we are back at the front of the file */
-    }
-    /* if all is good, write it */
-
-    if ( checksum_head != NULL ) {
-      slapt_write_head_cache(checksum_head,checksum_filename);
-    }
-
-    free(checksum_head);
-    free(checksum_local_head);
-    ++dl_count;
-    gdk_threads_enter();
-    gtk_progress_bar_set_fraction(p_bar,((dl_count * 100)/dl_files)/100);
-    gdk_threads_leave();
-
-    /*
-      only do this double check if we know it didn't fail
-    */
-    if ( available_pkgs->pkg_count == 0 ) {
-      free(checksum_filename);
-      fclose(tmp_checksum_f);
-      fclose(pkg_list_fh_tmp);
-      gdk_threads_enter();
-      gtk_widget_destroy(progress_window);
-      notify((gchar *)_("Source download failed"),global_config->sources->url[i]);
-      gslapt_clear_status(context_id);
-      unlock_toolbar_buttons();
       gdk_threads_leave();
       return;
     }
+
+    ++dl_count;
 
     /* now map md5 checksums to packages */
     for (a = 0;a < available_pkgs->pkg_count;a++) {
@@ -1057,14 +908,16 @@ static void get_package_data (void)
 
     /* write package listings to disk */
     slapt_write_pkg_data(global_config->sources->url[i],pkg_list_fh_tmp,available_pkgs);
+
     if (patch_pkgs)
       slapt_write_pkg_data(global_config->sources->url[i],pkg_list_fh_tmp,patch_pkgs);
 
-    if ( available_pkgs ) slapt_free_pkg_list(available_pkgs);
+    if (available_pkgs)
+      slapt_free_pkg_list(available_pkgs);
 
-    if ( patch_pkgs ) slapt_free_pkg_list(patch_pkgs);
+    if (patch_pkgs)
+      slapt_free_pkg_list(patch_pkgs);
 
-    free(checksum_filename);
     fclose(tmp_checksum_f);
 
   }/* end for loop */

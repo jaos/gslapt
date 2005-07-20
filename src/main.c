@@ -218,11 +218,11 @@ int main (int argc, char *argv[]) {
   for (option_index = 0; option_index < pkg_inst_args_count; ++option_index) {
     g_free(pkg_inst_args[option_index]);
   }
-  g_free(pkg_inst_args[option_index]);
+  g_free(pkg_inst_args);
   for (option_index = 0; option_index < pkg_rem_args_count; ++option_index) {
     g_free(pkg_rem_args[option_index]);
   }
-  g_free(pkg_rem_args[option_index]);
+  g_free(pkg_rem_args);
 
   if ( trans->remove_pkgs->pkg_count > 0 || trans->install_pkgs->pkg_count > 0 || trans->upgrade_pkgs->pkg_count > 0) {
     g_signal_emit_by_name(lookup_widget(gslapt,"action_bar_execute_button"),"clicked");
