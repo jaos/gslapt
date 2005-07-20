@@ -25,20 +25,20 @@
 #include "interface.h"
 #include "support.h"
 
-rc_config *global_config; /* our config struct */
-struct pkg_list *installed;
-struct pkg_list *all;
+slapt_rc_config *global_config; /* our config struct */
+struct slapt_pkg_list *installed;
+struct slapt_pkg_list *all;
 GtkWidget *gslapt;
-transaction_t tran;
-transaction_t *trans = &tran;
+slapt_transaction_t tran;
+slapt_transaction_t *trans = &tran;
 
 int main (int argc, char *argv[]) {
   GtkStatusbar *bar;
   guint default_context_id;
   GtkEntryCompletion *completions;
-  gchar **pkg_inst_args = malloc(sizeof **pkg_inst_args);
+  gchar **pkg_inst_args = slapt_malloc(sizeof **pkg_inst_args);
   guint pkg_inst_args_count = 0;
-  gchar **pkg_rem_args = malloc(sizeof **pkg_rem_args);
+  gchar **pkg_rem_args = slapt_malloc(sizeof **pkg_rem_args);
   guint pkg_rem_args_count = 0;
   gchar *rc = NULL;
   guint option_index = 0;
@@ -55,7 +55,7 @@ int main (int argc, char *argv[]) {
   gdk_threads_init();
   gtk_init (&argc, &argv);
 
-  init_transaction(trans);
+  slapt_init_transaction(trans);
 
   add_pixmap_directory (PACKAGE_DATA_DIR "/" PACKAGE "/pixmaps");
 
@@ -135,18 +135,18 @@ int main (int argc, char *argv[]) {
   }
 
   if (rc == NULL) {
-    global_config = read_rc_config(RC_LOCATION);
+    global_config = slapt_read_rc_config(RC_LOCATION);
   } else {
-    global_config = read_rc_config(rc);
+    global_config = slapt_read_rc_config(rc);
     g_free(rc);
   }
-  working_dir_init(global_config);
+  slapt_working_dir_init(global_config);
   chdir(global_config->working_dir);
   global_config->progress_cb = gtk_progress_callback;
 
   /* read in all pkgs and installed pkgs */
-  installed = get_installed_pkgs();
-  all = get_available_pkgs();
+  installed = slapt_get_installed_pkgs();
+  all = slapt_get_available_pkgs();
 
   gslapt = (GtkWidget *)create_gslapt();
 
@@ -179,24 +179,24 @@ int main (int argc, char *argv[]) {
     if (pkg_inst_args_count > 0){
       int i;
       for (i = 0; i < pkg_inst_args_count; ++i) {
-        pkg_info_t *p = get_newest_pkg(all,pkg_inst_args[i]);
-        pkg_info_t *inst_p = get_newest_pkg(installed,pkg_inst_args[i]);
+        slapt_pkg_info_t *p = slapt_get_newest_pkg(all,pkg_inst_args[i]);
+        slapt_pkg_info_t *inst_p = slapt_get_newest_pkg(installed,pkg_inst_args[i]);
 
         if (p == NULL)
           continue;
 
-        if ( inst_p != NULL && cmp_pkg_versions(inst_p->version,p->version) < 0) {
-          if (add_deps_to_trans(global_config,trans,all,installed,p) == 0) {
-            add_upgrade_to_transaction(trans,inst_p,p);
+        if ( inst_p != NULL && slapt_cmp_pkg_versions(inst_p->version,p->version) < 0) {
+          if (slapt_add_deps_to_trans(global_config,trans,all,installed,p) == 0) {
+            slapt_add_upgrade_to_transaction(trans,inst_p,p);
           } else {
             exit(1);
           }
         } else {
-          if (add_deps_to_trans(global_config,trans,all,installed,p) == 0) {
-            pkg_info_t *conflict_p;
-            add_install_to_transaction(trans,p);
-            if ( (conflict_p = is_conflicted(trans,all,installed,p)) != NULL) {
-              add_remove_to_transaction(trans,conflict_p);
+          if (slapt_add_deps_to_trans(global_config,trans,all,installed,p) == 0) {
+            slapt_pkg_info_t *conflict_p;
+            slapt_add_install_to_transaction(trans,p);
+            if ( (conflict_p = slapt_is_conflicted(trans,all,installed,p)) != NULL) {
+              slapt_add_remove_to_transaction(trans,conflict_p);
             }
           } else {
             exit(1);
@@ -207,9 +207,9 @@ int main (int argc, char *argv[]) {
     if (pkg_rem_args_count > 0) {
       int i;
       for (i = 0; i < pkg_rem_args_count; ++i) {
-        pkg_info_t *r = get_newest_pkg(installed,pkg_rem_args[i]);
+        slapt_pkg_info_t *r = slapt_get_newest_pkg(installed,pkg_rem_args[i]);
         if (r != NULL) {
-          add_remove_to_transaction(trans,r);
+          slapt_add_remove_to_transaction(trans,r);
         }
       }
     }

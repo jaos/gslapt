@@ -29,10 +29,10 @@
 #include "support.h"
 
 extern GtkWidget *gslapt;
-extern rc_config *global_config;
-extern struct pkg_list *all;
-extern struct pkg_list *installed;
-extern transaction_t *trans;
+extern slapt_rc_config *global_config;
+extern struct slapt_pkg_list *all;
+extern struct slapt_pkg_list *installed;
+extern slapt_transaction_t *trans;
 
 
 static GtkWidget *progress_window;
@@ -42,13 +42,13 @@ static guint pending_trans_context_id = 0;
 static int disk_space(int space_needed);
 static gboolean pkg_action_popup_menu(GtkTreeView *treeview, gpointer data);
 static int set_iter_to_pkg(GtkTreeModel *model, GtkTreeIter *iter,
-                           pkg_info_t *pkg);
+                           slapt_pkg_info_t *pkg);
 static void reset_pkg_view_status(void);
-static int lsearch_upgrade_transaction(transaction_t *tran,pkg_info_t *pkg);
-static void build_package_action_menu(pkg_info_t *pkg);
+static int lsearch_upgrade_transaction(slapt_transaction_t *tran,slapt_pkg_info_t *pkg);
+static void build_package_action_menu(slapt_pkg_info_t *pkg);
 static void rebuild_package_action_menu(void);
 static void mark_upgrade_packages(void);
-static void fillin_pkg_details(pkg_info_t *pkg);
+static void fillin_pkg_details(slapt_pkg_info_t *pkg);
 static void get_package_data(void);
 static void rebuild_treeviews(GtkWidget *current_window);
 static guint gslapt_set_status(const gchar *);
@@ -65,16 +65,16 @@ static void set_execute_active(void);
 static void clear_execute_active(void);
 static void notify(const char *title,const char *message);
 static void reset_search_list(void);
-static int ladd_deps_to_trans(transaction_t *tran, struct pkg_list *avail_pkgs,
-                              struct pkg_list *installed_pkgs, pkg_info_t *pkg);
+static int ladd_deps_to_trans(slapt_transaction_t *tran, struct slapt_pkg_list *avail_pkgs,
+                              struct slapt_pkg_list *installed_pkgs, slapt_pkg_info_t *pkg);
 
 void on_gslapt_destroy (GtkObject *object, gpointer user_data) 
 {
 
-  free_transaction(trans);
-  free_pkg_list(all);
-  free_pkg_list(installed);
-  free_rc_config(global_config);
+  slapt_free_transaction(trans);
+  slapt_free_pkg_list(all);
+  slapt_free_pkg_list(installed);
+  slapt_free_rc_config(global_config);
 
   gtk_main_quit();
   exit(0);
@@ -172,7 +172,8 @@ void search_button_clicked (GtkWidget *gslapt, gpointer user_data)
 
 void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data) 
 {
-  pkg_info_t *pkg = NULL, *installed_pkg = NULL;
+  slapt_pkg_info_t *pkg = NULL,
+                   *installed_pkg = NULL;
   GtkTreeView *treeview;
   GtkTreeIter iter;
   GtkTreeSelection *selection;
@@ -212,9 +213,9 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
     }
 
     if ( strcmp(gtk_label_get_text(caller_button_label),(gchar *)_("Upgrade")) == 0) {
-      pkg = get_newest_pkg(all,pkg_name);
+      pkg = slapt_get_newest_pkg(all,pkg_name);
     } else {
-      pkg = get_pkg_by_details(all,pkg_name,pkg_version,pkg_location);
+      pkg = slapt_get_pkg_by_details(all,pkg_name,pkg_version,pkg_location);
     }
 
     if ( pkg == NULL ) {
@@ -225,7 +226,7 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
       return;
     }
 
-    installed_pkg = get_newest_pkg(installed,pkg_name);
+    installed_pkg = slapt_get_newest_pkg(installed,pkg_name);
 
     g_free(pkg_name);
     g_free(pkg_version);
@@ -250,10 +251,10 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
   if ( installed_pkg == NULL ) {
 
     if ( ladd_deps_to_trans(trans,all,installed,pkg) == 0 ) {
-      pkg_info_t *conflicted_pkg = NULL;
+      slapt_pkg_info_t *conflicted_pkg = NULL;
       gchar *status = NULL;
 
-      add_install_to_transaction(trans,pkg);
+      slapt_add_install_to_transaction(trans,pkg);
       status = g_strdup_printf("i%s",pkg->name);
       gtk_list_store_set(GTK_LIST_STORE(model),&actual_iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_install.png"),-1);
       gtk_list_store_set(GTK_LIST_STORE(model),&actual_iter,STATUS_COLUMN,status,-1);
@@ -261,8 +262,8 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
       g_free(status);
 
       /* if there is a conflict, we schedule the conflict for removal */
-      if ( (conflicted_pkg = is_conflicted(trans,all,installed,pkg)) != NULL ) {
-        add_remove_to_transaction(trans,conflicted_pkg);
+      if ( (conflicted_pkg = slapt_is_conflicted(trans,all,installed,pkg)) != NULL ) {
+        slapt_add_remove_to_transaction(trans,conflicted_pkg);
         set_execute_active();
         if (set_iter_to_pkg(model,&actual_iter,conflicted_pkg)) {
           gchar *rstatus = g_strdup_printf("r%s",conflicted_pkg->name);
@@ -275,7 +276,7 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
     }else{
       gchar *msg = g_strdup_printf("Excluding %s due to dependency failure\n",pkg->name);
       notify((gchar *)_("Error"),msg);
-      add_exclude_to_transaction(trans,pkg);
+      slapt_add_exclude_to_transaction(trans,pkg);
       g_free(msg);
     }
 
@@ -284,16 +285,16 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
 
     /* it is already installed, attempt an upgrade */
     if (
-      ((ver_cmp = cmp_pkg_versions(installed_pkg->version,pkg->version)) < 0) ||
+      ((ver_cmp = slapt_cmp_pkg_versions(installed_pkg->version,pkg->version)) < 0) ||
       (global_config->re_install == TRUE)
     ) {
 
       if ( ladd_deps_to_trans(trans,all,installed,pkg) == 0 ) {
-        pkg_info_t *conflicted_pkg = NULL;
+        slapt_pkg_info_t *conflicted_pkg = NULL;
 
-        if ( (conflicted_pkg = is_conflicted(trans,all,installed,pkg)) != NULL ) {
+        if ( (conflicted_pkg = slapt_is_conflicted(trans,all,installed,pkg)) != NULL ) {
           fprintf(stderr,"%s conflicts with %s\n",pkg->name,conflicted_pkg->name);
-          add_remove_to_transaction(trans,conflicted_pkg);
+          slapt_add_remove_to_transaction(trans,conflicted_pkg);
           set_execute_active();
           if (set_iter_to_pkg(model,&actual_iter,conflicted_pkg)) {
             gchar *rstatus = g_strdup_printf("r%s",conflicted_pkg->name);
@@ -302,7 +303,7 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
             g_free(rstatus);
           }
         }else{
-          add_upgrade_to_transaction(trans,installed_pkg,pkg);
+          slapt_add_upgrade_to_transaction(trans,installed_pkg,pkg);
           if (global_config->re_install == TRUE) {
             if (ver_cmp == 0) {
               gchar *status = g_strdup_printf("u%s",pkg->name);
@@ -320,7 +321,7 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
               }
             }
           } else {
-            pkg_info_t *inst_avail = get_exact_pkg(all,installed_pkg->name,installed_pkg->version);
+            slapt_pkg_info_t *inst_avail = slapt_get_exact_pkg(all,installed_pkg->name,installed_pkg->version);
             gchar *status = g_strdup_printf("u%s",pkg->name);
             gtk_list_store_set(GTK_LIST_STORE(model),&actual_iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_upgrade.png"),-1);
             gtk_list_store_set(GTK_LIST_STORE(model),&actual_iter,STATUS_COLUMN,status,-1);
@@ -350,7 +351,7 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
       }else{
         gchar *msg = g_strdup_printf("Excluding %s due to dependency failure\n",pkg->name);
         notify((gchar *)_("Error"),msg);
-        add_exclude_to_transaction(trans,pkg);
+        slapt_add_exclude_to_transaction(trans,pkg);
         g_free(msg);
       }
 
@@ -376,19 +377,19 @@ void add_pkg_for_removal (GtkWidget *gslapt, gpointer user_data)
     gchar *pkg_name;
     gchar *pkg_version;
     gchar *pkg_location;
-    pkg_info_t *pkg;
+    slapt_pkg_info_t *pkg;
 
     gtk_tree_model_get (GTK_TREE_MODEL(package_model), &iter, 1, &pkg_name, -1);
     gtk_tree_model_get (GTK_TREE_MODEL(package_model), &iter, 2, &pkg_version, -1);
     gtk_tree_model_get (GTK_TREE_MODEL(package_model), &iter, 3, &pkg_location, -1);
 
     /*
-      can't use get_pkg_by_details() as the location field will be different
+      can't use slapt_get_pkg_by_details() as the location field will be different
       in the available package and the installed package
     */
-    if ( (pkg = get_exact_pkg(installed,pkg_name,pkg_version)) != NULL ) {
+    if ( (pkg = slapt_get_exact_pkg(installed,pkg_name,pkg_version)) != NULL ) {
       guint c;
-      struct pkg_list *deps;
+      struct slapt_pkg_list *deps;
       gchar *status = NULL;
       GtkTreeModel *model;
       GtkTreeIter filter_iter,actual_iter;
@@ -401,7 +402,7 @@ void add_pkg_for_removal (GtkWidget *gslapt, gpointer user_data)
       gtk_tree_model_filter_convert_iter_to_child_iter(GTK_TREE_MODEL_FILTER(filter_model),&actual_iter,&filter_iter);
       model = GTK_TREE_MODEL(gtk_tree_model_filter_get_model(GTK_TREE_MODEL_FILTER(filter_model)));
 
-      deps = is_required_by(global_config,installed,pkg);
+      deps = slapt_is_required_by(global_config,installed,pkg);
 
       /*
         this solves the problem where an available package that is installed
@@ -411,7 +412,7 @@ void add_pkg_for_removal (GtkWidget *gslapt, gpointer user_data)
       free(pkg->location);
       pkg->location = g_strdup(pkg_location);
 
-      add_remove_to_transaction(trans,pkg);
+      slapt_add_remove_to_transaction(trans,pkg);
       gtk_list_store_set(GTK_LIST_STORE(model),&actual_iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_remove.png"),-1);
       status = g_strdup_printf("r%s",pkg->name);
       gtk_list_store_set(GTK_LIST_STORE(model),&actual_iter,STATUS_COLUMN,status,-1);
@@ -419,7 +420,7 @@ void add_pkg_for_removal (GtkWidget *gslapt, gpointer user_data)
       set_execute_active();
 
       for (c = 0; c < deps->pkg_count;c++) {
-        add_remove_to_transaction(trans,deps->pkgs[c]);
+        slapt_add_remove_to_transaction(trans,deps->pkgs[c]);
         if (set_iter_to_pkg(model,&actual_iter,deps->pkgs[c])) {
           gchar *status = g_strdup_printf("u%s",deps->pkgs[c]->name);
           gtk_list_store_set(GTK_LIST_STORE(model),&actual_iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_remove.png"),-1);
@@ -462,22 +463,22 @@ void build_package_treeviewlist (GtkWidget *treeview)
     gchar *status = NULL;
     guint is_inst = 0;
     GdkPixbuf *status_icon = NULL;
-    gchar *short_desc = gen_short_pkg_description(all->pkgs[i]);
+    gchar *short_desc = slapt_gen_short_pkg_description(all->pkgs[i]);
 
-    if (get_exact_pkg(installed,all->pkgs[i]->name,all->pkgs[i]->version) != NULL) {
+    if (slapt_get_exact_pkg(installed,all->pkgs[i]->name,all->pkgs[i]->version) != NULL) {
       is_inst = 1;
     }
 
     if (trans->exclude_pkgs->pkg_count > 0 &&
-    get_exact_pkg(trans->exclude_pkgs,all->pkgs[i]->name,all->pkgs[i]->version) != NULL) {
+    slapt_get_exact_pkg(trans->exclude_pkgs,all->pkgs[i]->name,all->pkgs[i]->version) != NULL) {
       status_icon = create_pixbuf("pkg_action_available.png");
       status = g_strdup_printf("z%s",all->pkgs[i]->name);
     } else if (trans->remove_pkgs->pkg_count > 0 &&
-    get_exact_pkg(trans->remove_pkgs,all->pkgs[i]->name,all->pkgs[i]->version) != NULL) {
+    slapt_get_exact_pkg(trans->remove_pkgs,all->pkgs[i]->name,all->pkgs[i]->version) != NULL) {
       status_icon = create_pixbuf("pkg_action_remove.png");
       status = g_strdup_printf("r%s",all->pkgs[i]->name);
     } else if (trans->install_pkgs->pkg_count > 0 &&
-    get_exact_pkg(trans->install_pkgs,all->pkgs[i]->name,all->pkgs[i]->version) != NULL) {
+    slapt_get_exact_pkg(trans->install_pkgs,all->pkgs[i]->name,all->pkgs[i]->version) != NULL) {
       status_icon = create_pixbuf("pkg_action_install.png");
       status = g_strdup_printf("i%s",all->pkgs[i]->name);
     } else if (trans->upgrade_pkgs->pkg_count > 0 && lsearch_upgrade_transaction(trans,all->pkgs[i]) == 1) {
@@ -508,15 +509,15 @@ void build_package_treeviewlist (GtkWidget *treeview)
   }
 
   for (i = 0; i < installed->pkg_count; ++i) {
-    if ( get_exact_pkg(all,installed->pkgs[i]->name,installed->pkgs[i]->version) == NULL ) {
+    if ( slapt_get_exact_pkg(all,installed->pkgs[i]->name,installed->pkgs[i]->version) == NULL ) {
       /* we use this for sorting the status */
       /* a=installed,i=install,r=remove,u=upgrade,z=available */
       gchar *status = NULL;
       GdkPixbuf *status_icon = NULL;
-      gchar *short_desc = gen_short_pkg_description(installed->pkgs[i]);
+      gchar *short_desc = slapt_gen_short_pkg_description(installed->pkgs[i]);
 
       if (trans->remove_pkgs->pkg_count > 0 &&
-      get_exact_pkg(trans->remove_pkgs,installed->pkgs[i]->name,installed->pkgs[i]->version) != NULL) {
+      slapt_get_exact_pkg(trans->remove_pkgs,installed->pkgs[i]->name,installed->pkgs[i]->version) != NULL) {
         status_icon = create_pixbuf("pkg_action_remove.png");
         status = g_strdup_printf("r%s",installed->pkgs[i]->name);
       } else {
@@ -558,7 +559,7 @@ void build_searched_treeviewlist (GtkWidget *treeview, gchar *pattern)
   GtkTreeIter iter;
   GtkTreeModelFilter *filter_model;
   GtkTreeModel *base_model;
-  struct pkg_list *a_matches = NULL,*i_matches = NULL;
+  struct slapt_pkg_list *a_matches = NULL,*i_matches = NULL;
   GtkTreeModelSort *package_model;
 
   if (pattern == NULL) {
@@ -570,8 +571,8 @@ void build_searched_treeviewlist (GtkWidget *treeview, gchar *pattern)
   filter_model = GTK_TREE_MODEL_FILTER(gtk_tree_model_sort_get_model(GTK_TREE_MODEL_SORT(package_model)));
   base_model = GTK_TREE_MODEL(gtk_tree_model_filter_get_model(GTK_TREE_MODEL_FILTER(filter_model)));
 
-  a_matches = search_pkg_list(all,pattern);
-  i_matches = search_pkg_list(installed,pattern);
+  a_matches = slapt_search_pkg_list(all,pattern);
+  i_matches = slapt_search_pkg_list(installed,pattern);
   valid = gtk_tree_model_get_iter_first(base_model,&iter);
   while (valid) {
     gchar *name = NULL,*version = NULL,*location = NULL;
@@ -584,8 +585,8 @@ void build_searched_treeviewlist (GtkWidget *treeview, gchar *pattern)
     );
 
     if (
-        get_pkg_by_details(a_matches,name,version,location) != NULL ||
-        get_pkg_by_details(i_matches,name,version,location) != NULL
+        slapt_get_pkg_by_details(a_matches,name,version,location) != NULL ||
+        slapt_get_pkg_by_details(i_matches,name,version,location) != NULL
     ) {
       gtk_list_store_set(GTK_LIST_STORE(base_model),&iter,VISIBLE_COLUMN,TRUE,-1);
     } else {
@@ -622,18 +623,18 @@ void show_pkg_details (GtkTreeSelection *selection, gpointer data)
 
   if (gtk_tree_selection_get_selected(selection,(GtkTreeModel **)&package_model, &iter)) {
     gchar *p_name,*p_version,*p_location;
-    pkg_info_t *pkg;
+    slapt_pkg_info_t *pkg;
 
     gtk_tree_model_get(GTK_TREE_MODEL(package_model), &iter, 1, &p_name, -1);
     gtk_tree_model_get(GTK_TREE_MODEL(package_model), &iter, 2, &p_version, -1);
     gtk_tree_model_get(GTK_TREE_MODEL(package_model), &iter, 3, &p_location, -1);
 
-    pkg = get_pkg_by_details(all,p_name,p_version,p_location);
+    pkg = slapt_get_pkg_by_details(all,p_name,p_version,p_location);
     if (pkg != NULL) {
       fillin_pkg_details(pkg);
       build_package_action_menu(pkg);
     }else{
-      pkg = get_pkg_by_details(installed,p_name,p_version,p_location);
+      pkg = slapt_get_pkg_by_details(installed,p_name,p_version,p_location);
       if (pkg != NULL) {
         fillin_pkg_details(pkg);
         build_package_action_menu(pkg);
@@ -647,18 +648,18 @@ void show_pkg_details (GtkTreeSelection *selection, gpointer data)
 
 }
 
-static void fillin_pkg_details (pkg_info_t *pkg)
+static void fillin_pkg_details (slapt_pkg_info_t *pkg)
 {
   gchar *short_desc;
   GtkTextBuffer *pkg_full_desc;
-  pkg_info_t *latest_pkg = get_newest_pkg(all,pkg->name);
-  pkg_info_t *installed_pkg = get_newest_pkg(installed,pkg->name);
+  slapt_pkg_info_t *latest_pkg = slapt_get_newest_pkg(all,pkg->name);
+  slapt_pkg_info_t *installed_pkg = slapt_get_newest_pkg(installed,pkg->name);
 
   /* set package details */
   gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_name")),pkg->name);
   gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_location")),pkg->location);
   gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_version")),pkg->version);
-  short_desc = gen_short_pkg_description(pkg);
+  short_desc = slapt_gen_short_pkg_description(pkg);
   if (short_desc != NULL) {
     gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_description")),short_desc);
     free(short_desc);
@@ -688,18 +689,18 @@ static void fillin_pkg_details (pkg_info_t *pkg)
 
   /* set status */
   if ((trans->exclude_pkgs->pkg_count > 0 &&
-  get_exact_pkg(trans->exclude_pkgs,pkg->name,pkg->version) != NULL) ||
-  is_excluded(global_config,pkg) == 1) {
+  slapt_get_exact_pkg(trans->exclude_pkgs,pkg->name,pkg->version) != NULL) ||
+  slapt_is_excluded(global_config,pkg) == 1) {
     gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_status")),(gchar *)_("Excluded"));
   } else if (trans->remove_pkgs->pkg_count > 0 &&
-  get_exact_pkg(trans->remove_pkgs,pkg->name,pkg->version) != NULL) {
+  slapt_get_exact_pkg(trans->remove_pkgs,pkg->name,pkg->version) != NULL) {
     gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_status")),(gchar *)_("To be Removed"));
   } else if (trans->install_pkgs->pkg_count > 0 &&
-  get_exact_pkg(trans->install_pkgs,pkg->name,pkg->version) != NULL) {
+  slapt_get_exact_pkg(trans->install_pkgs,pkg->name,pkg->version) != NULL) {
     gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_status")),(gchar *)_("To be Installed"));
   } else if (trans->upgrade_pkgs->pkg_count > 0 && lsearch_upgrade_transaction(trans,pkg) == 1) {
-    pkg_info_t *installed_pkg = get_newest_pkg(installed,pkg->name);
-    int cmp = cmp_pkg_versions(pkg->version,installed_pkg->version);
+    slapt_pkg_info_t *installed_pkg = slapt_get_newest_pkg(installed,pkg->name);
+    int cmp = slapt_cmp_pkg_versions(pkg->version,installed_pkg->version);
     if (cmp == 0) {
       gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_status")),(gchar *)_("To be Re-Installed"));
     } else if (cmp < 0 ) {
@@ -707,7 +708,7 @@ static void fillin_pkg_details (pkg_info_t *pkg)
     } else {
       gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_status")),(gchar *)_("To be Upgraded"));
     }
-  } else if (get_exact_pkg(installed,pkg->name,pkg->version) != NULL) {
+  } else if (slapt_get_exact_pkg(installed,pkg->name,pkg->version) != NULL) {
     gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_status")),(gchar *)_("Installed"));
   } else {
     gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_status")),(gchar *)_("Not Installed"));
@@ -792,8 +793,8 @@ static void get_package_data (void)
   /* go through each package source and download the meta data */
   for (i = 0; i < global_config->sources->count; i++) {
     FILE *tmp_pkg_f,*tmp_patch_f,*tmp_checksum_f;
-    struct pkg_list *available_pkgs = NULL;
-    struct pkg_list *patch_pkgs = NULL;
+    struct slapt_pkg_list *available_pkgs = NULL;
+    struct slapt_pkg_list *patch_pkgs = NULL;
     gchar *pkg_filename,*patch_filename,*checksum_filename;
     gchar *pkg_head,*pkg_local_head;
     gchar *patch_head,*patch_local_head;
@@ -813,13 +814,13 @@ static void get_package_data (void)
 
     gdk_threads_enter();
     gtk_label_set_text(progress_action_label,global_config->sources->url[i]);
-    gtk_label_set_text(progress_message_label,PKG_LIST);
+    gtk_label_set_text(progress_message_label,SLAPT_PKG_LIST);
     gdk_threads_leave();
 
     /* download our PKG_LIST */
-    pkg_filename = gen_filename_from_url(global_config->sources->url[i],PKG_LIST);
-    pkg_head = head_mirror_data(global_config->sources->url[i],PKG_LIST);
-    pkg_local_head = read_head_cache(pkg_filename);
+    pkg_filename = slapt_gen_filename_from_url(global_config->sources->url[i],SLAPT_PKG_LIST);
+    pkg_head = slapt_head_mirror_data(global_config->sources->url[i],SLAPT_PKG_LIST);
+    pkg_local_head = slapt_read_head_cache(pkg_filename);
 
     if (_cancelled == 1) {
       _cancelled = 0;
@@ -838,18 +839,18 @@ static void get_package_data (void)
     /* open for reading if cached, otherwise write it from the downloaded data */
     if ( pkg_head != NULL && pkg_local_head != NULL && strcmp(pkg_head,pkg_local_head) == 0) {
 
-      if ( (tmp_pkg_f = open_file(pkg_filename,"r")) == NULL ) exit(1);
+      if ( (tmp_pkg_f = slapt_open_file(pkg_filename,"r")) == NULL ) exit(1);
 
-      available_pkgs = parse_packages_txt(tmp_pkg_f);
+      available_pkgs = slapt_parse_packages_txt(tmp_pkg_f);
     }else{
 
-      if ( (tmp_pkg_f = open_file(pkg_filename,"w+b")) == NULL ) exit(1);
+      if ( (tmp_pkg_f = slapt_open_file(pkg_filename,"w+b")) == NULL ) exit(1);
 
-      if ( get_mirror_data_from_source(tmp_pkg_f,global_config,global_config->sources->url[i],PKG_LIST) == 0 ) {
+      if ( slapt_get_mirror_data_from_source(tmp_pkg_f,global_config,global_config->sources->url[i],SLAPT_PKG_LIST) == 0 ) {
         rewind(tmp_pkg_f); /* make sure we are back at the front of the file */
-        available_pkgs = parse_packages_txt(tmp_pkg_f);
+        available_pkgs = slapt_parse_packages_txt(tmp_pkg_f);
       }else{
-        clear_head_cache(pkg_filename);
+        slapt_clear_head_cache(pkg_filename);
         free(pkg_head);
         free(pkg_local_head);
         free(pkg_filename);
@@ -870,7 +871,7 @@ static void get_package_data (void)
       }
     }
     if ( available_pkgs == NULL || available_pkgs->pkg_count < 1 ) {
-      clear_head_cache(pkg_filename);
+      slapt_clear_head_cache(pkg_filename);
       free(pkg_head);
       free(pkg_local_head);
       free(pkg_filename);
@@ -886,7 +887,7 @@ static void get_package_data (void)
     }
     /* if all is good, write it */
     if ( pkg_head != NULL ) {
-      write_head_cache(pkg_head,pkg_filename);
+      slapt_write_head_cache(pkg_head,pkg_filename);
     }
     free(pkg_head);
     free(pkg_local_head);
@@ -896,14 +897,14 @@ static void get_package_data (void)
 
     gdk_threads_enter();
     gtk_progress_bar_set_fraction(p_bar,((dl_count * 100)/dl_files)/100);
-    gtk_label_set_text(progress_message_label,PATCHES_LIST);
+    gtk_label_set_text(progress_message_label,SLAPT_PATCHES_LIST);
     gdk_threads_leave();
 
 
-    /* download PATCHES_LIST */
-    patch_filename = gen_filename_from_url(global_config->sources->url[i],PATCHES_LIST);
-    patch_head = head_mirror_data(global_config->sources->url[i],PATCHES_LIST);
-    patch_local_head = read_head_cache(patch_filename);
+    /* download SLAPT_PATCHES_LIST */
+    patch_filename = slapt_gen_filename_from_url(global_config->sources->url[i],SLAPT_PATCHES_LIST);
+    patch_head = slapt_head_mirror_data(global_config->sources->url[i],SLAPT_PATCHES_LIST);
+    patch_local_head = slapt_read_head_cache(patch_filename);
 
     if (_cancelled == 1) {
       _cancelled = 0;
@@ -922,19 +923,19 @@ static void get_package_data (void)
     /* open for reading if cached, otherwise write it from the downloaded data */
     if ( patch_head != NULL && patch_local_head != NULL && strcmp(patch_head,patch_local_head) == 0) {
 
-      if ( (tmp_patch_f = open_file(patch_filename,"r")) == NULL ) exit(1);
+      if ( (tmp_patch_f = slapt_open_file(patch_filename,"r")) == NULL ) exit(1);
 
-      patch_pkgs = parse_packages_txt(tmp_patch_f);
+      patch_pkgs = slapt_parse_packages_txt(tmp_patch_f);
     }else{
 
-      if ( (tmp_patch_f = open_file(patch_filename,"w+b")) == NULL ) exit (1);
+      if ( (tmp_patch_f = slapt_open_file(patch_filename,"w+b")) == NULL ) exit (1);
 
-      if ( get_mirror_data_from_source(tmp_patch_f,global_config,global_config->sources->url[i],PATCHES_LIST) == 0 ) {
+      if ( slapt_get_mirror_data_from_source(tmp_patch_f,global_config,global_config->sources->url[i],SLAPT_PATCHES_LIST) == 0 ) {
         rewind(tmp_patch_f); /* make sure we are back at the front of the file */
-        patch_pkgs = parse_packages_txt(tmp_patch_f);
+        patch_pkgs = slapt_parse_packages_txt(tmp_patch_f);
       }else{
         /* we don't care if the patch fails, for example current doesn't have patches */
-        clear_head_cache(patch_filename);
+        slapt_clear_head_cache(patch_filename);
         if (_cancelled == 1) {
           _cancelled = 0;
           fclose(pkg_list_fh_tmp);
@@ -953,7 +954,7 @@ static void get_package_data (void)
       }
     }
     /* if all is good, write it */
-    if ( patch_head != NULL ) write_head_cache(patch_head,patch_filename);
+    if ( patch_head != NULL ) slapt_write_head_cache(patch_head,patch_filename);
     free(patch_head);
     free(patch_local_head);
     free(patch_filename);
@@ -962,14 +963,14 @@ static void get_package_data (void)
 
     gdk_threads_enter();
     gtk_progress_bar_set_fraction(p_bar,((dl_count * 100)/dl_files)/100);
-    gtk_label_set_text(progress_message_label,CHECKSUM_FILE);
+    gtk_label_set_text(progress_message_label,SLAPT_CHECKSUM_FILE);
     gdk_threads_leave();
 
 
     /* download checksum file */
-    checksum_filename = gen_filename_from_url(global_config->sources->url[i],CHECKSUM_FILE);
-    checksum_head = head_mirror_data(global_config->sources->url[i],CHECKSUM_FILE);
-    checksum_local_head = read_head_cache(checksum_filename);
+    checksum_filename = slapt_gen_filename_from_url(global_config->sources->url[i],SLAPT_CHECKSUM_FILE);
+    checksum_head = slapt_head_mirror_data(global_config->sources->url[i],SLAPT_CHECKSUM_FILE);
+    checksum_local_head = slapt_read_head_cache(checksum_filename);
 
     if (_cancelled == 1) {
       _cancelled = 0;
@@ -987,16 +988,16 @@ static void get_package_data (void)
 
     /* open for reading if cached, otherwise write it from the downloaded data */
     if ( checksum_head != NULL && checksum_local_head != NULL && strcmp(checksum_head,checksum_local_head) == 0) {
-      if ( (tmp_checksum_f = open_file(checksum_filename,"r")) == NULL ) exit(1);
+      if ( (tmp_checksum_f = slapt_open_file(checksum_filename,"r")) == NULL ) exit(1);
     }else{
 
-      if ( (tmp_checksum_f = open_file(checksum_filename,"w+b")) == NULL ) exit(1);
+      if ( (tmp_checksum_f = slapt_open_file(checksum_filename,"w+b")) == NULL ) exit(1);
 
-      if ( get_mirror_data_from_source(
-            tmp_checksum_f,global_config,global_config->sources->url[i],CHECKSUM_FILE
+      if ( slapt_get_mirror_data_from_source(
+            tmp_checksum_f,global_config,global_config->sources->url[i],SLAPT_CHECKSUM_FILE
           ) != 0
       ) {
-        clear_head_cache(checksum_filename);
+        slapt_clear_head_cache(checksum_filename);
         free(checksum_head);
         free(checksum_local_head);
         free(checksum_filename);
@@ -1020,7 +1021,7 @@ static void get_package_data (void)
     /* if all is good, write it */
 
     if ( checksum_head != NULL ) {
-      write_head_cache(checksum_head,checksum_filename);
+      slapt_write_head_cache(checksum_head,checksum_filename);
     }
 
     free(checksum_head);
@@ -1048,28 +1049,28 @@ static void get_package_data (void)
 
     /* now map md5 checksums to packages */
     for (a = 0;a < available_pkgs->pkg_count;a++) {
-      get_md5sum(available_pkgs->pkgs[a],tmp_checksum_f);
+      slapt_get_md5sum(available_pkgs->pkgs[a],tmp_checksum_f);
     }
     for (a = 0;a < patch_pkgs->pkg_count;a++) {
-      get_md5sum(patch_pkgs->pkgs[a],tmp_checksum_f);
+      slapt_get_md5sum(patch_pkgs->pkgs[a],tmp_checksum_f);
     }
 
     /* write package listings to disk */
-    write_pkg_data(global_config->sources->url[i],pkg_list_fh_tmp,available_pkgs);
+    slapt_write_pkg_data(global_config->sources->url[i],pkg_list_fh_tmp,available_pkgs);
     if (patch_pkgs)
-      write_pkg_data(global_config->sources->url[i],pkg_list_fh_tmp,patch_pkgs);
+      slapt_write_pkg_data(global_config->sources->url[i],pkg_list_fh_tmp,patch_pkgs);
 
-    if ( available_pkgs ) free_pkg_list(available_pkgs);
+    if ( available_pkgs ) slapt_free_pkg_list(available_pkgs);
 
-    if ( patch_pkgs ) free_pkg_list(patch_pkgs);
+    if ( patch_pkgs ) slapt_free_pkg_list(patch_pkgs);
 
     free(checksum_filename);
     fclose(tmp_checksum_f);
 
   }/* end for loop */
 
-  /* if all our downloads where a success, write to PKG_LIST_L */
-  if ( (pkg_list_fh = open_file(PKG_LIST_L,"w+")) == NULL ) exit(1);
+  /* if all our downloads where a success, write to SLAPT_PKG_LIST_L */
+  if ( (pkg_list_fh = slapt_open_file(SLAPT_PKG_LIST_L,"w+")) == NULL ) exit(1);
 
   if ( pkg_list_fh == NULL ) exit(1);
 
@@ -1083,8 +1084,8 @@ static void get_package_data (void)
   fclose(pkg_list_fh);
 
   /* reset our currently selected packages */
-  free_transaction(trans);
-  init_transaction(trans);
+  slapt_free_transaction(trans);
+  slapt_init_transaction(trans);
 
   /* close the tmp pkg list file */
   fclose(pkg_list_fh_tmp);
@@ -1120,7 +1121,7 @@ int gtk_progress_callback(void *data, double dltotal, double dlnow,
 static void rebuild_treeviews (GtkWidget *current_window)
 {
   GtkWidget *treeview;
-  struct pkg_list *all_ptr,*installed_ptr;
+  struct slapt_pkg_list *all_ptr,*installed_ptr;
   GdkCursor *c = gdk_cursor_new(GDK_WATCH);
   GtkListStore *store;
   GtkTreeModelFilter *filter_model;
@@ -1138,8 +1139,8 @@ static void rebuild_treeviews (GtkWidget *current_window)
   installed_ptr = installed;
   all_ptr = all;
 
-  installed = get_installed_pkgs();
-  all = get_available_pkgs();
+  installed = slapt_get_installed_pkgs();
+  all = slapt_get_available_pkgs();
 
   treeview = (GtkWidget *)lookup_widget(gslapt,"pkg_listing_treeview");
   package_model = GTK_TREE_MODEL_SORT(gtk_tree_view_get_model(GTK_TREE_VIEW(treeview)));
@@ -1149,8 +1150,8 @@ static void rebuild_treeviews (GtkWidget *current_window)
   gtk_list_store_clear(store);
   gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"search_entry")),"");
 
-  free_pkg_list(installed_ptr);
-  free_pkg_list(all_ptr);
+  slapt_free_pkg_list(installed_ptr);
+  slapt_free_pkg_list(all_ptr);
 
   rebuild_package_action_menu();
   build_package_treeviewlist(treeview);
@@ -1207,7 +1208,7 @@ static void lhandle_transaction (GtkWidget *w)
 {
   GtkCheckButton *dl_only_checkbutton;
   gboolean dl_only = FALSE;
-  struct pkg_list *installed_ptr;
+  struct slapt_pkg_list *installed_ptr;
   GdkCursor *c;
 
   gdk_threads_enter();
@@ -1235,8 +1236,8 @@ static void lhandle_transaction (GtkWidget *w)
 
   /* return early if download_only is set */
   if ( dl_only == TRUE ) {
-    free_transaction(trans);
-    init_transaction(trans);
+    slapt_free_transaction(trans);
+    slapt_init_transaction(trans);
     gdk_threads_enter();
     unlock_toolbar_buttons();
     reset_pkg_view_status();
@@ -1273,12 +1274,12 @@ static void lhandle_transaction (GtkWidget *w)
   gdk_threads_leave();
   gdk_cursor_destroy(c);
 
-  free_transaction(trans);
-  init_transaction(trans);
+  slapt_free_transaction(trans);
+  slapt_init_transaction(trans);
   /* rebuild the installed list */
   installed_ptr = installed;
-  installed = get_installed_pkgs();
-  free_pkg_list(installed_ptr);
+  installed = slapt_get_installed_pkgs();
+  slapt_free_pkg_list(installed_ptr);
 
   gdk_threads_enter();
   /* reset cursor */
@@ -1441,7 +1442,7 @@ static int populate_transaction_window (GtkWidget *trans_window)
       gtk_tree_store_append (store, &child_iter, &iter);
       gtk_tree_store_set(store,&child_iter,0,trans->install_pkgs->pkgs[i]->name,-1);
       dl_size += trans->install_pkgs->pkgs[i]->size_c;
-      already_dl_size += get_pkg_file_size(global_config,trans->install_pkgs->pkgs[i])/1024;
+      already_dl_size += slapt_get_pkg_file_size(global_config,trans->install_pkgs->pkgs[i])/1024;
       free_space += trans->install_pkgs->pkgs[i]->size_u;
     }
   }
@@ -1459,7 +1460,7 @@ static int populate_transaction_window (GtkWidget *trans_window)
       gtk_tree_store_append (store, &child_iter, &iter);
       gtk_tree_store_set(store,&child_iter,0,buf,-1);
       dl_size += trans->upgrade_pkgs->pkgs[i]->upgrade->size_c;
-      already_dl_size += get_pkg_file_size(global_config,trans->upgrade_pkgs->pkgs[i]->upgrade)/1024;
+      already_dl_size += slapt_get_pkg_file_size(global_config,trans->upgrade_pkgs->pkgs[i]->upgrade)/1024;
       free_space += trans->upgrade_pkgs->pkgs[i]->upgrade->size_u;
       free_space -= trans->upgrade_pkgs->pkgs[i]->installed->size_u;
     }
@@ -1555,21 +1556,21 @@ static void mark_upgrade_packages (void)
   base_model = GTK_TREE_MODEL(gtk_tree_model_filter_get_model(GTK_TREE_MODEL_FILTER(filter_model)));
   
   for (i = 0; i < installed->pkg_count;i++) {
-    pkg_info_t *update_pkg = NULL;
-    pkg_info_t *newer_installed_pkg = NULL;
+    slapt_pkg_info_t *update_pkg = NULL;
+    slapt_pkg_info_t *newer_installed_pkg = NULL;
 
     /*
       we need to see if there is another installed
       package that is newer than this one
     */
-    if ( (newer_installed_pkg = get_newest_pkg(installed,installed->pkgs[i]->name)) != NULL ) {
+    if ( (newer_installed_pkg = slapt_get_newest_pkg(installed,installed->pkgs[i]->name)) != NULL ) {
 
-      if ( cmp_pkg_versions(installed->pkgs[i]->version,newer_installed_pkg->version) < 0 ) continue;
+      if ( slapt_cmp_pkg_versions(installed->pkgs[i]->version,newer_installed_pkg->version) < 0 ) continue;
 
     }
 
     /* see if we have an available update for the pkg */
-    update_pkg = get_newest_pkg(
+    update_pkg = slapt_get_newest_pkg(
       all,
       installed->pkgs[i]->name
     );
@@ -1577,21 +1578,21 @@ static void mark_upgrade_packages (void)
       int cmp_r = 0;
 
       /* if the update has a newer version, attempt to upgrade */
-      cmp_r = cmp_pkg_versions(installed->pkgs[i]->version,update_pkg->version);
+      cmp_r = slapt_cmp_pkg_versions(installed->pkgs[i]->version,update_pkg->version);
       /* either it's greater, or we want to reinstall */
       if ( cmp_r < 0 || (global_config->re_install == TRUE) ) {
 
-        if ((is_excluded(global_config,update_pkg) == 1)
-          || (is_excluded(global_config,installed->pkgs[i]) == 1)
+        if ((slapt_is_excluded(global_config,update_pkg) == 1)
+          || (slapt_is_excluded(global_config,installed->pkgs[i]) == 1)
         ) {
-          add_exclude_to_transaction(trans,update_pkg);
+          slapt_add_exclude_to_transaction(trans,update_pkg);
         }else{
           /* if all deps are added and there is no conflicts, add on */
           if (
             (ladd_deps_to_trans(trans,all,installed,update_pkg) == 0)
-            && (is_conflicted(trans,all,installed,update_pkg) == NULL)
+            && (slapt_is_conflicted(trans,all,installed,update_pkg) == NULL)
           ) {
-            add_upgrade_to_transaction(trans,installed->pkgs[i],update_pkg);
+            slapt_add_upgrade_to_transaction(trans,installed->pkgs[i],update_pkg);
             if (set_iter_to_pkg(base_model,&iter,update_pkg)) {
               gchar *ustatus = g_strdup_printf("u%s",update_pkg->name);
               gtk_list_store_set(GTK_LIST_STORE(base_model),&iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_upgrade.png"),-1);
@@ -1601,7 +1602,7 @@ static void mark_upgrade_packages (void)
             ++mark_count;
           }else{
             /* otherwise exclude */
-            add_exclude_to_transaction(trans,update_pkg);
+            slapt_add_exclude_to_transaction(trans,update_pkg);
           }
         }
 
@@ -1686,7 +1687,7 @@ static gboolean download_packages (void)
       return FALSE;
     }
 
-    if ( download_pkg(global_config,trans->install_pkgs->pkgs[i]) == -1) {
+    if ( slapt_download_pkg(global_config,trans->install_pkgs->pkgs[i]) == -1) {
       gdk_threads_enter();
       gtk_widget_destroy(progress_window);
       gslapt_clear_status(context_id);
@@ -1733,7 +1734,7 @@ static gboolean download_packages (void)
       return FALSE;
     }
 
-    if (download_pkg(global_config,trans->upgrade_pkgs->pkgs[i]->upgrade) == -1) {
+    if (slapt_download_pkg(global_config,trans->upgrade_pkgs->pkgs[i]->upgrade) == -1) {
       gdk_threads_enter();
       gtk_widget_destroy(progress_window);
       gslapt_clear_status(context_id);
@@ -1781,7 +1782,7 @@ static gboolean install_packages (void)
     gtk_progress_bar_set_fraction(p_bar,((count * 100)/trans->remove_pkgs->pkg_count)/100);
     gdk_threads_leave();
 
-    if (remove_pkg(global_config,trans->remove_pkgs->pkgs[i]) == -1) {
+    if (slapt_remove_pkg(global_config,trans->remove_pkgs->pkgs[i]) == -1) {
       gdk_threads_enter();
       gslapt_clear_status(context_id);
       gdk_threads_leave();
@@ -1814,7 +1815,7 @@ static gboolean install_packages (void)
       gtk_progress_bar_set_fraction(p_bar,((count * 100)/trans->queue->count)/100);
       gdk_threads_leave();
 
-      if (install_pkg(global_config,trans->queue->pkgs[i]->pkg.i) == -1) {
+      if (slapt_install_pkg(global_config,trans->queue->pkgs[i]->pkg.i) == -1) {
         gdk_threads_enter();
         gslapt_clear_status(context_id);
         gdk_threads_leave();
@@ -1829,7 +1830,7 @@ static gboolean install_packages (void)
       gtk_progress_bar_set_fraction(p_bar,((count * 100)/trans->queue->count)/100);
       gdk_threads_leave();
 
-      if (upgrade_pkg(global_config,trans->queue->pkgs[i]->pkg.u->installed,
+      if (slapt_upgrade_pkg(global_config,trans->queue->pkgs[i]->pkg.u->installed,
                       trans->queue->pkgs[i]->pkg.u->upgrade) == -1) {
         gdk_threads_enter();
         gslapt_clear_status(context_id);
@@ -1856,7 +1857,7 @@ void clean_callback (GtkMenuItem *menuitem, gpointer user_data)
 {
   GThread *gpd;
 
-  gpd = g_thread_create((GThreadFunc)clean_pkg_dir,global_config->working_dir,FALSE,NULL);
+  gpd = g_thread_create((GThreadFunc)slapt_clean_pkg_dir,global_config->working_dir,FALSE,NULL);
 
 }
 
@@ -1872,7 +1873,7 @@ void preferences_sources_add (GtkWidget *w, gpointer user_data)
 
   if ( new_source == NULL || strlen(new_source) < 1 ) return;
 
-  add_source(global_config->sources,new_source);
+  slapt_add_source(global_config->sources,new_source);
 
   gtk_entry_set_text(new_source_entry,"");
 
@@ -2093,7 +2094,7 @@ static gboolean write_preferences (void)
   guint i;
   FILE *rc;
 
-  rc = open_file(RC_LOCATION,"w+");
+  rc = slapt_open_file(RC_LOCATION,"w+");
   if ( rc == NULL ) return FALSE;
 
   fprintf(rc,"%s%s\n",WORKINGDIR_TOKEN,global_config->working_dir);
@@ -2121,8 +2122,8 @@ static gboolean write_preferences (void)
 void cancel_preferences (GtkWidget *w, gpointer user_data)
 {
   gtk_widget_destroy(w);
-  free_rc_config(global_config);
-  global_config = read_rc_config(RC_LOCATION);
+  slapt_free_rc_config(global_config);
+  global_config = slapt_read_rc_config(RC_LOCATION);
 }
 
 
@@ -2236,7 +2237,7 @@ void unmark_package(GtkWidget *gslapt, gpointer user_data)
   GtkTreeView *treeview;
   GtkTreeIter iter;
   GtkTreeSelection *selection;
-  pkg_info_t *pkg = NULL;
+  slapt_pkg_info_t *pkg = NULL;
   guint is_installed = 0,i;
   GtkTreeModelSort *package_model;
 
@@ -2272,11 +2273,11 @@ void unmark_package(GtkWidget *gslapt, gpointer user_data)
       return;
     }
 
-    if (((pkg = get_pkg_by_details(all,pkg_name,pkg_version,pkg_location)) == NULL)) {
-      pkg = get_exact_pkg(installed,pkg_name,pkg_version);
+    if (((pkg = slapt_get_pkg_by_details(all,pkg_name,pkg_version,pkg_location)) == NULL)) {
+      pkg = slapt_get_exact_pkg(installed,pkg_name,pkg_version);
       is_installed = 1;
     } else {
-      if (get_exact_pkg(installed,pkg_name,pkg_version) != NULL) {
+      if (slapt_get_exact_pkg(installed,pkg_name,pkg_version) != NULL) {
         is_installed = 1;
       }
     }
@@ -2311,7 +2312,7 @@ void unmark_package(GtkWidget *gslapt, gpointer user_data)
     /* clear the installed version as well if this was an upgrade */
     for (i = 0; i < trans->upgrade_pkgs->pkg_count; ++i) {
       if (strcmp(trans->upgrade_pkgs->pkgs[i]->installed->name,pkg->name) == 0) {
-        pkg_info_t *avail_pkg = get_exact_pkg(installed,
+        slapt_pkg_info_t *avail_pkg = slapt_get_exact_pkg(installed,
           trans->upgrade_pkgs->pkgs[i]->installed->name,
           trans->upgrade_pkgs->pkgs[i]->installed->version
         );
@@ -2327,7 +2328,7 @@ void unmark_package(GtkWidget *gslapt, gpointer user_data)
       }
     }
 
-    trans = remove_from_transaction(trans,pkg);
+    trans = slapt_remove_from_transaction(trans,pkg);
     if (trans->install_pkgs->pkg_count == 0 &&
         trans->remove_pkgs->pkg_count == 0 &&
         trans->upgrade_pkgs->pkg_count == 0
@@ -2342,12 +2343,12 @@ void unmark_package(GtkWidget *gslapt, gpointer user_data)
 
 /* parse the dependencies for a package, and add them to the transaction as */
 /* needed check to see if a package is conflicted */
-static int ladd_deps_to_trans (transaction_t *tran, struct pkg_list *avail_pkgs,
-                               struct pkg_list *installed_pkgs, pkg_info_t *pkg)
+static int ladd_deps_to_trans (slapt_transaction_t *tran, struct slapt_pkg_list *avail_pkgs,
+                               struct slapt_pkg_list *installed_pkgs, slapt_pkg_info_t *pkg)
 {
   unsigned int c;
   int dep_return = -1;
-  struct pkg_list *deps = NULL;
+  struct slapt_pkg_list *deps = NULL;
   GtkTreeIter iter;
   GtkTreeModelFilter *filter_model;
   GtkTreeModel *base_model;
@@ -2357,9 +2358,9 @@ static int ladd_deps_to_trans (transaction_t *tran, struct pkg_list *avail_pkgs,
   if ( global_config->disable_dep_check == TRUE ) return 0;
   if ( pkg == NULL ) return 0;
 
-  deps = init_pkg_list();
+  deps = slapt_init_pkg_list();
 
-  dep_return = get_pkg_dependencies(
+  dep_return = slapt_get_pkg_dependencies(
     global_config,avail_pkgs,installed_pkgs,pkg,
     deps,tran->conflict_err,tran->missing_err
   );
@@ -2367,10 +2368,10 @@ static int ladd_deps_to_trans (transaction_t *tran, struct pkg_list *avail_pkgs,
   /* check to see if there where issues with dep checking */
   /* exclude the package if dep check barfed */
   if ( (dep_return == -1) && (global_config->ignore_dep == FALSE) &&
-      (get_exact_pkg(tran->exclude_pkgs,pkg->name,pkg->version) == NULL)
+      (slapt_get_exact_pkg(tran->exclude_pkgs,pkg->name,pkg->version) == NULL)
   ) {
-    add_exclude_to_transaction(tran,pkg);
-    free_pkg_list(deps);
+    slapt_add_exclude_to_transaction(tran,pkg);
+    slapt_free_pkg_list(deps);
     return -1;
   }
 
@@ -2382,17 +2383,17 @@ static int ladd_deps_to_trans (transaction_t *tran, struct pkg_list *avail_pkgs,
 
   /* loop through the deps */
   for (c = 0; c < deps->pkg_count;c++) {
-    pkg_info_t *dep_installed;
-    pkg_info_t *conflicted_pkg = NULL;
+    slapt_pkg_info_t *dep_installed;
+    slapt_pkg_info_t *conflicted_pkg = NULL;
 
     /*
      * the dep wouldn't get this far if it where excluded,
      * so we don't check for that here
      */
 
-    conflicted_pkg = is_conflicted(tran,avail_pkgs,installed_pkgs,deps->pkgs[c]);
+    conflicted_pkg = slapt_is_conflicted(tran,avail_pkgs,installed_pkgs,deps->pkgs[c]);
     if ( conflicted_pkg != NULL ) {
-      add_remove_to_transaction(tran,conflicted_pkg);
+      slapt_add_remove_to_transaction(tran,conflicted_pkg);
       if (set_iter_to_pkg(GTK_TREE_MODEL(base_model),&iter,conflicted_pkg)) {
         gchar *status = g_strdup_printf("r%s",conflicted_pkg->name);
         gtk_list_store_set(GTK_LIST_STORE(base_model),&iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_remove.png"),-1);
@@ -2401,9 +2402,9 @@ static int ladd_deps_to_trans (transaction_t *tran, struct pkg_list *avail_pkgs,
       }
     }
 
-    dep_installed = get_newest_pkg(installed_pkgs,deps->pkgs[c]->name);
+    dep_installed = slapt_get_newest_pkg(installed_pkgs,deps->pkgs[c]->name);
     if ( dep_installed == NULL ) {
-      add_install_to_transaction(tran,deps->pkgs[c]);
+      slapt_add_install_to_transaction(tran,deps->pkgs[c]);
       if (set_iter_to_pkg(GTK_TREE_MODEL(base_model),&iter,deps->pkgs[c])) {
         gchar *status = g_strdup_printf("i%s",deps->pkgs[c]->name);
         gtk_list_store_set(GTK_LIST_STORE(base_model),&iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_install.png"),-1);
@@ -2412,8 +2413,8 @@ static int ladd_deps_to_trans (transaction_t *tran, struct pkg_list *avail_pkgs,
       }
     } else {
       /* add only if its a valid upgrade */
-      if (cmp_pkg_versions(dep_installed->version,deps->pkgs[c]->version) < 0 ) {
-        add_upgrade_to_transaction(tran,dep_installed,deps->pkgs[c]);
+      if (slapt_cmp_pkg_versions(dep_installed->version,deps->pkgs[c]->version) < 0 ) {
+        slapt_add_upgrade_to_transaction(tran,dep_installed,deps->pkgs[c]);
         if (set_iter_to_pkg(GTK_TREE_MODEL(base_model),&iter,deps->pkgs[c])) {
           gchar *status = g_strdup_printf("u%s",deps->pkgs[c]->name);
           gtk_list_store_set(GTK_LIST_STORE(base_model),&iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_upgrade.png"),-1);
@@ -2425,13 +2426,13 @@ static int ladd_deps_to_trans (transaction_t *tran, struct pkg_list *avail_pkgs,
 
   }
 
-  free_pkg_list(deps);
+  slapt_free_pkg_list(deps);
 
   return 0;
 }
 
 static int set_iter_to_pkg(GtkTreeModel *model, GtkTreeIter *iter,
-                           pkg_info_t *pkg)
+                           slapt_pkg_info_t *pkg)
 {
   gboolean valid;
 
@@ -2502,7 +2503,7 @@ static void reset_pkg_view_status (void)
       continue;
     }
 
-    if (get_exact_pkg(installed,name,version) == NULL) {
+    if (slapt_get_exact_pkg(installed,name,version) == NULL) {
       status = g_strdup_printf("z%s",name);
       gtk_list_store_set(GTK_LIST_STORE(base_model),&iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_available.png"),-1);
     } else {
@@ -2589,7 +2590,7 @@ void build_treeview_columns (GtkWidget *treeview)
 
 }
 
-static int lsearch_upgrade_transaction (transaction_t *tran,pkg_info_t *pkg)
+static int lsearch_upgrade_transaction (slapt_transaction_t *tran,slapt_pkg_info_t *pkg)
 {
   unsigned int i,found = 1, not_found = 0;
   for (i = 0; i < tran->upgrade_pkgs->pkg_count;i++) {
@@ -2614,24 +2615,24 @@ void on_button_cancel_clicked (GtkButton *button, gpointer user_data)
   _cancelled = 1;
 }
 
-static void build_package_action_menu (pkg_info_t *pkg)
+static void build_package_action_menu (slapt_pkg_info_t *pkg)
 {
   GtkMenu *menu;
-  pkg_info_t *newest_installed = NULL, *upgrade_pkg = NULL;
+  slapt_pkg_info_t *newest_installed = NULL, *upgrade_pkg = NULL;
   guint is_installed = 0,is_newest = 1,is_exclude = 0,is_downloadable = 0,is_downgrade = 0;
 
-  if (get_exact_pkg(installed,pkg->name,pkg->version) != NULL) {
+  if (slapt_get_exact_pkg(installed,pkg->name,pkg->version) != NULL) {
     is_installed = 1;
   }
 
-  if (get_pkg_by_details(all,pkg->name,pkg->version,pkg->location) != NULL) {
+  if (slapt_get_pkg_by_details(all,pkg->name,pkg->version,pkg->location) != NULL) {
     is_downloadable = 1;
   }
 
-  newest_installed = get_newest_pkg(installed,pkg->name);
-  if (newest_installed != NULL && cmp_pkg_versions(pkg->version,newest_installed->version) < 0) {
+  newest_installed = slapt_get_newest_pkg(installed,pkg->name);
+  if (newest_installed != NULL && slapt_cmp_pkg_versions(pkg->version,newest_installed->version) < 0) {
     is_downgrade = 1;
-  } else if (newest_installed != NULL && cmp_pkg_versions(pkg->version,newest_installed->version) == 0) {
+  } else if (newest_installed != NULL && slapt_cmp_pkg_versions(pkg->version,newest_installed->version) == 0) {
     /*
       maybe this isn't the exact installed package, but it's different enough
       to warrant reinstall-ability
@@ -2639,13 +2640,13 @@ static void build_package_action_menu (pkg_info_t *pkg)
     is_installed = 1;
   }
 
-  upgrade_pkg = get_newest_pkg(all,pkg->name);
-  if (upgrade_pkg != NULL && cmp_pkg_versions(pkg->version,upgrade_pkg->version) < 0) {
+  upgrade_pkg = slapt_get_newest_pkg(all,pkg->name);
+  if (upgrade_pkg != NULL && slapt_cmp_pkg_versions(pkg->version,upgrade_pkg->version) < 0) {
     is_newest = 0;
   }
 
-  if ( is_excluded(global_config,pkg) == 1 
-  || get_exact_pkg(trans->exclude_pkgs,pkg->name,pkg->version) != NULL) {
+  if ( slapt_is_excluded(global_config,pkg) == 1 
+  || slapt_get_exact_pkg(trans->exclude_pkgs,pkg->name,pkg->version) != NULL) {
     is_exclude = 1;
   }
 
@@ -2678,10 +2679,10 @@ static void build_package_action_menu (pkg_info_t *pkg)
   g_signal_connect_swapped(G_OBJECT(lookup_widget(GTK_WIDGET(menu),"unmark1")),
     "activate",G_CALLBACK (unmark_package), GTK_WIDGET(gslapt));
 
-  if ( search_transaction(trans,pkg->name) == 0 ) {
+  if ( slapt_search_transaction(trans,pkg->name) == 0 ) {
     if ( is_exclude == 0 ) {
       /* upgrade */
-      if ( is_installed == 1 && is_newest == 0 && (search_transaction_by_pkg(trans,upgrade_pkg) == 0 ) ) {
+      if ( is_installed == 1 && is_newest == 0 && (slapt_search_transaction_by_pkg(trans,upgrade_pkg) == 0 ) ) {
         gtk_widget_set_sensitive(lookup_widget(GTK_WIDGET(menu),"upgrade1"),TRUE);
       /* re-install */
       }else if ( is_installed == 1 && is_newest == 1 && is_downloadable == 1 ) {
@@ -2699,13 +2700,13 @@ static void build_package_action_menu (pkg_info_t *pkg)
 
   if (
     is_installed == 1 && is_exclude != 1 &&
-    (search_transaction(trans,pkg->name) == 0)
+    (slapt_search_transaction(trans,pkg->name) == 0)
   ) {
     gtk_widget_set_sensitive(lookup_widget(GTK_WIDGET(menu),"remove1"),TRUE);
   }
 
-  if ((get_exact_pkg(trans->exclude_pkgs,pkg->name,pkg->version) == NULL) && 
-    (search_transaction_by_pkg(trans,pkg) == 1)
+  if ((slapt_get_exact_pkg(trans->exclude_pkgs,pkg->name,pkg->version) == NULL) && 
+    (slapt_search_transaction_by_pkg(trans,pkg) == 1)
   ) {
     gtk_widget_set_sensitive(lookup_widget(GTK_WIDGET(menu),"unmark1"),TRUE);
   }
@@ -2727,7 +2728,7 @@ static void rebuild_package_action_menu (void)
     gchar *pkg_name;
     gchar *pkg_version;
     gchar *pkg_location;
-    pkg_info_t *pkg = NULL;
+    slapt_pkg_info_t *pkg = NULL;
 
     gtk_tree_model_get(GTK_TREE_MODEL(package_model), &iter, 1, &pkg_name, -1);
     gtk_tree_model_get(GTK_TREE_MODEL(package_model), &iter, 2, &pkg_version, -1);
@@ -2746,9 +2747,9 @@ static void rebuild_package_action_menu (void)
       return;
     }
 
-    pkg = get_pkg_by_details(all,pkg_name,pkg_version,pkg_location);
+    pkg = slapt_get_pkg_by_details(all,pkg_name,pkg_version,pkg_location);
     if (pkg == NULL) {
-      pkg = get_pkg_by_details(installed,pkg_name,pkg_version,pkg_location);
+      pkg = slapt_get_pkg_by_details(installed,pkg_name,pkg_version,pkg_location);
     }
     g_free(pkg_name);
     g_free(pkg_version);
@@ -2780,8 +2781,8 @@ void on_unmark_all1_activate (GtkMenuItem *menuitem, gpointer user_data)
   lock_toolbar_buttons();
 
   /* reset our currently selected packages */
-  free_transaction(trans);
-  init_transaction(trans);
+  slapt_free_transaction(trans);
+  slapt_init_transaction(trans);
 
   /* rebuild_treeviews(NULL); */
   reset_pkg_view_status();
