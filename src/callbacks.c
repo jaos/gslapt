@@ -2441,7 +2441,7 @@ void build_treeview_columns (GtkWidget *treeview)
   /* column to set visibility */
   renderer = gtk_cell_renderer_toggle_new();
   column = gtk_tree_view_column_new_with_attributes((gchar *)_("Visible"),renderer,
-    "toggle",VISIBLE_COLUMN,NULL);
+    "radio",VISIBLE_COLUMN,NULL);
   gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
   gtk_tree_view_column_set_visible(column,FALSE);
 
