@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gslapt 0.3.4\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-20 16:24-0500\n"
-"PO-Revision-Date: 2005-07-20 01:41+0500\n"
+"PO-Revision-Date: 2005-07-20 18:51+0500\n"
 "Last-Translator: Jason Woodward <woodwardj@jaos.org>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -449,4 +449,7 @@ msgstr "Retrieving patch list..."
 
 msgid "Retrieving checksum list..."
 msgstr "Retrieving checksum list..."
+
+msgid "Reading Package Lists..."
+msgstr "Reading Package Lists..."
 

@@ -747,10 +747,12 @@ static void get_package_data (void)
 {
   GtkLabel *progress_action_label,
            *progress_message_label;
-  GtkProgressBar *p_bar;
+  GtkProgressBar *p_bar,
+                 *dl_bar;
   guint i,context_id;
   FILE *pkg_list_fh_tmp = NULL;
-  gfloat dl_files = 0.0, dl_count = 0.0;
+  gfloat dl_files = 0.0,
+         dl_count = 0.0;
   ssize_t bytes_read;
   size_t getline_len = 0;
   gchar *getline_buffer = NULL;
@@ -759,6 +761,7 @@ static void get_package_data (void)
   progress_window = create_dl_progress_window();
   gtk_window_set_title(GTK_WINDOW(progress_window),(gchar *)_("Progress"));
   p_bar = GTK_PROGRESS_BAR(lookup_widget(progress_window,"progress_progressbar"));
+  dl_bar = GTK_PROGRESS_BAR(lookup_widget(progress_window,"dl_progress"));
   progress_action_label = GTK_LABEL(lookup_widget(progress_window,"progress_action"));
   progress_message_label = GTK_LABEL(lookup_widget(progress_window,"progress_message"));
 
@@ -809,8 +812,9 @@ static void get_package_data (void)
     }
 
     gdk_threads_enter();
-    gtk_label_set_text(progress_action_label,(gchar *)_("Retrieving package data..."));
+    gtk_progress_bar_set_fraction(dl_bar,0.0);
     gtk_label_set_text(progress_message_label,global_config->sources->url[i]);
+    gtk_label_set_text(progress_action_label,(gchar *)_("Retrieving package data..."));
     gdk_threads_leave();
 
     /* download our SLAPT_PKG_LIST */
@@ -847,6 +851,7 @@ static void get_package_data (void)
 
     gdk_threads_enter();
     gtk_progress_bar_set_fraction(p_bar,((dl_count * 100)/dl_files)/100);
+    gtk_progress_bar_set_fraction(dl_bar,0.0);
     gtk_label_set_text(progress_action_label,(gchar *)_("Retrieving patch list..."));
     gdk_threads_leave();
 
@@ -872,6 +877,7 @@ static void get_package_data (void)
 
     gdk_threads_enter();
     gtk_progress_bar_set_fraction(p_bar,((dl_count * 100)/dl_files)/100);
+    gtk_progress_bar_set_fraction(dl_bar,0.0);
     gtk_label_set_text(progress_action_label,(gchar *)_("Retrieving checksum list..."));
     gdk_threads_leave();
 
@@ -897,6 +903,12 @@ static void get_package_data (void)
     }
 
     ++dl_count;
+
+    gdk_threads_enter();
+    gtk_progress_bar_set_fraction(p_bar,((dl_count * 100)/dl_files)/100);
+    gtk_progress_bar_set_fraction(dl_bar,0.0);
+    gtk_label_set_text(progress_action_label,(gchar *)_("Reading Package Lists..."));
+    gdk_threads_leave();
 
     /* now map md5 checksums to packages */
     for (a = 0;a < available_pkgs->pkg_count;a++) {
