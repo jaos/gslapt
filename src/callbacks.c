@@ -1363,7 +1363,7 @@ static int populate_transaction_window (GtkWidget *trans_window)
 
   if ( already_dl_size > 0 ) {
     int need_to_dl = dl_size - already_dl_size;
-    snprintf(buf,512,(gchar *)_("Need to get %0.1d%s/%0.1d%s of archives.\n"),
+    snprintf(buf,512,(gchar *)_("Need to get %.1d%s/%.1d%s of archives.\n"),
       (need_to_dl > 1024 ) ? need_to_dl / 1024
         : need_to_dl,
       (need_to_dl > 1024 ) ? "MB" : "kB",
@@ -1371,7 +1371,7 @@ static int populate_transaction_window (GtkWidget *trans_window)
       (dl_size > 1024 ) ? "MB" : "kB"
     );
   }else{
-    snprintf(buf,512,(gchar *)_("Need to get %0.1d%s of archives."),
+    snprintf(buf,512,(gchar *)_("Need to get %.1d%s of archives."),
       (dl_size > 1024 ) ? dl_size / 1024 : dl_size,
       (dl_size > 1024 ) ? "MB" : "kB"
     );
@@ -1380,13 +1380,13 @@ static int populate_transaction_window (GtkWidget *trans_window)
 
   if ( free_space < 0 ) {
     free_space *= -1;
-    snprintf(buf,512,(gchar *)_("After unpacking %0.1d%s disk space will be freed."),
+    snprintf(buf,512,(gchar *)_("After unpacking %.1d%s disk space will be freed."),
       (free_space > 1024 ) ? free_space / 1024
         : free_space,
       (free_space > 1024 ) ? "MB" : "kB"
     );
   }else{
-    snprintf(buf,512,(gchar *)_("After unpacking %0.1d%s of additional disk space will be used."),
+    snprintf(buf,512,(gchar *)_("After unpacking %.1d%s of additional disk space will be used."),
       (free_space > 1024 ) ? free_space / 1024 : free_space,
         (free_space > 1024 ) ? "MB" : "kB"
     );
