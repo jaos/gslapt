@@ -18,6 +18,7 @@ AM_PROG_CC_STDC
 AC_HEADER_STDC
 AC_CHECK_HEADER(curl/curl.h, [], [AC_MSG_ERROR(libcurl headers are missing)])
 AC_CHECK_HEADER(slapt.h, [], [AC_MSG_ERROR(libslapt headers are missing)])
+AC_CHECK_LIB(z,gzopen, [LIBS="$LIBS -lz"], [AC_MSG_ERROR(libz is missing)])
 AC_CHECK_LIB(curl,curl_global_init, [LIBS="$LIBS `curl-config --libs`"], [AC_MSG_ERROR(curl libs are missing)])
 AC_CHECK_LIB(slapt,slapt_get_pkg_source_packages, [], [AC_MSG_ERROR(libslapt 0.9.10a or greater is required)])
 LIBS="$LIBS -lglib-2.0 -lgthread-2.0"
