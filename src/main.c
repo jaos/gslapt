@@ -89,7 +89,7 @@ int main (int argc, char *argv[]) {
         if (tmp == NULL)
           exit(1);
         pkg_inst_args = tmp;
-        pkg_inst_args[pkg_inst_args_count] = strdup(next_opt);
+        pkg_inst_args[pkg_inst_args_count] = g_strdup(next_opt);
         ++pkg_inst_args_count;
 
         if (argc > (option_index + 1) &&
@@ -118,7 +118,7 @@ int main (int argc, char *argv[]) {
         if (tmp == NULL)
           exit(1);
         pkg_rem_args = tmp;
-        pkg_rem_args[pkg_rem_args_count] = strdup(next_opt);
+        pkg_rem_args[pkg_rem_args_count] = g_strdup(next_opt);
         ++pkg_rem_args_count;
 
         if (argc > (option_index + 1) &&
