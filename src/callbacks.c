@@ -383,10 +383,6 @@ void add_pkg_for_removal (GtkWidget *gslapt, gpointer user_data)
     gtk_tree_model_get (GTK_TREE_MODEL(package_model), &iter, 2, &pkg_version, -1);
     gtk_tree_model_get (GTK_TREE_MODEL(package_model), &iter, 3, &pkg_location, -1);
 
-    /*
-      can't use slapt_get_pkg_by_details() as the location field will be different
-      in the available package and the installed package
-    */
     if ( (pkg = slapt_get_exact_pkg(installed,pkg_name,pkg_version)) != NULL ) {
       guint c;
       struct slapt_pkg_list *deps;
@@ -403,14 +399,6 @@ void add_pkg_for_removal (GtkWidget *gslapt, gpointer user_data)
       model = GTK_TREE_MODEL(gtk_tree_model_filter_get_model(GTK_TREE_MODEL_FILTER(filter_model)));
 
       deps = slapt_is_required_by(global_config,installed,pkg);
-
-      /*
-        this solves the problem where an available package that is installed
-        cannot be unmarked b/c the installed package has a different location
-        than the available package (even though we treat them the same)
-      */
-      free(pkg->location);
-      pkg->location = g_strdup(pkg_location);
 
       slapt_add_remove_to_transaction(trans,pkg);
       gtk_list_store_set(GTK_LIST_STORE(model),&actual_iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_remove.png"),-1);
@@ -464,8 +452,11 @@ void build_package_treeviewlist (GtkWidget *treeview)
     guint is_inst = 0;
     GdkPixbuf *status_icon = NULL;
     gchar *short_desc = slapt_gen_short_pkg_description(all->pkgs[i]);
+    slapt_pkg_info_t *installed_pkg = NULL;
+    gchar *location = NULL;
 
-    if (slapt_get_exact_pkg(installed,all->pkgs[i]->name,all->pkgs[i]->version) != NULL) {
+    if ((installed_pkg = slapt_get_exact_pkg(installed,all->pkgs[i]->name,
+                                             all->pkgs[i]->version)) != NULL) {
       is_inst = 1;
     }
 
@@ -473,31 +464,37 @@ void build_package_treeviewlist (GtkWidget *treeview)
     slapt_get_exact_pkg(trans->exclude_pkgs,all->pkgs[i]->name,all->pkgs[i]->version) != NULL) {
       status_icon = create_pixbuf("pkg_action_available.png");
       status = g_strdup_printf("z%s",all->pkgs[i]->name);
+      location = all->pkgs[i]->location;
     } else if (trans->remove_pkgs->pkg_count > 0 &&
     slapt_get_exact_pkg(trans->remove_pkgs,all->pkgs[i]->name,all->pkgs[i]->version) != NULL) {
       status_icon = create_pixbuf("pkg_action_remove.png");
       status = g_strdup_printf("r%s",all->pkgs[i]->name);
+      location = all->pkgs[i]->location;
     } else if (trans->install_pkgs->pkg_count > 0 &&
     slapt_get_exact_pkg(trans->install_pkgs,all->pkgs[i]->name,all->pkgs[i]->version) != NULL) {
       status_icon = create_pixbuf("pkg_action_install.png");
       status = g_strdup_printf("i%s",all->pkgs[i]->name);
+      location = all->pkgs[i]->location;
     } else if (trans->upgrade_pkgs->pkg_count > 0 && lsearch_upgrade_transaction(trans,all->pkgs[i]) == 1) {
       status_icon = create_pixbuf("pkg_action_upgrade.png");
       status = g_strdup_printf("u%s",all->pkgs[i]->name);
+      location = all->pkgs[i]->location;
     } else if (is_inst == 1) {
       status_icon = create_pixbuf("pkg_action_installed.png");
       status = g_strdup_printf("a%s",all->pkgs[i]->name);
+      location = installed_pkg->location;
     } else {
       status_icon = create_pixbuf("pkg_action_available.png");
       status = g_strdup_printf("z%s",all->pkgs[i]->name);
+      location = all->pkgs[i]->location;
     }
 
-    gtk_list_store_append (GTK_LIST_STORE(base_model), &iter);
-    gtk_list_store_set ( GTK_LIST_STORE(base_model), &iter,
+    gtk_list_store_append(GTK_LIST_STORE(base_model), &iter);
+    gtk_list_store_set(GTK_LIST_STORE(base_model), &iter,
       STATUS_ICON_COLUMN,status_icon,
       NAME_COLUMN,all->pkgs[i]->name,
       VERSION_COLUMN,all->pkgs[i]->version,
-      LOCATION_COLUMN,all->pkgs[i]->location,
+      LOCATION_COLUMN,location,
       DESC_COLUMN,short_desc,
       STATUS_COLUMN,status,
       VISIBLE_COLUMN,TRUE,
@@ -2181,14 +2178,17 @@ void unmark_package(GtkWidget *gslapt, gpointer user_data)
           trans->upgrade_pkgs->pkgs[i]->installed->name,
           trans->upgrade_pkgs->pkgs[i]->installed->version
         );
-        if (avail_pkg == NULL) {
+
+        if (avail_pkg == NULL)
           continue;
-        }
+
         if (set_iter_to_pkg(model,&actual_iter,avail_pkg)) {
           gchar *istatus = g_strdup_printf("i%s",avail_pkg->name);
           gtk_list_store_set(GTK_LIST_STORE(model),&actual_iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_installed.png"),-1);
           gtk_list_store_set(GTK_LIST_STORE(model),&actual_iter,STATUS_COLUMN,istatus,-1);
           g_free(istatus);
+        } else {
+          fprintf(stderr,"failed to find iter for installed package %s-%s to unmark\n",trans->upgrade_pkgs->pkgs[i]->installed->name,trans->upgrade_pkgs->pkgs[i]->installed->version);
         }
       }
     }
