@@ -1695,8 +1695,8 @@ static gboolean install_packages (void)
       gtk_progress_bar_set_fraction(p_bar,((count * 100)/trans->queue->count)/100);
       gdk_threads_leave();
 
-      if (slapt_upgrade_pkg(global_config,trans->queue->pkgs[i]->pkg.u->installed,
-                      trans->queue->pkgs[i]->pkg.u->upgrade) == -1) {
+      if (slapt_upgrade_pkg(global_config,
+                            trans->queue->pkgs[i]->pkg.u->upgrade) == -1) {
         gdk_threads_enter();
         gslapt_clear_status(context_id);
         gdk_threads_leave();
