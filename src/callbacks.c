@@ -795,7 +795,6 @@ static void get_package_data (void)
     struct slapt_pkg_list *available_pkgs = NULL;
     struct slapt_pkg_list *patch_pkgs = NULL;
     FILE *tmp_checksum_f = NULL;
-    guint a;
 
     if (_cancelled == 1) {
       _cancelled = 0;
@@ -908,12 +907,10 @@ static void get_package_data (void)
     gdk_threads_leave();
 
     /* now map md5 checksums to packages */
-    for (a = 0;a < available_pkgs->pkg_count;a++) {
-      slapt_get_md5sum(available_pkgs->pkgs[a],tmp_checksum_f);
-    }
-    for (a = 0;a < patch_pkgs->pkg_count;a++) {
-      slapt_get_md5sum(patch_pkgs->pkgs[a],tmp_checksum_f);
-    }
+    slapt_get_md5sums(available_pkgs,tmp_checksum_f);
+
+    if (patch_pkgs)
+      slapt_get_md5sums(patch_pkgs,tmp_checksum_f);
 
     /* write package listings to disk */
     slapt_write_pkg_data(global_config->sources->url[i],pkg_list_fh_tmp,available_pkgs);
