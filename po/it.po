@@ -281,17 +281,17 @@ msgstr "<span weight=\"bold\" size=\"large\">Nessun aggiornamento disponibile</s
 msgid "%d upgraded, %d newly installed, %d to remove and %d not upgraded."
 msgstr "%d aggiornamenti, %d nuove installazioni, %d da rimuovere e %d non aggiornati."
 
-msgid "Need to get %0.1d%s/%0.1d%s of archives.\n"
-msgstr "E' necessario scaricare %0.1d%s/%0.1d%s di archivi.\n"
+msgid "Need to get %.1d%s/%.1d%s of archives.\n"
+msgstr "E' necessario scaricare %.1d%s/%.1d%s di archivi.\n"
 
-msgid "Need to get %0.1d%s of archives."
-msgstr "E' necessario scaricare %0.1d%s di archivi."
+msgid "Need to get %.1d%s of archives."
+msgstr "E' necessario scaricare %.1d%s di archivi."
 
-msgid "After unpacking %0.1d%s disk space will be freed."
-msgstr "Dopo la decompressione %0.1d%s di spazio su disco sarà liberato"
+msgid "After unpacking %.1d%s disk space will be freed."
+msgstr "Dopo la decompressione %.1d%s di spazio su disco sarà liberato"
 
-msgid "After unpacking %0.1d%s of additional disk space will be used."
-msgstr "Dopo la decompressione %0.1d%s di spazio su disco addizionale verrà utilizzato."
+msgid "After unpacking %.1d%s of additional disk space will be used."
+msgstr "Dopo la decompressione %.1d%s di spazio su disco addizionale verrà utilizzato."
 
 msgid "Ready"
 msgstr "Pronto"
