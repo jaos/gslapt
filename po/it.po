@@ -1,3 +1,4 @@
+# translation of it.po to
 # translation of gslapt.po to italian
 # Copyright (C) 2005 Fabio Varesano
 # This file is distributed under the same license as the gslapt package.
@@ -8,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gslapt 0.3.5\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-07-28 18:01+0000\n"
-"PO-Revision-Date: 2005-07-28 18:01+0000\n"
+"PO-Revision-Date: 2005-07-28 21:49+0000\n"
 "Last-Translator: Fabio Varesano <fvaresano@yahoo.it>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +21,7 @@ msgid "<b>Exclude List</b>"
 msgstr "<b>Lista Esclusi</b>"
 
 msgid "<b>Package Sources</b>"
-msgstr "<b>Origine Pacchetti</b>"
+msgstr "<b>Fonte Pacchetti</b>"
 
 msgid "<b>Package and data storage</b>"
 msgstr "<b>Pacchetti e salvataggio dati</b>"
@@ -32,7 +33,7 @@ msgid "<span weight=\"bold\">Exclude Expression:</span>"
 msgstr "<span weight=\"bold\">Espressione Esclusione:</span>"
 
 msgid "<span weight=\"bold\">SOURCE=</span>"
-msgstr "<span weight=\"bold\">ORIGINE=</span>"
+msgstr "<span weight=\"bold\">FONTE=</span>"
 
 msgid "About gslapt"
 msgstr "Informazioni su gslapt"
@@ -75,7 +76,7 @@ msgid "Downloading packages..."
 msgstr "Download pacchetti..."
 
 msgid "Downloading..."
-msgstr "Download in corso... "
+msgstr "Download in corso..."
 
 msgid "Exclude package"
 msgstr "Escludi pacchetto"
@@ -150,10 +151,10 @@ msgid "Packages to be removed"
 msgstr "Pacchetti da rimuovere"
 
 msgid "Packages to be upgraded"
-msgstr "Pacchetti da aggiornare "
+msgstr "Pacchetti da aggiornare"
 
 msgid "Preferences"
-msgstr "Preferenze "
+msgstr "Preferenze"
 
 msgid "Progress"
 msgstr "Progresso"
@@ -296,10 +297,10 @@ msgid "Ready"
 msgstr "Pronto"
 
 msgid "Re-Install"
-msgstr "Ri-Installa"
+msgstr "Re-Installa"
 
 msgid "Downgrade"
-msgstr "Downgrade"
+msgstr "Degradare"
 
 msgid "_File"
 msgstr "_File"
@@ -314,7 +315,7 @@ msgid ": Depends: "
 msgstr ": Dipende: "
 
 msgid "Package conflicts"
-msgstr "Pacchetto conflitto"
+msgstr "Conflitti pacchetto"
 
 msgid ", which is required by "
 msgstr ", che è richiesto da "
@@ -362,101 +363,101 @@ msgid "No package is selected.\n"
 msgstr "Nessun pacchetto è selezionato.\n"
 
 msgid "Status"
-msgstr "Status"
+msgstr "Stato"
 
 msgid "Source download failed"
-msgstr "Source download failed"
+msgstr "Download fonte fallito"
 
 msgid "Package(s) failed to download"
-msgstr "Package(s) failed to download"
+msgstr "Pacchetto/i failed to download"
 
 msgid "pkgtools returned an error"
-msgstr "pkgtools returned an error"
+msgstr "pkgtools ha restituito un errore"
 
 msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
-msgstr "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Non hai spazio libero sufficiente</span>"
 
 msgid "Excluding %s due to dependency failure\n"
-msgstr "Excluding %s due to dependency failure\n"
+msgstr "Esclusione %s per dipendenza non soddisfatta\n"
 
 msgid "Unmark"
-msgstr "Unmark"
+msgstr "Deseleziona"
 
 msgid "<b>Status:</b>"
-msgstr "<b>Status:</b>"
+msgstr "<b>Stato:</b>"
 
 msgid "Excluded"
-msgstr "Excluded"
+msgstr "Escluso"
 
 msgid "<b>The following icons are used to indicate the current status of a package:</b>"
-msgstr "<b>The following icons are used to indicate the current status of a package:</b>"
+msgstr "<b>Le seguenti icone sono utilizzate per indicare lo stato attuale di un pacchetto:</b>"
 
 msgid "Not Installed"
-msgstr "Not Installed"
+msgstr "Non installato"
 
 msgid "To be Installed"
-msgstr "To be Installed"
+msgstr "Da installare"
 
 msgid "To be Re-Installed"
-msgstr "To be Re-Installed"
+msgstr "Da Re-Installare"
 
 msgid "To be Upgraded"
-msgstr "To be Upgraded"
+msgstr "Da Aggiornare"
 
 msgid "To be Removed"
-msgstr "To be Removed"
+msgstr "Da Rimuovere"
 
 msgid "To be Downgraded"
-msgstr "To be Downgraded"
+msgstr "Da Degradare"
 
 msgid "Icon Legend"
-msgstr "Icon Legend"
+msgstr "Legenda Icone"
 
 msgid "Completed actions"
-msgstr "Completed actions"
+msgstr "Azioni completate"
 
 msgid "Successfully executed all actions."
-msgstr "Successfully executed all actions."
+msgstr "Tutte le azioni sono state eseguite con successo."
 
 msgid "<b>Installed Version</b>"
-msgstr "<b>Installed Version</b>"
+msgstr "<b>Versione Installata</b>"
 
 msgid "<b>Latest Available Version</b>"
-msgstr "<b>Latest Available Version</b>"
+msgstr "<b>Ultima Versione Disponibile</b>"
 
 msgid "Failed to commit preferences"
-msgstr "Failed to commit preferences"
+msgstr "Modifica preferenze fallita"
 
 msgid "Mark All Upgrades"
-msgstr "Mark All Upgrades"
+msgstr "Seleziona Tutti Gli Aggiornamenti"
 
 msgid "_Edit"
-msgstr "_Edit"
+msgstr "_Modifica"
 
 msgid "Unmark All"
-msgstr "Unmark All"
+msgstr "Deseleziona Tutti"
 
 msgid "P_ackage"
-msgstr "P_ackage"
+msgstr "P_acchetto"
 
 msgid "You need to reload the package list from the sources you have listed.  Do you want to do this now?"
-msgstr "You need to reload the package list from the sources you have listed.  Do you want to do this now?"
+msgstr "Devi ricaricare la lista dei pacchetti "
 
 msgid "Repositories changed"
-msgstr "Repositories changed"
+msgstr "Archivi modificati"
 
 msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
-msgstr "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
+msgstr "<span size=\"large\" weight=\"bold\">Archivi modificati</span>"
 
 msgid "Retrieving package data..."
-msgstr "Retrieving package data..."
+msgstr "Ricezione dati pacchetto..."
 
 msgid "Retrieving patch list..."
-msgstr "Retrieving patch list..."
+msgstr "Ricezione lista patch..."
 
 msgid "Retrieving checksum list..."
-msgstr "Retrieving checksum list..."
+msgstr "Ricezione lista checksum..."
 
 msgid "Reading Package Lists..."
-msgstr "Reading Package Lists..."
+msgstr "Lettura Liste Pacchetti..."
 
