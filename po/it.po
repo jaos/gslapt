@@ -362,101 +362,101 @@ msgid "No package is selected.\n"
 msgstr "Nessun pacchetto è selezionato.\n"
 
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 msgid "Source download failed"
-msgstr ""
+msgstr "Source download failed"
 
 msgid "Package(s) failed to download"
-msgstr ""
+msgstr "Package(s) failed to download"
 
 msgid "pkgtools returned an error"
-msgstr ""
+msgstr "pkgtools returned an error"
 
 msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
-msgstr ""
+msgstr "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
 
 msgid "Excluding %s due to dependency failure\n"
-msgstr ""
+msgstr "Excluding %s due to dependency failure\n"
 
 msgid "Unmark"
-msgstr ""
+msgstr "Unmark"
 
 msgid "<b>Status:</b>"
-msgstr ""
+msgstr "<b>Status:</b>"
 
 msgid "Excluded"
-msgstr ""
+msgstr "Excluded"
 
 msgid "<b>The following icons are used to indicate the current status of a package:</b>"
-msgstr ""
+msgstr "<b>The following icons are used to indicate the current status of a package:</b>"
 
 msgid "Not Installed"
-msgstr ""
+msgstr "Not Installed"
 
 msgid "To be Installed"
-msgstr ""
+msgstr "To be Installed"
 
 msgid "To be Re-Installed"
-msgstr ""
+msgstr "To be Re-Installed"
 
 msgid "To be Upgraded"
-msgstr ""
+msgstr "To be Upgraded"
 
 msgid "To be Removed"
-msgstr ""
+msgstr "To be Removed"
 
 msgid "To be Downgraded"
-msgstr ""
+msgstr "To be Downgraded"
 
 msgid "Icon Legend"
-msgstr ""
+msgstr "Icon Legend"
 
 msgid "Completed actions"
-msgstr ""
+msgstr "Completed actions"
 
 msgid "Successfully executed all actions."
-msgstr ""
+msgstr "Successfully executed all actions."
 
 msgid "<b>Installed Version</b>"
-msgstr ""
+msgstr "<b>Installed Version</b>"
 
 msgid "<b>Latest Available Version</b>"
-msgstr ""
+msgstr "<b>Latest Available Version</b>"
 
 msgid "Failed to commit preferences"
-msgstr ""
+msgstr "Failed to commit preferences"
 
 msgid "Mark All Upgrades"
-msgstr ""
+msgstr "Mark All Upgrades"
 
 msgid "_Edit"
-msgstr ""
+msgstr "_Edit"
 
 msgid "Unmark All"
-msgstr ""
+msgstr "Unmark All"
 
 msgid "P_ackage"
-msgstr ""
+msgstr "P_ackage"
 
 msgid "You need to reload the package list from the sources you have listed.  Do you want to do this now?"
-msgstr ""
+msgstr "You need to reload the package list from the sources you have listed.  Do you want to do this now?"
 
 msgid "Repositories changed"
-msgstr ""
+msgstr "Repositories changed"
 
 msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
-msgstr ""
+msgstr "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
 
 msgid "Retrieving package data..."
-msgstr ""
+msgstr "Retrieving package data..."
 
 msgid "Retrieving patch list..."
-msgstr ""
+msgstr "Retrieving patch list..."
 
 msgid "Retrieving checksum list..."
-msgstr ""
+msgstr "Retrieving checksum list..."
 
 msgid "Reading Package Lists..."
-msgstr ""
+msgstr "Reading Package Lists..."
 
