@@ -7,10 +7,10 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: gslapt 0.3.4\n"
+"Project-Id-Version: gslapt 0.3.5\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2005-07-22 15:07+0500\n"
+"PO-Revision-Date: 2005-07-30 11:39+1500\n"
 "Last-Translator: Manfred Mueller <linux@nass-ek.de>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -187,16 +187,16 @@ msgid "Suggests"
 msgstr "Empfehlungen"
 
 msgid "Summary"
-msgstr "Resuemee"
+msgstr "Zusammenfassung"
 
 msgid "This is a summary of the changes about to be performed."
-msgstr "Resumee der durchzufuehrenden Aenderungen"
+msgstr "Zusammenfassung der durchzufuehrenden Aenderungen"
 
 msgid "Uninstalling..."
 msgstr "Deinstalliere"
 
 msgid "Up_grade"
-msgstr "Up_grade"
+msgstr "Akt_ualisiere"
 
 msgid "Update local package cache"
 msgstr "Aktualisiere Paket-Cache"
@@ -205,16 +205,16 @@ msgid "Update"
 msgstr "Aktualisiere"
 
 msgid "Upgrade installed packages"
-msgstr "Upgrade installierter Pakete"
+msgstr "Aktualisierung installierter Pakete"
 
 msgid "Upgrade to newer release"
-msgstr "Upgrade auf neue Version"
+msgstr "Aktualisierung auf neue Version"
 
 msgid "Upgrade"
-msgstr "Upgrade"
+msgstr "Aktualisierung"
 
 msgid "Upgrading packages..."
-msgstr "Paket-Upgrade"
+msgstr "Aktualisiere Pakete"
 
 msgid "Upgrading..."
 msgstr "Aktualisiere..."
@@ -269,10 +269,10 @@ msgid "Up to Date"
 msgstr "Aktuell"
 
 msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Keine Updates vorhanden</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Keine Aktualisierungen vorhanden</span>"
 
 msgid "%d upgraded, %d newly installed, %d to remove and %d not upgraded."
-msgstr "%d erneuert, %d neu installiert, %d zu entfernen %d nicht erneuert."
+msgstr "%d aktualisiert, %d neu installiert, %d zu entfernen %d nicht erneuert."
 
 msgid "Need to get %.1d%s/%.1d%s of archives.\n"
 msgstr "Muss %.1d%s/%.1d%s an Archiven holen.\n"
@@ -281,10 +281,10 @@ msgid "Need to get %.1d%s of archives."
 msgstr "Muss %.1d%s an Archiven holen."
 
 msgid "After unpacking %.1d%s disk space will be freed."
-msgstr "Nach Entpacken sind %.1d%s mehr Plattenplatz frei."
+msgstr "Nach dem Entpacken sind %.1d%s mehr Plattenplatz frei."
 
 msgid "After unpacking %.1d%s of additional disk space will be used."
-msgstr "Nach Entpacken werden %.1d%s mehr Plattenplatz benutzt."
+msgstr "Nach dem Entpacken werden %.1d%s mehr Plattenplatz benutzt."
 
 msgid "Ready"
 msgstr "Fertig"
@@ -302,7 +302,7 @@ msgid "Pending changes. Click execute when ready."
 msgstr "Aenderungen erforderlich - Klick auf Ausfuehren zum Start"
 
 msgid "Packages with unmet dependencies"
-msgstr "Nicht geloeste Abhaengigkeiten"
+msgstr "Nicht geloeste Abhaengigkeiten bei"
 
 msgid ": Depends: "
 msgstr ": Erfordert: "
@@ -371,7 +371,7 @@ msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</sp
 msgstr "<span weight=\"bold\" size=\"large\">Nicht genug Speicherplatz</span>"
 
 msgid "Excluding %s due to dependency failure\n"
-msgstr "Schliesse %s wegen Depend-Fehler aus\n"
+msgstr "Schliesse %s wegen Abhaengigkeits-Fehler aus\n"
 
 msgid "Unmark"
 msgstr "Abwaehlen"
@@ -395,7 +395,7 @@ msgid "To be Re-Installed"
 msgstr "Neu zu installieren"
 
 msgid "To be Upgraded"
-msgstr "Zu erneuern"
+msgstr "Zu aktualisieren"
 
 msgid "To be Removed"
 msgstr "Zu entfernen"
@@ -422,35 +422,35 @@ msgid "Failed to commit preferences"
 msgstr "Optionen nicht angewandt"
 
 msgid "Mark All Upgrades"
-msgstr "Alle Upgrades markieren"
+msgstr "Alle Aktualisierungen markieren"
 
 msgid "_Edit"
 msgstr "B_earbeiten"
 
 msgid "Unmark All"
-msgstr "Unmark All"
+msgstr "Alle abwaehlen"
 
 msgid "P_ackage"
 msgstr "P_aket"
 
 msgid "You need to reload the package list from the sources you have listed.  Do you want to do this now?"
-msgstr "You need to reload the package list from the sources you have listed.  Do you want to do this now?"
+msgstr "Sie muessen die Paket-Listen der gespeicherten Quellen aktualisieren.  Soll dies jetzt geschehen?"
 
 msgid "Repositories changed"
-msgstr "Repositories changed"
+msgstr "Geaenderte Quellen"
 
 msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
-msgstr "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
+msgstr "<span size=\"large\" weight=\"bold\">Geaenderte Quellen</span>"
 
 msgid "Retrieving package data..."
-msgstr "Retrieving package data..."
+msgstr "Empfange Paket-Daten..."
 
 msgid "Retrieving patch list..."
-msgstr "Retrieving patch list..."
+msgstr "Empfange Patch-Liste..."
 
 msgid "Retrieving checksum list..."
-msgstr "Retrieving checksum list..."
+msgstr "Empfange Pruefsummen-Liste..."
 
 msgid "Reading Package Lists..."
-msgstr "Reading Package Lists..."
+msgstr "Lese Paket-Liste ein..."
 
