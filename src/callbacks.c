@@ -36,9 +36,9 @@ extern slapt_transaction_t *trans;
 
 
 static GtkWidget *progress_window;
-static guint _cancelled = 0;
+static volatile guint _cancelled = 0;
 static gboolean sources_modified = FALSE;
-static guint pending_trans_context_id = 0;
+static volatile guint pending_trans_context_id = 0;
 static int disk_space(int space_needed);
 static gboolean pkg_action_popup_menu(GtkTreeView *treeview, gpointer data);
 static int set_iter_to_pkg(GtkTreeModel *model, GtkTreeIter *iter,
