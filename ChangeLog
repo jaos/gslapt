@@ -1,5 +1,6 @@
 
-0.3.5 July 30, 2005
+0.3.5 Aug 01, 2005
+ * require libslapt 0.9.10b
  * Manfred updated german translation
  * changes to follow libslapt updates
  * added Italian translation by Fabio Varesano
