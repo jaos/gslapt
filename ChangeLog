@@ -1,5 +1,6 @@
 
-0.3.5 Aug 01, 2005
+0.3.5 Aug 03, 2005
+ * use slapt_cmp_pkgs macro
  * require libslapt 0.9.10b
  * Manfred updated german translation
  * changes to follow libslapt updates

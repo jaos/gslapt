@@ -185,7 +185,7 @@ int main (int argc, char *argv[]) {
         if (p == NULL)
           continue;
 
-        if ( inst_p != NULL && slapt_cmp_pkg_versions(inst_p->version,p->version) < 0) {
+        if ( inst_p != NULL && slapt_cmp_pkgs(inst_p,p) < 0) {
           if (slapt_add_deps_to_trans(global_config,trans,all,installed,p) == 0) {
             slapt_add_upgrade_to_transaction(trans,inst_p,p);
           } else {

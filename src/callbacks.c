@@ -285,7 +285,7 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
 
     /* it is already installed, attempt an upgrade */
     if (
-      ((ver_cmp = slapt_cmp_pkg_versions(installed_pkg->version,pkg->version)) < 0) ||
+      ((ver_cmp = slapt_cmp_pkgs(installed_pkg,pkg)) < 0) ||
       (global_config->re_install == TRUE)
     ) {
 
@@ -697,7 +697,7 @@ static void fillin_pkg_details (slapt_pkg_info_t *pkg)
     gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_status")),(gchar *)_("To be Installed"));
   } else if (trans->upgrade_pkgs->pkg_count > 0 && lsearch_upgrade_transaction(trans,pkg) == 1) {
     slapt_pkg_info_t *installed_pkg = slapt_get_newest_pkg(installed,pkg->name);
-    int cmp = slapt_cmp_pkg_versions(pkg->version,installed_pkg->version);
+    int cmp = slapt_cmp_pkgs(pkg,installed_pkg);
     if (cmp == 0) {
       gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_status")),(gchar *)_("To be Re-Installed"));
     } else if (cmp < 0 ) {
@@ -1424,7 +1424,7 @@ static void mark_upgrade_packages (void)
     */
     if ( (newer_installed_pkg = slapt_get_newest_pkg(installed,installed->pkgs[i]->name)) != NULL ) {
 
-      if ( slapt_cmp_pkg_versions(installed->pkgs[i]->version,newer_installed_pkg->version) < 0 ) continue;
+      if ( slapt_cmp_pkgs(installed->pkgs[i],newer_installed_pkg) < 0 ) continue;
 
     }
 
@@ -1437,7 +1437,7 @@ static void mark_upgrade_packages (void)
       int cmp_r = 0;
 
       /* if the update has a newer version, attempt to upgrade */
-      cmp_r = slapt_cmp_pkg_versions(installed->pkgs[i]->version,update_pkg->version);
+      cmp_r = slapt_cmp_pkgs(installed->pkgs[i],update_pkg);
       /* either it's greater, or we want to reinstall */
       if ( cmp_r < 0 || (global_config->re_install == TRUE) ) {
 
@@ -2275,7 +2275,7 @@ static int ladd_deps_to_trans (slapt_transaction_t *tran, struct slapt_pkg_list 
       }
     } else {
       /* add only if its a valid upgrade */
-      if (slapt_cmp_pkg_versions(dep_installed->version,deps->pkgs[c]->version) < 0 ) {
+      if (slapt_cmp_pkgs(dep_installed,deps->pkgs[c]) < 0 ) {
         slapt_add_upgrade_to_transaction(tran,dep_installed,deps->pkgs[c]);
         if (set_iter_to_pkg(GTK_TREE_MODEL(base_model),&iter,deps->pkgs[c])) {
           gchar *status = g_strdup_printf("u%s",deps->pkgs[c]->name);
@@ -2492,9 +2492,9 @@ static void build_package_action_menu (slapt_pkg_info_t *pkg)
   }
 
   newest_installed = slapt_get_newest_pkg(installed,pkg->name);
-  if (newest_installed != NULL && slapt_cmp_pkg_versions(pkg->version,newest_installed->version) < 0) {
+  if (newest_installed != NULL && slapt_cmp_pkgs(pkg,newest_installed) < 0) {
     is_downgrade = 1;
-  } else if (newest_installed != NULL && slapt_cmp_pkg_versions(pkg->version,newest_installed->version) == 0) {
+  } else if (newest_installed != NULL && slapt_cmp_pkgs(pkg,newest_installed) == 0) {
     /*
       maybe this isn't the exact installed package, but it's different enough
       to warrant reinstall-ability
@@ -2503,7 +2503,7 @@ static void build_package_action_menu (slapt_pkg_info_t *pkg)
   }
 
   upgrade_pkg = slapt_get_newest_pkg(all,pkg->name);
-  if (upgrade_pkg != NULL && slapt_cmp_pkg_versions(pkg->version,upgrade_pkg->version) < 0) {
+  if (upgrade_pkg != NULL && slapt_cmp_pkgs(pkg,upgrade_pkg) < 0) {
     is_newest = 0;
   }
 
