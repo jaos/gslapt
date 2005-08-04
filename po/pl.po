@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gslapt 0.3.4\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-17 14:52-0500\n"
-"PO-Revision-Date: 2005-07-22 15:07+0500\n"
+"PO-Revision-Date: 2005-08-04 09:15+0500\n"
 "Last-Translator: Piotr Simon <sajmon@tenboard.com>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -63,7 +63,7 @@ msgid "<span weight=\"bold\">SOURCE=</span>"
 msgstr "<span weight=\"bold\">SOURCE=</span>"
 
 msgid "Sources"
-msgstr "¯ród³a"
+msgstr "Repozytoria"
 
 msgid "<b>Exclude List</b>"
 msgstr "<b>Lista wykluczeñ</b>"
@@ -397,23 +397,29 @@ msgid "P_ackage"
 msgstr "P_akiet"
 
 msgid "You need to reload the package list from the sources you have listed.  Do you want to do this now?"
-msgstr "You need to reload the package list from the sources you have listed.  Do you want to do this now?"
+msgstr "Trzeba uaktualniæ Liste Pakietów zapisanych ¼róde³. Czy chcesz to zrobiæ teraz?"
 
 msgid "Repositories changed"
-msgstr "Repositories changed"
+msgstr "Zmienione Repozytorium"
 
 msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
-msgstr "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
+msgstr "<span size=\"large\" weight=\"bold\">Zmienione Repozytorium</span>"
 
 msgid "Retrieving package data..."
-msgstr "Retrieving package data..."
+msgstr "Pobieram dane pakietu..."
 
 msgid "Retrieving patch list..."
-msgstr "Retrieving patch list..."
+msgstr "Pobieram listê patchy..."
 
 msgid "Retrieving checksum list..."
-msgstr "Retrieving checksum list..."
+msgstr "Pobieram listê sum kontrolnych..."
 
 msgid "Reading Package Lists..."
-msgstr "Reading Package Lists..."
+msgstr "Wczytujê Listê Pakietów..."
+
+msgid "<b>Installed Version</b>"
+msgstr "<b>Wersja zainstalowana</b>"
+
+msgid "<b>Latest Available Version</b>"
+msgstr "<b>Ostatnio dostêpna wersja</b>"
 
