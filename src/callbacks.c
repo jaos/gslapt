@@ -2002,6 +2002,7 @@ static void set_execute_active (void)
 {
 
   gtk_widget_set_sensitive(lookup_widget(gslapt,"action_bar_execute_button"),TRUE);
+  gtk_widget_set_sensitive(lookup_widget(gslapt,"execute1"),TRUE);
   gtk_widget_set_sensitive(lookup_widget(gslapt,"unmark_all1"),TRUE);
 
   if (pending_trans_context_id == 0) {
@@ -2022,6 +2023,7 @@ static void clear_execute_active (void)
   }
 
   gtk_widget_set_sensitive(lookup_widget(gslapt,"action_bar_execute_button"),FALSE);
+  gtk_widget_set_sensitive(lookup_widget(gslapt,"execute1"),FALSE);
   gtk_widget_set_sensitive(lookup_widget(gslapt,"unmark_all1"),FALSE);
 
 }

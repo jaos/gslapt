@@ -169,6 +169,7 @@ int main (int argc, char *argv[]) {
   gtk_widget_set_sensitive(lookup_widget(gslapt,
                             "action_bar_execute_button"),FALSE);
   gtk_widget_set_sensitive(lookup_widget(gslapt,"clear_button"),FALSE);
+  gtk_widget_set_sensitive(lookup_widget(gslapt,"execute1"),FALSE);
   gtk_widget_set_sensitive(lookup_widget(gslapt,"unmark_all1"),FALSE);
 
   gtk_widget_show (gslapt);
