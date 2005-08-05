@@ -203,9 +203,6 @@ msgstr ""
 msgid "Update"
 msgstr ""
 
-msgid "Upgrade installed packages"
-msgstr ""
-
 msgid "Upgrade to newer release"
 msgstr ""
 
@@ -449,5 +446,11 @@ msgid "Retrieving checksum list..."
 msgstr ""
 
 msgid "Reading Package Lists..."
+msgstr ""
+
+msgid "_Delete Cached Package Files"
+msgstr ""
+
+msgid "Mark all possible upgrades"
 msgstr ""
 

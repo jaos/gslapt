@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gslapt 0.3.5\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2005-07-30 11:39+1500\n"
+"PO-Revision-Date: 2005-08-05 13:00+0500\n"
 "Last-Translator: Manfred Mueller <linux@nass-ek.de>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -203,12 +203,6 @@ msgstr "Aktualisiere Paket-Cache"
 
 msgid "Update"
 msgstr "Aktualisiere"
-
-msgid "Upgrade installed packages"
-msgstr "Aktualisierung installierter Pakete"
-
-msgid "Upgrade to newer release"
-msgstr "Aktualisierung auf neue Version"
 
 msgid "Upgrade"
 msgstr "Aktualisierung"
@@ -453,4 +447,7 @@ msgstr "Empfange Pruefsummen-Liste..."
 
 msgid "Reading Package Lists..."
 msgstr "Lese Paket-Liste ein..."
+
+msgid "_Delete Cached Package Files"
+msgstr "_Delete Cached Package Files"
 

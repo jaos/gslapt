@@ -1040,7 +1040,6 @@ static void lock_toolbar_buttons (void)
 
   gtk_widget_set_sensitive(lookup_widget(gslapt,"action_bar_update_button"),FALSE);
   gtk_widget_set_sensitive(lookup_widget(gslapt,"action_bar_upgrade_button"),FALSE);
-  gtk_widget_set_sensitive(lookup_widget(gslapt,"action_bar_clean_button"),FALSE);
   gtk_widget_set_sensitive(lookup_widget(gslapt,"action_bar_execute_button"),FALSE);
 }
 
@@ -1051,7 +1050,6 @@ static void unlock_toolbar_buttons (void)
 
   gtk_widget_set_sensitive(lookup_widget(gslapt,"action_bar_update_button"),TRUE);
   gtk_widget_set_sensitive(lookup_widget(gslapt,"action_bar_upgrade_button"),TRUE);
-  gtk_widget_set_sensitive(lookup_widget(gslapt,"action_bar_clean_button"),TRUE);
 
   if (
     trans->upgrade_pkgs->pkg_count != 0
@@ -1152,7 +1150,7 @@ static void lhandle_transaction (GtkWidget *w)
 
 }
 
-void on_transaction_okbutton1_clicked (GtkWidget *w, gpointer user_data)
+void transaction_okbutton_clicked (GtkWidget *w, gpointer user_data)
 {
   GThread *gdp;
 
@@ -1712,7 +1710,7 @@ static gboolean install_packages (void)
 }
 
 
-void clean_callback (GtkMenuItem *menuitem, gpointer user_data)
+void clean_callback (GtkWidget *widget, gpointer user_data)
 {
   GThread *gpd;
 
@@ -2633,7 +2631,7 @@ static void rebuild_package_action_menu (void)
 }
 
 
-void on_unmark_all1_activate (GtkMenuItem *menuitem, gpointer user_data)
+void unmark_all_activate (GtkMenuItem *menuitem, gpointer user_data)
 {
   GdkCursor *c;
 
@@ -2701,5 +2699,21 @@ void repositories_changed_callback (GtkWidget *repositories_changed,
   gtk_widget_destroy(GTK_WIDGET(repositories_changed));
   g_signal_emit_by_name(lookup_widget(gslapt,"action_bar_update_button"),
                         "clicked");
+}
+
+
+void update_activate (GtkMenuItem *menuitem, gpointer user_data)
+{
+  return update_callback(NULL,NULL);
+}
+
+void mark_all_upgrades_activate (GtkMenuItem *menuitem, gpointer user_data)
+{
+  return upgrade_callback(NULL,NULL);
+}
+
+void execute_activate (GtkMenuItem *menuitem, gpointer user_data)
+{
+  return execute_callback(NULL,NULL);
 }
 

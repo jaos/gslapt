@@ -40,6 +40,7 @@ create_window_preferences (void)
   GtkWidget *label72;
   GtkWidget *vbox12;
   GtkWidget *preferences_working_dir_entry;
+  GtkWidget *button7;
   GtkWidget *label50;
   GtkWidget *preferences_exclude_vbox;
   GtkWidget *preferences_exclude_vbox_vbox;
@@ -138,6 +139,11 @@ create_window_preferences (void)
   gtk_widget_set_name (preferences_working_dir_entry, "preferences_working_dir_entry");
   gtk_widget_show (preferences_working_dir_entry);
   gtk_box_pack_start (GTK_BOX (vbox12), preferences_working_dir_entry, FALSE, FALSE, 0);
+
+  button7 = gtk_button_new_with_mnemonic (_("_Delete Cached Package Files"));
+  gtk_widget_set_name (button7, "button7");
+  gtk_widget_show (button7);
+  gtk_box_pack_start (GTK_BOX (vbox12), button7, FALSE, FALSE, 0);
 
   label50 = gtk_label_new (_("Working Directory"));
   gtk_widget_set_name (label50, "label50");
@@ -345,6 +351,9 @@ create_window_preferences (void)
   g_signal_connect ((gpointer) window_preferences, "destroy_event",
                     G_CALLBACK (gtk_widget_destroy),
                     NULL);
+  g_signal_connect ((gpointer) button7, "clicked",
+                    G_CALLBACK (clean_callback),
+                    NULL);
   g_signal_connect_swapped ((gpointer) preferences_remove_exclude_button, "clicked",
                             G_CALLBACK (preferences_exclude_remove),
                             GTK_OBJECT (window_preferences));
@@ -387,6 +396,7 @@ create_window_preferences (void)
   GLADE_HOOKUP_OBJECT (window_preferences, label72, "label72");
   GLADE_HOOKUP_OBJECT (window_preferences, vbox12, "vbox12");
   GLADE_HOOKUP_OBJECT (window_preferences, preferences_working_dir_entry, "preferences_working_dir_entry");
+  GLADE_HOOKUP_OBJECT (window_preferences, button7, "button7");
   GLADE_HOOKUP_OBJECT (window_preferences, label50, "label50");
   GLADE_HOOKUP_OBJECT (window_preferences, preferences_exclude_vbox, "preferences_exclude_vbox");
   GLADE_HOOKUP_OBJECT (window_preferences, preferences_exclude_vbox_vbox, "preferences_exclude_vbox_vbox");
@@ -434,38 +444,46 @@ create_gslapt (void)
   GtkWidget *top_menubar;
   GtkWidget *actions2;
   GtkWidget *actions2_menu;
+  GtkWidget *update1;
+  GtkWidget *image1171;
+  GtkWidget *mark_all_upgrades2;
+  GtkWidget *image1172;
+  GtkWidget *execute1;
+  GtkWidget *image1173;
+  GtkWidget *separator2;
   GtkWidget *quit;
   GtkWidget *edit1;
   GtkWidget *edit1_menu;
   GtkWidget *unmark_all1;
+  GtkWidget *image1174;
   GtkWidget *separator1;
   GtkWidget *preferences2;
-  GtkWidget *image974;
+  GtkWidget *image1175;
   GtkWidget *package1;
   GtkWidget *package1_menu;
   GtkWidget *unmark1;
-  GtkWidget *image975;
+  GtkWidget *image1176;
   GtkWidget *install1;
-  GtkWidget *image976;
+  GtkWidget *image1177;
   GtkWidget *re_install1;
-  GtkWidget *image977;
+  GtkWidget *image1178;
   GtkWidget *upgrade1;
-  GtkWidget *image978;
+  GtkWidget *image1179;
   GtkWidget *downgrade1;
-  GtkWidget *image979;
+  GtkWidget *image1180;
   GtkWidget *remove1;
-  GtkWidget *image980;
+  GtkWidget *image1181;
   GtkWidget *help3;
   GtkWidget *help3_menu;
   GtkWidget *icon_legend1;
+  GtkWidget *image1182;
   GtkWidget *about3;
-  GtkWidget *image981;
+  GtkWidget *image1183;
   GtkWidget *action_toolbar;
   GtkIconSize tmp_toolbar_icon_size;
   GtkWidget *tmp_image;
   GtkWidget *action_bar_update_button;
   GtkWidget *action_bar_upgrade_button;
-  GtkWidget *action_bar_clean_button;
   GtkWidget *separatortoolitem1;
   GtkWidget *action_bar_execute_button;
   GtkWidget *search_vbox;
@@ -570,6 +588,45 @@ create_gslapt (void)
   gtk_widget_set_name (actions2_menu, "actions2_menu");
   gtk_menu_item_set_submenu (GTK_MENU_ITEM (actions2), actions2_menu);
 
+  update1 = gtk_image_menu_item_new_with_mnemonic (_("Update"));
+  gtk_widget_set_name (update1, "update1");
+  gtk_widget_show (update1);
+  gtk_container_add (GTK_CONTAINER (actions2_menu), update1);
+  gtk_tooltips_set_tip (tooltips, update1, _("Update local package cache"), NULL);
+
+  image1171 = gtk_image_new_from_stock ("gtk-refresh", GTK_ICON_SIZE_MENU);
+  gtk_widget_set_name (image1171, "image1171");
+  gtk_widget_show (image1171);
+  gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (update1), image1171);
+
+  mark_all_upgrades2 = gtk_image_menu_item_new_with_mnemonic (_("Mark All Upgrades"));
+  gtk_widget_set_name (mark_all_upgrades2, "mark_all_upgrades2");
+  gtk_widget_show (mark_all_upgrades2);
+  gtk_container_add (GTK_CONTAINER (actions2_menu), mark_all_upgrades2);
+  gtk_tooltips_set_tip (tooltips, mark_all_upgrades2, _("Mark all possible upgrades"), NULL);
+
+  image1172 = gtk_image_new_from_stock ("gtk-go-up", GTK_ICON_SIZE_MENU);
+  gtk_widget_set_name (image1172, "image1172");
+  gtk_widget_show (image1172);
+  gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (mark_all_upgrades2), image1172);
+
+  execute1 = gtk_image_menu_item_new_with_mnemonic (_("Execute"));
+  gtk_widget_set_name (execute1, "execute1");
+  gtk_widget_show (execute1);
+  gtk_container_add (GTK_CONTAINER (actions2_menu), execute1);
+  gtk_tooltips_set_tip (tooltips, execute1, _("Execute all scheduled actions in current transaction"), NULL);
+
+  image1173 = gtk_image_new_from_stock ("gtk-apply", GTK_ICON_SIZE_MENU);
+  gtk_widget_set_name (image1173, "image1173");
+  gtk_widget_show (image1173);
+  gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (execute1), image1173);
+
+  separator2 = gtk_separator_menu_item_new ();
+  gtk_widget_set_name (separator2, "separator2");
+  gtk_widget_show (separator2);
+  gtk_container_add (GTK_CONTAINER (actions2_menu), separator2);
+  gtk_widget_set_sensitive (separator2, FALSE);
+
   quit = gtk_image_menu_item_new_from_stock ("gtk-quit", accel_group);
   gtk_widget_set_name (quit, "quit");
   gtk_widget_show (quit);
@@ -584,13 +641,18 @@ create_gslapt (void)
   gtk_widget_set_name (edit1_menu, "edit1_menu");
   gtk_menu_item_set_submenu (GTK_MENU_ITEM (edit1), edit1_menu);
 
-  unmark_all1 = gtk_menu_item_new_with_mnemonic (_("Unmark All"));
+  unmark_all1 = gtk_image_menu_item_new_with_mnemonic (_("Unmark All"));
   gtk_widget_set_name (unmark_all1, "unmark_all1");
   gtk_widget_show (unmark_all1);
   gtk_container_add (GTK_CONTAINER (edit1_menu), unmark_all1);
   gtk_widget_add_accelerator (unmark_all1, "activate", accel_group,
                               GDK_m, (GdkModifierType) GDK_CONTROL_MASK,
                               GTK_ACCEL_VISIBLE);
+
+  image1174 = gtk_image_new_from_stock ("gtk-undo", GTK_ICON_SIZE_MENU);
+  gtk_widget_set_name (image1174, "image1174");
+  gtk_widget_show (image1174);
+  gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (unmark_all1), image1174);
 
   separator1 = gtk_separator_menu_item_new ();
   gtk_widget_set_name (separator1, "separator1");
@@ -606,10 +668,10 @@ create_gslapt (void)
                               GDK_p, (GdkModifierType) GDK_CONTROL_MASK,
                               GTK_ACCEL_VISIBLE);
 
-  image974 = gtk_image_new_from_stock ("gtk-preferences", GTK_ICON_SIZE_MENU);
-  gtk_widget_set_name (image974, "image974");
-  gtk_widget_show (image974);
-  gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (preferences2), image974);
+  image1175 = gtk_image_new_from_stock ("gtk-preferences", GTK_ICON_SIZE_MENU);
+  gtk_widget_set_name (image1175, "image1175");
+  gtk_widget_show (image1175);
+  gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (preferences2), image1175);
 
   package1 = gtk_menu_item_new_with_mnemonic (_("P_ackage"));
   gtk_widget_set_name (package1, "package1");
@@ -629,10 +691,10 @@ create_gslapt (void)
                               GDK_n, (GdkModifierType) GDK_CONTROL_MASK,
                               GTK_ACCEL_VISIBLE);
 
-  image975 = create_pixmap (gslapt, "pkg_action_available.png");
-  gtk_widget_set_name (image975, "image975");
-  gtk_widget_show (image975);
-  gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (unmark1), image975);
+  image1176 = create_pixmap (gslapt, "pkg_action_available.png");
+  gtk_widget_set_name (image1176, "image1176");
+  gtk_widget_show (image1176);
+  gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (unmark1), image1176);
 
   install1 = gtk_image_menu_item_new_with_mnemonic (_("Install"));
   gtk_widget_set_name (install1, "install1");
@@ -643,10 +705,10 @@ create_gslapt (void)
                               GDK_i, (GdkModifierType) GDK_CONTROL_MASK,
                               GTK_ACCEL_VISIBLE);
 
-  image976 = create_pixmap (gslapt, "pkg_action_install.png");
-  gtk_widget_set_name (image976, "image976");
-  gtk_widget_show (image976);
-  gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (install1), image976);
+  image1177 = create_pixmap (gslapt, "pkg_action_install.png");
+  gtk_widget_set_name (image1177, "image1177");
+  gtk_widget_show (image1177);
+  gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (install1), image1177);
 
   re_install1 = gtk_image_menu_item_new_with_mnemonic (_("Re-Install"));
   gtk_widget_set_name (re_install1, "re_install1");
@@ -657,10 +719,10 @@ create_gslapt (void)
                               GDK_e, (GdkModifierType) GDK_CONTROL_MASK,
                               GTK_ACCEL_VISIBLE);
 
-  image977 = create_pixmap (gslapt, "pkg_action_reinstall.png");
-  gtk_widget_set_name (image977, "image977");
-  gtk_widget_show (image977);
-  gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (re_install1), image977);
+  image1178 = create_pixmap (gslapt, "pkg_action_reinstall.png");
+  gtk_widget_set_name (image1178, "image1178");
+  gtk_widget_show (image1178);
+  gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (re_install1), image1178);
 
   upgrade1 = gtk_image_menu_item_new_with_mnemonic (_("Upgrade"));
   gtk_widget_set_name (upgrade1, "upgrade1");
@@ -671,10 +733,10 @@ create_gslapt (void)
                               GDK_u, (GdkModifierType) GDK_CONTROL_MASK,
                               GTK_ACCEL_VISIBLE);
 
-  image978 = create_pixmap (gslapt, "pkg_action_upgrade.png");
-  gtk_widget_set_name (image978, "image978");
-  gtk_widget_show (image978);
-  gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (upgrade1), image978);
+  image1179 = create_pixmap (gslapt, "pkg_action_upgrade.png");
+  gtk_widget_set_name (image1179, "image1179");
+  gtk_widget_show (image1179);
+  gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (upgrade1), image1179);
 
   downgrade1 = gtk_image_menu_item_new_with_mnemonic (_("Downgrade"));
   gtk_widget_set_name (downgrade1, "downgrade1");
@@ -685,10 +747,10 @@ create_gslapt (void)
                               GDK_d, (GdkModifierType) GDK_CONTROL_MASK,
                               GTK_ACCEL_VISIBLE);
 
-  image979 = create_pixmap (gslapt, "pkg_action_downgrade.png");
-  gtk_widget_set_name (image979, "image979");
-  gtk_widget_show (image979);
-  gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (downgrade1), image979);
+  image1180 = create_pixmap (gslapt, "pkg_action_downgrade.png");
+  gtk_widget_set_name (image1180, "image1180");
+  gtk_widget_show (image1180);
+  gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (downgrade1), image1180);
 
   remove1 = gtk_image_menu_item_new_with_mnemonic (_("Remove"));
   gtk_widget_set_name (remove1, "remove1");
@@ -699,10 +761,10 @@ create_gslapt (void)
                               GDK_r, (GdkModifierType) GDK_CONTROL_MASK,
                               GTK_ACCEL_VISIBLE);
 
-  image980 = create_pixmap (gslapt, "pkg_action_remove.png");
-  gtk_widget_set_name (image980, "image980");
-  gtk_widget_show (image980);
-  gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (remove1), image980);
+  image1181 = create_pixmap (gslapt, "pkg_action_remove.png");
+  gtk_widget_set_name (image1181, "image1181");
+  gtk_widget_show (image1181);
+  gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (remove1), image1181);
 
   help3 = gtk_menu_item_new_with_mnemonic (_("_Help"));
   gtk_widget_set_name (help3, "help3");
@@ -713,20 +775,25 @@ create_gslapt (void)
   gtk_widget_set_name (help3_menu, "help3_menu");
   gtk_menu_item_set_submenu (GTK_MENU_ITEM (help3), help3_menu);
 
-  icon_legend1 = gtk_menu_item_new_with_mnemonic (_("Icon Legend"));
+  icon_legend1 = gtk_image_menu_item_new_with_mnemonic (_("Icon Legend"));
   gtk_widget_set_name (icon_legend1, "icon_legend1");
   gtk_widget_show (icon_legend1);
   gtk_container_add (GTK_CONTAINER (help3_menu), icon_legend1);
+
+  image1182 = gtk_image_new_from_stock ("gtk-dialog-info", GTK_ICON_SIZE_MENU);
+  gtk_widget_set_name (image1182, "image1182");
+  gtk_widget_show (image1182);
+  gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (icon_legend1), image1182);
 
   about3 = gtk_image_menu_item_new_with_mnemonic (_("About"));
   gtk_widget_set_name (about3, "about3");
   gtk_widget_show (about3);
   gtk_container_add (GTK_CONTAINER (help3_menu), about3);
 
-  image981 = gtk_image_new_from_stock ("gtk-about", GTK_ICON_SIZE_MENU);
-  gtk_widget_set_name (image981, "image981");
-  gtk_widget_show (image981);
-  gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (about3), image981);
+  image1183 = gtk_image_new_from_stock ("gtk-about", GTK_ICON_SIZE_MENU);
+  gtk_widget_set_name (image1183, "image1183");
+  gtk_widget_show (image1183);
+  gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (about3), image1183);
 
   action_toolbar = gtk_toolbar_new ();
   gtk_widget_set_name (action_toolbar, "action_toolbar");
@@ -749,15 +816,7 @@ create_gslapt (void)
   gtk_widget_set_name (action_bar_upgrade_button, "action_bar_upgrade_button");
   gtk_widget_show (action_bar_upgrade_button);
   gtk_container_add (GTK_CONTAINER (action_toolbar), action_bar_upgrade_button);
-  gtk_tool_item_set_tooltip (GTK_TOOL_ITEM (action_bar_upgrade_button), tooltips, _("Upgrade installed packages"), NULL);
-
-  tmp_image = gtk_image_new_from_stock ("gtk-clear", tmp_toolbar_icon_size);
-  gtk_widget_show (tmp_image);
-  action_bar_clean_button = (GtkWidget*) gtk_tool_button_new (tmp_image, _("Clean"));
-  gtk_widget_set_name (action_bar_clean_button, "action_bar_clean_button");
-  gtk_widget_show (action_bar_clean_button);
-  gtk_container_add (GTK_CONTAINER (action_toolbar), action_bar_clean_button);
-  gtk_tool_item_set_tooltip (GTK_TOOL_ITEM (action_bar_clean_button), tooltips, _("Clean archived packages off filesystem"), NULL);
+  gtk_tool_item_set_tooltip (GTK_TOOL_ITEM (action_bar_upgrade_button), tooltips, _("Mark all possible upgrades"), NULL);
 
   separatortoolitem1 = (GtkWidget*) gtk_separator_tool_item_new ();
   gtk_widget_set_name (separatortoolitem1, "separatortoolitem1");
@@ -1257,14 +1316,23 @@ create_gslapt (void)
   g_signal_connect ((gpointer) gslapt, "destroy",
                     G_CALLBACK (on_gslapt_destroy),
                     NULL);
+  g_signal_connect ((gpointer) update1, "activate",
+                    G_CALLBACK (update_activate),
+                    NULL);
+  g_signal_connect ((gpointer) mark_all_upgrades2, "activate",
+                    G_CALLBACK (mark_all_upgrades_activate),
+                    NULL);
+  g_signal_connect ((gpointer) execute1, "activate",
+                    G_CALLBACK (execute_activate),
+                    NULL);
   g_signal_connect ((gpointer) quit, "activate",
                     G_CALLBACK (on_gslapt_destroy),
                     NULL);
-  g_signal_connect_swapped ((gpointer) unmark_all1, "activate",
-                            G_CALLBACK (on_unmark_all1_activate),
-                            GTK_OBJECT (gslapt));
   g_signal_connect ((gpointer) unmark_all1, "activate",
-                    G_CALLBACK (on_unmark_all1_activate),
+                    G_CALLBACK (unmark_all_activate),
+                    NULL);
+  g_signal_connect ((gpointer) unmark_all1, "activate",
+                    G_CALLBACK (unmark_all_activate),
                     NULL);
   g_signal_connect ((gpointer) preferences2, "activate",
                     G_CALLBACK (open_preferences),
@@ -1281,9 +1349,6 @@ create_gslapt (void)
   g_signal_connect_swapped ((gpointer) action_bar_upgrade_button, "clicked",
                             G_CALLBACK (upgrade_callback),
                             GTK_OBJECT (gslapt));
-  g_signal_connect ((gpointer) action_bar_clean_button, "clicked",
-                    G_CALLBACK (clean_callback),
-                    NULL);
   g_signal_connect_swapped ((gpointer) action_bar_execute_button, "clicked",
                             G_CALLBACK (execute_callback),
                             GTK_OBJECT (gslapt));
@@ -1306,36 +1371,44 @@ create_gslapt (void)
   GLADE_HOOKUP_OBJECT (gslapt, top_menubar, "top_menubar");
   GLADE_HOOKUP_OBJECT (gslapt, actions2, "actions2");
   GLADE_HOOKUP_OBJECT (gslapt, actions2_menu, "actions2_menu");
+  GLADE_HOOKUP_OBJECT (gslapt, update1, "update1");
+  GLADE_HOOKUP_OBJECT (gslapt, image1171, "image1171");
+  GLADE_HOOKUP_OBJECT (gslapt, mark_all_upgrades2, "mark_all_upgrades2");
+  GLADE_HOOKUP_OBJECT (gslapt, image1172, "image1172");
+  GLADE_HOOKUP_OBJECT (gslapt, execute1, "execute1");
+  GLADE_HOOKUP_OBJECT (gslapt, image1173, "image1173");
+  GLADE_HOOKUP_OBJECT (gslapt, separator2, "separator2");
   GLADE_HOOKUP_OBJECT (gslapt, quit, "quit");
   GLADE_HOOKUP_OBJECT (gslapt, edit1, "edit1");
   GLADE_HOOKUP_OBJECT (gslapt, edit1_menu, "edit1_menu");
   GLADE_HOOKUP_OBJECT (gslapt, unmark_all1, "unmark_all1");
+  GLADE_HOOKUP_OBJECT (gslapt, image1174, "image1174");
   GLADE_HOOKUP_OBJECT (gslapt, separator1, "separator1");
   GLADE_HOOKUP_OBJECT (gslapt, preferences2, "preferences2");
-  GLADE_HOOKUP_OBJECT (gslapt, image974, "image974");
+  GLADE_HOOKUP_OBJECT (gslapt, image1175, "image1175");
   GLADE_HOOKUP_OBJECT (gslapt, package1, "package1");
   GLADE_HOOKUP_OBJECT (gslapt, package1_menu, "package1_menu");
   GLADE_HOOKUP_OBJECT (gslapt, unmark1, "unmark1");
-  GLADE_HOOKUP_OBJECT (gslapt, image975, "image975");
+  GLADE_HOOKUP_OBJECT (gslapt, image1176, "image1176");
   GLADE_HOOKUP_OBJECT (gslapt, install1, "install1");
-  GLADE_HOOKUP_OBJECT (gslapt, image976, "image976");
+  GLADE_HOOKUP_OBJECT (gslapt, image1177, "image1177");
   GLADE_HOOKUP_OBJECT (gslapt, re_install1, "re_install1");
-  GLADE_HOOKUP_OBJECT (gslapt, image977, "image977");
+  GLADE_HOOKUP_OBJECT (gslapt, image1178, "image1178");
   GLADE_HOOKUP_OBJECT (gslapt, upgrade1, "upgrade1");
-  GLADE_HOOKUP_OBJECT (gslapt, image978, "image978");
+  GLADE_HOOKUP_OBJECT (gslapt, image1179, "image1179");
   GLADE_HOOKUP_OBJECT (gslapt, downgrade1, "downgrade1");
-  GLADE_HOOKUP_OBJECT (gslapt, image979, "image979");
+  GLADE_HOOKUP_OBJECT (gslapt, image1180, "image1180");
   GLADE_HOOKUP_OBJECT (gslapt, remove1, "remove1");
-  GLADE_HOOKUP_OBJECT (gslapt, image980, "image980");
+  GLADE_HOOKUP_OBJECT (gslapt, image1181, "image1181");
   GLADE_HOOKUP_OBJECT (gslapt, help3, "help3");
   GLADE_HOOKUP_OBJECT (gslapt, help3_menu, "help3_menu");
   GLADE_HOOKUP_OBJECT (gslapt, icon_legend1, "icon_legend1");
+  GLADE_HOOKUP_OBJECT (gslapt, image1182, "image1182");
   GLADE_HOOKUP_OBJECT (gslapt, about3, "about3");
-  GLADE_HOOKUP_OBJECT (gslapt, image981, "image981");
+  GLADE_HOOKUP_OBJECT (gslapt, image1183, "image1183");
   GLADE_HOOKUP_OBJECT (gslapt, action_toolbar, "action_toolbar");
   GLADE_HOOKUP_OBJECT (gslapt, action_bar_update_button, "action_bar_update_button");
   GLADE_HOOKUP_OBJECT (gslapt, action_bar_upgrade_button, "action_bar_upgrade_button");
-  GLADE_HOOKUP_OBJECT (gslapt, action_bar_clean_button, "action_bar_clean_button");
   GLADE_HOOKUP_OBJECT (gslapt, separatortoolitem1, "separatortoolitem1");
   GLADE_HOOKUP_OBJECT (gslapt, action_bar_execute_button, "action_bar_execute_button");
   GLADE_HOOKUP_OBJECT (gslapt, search_vbox, "search_vbox");
@@ -1568,7 +1641,7 @@ create_transaction_window (void)
                             G_CALLBACK (cancel_transaction),
                             GTK_OBJECT (transaction_window));
   g_signal_connect_swapped ((gpointer) button3, "clicked",
-                            G_CALLBACK (on_transaction_okbutton1_clicked),
+                            G_CALLBACK (transaction_okbutton_clicked),
                             GTK_OBJECT (transaction_window));
 
   /* Store pointers to all widgets, for use by lookup_widget(). */

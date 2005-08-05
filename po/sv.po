@@ -6,10 +6,10 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: gslapt 0.3.4\n"
+"Project-Id-Version: gslapt 0.3.5\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2005-07-22 15:07+0500\n"
+"PO-Revision-Date: 2005-08-05 13:00+0500\n"
 "Last-Translator: Hakan Lindqvist <tfy00hlt@cs.umu.se>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -202,12 +202,6 @@ msgstr "Uppdatera lokal paketdata"
 
 msgid "Update"
 msgstr "Uppdatera"
-
-msgid "Upgrade installed packages"
-msgstr "Uppgradera installerade paket"
-
-msgid "Upgrade to newer release"
-msgstr "Uppgradera till nyare release"
 
 msgid "Upgrade"
 msgstr "Uppgradera"
@@ -452,4 +446,7 @@ msgstr "Retrieving checksum list..."
 
 msgid "Reading Package Lists..."
 msgstr "Reading Package Lists..."
+
+msgid "_Delete Cached Package Files"
+msgstr "_Delete Cached Package Files"
 

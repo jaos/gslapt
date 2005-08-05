@@ -36,7 +36,6 @@ void on_gslapt_destroy (GtkObject *object, gpointer user_data);
 void update_callback (GtkObject *object, gpointer user_data);
 void upgrade_callback (GtkObject *object, gpointer user_data);
 void execute_callback (GtkObject *object, gpointer user_data);
-void open_preferences (GtkMenuItem *menuitem, gpointer user_data);
 void search_button_clicked (GtkWidget *gslapt, gpointer user_data);
 void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data);
 void add_pkg_for_reinstall (GtkWidget *gslapt, gpointer user_data);
@@ -52,7 +51,7 @@ void preferences_sources_add (GtkWidget *w, gpointer user_data);
 void preferences_sources_remove (GtkWidget *w, gpointer user_data);
 void preferences_on_ok_clicked (GtkWidget *w, gpointer user_data);
 
-void on_transaction_okbutton1_clicked (GtkWidget *w, gpointer user_data);
+void transaction_okbutton_clicked (GtkWidget *w, gpointer user_data);
 void preferences_exclude_add (GtkWidget *w, gpointer user_data);
 void preferences_exclude_remove (GtkWidget *w, gpointer user_data);
 
@@ -60,7 +59,6 @@ void clear_button_clicked (GtkWidget *button,gpointer user_data);
 
 int gtk_progress_callback (void *data, double dltotal, double dlnow,
                            double ultotal, double ulnow);
-void clean_callback (GtkMenuItem *menuitem, gpointer user_data);
 void build_package_treeviewlist (GtkWidget *treeview);
 
 void cancel_preferences (GtkWidget *w, gpointer user_data);
@@ -70,14 +68,21 @@ void unmark_package (GtkWidget *gslapt, gpointer user_data);
 
 void build_treeview_columns (GtkWidget *treeview);
 
-void open_icon_legend  (GtkObject *object, gpointer user_data);
-
 void on_button_cancel_clicked (GtkButton *button, gpointer user_data);
-
-void on_unmark_all1_activate (GtkMenuItem *menuitem, gpointer user_data);
 
 GtkEntryCompletion *build_search_completions (void);
 
 
 void repositories_changed_callback (GtkWidget *repositories_changed,
                                     gpointer user_data);
+
+
+/* menu callbacks */
+void clean_callback (GtkWidget *widget, gpointer user_data);
+void open_preferences (GtkMenuItem *menuitem, gpointer user_data);
+void open_icon_legend  (GtkObject *object, gpointer user_data);
+void unmark_all_activate (GtkMenuItem *menuitem, gpointer user_data);
+void update_activate (GtkMenuItem *menuitem, gpointer user_data);
+void mark_all_upgrades_activate (GtkMenuItem *menuitem, gpointer user_data);
+void execute_activate (GtkMenuItem *menuitem, gpointer user_data);
+
