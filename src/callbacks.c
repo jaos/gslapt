@@ -968,7 +968,8 @@ int gtk_progress_callback(void *data, double dltotal, double dlnow,
     return -1;
   }
 
-  if ( dltotal != 0.0 ) perc = ((dlnow * 100)/dltotal)/100;
+  if ( dltotal != 0.0 )
+    perc = ((dlnow * 100)/dltotal)/100;
 
   gdk_threads_enter();
   gtk_progress_bar_set_fraction(p_bar,perc);
