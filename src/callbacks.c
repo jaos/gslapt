@@ -462,29 +462,56 @@ void build_package_treeviewlist (GtkWidget *treeview)
 
     if (trans->exclude_pkgs->pkg_count > 0 &&
     slapt_get_exact_pkg(trans->exclude_pkgs,all->pkgs[i]->name,all->pkgs[i]->version) != NULL) {
-      status_icon = create_pixbuf("pkg_action_available.png");
+      /* if it's excluded */
+      if ((trans->exclude_pkgs->pkg_count > 0 &&
+           slapt_get_exact_pkg(trans->exclude_pkgs,all->pkgs[i]->name,
+                               all->pkgs[i]->version) != NULL) ||
+           slapt_is_excluded(global_config,all->pkgs[i]) == 1) {
+        status_icon = create_pixbuf("pkg_action_available_excluded.png");
+      } else {
+        status_icon = create_pixbuf("pkg_action_available.png");
+      }
       status = g_strdup_printf("z%s",all->pkgs[i]->name);
       location = all->pkgs[i]->location;
     } else if (trans->remove_pkgs->pkg_count > 0 &&
-    slapt_get_exact_pkg(trans->remove_pkgs,all->pkgs[i]->name,all->pkgs[i]->version) != NULL) {
+    slapt_get_exact_pkg(trans->remove_pkgs,all->pkgs[i]->name,
+                        all->pkgs[i]->version) != NULL) {
       status_icon = create_pixbuf("pkg_action_remove.png");
       status = g_strdup_printf("r%s",all->pkgs[i]->name);
       location = all->pkgs[i]->location;
     } else if (trans->install_pkgs->pkg_count > 0 &&
-    slapt_get_exact_pkg(trans->install_pkgs,all->pkgs[i]->name,all->pkgs[i]->version) != NULL) {
+    slapt_get_exact_pkg(trans->install_pkgs,all->pkgs[i]->name,
+                        all->pkgs[i]->version) != NULL) {
       status_icon = create_pixbuf("pkg_action_install.png");
       status = g_strdup_printf("i%s",all->pkgs[i]->name);
       location = all->pkgs[i]->location;
-    } else if (trans->upgrade_pkgs->pkg_count > 0 && lsearch_upgrade_transaction(trans,all->pkgs[i]) == 1) {
+    } else if (trans->upgrade_pkgs->pkg_count > 0 &&
+               lsearch_upgrade_transaction(trans,all->pkgs[i]) == 1) {
       status_icon = create_pixbuf("pkg_action_upgrade.png");
       status = g_strdup_printf("u%s",all->pkgs[i]->name);
       location = all->pkgs[i]->location;
     } else if (is_inst == 1) {
-      status_icon = create_pixbuf("pkg_action_installed.png");
+      /* if it's excluded */
+      if ((trans->exclude_pkgs->pkg_count > 0 &&
+           slapt_get_exact_pkg(trans->exclude_pkgs,all->pkgs[i]->name,
+                              all->pkgs[i]->version) != NULL) ||
+           slapt_is_excluded(global_config,all->pkgs[i]) == 1) {
+        status_icon = create_pixbuf("pkg_action_installed_excluded.png");
+      } else {
+        status_icon = create_pixbuf("pkg_action_installed.png");
+      }
       status = g_strdup_printf("a%s",all->pkgs[i]->name);
       location = installed_pkg->location;
     } else {
-      status_icon = create_pixbuf("pkg_action_available.png");
+      /* if it's excluded */
+      if ((trans->exclude_pkgs->pkg_count > 0 &&
+           slapt_get_exact_pkg(trans->exclude_pkgs,all->pkgs[i]->name,
+                               all->pkgs[i]->version) != NULL) ||
+           slapt_is_excluded(global_config,all->pkgs[i]) == 1) {
+        status_icon = create_pixbuf("pkg_action_available_excluded.png");
+      } else {
+        status_icon = create_pixbuf("pkg_action_available.png");
+      }
       status = g_strdup_printf("z%s",all->pkgs[i]->name);
       location = all->pkgs[i]->location;
     }
@@ -506,7 +533,7 @@ void build_package_treeviewlist (GtkWidget *treeview)
   }
 
   for (i = 0; i < installed->pkg_count; ++i) {
-    if ( slapt_get_exact_pkg(all,installed->pkgs[i]->name,installed->pkgs[i]->version) == NULL ) {
+    if (slapt_get_exact_pkg(all,installed->pkgs[i]->name,installed->pkgs[i]->version) == NULL) {
       /* we use this for sorting the status */
       /* a=installed,i=install,r=remove,u=upgrade,z=available */
       gchar *status = NULL;
@@ -514,11 +541,20 @@ void build_package_treeviewlist (GtkWidget *treeview)
       gchar *short_desc = slapt_gen_short_pkg_description(installed->pkgs[i]);
 
       if (trans->remove_pkgs->pkg_count > 0 &&
-      slapt_get_exact_pkg(trans->remove_pkgs,installed->pkgs[i]->name,installed->pkgs[i]->version) != NULL) {
+      slapt_get_exact_pkg(trans->remove_pkgs,installed->pkgs[i]->name,
+                          installed->pkgs[i]->version) != NULL) {
         status_icon = create_pixbuf("pkg_action_remove.png");
         status = g_strdup_printf("r%s",installed->pkgs[i]->name);
       } else {
-        status_icon = create_pixbuf("pkg_action_installed.png");
+        /* if it's excluded */
+        if ((trans->exclude_pkgs->pkg_count > 0 &&
+            slapt_get_exact_pkg(trans->exclude_pkgs,installed->pkgs[i]->name,
+                                installed->pkgs[i]->version) != NULL) ||
+            slapt_is_excluded(global_config,installed->pkgs[i]) == 1) {
+          status_icon = create_pixbuf("pkg_action_installed_excluded.png");
+        } else {
+          status_icon = create_pixbuf("pkg_action_installed.png");
+        }
         status = g_strdup_printf("a%s",installed->pkgs[i]->name);
       }
 

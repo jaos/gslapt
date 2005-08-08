@@ -1946,9 +1946,19 @@ create_icon_legend (void)
   GtkWidget *hbox98;
   GtkWidget *image865;
   GtkWidget *label253;
+  GtkWidget *hbox109;
+  GtkWidget *image1257;
+  GtkWidget *label277;
+  GtkWidget *label280;
+  GtkWidget *label281;
   GtkWidget *hbox99;
   GtkWidget *image866;
   GtkWidget *label254;
+  GtkWidget *hbox108;
+  GtkWidget *image1256;
+  GtkWidget *label276;
+  GtkWidget *label278;
+  GtkWidget *label279;
   GtkWidget *hbox100;
   GtkWidget *image867;
   GtkWidget *label255;
@@ -2018,6 +2028,31 @@ create_icon_legend (void)
   gtk_widget_show (label253);
   gtk_box_pack_start (GTK_BOX (hbox98), label253, FALSE, TRUE, 6);
 
+  hbox109 = gtk_hbox_new (FALSE, 0);
+  gtk_widget_set_name (hbox109, "hbox109");
+  gtk_widget_show (hbox109);
+  gtk_box_pack_start (GTK_BOX (vbox65), hbox109, TRUE, TRUE, 0);
+
+  image1257 = create_pixmap (icon_legend, "pkg_action_available_excluded.png");
+  gtk_widget_set_name (image1257, "image1257");
+  gtk_widget_show (image1257);
+  gtk_box_pack_start (GTK_BOX (hbox109), image1257, FALSE, TRUE, 6);
+
+  label277 = gtk_label_new (_("Not Installed"));
+  gtk_widget_set_name (label277, "label277");
+  gtk_widget_show (label277);
+  gtk_box_pack_start (GTK_BOX (hbox109), label277, FALSE, TRUE, 6);
+
+  label280 = gtk_label_new (_(","));
+  gtk_widget_set_name (label280, "label280");
+  gtk_widget_show (label280);
+  gtk_box_pack_start (GTK_BOX (hbox109), label280, FALSE, FALSE, 0);
+
+  label281 = gtk_label_new (_("Excluded"));
+  gtk_widget_set_name (label281, "label281");
+  gtk_widget_show (label281);
+  gtk_box_pack_start (GTK_BOX (hbox109), label281, FALSE, FALSE, 6);
+
   hbox99 = gtk_hbox_new (FALSE, 0);
   gtk_widget_set_name (hbox99, "hbox99");
   gtk_widget_show (hbox99);
@@ -2032,6 +2067,31 @@ create_icon_legend (void)
   gtk_widget_set_name (label254, "label254");
   gtk_widget_show (label254);
   gtk_box_pack_start (GTK_BOX (hbox99), label254, FALSE, TRUE, 6);
+
+  hbox108 = gtk_hbox_new (FALSE, 0);
+  gtk_widget_set_name (hbox108, "hbox108");
+  gtk_widget_show (hbox108);
+  gtk_box_pack_start (GTK_BOX (vbox65), hbox108, TRUE, TRUE, 0);
+
+  image1256 = create_pixmap (icon_legend, "pkg_action_installed_excluded.png");
+  gtk_widget_set_name (image1256, "image1256");
+  gtk_widget_show (image1256);
+  gtk_box_pack_start (GTK_BOX (hbox108), image1256, FALSE, TRUE, 6);
+
+  label276 = gtk_label_new (_("Installed"));
+  gtk_widget_set_name (label276, "label276");
+  gtk_widget_show (label276);
+  gtk_box_pack_start (GTK_BOX (hbox108), label276, FALSE, TRUE, 6);
+
+  label278 = gtk_label_new (_(","));
+  gtk_widget_set_name (label278, "label278");
+  gtk_widget_show (label278);
+  gtk_box_pack_start (GTK_BOX (hbox108), label278, FALSE, TRUE, 0);
+
+  label279 = gtk_label_new (_("Excluded"));
+  gtk_widget_set_name (label279, "label279");
+  gtk_widget_show (label279);
+  gtk_box_pack_start (GTK_BOX (hbox108), label279, FALSE, TRUE, 6);
 
   hbox100 = gtk_hbox_new (FALSE, 0);
   gtk_widget_set_name (hbox100, "hbox100");
@@ -2132,9 +2192,19 @@ create_icon_legend (void)
   GLADE_HOOKUP_OBJECT (icon_legend, hbox98, "hbox98");
   GLADE_HOOKUP_OBJECT (icon_legend, image865, "image865");
   GLADE_HOOKUP_OBJECT (icon_legend, label253, "label253");
+  GLADE_HOOKUP_OBJECT (icon_legend, hbox109, "hbox109");
+  GLADE_HOOKUP_OBJECT (icon_legend, image1257, "image1257");
+  GLADE_HOOKUP_OBJECT (icon_legend, label277, "label277");
+  GLADE_HOOKUP_OBJECT (icon_legend, label280, "label280");
+  GLADE_HOOKUP_OBJECT (icon_legend, label281, "label281");
   GLADE_HOOKUP_OBJECT (icon_legend, hbox99, "hbox99");
   GLADE_HOOKUP_OBJECT (icon_legend, image866, "image866");
   GLADE_HOOKUP_OBJECT (icon_legend, label254, "label254");
+  GLADE_HOOKUP_OBJECT (icon_legend, hbox108, "hbox108");
+  GLADE_HOOKUP_OBJECT (icon_legend, image1256, "image1256");
+  GLADE_HOOKUP_OBJECT (icon_legend, label276, "label276");
+  GLADE_HOOKUP_OBJECT (icon_legend, label278, "label278");
+  GLADE_HOOKUP_OBJECT (icon_legend, label279, "label279");
   GLADE_HOOKUP_OBJECT (icon_legend, hbox100, "hbox100");
   GLADE_HOOKUP_OBJECT (icon_legend, image867, "image867");
   GLADE_HOOKUP_OBJECT (icon_legend, label255, "label255");
