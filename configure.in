@@ -23,7 +23,7 @@ AC_CHECK_LIB(curl,curl_global_init, [LIBS="$LIBS `curl-config --libs`"], [AC_MSG
 AC_CHECK_LIB(slapt,slapt_get_md5sums, [], [AC_MSG_ERROR(libslapt 0.9.10b or greater is required)])
 LIBS="$LIBS -lglib-2.0 -lgthread-2.0"
 
-pkg_modules="gtk+-2.0 >= 2.0.0"
+pkg_modules="gtk+-2.0 >= 2.4.0"
 PKG_CHECK_MODULES(PACKAGE, [$pkg_modules])
 AC_SUBST(PACKAGE_CFLAGS)
 AC_SUBST(PACKAGE_LIBS)

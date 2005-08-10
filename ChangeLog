@@ -1,5 +1,6 @@
 
-0.3.5 Aug 08, 2005
+0.3.5 Aug 10, 2005
+ * updated gtk+-2.0 configure check to require gtk+ 2.4+
  * show via icons whether installed or available package is excluded, updated
    icon legend
  * cleaned up menus, adding options from the toolbar
