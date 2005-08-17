@@ -1,4 +1,7 @@
 
+0.3.6 Aug 17, 2005
+ * translation updates
+
 0.3.5 Aug 10, 2005
  * updated gtk+-2.0 configure check to require gtk+ 2.4+
  * show via icons whether installed or available package is excluded, updated
