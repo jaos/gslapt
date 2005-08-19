@@ -368,7 +368,7 @@ msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</sp
 msgstr "<span weight=\"bold\" size=\"large\">U hebt niet genoeg vrije ruimte</span>"
 
 msgid "Excluding %s due to dependency failure\n"
-msgstr "%s wordt wegens onvervulde afhankelijkheid uitgesloten"
+msgstr "%s wordt wegens onvervulde afhankelijkheid uitgesloten\n"
 
 msgid "Unmark"
 msgstr "Wis markering"
