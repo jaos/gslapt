@@ -38,35 +38,35 @@ extern slapt_transaction_t *trans;
 static GtkWidget *progress_window;
 static volatile guint _cancelled = 0;
 static gboolean sources_modified = FALSE;
+static gboolean excludes_modified = FALSE;
 static volatile guint pending_trans_context_id = 0;
 static int disk_space(int space_needed);
-static gboolean pkg_action_popup_menu(GtkTreeView *treeview, gpointer data);
-static int set_iter_to_pkg(GtkTreeModel *model, GtkTreeIter *iter,
-                           slapt_pkg_info_t *pkg);
-static void reset_pkg_view_status(void);
-static int lsearch_upgrade_transaction(slapt_transaction_t *tran,slapt_pkg_info_t *pkg);
-static void build_package_action_menu(slapt_pkg_info_t *pkg);
-static void rebuild_package_action_menu(void);
-static void mark_upgrade_packages(void);
-static void fillin_pkg_details(slapt_pkg_info_t *pkg);
-static void get_package_data(void);
-static void rebuild_treeviews(GtkWidget *current_window);
-static guint gslapt_set_status(const gchar *);
-static void gslapt_clear_status(guint context_id);
-static void lock_toolbar_buttons(void);
-static void unlock_toolbar_buttons(void);
-static void build_sources_treeviewlist(GtkWidget *treeview);
-static void build_exclude_treeviewlist(GtkWidget *treeview);
-static int populate_transaction_window(GtkWidget *trans_window);
-static gboolean download_packages(void);
-static gboolean install_packages(void);
-static gboolean write_preferences(void);
-static void set_execute_active(void);
-static void clear_execute_active(void);
-static void notify(const char *title,const char *message);
-static void reset_search_list(void);
-static int ladd_deps_to_trans(slapt_transaction_t *tran, struct slapt_pkg_list *avail_pkgs,
-                              struct slapt_pkg_list *installed_pkgs, slapt_pkg_info_t *pkg);
+static gboolean pkg_action_popup_menu (GtkTreeView *treeview, gpointer data);
+static int set_iter_to_pkg (GtkTreeModel *model, GtkTreeIter *iter,
+                            slapt_pkg_info_t *pkg);
+static int lsearch_upgrade_transaction (slapt_transaction_t *tran,slapt_pkg_info_t *pkg);
+static void build_package_action_menu (slapt_pkg_info_t *pkg);
+static void rebuild_package_action_menu (void);
+static void mark_upgrade_packages (void);
+static void fillin_pkg_details (slapt_pkg_info_t *pkg);
+static void get_package_data (void);
+static void rebuild_treeviews (GtkWidget *current_window,gboolean reload);
+static guint gslapt_set_status (const gchar *);
+static void gslapt_clear_status (guint context_id);
+static void lock_toolbar_buttons (void);
+static void unlock_toolbar_buttons (void);
+static void build_sources_treeviewlist (GtkWidget *treeview);
+static void build_exclude_treeviewlist (GtkWidget *treeview);
+static int populate_transaction_window (GtkWidget *trans_window);
+static gboolean download_packages (void);
+static gboolean install_packages (void);
+static gboolean write_preferences (void);
+static void set_execute_active (void);
+static void clear_execute_active (void);
+static void notify (const char *title,const char *message);
+static void reset_search_list (void);
+static int ladd_deps_to_trans (slapt_transaction_t *tran, struct slapt_pkg_list *avail_pkgs,
+                               struct slapt_pkg_list *installed_pkgs, slapt_pkg_info_t *pkg);
 
 void on_gslapt_destroy (GtkObject *object, gpointer user_data) 
 {
@@ -93,10 +93,16 @@ void update_callback (GtkObject *object, gpointer user_data)
 
 void upgrade_callback (GtkObject *object, gpointer user_data) 
 {
+  GdkCursor *c = gdk_cursor_new(GDK_WATCH);
+  gdk_window_set_cursor(gslapt->window,c);
+  gdk_cursor_destroy(c);
+  gdk_flush();
   mark_upgrade_packages();
   if (trans->install_pkgs->pkg_count > 0 || trans->upgrade_pkgs->pkg_count > 0) {
     set_execute_active();
   }
+  gdk_window_set_cursor(gslapt->window,NULL);
+  gdk_flush();
 }
 
 void execute_callback (GtkObject *object, gpointer user_data) 
@@ -582,6 +588,7 @@ void build_package_treeviewlist (GtkWidget *treeview)
 
   if (gslapt->window != NULL) {
     gdk_window_set_cursor(gslapt->window,NULL);
+    gdk_flush();
   }
 }
 
@@ -987,7 +994,7 @@ static void get_package_data (void)
 
   gdk_threads_enter();
   unlock_toolbar_buttons();
-  rebuild_treeviews(progress_window);
+  rebuild_treeviews(progress_window,TRUE);
   gslapt_clear_status(context_id);
   gtk_widget_destroy(progress_window);
   gdk_threads_leave();
@@ -1014,10 +1021,9 @@ int gtk_progress_callback(void *data, double dltotal, double dlnow,
   return 0;
 }
 
-static void rebuild_treeviews (GtkWidget *current_window)
+static void rebuild_treeviews (GtkWidget *current_window,gboolean reload)
 {
   GtkWidget *treeview;
-  struct slapt_pkg_list *all_ptr,*installed_ptr;
   GdkCursor *c = gdk_cursor_new(GDK_WATCH);
   GtkListStore *store;
   GtkTreeModelFilter *filter_model;
@@ -1029,14 +1035,21 @@ static void rebuild_treeviews (GtkWidget *current_window)
     gdk_window_set_cursor(current_window->window,c);
     gdk_window_set_cursor(gslapt->window,c);
   }
-  gdk_flush();
   gdk_cursor_destroy(c);
+  gdk_flush();
 
-  installed_ptr = installed;
-  all_ptr = all;
+  if (reload == TRUE) {
+    struct slapt_pkg_list *all_ptr,*installed_ptr;
 
-  installed = slapt_get_installed_pkgs();
-  all = slapt_get_available_pkgs();
+    installed_ptr = installed;
+    all_ptr = all;
+
+    installed = slapt_get_installed_pkgs();
+    all = slapt_get_available_pkgs();
+
+    slapt_free_pkg_list(installed_ptr);
+    slapt_free_pkg_list(all_ptr);
+  }
 
   treeview = (GtkWidget *)lookup_widget(gslapt,"pkg_listing_treeview");
   package_model = GTK_TREE_MODEL_SORT(gtk_tree_view_get_model(GTK_TREE_VIEW(treeview)));
@@ -1045,9 +1058,6 @@ static void rebuild_treeviews (GtkWidget *current_window)
   store = GTK_LIST_STORE(gtk_tree_model_filter_get_model(GTK_TREE_MODEL_FILTER(filter_model)));
   gtk_list_store_clear(store);
   gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"search_entry")),"");
-
-  slapt_free_pkg_list(installed_ptr);
-  slapt_free_pkg_list(all_ptr);
 
   rebuild_package_action_menu();
   build_package_treeviewlist(treeview);
@@ -1134,7 +1144,7 @@ static void lhandle_transaction (GtkWidget *w)
     slapt_init_transaction(trans);
     gdk_threads_enter();
     unlock_toolbar_buttons();
-    reset_pkg_view_status();
+    rebuild_treeviews(NULL,FALSE);
     clear_execute_active();
     gdk_threads_leave();
     return;
@@ -1144,7 +1154,7 @@ static void lhandle_transaction (GtkWidget *w)
     _cancelled = 0;
     gdk_threads_enter();
     unlock_toolbar_buttons();
-    reset_pkg_view_status();
+    rebuild_treeviews(NULL,FALSE);
     clear_execute_active();
     gdk_threads_leave();
     return;
@@ -1177,11 +1187,11 @@ static void lhandle_transaction (GtkWidget *w)
 
   gdk_threads_enter();
   /* reset cursor */
-  gdk_window_set_cursor(gslapt->window,NULL);
-  gdk_flush();
-  reset_pkg_view_status();
+  rebuild_treeviews(NULL,FALSE);
   rebuild_package_action_menu();
   unlock_toolbar_buttons();
+  gdk_window_set_cursor(gslapt->window,NULL);
+  gdk_flush();
   notify((gchar *)_("Completed actions"),(gchar *)_("Successfully executed all actions."));
   gdk_threads_leave();
 
@@ -1870,11 +1880,19 @@ void preferences_on_ok_clicked (GtkWidget *w, gpointer user_data)
 
   gtk_widget_destroy(w);
 
-  /* TODO add a dialog to resync package sources */
+  /* dialog to resync package sources */
   if (sources_modified == TRUE) {
     sources_modified = FALSE;
+    if (excludes_modified == TRUE)
+      excludes_modified = FALSE;
     GtkWidget *rc = create_repositories_changed();
     gtk_widget_show(rc);
+  } else {
+    /* rebuild package list */
+    if (excludes_modified == TRUE) {
+      excludes_modified = FALSE;
+      rebuild_treeviews(NULL,FALSE);
+    }
   }
 }
 
@@ -1899,6 +1917,7 @@ void preferences_exclude_add(GtkWidget *w, gpointer user_data)
     global_config->exclude_list->excludes = tmp_realloc;
     global_config->exclude_list->excludes[global_config->exclude_list->count] = ne;
     ++global_config->exclude_list->count;
+    excludes_modified = TRUE;
   }
 
   gtk_entry_set_text(new_exclude_entry,"");
@@ -1974,6 +1993,7 @@ void preferences_exclude_remove(GtkWidget *w, gpointer user_data)
         if ( global_config->exclude_list->count > 0 ) --global_config->exclude_list->count;
       }
 
+      excludes_modified = TRUE;
     }
 
     g_free(exclude);
@@ -2367,58 +2387,6 @@ static int set_iter_to_pkg(GtkTreeModel *model, GtkTreeIter *iter,
   return 0;
 }
 
-static void reset_pkg_view_status (void)
-{
-  gboolean valid;
-  GtkTreeIter iter;
-  GtkTreeModelFilter *filter_model;
-  GtkTreeModel *base_model;
-  GtkTreeView *treeview;
-  GtkTreeModelSort *package_model;
-
-  treeview = GTK_TREE_VIEW(lookup_widget(gslapt,"pkg_listing_treeview"));
-  package_model = GTK_TREE_MODEL_SORT(gtk_tree_view_get_model(treeview));
-
-  filter_model = GTK_TREE_MODEL_FILTER(gtk_tree_model_sort_get_model(GTK_TREE_MODEL_SORT(package_model)));
-  base_model = GTK_TREE_MODEL(gtk_tree_model_filter_get_model(GTK_TREE_MODEL_FILTER(filter_model)));
-  
-  valid = gtk_tree_model_get_iter_first(base_model,&iter);
-  while (valid) {
-    gchar *name = NULL,*version = NULL, *status = NULL;
-    gtk_tree_model_get(base_model,&iter,
-      NAME_COLUMN,&name,
-      VERSION_COLUMN,&version,
-      -1
-    );
-    if (name == NULL || version == NULL) {
-
-      if (name != NULL)
-        g_free(name);
-
-      if (version != NULL)
-        g_free(version);
-
-      valid = gtk_tree_model_iter_next(base_model,&iter);
-      continue;
-    }
-
-    if (slapt_get_exact_pkg(installed,name,version) == NULL) {
-      status = g_strdup_printf("z%s",name);
-      gtk_list_store_set(GTK_LIST_STORE(base_model),&iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_available.png"),-1);
-    } else {
-      status = g_strdup_printf("a%s",name);
-      gtk_list_store_set(GTK_LIST_STORE(base_model),&iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_installed.png"),-1);
-    }
-    gtk_list_store_set(GTK_LIST_STORE(base_model),&iter,STATUS_COLUMN,status,-1);
-    g_free(status);
-
-    g_free(name);
-    g_free(version);
-
-    valid = gtk_tree_model_iter_next(base_model,&iter);
-  }
-}
-
 void build_treeview_columns (GtkWidget *treeview)
 {
   GtkTreeSelection *select;
@@ -2672,10 +2640,6 @@ static void rebuild_package_action_menu (void)
 
 void unmark_all_activate (GtkMenuItem *menuitem, gpointer user_data)
 {
-  GdkCursor *c;
-
-  c = gdk_cursor_new(GDK_WATCH);
-  gdk_flush();
 
   lock_toolbar_buttons();
 
@@ -2683,13 +2647,11 @@ void unmark_all_activate (GtkMenuItem *menuitem, gpointer user_data)
   slapt_free_transaction(trans);
   slapt_init_transaction(trans);
 
-  /* rebuild_treeviews(NULL); */
-  reset_pkg_view_status();
+  rebuild_package_action_menu();
+  rebuild_treeviews(NULL,FALSE);
   unlock_toolbar_buttons();
   clear_execute_active();
-  rebuild_package_action_menu();
 
-  gdk_cursor_destroy(c);
 }
 
 static void reset_search_list (void)
