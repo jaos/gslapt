@@ -214,7 +214,7 @@ create_window_preferences (void)
   hbox95 = gtk_hbox_new (FALSE, 2);
   gtk_widget_set_name (hbox95, "hbox95");
   gtk_widget_show (hbox95);
-  gtk_box_pack_start (GTK_BOX (preferences_exclude_vbox_vbox), hbox95, TRUE, TRUE, 0);
+  gtk_box_pack_start (GTK_BOX (preferences_exclude_vbox_vbox), hbox95, FALSE, TRUE, 0);
   gtk_container_set_border_width (GTK_CONTAINER (hbox95), 6);
 
   label164 = gtk_label_new (_("<span weight=\"bold\">Exclude Expression:</span>"));
@@ -286,7 +286,6 @@ create_window_preferences (void)
   gtk_widget_set_name (preferences_sources_treeview, "preferences_sources_treeview");
   gtk_widget_show (preferences_sources_treeview);
   gtk_container_add (GTK_CONTAINER (scrolledwindow16), preferences_sources_treeview);
-  gtk_tree_view_set_headers_visible (GTK_TREE_VIEW (preferences_sources_treeview), FALSE);
   gtk_tree_view_set_rules_hint (GTK_TREE_VIEW (preferences_sources_treeview), TRUE);
 
   vbox58 = gtk_vbox_new (FALSE, 6);
@@ -303,7 +302,7 @@ create_window_preferences (void)
   hbox94 = gtk_hbox_new (FALSE, 2);
   gtk_widget_set_name (hbox94, "hbox94");
   gtk_widget_show (hbox94);
-  gtk_box_pack_start (GTK_BOX (vbox57), hbox94, TRUE, TRUE, 0);
+  gtk_box_pack_start (GTK_BOX (vbox57), hbox94, FALSE, TRUE, 0);
   gtk_container_set_border_width (GTK_CONTAINER (hbox94), 6);
 
   label163 = gtk_label_new (_("<span weight=\"bold\">SOURCE=</span>"));

@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gslapt 0.3.5\n"
+"Project-Id-Version: gslapt 0.3.6\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-05-06 11:10-0500\n"
-"PO-Revision-Date: 2005-08-05 13:00+0500\n"
+"PO-Revision-Date: 2005-08-24 17:20+0500\n"
 "Last-Translator: Pedro Pinto aka _PN_boy <pedro_nuno_pn@zmail.pt>\n"
 "Language-Team: slapt-get devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -444,4 +444,7 @@ msgstr "Reading Package Lists..."
 
 msgid "_Delete Cached Package Files"
 msgstr "_Delete Cached Package Files"
+
+msgid "Enabled"
+msgstr "Enabled"
 

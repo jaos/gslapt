@@ -34,6 +34,7 @@ extern struct slapt_pkg_list *all;
 extern struct slapt_pkg_list *installed;
 extern slapt_transaction_t *trans;
 extern char rc_location[];
+extern struct slapt_source_list *disabled_sources;
 
 
 static GtkWidget *progress_window;
@@ -41,6 +42,7 @@ static volatile guint _cancelled = 0;
 static gboolean sources_modified = FALSE;
 static gboolean excludes_modified = FALSE;
 static volatile guint pending_trans_context_id = 0;
+
 static int disk_space(int space_needed);
 static gboolean pkg_action_popup_menu (GtkTreeView *treeview, gpointer data);
 static int set_iter_to_pkg (GtkTreeModel *model, GtkTreeIter *iter,
@@ -68,6 +70,8 @@ static void notify (const char *title,const char *message);
 static void reset_search_list (void);
 static int ladd_deps_to_trans (slapt_transaction_t *tran, struct slapt_pkg_list *avail_pkgs,
                                struct slapt_pkg_list *installed_pkgs, slapt_pkg_info_t *pkg);
+static gboolean toggle_source_status (GtkTreeView *treeview, gpointer data);
+static void slapt_remove_source (struct slapt_source_list *list, const char *s);
 
 void on_gslapt_destroy (GtkObject *object, gpointer user_data) 
 {
@@ -1218,29 +1222,58 @@ static void build_sources_treeviewlist(GtkWidget *treeview)
   guint i = 0;
 
   store = gtk_list_store_new (
-    1, /* source url */
-    G_TYPE_STRING
+    3,
+    GDK_TYPE_PIXBUF,G_TYPE_STRING,G_TYPE_BOOLEAN
   );
 
-  for (i = 0; i < global_config->sources->count; ++i ) {
+  for (i = 0; i < global_config->sources->count; ++i) {
 
     if ( global_config->sources->url[i] == NULL ) continue;
 
     gtk_list_store_append(store, &iter);
-    gtk_list_store_set(store,&iter,0,global_config->sources->url[i],-1);
+    gtk_list_store_set(store,&iter,
+      0,create_pixbuf("pkg_action_installed.png"),
+      1,global_config->sources->url[i],
+      2,TRUE,
+      -1);
   }
+
+  /* show disabled sources here */
+  for (i = 0; i < disabled_sources->count; ++i) {
+    gtk_list_store_append(store, &iter);
+    gtk_list_store_set(store,&iter,
+      0,create_pixbuf("pkg_action_available.png"),
+      1,disabled_sources->url[i],
+      2,FALSE,
+      -1);
+  }
+
+  /* column for enabled status */
+  renderer = gtk_cell_renderer_pixbuf_new();
+  column = gtk_tree_view_column_new_with_attributes ((gchar *)_("Enabled"), renderer,
+    "pixbuf", 0, NULL);
+  gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
 
   /* column for url */
   renderer = gtk_cell_renderer_text_new();
   column = gtk_tree_view_column_new_with_attributes ((gchar *)_("Source"), renderer,
-    "text", 0, NULL);
-  gtk_tree_view_column_set_sort_column_id (column, 0);
+    "text", 1, NULL);
   gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
+
+  /* enabled/disabled bool column */
+  renderer = gtk_cell_renderer_toggle_new();
+  column = gtk_tree_view_column_new_with_attributes((gchar *)_("Visible"),renderer,
+    "radio",2,NULL);
+  gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
+  gtk_tree_view_column_set_visible(column,FALSE);
 
   gtk_tree_view_set_model (GTK_TREE_VIEW(treeview),GTK_TREE_MODEL(store));
 
   select = gtk_tree_view_get_selection (GTK_TREE_VIEW (treeview));
   gtk_tree_selection_set_mode (select, GTK_SELECTION_SINGLE);
+  g_signal_handlers_disconnect_by_func(G_OBJECT(treeview),toggle_source_status,NULL);
+  g_signal_connect(G_OBJECT(treeview),"cursor-changed",
+                   G_CALLBACK(toggle_source_status),NULL);
 
 }
 
@@ -1810,10 +1843,17 @@ void preferences_sources_remove (GtkWidget *w, gpointer user_data)
   if ( gtk_tree_selection_get_selected(select,&model,&iter)) {
     guint i = 0;
     gchar *source;
-    gchar *tmp = NULL;
     GList *columns;
+    gboolean status;
 
-    gtk_tree_model_get(model,&iter,0,&source, -1 );
+    gtk_tree_model_get(model,&iter,1,&source,2,&status, -1 );
+
+    if (status)
+      slapt_remove_source(global_config->sources,source);
+    else
+      slapt_remove_source(disabled_sources,source);
+
+    g_free(source);
 
     store = GTK_LIST_STORE(gtk_tree_view_get_model(source_tree));
     gtk_list_store_clear(store);
@@ -1826,33 +1866,6 @@ void preferences_sources_remove (GtkWidget *w, gpointer user_data)
       }
     }
     g_list_free(columns);
-
-    i = 0;
-    while ( i < global_config->sources->count ) {
-      if ( strcmp(source,global_config->sources->url[i]) == 0 && tmp == NULL ) {
-        tmp = global_config->sources->url[i];
-      }
-      if ( tmp != NULL && (i+1 < global_config->sources->count) ) {
-        global_config->sources->url[i] = global_config->sources->url[i + 1];
-      }
-      ++i;
-    }
-    if ( tmp != NULL ) {
-      char **realloc_tmp;
-      int count = global_config->sources->count - 1;
-      if ( count < 1 ) count = 1;
-
-      free(tmp);
-
-      realloc_tmp = realloc(global_config->sources->url,sizeof *global_config->sources->url * count );
-      if ( realloc_tmp != NULL ) {
-        global_config->sources->url = realloc_tmp;
-        if ( global_config->sources->count > 0 ) --global_config->sources->count;
-      }
-
-    }
-
-    g_free(source);
 
     build_sources_treeviewlist((GtkWidget *)source_tree);
     sources_modified = TRUE;
@@ -2028,6 +2041,10 @@ static gboolean write_preferences (void)
     fprintf(rc,"%s%s\n",SOURCE_TOKEN,global_config->sources->url[i]);
   }
 
+  for (i = 0; i < disabled_sources->count; ++i) {
+    fprintf(rc,"#DISABLED=%s\n",disabled_sources->url[i]);
+  }
+
   fclose(rc);
 
   return TRUE;
@@ -2036,9 +2053,16 @@ static gboolean write_preferences (void)
 
 void cancel_preferences (GtkWidget *w, gpointer user_data)
 {
+  guint i;
   gtk_widget_destroy(w);
   slapt_free_rc_config(global_config);
   global_config = slapt_read_rc_config(rc_location);
+  for (i = 0; i < disabled_sources->count; ++i) {
+    free(disabled_sources->url[i]);
+  }
+  free(disabled_sources->url);
+  free(disabled_sources);
+  disabled_sources = parse_disabled_package_sources(rc_location);
 }
 
 
@@ -2717,5 +2741,122 @@ void mark_all_upgrades_activate (GtkMenuItem *menuitem, gpointer user_data)
 void execute_activate (GtkMenuItem *menuitem, gpointer user_data)
 {
   return execute_callback(NULL,NULL);
+}
+
+struct slapt_source_list *parse_disabled_package_sources (const char *file_name)
+{
+  FILE *rc = NULL;
+  char *getline_buffer = NULL;
+  size_t gb_length = 0;
+  ssize_t g_size;
+  struct slapt_source_list *list = slapt_malloc(sizeof *list);
+  list->url = slapt_malloc(sizeof *list->url);
+  list->count = 0;
+
+  rc = slapt_open_file(file_name,"r");
+  if (rc == NULL)
+    return list;
+
+  while ( (g_size = getline(&getline_buffer,&gb_length,rc) ) != EOF ) {
+    char *nl = NULL;
+    if ((nl = strchr(getline_buffer,'\n')) != NULL) {
+      nl[0] = '\0';
+    }
+
+    if (strstr(getline_buffer,"#DISABLED=") != NULL) {
+      if (g_size > 10) {
+        slapt_add_source(list,getline_buffer + 10);
+      }
+    }
+  }
+  if (getline_buffer)
+    free(getline_buffer);
+
+  fclose(rc);
+
+  return list;
+}
+
+static gboolean toggle_source_status (GtkTreeView *treeview, gpointer data)
+{
+  GtkMenu *menu;
+  GdkEventButton *event = (GdkEventButton *)gtk_get_current_event();
+  GtkTreeViewColumn *column;
+  GtkTreeSelection *selection = gtk_tree_view_get_selection(treeview);
+  GtkTreePath *path;
+  GtkTreeModel *model;
+  GtkTreeIter iter;
+
+  if (event->type != GDK_BUTTON_PRESS)
+    return FALSE;
+
+  if (!gtk_tree_view_get_path_at_pos(treeview,event->x,event->y,&path,&column,NULL,NULL))
+    return FALSE;
+
+  if (strcmp(column->title,(gchar *)_("Enabled")) != 0)
+    return FALSE;
+
+  gtk_tree_path_free(path);
+
+  if ( gtk_tree_selection_get_selected(selection,&model,&iter)) {
+    gchar *source;
+    gboolean status;
+
+    gtk_tree_model_get(model,&iter,1,&source,2,&status,-1 );
+
+    if (status) { /* is active */
+      /* remove from source list, add to disabled_sources */
+      slapt_remove_source(global_config->sources,source);
+      slapt_add_source(disabled_sources,source);
+      gtk_list_store_set(GTK_LIST_STORE(model),&iter,
+                         0,create_pixbuf("pkg_action_available.png"),
+                         2,FALSE,
+                         -1);
+      sources_modified = TRUE;
+    } else { /* is not active */
+      /* remove from disabled_sources, add to source list */
+      slapt_remove_source(disabled_sources,source);
+      slapt_add_source(global_config->sources,source);
+      gtk_list_store_set(GTK_LIST_STORE(model),&iter,
+                         0,create_pixbuf("pkg_action_installed.png"),
+                         2,TRUE,
+                         -1);
+      sources_modified = TRUE;
+    }
+
+    g_free(source);
+  }
+}
+
+static void slapt_remove_source (struct slapt_source_list *list, const char *s)
+{
+  gchar *tmp = NULL;
+  guint i = 0;
+
+  while ( i < list->count ) {
+    if ( strcmp(s,list->url[i]) == 0 && tmp == NULL ) {
+      tmp = list->url[i];
+    }
+    if ( tmp != NULL && (i+1 < list->count) ) {
+      list->url[i] = list->url[i + 1];
+    }
+    ++i;
+  }
+  if ( tmp != NULL ) {
+    char **realloc_tmp;
+    int count = list->count - 1;
+    if ( count < 1 ) count = 1;
+
+    free(tmp);
+
+    realloc_tmp = realloc(list->url,sizeof *list->url * count );
+    if ( realloc_tmp != NULL ) {
+      list->url = realloc_tmp;
+      if (list->count > 0)
+        --list->count;
+    }
+
+  }
+
 }
 

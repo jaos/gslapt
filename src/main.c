@@ -32,6 +32,7 @@ GtkWidget *gslapt;
 slapt_transaction_t tran;
 slapt_transaction_t *trans = &tran;
 char rc_location[1024];
+struct slapt_source_list *disabled_sources;
 
 int main (int argc, char *argv[]) {
   GtkStatusbar *bar;
@@ -138,11 +139,15 @@ int main (int argc, char *argv[]) {
   if (rc == NULL) {
     global_config = slapt_read_rc_config(RC_LOCATION);
     strncpy(rc_location,RC_LOCATION,1023);
+    disabled_sources = parse_disabled_package_sources(rc_location);
   } else {
     global_config = slapt_read_rc_config(rc);
     strncpy(rc_location,rc,1023);
     g_free(rc);
+    disabled_sources = parse_disabled_package_sources(rc_location);
   }
+  if (global_config == NULL)
+    exit(1);
   slapt_working_dir_init(global_config);
   chdir(global_config->working_dir);
   global_config->progress_cb = gtk_progress_callback;
