@@ -31,6 +31,7 @@ struct slapt_pkg_list *all;
 GtkWidget *gslapt;
 slapt_transaction_t tran;
 slapt_transaction_t *trans = &tran;
+char rc_location[1024];
 
 int main (int argc, char *argv[]) {
   GtkStatusbar *bar;
@@ -136,8 +137,10 @@ int main (int argc, char *argv[]) {
 
   if (rc == NULL) {
     global_config = slapt_read_rc_config(RC_LOCATION);
+    strncpy(rc_location,RC_LOCATION,1023);
   } else {
     global_config = slapt_read_rc_config(rc);
+    strncpy(rc_location,rc,1023);
     g_free(rc);
   }
   slapt_working_dir_init(global_config);

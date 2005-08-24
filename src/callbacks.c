@@ -33,6 +33,7 @@ extern slapt_rc_config *global_config;
 extern struct slapt_pkg_list *all;
 extern struct slapt_pkg_list *installed;
 extern slapt_transaction_t *trans;
+extern char rc_location[];
 
 
 static GtkWidget *progress_window;
@@ -2008,7 +2009,7 @@ static gboolean write_preferences (void)
   guint i;
   FILE *rc;
 
-  rc = slapt_open_file(RC_LOCATION,"w+");
+  rc = slapt_open_file(rc_location,"w+");
   if ( rc == NULL ) return FALSE;
 
   fprintf(rc,"%s%s\n",WORKINGDIR_TOKEN,global_config->working_dir);
@@ -2037,7 +2038,7 @@ void cancel_preferences (GtkWidget *w, gpointer user_data)
 {
   gtk_widget_destroy(w);
   slapt_free_rc_config(global_config);
-  global_config = slapt_read_rc_config(RC_LOCATION);
+  global_config = slapt_read_rc_config(rc_location);
 }
 
 
