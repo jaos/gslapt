@@ -71,7 +71,6 @@ static void reset_search_list (void);
 static int ladd_deps_to_trans (slapt_transaction_t *tran, struct slapt_pkg_list *avail_pkgs,
                                struct slapt_pkg_list *installed_pkgs, slapt_pkg_info_t *pkg);
 static gboolean toggle_source_status (GtkTreeView *treeview, gpointer data);
-static void slapt_remove_source (struct slapt_source_list *list, const char *s);
 
 void on_gslapt_destroy (GtkObject *object, gpointer user_data) 
 {
@@ -2826,37 +2825,5 @@ static gboolean toggle_source_status (GtkTreeView *treeview, gpointer data)
 
     g_free(source);
   }
-}
-
-static void slapt_remove_source (struct slapt_source_list *list, const char *s)
-{
-  gchar *tmp = NULL;
-  guint i = 0;
-
-  while ( i < list->count ) {
-    if ( strcmp(s,list->url[i]) == 0 && tmp == NULL ) {
-      tmp = list->url[i];
-    }
-    if ( tmp != NULL && (i+1 < list->count) ) {
-      list->url[i] = list->url[i + 1];
-    }
-    ++i;
-  }
-  if ( tmp != NULL ) {
-    char **realloc_tmp;
-    int count = list->count - 1;
-    if ( count < 1 ) count = 1;
-
-    free(tmp);
-
-    realloc_tmp = realloc(list->url,sizeof *list->url * count );
-    if ( realloc_tmp != NULL ) {
-      list->url = realloc_tmp;
-      if (list->count > 0)
-        --list->count;
-    }
-
-  }
-
 }
 

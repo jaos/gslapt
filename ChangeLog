@@ -1,5 +1,6 @@
 
 0.3.6 Aug 24, 2005
+ * requires libslapt 0.9.10c
  * initial support for disabling package sources
  * make sure that --config [] is always honored when editing preferences
  * set busy cursor whenever resetting package attributes in package view
