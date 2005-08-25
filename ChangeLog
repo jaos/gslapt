@@ -1,5 +1,7 @@
 
 0.3.6 Aug 25, 2005
+ * fixed progress callback going away after cancelling preference changes and
+   resetting configuration.
  * dependency and conflict error dialog is now more informative with exactly
    what went wrong
  * requires libslapt 0.9.10c

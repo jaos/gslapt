@@ -2061,6 +2061,7 @@ void cancel_preferences (GtkWidget *w, gpointer user_data)
   gtk_widget_destroy(w);
   slapt_free_rc_config(global_config);
   global_config = slapt_read_rc_config(rc_location);
+  global_config->progress_cb = gtk_progress_callback;
   for (i = 0; i < disabled_sources->count; ++i) {
     free(disabled_sources->url[i]);
   }
