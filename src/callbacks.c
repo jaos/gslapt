@@ -71,7 +71,7 @@ static void reset_search_list (void);
 static int ladd_deps_to_trans (slapt_transaction_t *tran, struct slapt_pkg_list *avail_pkgs,
                                struct slapt_pkg_list *installed_pkgs, slapt_pkg_info_t *pkg);
 static gboolean toggle_source_status (GtkTreeView *treeview, gpointer data);
-static void display_dep_error_dialog (const char *msg);
+static void display_dep_error_dialog (const char *msg,guint m, guint c);
 
 void on_gslapt_destroy (GtkObject *object, gpointer user_data) 
 {
@@ -288,8 +288,7 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
 
     }else{
       gchar *msg = g_strdup_printf("Excluding %s due to dependency failure\n",pkg->name);
-      /* notify((gchar *)_("Error"),msg); */
-      display_dep_error_dialog(msg);
+      display_dep_error_dialog(msg,missing_count,conflict_count);
       slapt_add_exclude_to_transaction(trans,pkg);
       g_free(msg);
     }
@@ -302,6 +301,8 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
       ((ver_cmp = slapt_cmp_pkgs(installed_pkg,pkg)) < 0) ||
       (global_config->re_install == TRUE)
     ) {
+        guint missing_count = trans->missing_err->err_count,
+          conflict_count = trans->conflict_err->err_count;
 
       if ( ladd_deps_to_trans(trans,all,installed,pkg) == 0 ) {
         slapt_pkg_info_t *conflicted_pkg = NULL;
@@ -364,8 +365,7 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
 
       }else{
         gchar *msg = g_strdup_printf("Excluding %s due to dependency failure\n",pkg->name);
-        /* notify((gchar *)_("Error"),msg); */
-        display_dep_error_dialog(msg);
+        display_dep_error_dialog(msg,missing_count,conflict_count);
         slapt_add_exclude_to_transaction(trans,pkg);
         g_free(msg);
       }
@@ -2954,7 +2954,7 @@ static gboolean toggle_source_status (GtkTreeView *treeview, gpointer data)
   }
 }
 
-static void display_dep_error_dialog (const char *msg)
+static void display_dep_error_dialog (const char *msg,guint m, guint c)
 {
   GtkWidget *w = create_dep_error_dialog();
   GtkTextBuffer *error_buf = NULL;
@@ -2966,7 +2966,10 @@ static void display_dep_error_dialog (const char *msg)
                             TRUE);
   error_buf = gtk_text_view_get_buffer(GTK_TEXT_VIEW(lookup_widget(w,"dep_error_text")));
 
-  for (i = 0; i < trans->missing_err->err_count; ++i) {
+  if (m == trans->missing_err->err_count)
+    m = 0;
+
+  for (i = m; i < trans->missing_err->err_count; ++i) {
     unsigned int len = strlen(trans->missing_err->errs[i]->pkg) +
                               strlen((gchar *)_(": Depends: ")) +
                               strlen(trans->missing_err->errs[i]->error) + 2;
@@ -2976,7 +2979,11 @@ static void display_dep_error_dialog (const char *msg)
     gtk_text_buffer_insert_at_cursor(error_buf,err,-1);
     free(err);
   }
-  for (i = 0; i < trans->conflict_err->err_count; ++i) {
+
+  if (c == trans->conflict_err->err_count)
+    c = 0;
+
+  for (i = c; i < trans->conflict_err->err_count; ++i) {
     unsigned int len = strlen(trans->conflict_err->errs[i]->error) +
                               strlen((gchar *)_(", which is required by ")) +
                               strlen(trans->conflict_err->errs[i]->pkg) +
