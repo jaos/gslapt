@@ -71,6 +71,7 @@ static void reset_search_list (void);
 static int ladd_deps_to_trans (slapt_transaction_t *tran, struct slapt_pkg_list *avail_pkgs,
                                struct slapt_pkg_list *installed_pkgs, slapt_pkg_info_t *pkg);
 static gboolean toggle_source_status (GtkTreeView *treeview, gpointer data);
+static void display_dep_error_dialog (const char *msg);
 
 void on_gslapt_destroy (GtkObject *object, gpointer user_data) 
 {
@@ -259,6 +260,8 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
 
   /* if it is not already installed, install it */
   if ( installed_pkg == NULL ) {
+    guint missing_count = trans->missing_err->err_count,
+          conflict_count = trans->conflict_err->err_count;
 
     if ( ladd_deps_to_trans(trans,all,installed,pkg) == 0 ) {
       slapt_pkg_info_t *conflicted_pkg = NULL;
@@ -285,7 +288,8 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
 
     }else{
       gchar *msg = g_strdup_printf("Excluding %s due to dependency failure\n",pkg->name);
-      notify((gchar *)_("Error"),msg);
+      /* notify((gchar *)_("Error"),msg); */
+      display_dep_error_dialog(msg);
       slapt_add_exclude_to_transaction(trans,pkg);
       g_free(msg);
     }
@@ -360,7 +364,8 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
 
       }else{
         gchar *msg = g_strdup_printf("Excluding %s due to dependency failure\n",pkg->name);
-        notify((gchar *)_("Error"),msg);
+        /* notify((gchar *)_("Error"),msg); */
+        display_dep_error_dialog(msg);
         slapt_add_exclude_to_transaction(trans,pkg);
         g_free(msg);
       }
@@ -2825,5 +2830,45 @@ static gboolean toggle_source_status (GtkTreeView *treeview, gpointer data)
 
     g_free(source);
   }
+}
+
+static void display_dep_error_dialog (const char *msg)
+{
+  GtkWidget *w = create_dep_error_dialog();
+  GtkTextBuffer *error_buf = NULL;
+  guint i;
+
+  gtk_window_set_title (GTK_WINDOW(w),_("Error"));
+  gtk_label_set_text(GTK_LABEL(lookup_widget(w,"dep_error_label")),msg);
+  gtk_label_set_use_markup (GTK_LABEL(lookup_widget(w,"dep_error_label")),
+                            TRUE);
+  error_buf = gtk_text_view_get_buffer(GTK_TEXT_VIEW(lookup_widget(w,"dep_error_text")));
+
+  for (i = 0; i < trans->missing_err->err_count; ++i) {
+    unsigned int len = strlen(trans->missing_err->errs[i]->pkg) +
+                              strlen((gchar *)_(": Depends: ")) +
+                              strlen(trans->missing_err->errs[i]->error) + 2;
+    char *err = slapt_malloc(sizeof *err * len);
+    snprintf(err,len,"%s: Depends: %s\n",trans->missing_err->errs[i]->pkg,
+             trans->missing_err->errs[i]->error);
+    gtk_text_buffer_insert_at_cursor(error_buf,err,-1);
+    free(err);
+  }
+  for (i = 0; i < trans->conflict_err->err_count; ++i) {
+    unsigned int len = strlen(trans->conflict_err->errs[i]->error) +
+                              strlen((gchar *)_(", which is required by ")) +
+                              strlen(trans->conflict_err->errs[i]->pkg) +
+                              strlen((gchar *)_(", is excluded")) + 2;
+    char *err = slapt_malloc(sizeof *err * len);
+    snprintf(err,len,"%s%s%s%s\n",
+             trans->conflict_err->errs[i]->error,
+             (gchar *)_(", which is required by "),
+             trans->conflict_err->errs[i]->pkg,
+             (gchar *)_(", is excluded"));
+    gtk_text_buffer_insert_at_cursor(error_buf,err,-1);
+    free(err);
+  }
+
+  gtk_widget_show(w);
 }
 

@@ -2395,3 +2395,87 @@ create_repositories_changed (void)
   return repositories_changed;
 }
 
+GtkWidget*
+create_dep_error_dialog (void)
+{
+  GtkWidget *dep_error_dialog;
+  GdkPixbuf *dep_error_dialog_icon_pixbuf;
+  GtkWidget *dialog_vbox6;
+  GtkWidget *vbox71;
+  GtkWidget *dep_error_label;
+  GtkWidget *scrolledwindow22;
+  GtkWidget *dep_error_text;
+  GtkWidget *dialog_action_area6;
+  GtkWidget *closebutton3;
+
+  dep_error_dialog = gtk_dialog_new ();
+  gtk_widget_set_name (dep_error_dialog, "dep_error_dialog");
+  gtk_container_set_border_width (GTK_CONTAINER (dep_error_dialog), 2);
+  gtk_window_set_position (GTK_WINDOW (dep_error_dialog), GTK_WIN_POS_CENTER);
+  gtk_window_set_modal (GTK_WINDOW (dep_error_dialog), TRUE);
+  dep_error_dialog_icon_pixbuf = create_pixbuf ("gslapt.png");
+  if (dep_error_dialog_icon_pixbuf)
+    {
+      gtk_window_set_icon (GTK_WINDOW (dep_error_dialog), dep_error_dialog_icon_pixbuf);
+      gdk_pixbuf_unref (dep_error_dialog_icon_pixbuf);
+    }
+  gtk_window_set_type_hint (GTK_WINDOW (dep_error_dialog), GDK_WINDOW_TYPE_HINT_DIALOG);
+  gtk_window_set_gravity (GTK_WINDOW (dep_error_dialog), GDK_GRAVITY_CENTER);
+
+  dialog_vbox6 = GTK_DIALOG (dep_error_dialog)->vbox;
+  gtk_widget_set_name (dialog_vbox6, "dialog_vbox6");
+  gtk_widget_show (dialog_vbox6);
+
+  vbox71 = gtk_vbox_new (FALSE, 0);
+  gtk_widget_set_name (vbox71, "vbox71");
+  gtk_widget_show (vbox71);
+  gtk_box_pack_start (GTK_BOX (dialog_vbox6), vbox71, TRUE, TRUE, 0);
+
+  dep_error_label = gtk_label_new ("");
+  gtk_widget_set_name (dep_error_label, "dep_error_label");
+  gtk_widget_show (dep_error_label);
+  gtk_box_pack_start (GTK_BOX (vbox71), dep_error_label, FALSE, FALSE, 0);
+  gtk_label_set_use_markup (GTK_LABEL (dep_error_label), TRUE);
+
+  scrolledwindow22 = gtk_scrolled_window_new (NULL, NULL);
+  gtk_widget_set_name (scrolledwindow22, "scrolledwindow22");
+  gtk_widget_show (scrolledwindow22);
+  gtk_box_pack_start (GTK_BOX (vbox71), scrolledwindow22, TRUE, TRUE, 0);
+  gtk_container_set_border_width (GTK_CONTAINER (scrolledwindow22), 2);
+  gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolledwindow22), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
+
+  dep_error_text = gtk_text_view_new ();
+  gtk_widget_set_name (dep_error_text, "dep_error_text");
+  gtk_widget_show (dep_error_text);
+  gtk_container_add (GTK_CONTAINER (scrolledwindow22), dep_error_text);
+  gtk_container_set_border_width (GTK_CONTAINER (dep_error_text), 2);
+  gtk_text_view_set_cursor_visible (GTK_TEXT_VIEW (dep_error_text), FALSE);
+
+  dialog_action_area6 = GTK_DIALOG (dep_error_dialog)->action_area;
+  gtk_widget_set_name (dialog_action_area6, "dialog_action_area6");
+  gtk_widget_show (dialog_action_area6);
+  gtk_button_box_set_layout (GTK_BUTTON_BOX (dialog_action_area6), GTK_BUTTONBOX_END);
+
+  closebutton3 = gtk_button_new_from_stock ("gtk-close");
+  gtk_widget_set_name (closebutton3, "closebutton3");
+  gtk_widget_show (closebutton3);
+  gtk_dialog_add_action_widget (GTK_DIALOG (dep_error_dialog), closebutton3, GTK_RESPONSE_CLOSE);
+  GTK_WIDGET_SET_FLAGS (closebutton3, GTK_CAN_DEFAULT);
+
+  g_signal_connect_swapped ((gpointer) closebutton3, "clicked",
+                            G_CALLBACK (gtk_widget_destroy),
+                            GTK_OBJECT (dep_error_dialog));
+
+  /* Store pointers to all widgets, for use by lookup_widget(). */
+  GLADE_HOOKUP_OBJECT_NO_REF (dep_error_dialog, dep_error_dialog, "dep_error_dialog");
+  GLADE_HOOKUP_OBJECT_NO_REF (dep_error_dialog, dialog_vbox6, "dialog_vbox6");
+  GLADE_HOOKUP_OBJECT (dep_error_dialog, vbox71, "vbox71");
+  GLADE_HOOKUP_OBJECT (dep_error_dialog, dep_error_label, "dep_error_label");
+  GLADE_HOOKUP_OBJECT (dep_error_dialog, scrolledwindow22, "scrolledwindow22");
+  GLADE_HOOKUP_OBJECT (dep_error_dialog, dep_error_text, "dep_error_text");
+  GLADE_HOOKUP_OBJECT_NO_REF (dep_error_dialog, dialog_action_area6, "dialog_action_area6");
+  GLADE_HOOKUP_OBJECT (dep_error_dialog, closebutton3, "closebutton3");
+
+  return dep_error_dialog;
+}
+
