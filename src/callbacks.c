@@ -1155,6 +1155,8 @@ static void rebuild_treeviews (GtkWidget *current_window,gboolean reload)
   GtkListStore *store;
   GtkTreeModelFilter *filter_model;
   GtkTreeModelSort *package_model;
+  const gchar *search_text = gtk_entry_get_text(
+    GTK_ENTRY(lookup_widget(gslapt,"search_entry")));
 
   if (current_window == NULL) {
     gdk_window_set_cursor(gslapt->window,c);
@@ -1184,10 +1186,20 @@ static void rebuild_treeviews (GtkWidget *current_window,gboolean reload)
   filter_model = GTK_TREE_MODEL_FILTER(gtk_tree_model_sort_get_model(GTK_TREE_MODEL_SORT(package_model)));
   store = GTK_LIST_STORE(gtk_tree_model_filter_get_model(GTK_TREE_MODEL_FILTER(filter_model)));
   gtk_list_store_clear(store);
-  gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"search_entry")),"");
+
+  if (reload == TRUE) {
+    gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"search_entry")),"");
+    gtk_widget_set_sensitive(lookup_widget(gslapt,"clear_button"),FALSE);
+  }
 
   rebuild_package_action_menu();
   build_package_treeviewlist(treeview);
+
+  if ((reload == FALSE) && (strcmp(search_text,"") != 0)) {
+    gchar *search = g_strdup(search_text);
+    build_searched_treeviewlist(GTK_WIDGET(treeview),search);
+    g_free(search);
+  }
 }
 
 static guint gslapt_set_status (const gchar *msg)
