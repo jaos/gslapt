@@ -1,5 +1,7 @@
 
 0.3.6 Aug 25, 2005
+ * updated the display of dependencies, suggestions, and conflicts in the
+   package information tabs.  It should now be easier to read at a glance.
  * fixed progress callback going away after cancelling preference changes and
    resetting configuration.
  * dependency and conflict error dialog is now more informative with exactly

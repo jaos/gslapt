@@ -701,6 +701,13 @@ static void fillin_pkg_details (slapt_pkg_info_t *pkg)
 {
   gchar *short_desc;
   GtkTextBuffer *pkg_full_desc;
+  GtkTreeStore *store;
+  GtkTreeIter iter;
+  GtkCellRenderer *renderer;
+  GtkTreeViewColumn *column;
+  GList *columns;
+  guint i;
+  GtkWidget *treeview = lookup_widget(gslapt,"dep_conf_sug_treeview");
   slapt_pkg_info_t *latest_pkg = slapt_get_newest_pkg(all,pkg->name);
   slapt_pkg_info_t *installed_pkg = slapt_get_newest_pkg(installed,pkg->name);
 
@@ -715,22 +722,133 @@ static void fillin_pkg_details (slapt_pkg_info_t *pkg)
   } else {
     gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_description")),"");
   }
+
   /* dependency information tab */
-  if ( pkg->required != NULL ) {
-    gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_required")),pkg->required);
-  } else {
-    gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_required")),"");
+  store = gtk_tree_store_new(1,G_TYPE_STRING);
+
+  gtk_tree_store_append(store,&iter,NULL);
+  gtk_tree_store_set(store,&iter,0,_("<b>Required:</b>"),-1);
+
+  if (pkg->required != NULL && strlen(pkg->required) > 2) {
+    GtkTreeIter child_iter;
+    int position = 0, len = strlen(pkg->required);
+
+    while (position < len) {
+      char *ptr = pkg->required + position;
+      if (strstr(ptr,",") == NULL) {
+        gtk_tree_store_append(store,&child_iter,&iter);
+        gtk_tree_store_set(store,&child_iter,0,ptr,-1);
+        position += strlen(ptr);
+        break;
+      } else {
+        char *buffer = NULL,*token = NULL;
+
+        if ((pkg->required[position] == ',') || (pkg->required[position] == ' ')) {
+          ++position;
+          continue;
+        }
+
+        token = strchr(ptr,',');
+        buffer = strndup(ptr,strlen(ptr) - strlen(token));
+
+        gtk_tree_store_append(store,&child_iter,&iter);
+        gtk_tree_store_set(store,&child_iter,0,buffer,-1);
+
+        position += strlen(ptr) - strlen(token);
+        free(buffer);
+      }
+      
+    }
   }
-  if ( pkg->conflicts != NULL ) {
-    gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_conflicts")),pkg->conflicts);
-  } else {
-    gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_conflicts")),"");
+
+  gtk_tree_store_append(store, &iter,NULL);
+  gtk_tree_store_set(store,&iter,0,_("<b>Conflicts:</b>"), -1);
+
+  if (pkg->conflicts != NULL && strlen(pkg->conflicts) > 2) {
+    GtkTreeIter child_iter;
+    int position = 0, len = strlen(pkg->conflicts);
+
+    while (position < len) {
+      char *ptr = pkg->conflicts + position;
+      if (strstr(ptr,",") == NULL) {
+        gtk_tree_store_append(store,&child_iter,&iter);
+        gtk_tree_store_set(store,&child_iter,0,ptr,-1);
+        position += strlen(ptr);
+        break;
+      } else {
+        char *buffer = NULL,*token = NULL;
+
+        if ((pkg->conflicts[position] == ',') || (pkg->conflicts[position] == ' ')) {
+          ++position;
+          continue;
+        }
+
+        token = strchr(ptr,',');
+        buffer = strndup(ptr,strlen(ptr) - strlen(token));
+
+        gtk_tree_store_append(store,&child_iter,&iter);
+        gtk_tree_store_set(store,&child_iter,0,buffer,-1);
+
+        position += strlen(ptr) - strlen(token);
+        free(buffer);
+      }
+    }
   }
-  if ( pkg->suggests != NULL ) {
-    gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_suggests")),pkg->suggests);
-  } else {
-    gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_suggests")),"");
+
+  gtk_tree_store_append(store, &iter,NULL);
+  gtk_tree_store_set(store,&iter,0,_("<b>Suggests:</b>"),-1);
+
+  if (pkg->suggests != NULL && strlen(pkg->suggests) > 2) {
+    GtkTreeIter child_iter;
+    int position = 0, len = strlen(pkg->suggests);
+
+    while (position < len) {
+      char *ptr = pkg->suggests + position;
+      if ((strstr(ptr,",") == NULL) && (strstr(ptr," ") == NULL)) {
+        gtk_tree_store_append(store,&child_iter,&iter);
+        gtk_tree_store_set(store,&child_iter,0,ptr,-1);
+        position += strlen(ptr);
+        break;
+      } else {
+        char *buffer = NULL,*token = NULL;
+
+        if ((pkg->suggests[position] == ',') || (pkg->suggests[position] == ' ')) {
+          ++position;
+          continue;
+        }
+
+        token = strpbrk(ptr,", ");
+        if (token == NULL)
+          break;
+
+        buffer = strndup(ptr,strlen(ptr) - strlen(token));
+
+        gtk_tree_store_append(store,&child_iter,&iter);
+        gtk_tree_store_set(store,&child_iter,0,buffer,-1);
+
+        position += strlen(ptr) - strlen(token);
+        free(buffer);
+      }
+    }
   }
+
+  columns = gtk_tree_view_get_columns(GTK_TREE_VIEW(treeview));
+  for (i = 0; i < g_list_length(columns); i++ ) {
+    GtkTreeViewColumn *my_column = GTK_TREE_VIEW_COLUMN(g_list_nth_data(columns,i));
+    if ( my_column != NULL ) {
+      gtk_tree_view_remove_column(GTK_TREE_VIEW(treeview),my_column);
+    }
+  }
+  g_list_free(columns);
+
+  renderer = gtk_cell_renderer_text_new();
+  column = gtk_tree_view_column_new_with_attributes ((gchar *)_("Source"), renderer,
+    "markup", 0, NULL);
+  gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
+
+  gtk_tree_view_set_model (GTK_TREE_VIEW(treeview),GTK_TREE_MODEL(store));
+  gtk_tree_view_expand_all(GTK_TREE_VIEW(treeview));
+
   /* description tab */
   pkg_full_desc = gtk_text_view_get_buffer(GTK_TEXT_VIEW(lookup_widget(gslapt,"pkg_description_textview")));
   gtk_text_buffer_set_text(pkg_full_desc,pkg->description,-1);
@@ -1232,7 +1350,8 @@ static void build_sources_treeviewlist(GtkWidget *treeview)
 
   for (i = 0; i < global_config->sources->count; ++i) {
 
-    if ( global_config->sources->url[i] == NULL ) continue;
+    if ( global_config->sources->url[i] == NULL )
+      continue;
 
     gtk_list_store_append(store, &iter);
     gtk_list_store_set(store,&iter,
@@ -1297,7 +1416,8 @@ static void build_exclude_treeviewlist(GtkWidget *treeview)
 
   for (i = 0; i < global_config->exclude_list->count; i++ ) {
 
-    if ( global_config->exclude_list->excludes[i] == NULL ) continue;
+    if ( global_config->exclude_list->excludes[i] == NULL )
+      continue;
 
     gtk_list_store_append (store, &iter);
     gtk_list_store_set(store,&iter,0,global_config->exclude_list->excludes[i],-1);
@@ -1507,7 +1627,8 @@ static void mark_upgrade_packages (void)
     */
     if ( (newer_installed_pkg = slapt_get_newest_pkg(installed,installed->pkgs[i]->name)) != NULL ) {
 
-      if ( slapt_cmp_pkgs(installed->pkgs[i],newer_installed_pkg) < 0 ) continue;
+      if ( slapt_cmp_pkgs(installed->pkgs[i],newer_installed_pkg) < 0 )
+        continue;
 
     }
 

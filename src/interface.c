@@ -537,15 +537,7 @@ create_gslapt (void)
   GtkWidget *pkg_description_textview;
   GtkWidget *pkg_info_description_label;
   GtkWidget *scrolledwindow21;
-  GtkWidget *viewport2;
-  GtkWidget *pkg_info_dep_vbox;
-  GtkWidget *table4;
-  GtkWidget *label247;
-  GtkWidget *label248;
-  GtkWidget *label249;
-  GtkWidget *pkg_info_required;
-  GtkWidget *pkg_info_conflicts;
-  GtkWidget *pkg_info_suggests;
+  GtkWidget *dep_conf_sug_treeview;
   GtkWidget *pkg_info_dependencies_label;
   GtkWidget *bottom_statusbar;
   GtkAccelGroup *accel_group;
@@ -1236,83 +1228,12 @@ create_gslapt (void)
   gtk_container_set_border_width (GTK_CONTAINER (scrolledwindow21), 12);
   gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolledwindow21), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
 
-  viewport2 = gtk_viewport_new (NULL, NULL);
-  gtk_widget_set_name (viewport2, "viewport2");
-  gtk_widget_show (viewport2);
-  gtk_container_add (GTK_CONTAINER (scrolledwindow21), viewport2);
-
-  pkg_info_dep_vbox = gtk_vbox_new (FALSE, 18);
-  gtk_widget_set_name (pkg_info_dep_vbox, "pkg_info_dep_vbox");
-  gtk_widget_show (pkg_info_dep_vbox);
-  gtk_container_add (GTK_CONTAINER (viewport2), pkg_info_dep_vbox);
-  gtk_container_set_border_width (GTK_CONTAINER (pkg_info_dep_vbox), 6);
-
-  table4 = gtk_table_new (3, 2, FALSE);
-  gtk_widget_set_name (table4, "table4");
-  gtk_widget_show (table4);
-  gtk_box_pack_start (GTK_BOX (pkg_info_dep_vbox), table4, FALSE, FALSE, 0);
-  gtk_table_set_row_spacings (GTK_TABLE (table4), 6);
-  gtk_table_set_col_spacings (GTK_TABLE (table4), 12);
-
-  label247 = gtk_label_new (_("<b>Required:</b>"));
-  gtk_widget_set_name (label247, "label247");
-  gtk_widget_show (label247);
-  gtk_table_attach (GTK_TABLE (table4), label247, 0, 1, 0, 1,
-                    (GtkAttachOptions) (GTK_FILL),
-                    (GtkAttachOptions) (0), 0, 0);
-  gtk_label_set_use_markup (GTK_LABEL (label247), TRUE);
-  gtk_misc_set_alignment (GTK_MISC (label247), 0, 0.5);
-
-  label248 = gtk_label_new (_("<b>Conflicts:</b>"));
-  gtk_widget_set_name (label248, "label248");
-  gtk_widget_show (label248);
-  gtk_table_attach (GTK_TABLE (table4), label248, 0, 1, 1, 2,
-                    (GtkAttachOptions) (GTK_FILL),
-                    (GtkAttachOptions) (0), 0, 0);
-  gtk_label_set_use_markup (GTK_LABEL (label248), TRUE);
-  gtk_misc_set_alignment (GTK_MISC (label248), 0, 0.5);
-
-  label249 = gtk_label_new (_("<b>Suggests:</b>"));
-  gtk_widget_set_name (label249, "label249");
-  gtk_widget_show (label249);
-  gtk_table_attach (GTK_TABLE (table4), label249, 0, 1, 2, 3,
-                    (GtkAttachOptions) (GTK_FILL),
-                    (GtkAttachOptions) (0), 0, 0);
-  gtk_label_set_use_markup (GTK_LABEL (label249), TRUE);
-  gtk_misc_set_alignment (GTK_MISC (label249), 0, 0.5);
-
-  pkg_info_required = gtk_label_new ("");
-  gtk_widget_set_name (pkg_info_required, "pkg_info_required");
-  gtk_widget_show (pkg_info_required);
-  gtk_table_attach (GTK_TABLE (table4), pkg_info_required, 1, 2, 0, 1,
-                    (GtkAttachOptions) (GTK_FILL),
-                    (GtkAttachOptions) (0), 0, 0);
-  GTK_WIDGET_SET_FLAGS (pkg_info_required, GTK_CAN_FOCUS);
-  gtk_label_set_use_markup (GTK_LABEL (pkg_info_required), TRUE);
-  gtk_label_set_selectable (GTK_LABEL (pkg_info_required), TRUE);
-  gtk_misc_set_alignment (GTK_MISC (pkg_info_required), 0, 0.5);
-
-  pkg_info_conflicts = gtk_label_new ("");
-  gtk_widget_set_name (pkg_info_conflicts, "pkg_info_conflicts");
-  gtk_widget_show (pkg_info_conflicts);
-  gtk_table_attach (GTK_TABLE (table4), pkg_info_conflicts, 1, 2, 1, 2,
-                    (GtkAttachOptions) (GTK_FILL),
-                    (GtkAttachOptions) (0), 0, 0);
-  GTK_WIDGET_SET_FLAGS (pkg_info_conflicts, GTK_CAN_FOCUS);
-  gtk_label_set_use_markup (GTK_LABEL (pkg_info_conflicts), TRUE);
-  gtk_label_set_selectable (GTK_LABEL (pkg_info_conflicts), TRUE);
-  gtk_misc_set_alignment (GTK_MISC (pkg_info_conflicts), 0, 0.5);
-
-  pkg_info_suggests = gtk_label_new ("");
-  gtk_widget_set_name (pkg_info_suggests, "pkg_info_suggests");
-  gtk_widget_show (pkg_info_suggests);
-  gtk_table_attach (GTK_TABLE (table4), pkg_info_suggests, 1, 2, 2, 3,
-                    (GtkAttachOptions) (GTK_FILL),
-                    (GtkAttachOptions) (0), 0, 0);
-  GTK_WIDGET_SET_FLAGS (pkg_info_suggests, GTK_CAN_FOCUS);
-  gtk_label_set_use_markup (GTK_LABEL (pkg_info_suggests), TRUE);
-  gtk_label_set_selectable (GTK_LABEL (pkg_info_suggests), TRUE);
-  gtk_misc_set_alignment (GTK_MISC (pkg_info_suggests), 0, 0.5);
+  dep_conf_sug_treeview = gtk_tree_view_new ();
+  gtk_widget_set_name (dep_conf_sug_treeview, "dep_conf_sug_treeview");
+  gtk_widget_show (dep_conf_sug_treeview);
+  gtk_container_add (GTK_CONTAINER (scrolledwindow21), dep_conf_sug_treeview);
+  gtk_tree_view_set_headers_visible (GTK_TREE_VIEW (dep_conf_sug_treeview), FALSE);
+  gtk_tree_view_set_enable_search (GTK_TREE_VIEW (dep_conf_sug_treeview), FALSE);
 
   pkg_info_dependencies_label = gtk_label_new (_("Dependencies"));
   gtk_widget_set_name (pkg_info_dependencies_label, "pkg_info_dependencies_label");
@@ -1474,15 +1395,7 @@ create_gslapt (void)
   GLADE_HOOKUP_OBJECT (gslapt, pkg_description_textview, "pkg_description_textview");
   GLADE_HOOKUP_OBJECT (gslapt, pkg_info_description_label, "pkg_info_description_label");
   GLADE_HOOKUP_OBJECT (gslapt, scrolledwindow21, "scrolledwindow21");
-  GLADE_HOOKUP_OBJECT (gslapt, viewport2, "viewport2");
-  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_dep_vbox, "pkg_info_dep_vbox");
-  GLADE_HOOKUP_OBJECT (gslapt, table4, "table4");
-  GLADE_HOOKUP_OBJECT (gslapt, label247, "label247");
-  GLADE_HOOKUP_OBJECT (gslapt, label248, "label248");
-  GLADE_HOOKUP_OBJECT (gslapt, label249, "label249");
-  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_required, "pkg_info_required");
-  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_conflicts, "pkg_info_conflicts");
-  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_suggests, "pkg_info_suggests");
+  GLADE_HOOKUP_OBJECT (gslapt, dep_conf_sug_treeview, "dep_conf_sug_treeview");
   GLADE_HOOKUP_OBJECT (gslapt, pkg_info_dependencies_label, "pkg_info_dependencies_label");
   GLADE_HOOKUP_OBJECT (gslapt, bottom_statusbar, "bottom_statusbar");
   GLADE_HOOKUP_OBJECT_NO_REF (gslapt, tooltips, "tooltips");
