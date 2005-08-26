@@ -446,5 +446,5 @@ msgid "_Delete Cached Package Files"
 msgstr "_Delete Cached Package Files"
 
 msgid "Enabled"
-msgstr "Enabled"
+msgstr "Permitido"
 
