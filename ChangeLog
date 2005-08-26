@@ -1,5 +1,6 @@
 
 0.3.6 Aug 26, 2005
+ * updated .desktop file
  * fix regression when unmarking all selected packages, don't clear search
  * dependency failure notice now tries to only give the most recent notice,
    or it reports all failures in the session if the same messages where already
