@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gslapt 0.3.6\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-05-06 11:10-0500\n"
-"PO-Revision-Date: 2005-08-24 17:20+0500\n"
+"PO-Revision-Date: 2005-08-26 12:09+0500\n"
 "Last-Translator: Pedro Pinto aka _PN_boy <pedro_nuno_pn@zmail.pt>\n"
 "Language-Team: slapt-get devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -422,28 +422,28 @@ msgid "P_ackage"
 msgstr "P_acote"
 
 msgid "You need to reload the package list from the sources you have listed.  Do you want to do this now?"
-msgstr "You need to reload the package list from the sources you have listed.  Do you want to do this now?"
+msgstr "Voce necessita recarregar a lista do pacote das fontes que voce alistou. Voce quer fazer agora este?"
 
 msgid "Repositories changed"
-msgstr "Repositories changed"
+msgstr "Repositorios mudados"
 
 msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
-msgstr "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
+msgstr "<span size=\"large\" weight=\"bold\">Repositorios mudados</span>"
 
 msgid "Retrieving package data..."
-msgstr "Retrieving package data..."
+msgstr "Recuperando dados do pacote..."
 
 msgid "Retrieving patch list..."
-msgstr "Retrieving patch list..."
+msgstr "Recuperando a lista do remendo..."
 
 msgid "Retrieving checksum list..."
-msgstr "Retrieving checksum list..."
+msgstr "Recuperando a lista da soma de controle..."
 
 msgid "Reading Package Lists..."
-msgstr "Reading Package Lists..."
+msgstr "Listas Do Pacote De Leitura..."
 
 msgid "_Delete Cached Package Files"
-msgstr "_Delete Cached Package Files"
+msgstr "Limas Cached Supressao _Do Pacote"
 
 msgid "Enabled"
 msgstr "Permitido"
