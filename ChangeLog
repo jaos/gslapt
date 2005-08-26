@@ -1,5 +1,7 @@
 
 0.3.6 Aug 26, 2005
+ * transaction summary now shows up on the taskbar and the source change
+   notification is now an application modal window
  * updated .desktop file
  * fix regression when unmarking all selected packages, don't clear search
  * dependency failure notice now tries to only give the most recent notice,

@@ -1443,7 +1443,6 @@ create_transaction_window (void)
       gtk_window_set_icon (GTK_WINDOW (transaction_window), transaction_window_icon_pixbuf);
       gdk_pixbuf_unref (transaction_window_icon_pixbuf);
     }
-  gtk_window_set_skip_taskbar_hint (GTK_WINDOW (transaction_window), TRUE);
   gtk_window_set_gravity (GTK_WINDOW (transaction_window), GDK_GRAVITY_CENTER);
 
   vbox47 = gtk_vbox_new (FALSE, 6);
@@ -2228,6 +2227,7 @@ create_repositories_changed (void)
   repositories_changed = gtk_dialog_new ();
   gtk_widget_set_name (repositories_changed, "repositories_changed");
   gtk_window_set_title (GTK_WINDOW (repositories_changed), _("Repositories changed"));
+  gtk_window_set_modal (GTK_WINDOW (repositories_changed), TRUE);
   repositories_changed_icon_pixbuf = create_pixbuf ("gslapt.png");
   if (repositories_changed_icon_pixbuf)
     {
