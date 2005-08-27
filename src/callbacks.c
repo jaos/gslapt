@@ -990,14 +990,13 @@ static void get_package_data (void)
     if (available_pkgs == NULL) {
       gdk_threads_enter();
       gtk_widget_destroy(progress_window);
+      unlock_toolbar_buttons();
+      gslapt_clear_status(context_id);
       if (_cancelled == 1) {
-        unlock_toolbar_buttons();
         _cancelled = 0;
       } else {
         notify((gchar *)_("Source download failed"),global_config->sources->url[i]);
       }
-      gslapt_clear_status(context_id);
-      unlock_toolbar_buttons();
       gdk_threads_leave();
       return;
     }
