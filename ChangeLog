@@ -1,4 +1,7 @@
 
+0.3.7 Sept 06, 2005
+ * fixed regression causing re-install to never be selectable
+
 0.3.6 Aug 27, 2005
  * transaction summary now shows up on the taskbar and the source change
    notification is now an application modal window

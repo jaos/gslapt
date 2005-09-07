@@ -225,6 +225,8 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
 
     if ( strcmp(gtk_label_get_text(caller_button_label),(gchar *)_("Upgrade")) == 0) {
       pkg = slapt_get_newest_pkg(all,pkg_name);
+    } else if ( strcmp(gtk_label_get_text(caller_button_label),(gchar *)_("Re-Install")) == 0) {
+      pkg = slapt_get_exact_pkg(all,pkg_name,pkg_version);
     } else {
       pkg = slapt_get_pkg_by_details(all,pkg_name,pkg_version,pkg_location);
     }
@@ -2650,13 +2652,13 @@ static void build_package_action_menu (slapt_pkg_info_t *pkg)
   slapt_pkg_info_t *newest_installed = NULL, *upgrade_pkg = NULL;
   guint is_installed = 0,is_newest = 1,is_exclude = 0,is_downloadable = 0,is_downgrade = 0;
 
-  if (slapt_get_exact_pkg(installed,pkg->name,pkg->version) != NULL) {
+  if (slapt_get_exact_pkg(installed,pkg->name,pkg->version) != NULL)
     is_installed = 1;
-  }
 
-  if (slapt_get_pkg_by_details(all,pkg->name,pkg->version,pkg->location) != NULL) {
+  /* in order to know if a package is re-installable, we have to just look at the
+     name and version, not the location */
+  if (slapt_get_exact_pkg(all,pkg->name,pkg->version) != NULL)
     is_downloadable = 1;
-  }
 
   newest_installed = slapt_get_newest_pkg(installed,pkg->name);
   if (newest_installed != NULL && slapt_cmp_pkgs(pkg,newest_installed) < 0) {
@@ -2670,9 +2672,8 @@ static void build_package_action_menu (slapt_pkg_info_t *pkg)
   }
 
   upgrade_pkg = slapt_get_newest_pkg(all,pkg->name);
-  if (upgrade_pkg != NULL && slapt_cmp_pkgs(pkg,upgrade_pkg) < 0) {
+  if (upgrade_pkg != NULL && slapt_cmp_pkgs(pkg,upgrade_pkg) < 0)
     is_newest = 0;
-  }
 
   if ( slapt_is_excluded(global_config,pkg) == 1 
   || slapt_get_exact_pkg(trans->exclude_pkgs,pkg->name,pkg->version) != NULL) {
