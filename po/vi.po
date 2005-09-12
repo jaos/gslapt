@@ -3,7 +3,6 @@
 # This file is distributed under the same license as the gslapt package.
 # FIRST AUTHOR Vu Nguyen <vncasper@yahoo.com>, 2005.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: gslapt 0.3.6\n"

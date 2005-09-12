@@ -4,7 +4,6 @@
 # FIRST AUTHOR Jason Woodward <woodwardj@jaos.org>, 2005.
 # Translated by Martijn Dekker <martijn@inlv.demon.nl> on 18 Aug 2005.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: gslapt 0.3.6\n"

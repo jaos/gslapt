@@ -4,7 +4,6 @@
 # Sebastian Jauch <stellarboy653-minislack@yahoo.de>, 2005
 # Manfred Mueller <linux@nass-ek.de>, 2005
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: gslapt 0.3.6\n"

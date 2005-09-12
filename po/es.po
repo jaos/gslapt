@@ -3,7 +3,6 @@
 # Este fichero es distribuido bajo la misma licencia que el paquete gslapt.
 # PRIMER AUTOR Manuel Barallobre (BARA) <bbara@ya.com>, 2005.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: gslapt 0.3.6\n"
