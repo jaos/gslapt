@@ -1,4 +1,7 @@
 
+0.3.8 Sept 16, 2005
+ * added Russian and Unkrainian translations by sin of the DeepStyle team
+
 0.3.7 Sept 07, 2005
  * translation updates from Piotr
  * fixed regression causing re-install to never be selectable
