@@ -944,7 +944,8 @@ static void get_package_data (void)
   pkg_list_fh_tmp = tmpfile();
   if ( pkg_list_fh_tmp == NULL ) {
 
-    if ( errno ) perror("tmpfile");
+    if ( errno )
+      perror("tmpfile");
 
     exit(1);
   }
@@ -1100,16 +1101,19 @@ static void get_package_data (void)
   }/* end for loop */
 
   /* if all our downloads where a success, write to SLAPT_PKG_LIST_L */
-  if ( (pkg_list_fh = slapt_open_file(SLAPT_PKG_LIST_L,"w+")) == NULL ) exit(1);
+  if ( (pkg_list_fh = slapt_open_file(SLAPT_PKG_LIST_L,"w+")) == NULL )
+    exit(1);
 
-  if ( pkg_list_fh == NULL ) exit(1);
+  if ( pkg_list_fh == NULL )
+    exit(1);
 
   rewind(pkg_list_fh_tmp);
   while ( (bytes_read = getline(&getline_buffer,&getline_len,pkg_list_fh_tmp) ) != EOF ) {
     fprintf(pkg_list_fh,"%s",getline_buffer);
   }
 
-  if ( getline_buffer ) free(getline_buffer);
+  if ( getline_buffer )
+    free(getline_buffer);
 
   fclose(pkg_list_fh);
 
@@ -1947,7 +1951,8 @@ void preferences_sources_add (GtkWidget *w, gpointer user_data)
   GtkListStore *store;
   guint i;
 
-  if ( new_source == NULL || strlen(new_source) < 1 ) return;
+  if ( new_source == NULL || strlen(new_source) < 1 )
+    return;
 
   slapt_add_source(global_config->sources,new_source);
 
@@ -2059,7 +2064,8 @@ void preferences_exclude_add(GtkWidget *w, gpointer user_data)
   GtkListStore *store;
   guint i;
 
-  if ( new_exclude == NULL || strlen(new_exclude) < 1 ) return;
+  if ( new_exclude == NULL || strlen(new_exclude) < 1 )
+    return;
 
   tmp_realloc = realloc(global_config->exclude_list->excludes,
     sizeof *global_config->exclude_list->excludes * (global_config->exclude_list->count + 1)
@@ -2132,7 +2138,8 @@ void preferences_exclude_remove(GtkWidget *w, gpointer user_data)
     if ( tmp != NULL ) {
       char **realloc_tmp;
       int count = global_config->exclude_list->count - 1;
-      if ( count < 1 ) count = 1;
+      if ( count < 1 )
+        count = 1;
 
       free(tmp);
 
@@ -2161,7 +2168,8 @@ static gboolean write_preferences (void)
   FILE *rc;
 
   rc = slapt_open_file(rc_location,"w+");
-  if ( rc == NULL ) return FALSE;
+  if ( rc == NULL )
+    return FALSE;
 
   fprintf(rc,"%s%s\n",WORKINGDIR_TOKEN,global_config->working_dir);
 
@@ -2265,7 +2273,8 @@ static int disk_space (int space_needed)
 
   space_needed *= 1024;
 
-  if (space_needed < 0) return 0;
+  if (space_needed < 0)
+    return 0;
 
   if (statvfs(global_config->working_dir,&statvfs_buf) != 0) {
     if (errno)
@@ -2438,8 +2447,10 @@ static int ladd_deps_to_trans (slapt_transaction_t *tran, struct slapt_pkg_list 
   GtkTreeModelSort *package_model;
   GtkTreeView *treeview;
 
-  if ( global_config->disable_dep_check == TRUE ) return 0;
-  if ( pkg == NULL ) return 0;
+  if ( global_config->disable_dep_check == TRUE )
+    return 0;
+  if ( pkg == NULL )
+    return 0;
 
   deps = slapt_init_pkg_list();
 
