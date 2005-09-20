@@ -919,13 +919,14 @@ static void get_package_data (void)
   GtkProgressBar *p_bar,
                  *dl_bar;
   guint i,context_id;
-  FILE *pkg_list_fh_tmp = NULL;
   gfloat dl_files = 0.0,
          dl_count = 0.0;
   ssize_t bytes_read;
   size_t getline_len = 0;
   gchar *getline_buffer = NULL;
   FILE *pkg_list_fh;
+  struct slapt_pkg_list *new_pkgs = slapt_init_pkg_list();
+  new_pkgs->free_pkgs = TRUE;
 
   progress_window = create_dl_progress_window();
   gtk_window_set_title(GTK_WINDOW(progress_window),(gchar *)_("Progress"));
@@ -940,21 +941,10 @@ static void get_package_data (void)
   gtk_widget_show(progress_window);
   gdk_threads_leave();
 
-  /* open tmp pkg list file */
-  pkg_list_fh_tmp = tmpfile();
-  if ( pkg_list_fh_tmp == NULL ) {
-
-    if ( errno )
-      perror("tmpfile");
-
-    exit(1);
-  }
-
   dl_files = (global_config->sources->count * 3.0 );
 
   if (_cancelled == 1) {
     _cancelled = 0;
-    fclose(pkg_list_fh_tmp);
     gdk_threads_enter();
     gslapt_clear_status(context_id);
     gtk_widget_destroy(progress_window);
@@ -971,7 +961,6 @@ static void get_package_data (void)
 
     if (_cancelled == 1) {
       _cancelled = 0;
-      fclose(pkg_list_fh_tmp);
       gdk_threads_enter();
       gslapt_clear_status(context_id);
       gtk_widget_destroy(progress_window);
@@ -1008,7 +997,6 @@ static void get_package_data (void)
 
     if (_cancelled == 1) {
       _cancelled = 0;
-      fclose(pkg_list_fh_tmp);
       gdk_threads_enter();
       gslapt_clear_status(context_id);
       gtk_widget_destroy(progress_window);
@@ -1032,7 +1020,6 @@ static void get_package_data (void)
 
     if (_cancelled == 1) {
       _cancelled = 0;
-      fclose(pkg_list_fh_tmp);
       gdk_threads_enter();
       gslapt_clear_status(context_id);
       gtk_widget_destroy(progress_window);
@@ -1056,7 +1043,6 @@ static void get_package_data (void)
                                      global_config->sources->url[i]);
 
     if (tmp_checksum_f == NULL) {
-      fclose(pkg_list_fh_tmp);
       gdk_threads_enter();
       gslapt_clear_status(context_id);
       gtk_widget_destroy(progress_window);
@@ -1078,23 +1064,41 @@ static void get_package_data (void)
     gtk_label_set_text(progress_action_label,(gchar *)_("Reading Package Lists..."));
     gdk_threads_leave();
 
-    /* now map md5 checksums to packages */
-    slapt_get_md5sums(available_pkgs,tmp_checksum_f);
+    if (available_pkgs) {
+      int pkg_i;
 
-    if (patch_pkgs)
+      /* map packages to md5sums */
+      slapt_get_md5sums(available_pkgs,tmp_checksum_f);
+
+      /* put these into our new package list */
+      for (pkg_i = 0; pkg_i < available_pkgs->pkg_count; ++pkg_i) {
+        available_pkgs->pkgs[pkg_i]->mirror = strdup(global_config->sources->url[i]);
+        slapt_add_pkg_to_pkg_list(new_pkgs,available_pkgs->pkgs[pkg_i]);
+      }
+
+      /* don't free the slapt_pkg_info_t objects
+         as they are now part of new_pkgs */
+      available_pkgs->free_pkgs = FALSE;
+      slapt_free_pkg_list(available_pkgs);
+    }
+
+    if (patch_pkgs) {
+      int pkg_i;
+
+      /* map packages to md5sums */
       slapt_get_md5sums(patch_pkgs,tmp_checksum_f);
 
-    /* write package listings to disk */
-    slapt_write_pkg_data(global_config->sources->url[i],pkg_list_fh_tmp,available_pkgs);
+      /* put these into our new package list */
+      for (pkg_i = 0; pkg_i < patch_pkgs->pkg_count; ++pkg_i) {
+        patch_pkgs->pkgs[pkg_i]->mirror = strdup(global_config->sources->url[i]);
+        slapt_add_pkg_to_pkg_list(new_pkgs,patch_pkgs->pkgs[pkg_i]);
+      }
 
-    if (patch_pkgs)
-      slapt_write_pkg_data(global_config->sources->url[i],pkg_list_fh_tmp,patch_pkgs);
-
-    if (available_pkgs)
-      slapt_free_pkg_list(available_pkgs);
-
-    if (patch_pkgs)
+      /* don't free the slapt_pkg_info_t objects
+         as they are now part of new_pkgs */
+      patch_pkgs->free_pkgs = FALSE;
       slapt_free_pkg_list(patch_pkgs);
+    }
 
     fclose(tmp_checksum_f);
 
@@ -1104,25 +1108,18 @@ static void get_package_data (void)
   if ( (pkg_list_fh = slapt_open_file(SLAPT_PKG_LIST_L,"w+")) == NULL )
     exit(1);
 
-  if ( pkg_list_fh == NULL )
-    exit(1);
+  slapt_write_pkg_data(NULL,pkg_list_fh,new_pkgs);
 
-  rewind(pkg_list_fh_tmp);
-  while ( (bytes_read = getline(&getline_buffer,&getline_len,pkg_list_fh_tmp) ) != EOF ) {
-    fprintf(pkg_list_fh,"%s",getline_buffer);
-  }
+  fclose(pkg_list_fh);
 
   if ( getline_buffer )
     free(getline_buffer);
 
-  fclose(pkg_list_fh);
+  slapt_free_pkg_list(new_pkgs);
 
   /* reset our currently selected packages */
   slapt_free_transaction(trans);
   slapt_init_transaction(trans);
-
-  /* close the tmp pkg list file */
-  fclose(pkg_list_fh_tmp);
 
   gdk_threads_enter();
   unlock_toolbar_buttons();

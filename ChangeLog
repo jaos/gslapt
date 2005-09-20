@@ -1,5 +1,6 @@
 
-0.3.8 Sept 18, 2005
+0.3.8 Sept 20, 2005
+ * improved package cache updating, removing use of tmpfile and disk i/o
  * added Russian and Unkrainian translations by sin of the DeepStyle team
 
 0.3.7 Sept 07, 2005
