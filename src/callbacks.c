@@ -923,7 +923,6 @@ static void get_package_data (void)
          dl_count = 0.0;
   ssize_t bytes_read;
   size_t getline_len = 0;
-  gchar *getline_buffer = NULL;
   FILE *pkg_list_fh;
   struct slapt_pkg_list *new_pkgs = slapt_init_pkg_list();
   new_pkgs->free_pkgs = TRUE;
@@ -1111,9 +1110,6 @@ static void get_package_data (void)
   slapt_write_pkg_data(NULL,pkg_list_fh,new_pkgs);
 
   fclose(pkg_list_fh);
-
-  if ( getline_buffer )
-    free(getline_buffer);
 
   slapt_free_pkg_list(new_pkgs);
 
