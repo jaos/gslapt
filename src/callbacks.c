@@ -1064,7 +1064,7 @@ static void get_package_data (void)
     gdk_threads_leave();
 
     if (available_pkgs) {
-      int pkg_i;
+      unsigned int pkg_i;
 
       /* map packages to md5sums */
       slapt_get_md5sums(available_pkgs,tmp_checksum_f);
@@ -1082,7 +1082,7 @@ static void get_package_data (void)
     }
 
     if (patch_pkgs) {
-      int pkg_i;
+      unsigned int pkg_i;
 
       /* map packages to md5sums */
       slapt_get_md5sums(patch_pkgs,tmp_checksum_f);
@@ -2968,6 +2968,8 @@ static gboolean toggle_source_status (GtkTreeView *treeview, gpointer data)
 
     g_free(source);
   }
+
+  return FALSE;
 }
 
 static void display_dep_error_dialog (const char *msg,guint m, guint c)
