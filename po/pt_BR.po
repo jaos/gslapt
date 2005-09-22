@@ -1,0 +1,460 @@
+# Brazillian gslapt translation
+# Copyright (C) 2005 Frederico Henrique Gonçalves Lima
+# This file is distributed under the same license as the gslapt package.
+# FIRST AUTHOR Frederico Henrique Gonçalves Lima <fredhgl@yahoo.com.br>, 2005.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gslapt 0.3.8\n"
+"Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
+"POT-Creation-Date: 2005-02-26 22:25-0500\n"
+"PO-Revision-Date: 2005-09-20 21:42+0300\n"
+"Last-Translator: Frederico Henrique Gonçalves Lima <fredhgl@yahoo.com.br>\n"
+"Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "<b>Exclude List</b>"
+msgstr "<b>Excluir lista</b>"
+
+msgid "<b>Package Sources</b>"
+msgstr "<b>Origens de pacotes</b>"
+
+msgid "<b>Package and data storage</b>"
+msgstr "<b>Armazenamento de Pacotes e dados</b>"
+
+msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Aplicar as alterações?</span>"
+
+msgid "<span weight=\"bold\">Exclude Expression:</span>"
+msgstr "<span weight=\"bold\">Excluir expressão:</span>"
+
+msgid "<span weight=\"bold\">SOURCE=</span>"
+msgstr "<span weight=\"bold\">ORIGEM=</span>"
+
+msgid "About gslapt"
+msgstr "Sobre gslapt"
+
+msgid "About"
+msgstr "Sobre"
+
+msgid "Checking for new package data..."
+msgstr "Checando dados de novos pacotes..."
+
+msgid "Clean archived packages off filesystem"
+msgstr "Limpar pacotes arquivados do sistema de arquivos"
+
+msgid "Clean"
+msgstr "Limpo"
+
+msgid "Clear search expression"
+msgstr "Limpar expressão de procura"
+
+msgid "Clear"
+msgstr "Limpar"
+
+msgid "Conflicts"
+msgstr "Conflitos"
+
+#, c-format
+msgid "Couldn't find pixmap file: %s"
+msgstr "Arquivo pixmap não localizado: %s"
+
+msgid "Description"
+msgstr "Descrição"
+
+msgid "Dismiss"
+msgstr "Desfazer"
+
+msgid "Download packages only"
+msgstr "Somente descarregar pacotes"
+
+msgid "Downloading packages..."
+msgstr "Descarregando pacotes..."
+
+msgid "Downloading..."
+msgstr "Descarregando..."
+
+msgid "Exclude package"
+msgstr "Excluir pacote"
+
+msgid "Exclude"
+msgstr "Excluir"
+
+msgid "Excludes"
+msgstr "Exclui"
+
+msgid "Execute all scheduled actions in current transaction"
+msgstr "Executa todas as ações agendadas na transação atual"
+
+msgid "Execute"
+msgstr "Executar"
+
+msgid "Expression"
+msgstr "Expressão"
+
+msgid "Gslapt"
+msgstr "Gslapt"
+
+msgid "Install"
+msgstr "Instalar"
+
+msgid "Install/Upgrade package"
+msgstr "Instalar/Atualizar pacote"
+
+msgid "Installed Size:"
+msgstr "Tamanho da instalação:"
+
+msgid "Installed"
+msgstr "Instalado"
+
+msgid "Installing packages..."
+msgstr "Instalando pacotes..."
+
+msgid "Installing..."
+msgstr "Instalando..."
+
+msgid "Location"
+msgstr "Localização"
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "No"
+msgstr "Não"
+
+msgid "Package Action"
+msgstr "Ação do pacote"
+
+msgid "Package Information"
+msgstr "Informação do pacote"
+
+msgid "Package"
+msgstr "Pacote"
+
+msgid "Packages excluded"
+msgstr "Pacotes excluídos"
+
+msgid "Packages to be installed"
+msgstr "Pacotes a serem instalados"
+
+msgid "Packages to be removed"
+msgstr "Pacotes a serem removidos"
+
+msgid "Packages to be upgraded"
+msgstr "Pacotes a serem atualizados"
+
+msgid "Preferences"
+msgstr "Preferências"
+
+msgid "Progress"
+msgstr "Progresso"
+
+msgid "Quit"
+msgstr "Sair"
+
+msgid "Remove package"
+msgstr "Remover pacote"
+
+msgid "Remove"
+msgstr "Remover"
+
+msgid "Removing packages..."
+msgstr "Removendo pacotes..."
+
+msgid "Required"
+msgstr "Necessário"
+
+msgid "Search for expression"
+msgstr "Procurar por expressão"
+
+msgid "Search"
+msgstr "Pesquisar"
+
+msgid "Size:"
+msgstr "Tamanho:"
+
+msgid "Source"
+msgstr "Origem"
+
+msgid "Sources"
+msgstr "Origens"
+
+msgid "Suggests"
+msgstr "Sugere"
+
+msgid "Summary"
+msgstr "Relatório"
+
+msgid "This is a summary of the changes about to be performed."
+msgstr "Este é o relatório das mudanças a serem realizadas."
+
+msgid "Uninstalling..."
+msgstr "desinstalando..."
+
+msgid "Up_grade"
+msgstr "Up_grade"
+
+msgid "Update local package cache"
+msgstr "Renovar cache dos pacotes locais"
+
+msgid "Update"
+msgstr "Renovar"
+
+msgid "Upgrade to newer release"
+msgstr "Atualizar para a versão mais recente"
+
+msgid "Upgrade"
+msgstr "Atualizar"
+
+msgid "Upgrading packages..."
+msgstr "Atualizando pacotes..."
+
+msgid "Upgrading..."
+msgstr "Atualizando..."
+
+msgid "Version"
+msgstr "Versão"
+
+msgid "WARNING"
+msgstr "ATENÇÃO"
+
+msgid "Working Directory"
+msgstr "Diretório atual"
+
+msgid "Yes"
+msgstr "Sim"
+
+msgid "_Actions"
+msgstr "_Ações"
+
+msgid "_Clean"
+msgstr "_Limpar"
+
+msgid "_Execute"
+msgstr "_Executar"
+
+msgid "_Help"
+msgstr "_Ajuda"
+
+msgid "_Preferences"
+msgstr "_Preferências"
+
+msgid "_Settings"
+msgstr "_Configurações"
+
+msgid "_Update"
+msgstr "_Atualizar"
+
+msgid ""
+"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
+"Slackware"
+msgstr ""
+"gslapt é um frontend feito em GTK+ para o slapt-get, um sistema de pacotes como o APT para "
+"Slackware"
+
+msgid "total progress"
+msgstr "progresso total"
+
+msgid "working"
+msgstr "executando"
+
+msgid "Up to Date"
+msgstr "Atualizado"
+
+msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Nenhuma atualização disponível</span>"
+
+msgid "%d upgraded, %d newly installed, %d to remove and %d not upgraded."
+msgstr "%d atualizados, %d novos instalados, %d para ser removidos e %d não atualizados."
+
+msgid "Need to get %.1d%s/%.1d%s of archives.\n"
+msgstr "Necessário puxar %.1d%s/%.1d%s de arquivos.\n"
+
+msgid "Need to get %.1d%s of archives."
+msgstr "Need to get %.1d%s of archives."
+
+msgid "After unpacking %.1d%s disk space will be freed."
+msgstr "Após descompactar %.1d%s de espaço em disco será liberado."
+
+msgid "After unpacking %.1d%s of additional disk space will be used."
+msgstr "Após descompactar %.1d%s de espaço em disco será utilizado."
+
+msgid "Ready"
+msgstr "Pronto"
+
+msgid "Re-Install"
+msgstr "Re-Instalar"
+
+msgid "Downgrade"
+msgstr "Desatualizar"
+
+msgid "_File"
+msgstr "_Arquivo"
+
+msgid "Pending changes. Click execute when ready."
+msgstr "Alterações pendentes. Clique em executar quando estiver pronto."
+
+msgid "Packages with unmet dependencies"
+msgstr "Pacotes com dependências não satisfeitas"
+
+msgid ": Depends: "
+msgstr ": Depende: "
+
+msgid "Package conflicts"
+msgstr "Conflitos de pacotes"
+
+msgid ", which is required by "
+msgstr ", que é necessário por "
+
+msgid ", is excluded"
+msgstr ", está excluído"
+
+msgid "<b>Conflicts:</b>"
+msgstr "<b>Conflitos:</b>"
+
+msgid "<b>Description:</b>"
+msgstr "<b>Descrição:</b>"
+
+msgid "<b>Location:</b>"
+msgstr "<b>Localização:</b>"
+
+msgid "Source:"
+msgstr "Origem:"
+
+msgid "<b>Name:</b>"
+msgstr "<b>Nome:</b>"
+
+msgid "<b>Required:</b>"
+msgstr "<b>Necessário:</b>"
+
+msgid "<b>Size:</b>"
+msgstr "<b>Tamanho:</b>"
+
+msgid "<b>Suggests:</b>"
+msgstr "<b>Sugere:</b>"
+
+msgid "Version:"
+msgstr "Versão:"
+
+msgid "<b>Version:</b>"
+msgstr "<b>Versão:</b>"
+
+msgid "Common"
+msgstr "Geral"
+
+msgid "Dependencies"
+msgstr "Dependências"
+
+msgid "No package is selected."
+msgstr "Nenhum pacote selecionado."
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Source download failed"
+msgstr "Falha ao descarregar origem"
+
+msgid "Package(s) failed to download"
+msgstr "Falha(s) ao descarregar pacote(s)"
+
+msgid "pkgtools returned an error"
+msgstr "pkgtools retornou um erro"
+
+msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Você não tem espaço em disco suficiente</span>"
+
+msgid "Excluding %s due to dependency failure\n"
+msgstr "Excluindo %s devido a falha de dependências\n"
+
+msgid "Unmark"
+msgstr "Desmarcar"
+
+msgid "<b>Status:</b>"
+msgstr "<b>Status:</b>"
+
+msgid "Excluded"
+msgstr "Excluído"
+
+msgid "<b>The following icons are used to indicate the current status of a package:</b>"
+msgstr "<b>Os ícones a seguir são usados para indicar o estado atual de um pacote:</b>"
+
+msgid "Not Installed"
+msgstr "Não instalado"
+
+msgid "To be Installed"
+msgstr "A ser Instalado"
+
+msgid "To be Re-Installed"
+msgstr "A ser Re-instalado"
+
+msgid "To be Upgraded"
+msgstr "A ser Atualizado"
+
+msgid "To be Removed"
+msgstr "A ser Removido"
+
+msgid "To be Downgraded"
+msgstr "A ser Desatualizado"
+
+msgid "Icon Legend"
+msgstr "Legenda de ícones"
+
+msgid "Completed actions"
+msgstr "Ações completadas"
+
+msgid "Successfully executed all actions."
+msgstr "Todas as ações executadas com sucesso."
+
+msgid "<b>Installed Version</b>"
+msgstr "<b>Versão instalada</b>"
+
+msgid "<b>Latest Available Version</b>"
+msgstr "<b>Última versão disponível</b>"
+
+msgid "Failed to commit preferences"
+msgstr "Falha ao aplicar preferências"
+
+msgid "Mark All Upgrades"
+msgstr "Marcar todos os atualizáveis"
+
+msgid "_Edit"
+msgstr "_Editar"
+
+msgid "Unmark All"
+msgstr "Desmarcar todos"
+
+msgid "P_ackage"
+msgstr "P_acote"
+
+msgid "You need to reload the package list from the sources you have listed.  Do you want to do this now?"
+msgstr "Você precisa recarregar a lista de pacotes das origens que você listou.  Deseja fazer isto agora?"
+
+msgid "Repositories changed"
+msgstr "Repositórios alterados"
+
+msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
+msgstr "<span size=\"large\" weight=\"bold\">Repositórios alterados</span>"
+
+msgid "Retrieving package data..."
+msgstr "Recebendo dados de pacotes..."
+
+msgid "Retrieving patch list..."
+msgstr "Recebendo lista de patches..."
+
+msgid "Retrieving checksum list..."
+msgstr "Recebendo lista de checksums..."
+
+msgid "Reading Package Lists..."
+msgstr "Lendo lista de pacotes..."
+
+msgid "_Delete Cached Package Files"
+msgstr "_Apaga Arquivos de Pacotes em Cache"
+
+msgid "Mark all possible upgrades"
+msgstr "Marcar todas as atualizações possíveis"
+
+msgid "Enabled"
+msgstr "Habilitado"
+
