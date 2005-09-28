@@ -1115,7 +1115,7 @@ static void get_package_data (void)
 
   /* reset our currently selected packages */
   slapt_free_transaction(trans);
-  slapt_init_transaction(trans);
+  trans = slapt_init_transaction();
 
   gdk_threads_enter();
   unlock_toolbar_buttons();
@@ -1278,7 +1278,7 @@ static void lhandle_transaction (GtkWidget *w)
   /* return early if download_only is set */
   if ( dl_only == TRUE ) {
     slapt_free_transaction(trans);
-    slapt_init_transaction(trans);
+    trans = slapt_init_transaction();
     gdk_threads_enter();
     unlock_toolbar_buttons();
     rebuild_treeviews(NULL,FALSE);
@@ -1316,7 +1316,7 @@ static void lhandle_transaction (GtkWidget *w)
   gdk_cursor_destroy(c);
 
   slapt_free_transaction(trans);
-  slapt_init_transaction(trans);
+  trans = slapt_init_transaction();
   /* rebuild the installed list */
   installed_ptr = installed;
   installed = slapt_get_installed_pkgs();
@@ -2100,7 +2100,6 @@ void preferences_exclude_remove(GtkWidget *w, gpointer user_data)
 
   if ( gtk_tree_selection_get_selected(select,&model,&iter)) {
     guint i = 0;
-    gchar *tmp = NULL;
     gchar *exclude;
     GList *columns;
 
@@ -2118,37 +2117,11 @@ void preferences_exclude_remove(GtkWidget *w, gpointer user_data)
     }
     g_list_free(columns);
 
-    i = 0;
-    while (i < global_config->exclude_list->count) {
-      if ( strcmp(exclude,global_config->exclude_list->excludes[i]) == 0 && tmp == NULL ) {
-        tmp = global_config->exclude_list->excludes[i];
-      }
-      if ( tmp != NULL && (i+1 < global_config->exclude_list->count) ) {
-        global_config->exclude_list->excludes[i] = global_config->exclude_list->excludes[i + 1];
-      }
-      ++i;
-    }
-    if ( tmp != NULL ) {
-      char **realloc_tmp;
-      int count = global_config->exclude_list->count - 1;
-      if ( count < 1 )
-        count = 1;
-
-      free(tmp);
-
-      realloc_tmp = realloc(  
-        global_config->exclude_list->excludes,
-        sizeof *global_config->exclude_list->excludes * count
-      );
-      if ( realloc_tmp != NULL ) {
-        global_config->exclude_list->excludes = realloc_tmp;
-        if ( global_config->exclude_list->count > 0 ) --global_config->exclude_list->count;
-      }
-
-      excludes_modified = TRUE;
-    }
+    slapt_remove_exclude(global_config->exclude_list,exclude);
 
     g_free(exclude);
+
+    excludes_modified = TRUE;
 
     build_exclude_treeviewlist((GtkWidget *)exclude_tree);
   }
@@ -2812,7 +2785,7 @@ void unmark_all_activate (GtkMenuItem *menuitem, gpointer user_data)
 
   /* reset our currently selected packages */
   slapt_free_transaction(trans);
-  slapt_init_transaction(trans);
+  trans = slapt_init_transaction();
 
   rebuild_package_action_menu();
   rebuild_treeviews(NULL,FALSE);

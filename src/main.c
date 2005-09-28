@@ -29,8 +29,7 @@ slapt_rc_config *global_config; /* our config struct */
 struct slapt_pkg_list *installed;
 struct slapt_pkg_list *all;
 GtkWidget *gslapt;
-slapt_transaction_t tran;
-slapt_transaction_t *trans = &tran;
+slapt_transaction_t *trans = NULL;
 char rc_location[1024];
 struct slapt_source_list *disabled_sources;
 
@@ -57,7 +56,7 @@ int main (int argc, char *argv[]) {
   gdk_threads_init();
   gtk_init (&argc, &argv);
 
-  slapt_init_transaction(trans);
+  trans = slapt_init_transaction();
 
   add_pixmap_directory (PACKAGE_DATA_DIR "/" PACKAGE "/pixmaps");
 

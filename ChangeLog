@@ -1,5 +1,6 @@
 
-0.3.8 Sept 22, 2005
+0.3.8 Sept 28, 2005
+ * updated for new libslapt (0.9.10d)
  * added Brazillian translation authored by Frederico Henrique Gonçalves Lima
  * improved package cache updating, removing use of tmpfile and disk i/o
  * added Russian and Unkrainian translations by sin of the DeepStyle team
