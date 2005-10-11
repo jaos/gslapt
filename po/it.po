@@ -6,10 +6,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gslapt 0.3.6\n"
+"Project-Id-Version: gslapt 0.3.9\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-07-28 18:01+0000\n"
-"PO-Revision-Date: 2005-08-26 12:09+0500\n"
+"PO-Revision-Date: 2005-10-11 18:18+0500\n"
 "Last-Translator: Fabio Varesano <fvaresano@yahoo.it>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -460,4 +460,13 @@ msgstr "Lime _Del Pacchetto Nascoste Cancellazione"
 
 msgid "Enabled"
 msgstr "Permesso"
+
+msgid "_Install Anyway"
+msgstr "_Install Anyway"
+
+msgid "_Upgrade Anyway"
+msgstr "_Upgrade Anyway"
+
+msgid "Do you want to continue without the required packages?"
+msgstr "Do you want to continue without the required packages?"
 

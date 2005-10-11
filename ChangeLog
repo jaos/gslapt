@@ -1,5 +1,6 @@
 
 0.3.9 Oct 11, 2005
+ * added new strings to translations
  * cleaned up some dialog boxes
  * fixed hardcoded mirror setting in PACKAGES.TXT regression
  * changed unmark all shortcut to ctrl-z

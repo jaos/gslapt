@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gslapt 0.3.6\n"
+"Project-Id-Version: gslapt 0.3.9\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2005-08-24 17:20+0500\n"
+"PO-Revision-Date: 2005-10-11 18:18+0500\n"
 "Last-Translator: Jason Woodward <woodwardj@jaos.org>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -454,5 +454,14 @@ msgid "Mark all possible upgrades"
 msgstr ""
 
 msgid "Enabled"
+msgstr ""
+
+msgid "_Install Anyway"
+msgstr ""
+
+msgid "_Upgrade Anyway"
+msgstr ""
+
+msgid "Do you want to continue without the required packages?"
 msgstr ""
 
