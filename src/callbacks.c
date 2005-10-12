@@ -2958,7 +2958,7 @@ static void display_dep_error_dialog (slapt_pkg_info_t *pkg,guint m, guint c,enu
   GtkWidget *w = create_dep_error_dialog();
   GtkTextBuffer *error_buf = NULL;
   guint i;
-  gchar *msg = g_strdup_printf("Excluding %s due to dependency failure\n",pkg->name);
+  gchar *msg = g_strdup_printf("<b>Excluding %s due to dependency failure</b>\n",pkg->name);
 
   gtk_window_set_title (GTK_WINDOW(w),(char *)_("Error"));
   gtk_label_set_text(GTK_LABEL(lookup_widget(w,"dep_error_label")),msg);

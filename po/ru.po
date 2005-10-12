@@ -340,8 +340,8 @@ msgstr "ошибка pkgtools"
 msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Недостаточно свободного места</span>"
 
-msgid "Excluding %s due to dependency failure\n"
-msgstr "Пропуск %s из-за неудовлетворенных зависимостей\n"
+msgid "<b>Excluding %s due to dependency failure</b>\n"
+msgstr "<b>Пропуск %s из-за неудовлетворенных зависимостей</b>\n"
 
 msgid "Unmark"
 msgstr "Отменить выбор"

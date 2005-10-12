@@ -358,8 +358,8 @@ msgstr "pkgtools returnou um erro"
 msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Não tens espaço suficiente</span>"
 
-msgid "Excluding %s due to dependency failure\n"
-msgstr "Excluindo %s por falha na dependencia\n"
+msgid "<b>Excluding %s due to dependency failure</b>\n"
+msgstr "<b>Excluindo %s por falha na dependencia</b>\n"
 
 msgid "Unmark"
 msgstr "Desmarcar"

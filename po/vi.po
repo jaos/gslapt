@@ -362,8 +362,8 @@ msgstr "pkgtools trả về một lỗi"
 msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Bạn không có đủ không gian trống</span>"
 
-msgid "Excluding %s due to dependency failure\n"
-msgstr "Loại bỏ %s do lỗi phụ thuộc\n"
+msgid "<b>Excluding %s due to dependency failure</b>\n"
+msgstr "<b>Loại bỏ %s do lỗi phụ thuộc</b>\n"
 
 msgid "Unmark"
 msgstr "Không đánh dấu"

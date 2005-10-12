@@ -2337,9 +2337,10 @@ create_dep_error_dialog (void)
   GtkWidget *image1261;
   GtkWidget *vbox72;
   GtkWidget *dep_error_label;
+  GtkWidget *dep_error_install_anyway_warning_label;
+  GtkWidget *label284;
   GtkWidget *scrolledwindow22;
   GtkWidget *dep_error_text;
-  GtkWidget *dep_error_install_anyway_warning_label;
   GtkWidget *dialog_action_area6;
   GtkWidget *dep_error_cancel_button;
   GtkWidget *alignment2;
@@ -2389,15 +2390,29 @@ create_dep_error_dialog (void)
   dep_error_label = gtk_label_new ("");
   gtk_widget_set_name (dep_error_label, "dep_error_label");
   gtk_widget_show (dep_error_label);
-  gtk_box_pack_start (GTK_BOX (vbox72), dep_error_label, TRUE, TRUE, 6);
+  gtk_box_pack_start (GTK_BOX (vbox72), dep_error_label, FALSE, TRUE, 0);
   gtk_label_set_use_markup (GTK_LABEL (dep_error_label), TRUE);
   gtk_label_set_line_wrap (GTK_LABEL (dep_error_label), TRUE);
   gtk_misc_set_alignment (GTK_MISC (dep_error_label), 0, 0);
 
+  dep_error_install_anyway_warning_label = gtk_label_new ("");
+  gtk_widget_set_name (dep_error_install_anyway_warning_label, "dep_error_install_anyway_warning_label");
+  gtk_widget_show (dep_error_install_anyway_warning_label);
+  gtk_box_pack_start (GTK_BOX (vbox72), dep_error_install_anyway_warning_label, FALSE, TRUE, 0);
+  gtk_label_set_use_markup (GTK_LABEL (dep_error_install_anyway_warning_label), TRUE);
+  gtk_label_set_line_wrap (GTK_LABEL (dep_error_install_anyway_warning_label), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (dep_error_install_anyway_warning_label), 0, 0);
+
+  label284 = gtk_label_new ("");
+  gtk_widget_set_name (label284, "label284");
+  gtk_widget_show (label284);
+  gtk_box_pack_start (GTK_BOX (vbox72), label284, FALSE, FALSE, 0);
+  gtk_misc_set_alignment (GTK_MISC (label284), 0, 0);
+
   scrolledwindow22 = gtk_scrolled_window_new (NULL, NULL);
   gtk_widget_set_name (scrolledwindow22, "scrolledwindow22");
   gtk_widget_show (scrolledwindow22);
-  gtk_box_pack_start (GTK_BOX (vbox72), scrolledwindow22, TRUE, TRUE, 6);
+  gtk_box_pack_start (GTK_BOX (vbox72), scrolledwindow22, TRUE, TRUE, 0);
   gtk_container_set_border_width (GTK_CONTAINER (scrolledwindow22), 2);
   gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolledwindow22), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
 
@@ -2408,14 +2423,6 @@ create_dep_error_dialog (void)
   gtk_container_set_border_width (GTK_CONTAINER (dep_error_text), 2);
   gtk_text_view_set_accepts_tab (GTK_TEXT_VIEW (dep_error_text), FALSE);
   gtk_text_view_set_cursor_visible (GTK_TEXT_VIEW (dep_error_text), FALSE);
-
-  dep_error_install_anyway_warning_label = gtk_label_new ("");
-  gtk_widget_set_name (dep_error_install_anyway_warning_label, "dep_error_install_anyway_warning_label");
-  gtk_widget_show (dep_error_install_anyway_warning_label);
-  gtk_box_pack_start (GTK_BOX (vbox72), dep_error_install_anyway_warning_label, TRUE, TRUE, 6);
-  gtk_label_set_use_markup (GTK_LABEL (dep_error_install_anyway_warning_label), TRUE);
-  gtk_label_set_line_wrap (GTK_LABEL (dep_error_install_anyway_warning_label), TRUE);
-  gtk_misc_set_alignment (GTK_MISC (dep_error_install_anyway_warning_label), 0, 0);
 
   dialog_action_area6 = GTK_DIALOG (dep_error_dialog)->action_area;
   gtk_widget_set_name (dialog_action_area6, "dialog_action_area6");
@@ -2481,9 +2488,10 @@ create_dep_error_dialog (void)
   GLADE_HOOKUP_OBJECT (dep_error_dialog, image1261, "image1261");
   GLADE_HOOKUP_OBJECT (dep_error_dialog, vbox72, "vbox72");
   GLADE_HOOKUP_OBJECT (dep_error_dialog, dep_error_label, "dep_error_label");
+  GLADE_HOOKUP_OBJECT (dep_error_dialog, dep_error_install_anyway_warning_label, "dep_error_install_anyway_warning_label");
+  GLADE_HOOKUP_OBJECT (dep_error_dialog, label284, "label284");
   GLADE_HOOKUP_OBJECT (dep_error_dialog, scrolledwindow22, "scrolledwindow22");
   GLADE_HOOKUP_OBJECT (dep_error_dialog, dep_error_text, "dep_error_text");
-  GLADE_HOOKUP_OBJECT (dep_error_dialog, dep_error_install_anyway_warning_label, "dep_error_install_anyway_warning_label");
   GLADE_HOOKUP_OBJECT_NO_REF (dep_error_dialog, dialog_action_area6, "dialog_action_area6");
   GLADE_HOOKUP_OBJECT (dep_error_dialog, dep_error_cancel_button, "dep_error_cancel_button");
   GLADE_HOOKUP_OBJECT (dep_error_dialog, alignment2, "alignment2");

@@ -338,8 +338,8 @@ msgstr "pkgtools zwróci³ b³±d"
 msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Nie masz wystarczaj±co wolnego miejsca</span>"
 
-msgid "Excluding %s due to dependency failure\n"
-msgstr "Wy³±czenie %s dziêki niepowodzeniu zale¿no¶ci\n"
+msgid "<b>Excluding %s due to dependency failure</b>\n"
+msgstr "<b>Wy³±czenie %s dziêki niepowodzeniu zale¿no¶ci</b>\n"
 
 msgid "Unmark"
 msgstr "Odznacz"

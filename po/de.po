@@ -363,8 +363,8 @@ msgstr "pkgtools meldete Fehler"
 msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Nicht genug Speicherplatz</span>"
 
-msgid "Excluding %s due to dependency failure\n"
-msgstr "Schliesse %s wegen Abhaengigkeits-Fehler aus\n"
+msgid "<b>Excluding %s due to dependency failure</b>\n"
+msgstr "<b>Schliesse %s wegen Abhaengigkeits-Fehler aus</b>\n"
 
 msgid "Unmark"
 msgstr "Abwaehlen"

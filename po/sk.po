@@ -362,8 +362,8 @@ msgstr "pkgtools vrátil chybu"
 msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Nemáte dostatok voµného miesta</span>"
 
-msgid "Excluding %s due to dependency failure\n"
-msgstr "Vyluèujem %s chybu so závislo»ou\n"
+msgid "<b>Excluding %s due to dependency failure</b>\n"
+msgstr "<b>Vyluèujem %s chybu so závislo»ou</b>\n"
 
 msgid "Unmark"
 msgstr "Odznaèi»"

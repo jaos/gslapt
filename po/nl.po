@@ -366,8 +366,8 @@ msgstr "pkgtools gaf een foutmelding"
 msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
 msgstr "<span weight=\"bold\" size=\"large\">U hebt niet genoeg vrije ruimte</span>"
 
-msgid "Excluding %s due to dependency failure\n"
-msgstr "%s wordt wegens onvervulde afhankelijkheid uitgesloten\n"
+msgid "<b>Excluding %s due to dependency failure</b>\n"
+msgstr "<b>%s wordt wegens onvervulde afhankelijkheid uitgesloten</b>\n"
 
 msgid "Unmark"
 msgstr "Wis markering"
