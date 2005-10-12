@@ -2965,7 +2965,7 @@ static void display_dep_error_dialog (slapt_pkg_info_t *pkg,guint m, guint c)
   g_free(msg);
 
   gtk_label_set_text(GTK_LABEL(lookup_widget(w,"dep_error_install_anyway_warning_label")),
-                     "Do you want to continue without the required packages?");
+                     (char *)_("Missing dependencies may mean the software in this package will not function correctly.  Do you want to continue without the required packages?"));
 
   gtk_label_set_use_markup (GTK_LABEL(lookup_widget(w,"dep_error_label")),
                             TRUE);

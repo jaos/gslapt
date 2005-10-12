@@ -428,6 +428,6 @@ msgstr "Zakoñczone"
 msgid "Successfully executed all actions."
 msgstr "Wszystkie czynno¶ci zakoñczono pomy¶lnie."
 
-msgid "Do you want to continue without the required packages?"
-msgstr "Do you want to continue without the required packages?"
+msgid "Missing dependencies may mean the software in this package will not function correctly.  Do you want to continue without the required packages?"
+msgstr "Missing dependencies may mean the software in this package will not function correctly.  Do you want to continue without the required packages?"
 
