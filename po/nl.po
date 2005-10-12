@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gslapt 0.3.9\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-08-18 23:06+0200\n"
-"PO-Revision-Date: 2005-10-11 18:18+0500\n"
+"PO-Revision-Date: 2005-10-12 12:18+0500\n"
 "Last-Translator: Martijn Dekker <martijn@inlv.demon.nl>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -366,8 +366,8 @@ msgstr "pkgtools gaf een foutmelding"
 msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
 msgstr "<span weight=\"bold\" size=\"large\">U hebt niet genoeg vrije ruimte</span>"
 
-msgid "<b>Excluding %s due to dependency failure</b>\n"
-msgstr "<b>%s wordt wegens onvervulde afhankelijkheid uitgesloten</b>\n"
+msgid "<b>Excluding %s due to dependency failure</b>"
+msgstr "<b>%s wordt wegens onvervulde afhankelijkheid uitgesloten</b>"
 
 msgid "Unmark"
 msgstr "Wis markering"
@@ -458,12 +458,6 @@ msgstr "Markeer alle mogelijke opwaarderingen"
 
 msgid "Enabled"
 msgstr "Toegelaten"
-
-msgid "_Install Anyway"
-msgstr "_Install Anyway"
-
-msgid "_Upgrade Anyway"
-msgstr "_Upgrade Anyway"
 
 msgid "Do you want to continue without the required packages?"
 msgstr "Do you want to continue without the required packages?"

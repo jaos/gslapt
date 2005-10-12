@@ -71,7 +71,7 @@ static void reset_search_list (void);
 static int ladd_deps_to_trans (slapt_transaction_t *tran, struct slapt_pkg_list *avail_pkgs,
                                struct slapt_pkg_list *installed_pkgs, slapt_pkg_info_t *pkg);
 static gboolean toggle_source_status (GtkTreeView *treeview, gpointer data);
-static void display_dep_error_dialog (slapt_pkg_info_t *pkg,guint m, guint c,enum slapt_action e);
+static void display_dep_error_dialog (slapt_pkg_info_t *pkg,guint m, guint c);
 static void exclude_dep_error_callback (GtkObject *object, gpointer user_data);
 static void install_dep_error_callback (GtkObject *object, gpointer user_data);
 
@@ -291,7 +291,7 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
       }
 
     }else{
-      display_dep_error_dialog(pkg,missing_count,conflict_count,INSTALL);
+      display_dep_error_dialog(pkg,missing_count,conflict_count);
     }
 
   }else{ /* else we upgrade or reinstall */
@@ -365,7 +365,7 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
         }
 
       }else{
-        display_dep_error_dialog(pkg,missing_count,conflict_count,UPGRADE);
+        display_dep_error_dialog(pkg,missing_count,conflict_count);
       }
 
     }
@@ -2953,12 +2953,12 @@ static gboolean toggle_source_status (GtkTreeView *treeview, gpointer data)
   return FALSE;
 }
 
-static void display_dep_error_dialog (slapt_pkg_info_t *pkg,guint m, guint c,enum slapt_action e)
+static void display_dep_error_dialog (slapt_pkg_info_t *pkg,guint m, guint c)
 {
   GtkWidget *w = create_dep_error_dialog();
   GtkTextBuffer *error_buf = NULL;
   guint i;
-  gchar *msg = g_strdup_printf("<b>Excluding %s due to dependency failure</b>\n",pkg->name);
+  gchar *msg = g_strdup_printf("<b>Excluding %s due to dependency failure</b>",pkg->name);
 
   gtk_window_set_title (GTK_WINDOW(w),(char *)_("Error"));
   gtk_label_set_text(GTK_LABEL(lookup_widget(w,"dep_error_label")),msg);
@@ -2968,6 +2968,8 @@ static void display_dep_error_dialog (slapt_pkg_info_t *pkg,guint m, guint c,enu
                      "Do you want to continue without the required packages?");
 
   gtk_label_set_use_markup (GTK_LABEL(lookup_widget(w,"dep_error_label")),
+                            TRUE);
+  gtk_label_set_use_markup (GTK_LABEL(lookup_widget(w,"dep_error_install_anyway_warning_label")),
                             TRUE);
   error_buf = gtk_text_view_get_buffer(GTK_TEXT_VIEW(lookup_widget(w,"dep_error_text")));
 
@@ -3003,12 +3005,6 @@ static void display_dep_error_dialog (slapt_pkg_info_t *pkg,guint m, guint c,enu
     free(err);
   }
 
-  if (e == INSTALL) {
-    gtk_label_set_markup_with_mnemonic(GTK_LABEL(lookup_widget(w,"dep_error_install_button_label")),(char *)_("_Install Anyway"));
-  } else if (e == UPGRADE) {
-    gtk_label_set_markup_with_mnemonic(GTK_LABEL(lookup_widget(w,"dep_error_install_button_label")),(char *)_("_Upgrade Anyway"));
-  }
-
   g_signal_connect(G_OBJECT(lookup_widget(w,"dep_error_cancel_button")),"clicked",
                    G_CALLBACK(exclude_dep_error_callback),pkg);
   g_signal_connect(G_OBJECT(lookup_widget(w,"dep_error_install_button")),"clicked",
@@ -3036,18 +3032,17 @@ static void install_dep_error_callback (GtkObject *object, gpointer user_data)
   GtkTreeModelSort *package_model;
   GtkWidget *dep_error_dialog = lookup_widget(GTK_WIDGET(object),"dep_error_dialog");
   slapt_pkg_info_t *pkg = (slapt_pkg_info_t *)user_data;
-  const char *action_label = gtk_label_get_text(GTK_LABEL(lookup_widget(GTK_WIDGET(object),
-                                          "dep_error_install_button_label")));
   slapt_pkg_info_t *installed_pkg = slapt_get_newest_pkg(installed,pkg->name);
 
   treeview = GTK_TREE_VIEW(lookup_widget(gslapt,"pkg_listing_treeview"));
   package_model = GTK_TREE_MODEL_SORT(gtk_tree_view_get_model(treeview));
   filter_model = GTK_TREE_MODEL_FILTER(gtk_tree_model_sort_get_model(GTK_TREE_MODEL_SORT(package_model)));
   model = GTK_TREE_MODEL(gtk_tree_model_filter_get_model(GTK_TREE_MODEL_FILTER(filter_model)));
+
   if (!set_iter_to_pkg(model,&iter,pkg))
     set_iter_to_pkg(model,&iter,installed_pkg);
 
-  if (strstr(action_label,"Install") != NULL) {
+  if (installed_pkg == NULL) {
     gchar *status = g_strdup_printf("i%s",pkg->name);
 
     slapt_add_install_to_transaction(trans,pkg);
@@ -3057,25 +3052,22 @@ static void install_dep_error_callback (GtkObject *object, gpointer user_data)
     g_free(status);
 
     set_execute_active();
-  } else if (strstr(action_label,"Upgrade") != NULL) {
+
+  } else {
     gchar *status = g_strdup_printf("u%s",pkg->name);
     int ver_cmp = slapt_cmp_pkgs(installed_pkg,pkg);
 
-    if (installed_pkg != NULL) {
+    slapt_add_upgrade_to_transaction(trans,installed_pkg,pkg);
 
-      slapt_add_upgrade_to_transaction(trans,installed_pkg,pkg);
-
-      if (ver_cmp == 0) {
-        gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_reinstall.png"),-1);
-      } else if (ver_cmp > 1) {
-        gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_upgrade.png"),-1);
-      } else if (ver_cmp < 1) {
-        gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_downrade.png"),-1);
-      }
-      gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_COLUMN,status,-1);
-      g_free(status);
-
+    if (ver_cmp == 0) {
+      gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_reinstall.png"),-1);
+    } else if (ver_cmp > 1) {
+      gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_upgrade.png"),-1);
+    } else if (ver_cmp < 1) {
+      gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_downgrade.png"),-1);
     }
+    gtk_list_store_set(GTK_LIST_STORE(model),&iter,STATUS_COLUMN,status,-1);
+    g_free(status);
 
     set_execute_active();
 

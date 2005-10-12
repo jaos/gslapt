@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gslapt 0.3.9\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-07-28 18:01+0000\n"
-"PO-Revision-Date: 2005-10-11 18:18+0500\n"
+"PO-Revision-Date: 2005-10-12 12:18+0500\n"
 "Last-Translator: Fabio Varesano <fvaresano@yahoo.it>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -371,8 +371,8 @@ msgstr "pkgtools ha restituito un errore"
 msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Non hai spazio libero sufficiente</span>"
 
-msgid "<b>Excluding %s due to dependency failure</b>\n"
-msgstr "<b>Esclusione %s per dipendenza non soddisfatta</b>\n"
+msgid "<b>Excluding %s due to dependency failure</b>"
+msgstr "<b>Esclusione %s per dipendenza non soddisfatta</b>"
 
 msgid "Unmark"
 msgstr "Deseleziona"
@@ -460,12 +460,6 @@ msgstr "Lime _Del Pacchetto Nascoste Cancellazione"
 
 msgid "Enabled"
 msgstr "Permesso"
-
-msgid "_Install Anyway"
-msgstr "_Install Anyway"
-
-msgid "_Upgrade Anyway"
-msgstr "_Upgrade Anyway"
 
 msgid "Do you want to continue without the required packages?"
 msgstr "Do you want to continue without the required packages?"

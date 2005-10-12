@@ -2336,22 +2336,16 @@ create_dep_error_dialog (void)
   GtkWidget *hbox113;
   GtkWidget *image1261;
   GtkWidget *vbox72;
+  GtkWidget *label285;
   GtkWidget *dep_error_label;
-  GtkWidget *dep_error_install_anyway_warning_label;
-  GtkWidget *label284;
   GtkWidget *scrolledwindow22;
   GtkWidget *dep_error_text;
+  GtkWidget *label286;
+  GtkWidget *dep_error_install_anyway_warning_label;
+  GtkWidget *label284;
   GtkWidget *dialog_action_area6;
   GtkWidget *dep_error_cancel_button;
-  GtkWidget *alignment2;
-  GtkWidget *hbox111;
-  GtkWidget *image1259;
-  GtkWidget *label283;
   GtkWidget *dep_error_install_button;
-  GtkWidget *alignment1;
-  GtkWidget *hbox110;
-  GtkWidget *image1258;
-  GtkWidget *dep_error_install_button_label;
 
   dep_error_dialog = gtk_dialog_new ();
   gtk_widget_set_name (dep_error_dialog, "dep_error_dialog");
@@ -2387,6 +2381,11 @@ create_dep_error_dialog (void)
   gtk_widget_show (vbox72);
   gtk_box_pack_start (GTK_BOX (hbox113), vbox72, TRUE, TRUE, 0);
 
+  label285 = gtk_label_new ("");
+  gtk_widget_set_name (label285, "label285");
+  gtk_widget_show (label285);
+  gtk_box_pack_start (GTK_BOX (vbox72), label285, FALSE, FALSE, 0);
+
   dep_error_label = gtk_label_new ("");
   gtk_widget_set_name (dep_error_label, "dep_error_label");
   gtk_widget_show (dep_error_label);
@@ -2394,20 +2393,6 @@ create_dep_error_dialog (void)
   gtk_label_set_use_markup (GTK_LABEL (dep_error_label), TRUE);
   gtk_label_set_line_wrap (GTK_LABEL (dep_error_label), TRUE);
   gtk_misc_set_alignment (GTK_MISC (dep_error_label), 0, 0);
-
-  dep_error_install_anyway_warning_label = gtk_label_new ("");
-  gtk_widget_set_name (dep_error_install_anyway_warning_label, "dep_error_install_anyway_warning_label");
-  gtk_widget_show (dep_error_install_anyway_warning_label);
-  gtk_box_pack_start (GTK_BOX (vbox72), dep_error_install_anyway_warning_label, FALSE, TRUE, 0);
-  gtk_label_set_use_markup (GTK_LABEL (dep_error_install_anyway_warning_label), TRUE);
-  gtk_label_set_line_wrap (GTK_LABEL (dep_error_install_anyway_warning_label), TRUE);
-  gtk_misc_set_alignment (GTK_MISC (dep_error_install_anyway_warning_label), 0, 0);
-
-  label284 = gtk_label_new ("");
-  gtk_widget_set_name (label284, "label284");
-  gtk_widget_show (label284);
-  gtk_box_pack_start (GTK_BOX (vbox72), label284, FALSE, FALSE, 0);
-  gtk_misc_set_alignment (GTK_MISC (label284), 0, 0);
 
   scrolledwindow22 = gtk_scrolled_window_new (NULL, NULL);
   gtk_widget_set_name (scrolledwindow22, "scrolledwindow22");
@@ -2424,62 +2409,41 @@ create_dep_error_dialog (void)
   gtk_text_view_set_accepts_tab (GTK_TEXT_VIEW (dep_error_text), FALSE);
   gtk_text_view_set_cursor_visible (GTK_TEXT_VIEW (dep_error_text), FALSE);
 
+  label286 = gtk_label_new ("");
+  gtk_widget_set_name (label286, "label286");
+  gtk_widget_show (label286);
+  gtk_box_pack_start (GTK_BOX (vbox72), label286, FALSE, FALSE, 0);
+
+  dep_error_install_anyway_warning_label = gtk_label_new ("");
+  gtk_widget_set_name (dep_error_install_anyway_warning_label, "dep_error_install_anyway_warning_label");
+  gtk_widget_show (dep_error_install_anyway_warning_label);
+  gtk_box_pack_start (GTK_BOX (vbox72), dep_error_install_anyway_warning_label, FALSE, TRUE, 0);
+  gtk_label_set_use_markup (GTK_LABEL (dep_error_install_anyway_warning_label), TRUE);
+  gtk_label_set_line_wrap (GTK_LABEL (dep_error_install_anyway_warning_label), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (dep_error_install_anyway_warning_label), 0, 0);
+
+  label284 = gtk_label_new ("");
+  gtk_widget_set_name (label284, "label284");
+  gtk_widget_show (label284);
+  gtk_box_pack_start (GTK_BOX (vbox72), label284, FALSE, FALSE, 0);
+  gtk_misc_set_alignment (GTK_MISC (label284), 0, 0);
+
   dialog_action_area6 = GTK_DIALOG (dep_error_dialog)->action_area;
   gtk_widget_set_name (dialog_action_area6, "dialog_action_area6");
   gtk_widget_show (dialog_action_area6);
   gtk_button_box_set_layout (GTK_BUTTON_BOX (dialog_action_area6), GTK_BUTTONBOX_END);
 
-  dep_error_cancel_button = gtk_button_new ();
+  dep_error_cancel_button = gtk_button_new_from_stock ("gtk-cancel");
   gtk_widget_set_name (dep_error_cancel_button, "dep_error_cancel_button");
   gtk_widget_show (dep_error_cancel_button);
-  gtk_dialog_add_action_widget (GTK_DIALOG (dep_error_dialog), dep_error_cancel_button, GTK_RESPONSE_CLOSE);
+  gtk_dialog_add_action_widget (GTK_DIALOG (dep_error_dialog), dep_error_cancel_button, GTK_RESPONSE_CANCEL);
   GTK_WIDGET_SET_FLAGS (dep_error_cancel_button, GTK_CAN_DEFAULT);
 
-  alignment2 = gtk_alignment_new (0.5, 0.5, 0, 0);
-  gtk_widget_set_name (alignment2, "alignment2");
-  gtk_widget_show (alignment2);
-  gtk_container_add (GTK_CONTAINER (dep_error_cancel_button), alignment2);
-
-  hbox111 = gtk_hbox_new (FALSE, 2);
-  gtk_widget_set_name (hbox111, "hbox111");
-  gtk_widget_show (hbox111);
-  gtk_container_add (GTK_CONTAINER (alignment2), hbox111);
-
-  image1259 = gtk_image_new_from_stock ("gtk-close", GTK_ICON_SIZE_BUTTON);
-  gtk_widget_set_name (image1259, "image1259");
-  gtk_widget_show (image1259);
-  gtk_box_pack_start (GTK_BOX (hbox111), image1259, FALSE, FALSE, 0);
-
-  label283 = gtk_label_new_with_mnemonic ("_Exclude");
-  gtk_widget_set_name (label283, "label283");
-  gtk_widget_show (label283);
-  gtk_box_pack_start (GTK_BOX (hbox111), label283, FALSE, FALSE, 0);
-
-  dep_error_install_button = gtk_button_new ();
+  dep_error_install_button = gtk_button_new_from_stock ("gtk-ok");
   gtk_widget_set_name (dep_error_install_button, "dep_error_install_button");
   gtk_widget_show (dep_error_install_button);
-  gtk_dialog_add_action_widget (GTK_DIALOG (dep_error_dialog), dep_error_install_button, 0);
+  gtk_dialog_add_action_widget (GTK_DIALOG (dep_error_dialog), dep_error_install_button, GTK_RESPONSE_OK);
   GTK_WIDGET_SET_FLAGS (dep_error_install_button, GTK_CAN_DEFAULT);
-
-  alignment1 = gtk_alignment_new (0.5, 0.5, 0, 0);
-  gtk_widget_set_name (alignment1, "alignment1");
-  gtk_widget_show (alignment1);
-  gtk_container_add (GTK_CONTAINER (dep_error_install_button), alignment1);
-
-  hbox110 = gtk_hbox_new (FALSE, 2);
-  gtk_widget_set_name (hbox110, "hbox110");
-  gtk_widget_show (hbox110);
-  gtk_container_add (GTK_CONTAINER (alignment1), hbox110);
-
-  image1258 = gtk_image_new_from_stock ("gtk-ok", GTK_ICON_SIZE_BUTTON);
-  gtk_widget_set_name (image1258, "image1258");
-  gtk_widget_show (image1258);
-  gtk_box_pack_start (GTK_BOX (hbox110), image1258, FALSE, FALSE, 0);
-
-  dep_error_install_button_label = gtk_label_new_with_mnemonic ("");
-  gtk_widget_set_name (dep_error_install_button_label, "dep_error_install_button_label");
-  gtk_widget_show (dep_error_install_button_label);
-  gtk_box_pack_start (GTK_BOX (hbox110), dep_error_install_button_label, FALSE, FALSE, 0);
 
   /* Store pointers to all widgets, for use by lookup_widget(). */
   GLADE_HOOKUP_OBJECT_NO_REF (dep_error_dialog, dep_error_dialog, "dep_error_dialog");
@@ -2487,22 +2451,16 @@ create_dep_error_dialog (void)
   GLADE_HOOKUP_OBJECT (dep_error_dialog, hbox113, "hbox113");
   GLADE_HOOKUP_OBJECT (dep_error_dialog, image1261, "image1261");
   GLADE_HOOKUP_OBJECT (dep_error_dialog, vbox72, "vbox72");
+  GLADE_HOOKUP_OBJECT (dep_error_dialog, label285, "label285");
   GLADE_HOOKUP_OBJECT (dep_error_dialog, dep_error_label, "dep_error_label");
-  GLADE_HOOKUP_OBJECT (dep_error_dialog, dep_error_install_anyway_warning_label, "dep_error_install_anyway_warning_label");
-  GLADE_HOOKUP_OBJECT (dep_error_dialog, label284, "label284");
   GLADE_HOOKUP_OBJECT (dep_error_dialog, scrolledwindow22, "scrolledwindow22");
   GLADE_HOOKUP_OBJECT (dep_error_dialog, dep_error_text, "dep_error_text");
+  GLADE_HOOKUP_OBJECT (dep_error_dialog, label286, "label286");
+  GLADE_HOOKUP_OBJECT (dep_error_dialog, dep_error_install_anyway_warning_label, "dep_error_install_anyway_warning_label");
+  GLADE_HOOKUP_OBJECT (dep_error_dialog, label284, "label284");
   GLADE_HOOKUP_OBJECT_NO_REF (dep_error_dialog, dialog_action_area6, "dialog_action_area6");
   GLADE_HOOKUP_OBJECT (dep_error_dialog, dep_error_cancel_button, "dep_error_cancel_button");
-  GLADE_HOOKUP_OBJECT (dep_error_dialog, alignment2, "alignment2");
-  GLADE_HOOKUP_OBJECT (dep_error_dialog, hbox111, "hbox111");
-  GLADE_HOOKUP_OBJECT (dep_error_dialog, image1259, "image1259");
-  GLADE_HOOKUP_OBJECT (dep_error_dialog, label283, "label283");
   GLADE_HOOKUP_OBJECT (dep_error_dialog, dep_error_install_button, "dep_error_install_button");
-  GLADE_HOOKUP_OBJECT (dep_error_dialog, alignment1, "alignment1");
-  GLADE_HOOKUP_OBJECT (dep_error_dialog, hbox110, "hbox110");
-  GLADE_HOOKUP_OBJECT (dep_error_dialog, image1258, "image1258");
-  GLADE_HOOKUP_OBJECT (dep_error_dialog, dep_error_install_button_label, "dep_error_install_button_label");
 
   gtk_widget_grab_focus (dep_error_cancel_button);
   gtk_widget_grab_default (dep_error_cancel_button);
