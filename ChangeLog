@@ -1,5 +1,6 @@
 
-0.3.10 Nov 16, 2005
+0.3.10 Nov 17, 2005
+ * updated .desktop entry to NotShowIn KDE, added gslapt-kde.desktop
  * added call to usr/bin/update-desktop-database in doinst.sh (freerock)
  * updated Russian and Unkrainian translations
 
