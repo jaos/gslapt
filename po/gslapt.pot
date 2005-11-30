@@ -363,7 +363,7 @@ msgstr ""
 msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
 msgstr ""
 
-msgid "<b>Excluding %s due to dependency failure<b>"
+msgid "<b>Excluding %s due to dependency failure</b>"
 msgstr ""
 
 msgid "Unmark"
