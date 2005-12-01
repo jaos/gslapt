@@ -1,5 +1,6 @@
 
 0.3.10 Nov 30, 2005
+ * Bulgarian translation by Victor Keranov
  * fixed bad bold tag in gslapt.pot
  * updated .desktop entry to NotShowIn KDE, added gslapt-kde.desktop
  * added call to usr/bin/update-desktop-database in doinst.sh (freerock)
