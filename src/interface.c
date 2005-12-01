@@ -988,7 +988,7 @@ create_gslapt (void)
   gtk_label_set_use_markup (GTK_LABEL (pkg_info_description), TRUE);
   gtk_misc_set_alignment (GTK_MISC (pkg_info_description), 0, 0.5);
 
-  label273 = gtk_label_new (_("<b>Version</b>"));
+  label273 = gtk_label_new (_("<b>Version:</b>"));
   gtk_widget_set_name (label273, "label273");
   gtk_widget_show (label273);
   gtk_table_attach (GTK_TABLE (table2), label273, 0, 1, 4, 5,
