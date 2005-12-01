@@ -20,7 +20,7 @@ AC_CHECK_HEADER(curl/curl.h, [], [AC_MSG_ERROR(libcurl headers are missing)])
 AC_CHECK_HEADER(slapt.h, [], [AC_MSG_ERROR(libslapt headers are missing)])
 AC_CHECK_LIB(z,gzopen, [LIBS="$LIBS -lz"], [AC_MSG_ERROR(libz is missing)])
 AC_CHECK_LIB(curl,curl_global_init, [LIBS="$LIBS `curl-config --libs`"], [AC_MSG_ERROR(curl libs are missing)])
-AC_CHECK_LIB(slapt,slapt_remove_exclude, [], [AC_MSG_ERROR(libslapt 0.9.10d or greater is required)])
+AC_CHECK_LIB(slapt,slapt_clean_description, [], [AC_MSG_ERROR(libslapt 0.9.11 or greater is required)])
 LIBS="$LIBS -lglib-2.0 -lgthread-2.0"
 
 pkg_modules="gtk+-2.0 >= 2.4.0"

@@ -708,6 +708,7 @@ static void fillin_pkg_details (slapt_pkg_info_t *pkg)
   GtkWidget *treeview = lookup_widget(gslapt,"dep_conf_sug_treeview");
   slapt_pkg_info_t *latest_pkg = slapt_get_newest_pkg(all,pkg->name);
   slapt_pkg_info_t *installed_pkg = slapt_get_newest_pkg(installed,pkg->name);
+  char *clean_desc = NULL;
 
   /* set package details */
   gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_name")),pkg->name);
@@ -849,7 +850,12 @@ static void fillin_pkg_details (slapt_pkg_info_t *pkg)
 
   /* description tab */
   pkg_full_desc = gtk_text_view_get_buffer(GTK_TEXT_VIEW(lookup_widget(gslapt,"pkg_description_textview")));
-  gtk_text_buffer_set_text(pkg_full_desc,pkg->description,-1);
+  clean_desc = strdup(pkg->description);
+  slapt_clean_description(clean_desc,pkg->name);
+  gtk_text_buffer_set_text(pkg_full_desc,clean_desc,-1);
+
+  if ( clean_desc != NULL ) 
+    free(clean_desc);
 
 
   /* set status */
@@ -1851,9 +1857,17 @@ static gboolean install_packages (void)
   gdk_threads_leave();
 
   for (i = 0; i < trans->remove_pkgs->pkg_count;++i) {
+    char *clean_desc = strdup(trans->remove_pkgs->pkgs[i]->description);
+    slapt_clean_description(clean_desc,trans->remove_pkgs->pkgs[i]->name);
+
     gdk_threads_enter();
+
     context_id = gslapt_set_status((gchar *)_("Removing packages..."));
-    gtk_label_set_text(progress_pkg_desc,trans->remove_pkgs->pkgs[i]->description);
+    gtk_label_set_text(progress_pkg_desc,clean_desc);
+
+    if ( clean_desc != NULL)
+      free(clean_desc);
+
     gtk_label_set_text(progress_action_label,(gchar *)_("Uninstalling..."));
     gtk_label_set_text(progress_message_label,trans->remove_pkgs->pkgs[i]->name);
     gtk_progress_bar_set_fraction(p_bar,((count * 100)/trans->remove_pkgs->pkg_count)/100);
@@ -1883,10 +1897,18 @@ static gboolean install_packages (void)
     gdk_threads_enter();
     context_id = gslapt_set_status((gchar *)_("Installing packages..."));
     gdk_threads_leave();
+
     if ( trans->queue->pkgs[i]->type == INSTALL ) {
+      char *clean_desc = strdup(trans->queue->pkgs[i]->pkg.i->description);
+      slapt_clean_description(clean_desc,trans->queue->pkgs[i]->pkg.i->name);
+
       gdk_threads_enter();
       context_id = gslapt_set_status((gchar *)_("Installing packages..."));
-      gtk_label_set_text(progress_pkg_desc,trans->queue->pkgs[i]->pkg.i->description);
+
+      gtk_label_set_text(progress_pkg_desc,clean_desc);
+      if ( clean_desc != NULL ) 
+        free(clean_desc);
+
       gtk_label_set_text(progress_action_label,(gchar *)_("Installing..."));
       gtk_label_set_text(progress_message_label,trans->queue->pkgs[i]->pkg.i->name);
       gtk_progress_bar_set_fraction(p_bar,((count * 100)/trans->queue->count)/100);
@@ -1900,8 +1922,15 @@ static gboolean install_packages (void)
         return FALSE;
       }
     }else if ( trans->queue->pkgs[i]->type == UPGRADE ) {
+      char *clean_desc = strdup(trans->queue->pkgs[i]->pkg.u->upgrade->description);
+      slapt_clean_description(clean_desc,trans->queue->pkgs[i]->pkg.u->upgrade->name);
+
       gdk_threads_enter();
+
       gtk_label_set_text(progress_pkg_desc,trans->queue->pkgs[i]->pkg.u->upgrade->description);
+      if ( clean_desc != NULL )
+        free(clean_desc);
+
       gtk_label_set_text(progress_action_label,(gchar *)_("Upgrading..."));
       gtk_label_set_text(progress_message_label,trans->queue->pkgs[i]->pkg.u->upgrade->name);
       gtk_progress_bar_set_fraction(p_bar,((count * 100)/trans->queue->count)/100);

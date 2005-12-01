@@ -1,5 +1,6 @@
 
-0.3.10 Nov 30, 2005
+0.3.10 Dec 01, 2005
+ * requires slapt-get 0.9.11 for new description cleaning functionality
  * Bulgarian translation by Victor Keranov
  * fixed bad bold tag in gslapt.pot
  * updated .desktop entry to NotShowIn KDE, added gslapt-kde.desktop
