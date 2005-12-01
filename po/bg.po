@@ -462,4 +462,4 @@ msgid "Enabled"
 msgstr "Позволен"
 
 msgid "Missing dependencies may mean the software in this package will not function correctly.  Do you want to continue without the required packages?"
-msgstr "Липсващите зависимости могат да означават, че дадения пакет няма да функционира правилно. Желаете ли да продължите без препоръчетилните пакети?"--=_5a1d4612901302a0a21127
+msgstr "Липсващите зависимости могат да означават, че дадения пакет няма да функционира правилно. Желаете ли да продължите без препоръчетилните пакети?"
