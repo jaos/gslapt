@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gslapt 0.3.9\n"
+"Project-Id-Version: gslapt 0.3.10\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-05-06 11:10-0500\n"
-"PO-Revision-Date: 2005-10-12 12:18+0500\n"
+"PO-Revision-Date: 2005-12-01 14:54+0500\n"
 "Last-Translator: Pedro Pinto aka _PN_boy <pedro_nuno_pn@zmail.pt>\n"
 "Language-Team: slapt-get devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -333,6 +333,9 @@ msgstr "Versão:"
 
 msgid "<b>Version:</b>"
 msgstr "<b>Versão:</b>"
+
+msgid "<b>Version</b>"
+msgstr "<b>Versão</b>"
 
 msgid "Common"
 msgstr "Comum"

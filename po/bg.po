@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gslapt 0.3.10\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2005-11-30 21:14+0500\n"
+"PO-Revision-Date: 2005-12-01 14:54+0500\n"
 "Last-Translator: Victor Keranov <victor_keranov@mail.bg>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -340,6 +340,9 @@ msgstr "Версия:"
 
 msgid "<b>Version:</b>"
 msgstr "<b>Версия:</b>"
+
+msgid "<b>Version</b>"
+msgstr "<b>Версия</b>"
 
 msgid "Common"
 msgstr ""
