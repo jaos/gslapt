@@ -1973,7 +1973,7 @@ create_icon_legend (void)
   gtk_widget_show (label277);
   gtk_box_pack_start (GTK_BOX (hbox109), label277, FALSE, TRUE, 6);
 
-  label280 = gtk_label_new (_(","));
+  label280 = gtk_label_new (_("/"));
   gtk_widget_set_name (label280, "label280");
   gtk_widget_show (label280);
   gtk_box_pack_start (GTK_BOX (hbox109), label280, FALSE, FALSE, 0);
@@ -2013,7 +2013,7 @@ create_icon_legend (void)
   gtk_widget_show (label276);
   gtk_box_pack_start (GTK_BOX (hbox108), label276, FALSE, TRUE, 6);
 
-  label278 = gtk_label_new (_(","));
+  label278 = gtk_label_new (_("/"));
   gtk_widget_set_name (label278, "label278");
   gtk_widget_show (label278);
   gtk_box_pack_start (GTK_BOX (hbox108), label278, FALSE, TRUE, 0);

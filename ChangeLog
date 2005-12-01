@@ -1,5 +1,6 @@
 
 0.3.10 Dec 01, 2005
+ * a few translation updates and minor ui update
  * requires slapt-get 0.9.11 for new description cleaning functionality
  * Bulgarian translation by Victor Keranov
  * fixed bad bold tag in gslapt.pot
