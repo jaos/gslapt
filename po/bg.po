@@ -16,31 +16,31 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "<b>Exclude List</b>"
-msgstr ""
+msgstr "<b>РЎРїРёСЃСЉРє</b>"
 
 msgid "<b>Package Sources</b>"
-msgstr "<b>Източници на пакети</b>"
+msgstr "<b>РР·С‚РѕС‡РЅРёС†Рё РЅР° РїР°РєРµС‚Рё</b>"
 
 msgid "<b>Package and data storage</b>"
-msgstr ""
+msgstr "<b>Р”РёСЂРµРєС‚РѕСЂРёСЏ Р·Р° СЃСЉС…СЂР°РЅРµРЅРёРµ</b>"
 
 msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Приложи следните промени?</span>"
+msgstr "<span weight=\"bold\" size=\"large\">РџСЂРёР»РѕР¶Рё СЃР»РµРґРЅРёС‚Рµ РїСЂРѕРјРµРЅРё?</span>"
 
 msgid "<span weight=\"bold\">Exclude Expression:</span>"
-msgstr ""
+msgstr "<span weight=\"bold\">РќРѕРІРѕ РёР·РєР»СЋС‡РµРЅРёРµ:</span>"
 
 msgid "<span weight=\"bold\">SOURCE=</span>"
-msgstr "<span weight=\"bold\">ИЗТОЧНИК=</span>"
+msgstr "<span weight=\"bold\">РќРѕРІ РёР·С‚РѕС‡РЅРёРє:</span>"
 
 msgid "About gslapt"
-msgstr "Относно gslapt"
+msgstr "РћС‚РЅРѕСЃРЅРѕ gslapt"
 
 msgid "About"
-msgstr "Относно"
+msgstr "РћС‚РЅРѕСЃРЅРѕ"
 
 msgid "Checking for new package data..."
-msgstr "Проверка за нови данни на пакетите..."
+msgstr "РџСЂРѕРІРµСЂРєР° Р·Р° РЅРѕРІРё РґР°РЅРЅРё РЅР° РїР°РєРµС‚РёС‚Рµ..."
 
 msgid "Clean archived packages off filesystem"
 msgstr ""
@@ -52,29 +52,29 @@ msgid "Clear search expression"
 msgstr ""
 
 msgid "Clear"
-msgstr ""
+msgstr "РР·С‡РёСЃС‚РІР°РЅРµ"
 
 msgid "Conflicts"
-msgstr "Конфликти"
+msgstr "РљРѕРЅС„Р»РёРєС‚Рё"
 
 #, c-format
 msgid "Couldn't find pixmap file: %s"
-msgstr "Не бе намерен pixmap файл:"
+msgstr "РќРµ Р±Рµ РЅР°РјРµСЂРµРЅ pixmap С„Р°Р№Р»:"
 
 msgid "Description"
-msgstr "Описание"
+msgstr "РћРїРёСЃР°РЅРёРµ"
 
 msgid "Dismiss"
 msgstr ""
 
 msgid "Download packages only"
-msgstr "Само изтегляне на пакетите"
+msgstr "РЎР°РјРѕ РёР·С‚РµРіР»СЏРЅРµ РЅР° РїР°РєРµС‚РёС‚Рµ"
 
 msgid "Downloading packages..."
-msgstr "Изтегляне на пакетите..."
+msgstr "РР·С‚РµРіР»СЏРЅРµ РЅР° РїР°РєРµС‚РёС‚Рµ..."
 
 msgid "Downloading..."
-msgstr "Изтегляне..."
+msgstr "РР·С‚РµРіР»СЏРЅРµ..."
 
 msgid "Exclude package"
 msgstr ""
@@ -83,151 +83,151 @@ msgid "Exclude"
 msgstr ""
 
 msgid "Excludes"
-msgstr ""
+msgstr "РР·РєР»СЋС‡РµРЅРёСЏ"
 
 msgid "Execute all scheduled actions in current transaction"
-msgstr ""
+msgstr "РР·РїСЉР»РЅРµРЅРёРµ РЅР° РІСЃРёС‡РєРё РёР·Р±СЂР°РЅРё РґРµР№СЃС‚РІРёСЏ"
 
 msgid "Execute"
-msgstr ""
+msgstr "РР·РїСЉР»РЅРµРЅРёРµ"
 
 msgid "Expression"
-msgstr "Фраза"
+msgstr "Р¤СЂР°Р·Р°"
 
 msgid "Gslapt"
 msgstr "Gslapt"
 
 msgid "Install"
-msgstr "Инсталиране"
+msgstr "РРЅСЃС‚Р°Р»РёСЂР°РЅРµ"
 
 msgid "Install/Upgrade package"
-msgstr "Инсталиране/Обновяване на пакет"
+msgstr "РРЅСЃС‚Р°Р»РёСЂР°РЅРµ/РћР±РЅРѕРІСЏРІР°РЅРµ РЅР° РїР°РєРµС‚"
 
 msgid "Installed Size:"
-msgstr "Инсталиран размер:"
+msgstr "РРЅСЃС‚Р°Р»РёСЂР°РЅ СЂР°Р·РјРµСЂ:"
 
 msgid "Installed"
-msgstr "Инсталиран"
+msgstr "РРЅСЃС‚Р°Р»РёСЂР°РЅ"
 
 msgid "Installing packages..."
-msgstr "Инсталиране на пакети..."
+msgstr "РРЅСЃС‚Р°Р»РёСЂР°РЅРµ РЅР° РїР°РєРµС‚Рё..."
 
 msgid "Installing..."
-msgstr "Инсталиране..."
+msgstr "РРЅСЃС‚Р°Р»РёСЂР°РЅРµ..."
 
 msgid "Location"
-msgstr "Местонахождение"
+msgstr "РњРµСЃС‚РѕРЅР°С…РѕР¶РґРµРЅРёРµ"
 
 msgid "Name"
-msgstr "Име"
+msgstr "РРјРµ"
 
 msgid "No"
-msgstr "Не"
+msgstr "РќРµ"
 
 msgid "Package Action"
-msgstr "Действие"
+msgstr "Р”РµР№СЃС‚РІРёРµ"
 
 msgid "Package Information"
-msgstr "Информация за пакета"
+msgstr "РРЅС„РѕСЂРјР°С†РёСЏ Р·Р° РїР°РєРµС‚Р°"
 
 msgid "Package"
-msgstr "Пакет"
+msgstr "РџР°РєРµС‚"
 
 msgid "Packages excluded"
 msgstr ""
 
 msgid "Packages to be installed"
-msgstr "Пакети за инсталиране"
+msgstr "РџР°РєРµС‚Рё Р·Р° РёРЅСЃС‚Р°Р»РёСЂР°РЅРµ"
 
 msgid "Packages to be removed"
-msgstr "Пакети за премахване"
+msgstr "РџР°РєРµС‚Рё Р·Р° РїСЂРµРјР°С…РІР°РЅРµ"
 
 msgid "Packages to be upgraded"
-msgstr "Пакети за ъпгрейд"
+msgstr "РџР°РєРµС‚Рё Р·Р° СЉРїРіСЂРµР№Рґ"
 
 msgid "Preferences"
-msgstr "Предпочитания"
+msgstr "РџСЂРµРґРїРѕС‡РёС‚Р°РЅРёСЏ"
 
 msgid "Progress"
-msgstr "Прогрес"
+msgstr "РџСЂРѕРіСЂРµСЃ"
 
 msgid "Quit"
-msgstr "Изход"
+msgstr "РР·С…РѕРґ"
 
 msgid "Remove package"
-msgstr "Премахване на пакет"
+msgstr "РџСЂРµРјР°С…РІР°РЅРµ РЅР° РїР°РєРµС‚"
 
 msgid "Remove"
-msgstr "Премахване"
+msgstr "РџСЂРµРјР°С…РІР°РЅРµ"
 
 msgid "Removing packages..."
-msgstr "Премахване на пакети..."
+msgstr "РџСЂРµРјР°С…РІР°РЅРµ РЅР° РїР°РєРµС‚Рё..."
 
 msgid "Required"
 msgstr ""
 
 msgid "Search for expression"
-msgstr "Търсене за фраза"
+msgstr "РўСЉСЂСЃРµРЅРµ Р·Р° С„СЂР°Р·Р°"
 
 msgid "Search"
-msgstr "Търсене"
+msgstr "РўСЉСЂСЃРµРЅРµ"
 
 msgid "Size:"
-msgstr "Размер:"
+msgstr "Р Р°Р·РјРµСЂ:"
 
 msgid "Source"
-msgstr "Източник"
+msgstr "РР·С‚РѕС‡РЅРёРє"
 
 msgid "Sources"
-msgstr "Източници"
+msgstr "РР·С‚РѕС‡РЅРёС†Рё"
 
 msgid "Suggests"
 msgstr ""
 
 msgid "Summary"
-msgstr "Резюме"
+msgstr "Р РµР·СЋРјРµ"
 
 msgid "This is a summary of the changes about to be performed."
-msgstr "Това е резюме на промените, които ще бъдат извършени."
+msgstr "РўРѕРІР° Рµ СЂРµР·СЋРјРµ РЅР° РїСЂРѕРјРµРЅРёС‚Рµ, РєРѕРёС‚Рѕ С‰Рµ Р±СЉРґР°С‚ РёР·РІСЉСЂС€РµРЅРё."
 
 msgid "Uninstalling..."
-msgstr "Деинсталиране..."
+msgstr "Р”РµРёРЅСЃС‚Р°Р»РёСЂР°РЅРµ..."
 
 msgid "Up_grade"
-msgstr "Ъп_грейд"
+msgstr "РЄРї_РіСЂРµР№Рґ"
 
 msgid "Update local package cache"
-msgstr "Ъпдейт на локалния кеш на пакетите"
+msgstr "РЄРїРґРµР№С‚ РЅР° Р»РѕРєР°Р»РЅРёСЏ РєРµС€ РЅР° РїР°РєРµС‚РёС‚Рµ"
 
 msgid "Update"
-msgstr "Ъпдейт"
+msgstr "РЄРїРґРµР№С‚"
 
 msgid "Upgrade to newer release"
-msgstr "Обновяване до по-нова версия"
+msgstr "РћР±РЅРѕРІСЏРІР°РЅРµ РґРѕ РїРѕ-РЅРѕРІР° РІРµСЂСЃРёСЏ"
 
 msgid "Upgrade"
-msgstr "Ъпгрейд"
+msgstr "РЄРїРіСЂРµР№Рґ"
 
 msgid "Upgrading packages..."
-msgstr "Ъпгрейд на пакетите..."
+msgstr "РЄРїРіСЂРµР№Рґ РЅР° РїР°РєРµС‚РёС‚Рµ..."
 
 msgid "Upgrading..."
-msgstr "Обновяване..."
+msgstr "РћР±РЅРѕРІСЏРІР°РЅРµ..."
 
 msgid "Version"
-msgstr "Версия"
+msgstr "Р’РµСЂСЃРёСЏ"
 
 msgid "WARNING"
-msgstr "ВНИМАНИЕ"
+msgstr "Р’РќРРњРђРќРР•"
 
 msgid "Working Directory"
-msgstr "Работна директория"
+msgstr "Р Р°Р±РѕС‚РЅР° РґРёСЂРµРєС‚РѕСЂРёСЏ"
 
 msgid "Yes"
-msgstr "Да"
+msgstr "Р”Р°"
 
 msgid "_Actions"
-msgstr "_Действия"
+msgstr "_Р”РµР№СЃС‚РІРёСЏ"
 
 msgid "_Clean"
 msgstr ""
@@ -236,26 +236,26 @@ msgid "_Execute"
 msgstr ""
 
 msgid "_Help"
-msgstr "_Помощ"
+msgstr "_РџРѕРјРѕС‰"
 
 msgid "_Preferences"
-msgstr "_Предпочитания"
+msgstr "_РџСЂРµРґРїРѕС‡РёС‚Р°РЅРёСЏ"
 
 msgid "_Settings"
-msgstr "_Настройки"
+msgstr "_РќР°СЃС‚СЂРѕР№РєРё"
 
 msgid "_Update"
-msgstr "_Ъпдейт"
+msgstr "_РЄРїРґРµР№С‚"
 
 msgid ""
 "gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
 "Slackware"
 msgstr ""
-"gslapt е GTK+ фронтенд на slapt-get, подобна на APT пакетна система за "
+"gslapt Рµ GTK+ С„СЂРѕРЅС‚РµРЅРґ РЅР° slapt-get, РїРѕРґРѕР±РЅР° РЅР° APT РїР°РєРµС‚РЅР° СЃРёСЃС‚РµРјР° Р·Р° "
 "Slackware"
 
 msgid "total progress"
-msgstr ""
+msgstr "С†СЏР»РѕСЃС‚РµРЅ РїСЂРѕРіСЂРµСЃ"
 
 msgid "working"
 msgstr ""
@@ -264,7 +264,7 @@ msgid "Up to Date"
 msgstr ""
 
 msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Няма налични ъпдейти</span>"
+msgstr "<span weight=\"bold\" size=\"large\">РќСЏРјР° РЅР°Р»РёС‡РЅРё СЉРїРґРµР№С‚Рё</span>"
 
 msgid "%d upgraded, %d newly installed, %d to remove and %d not upgraded."
 msgstr ""
@@ -282,25 +282,25 @@ msgid "After unpacking %.1d%s of additional disk space will be used."
 msgstr ""
 
 msgid "Ready"
-msgstr "Готов"
+msgstr "Р“РѕС‚РѕРІ"
 
 msgid "Re-Install"
-msgstr "Преинсталиране"
+msgstr "РџСЂРµРёРЅСЃС‚Р°Р»РёСЂР°РЅРµ"
 
 msgid "Downgrade"
-msgstr "Понижаване"
+msgstr "РџРѕРЅРёР¶Р°РІР°РЅРµ"
 
 msgid "_File"
-msgstr "_Файл"
+msgstr "_Р¤Р°Р№Р»"
 
 msgid "Pending changes. Click execute when ready."
-msgstr ""
+msgstr "РЎСЉС‰РµСЃС‚РІСѓРІР°С‚ РЅРµРёР·РїСЉР»РЅРµРЅРё РїСЂРѕРјРµРЅРё."
 
 msgid "Packages with unmet dependencies"
 msgstr ""
 
 msgid ": Depends: "
-msgstr "Зависимости:"
+msgstr "Р—Р°РІРёСЃРёРјРѕСЃС‚Рё: "
 
 msgid "Package conflicts"
 msgstr ""
@@ -309,139 +309,139 @@ msgid ", which is required by "
 msgstr ""
 
 msgid ", is excluded"
-msgstr ", е изключен"
+msgstr ", Рµ РёР·РєР»СЋС‡РµРЅ"
 
 msgid "<b>Conflicts:</b>"
-msgstr "<b>Конфликти:</b>"
+msgstr "<b>РљРѕРЅС„Р»РёРєС‚Рё:</b>"
 
 msgid "<b>Description:</b>"
-msgstr "<b>Описание:</b>"
+msgstr "<b>РћРїРёСЃР°РЅРёРµ:</b>"
 
 msgid "<b>Location:</b>"
-msgstr "<b>Местонахождение:</b>"
+msgstr "<b>РњРµСЃС‚РѕРЅР°С…РѕР¶РґРµРЅРёРµ:</b>"
 
 msgid "Source:"
-msgstr "Източник:"
+msgstr "РР·С‚РѕС‡РЅРёРє:"
 
 msgid "<b>Name:</b>"
-msgstr "<b>Име:</b>"
+msgstr "<b>РРјРµ:</b>"
 
 msgid "<b>Required:</b>"
-msgstr ""
+msgstr "<b>РР·РёСЃРєРІР°РЅРёСЏ:</b>"
 
 msgid "<b>Size:</b>"
-msgstr "<b>Размер:</b>"
+msgstr "<b>Р Р°Р·РјРµСЂ:</b>"
 
 msgid "<b>Suggests:</b>"
-msgstr "Предложения:"
+msgstr "РџСЂРµРґР»РѕР¶РµРЅРёСЏ:"
 
 msgid "Version:"
-msgstr "Версия:"
+msgstr "Р’РµСЂСЃРёСЏ:"
 
 msgid "<b>Version:</b>"
-msgstr "<b>Версия:</b>"
+msgstr "<b>Р’РµСЂСЃРёСЏ:</b>"
 
 msgid "<b>Version</b>"
-msgstr "<b>Версия</b>"
+msgstr "<b>Р’РµСЂСЃРёСЏ</b>"
 
 msgid "Common"
-msgstr ""
+msgstr "РћР±С‰Рё"
 
 msgid "Dependencies"
-msgstr "Зависимости"
+msgstr "Р—Р°РІРёСЃРёРјРѕСЃС‚Рё"
 
 msgid "No package is selected."
-msgstr "Няма избран пакет."
+msgstr "РќСЏРјР° РёР·Р±СЂР°РЅ РїР°РєРµС‚."
 
 msgid "Status"
-msgstr "Статус"
+msgstr "РЎС‚Р°С‚СѓСЃ"
 
 msgid "Source download failed"
 msgstr ""
 
 msgid "Package(s) failed to download"
-msgstr "Неуспешно изтегляне на пакет(и)"
+msgstr "РќРµСѓСЃРїРµС€РЅРѕ РёР·С‚РµРіР»СЏРЅРµ РЅР° РїР°РєРµС‚(Рё)"
 
 msgid "pkgtools returned an error"
 msgstr ""
 
 msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Нямате достатъчно свободно място</span>"
+msgstr "<span weight=\"bold\" size=\"large\">РќСЏРјР°С‚Рµ РґРѕСЃС‚Р°С‚СЉС‡РЅРѕ СЃРІРѕР±РѕРґРЅРѕ РјСЏСЃС‚Рѕ</span>"
 
 msgid "<b>Excluding %s due to dependency failure</b>"
-msgstr "<b>Изключва се %s поради липса на зависимости</b>"
+msgstr "<b>РР·РєР»СЋС‡РІР° СЃРµ %s РїРѕСЂР°РґРё Р»РёРїСЃР° РЅР° Р·Р°РІРёСЃРёРјРѕСЃС‚Рё</b>"
 
 msgid "Unmark"
-msgstr "Демаркирай"
+msgstr "Р‘РµР· РїСЂРѕРјСЏРЅР°"
 
 msgid "<b>Status:</b>"
-msgstr "<b>Статус:</b>"
+msgstr "<b>РЎС‚Р°С‚СѓСЃ:</b>"
 
 msgid "Excluded"
-msgstr "Изключен"
+msgstr "РР·РєР»СЋС‡РµРЅ"
 
 msgid "<b>The following icons are used to indicate the current status of a package:</b>"
-msgstr "<b>Използвани са следните икони за индикация на актуалното състояние на пакетите:</b>"
+msgstr "<b>РР·РїРѕР»Р·РІР°РЅРё СЃР° СЃР»РµРґРЅРёС‚Рµ РёРєРѕРЅРё Р·Р° РёРЅРґРёРєР°С†РёСЏ РЅР° Р°РєС‚СѓР°Р»РЅРѕС‚Рѕ СЃСЉСЃС‚РѕСЏРЅРёРµ РЅР° РїР°РєРµС‚РёС‚Рµ:</b>"
 
 msgid "Not Installed"
-msgstr "Не е инсталиран"
+msgstr "РќРµ Рµ РёРЅСЃС‚Р°Р»РёСЂР°РЅ"
 
 msgid "To be Installed"
-msgstr "Ще бъде инсталиран"
+msgstr "Р©Рµ Р±СЉРґРµ РёРЅСЃС‚Р°Р»РёСЂР°РЅ"
 
 msgid "To be Re-Installed"
-msgstr "Ще бъде пре-инсталиран"
+msgstr "Р©Рµ Р±СЉРґРµ РїСЂРµ-РёРЅСЃС‚Р°Р»РёСЂР°РЅ"
 
 msgid "To be Upgraded"
-msgstr "Ще бъде ъпгрейднат"
+msgstr "Р©Рµ Р±СЉРґРµ СЉРїРіСЂРµР№РґРЅР°С‚"
 
 msgid "To be Removed"
-msgstr "Ще бъде премахнат"
+msgstr "Р©Рµ Р±СЉРґРµ РїСЂРµРјР°С…РЅР°С‚"
 
 msgid "To be Downgraded"
-msgstr "Ще бъде понижен"
+msgstr "Р©Рµ Р±СЉРґРµ РїРѕРЅРёР¶РµРЅ"
 
 msgid "Icon Legend"
-msgstr "Легенда на иконите"
+msgstr "Р›РµРіРµРЅРґР° РЅР° РёРєРѕРЅРёС‚Рµ"
 
 msgid "Completed actions"
-msgstr "Извършени действия"
+msgstr "РР·РІСЉСЂС€РµРЅРё РґРµР№СЃС‚РІРёСЏ"
 
 msgid "Successfully executed all actions."
-msgstr "Успешно са извършени всички действия."
+msgstr "РЈСЃРїРµС€РЅРѕ СЃР° РёР·РІСЉСЂС€РµРЅРё РІСЃРёС‡РєРё РґРµР№СЃС‚РІРёСЏ."
 
 msgid "<b>Installed Version</b>"
-msgstr "<b>Инсталирана версия</b>"
+msgstr "<b>РРЅСЃС‚Р°Р»РёСЂР°РЅР° РІРµСЂСЃРёСЏ</b>"
 
 msgid "<b>Latest Available Version</b>"
-msgstr "<b>Последна налична версия</b>"
+msgstr "<b>РџРѕСЃР»РµРґРЅР° РЅР°Р»РёС‡РЅР° РІРµСЂСЃРёСЏ</b>"
 
 msgid "Failed to commit preferences"
 msgstr ""
 
 msgid "Mark All Upgrades"
-msgstr "Маркирай всички ъпгрейди"
+msgstr "РњР°СЂРєРёСЂР°Р№ РІСЃРёС‡РєРё СЉРїРіСЂРµР№РґРё"
 
 msgid "_Edit"
-msgstr "_Редактиране"
+msgstr "_Р РµРґР°РєС‚РёСЂР°РЅРµ"
 
 msgid "Unmark All"
-msgstr "Демаркирай всички"
+msgstr "Р”РµРјР°СЂРєРёСЂР°Р№ РІСЃРёС‡РєРё"
 
 msgid "P_ackage"
-msgstr "П_акет"
+msgstr "Рџ_Р°РєРµС‚"
 
 msgid "You need to reload the package list from the sources you have listed.  Do you want to do this now?"
-msgstr "Необходимо е да презаредите списъците с пакети от източниците, които сте избрали. Искате ли да го направите сега?"
+msgstr "РќРµРѕР±С…РѕРґРёРјРѕ Рµ РґР° РїСЂРµР·Р°СЂРµРґРёС‚Рµ СЃРїРёСЃСЉС†РёС‚Рµ СЃ РїР°РєРµС‚Рё РѕС‚ РёР·С‚РѕС‡РЅРёС†РёС‚Рµ, РєРѕРёС‚Рѕ СЃС‚Рµ РёР·Р±СЂР°Р»Рё. РСЃРєР°С‚Рµ Р»Рё РґР° РіРѕ РЅР°РїСЂР°РІРёС‚Рµ СЃРµРіР°?"
 
 msgid "Repositories changed"
-msgstr "Хранилищата са променени"
+msgstr "РҐСЂР°РЅРёР»РёС‰Р°С‚Р° СЃР° РїСЂРѕРјРµРЅРµРЅРё"
 
 msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
-msgstr "<span size=\"large\" weight=\"bold\">Хранилищата са променени</span>"
+msgstr "<span size=\"large\" weight=\"bold\">РҐСЂР°РЅРёР»РёС‰Р°С‚Р° СЃР° РїСЂРѕРјРµРЅРµРЅРё</span>"
 
 msgid "Retrieving package data..."
-msgstr "Получаване на информация за пакетите..."
+msgstr "РџРѕР»СѓС‡Р°РІР°РЅРµ РЅР° РёРЅС„РѕСЂРјР°С†РёСЏ Р·Р° РїР°РєРµС‚РёС‚Рµ..."
 
 msgid "Retrieving patch list..."
 msgstr ""
@@ -450,16 +450,16 @@ msgid "Retrieving checksum list..."
 msgstr ""
 
 msgid "Reading Package Lists..."
-msgstr "Четене на списъците с пакети..."
+msgstr "Р§РµС‚РµРЅРµ РЅР° СЃРїРёСЃСЉС†РёС‚Рµ СЃ РїР°РєРµС‚Рё..."
 
 msgid "_Delete Cached Package Files"
-msgstr ""
+msgstr "_РР·С‚СЂРёРІР°РЅРµ РЅР° РєРµС€РёСЂР°РЅРёС‚Рµ С„Р°Р№Р»РѕРІРµ"
 
 msgid "Mark all possible upgrades"
-msgstr "Маркиране на всички възможни ъпгрейди"
+msgstr "РњР°СЂРєРёСЂР°РЅРµ РЅР° РІСЃРёС‡РєРё РІСЉР·РјРѕР¶РЅРё СЉРїРіСЂРµР№РґРё"
 
 msgid "Enabled"
-msgstr "Позволен"
+msgstr "РџРѕР·РІРѕР»РµРЅ"
 
 msgid "Missing dependencies may mean the software in this package will not function correctly.  Do you want to continue without the required packages?"
-msgstr "Липсващите зависимости могат да означават, че дадения пакет няма да функционира правилно. Желаете ли да продължите без препоръчетилните пакети?"
+msgstr "Р›РёРїСЃРІР°С‰РёС‚Рµ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РјРѕРіР°С‚ РґР° РѕР·РЅР°С‡Р°РІР°С‚, С‡Рµ РґР°РґРµРЅРёСЏ РїР°РєРµС‚ РЅСЏРјР° РґР° С„СѓРЅРєС†РёРѕРЅРёСЂР° РїСЂР°РІРёР»РЅРѕ. Р–РµР»Р°РµС‚Рµ Р»Рё РґР° РїСЂРѕРґСЉР»Р¶РёС‚Рµ Р±РµР· РїСЂРµРїРѕСЂСЉС‡РµС‚РёР»РЅРёС‚Рµ РїР°РєРµС‚Рё?"--=_5a1d4612901302a0a21127
