@@ -1927,7 +1927,7 @@ static gboolean install_packages (void)
 
       gdk_threads_enter();
 
-      gtk_label_set_text(progress_pkg_desc,trans->queue->pkgs[i]->pkg.u->upgrade->description);
+      gtk_label_set_text(progress_pkg_desc,clean_desc);
       if ( clean_desc != NULL )
         free(clean_desc);
 
