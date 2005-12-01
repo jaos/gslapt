@@ -59,7 +59,7 @@ msgstr "Конфликти"
 
 #, c-format
 msgid "Couldn't find pixmap file: %s"
-msgstr "Не бе намерен pixmap файл:"
+msgstr "Не бе намерен pixmap файл: %s"
 
 msgid "Description"
 msgstr "Описание"
