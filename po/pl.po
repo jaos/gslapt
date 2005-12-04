@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gslapt 0.3.10\n"
+"Project-Id-Version: gslapt 0.3.11\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-17 14:52-0500\n"
-"PO-Revision-Date: 2005-12-01 14:54+0500\n"
+"PO-Revision-Date: 2005-12-03 19:32+0500\n"
 "Last-Translator: Piotr Simon <sajmon@tenboard.com>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -432,5 +432,5 @@ msgid "Successfully executed all actions."
 msgstr "Wszystkie czynno¶ci zakoñczono pomy¶lnie."
 
 msgid "Missing dependencies may mean the software in this package will not function correctly.  Do you want to continue without the required packages?"
-msgstr "Missing dependencies may mean the software in this package will not function correctly.  Do you want to continue without the required packages?"
+msgstr "Brakuj±ce zale¿no¶ci mog± oznaczaæ ¿e program w tym pakiecie mo¿e nieprawid³owo funkcjonowaæ. Chcesz kontynuowaæ dalej bez wymaganych pakietów?"
 
