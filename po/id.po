@@ -12,7 +12,7 @@ msgstr ""
 "Last-Translator: Kemas Antonius <kyantonius@kyantonius.com>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "<b>Exclude List</b>"
