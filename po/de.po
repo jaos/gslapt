@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gslapt 0.3.11\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2005-12-05 19:52+0500\n"
+"PO-Revision-Date: 2005-12-07 19:10+0500\n"
 "Last-Translator: Manfred Mueller <linux@nass-ek.de>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -53,7 +53,7 @@ msgid "Clear search expression"
 msgstr "Loesche Suchbegriff"
 
 msgid "Clear"
-msgstr "Entferne"
+msgstr "Loeschen"
 
 msgid "Conflicts"
 msgstr "Konflikte"
@@ -292,7 +292,7 @@ msgid "_File"
 msgstr "_Datei"
 
 msgid "Pending changes. Click execute when ready."
-msgstr "Aenderungen erforderlich - Klick auf Ausfuehren zum Start"
+msgstr "Aktivieren der Aenderungen mit Klick auf Start"
 
 msgid "Packages with unmet dependencies"
 msgstr "Nicht geloeste Abhaengigkeiten bei"
@@ -457,5 +457,5 @@ msgid "Enabled"
 msgstr "Aktiviert"
 
 msgid "Missing dependencies may mean the software in this package will not function correctly.  Do you want to continue without the required packages?"
-msgstr "Fehlende Abhaengigkeiten koenne instabiles System-Verhalten bewirken. Moechten Sie ohne die erforderlichen Pakete weitermachen?"
+msgstr "Fehlende Abhaengigkeiten koennen instabiles System-Verhalten bewirken. Moechten Sie ohne die erforderlichen Pakete weitermachen?"
 
