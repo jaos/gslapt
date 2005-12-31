@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gslapt 0.3.10\n"
+"Project-Id-Version: gslapt 0.3.11\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2005-12-02 22:56+0500\n"
+"PO-Revision-Date: 2005-12-31 16:26+0500\n"
 "Last-Translator: Victor Keranov <victor_keranov@mail.bg>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -260,7 +260,7 @@ msgid "working"
 msgstr ""
 
 msgid "Up to Date"
-msgstr ""
+msgstr "Актуализация"
 
 msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Няма налични ъпдейти</span>"
@@ -269,10 +269,10 @@ msgid "%d upgraded, %d newly installed, %d to remove and %d not upgraded."
 msgstr "%d обновени, %d инсталирани, %d за премахване и %d необновени."
 
 msgid "Need to get %.1d%s/%.1d%s of archives.\n"
-msgstr ""
+msgstr "Необходимо е да се изтеглят %.1d%s/%.1d%s архиви.\n"
 
 msgid "Need to get %.1d%s of archives."
-msgstr ""
+msgstr "Необходимо е да се изтеглят %.1d%s архиви."
 
 msgid "After unpacking %.1d%s disk space will be freed."
 msgstr "След разархивиране %.1d%s дисково пространство ще бъде освободено."
