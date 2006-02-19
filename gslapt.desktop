@@ -2,6 +2,7 @@
 Encoding=UTF-8
 Exec=/usr/sbin/gslapt
 Name=Gslapt Package Manager
+Name[bg]=Мениджър на пакети Gslapt
 Name[pl]=Gslapt Menedżer Pakietów
 Name[de]=Gslapt-Paketverwaltung
 Name[es]=Gestor de Paquetes Gslapt
@@ -13,11 +14,11 @@ Name[no]=Gslapt Pakkeadministrasjon
 Name[pt_BR]=Gerenciador de Pacotes Gslapt
 Name[pt_PT]=Gestor de Pacotes Gslapt
 Name[sl]=Upravitelj paketov Gslapt
-# FIXME these aren't UTF
-#Name[ru]=�������� ������� Gslapt
-#Name[uk]=�������� ������i� Gslapt
+Name[ru]=���� ����Gslapt
+Name[uk]=���� ���i�Gslapt
 GenericName=Gslapt
 Comment=Install, remove and upgrade software packages
+Comment[bg]=Инсталиране, премахване и обновяване на софтуерни пакети
 Comment[de]=Software-Pakete installieren, entfernen und aktualisieren
 Comment[es]=Instalar, eliminar y actualizar los paquetes de software
 Comment[fr]=Installer, désinstaller et mettre à jour les paquets de logiciels
