@@ -12,3 +12,4 @@ GtkWidget* create_icon_legend (void);
 GtkWidget* create_pkgtools_progress_window (void);
 GtkWidget* create_repositories_changed (void);
 GtkWidget* create_dep_error_dialog (void);
+GtkWidget* create_source_failed_dialog (void);

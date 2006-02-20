@@ -980,18 +980,48 @@ static void get_package_data (void)
     available_pkgs =
       slapt_get_pkg_source_packages(global_config,
                                     global_config->sources->url[i]);
+
+    /* make sure we found a package listing */
     if (available_pkgs == NULL) {
+      gboolean continue_anyway = FALSE;
+
       gdk_threads_enter();
-      gtk_widget_destroy(progress_window);
-      unlock_toolbar_buttons();
-      gslapt_clear_status(context_id);
+
       if (_cancelled == 1) {
         _cancelled = 0;
+        gtk_widget_destroy(progress_window);
+        unlock_toolbar_buttons();
+        gslapt_clear_status(context_id);
       } else {
-        notify((gchar *)_("Source download failed"),global_config->sources->url[i]);
+        /* prompt the user to continue downloading package sources */
+        GtkWidget *q = create_source_failed_dialog();
+        gtk_label_set_text(
+          GTK_LABEL(lookup_widget(q,"failed_source_label")),
+          global_config->sources->url[i]
+        );
+
+        gint result = gtk_dialog_run(q);
+        if (result == GTK_RESPONSE_YES) {
+          /* we'll disable this source and continue on */
+          continue_anyway = TRUE;
+          gtk_widget_destroy(q);
+          slapt_add_source(disabled_sources,global_config->sources->url[i]);
+          slapt_remove_source(global_config->sources,global_config->sources->url[i]);
+        } else {
+          gtk_widget_destroy(progress_window);
+          unlock_toolbar_buttons();
+          gslapt_clear_status(context_id);
+        }
+        gtk_widget_destroy(q);
+
       }
+
       gdk_threads_leave();
-      return;
+
+      if (continue_anyway == TRUE)
+        continue;
+      else
+        return;
     }
 
     ++dl_count;
@@ -3105,3 +3135,8 @@ static void install_dep_error_callback (GtkObject *object, gpointer user_data)
   rebuild_package_action_menu();
   gtk_widget_destroy(dep_error_dialog);
 }
+
+void source_failed_callback (GtkButton *button, gpointer user_data)
+{
+}
+

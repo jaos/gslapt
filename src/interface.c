@@ -2230,11 +2230,11 @@ create_repositories_changed (void)
   GtkWidget *repositories_changed;
   GdkPixbuf *repositories_changed_icon_pixbuf;
   GtkWidget *dialog_vbox5;
-  GtkWidget *hbox107;
-  GtkWidget *image982;
-  GtkWidget *vbox70;
-  GtkWidget *label274;
-  GtkWidget *label275;
+  GtkWidget *hbox114;
+  GtkWidget *image1299;
+  GtkWidget *vbox73;
+  GtkWidget *label287;
+  GtkWidget *label288;
   GtkWidget *dialog_action_area5;
   GtkWidget *button5;
   GtkWidget *button6;
@@ -2255,38 +2255,38 @@ create_repositories_changed (void)
   gtk_widget_set_name (dialog_vbox5, "dialog_vbox5");
   gtk_widget_show (dialog_vbox5);
 
-  hbox107 = gtk_hbox_new (FALSE, 6);
-  gtk_widget_set_name (hbox107, "hbox107");
-  gtk_widget_show (hbox107);
-  gtk_box_pack_start (GTK_BOX (dialog_vbox5), hbox107, TRUE, TRUE, 6);
-  gtk_container_set_border_width (GTK_CONTAINER (hbox107), 2);
+  hbox114 = gtk_hbox_new (FALSE, 6);
+  gtk_widget_set_name (hbox114, "hbox114");
+  gtk_widget_show (hbox114);
+  gtk_box_pack_start (GTK_BOX (dialog_vbox5), hbox114, TRUE, TRUE, 6);
+  gtk_container_set_border_width (GTK_CONTAINER (hbox114), 2);
 
-  image982 = gtk_image_new_from_stock ("gtk-dialog-info", GTK_ICON_SIZE_DIALOG);
-  gtk_widget_set_name (image982, "image982");
-  gtk_widget_show (image982);
-  gtk_box_pack_start (GTK_BOX (hbox107), image982, TRUE, TRUE, 6);
-  gtk_misc_set_alignment (GTK_MISC (image982), 0.5, 0.2);
+  image1299 = gtk_image_new_from_stock ("gtk-dialog-info", GTK_ICON_SIZE_DIALOG);
+  gtk_widget_set_name (image1299, "image1299");
+  gtk_widget_show (image1299);
+  gtk_box_pack_start (GTK_BOX (hbox114), image1299, TRUE, TRUE, 6);
+  gtk_misc_set_alignment (GTK_MISC (image1299), 0.5, 0.2);
 
-  vbox70 = gtk_vbox_new (FALSE, 6);
-  gtk_widget_set_name (vbox70, "vbox70");
-  gtk_widget_show (vbox70);
-  gtk_box_pack_start (GTK_BOX (hbox107), vbox70, TRUE, TRUE, 0);
-  gtk_container_set_border_width (GTK_CONTAINER (vbox70), 6);
+  vbox73 = gtk_vbox_new (FALSE, 6);
+  gtk_widget_set_name (vbox73, "vbox73");
+  gtk_widget_show (vbox73);
+  gtk_box_pack_start (GTK_BOX (hbox114), vbox73, TRUE, TRUE, 0);
+  gtk_container_set_border_width (GTK_CONTAINER (vbox73), 6);
 
-  label274 = gtk_label_new (_("<span size=\"large\" weight=\"bold\">Repositories changed</span>"));
-  gtk_widget_set_name (label274, "label274");
-  gtk_widget_show (label274);
-  gtk_box_pack_start (GTK_BOX (vbox70), label274, FALSE, FALSE, 6);
-  gtk_label_set_use_markup (GTK_LABEL (label274), TRUE);
-  gtk_misc_set_alignment (GTK_MISC (label274), 0, 0.5);
+  label287 = gtk_label_new (_("<span size=\"large\" weight=\"bold\">Repositories changed</span>"));
+  gtk_widget_set_name (label287, "label287");
+  gtk_widget_show (label287);
+  gtk_box_pack_start (GTK_BOX (vbox73), label287, FALSE, FALSE, 6);
+  gtk_label_set_use_markup (GTK_LABEL (label287), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label287), 0, 0.5);
 
-  label275 = gtk_label_new (_("You need to reload the package list from the sources you have listed.  Do you want to do this now?"));
-  gtk_widget_set_name (label275, "label275");
-  gtk_widget_show (label275);
-  gtk_box_pack_start (GTK_BOX (vbox70), label275, TRUE, TRUE, 6);
-  gtk_label_set_use_markup (GTK_LABEL (label275), TRUE);
-  gtk_label_set_line_wrap (GTK_LABEL (label275), TRUE);
-  gtk_misc_set_alignment (GTK_MISC (label275), 0, 0);
+  label288 = gtk_label_new (_("You need to reload the package list from the sources you have listed.  Do you want to do this now?"));
+  gtk_widget_set_name (label288, "label288");
+  gtk_widget_show (label288);
+  gtk_box_pack_start (GTK_BOX (vbox73), label288, TRUE, TRUE, 6);
+  gtk_label_set_use_markup (GTK_LABEL (label288), TRUE);
+  gtk_label_set_line_wrap (GTK_LABEL (label288), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label288), 0, 0);
 
   dialog_action_area5 = GTK_DIALOG (repositories_changed)->action_area;
   gtk_widget_set_name (dialog_action_area5, "dialog_action_area5");
@@ -2315,11 +2315,11 @@ create_repositories_changed (void)
   /* Store pointers to all widgets, for use by lookup_widget(). */
   GLADE_HOOKUP_OBJECT_NO_REF (repositories_changed, repositories_changed, "repositories_changed");
   GLADE_HOOKUP_OBJECT_NO_REF (repositories_changed, dialog_vbox5, "dialog_vbox5");
-  GLADE_HOOKUP_OBJECT (repositories_changed, hbox107, "hbox107");
-  GLADE_HOOKUP_OBJECT (repositories_changed, image982, "image982");
-  GLADE_HOOKUP_OBJECT (repositories_changed, vbox70, "vbox70");
-  GLADE_HOOKUP_OBJECT (repositories_changed, label274, "label274");
-  GLADE_HOOKUP_OBJECT (repositories_changed, label275, "label275");
+  GLADE_HOOKUP_OBJECT (repositories_changed, hbox114, "hbox114");
+  GLADE_HOOKUP_OBJECT (repositories_changed, image1299, "image1299");
+  GLADE_HOOKUP_OBJECT (repositories_changed, vbox73, "vbox73");
+  GLADE_HOOKUP_OBJECT (repositories_changed, label287, "label287");
+  GLADE_HOOKUP_OBJECT (repositories_changed, label288, "label288");
   GLADE_HOOKUP_OBJECT_NO_REF (repositories_changed, dialog_action_area5, "dialog_action_area5");
   GLADE_HOOKUP_OBJECT (repositories_changed, button5, "button5");
   GLADE_HOOKUP_OBJECT (repositories_changed, button6, "button6");
@@ -2465,5 +2465,100 @@ create_dep_error_dialog (void)
   gtk_widget_grab_focus (dep_error_cancel_button);
   gtk_widget_grab_default (dep_error_cancel_button);
   return dep_error_dialog;
+}
+
+GtkWidget*
+create_source_failed_dialog (void)
+{
+  GtkWidget *source_failed_dialog;
+  GdkPixbuf *source_failed_dialog_icon_pixbuf;
+  GtkWidget *dialog_vbox7;
+  GtkWidget *hbox115;
+  GtkWidget *image1300;
+  GtkWidget *vbox74;
+  GtkWidget *failed_source_label;
+  GtkWidget *label290;
+  GtkWidget *dialog_action_area7;
+  GtkWidget *cancelbutton1;
+  GtkWidget *okbutton3;
+
+  source_failed_dialog = gtk_dialog_new ();
+  gtk_widget_set_name (source_failed_dialog, "source_failed_dialog");
+  gtk_window_set_title (GTK_WINDOW (source_failed_dialog), _("Source failed"));
+  source_failed_dialog_icon_pixbuf = create_pixbuf ("gslapt.png");
+  if (source_failed_dialog_icon_pixbuf)
+    {
+      gtk_window_set_icon (GTK_WINDOW (source_failed_dialog), source_failed_dialog_icon_pixbuf);
+      gdk_pixbuf_unref (source_failed_dialog_icon_pixbuf);
+    }
+  gtk_window_set_type_hint (GTK_WINDOW (source_failed_dialog), GDK_WINDOW_TYPE_HINT_DIALOG);
+
+  dialog_vbox7 = GTK_DIALOG (source_failed_dialog)->vbox;
+  gtk_widget_set_name (dialog_vbox7, "dialog_vbox7");
+  gtk_widget_show (dialog_vbox7);
+
+  hbox115 = gtk_hbox_new (FALSE, 6);
+  gtk_widget_set_name (hbox115, "hbox115");
+  gtk_widget_show (hbox115);
+  gtk_box_pack_start (GTK_BOX (dialog_vbox7), hbox115, TRUE, TRUE, 0);
+  gtk_container_set_border_width (GTK_CONTAINER (hbox115), 2);
+
+  image1300 = gtk_image_new_from_stock ("gtk-dialog-error", GTK_ICON_SIZE_DIALOG);
+  gtk_widget_set_name (image1300, "image1300");
+  gtk_widget_show (image1300);
+  gtk_box_pack_start (GTK_BOX (hbox115), image1300, TRUE, TRUE, 6);
+  gtk_misc_set_alignment (GTK_MISC (image1300), 0.5, 0.2);
+
+  vbox74 = gtk_vbox_new (FALSE, 6);
+  gtk_widget_set_name (vbox74, "vbox74");
+  gtk_widget_show (vbox74);
+  gtk_box_pack_start (GTK_BOX (hbox115), vbox74, TRUE, TRUE, 0);
+  gtk_container_set_border_width (GTK_CONTAINER (vbox74), 6);
+
+  failed_source_label = gtk_label_new ("");
+  gtk_widget_set_name (failed_source_label, "failed_source_label");
+  gtk_widget_show (failed_source_label);
+  gtk_box_pack_start (GTK_BOX (vbox74), failed_source_label, FALSE, FALSE, 6);
+  gtk_label_set_use_markup (GTK_LABEL (failed_source_label), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (failed_source_label), 0, 0.5);
+
+  label290 = gtk_label_new (_("This package source failed or is not available.  Do you want to disable this source and continue anyway?"));
+  gtk_widget_set_name (label290, "label290");
+  gtk_widget_show (label290);
+  gtk_box_pack_start (GTK_BOX (vbox74), label290, TRUE, TRUE, 6);
+  gtk_label_set_use_markup (GTK_LABEL (label290), TRUE);
+  gtk_label_set_line_wrap (GTK_LABEL (label290), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label290), 0, 0);
+
+  dialog_action_area7 = GTK_DIALOG (source_failed_dialog)->action_area;
+  gtk_widget_set_name (dialog_action_area7, "dialog_action_area7");
+  gtk_widget_show (dialog_action_area7);
+  gtk_button_box_set_layout (GTK_BUTTON_BOX (dialog_action_area7), GTK_BUTTONBOX_END);
+
+  cancelbutton1 = gtk_button_new_from_stock ("gtk-no");
+  gtk_widget_set_name (cancelbutton1, "cancelbutton1");
+  gtk_widget_show (cancelbutton1);
+  gtk_dialog_add_action_widget (GTK_DIALOG (source_failed_dialog), cancelbutton1, GTK_RESPONSE_NO);
+  GTK_WIDGET_SET_FLAGS (cancelbutton1, GTK_CAN_DEFAULT);
+
+  okbutton3 = gtk_button_new_from_stock ("gtk-yes");
+  gtk_widget_set_name (okbutton3, "okbutton3");
+  gtk_widget_show (okbutton3);
+  gtk_dialog_add_action_widget (GTK_DIALOG (source_failed_dialog), okbutton3, GTK_RESPONSE_YES);
+  GTK_WIDGET_SET_FLAGS (okbutton3, GTK_CAN_DEFAULT);
+
+  /* Store pointers to all widgets, for use by lookup_widget(). */
+  GLADE_HOOKUP_OBJECT_NO_REF (source_failed_dialog, source_failed_dialog, "source_failed_dialog");
+  GLADE_HOOKUP_OBJECT_NO_REF (source_failed_dialog, dialog_vbox7, "dialog_vbox7");
+  GLADE_HOOKUP_OBJECT (source_failed_dialog, hbox115, "hbox115");
+  GLADE_HOOKUP_OBJECT (source_failed_dialog, image1300, "image1300");
+  GLADE_HOOKUP_OBJECT (source_failed_dialog, vbox74, "vbox74");
+  GLADE_HOOKUP_OBJECT (source_failed_dialog, failed_source_label, "failed_source_label");
+  GLADE_HOOKUP_OBJECT (source_failed_dialog, label290, "label290");
+  GLADE_HOOKUP_OBJECT_NO_REF (source_failed_dialog, dialog_action_area7, "dialog_action_area7");
+  GLADE_HOOKUP_OBJECT (source_failed_dialog, cancelbutton1, "cancelbutton1");
+  GLADE_HOOKUP_OBJECT (source_failed_dialog, okbutton3, "okbutton3");
+
+  return source_failed_dialog;
 }
 

@@ -88,3 +88,5 @@ void execute_activate (GtkMenuItem *menuitem, gpointer user_data);
 
 struct slapt_source_list *parse_disabled_package_sources (const char *file_name);
 
+
+void source_failed_callback (GtkButton *button, gpointer user_data);
