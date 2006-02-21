@@ -462,3 +462,6 @@ msgstr ""
 msgid "Missing dependencies may mean the software in this package will not function correctly.  Do you want to continue without the required packages?"
 msgstr ""
 
+msgid "This package source failed or is not available. Do you want to disable this source and continue anyway?"
+msgstr ""
+

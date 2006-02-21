@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gslapt 0.3.10\n"
+"Project-Id-Version: 0.3.12\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-05-06 11:10-0500\n"
-"PO-Revision-Date: 2005-12-01 14:54+0500\n"
+"PO-Revision-Date: 2006-02-20 20:53+0500\n"
 "Last-Translator: Pedro Pinto aka _PN_boy <pedro_nuno_pn@zmail.pt>\n"
 "Language-Team: slapt-get devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -453,4 +453,7 @@ msgstr "Permitido"
 
 msgid "Missing dependencies may mean the software in this package will not function correctly.  Do you want to continue without the required packages?"
 msgstr "Missing dependencies may mean the software in this package will not function correctly.  Do you want to continue without the required packages?"
+
+msgid "This package source failed or is not available. Do you want to disable this source and continue anyway?"
+msgstr "This package source failed or is not available. Do you want to disable this source and continue anyway?"
 

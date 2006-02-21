@@ -1,5 +1,5 @@
 
-0.3.12 Feb 19, 2005
+0.3.12 Feb 20, 2005
  * prompt user to disable source and continue after package source fails to
    download rather than bail out of package data update completely
  * updated .desktop files

@@ -6,10 +6,10 @@
 
 msgid ""
 msgstr ""
-"Project-Id-Version: gslapt 0.3.10\n"
+"Project-Id-Version: 0.3.12\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-09-08 00:54\n"
-"PO-Revision-Date: 2005-12-01 14:54+0500\n"
+"PO-Revision-Date: 2006-02-20 20:53+0500\n"
 "Last-Translator: sin <digitalhunger@gmail.com>\n"
 "Language-Team: DeepStyle team <deep@deepstyle.org.ua>\n"
 "MIME-Version: 1.0\n"
@@ -428,4 +428,7 @@ msgstr "Включен"
 
 msgid "Missing dependencies may mean the software in this package will not function correctly.  Do you want to continue without the required packages?"
 msgstr "Неудовлетворенные зависимости могут привести к тому, что ПО из этого пакета не смогут правильно функционировать. Хотите продолжить без тербуемых пакетов?"
+
+msgid "This package source failed or is not available. Do you want to disable this source and continue anyway?"
+msgstr "This package source failed or is not available. Do you want to disable this source and continue anyway?"
 
