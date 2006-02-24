@@ -1,5 +1,6 @@
 
-0.3.12 Feb 20, 2005
+0.3.12 Feb 24, 2006
+ * translation updates from Victor
  * prompt user to disable source and continue after package source fails to
    download rather than bail out of package data update completely
  * updated .desktop files

@@ -1,14 +1,14 @@
 # gslapt Bulgarian translation
-# Copyright (C) 2005 Victor Keranov
+# Copyright (C) 2006 Victor Keranov
 # This file is distributed under the same license as the gslapt package.
-# Victor Keranov <victor_keranov@mail.bg>, 2005.
+# Victor Keranov <victor_keranov@mail.bg>, 2006.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.3.12\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2006-02-20 20:53+0500\n"
+"PO-Revision-Date: 2006-02-24 09:30+0500\n"
 "Last-Translator: Victor Keranov <victor_keranov@mail.bg>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -431,7 +431,7 @@ msgid "P_ackage"
 msgstr "П_акет"
 
 msgid "You need to reload the package list from the sources you have listed.  Do you want to do this now?"
-msgstr "Нужно е да презаредите списъка с пакети от източниците, които сте избрали. Желаете ли да го направите сега?"
+msgstr "Нужно е да презаредите списъка с пакети от хранилищата, които сте избрали. Желаете ли да го направите сега?"
 
 msgid "Repositories changed"
 msgstr "Хранилищата са променени"
@@ -464,5 +464,5 @@ msgid "Missing dependencies may mean the software in this package will not funct
 msgstr "Липсващи зависимости могат да означават, че дадения пакет няма да функционира правилно. Желаете ли да продължите без нужните пакети?"
 
 msgid "This package source failed or is not available. Do you want to disable this source and continue anyway?"
-msgstr "This package source failed or is not available. Do you want to disable this source and continue anyway?"
+msgstr "Това хранилище не работи или не е достъпно в момента. Желаете ли да го деактивирате и да продължите напред?"
 
