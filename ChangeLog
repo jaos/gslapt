@@ -1,4 +1,7 @@
 
+0.3.13 Mar 07, 2006
+ * added Japanese translation from JW
+
 0.3.12 Feb 24, 2006
  * translation updates from Victor
  * prompt user to disable source and continue after package source fails to
