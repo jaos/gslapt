@@ -714,6 +714,7 @@ static void fillin_pkg_details (slapt_pkg_info_t *pkg)
   gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_name")),pkg->name);
   gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_location")),pkg->location);
   gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_version")),pkg->version);
+  gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_source")),pkg->mirror);
   short_desc = slapt_gen_short_pkg_description(pkg);
   if (short_desc != NULL) {
     gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_description")),short_desc);

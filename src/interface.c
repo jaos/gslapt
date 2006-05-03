@@ -509,6 +509,8 @@ create_gslapt (void)
   GtkWidget *label273;
   GtkWidget *pkg_info_version;
   GtkWidget *pkg_info_status;
+  GtkWidget *label291;
+  GtkWidget *pkg_info_source;
   GtkWidget *vbox67;
   GtkWidget *label272;
   GtkWidget *hbox106;
@@ -914,7 +916,7 @@ create_gslapt (void)
   gtk_container_add (GTK_CONTAINER (viewport1), vbox63);
   gtk_container_set_border_width (GTK_CONTAINER (vbox63), 6);
 
-  table2 = gtk_table_new (5, 2, FALSE);
+  table2 = gtk_table_new (6, 2, FALSE);
   gtk_widget_set_name (table2, "table2");
   gtk_widget_show (table2);
   gtk_box_pack_start (GTK_BOX (vbox63), table2, FALSE, FALSE, 0);
@@ -1016,6 +1018,26 @@ create_gslapt (void)
                     (GtkAttachOptions) (0), 0, 0);
   gtk_label_set_use_markup (GTK_LABEL (pkg_info_status), TRUE);
   gtk_misc_set_alignment (GTK_MISC (pkg_info_status), 0, 0.5);
+
+  label291 = gtk_label_new (_("<b>Source:</b>"));
+  gtk_widget_set_name (label291, "label291");
+  gtk_widget_show (label291);
+  gtk_table_attach (GTK_TABLE (table2), label291, 0, 1, 5, 6,
+                    (GtkAttachOptions) (GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 0);
+  gtk_label_set_use_markup (GTK_LABEL (label291), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label291), 0, 0.5);
+
+  pkg_info_source = gtk_label_new ("");
+  gtk_widget_set_name (pkg_info_source, "pkg_info_source");
+  gtk_widget_show (pkg_info_source);
+  gtk_table_attach (GTK_TABLE (table2), pkg_info_source, 1, 2, 5, 6,
+                    (GtkAttachOptions) (GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 0);
+  GTK_WIDGET_SET_FLAGS (pkg_info_source, GTK_CAN_FOCUS);
+  gtk_label_set_use_markup (GTK_LABEL (pkg_info_source), TRUE);
+  gtk_label_set_selectable (GTK_LABEL (pkg_info_source), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (pkg_info_source), 0, 0.5);
 
   vbox67 = gtk_vbox_new (FALSE, 0);
   gtk_widget_set_name (vbox67, "vbox67");
@@ -1367,6 +1389,8 @@ create_gslapt (void)
   GLADE_HOOKUP_OBJECT (gslapt, label273, "label273");
   GLADE_HOOKUP_OBJECT (gslapt, pkg_info_version, "pkg_info_version");
   GLADE_HOOKUP_OBJECT (gslapt, pkg_info_status, "pkg_info_status");
+  GLADE_HOOKUP_OBJECT (gslapt, label291, "label291");
+  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_source, "pkg_info_source");
   GLADE_HOOKUP_OBJECT (gslapt, vbox67, "vbox67");
   GLADE_HOOKUP_OBJECT (gslapt, label272, "label272");
   GLADE_HOOKUP_OBJECT (gslapt, hbox106, "hbox106");
