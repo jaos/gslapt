@@ -6,10 +6,10 @@
 # S_A <shin1.abe@nifty.com>, 2006.
 msgid ""
 msgstr ""
-"Project-Id-Version: gslapt-ja-w\n"
+"Project-Id-Version: 0.3.13\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2006-03-07 20:26+0900\n"
-"PO-Revision-Date: 2006-03-07 20:26+0900\n"
+"PO-Revision-Date: 2006-05-21 02:30+0500\n"
 "Last-Translator: S_A <shin1.abe@nifty.com>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -468,4 +468,10 @@ msgid "This package source failed or is not available. Do you want to disable th
 msgstr ""
 "パッケージ・ソースが存在しない、もしくはソースに誤りがあります。 "
 "このソースを無効にして作業を続けますか？"
+
+msgid "Retrieving ChangeLog.txt..."
+msgstr "Retrieving ChangeLog.txt..."
+
+msgid "Changelog"
+msgstr "Changelog"
 

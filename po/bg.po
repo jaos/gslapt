@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.3.12\n"
+"Project-Id-Version: 0.3.13\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2006-02-24 09:30+0500\n"
+"PO-Revision-Date: 2006-05-21 02:30+0500\n"
 "Last-Translator: Victor Keranov <victor_keranov@mail.bg>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -59,7 +59,7 @@ msgstr "Конфликти"
 
 #, c-format
 msgid "Couldn't find pixmap file: %s"
-msgstr ""
+msgstr "Couldn't find pixmap file: %s"
 
 msgid "Description"
 msgstr "Описание"
@@ -77,10 +77,10 @@ msgid "Downloading..."
 msgstr "Изтегляне..."
 
 msgid "Exclude package"
-msgstr ""
+msgstr "Exclude package"
 
 msgid "Exclude"
-msgstr ""
+msgstr "Exclude"
 
 msgid "Excludes"
 msgstr "Изключения"
@@ -164,7 +164,7 @@ msgid "Removing packages..."
 msgstr "Премахване на пакети..."
 
 msgid "Required"
-msgstr ""
+msgstr "Required"
 
 msgid "Search for expression"
 msgstr "Търсене за фраза"
@@ -194,7 +194,7 @@ msgid "Uninstalling..."
 msgstr "Деинсталиране..."
 
 msgid "Up_grade"
-msgstr ""
+msgstr "Up_grade"
 
 msgid "Update local package cache"
 msgstr "Обновяване на локалния кеш на пакетите"
@@ -257,7 +257,7 @@ msgid "total progress"
 msgstr "общ прогрес"
 
 msgid "working"
-msgstr ""
+msgstr "working"
 
 msgid "Up to Date"
 msgstr "Актуализация"
@@ -296,13 +296,13 @@ msgid "Pending changes. Click execute when ready."
 msgstr "Неизвършени промени. Кликнете на изпълнение, когато сте готови"
 
 msgid "Packages with unmet dependencies"
-msgstr ""
+msgstr "Packages with unmet dependencies"
 
 msgid ": Depends: "
 msgstr ": Зависимости: "
 
 msgid "Package conflicts"
-msgstr ""
+msgstr "Package conflicts"
 
 msgid ", which is required by "
 msgstr ", който се изисква от "
@@ -465,4 +465,10 @@ msgstr "Липсващи зависимости могат да означава
 
 msgid "This package source failed or is not available. Do you want to disable this source and continue anyway?"
 msgstr "Това хранилище не работи или не е достъпно в момента. Желаете ли да го деактивирате и да продължите напред?"
+
+msgid "Retrieving ChangeLog.txt..."
+msgstr "Retrieving ChangeLog.txt..."
+
+msgid "Changelog"
+msgstr "Changelog"
 

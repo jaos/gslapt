@@ -541,6 +541,9 @@ create_gslapt (void)
   GtkWidget *scrolledwindow21;
   GtkWidget *dep_conf_sug_treeview;
   GtkWidget *pkg_info_dependencies_label;
+  GtkWidget *scrolledwindow23;
+  GtkWidget *pkg_changelog_textview;
+  GtkWidget *pkg_info_changelog;
   GtkWidget *bottom_statusbar;
   GtkAccelGroup *accel_group;
   GtkTooltips *tooltips;
@@ -1262,6 +1265,26 @@ create_gslapt (void)
   gtk_widget_show (pkg_info_dependencies_label);
   gtk_notebook_set_tab_label (GTK_NOTEBOOK (pkg_info_notebook), gtk_notebook_get_nth_page (GTK_NOTEBOOK (pkg_info_notebook), 2), pkg_info_dependencies_label);
 
+  scrolledwindow23 = gtk_scrolled_window_new (NULL, NULL);
+  gtk_widget_set_name (scrolledwindow23, "scrolledwindow23");
+  gtk_widget_show (scrolledwindow23);
+  gtk_container_add (GTK_CONTAINER (pkg_info_notebook), scrolledwindow23);
+  gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolledwindow23), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
+  gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scrolledwindow23), GTK_SHADOW_IN);
+
+  pkg_changelog_textview = gtk_text_view_new ();
+  gtk_widget_set_name (pkg_changelog_textview, "pkg_changelog_textview");
+  gtk_widget_show (pkg_changelog_textview);
+  gtk_container_add (GTK_CONTAINER (scrolledwindow23), pkg_changelog_textview);
+  gtk_text_view_set_editable (GTK_TEXT_VIEW (pkg_changelog_textview), FALSE);
+  gtk_text_view_set_wrap_mode (GTK_TEXT_VIEW (pkg_changelog_textview), GTK_WRAP_WORD);
+  gtk_text_view_set_cursor_visible (GTK_TEXT_VIEW (pkg_changelog_textview), FALSE);
+
+  pkg_info_changelog = gtk_label_new (_("Changelog"));
+  gtk_widget_set_name (pkg_info_changelog, "pkg_info_changelog");
+  gtk_widget_show (pkg_info_changelog);
+  gtk_notebook_set_tab_label (GTK_NOTEBOOK (pkg_info_notebook), gtk_notebook_get_nth_page (GTK_NOTEBOOK (pkg_info_notebook), 3), pkg_info_changelog);
+
   bottom_statusbar = gtk_statusbar_new ();
   gtk_widget_set_name (bottom_statusbar, "bottom_statusbar");
   gtk_widget_show (bottom_statusbar);
@@ -1421,6 +1444,9 @@ create_gslapt (void)
   GLADE_HOOKUP_OBJECT (gslapt, scrolledwindow21, "scrolledwindow21");
   GLADE_HOOKUP_OBJECT (gslapt, dep_conf_sug_treeview, "dep_conf_sug_treeview");
   GLADE_HOOKUP_OBJECT (gslapt, pkg_info_dependencies_label, "pkg_info_dependencies_label");
+  GLADE_HOOKUP_OBJECT (gslapt, scrolledwindow23, "scrolledwindow23");
+  GLADE_HOOKUP_OBJECT (gslapt, pkg_changelog_textview, "pkg_changelog_textview");
+  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_changelog, "pkg_info_changelog");
   GLADE_HOOKUP_OBJECT (gslapt, bottom_statusbar, "bottom_statusbar");
   GLADE_HOOKUP_OBJECT_NO_REF (gslapt, tooltips, "tooltips");
 

@@ -699,6 +699,7 @@ static void fillin_pkg_details (slapt_pkg_info_t *pkg)
 {
   gchar *short_desc;
   GtkTextBuffer *pkg_full_desc;
+  GtkTextBuffer *pkg_changelog;
   GtkTreeStore *store;
   GtkTreeIter iter;
   GtkCellRenderer *renderer;
@@ -708,7 +709,7 @@ static void fillin_pkg_details (slapt_pkg_info_t *pkg)
   GtkWidget *treeview = lookup_widget(gslapt,"dep_conf_sug_treeview");
   slapt_pkg_info_t *latest_pkg = slapt_get_newest_pkg(all,pkg->name);
   slapt_pkg_info_t *installed_pkg = slapt_get_newest_pkg(installed,pkg->name);
-  char *clean_desc = NULL;
+  char *clean_desc = NULL, *changelog = NULL;
 
   /* set package details */
   gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_name")),pkg->name);
@@ -853,11 +854,19 @@ static void fillin_pkg_details (slapt_pkg_info_t *pkg)
   pkg_full_desc = gtk_text_view_get_buffer(GTK_TEXT_VIEW(lookup_widget(gslapt,"pkg_description_textview")));
   clean_desc = strdup(pkg->description);
   slapt_clean_description(clean_desc,pkg->name);
-  gtk_text_buffer_set_text(pkg_full_desc,clean_desc,-1);
+  gtk_text_buffer_set_text(pkg_full_desc, clean_desc, -1);
 
   if ( clean_desc != NULL ) 
     free(clean_desc);
 
+  /* changelog tab */
+  pkg_changelog = gtk_text_view_get_buffer(GTK_TEXT_VIEW(lookup_widget(gslapt,"pkg_changelog_textview")));
+  if ((changelog = slapt_get_pkg_changelog(pkg)) != NULL) {
+    gtk_text_buffer_set_text(pkg_changelog, changelog, -1);
+    free(changelog);
+  } else {
+    gtk_text_buffer_set_text(pkg_changelog, "", -1);
+  }
 
   /* set status */
   if ((trans->exclude_pkgs->pkg_count > 0 &&
@@ -943,7 +952,7 @@ static void get_package_data (void)
   gtk_widget_show(progress_window);
   gdk_threads_leave();
 
-  dl_files = (global_config->sources->count * 3.0 );
+  dl_files = (global_config->sources->count * 4.0 );
 
   if (_cancelled == 1) {
     _cancelled = 0;
@@ -1089,6 +1098,18 @@ static void get_package_data (void)
     }
 
     ++dl_count;
+
+    /* download changelog file */
+    gdk_threads_enter();
+    gtk_progress_bar_set_fraction(p_bar,((dl_count * 100)/dl_files)/100);
+    gtk_progress_bar_set_fraction(dl_bar,0.0);
+    gtk_label_set_text(progress_action_label,(gchar *)_("Retrieving ChangeLog.txt..."));
+    gdk_threads_leave();
+
+    slapt_get_pkg_source_changelog(global_config,
+                                     global_config->sources->url[i]);
+
+
 
     gdk_threads_enter();
     gtk_progress_bar_set_fraction(p_bar,((dl_count * 100)/dl_files)/100);

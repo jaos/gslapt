@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gslapt 0.3.13\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2006-05-02 21:30+0800\n"
+"PO-Revision-Date: 2006-05-21 02:30+0500\n"
 "Last-Translator: Yang Jinsong <shannleon@gmail.com>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -467,4 +467,10 @@ msgstr ""
 
 msgid "This package source failed or is not available. Do you want to disable this source and continue anyway?"
 msgstr "软件源错误或暂不可用. 你是否希望禁止此源并继续?"
+
+msgid "Retrieving ChangeLog.txt..."
+msgstr "Retrieving ChangeLog.txt..."
+
+msgid "Changelog"
+msgstr "Changelog"
 

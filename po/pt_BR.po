@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.3.12\n"
+"Project-Id-Version: 0.3.13\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2006-02-20 20:53+0500\n"
+"PO-Revision-Date: 2006-05-21 02:30+0500\n"
 "Last-Translator: Frederico Henrique Gonçalves Lima <fredhgl@yahoo.com.br>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -466,4 +466,10 @@ msgstr "Missing dependencies may mean the software in this package will not func
 
 msgid "This package source failed or is not available. Do you want to disable this source and continue anyway?"
 msgstr "This package source failed or is not available. Do you want to disable this source and continue anyway?"
+
+msgid "Retrieving ChangeLog.txt..."
+msgstr "Retrieving ChangeLog.txt..."
+
+msgid "Changelog"
+msgstr "Changelog"
 
