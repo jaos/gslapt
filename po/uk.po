@@ -415,20 +415,20 @@ msgid "Changelog"
 msgstr "Перел╕к зм╕н"
 
 msgid "_View"
-msgstr "_View"
+msgstr "Перегляд"
 
 msgid "All"
-msgstr "All"
+msgstr "Ус╕"
 
 msgid "View all packages"
-msgstr "View all packages"
+msgstr "Перегляд ус╕х пакунк╕в"
 
 msgid "Available"
-msgstr "Available"
+msgstr "Доступн╕"
 
 msgid "View available packages from current sources"
-msgstr "View available packages from current sources"
+msgstr "Перегляд ус╕х доступних пакунк╕в з обраних репозитор╕╖в"
 
 msgid "View installed packages"
-msgstr "View installed packages"
+msgstr "Перегляд встановлених пакунк╕в"
 
