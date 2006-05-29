@@ -2,20 +2,20 @@
 # Copyright (C) 2006 S_A
 # This file is distributed under the same license as the gslapt package.
 #
-# FIRST AUTHOR Jason Woodward <woodwardj@jaos.org>, 2005,2006.
 # S_A <shin1.abe@nifty.com>, 2006.
+# JW <J_W@somewhere.c0.jp>, 2006.
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.3.14\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2006-03-07 20:26+0900\n"
-"PO-Revision-Date: 2006-05-29 02:14+0500\n"
-"Last-Translator: S_A <shin1.abe@nifty.com>\n"
+"PO-Revision-Date: 2006-05-29 19:05+0900\n"
+"Last-Translator: JW <J_W@somewhere.c0.jp>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.1\n"
+"X-Generator: KBabel 1.11.2\n"
 
 msgid "<b>Exclude List</b>"
 msgstr "<b>除外するリスト</b>"
@@ -446,26 +446,26 @@ msgstr ""
 "このソースを無効にして作業を続けますか？"
 
 msgid "Retrieving ChangeLog.txt..."
-msgstr "Retrieving ChangeLog.txt..."
+msgstr "ChangeLog.txt を取得中..."
 
 msgid "Changelog"
-msgstr "Changelog"
+msgstr "更新履歴 (Changelog)"
 
 msgid "_View"
-msgstr "_View"
+msgstr "一覧(_V)"
 
 msgid "All"
-msgstr "All"
+msgstr "全て"
 
 msgid "View all packages"
-msgstr "View all packages"
+msgstr "全てのパッケージを一覧"
 
 msgid "Available"
-msgstr "Available"
+msgstr "利用可能"
 
 msgid "View available packages from current sources"
-msgstr "View available packages from current sources"
+msgstr "current sources から利用可能なパッケージの一覧"
 
 msgid "View installed packages"
-msgstr "View installed packages"
+msgstr "インストール済みパッケージの一覧"
 
