@@ -645,7 +645,7 @@ void build_searched_treeviewlist (GtkWidget *treeview, gchar *pattern)
 
     if (view_list_installed && i_pkg != NULL) {
       gtk_list_store_set(GTK_LIST_STORE(base_model),&iter,VISIBLE_COLUMN,TRUE,-1);
-    } else if (view_list_available && (a_pkg != NULL || i_pkg != NULL)) {
+    } else if (view_list_available && a_pkg != NULL) {
       gtk_list_store_set(GTK_LIST_STORE(base_model),&iter,VISIBLE_COLUMN,TRUE,-1);
     } else if (view_list_all && (a_pkg != NULL || i_pkg != NULL)) {
       gtk_list_store_set(GTK_LIST_STORE(base_model),&iter,VISIBLE_COLUMN,TRUE,-1);
