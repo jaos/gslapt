@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: 0.3.14\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-09-08 00:54\n"
-"PO-Revision-Date: 2006-05-29 02:14+0500\n"
+"PO-Revision-Date: 2006-05-29 17:00+0500\n"
 "Last-Translator: sin <digitalhunger@gmail.com>\n"
 "Language-Team: DeepStyle team <deep@deepstyle.org.ua>\n"
 "MIME-Version: 1.0\n"
@@ -406,13 +406,13 @@ msgid "Missing dependencies may mean the software in this package will not funct
 msgstr "Незадоволен╕ залежност╕ можуть призвести до того, що ПЗ в цьому пакет╕ не зможе в╕рно функц╕онувати. Продовжити без пакунк╕в, що вимагаються?"
 
 msgid "This package source failed or is not available. Do you want to disable this source and continue anyway?"
-msgstr "This package source failed or is not available. Do you want to disable this source and continue anyway?"
+msgstr "Репозитар╕й для цього пакунка не ╕сну╓ або не функц╕ону╓. Чи хочете ви в╕дключити використання цього репозитар╕ю та продовжити?"
 
 msgid "Retrieving ChangeLog.txt..."
-msgstr "Retrieving ChangeLog.txt..."
+msgstr "Отримання ChangeLog.txt..."
 
 msgid "Changelog"
-msgstr "Changelog"
+msgstr "Перел╕к зм╕н"
 
 msgid "_View"
 msgstr "_View"
