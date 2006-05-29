@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.3.13\n"
+"Project-Id-Version: 0.3.14\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-05-06 11:10-0500\n"
-"PO-Revision-Date: 2006-05-21 02:30+0500\n"
+"PO-Revision-Date: 2006-05-29 02:14+0500\n"
 "Last-Translator: Pedro Pinto aka _PN_boy <pedro_nuno_pn@zmail.pt>\n"
 "Language-Team: slapt-get devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -41,12 +41,6 @@ msgstr "Acerca"
 
 msgid "Checking for new package data..."
 msgstr "A Verificar os novos pacotes de dados..."
-
-msgid "Clean archived packages off filesystem"
-msgstr "Limpar pacotes arquivados"
-
-msgid "Clean"
-msgstr "Limpar"
 
 msgid "Clear search expression"
 msgstr "Limpar a expressão de procura"
@@ -223,26 +217,8 @@ msgstr "Directoria de trabalho"
 msgid "Yes"
 msgstr "Sim"
 
-msgid "_Actions"
-msgstr "_Acções"
-
-msgid "_Clean"
-msgstr "_Limpar"
-
-msgid "_Execute"
-msgstr "_Executar"
-
 msgid "_Help"
 msgstr "_Ajuda"
-
-msgid "_Preferences"
-msgstr "_Preferências"
-
-msgid "_Settings"
-msgstr "_Configurações"
-
-msgid "_Update"
-msgstr "_Actualizar"
 
 msgid "gslapt is a GTK+ frontend to slapt-get, an APT like package system for Slackware"
 msgstr "gslapt é um frontend em GTK+ para o slapt-get, uma aplicação de gestão de sistemas de pacotes do tipo APT para o Slackware"
@@ -462,4 +438,22 @@ msgstr "Retrieving ChangeLog.txt..."
 
 msgid "Changelog"
 msgstr "Changelog"
+
+msgid "_View"
+msgstr "_View"
+
+msgid "All"
+msgstr "All"
+
+msgid "View all packages"
+msgstr "View all packages"
+
+msgid "Available"
+msgstr "Available"
+
+msgid "View available packages from current sources"
+msgstr "View available packages from current sources"
+
+msgid "View installed packages"
+msgstr "View installed packages"
 

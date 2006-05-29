@@ -6,10 +6,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.3.13\n"
+"Project-Id-Version: 0.3.14\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-08-18 23:06+0200\n"
-"PO-Revision-Date: 2006-05-21 02:30+0500\n"
+"PO-Revision-Date: 2006-05-29 02:14+0500\n"
 "Last-Translator: Martijn Dekker <martijn@inlv.demon.nl>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -42,12 +42,6 @@ msgstr "Over"
 
 msgid "Checking for new package data..."
 msgstr "Kijkt of er nieuwe pakketgegevens zijn..."
-
-msgid "Clean archived packages off filesystem"
-msgstr "Wis gearchiveerde pakketen van bestandssysteem"
-
-msgid "Clean"
-msgstr "Wis"
 
 msgid "Clear search expression"
 msgstr "Wis zoekuitdrukking"
@@ -227,26 +221,8 @@ msgstr "Werkmap"
 msgid "Yes"
 msgstr "Ja"
 
-msgid "_Actions"
-msgstr "_Opdrachten"
-
-msgid "_Clean"
-msgstr "_Wis"
-
-msgid "_Execute"
-msgstr "_Voer uit"
-
 msgid "_Help"
 msgstr "_Help"
-
-msgid "_Preferences"
-msgstr "_Voorkeuren"
-
-msgid "_Settings"
-msgstr "_Instellingen"
-
-msgid "_Update"
-msgstr "_Werk bij"
 
 msgid ""
 "gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
@@ -473,4 +449,22 @@ msgstr "Retrieving ChangeLog.txt..."
 
 msgid "Changelog"
 msgstr "Changelog"
+
+msgid "_View"
+msgstr "_View"
+
+msgid "All"
+msgstr "All"
+
+msgid "View all packages"
+msgstr "View all packages"
+
+msgid "Available"
+msgstr "Available"
+
+msgid "View available packages from current sources"
+msgstr "View available packages from current sources"
+
+msgid "View installed packages"
+msgstr "View installed packages"
 

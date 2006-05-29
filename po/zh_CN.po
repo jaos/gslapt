@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gslapt 0.3.13\n"
+"Project-Id-Version: 0.3.14\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2006-05-21 02:30+0500\n"
+"PO-Revision-Date: 2006-05-29 02:14+0500\n"
 "Last-Translator: Yang Jinsong <shannleon@gmail.com>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -41,12 +41,6 @@ msgstr "关于"
 
 msgid "Checking for new package data..."
 msgstr "检查新软件包数据..."
-
-msgid "Clean archived packages off filesystem"
-msgstr "从文件系统中清除已归档的软件包"
-
-msgid "Clean"
-msgstr "清除"
 
 msgid "Clear search expression"
 msgstr "清除搜索表达式"
@@ -226,26 +220,8 @@ msgstr "工作目录"
 msgid "Yes"
 msgstr "是"
 
-msgid "_Actions"
-msgstr "动作(_A)"
-
-msgid "_Clean"
-msgstr "清除(_C)"
-
-msgid "_Execute"
-msgstr "执行(_E)"
-
 msgid "_Help"
 msgstr "帮助(_H)"
-
-msgid "_Preferences"
-msgstr "首选项(_P)"
-
-msgid "_Settings"
-msgstr "设置(_S)"
-
-msgid "_Update"
-msgstr "更新(_U)"
 
 msgid ""
 "gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
@@ -473,4 +449,22 @@ msgstr "Retrieving ChangeLog.txt..."
 
 msgid "Changelog"
 msgstr "Changelog"
+
+msgid "_View"
+msgstr "_View"
+
+msgid "All"
+msgstr "All"
+
+msgid "View all packages"
+msgstr "View all packages"
+
+msgid "Available"
+msgstr "Available"
+
+msgid "View available packages from current sources"
+msgstr "View available packages from current sources"
+
+msgid "View installed packages"
+msgstr "View installed packages"
 

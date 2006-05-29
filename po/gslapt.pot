@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gslapt 0.3.13\n"
+"Project-Id-Version: 0.3.14\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2005-12-01 14:54+0500\n"
+"PO-Revision-Date: 2006-05-29 02:14+0500\n"
 "Last-Translator: Jason Woodward <woodwardj@jaos.org>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -40,12 +40,6 @@ msgid "About"
 msgstr ""
 
 msgid "Checking for new package data..."
-msgstr ""
-
-msgid "Clean archived packages off filesystem"
-msgstr ""
-
-msgid "Clean"
 msgstr ""
 
 msgid "Clear search expression"
@@ -226,25 +220,7 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-msgid "_Actions"
-msgstr ""
-
-msgid "_Clean"
-msgstr ""
-
-msgid "_Execute"
-msgstr ""
-
 msgid "_Help"
-msgstr ""
-
-msgid "_Preferences"
-msgstr ""
-
-msgid "_Settings"
-msgstr ""
-
-msgid "_Update"
 msgstr ""
 
 msgid ""
@@ -472,5 +448,23 @@ msgid "Retrieving ChangeLog.txt..."
 msgstr ""
 
 msgid "Changelog"
+msgstr ""
+
+msgid "_View"
+msgstr ""
+
+msgid "All"
+msgstr ""
+
+msgid "View all packages"
+msgstr ""
+
+msgid "Available"
+msgstr ""
+
+msgid "View available packages from current sources"
+msgstr ""
+
+msgid "View installed packages"
 msgstr ""
 

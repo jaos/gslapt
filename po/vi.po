@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.3.13\n"
+"Project-Id-Version: 0.3.14\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2006-05-21 02:30+0500\n"
+"PO-Revision-Date: 2006-05-29 02:14+0500\n"
 "Last-Translator: Nguyễn Văn Vũ <vncasper@yahoo.com>\n"
 "Language-Team: gnome-vi <gnomevi-list@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -41,12 +41,6 @@ msgstr "Giới thiệu"
 
 msgid "Checking for new package data..."
 msgstr "Kiểm tra cho gói dữ liệu mới..."
-
-msgid "Clean archived packages off filesystem"
-msgstr "Gỡ bỏ những gói phần mềm bảo lưu ra khỏi hệ thống"
-
-msgid "Clean"
-msgstr "Làm sạch"
 
 msgid "Clear search expression"
 msgstr "Xoá biểu thức tìm kiếm"
@@ -223,26 +217,8 @@ msgstr "Thư mục làm việc"
 msgid "Yes"
 msgstr "Đồng ý"
 
-msgid "_Actions"
-msgstr "_Hành động"
-
-msgid "_Clean"
-msgstr "_Xoá"
-
-msgid "_Execute"
-msgstr "_Thực hiện"
-
 msgid "_Help"
 msgstr "_Giúp đỡ"
-
-msgid "_Preferences"
-msgstr "_Tùy chỉnh"
-
-msgid "_Settings"
-msgstr "Xác _lập"
-
-msgid "_Update"
-msgstr "_Cập nhật"
 
 msgid ""
 "gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
@@ -466,4 +442,22 @@ msgstr "Retrieving ChangeLog.txt..."
 
 msgid "Changelog"
 msgstr "Changelog"
+
+msgid "_View"
+msgstr "_View"
+
+msgid "All"
+msgstr "All"
+
+msgid "View all packages"
+msgstr "View all packages"
+
+msgid "Available"
+msgstr "Available"
+
+msgid "View available packages from current sources"
+msgstr "View available packages from current sources"
+
+msgid "View installed packages"
+msgstr "View installed packages"
 

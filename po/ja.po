@@ -6,10 +6,10 @@
 # S_A <shin1.abe@nifty.com>, 2006.
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.3.13\n"
+"Project-Id-Version: 0.3.14\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2006-03-07 20:26+0900\n"
-"PO-Revision-Date: 2006-05-21 02:30+0500\n"
+"PO-Revision-Date: 2006-05-29 02:14+0500\n"
 "Last-Translator: S_A <shin1.abe@nifty.com>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -43,12 +43,6 @@ msgstr "About"
 
 msgid "Checking for new package data..."
 msgstr "新規パッケージの検査..."
-
-msgid "Clean archived packages off filesystem"
-msgstr "アーカイブパッケージの消去"
-
-msgid "Clean"
-msgstr "消去"
 
 msgid "Clear search expression"
 msgstr "検索条件をクリア"
@@ -225,26 +219,8 @@ msgstr "作業ディレクトリ"
 msgid "Yes"
 msgstr "はい"
 
-msgid "_Actions"
-msgstr "操作(_Action)"
-
-msgid "_Clean"
-msgstr "_Clean"
-
-msgid "_Execute"
-msgstr "実行(_Execute)"
-
 msgid "_Help"
 msgstr "ヘルプ(_Help)"
-
-msgid "_Preferences"
-msgstr "_Preferences"
-
-msgid "_Settings"
-msgstr "設定(_Settings)"
-
-msgid "_Update"
-msgstr "更新(_Update)"
 
 msgid ""
 "gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
@@ -474,4 +450,22 @@ msgstr "Retrieving ChangeLog.txt..."
 
 msgid "Changelog"
 msgstr "Changelog"
+
+msgid "_View"
+msgstr "_View"
+
+msgid "All"
+msgstr "All"
+
+msgid "View all packages"
+msgstr "View all packages"
+
+msgid "Available"
+msgstr "Available"
+
+msgid "View available packages from current sources"
+msgstr "View available packages from current sources"
+
+msgid "View installed packages"
+msgstr "View installed packages"
 

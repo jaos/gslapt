@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.3.13\n"
+"Project-Id-Version: 0.3.14\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-17 14:52-0500\n"
-"PO-Revision-Date: 2006-05-21 09:02+0500\n"
+"PO-Revision-Date: 2006-05-29 02:14+0500\n"
 "Last-Translator: Piotr Simon <sajmon@tenboard.com>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -76,26 +76,8 @@ msgstr "Wykluczenia"
 msgid "Gslapt"
 msgstr "Gslapt"
 
-msgid "_Actions"
-msgstr "_Akcja"
-
-msgid "_Update"
-msgstr "_Update"
-
 msgid "Up_grade"
 msgstr "Up_grade"
-
-msgid "_Clean"
-msgstr "_Clean"
-
-msgid "_Execute"
-msgstr "_Wykonaj"
-
-msgid "_Settings"
-msgstr "_Ustawienia"
-
-msgid "_Preferences"
-msgstr "_Preferencje"
 
 msgid "_Help"
 msgstr "_Pomoc"
@@ -108,12 +90,6 @@ msgstr "Update"
 
 msgid "Update local package cache"
 msgstr "Aktualizuj lokalne cache"
-
-msgid "Clean"
-msgstr "Wyczy¶æ"
-
-msgid "Clean archived packages off filesystem"
-msgstr "Wyczy¶æ pakiety w cache"
 
 msgid "Execute"
 msgstr "Wykonaj"
@@ -442,4 +418,22 @@ msgstr "Pobieram ChangeLog.txt..."
 
 msgid "Changelog"
 msgstr "Changelog"
+
+msgid "_View"
+msgstr "_View"
+
+msgid "All"
+msgstr "All"
+
+msgid "View all packages"
+msgstr "View all packages"
+
+msgid "Available"
+msgstr "Available"
+
+msgid "View available packages from current sources"
+msgstr "View available packages from current sources"
+
+msgid "View installed packages"
+msgstr "View installed packages"
 

@@ -74,6 +74,7 @@ static gboolean toggle_source_status (GtkTreeView *treeview, gpointer data);
 static void display_dep_error_dialog (slapt_pkg_info_t *pkg,guint m, guint c);
 static void exclude_dep_error_callback (GtkObject *object, gpointer user_data);
 static void install_dep_error_callback (GtkObject *object, gpointer user_data);
+static void view_installed_or_available_packages (gboolean show_installed, gboolean show_available);
 
 void on_gslapt_destroy (GtkObject *object, gpointer user_data) 
 {
@@ -455,7 +456,7 @@ void build_package_treeviewlist (GtkWidget *treeview)
 
   base_model = GTK_TREE_MODEL(gtk_list_store_new (
     NUMBER_OF_COLUMNS,
-    GDK_TYPE_PIXBUF, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_BOOLEAN
+    GDK_TYPE_PIXBUF, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_BOOLEAN, G_TYPE_BOOLEAN
   ));
 
   for (i = 0; i < all->pkg_count; i++ ) {
@@ -537,6 +538,7 @@ void build_package_treeviewlist (GtkWidget *treeview)
       LOCATION_COLUMN,location,
       DESC_COLUMN,short_desc,
       STATUS_COLUMN,status,
+      INST_COLUMN, FALSE,
       VISIBLE_COLUMN,TRUE,
       -1
     );
@@ -579,6 +581,7 @@ void build_package_treeviewlist (GtkWidget *treeview)
         LOCATION_COLUMN,installed->pkgs[i]->location,
         DESC_COLUMN,short_desc,
         STATUS_COLUMN,status,
+        INST_COLUMN, TRUE,
         VISIBLE_COLUMN,TRUE,
         -1
       );
@@ -608,6 +611,7 @@ void build_searched_treeviewlist (GtkWidget *treeview, gchar *pattern)
   GtkTreeModel *base_model;
   struct slapt_pkg_list *a_matches = NULL,*i_matches = NULL;
   GtkTreeModelSort *package_model;
+  gboolean view_list_all = FALSE, view_list_installed = FALSE, view_list_available = FALSE;
 
   if (pattern == NULL) {
     return;
@@ -618,11 +622,16 @@ void build_searched_treeviewlist (GtkWidget *treeview, gchar *pattern)
   filter_model = GTK_TREE_MODEL_FILTER(gtk_tree_model_sort_get_model(GTK_TREE_MODEL_SORT(package_model)));
   base_model = GTK_TREE_MODEL(gtk_tree_model_filter_get_model(GTK_TREE_MODEL_FILTER(filter_model)));
 
+  view_list_all       = gtk_check_menu_item_get_active(GTK_RADIO_MENU_ITEM(lookup_widget(gslapt,"view_all_packages_menu")));
+  view_list_available = gtk_check_menu_item_get_active(GTK_RADIO_MENU_ITEM(lookup_widget(gslapt,"view_available_packages_menu")));
+  view_list_installed = gtk_check_menu_item_get_active(GTK_RADIO_MENU_ITEM(lookup_widget(gslapt,"view_installed_packages_menu")));
+
   a_matches = slapt_search_pkg_list(all,pattern);
   i_matches = slapt_search_pkg_list(installed,pattern);
   valid = gtk_tree_model_get_iter_first(base_model,&iter);
   while (valid) {
     gchar *name = NULL,*version = NULL,*location = NULL;
+    slapt_pkg_info_t *a_pkg = NULL, *i_pkg = NULL;
 
     gtk_tree_model_get(base_model,&iter,
       NAME_COLUMN,&name,
@@ -631,10 +640,14 @@ void build_searched_treeviewlist (GtkWidget *treeview, gchar *pattern)
       -1
     );
 
-    if (
-        slapt_get_pkg_by_details(a_matches,name,version,location) != NULL ||
-        slapt_get_pkg_by_details(i_matches,name,version,location) != NULL
-    ) {
+    a_pkg = slapt_get_pkg_by_details(a_matches,name,version,location);
+    i_pkg = slapt_get_pkg_by_details(i_matches,name,version,location);
+
+    if (view_list_installed && i_pkg != NULL) {
+      gtk_list_store_set(GTK_LIST_STORE(base_model),&iter,VISIBLE_COLUMN,TRUE,-1);
+    } else if (view_list_available && (a_pkg != NULL || i_pkg != NULL)) {
+      gtk_list_store_set(GTK_LIST_STORE(base_model),&iter,VISIBLE_COLUMN,TRUE,-1);
+    } else if (view_list_all && (a_pkg != NULL || i_pkg != NULL)) {
       gtk_list_store_set(GTK_LIST_STORE(base_model),&iter,VISIBLE_COLUMN,TRUE,-1);
     } else {
       gtk_list_store_set(GTK_LIST_STORE(base_model),&iter,VISIBLE_COLUMN,FALSE,-1);
@@ -3158,7 +3171,75 @@ static void install_dep_error_callback (GtkObject *object, gpointer user_data)
   gtk_widget_destroy(dep_error_dialog);
 }
 
-void source_failed_callback (GtkButton *button, gpointer user_data)
+void view_all_packages (GtkMenuItem *menuitem, gpointer user_data)
 {
+  gchar *pattern = (gchar *)gtk_entry_get_text(GTK_ENTRY(lookup_widget(gslapt,"search_entry")));
+  GtkTreeView *treeview = GTK_TREE_VIEW(lookup_widget(gslapt,"pkg_listing_treeview"));
+
+  if (pattern && strlen(pattern) > 0)
+    build_searched_treeviewlist(treeview, pattern);
+  else
+    reset_search_list();
+}
+
+void view_available_packages (GtkMenuItem *menuitem, gpointer user_data)
+{
+  gboolean show_installed = FALSE, show_available = TRUE;
+  gchar *pattern = (gchar *)gtk_entry_get_text(GTK_ENTRY(lookup_widget(gslapt,"search_entry")));
+  GtkTreeView *treeview = GTK_TREE_VIEW(lookup_widget(gslapt,"pkg_listing_treeview"));
+
+  view_installed_or_available_packages(show_installed, show_available);
+
+  if (pattern && strlen(pattern) > 0)
+    build_searched_treeviewlist(treeview, pattern);
+}
+
+void view_installed_packages (GtkMenuItem *menuitem, gpointer user_data)
+{
+  gboolean show_installed = TRUE, show_available = FALSE;
+  gchar *pattern = (gchar *)gtk_entry_get_text(GTK_ENTRY(lookup_widget(gslapt,"search_entry")));
+  GtkTreeView *treeview = GTK_TREE_VIEW(lookup_widget(gslapt,"pkg_listing_treeview"));
+
+  view_installed_or_available_packages(show_installed, show_available);
+
+  if (pattern && strlen(pattern) > 0)
+    build_searched_treeviewlist(treeview, pattern);
+}
+
+void view_installed_or_available_packages (gboolean show_installed, gboolean show_available)
+{
+  gboolean valid;
+  GtkTreeIter iter;
+  GtkTreeModelFilter *filter_model;
+  GtkTreeModel *base_model;
+  GtkTreeModelSort *package_model;
+  GtkTreeView *treeview;
+
+  treeview = GTK_TREE_VIEW(lookup_widget(gslapt,"pkg_listing_treeview"));
+  package_model = GTK_TREE_MODEL_SORT(gtk_tree_view_get_model(GTK_TREE_VIEW(treeview)));
+
+  filter_model = GTK_TREE_MODEL_FILTER(gtk_tree_model_sort_get_model(GTK_TREE_MODEL_SORT(package_model)));
+  base_model = GTK_TREE_MODEL(gtk_tree_model_filter_get_model(GTK_TREE_MODEL_FILTER(filter_model)));
+
+  valid = gtk_tree_model_get_iter_first(base_model,&iter);
+  while (valid) {
+    gboolean from_installed_set = FALSE;
+
+    gtk_tree_model_get(base_model,&iter,
+      INST_COLUMN, &from_installed_set,
+      -1
+    );
+
+    if (from_installed_set && show_installed) {
+      gtk_list_store_set(GTK_LIST_STORE(base_model),&iter,VISIBLE_COLUMN,TRUE,-1);
+    } else if (!from_installed_set && show_available) {
+      gtk_list_store_set(GTK_LIST_STORE(base_model),&iter,VISIBLE_COLUMN,TRUE,-1);
+    } else {
+      gtk_list_store_set(GTK_LIST_STORE(base_model),&iter,VISIBLE_COLUMN,FALSE,-1);
+    }
+
+    valid = gtk_tree_model_iter_next(base_model,&iter);
+  }
+
 }
 

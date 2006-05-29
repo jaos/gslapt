@@ -1,4 +1,9 @@
 
+0.3.14 May 29, 2006
+ * added a View menu to specify showing only Installed, Available,
+   or All packages.  The user can also toggle this within search
+   results.
+
 0.3.13 May 24, 2006
  * changelog support
  * updated desktop files with patch from Ariszló

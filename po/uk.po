@@ -6,10 +6,10 @@
 
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.3.13\n"
+"Project-Id-Version: 0.3.14\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-09-08 00:54\n"
-"PO-Revision-Date: 2006-05-21 02:30+0500\n"
+"PO-Revision-Date: 2006-05-29 02:14+0500\n"
 "Last-Translator: sin <digitalhunger@gmail.com>\n"
 "Language-Team: DeepStyle team <deep@deepstyle.org.ua>\n"
 "MIME-Version: 1.0\n"
@@ -77,26 +77,8 @@ msgstr "Виключення"
 msgid "Gslapt"
 msgstr "Gslapt"
 
-msgid "_Actions"
-msgstr "Д╕╖"
-
-msgid "_Update"
-msgstr "Осв╕жити"
-
 msgid "Up_grade"
 msgstr "Поновити"
-
-msgid "_Clean"
-msgstr "Очистити"
-
-msgid "_Execute"
-msgstr "Виконати"
-
-msgid "_Settings"
-msgstr "Налаштування"
-
-msgid "_Preferences"
-msgstr "Уподобання"
 
 msgid "_Help"
 msgstr "Допомога"
@@ -109,12 +91,6 @@ msgstr "Обновить"
 
 msgid "Update local package cache"
 msgstr "Осв╕жити локальний кеш пакунк╕в"
-
-msgid "Clean"
-msgstr "Очистити"
-
-msgid "Clean archived packages off filesystem"
-msgstr "Видалити арх╕в пакунк╕в"
 
 msgid "Execute"
 msgstr "Виконати"
@@ -437,4 +413,22 @@ msgstr "Retrieving ChangeLog.txt..."
 
 msgid "Changelog"
 msgstr "Changelog"
+
+msgid "_View"
+msgstr "_View"
+
+msgid "All"
+msgstr "All"
+
+msgid "View all packages"
+msgstr "View all packages"
+
+msgid "Available"
+msgstr "Available"
+
+msgid "View available packages from current sources"
+msgstr "View available packages from current sources"
+
+msgid "View installed packages"
+msgstr "View installed packages"
 
