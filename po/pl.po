@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: 0.3.14\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-17 14:52-0500\n"
-"PO-Revision-Date: 2006-05-29 02:14+0500\n"
+"PO-Revision-Date: 2006-05-29 13:05+0500\n"
 "Last-Translator: Piotr Simon <sajmon@tenboard.com>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -131,7 +131,7 @@ msgid "Installed Size:"
 msgstr "Rozmiar po instalacji:"
 
 msgid "Installed"
-msgstr "Zainstalowany"
+msgstr "Zainstalowane"
 
 msgid "Conflicts"
 msgstr "Konflikt"
@@ -420,20 +420,20 @@ msgid "Changelog"
 msgstr "Changelog"
 
 msgid "_View"
-msgstr "_View"
+msgstr "_Poka¿"
 
 msgid "All"
-msgstr "All"
+msgstr "Wszystkie"
 
 msgid "View all packages"
-msgstr "View all packages"
+msgstr "Poka¿ wszystkie pakiety"
 
 msgid "Available"
-msgstr "Available"
+msgstr "Dostêpne"
 
 msgid "View available packages from current sources"
-msgstr "View available packages from current sources"
+msgstr "Poka¿ wszystkie dostêpne pakiety z aktualnego ¿ród³a"
 
 msgid "View installed packages"
-msgstr "View installed packages"
+msgstr "Poka¿ zainstalowane pakiety"
 
