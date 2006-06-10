@@ -1,5 +1,6 @@
 
-0.3.14 May 29, 2006
+0.3.14 Jun 10, 2006
+ * show package versions in the transaction summary for install, remove
  * translation updates
  * added a View menu to specify showing only Installed, Available,
    or All packages.  The user can also toggle this within search

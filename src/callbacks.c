@@ -1543,84 +1543,115 @@ static int populate_transaction_window (GtkWidget *trans_window)
   if ( trans->missing_err->err_count > 0 ) {
     gtk_tree_store_append (store, &iter,NULL);
     gtk_tree_store_set(store,&iter,0,_("Packages with unmet dependencies"),-1);
+
     for (i=0; i < trans->missing_err->err_count; ++i) {
-      unsigned int len = strlen(trans->missing_err->errs[i]->pkg) +
-                                strlen((gchar *)_(": Depends: ")) +
-                                strlen(trans->missing_err->errs[i]->error) + 1;
-      char *err = slapt_malloc(sizeof *err * len);
-      snprintf(err,len,"%s: Depends: %s",trans->missing_err->errs[i]->pkg,
-               trans->missing_err->errs[i]->error);
+      gchar *err = g_strdup_printf("%s: Depends: %s",
+        trans->missing_err->errs[i]->pkg,
+        trans->missing_err->errs[i]->error
+      );
+
       gtk_tree_store_append (store, &child_iter, &iter);
       gtk_tree_store_set(store,&child_iter,0,err,-1);
-      free(err);
+      g_free(err);
     }
   }
+
   if ( trans->conflict_err->err_count > 0 ) {
     gtk_tree_store_append (store, &iter,NULL);
     gtk_tree_store_set(store,&iter,0,_("Package conflicts"),-1);
+
     for (i = 0; i < trans->conflict_err->err_count;++i) {
-      unsigned int len = strlen(trans->conflict_err->errs[i]->error) +
-                                strlen((gchar *)_(", which is required by ")) +
-                                strlen(trans->conflict_err->errs[i]->pkg) +
-                                strlen((gchar *)_(", is excluded")) + 1;
-      char *err = slapt_malloc(sizeof *err * len);
-      snprintf(err,len,"%s%s%s%s",
+      gchar *err = g_strdup_printf("%s%s%s%s",
                trans->conflict_err->errs[i]->error,
                (gchar *)_(", which is required by "),
                trans->conflict_err->errs[i]->pkg,
-               (gchar *)_(", is excluded"));
+               (gchar *)_(", is excluded")
+      );
+
       gtk_tree_store_append (store, &child_iter, &iter);
       gtk_tree_store_set(store,&child_iter,0,err,-1);
-      free(err);
+      g_free(err);
     }
   }
+
   if ( trans->exclude_pkgs->pkg_count > 0 ) {
     gtk_tree_store_append (store, &iter,NULL);
     gtk_tree_store_set(store,&iter,0,_("Packages excluded"),-1);
+
     for (i = 0; i < trans->exclude_pkgs->pkg_count;++i) {
+      gchar *detail = g_strdup_printf("%s %s",
+        trans->exclude_pkgs->pkgs[i]->name,
+        trans->exclude_pkgs->pkgs[i]->version
+      );
+
       gtk_tree_store_append (store, &child_iter, &iter);
-      gtk_tree_store_set(store,&child_iter,0,trans->exclude_pkgs->pkgs[i]->name,-1);
+      gtk_tree_store_set(store, &child_iter, 0, detail, -1);
+
+      g_free(detail);
     }
   }
+
   if ( trans->install_pkgs->pkg_count > 0 ) {
     gtk_tree_store_append (store, &iter,NULL);
     gtk_tree_store_set(store,&iter,0,_("Packages to be installed"),-1);
+
     for (i = 0; i < trans->install_pkgs->pkg_count;++i) {
+      gchar *detail = g_strdup_printf("%s %s",
+        trans->install_pkgs->pkgs[i]->name,
+        trans->install_pkgs->pkgs[i]->version
+      );
+
       gtk_tree_store_append (store, &child_iter, &iter);
-      gtk_tree_store_set(store,&child_iter,0,trans->install_pkgs->pkgs[i]->name,-1);
+      gtk_tree_store_set(store, &child_iter, 0, detail, -1);
       dl_size += trans->install_pkgs->pkgs[i]->size_c;
       already_dl_size += slapt_get_pkg_file_size(global_config,trans->install_pkgs->pkgs[i])/1024;
       free_space += trans->install_pkgs->pkgs[i]->size_u;
+
+      g_free(detail);
     }
   }
+
   if ( trans->upgrade_pkgs->pkg_count > 0 ) {
     gtk_tree_store_append (store, &iter,NULL);
     gtk_tree_store_set(store,&iter,0,_("Packages to be upgraded"),-1);
+
     for (i = 0; i < trans->upgrade_pkgs->pkg_count;++i) {
-      gchar buf[255];
-      buf[0] = '\0';
-      strcat(buf,trans->upgrade_pkgs->pkgs[i]->upgrade->name);
-      strcat(buf," (");
-      strcat(buf,trans->upgrade_pkgs->pkgs[i]->installed->version);
-      strcat(buf,") -> ");
-      strcat(buf,trans->upgrade_pkgs->pkgs[i]->upgrade->version);
+      gchar *detail = g_strdup_printf("%s (%s) -> %s",
+        trans->upgrade_pkgs->pkgs[i]->installed->name,
+        trans->upgrade_pkgs->pkgs[i]->installed->version,
+        trans->upgrade_pkgs->pkgs[i]->upgrade->version
+      );
+
       gtk_tree_store_append (store, &child_iter, &iter);
-      gtk_tree_store_set(store,&child_iter,0,buf,-1);
+      gtk_tree_store_set(store, &child_iter, 0, detail, -1);
+
       dl_size += trans->upgrade_pkgs->pkgs[i]->upgrade->size_c;
       already_dl_size += slapt_get_pkg_file_size(global_config,trans->upgrade_pkgs->pkgs[i]->upgrade)/1024;
       free_space += trans->upgrade_pkgs->pkgs[i]->upgrade->size_u;
       free_space -= trans->upgrade_pkgs->pkgs[i]->installed->size_u;
+
+      g_free(detail);
     }
   }
+
   if ( trans->remove_pkgs->pkg_count > 0 ) {
     gtk_tree_store_append (store, &iter,NULL);
     gtk_tree_store_set(store,&iter,0,_("Packages to be removed"),-1);
+
     for (i = 0; i < trans->remove_pkgs->pkg_count;++i) {
+      gchar *detail = g_strdup_printf("%s %s",
+        trans->remove_pkgs->pkgs[i]->name,
+        trans->remove_pkgs->pkgs[i]->version
+      );
+
       gtk_tree_store_append (store, &child_iter, &iter);
-      gtk_tree_store_set(store,&child_iter,0,trans->remove_pkgs->pkgs[i]->name,-1);
+      gtk_tree_store_set(store, &child_iter, 0, detail, -1);
       free_space -= trans->remove_pkgs->pkgs[i]->size_u;
+
+      g_free(detail);
     }
   }
+
   gtk_tree_view_set_model (GTK_TREE_VIEW(summary_treeview),GTK_TREE_MODEL(store));
 
   renderer = gtk_cell_renderer_text_new();
