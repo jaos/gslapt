@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: 0.3.14\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2006-03-07 20:26+0900\n"
-"PO-Revision-Date: 2006-05-29 19:05+0900\n"
+"PO-Revision-Date: 2006-06-18 17:00+0500\n"
 "Last-Translator: JW <J_W@somewhere.c0.jp>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -468,4 +468,10 @@ msgstr "current sources から利用可能なパッケージの一覧"
 
 msgid "View installed packages"
 msgstr "インストール済みパッケージの一覧"
+
+msgid "Marked"
+msgstr "Marked"
+
+msgid "View Marked Packages"
+msgstr "View Marked Packages"
 

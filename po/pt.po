@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: 0.3.14\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-05-06 11:10-0500\n"
-"PO-Revision-Date: 2006-05-29 02:14+0500\n"
+"PO-Revision-Date: 2006-06-18 17:00+0500\n"
 "Last-Translator: Pedro Pinto aka _PN_boy <pedro_nuno_pn@zmail.pt>\n"
 "Language-Team: slapt-get devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -456,4 +456,10 @@ msgstr "View available packages from current sources"
 
 msgid "View installed packages"
 msgstr "View installed packages"
+
+msgid "Marked"
+msgstr "Marked"
+
+msgid "View Marked Packages"
+msgstr "View Marked Packages"
 

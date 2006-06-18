@@ -1,5 +1,6 @@
 
 0.3.14 Jun 18, 2006
+ * added "View Marked Packages" option
  * german updates by Manfred
  * show package versions in the transaction summary for install, remove
  * translation updates

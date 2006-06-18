@@ -30,6 +30,7 @@ enum {
   STATUS_COLUMN,
   VISIBLE_COLUMN,
   INST_COLUMN,
+  MARKED_COLUMN,
   NUMBER_OF_COLUMNS
 };
 
@@ -93,3 +94,5 @@ struct slapt_source_list *parse_disabled_package_sources (const char *file_name)
 void view_all_packages (GtkMenuItem *menuitem, gpointer user_data);
 void view_available_packages (GtkMenuItem *menuitem, gpointer user_data);
 void view_installed_packages (GtkMenuItem *menuitem, gpointer user_data);
+
+void view_marked_packages (GtkMenuItem *menuitem, gpointer user_data);

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: 0.3.14\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-09-08 00:54\n"
-"PO-Revision-Date: 2006-05-29 17:00+0500\n"
+"PO-Revision-Date: 2006-06-18 17:00+0500\n"
 "Last-Translator: sin <digitalhunger@gmail.com>\n"
 "Language-Team: DeepStyle team <deep@deepstyle.org.ua>\n"
 "MIME-Version: 1.0\n"
@@ -431,4 +431,10 @@ msgstr "Перегляд ус╕х доступних пакунк╕в з обраних репозитор╕╖в"
 
 msgid "View installed packages"
 msgstr "Перегляд встановлених пакунк╕в"
+
+msgid "Marked"
+msgstr "Marked"
+
+msgid "View Marked Packages"
+msgstr "View Marked Packages"
 
