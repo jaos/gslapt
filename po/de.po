@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: 0.3.14\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2006-05-29 02:14+0500\n"
+"PO-Revision-Date: 2006-06-18 12:50+0500\n"
 "Last-Translator: Manfred Mueller <linux@nass-ek.de>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -54,7 +54,7 @@ msgstr "Konflikte"
 
 #, c-format
 msgid "Couldn't find pixmap file: %s"
-msgstr "Finde keine Pixmap-Datei: %s"
+msgstr "Kann Pixmap-Datei %s nicht finden"
 
 msgid "Description"
 msgstr "Beschreibung"
@@ -268,7 +268,7 @@ msgid "_File"
 msgstr "_Datei"
 
 msgid "Pending changes. Click execute when ready."
-msgstr "Aktivieren der Aenderungen mit Klick auf Start"
+msgstr "Aktivieren der Aenderungen mit Klick auf Ausfuehren"
 
 msgid "Packages with unmet dependencies"
 msgstr "Nicht geloeste Abhaengigkeiten bei"
@@ -436,10 +436,10 @@ msgid "Missing dependencies may mean the software in this package will not funct
 msgstr "Fehlende Abhaengigkeiten koennen instabiles System-Verhalten bewirken. Moechten Sie ohne die erforderlichen Pakete weitermachen?"
 
 msgid "This package source failed or is not available. Do you want to disable this source and continue anyway?"
-msgstr "This package source failed or is not available. Do you want to disable this source and continue anyway?"
+msgstr "Diese Paket-Quelle ist defekt oder nicht verfuegbar. Moechten Sie diese Quelle daktivieren und dann weitermachen?"
 
 msgid "Retrieving ChangeLog.txt..."
-msgstr "Retrieving ChangeLog.txt..."
+msgstr "Lade ChangeLog.txt..."
 
 msgid "Changelog"
 msgstr "Changelog"
