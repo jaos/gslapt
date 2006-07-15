@@ -1,5 +1,6 @@
 
-0.3.14 Jun 20, 2006
+0.3.14 Jul 15, 2006
+ * removed redundant 'Installing packages' status message that stuck around
  * added "View Marked Packages" option
  * german updates by Manfred
  * show package versions in the transaction summary for install, remove

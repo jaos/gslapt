@@ -1983,7 +1983,6 @@ static gboolean install_packages (void)
       slapt_clean_description(clean_desc,trans->queue->pkgs[i]->pkg.i->name);
 
       gdk_threads_enter();
-      context_id = gslapt_set_status((gchar *)_("Installing packages..."));
 
       gtk_label_set_text(progress_pkg_desc,clean_desc);
       if ( clean_desc != NULL ) 
