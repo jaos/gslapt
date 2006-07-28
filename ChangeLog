@@ -1,5 +1,6 @@
 
 0.3.14 Jul 27, 2006
+ * added 'Mark Obsolete' option
  * removed redundant 'Installing packages' status message that stuck around
  * added "View Marked Packages" option
  * german updates by Manfred

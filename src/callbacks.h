@@ -96,3 +96,5 @@ void view_available_packages (GtkMenuItem *menuitem, gpointer user_data);
 void view_installed_packages (GtkMenuItem *menuitem, gpointer user_data);
 
 void view_marked_packages (GtkMenuItem *menuitem, gpointer user_data);
+
+void mark_obsolete_packages (GtkMenuItem *menuitem, gpointer user_data);

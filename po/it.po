@@ -2,14 +2,14 @@
 # translation of gslapt.po to italian
 # Copyright (C) 2005 Fabio Varesano
 # This file is distributed under the same license as the gslapt package.
-# FIRST AUTHOR Fabio Varesano <fvaresano@yahoo.it>, 2005.
+# FIRST AUTHOR Fabio Varesano <fvaresano@yahoo.it>, 2005, 2006
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.3.14\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-07-28 18:01+0000\n"
-"PO-Revision-Date: 2006-06-18 17:00+0500\n"
+"PO-Revision-Date: 2006-07-28 21:45+0500\n"
 "Last-Translator: Fabio Varesano <fvaresano@yahoo.it>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -475,4 +475,10 @@ msgstr "Marked"
 
 msgid "View Marked Packages"
 msgstr "View Marked Packages"
+
+msgid "Mark Obsolete"
+msgstr "Mark Obsolete"
+
+msgid "Mark all obsolete packages"
+msgstr "Mark all obsolete packages"
 

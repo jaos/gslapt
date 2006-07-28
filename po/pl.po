@@ -1,14 +1,14 @@
 # pl gslapt translation.
 # Copyright (C) 2005 Piotr Simon
 # This file is distributed under the same license as the gslapt package.
-# FIRST AUTHOR Piotr Simon <sajmon@tenboard.com>, 2005.
+# FIRST AUTHOR Piotr Simon <sajmon@tenboard.com>, 2005, 2006
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.3.14\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-17 14:52-0500\n"
-"PO-Revision-Date: 2006-06-19 06:33+0500\n"
+"PO-Revision-Date: 2006-07-28 21:45+0500\n"
 "Last-Translator: Piotr Simon <sajmon@tenboard.com>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -442,4 +442,10 @@ msgstr "Zamarkowane"
 
 msgid "View Marked Packages"
 msgstr "Poka¿ zamarkowane pakiety"
+
+msgid "Mark Obsolete"
+msgstr "Mark Obsolete"
+
+msgid "Mark all obsolete packages"
+msgstr "Mark all obsolete packages"
 

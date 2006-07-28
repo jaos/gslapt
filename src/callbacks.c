@@ -87,6 +87,9 @@ static int set_iter_for_upgrade(GtkTreeModel *model, GtkTreeIter *iter,
 static int set_iter_for_remove(GtkTreeModel *model, GtkTreeIter *iter,
                            slapt_pkg_info_t *pkg);
 
+static void set_busy_cursor (void);
+static void unset_busy_cursor (void);
+
 void on_gslapt_destroy (GtkObject *object, gpointer user_data) 
 {
 
@@ -112,16 +115,12 @@ void update_callback (GtkObject *object, gpointer user_data)
 
 void upgrade_callback (GtkObject *object, gpointer user_data) 
 {
-  GdkCursor *c = gdk_cursor_new(GDK_WATCH);
-  gdk_window_set_cursor(gslapt->window,c);
-  gdk_cursor_destroy(c);
-  gdk_flush();
+  set_busy_cursor();
   mark_upgrade_packages();
   if (trans->install_pkgs->pkg_count > 0 || trans->upgrade_pkgs->pkg_count > 0) {
     set_execute_active();
   }
-  gdk_window_set_cursor(gslapt->window,NULL);
-  gdk_flush();
+  unset_busy_cursor();
 }
 
 void execute_callback (GtkObject *object, gpointer user_data) 
@@ -578,8 +577,7 @@ void build_package_treeviewlist (GtkWidget *treeview)
   gtk_tree_view_set_model (GTK_TREE_VIEW(treeview),GTK_TREE_MODEL(package_model));
 
   if (gslapt->window != NULL) {
-    gdk_window_set_cursor(gslapt->window,NULL);
-    gdk_flush();
+    unset_busy_cursor();
   }
 }
 
@@ -1010,7 +1008,7 @@ static void get_package_data (void)
           global_config->sources->url[i]
         );
 
-        gint result = gtk_dialog_run(q);
+        gint result = gtk_dialog_run(GTK_DIALOG(q));
         if (result == GTK_RESPONSE_YES) {
           /* we'll disable this source and continue on */
           continue_anyway = TRUE;
@@ -1211,21 +1209,13 @@ int gtk_progress_callback(void *data, double dltotal, double dlnow,
 static void rebuild_treeviews (GtkWidget *current_window,gboolean reload)
 {
   GtkWidget *treeview;
-  GdkCursor *c = gdk_cursor_new(GDK_WATCH);
   GtkListStore *store;
   GtkTreeModelFilter *filter_model;
   GtkTreeModelSort *package_model;
   const gchar *search_text = gtk_entry_get_text(
     GTK_ENTRY(lookup_widget(gslapt,"search_entry")));
 
-  if (current_window == NULL) {
-    gdk_window_set_cursor(gslapt->window,c);
-  } else {
-    gdk_window_set_cursor(current_window->window,c);
-    gdk_window_set_cursor(gslapt->window,c);
-  }
-  gdk_cursor_destroy(c);
-  gdk_flush();
+  set_busy_cursor();
 
   if (reload == TRUE) {
     struct slapt_pkg_list *all_ptr,*installed_ptr;
@@ -1312,7 +1302,6 @@ static void lhandle_transaction (GtkWidget *w)
   GtkCheckButton *dl_only_checkbutton;
   gboolean dl_only = FALSE;
   struct slapt_pkg_list *installed_ptr;
-  GdkCursor *c;
 
   gdk_threads_enter();
   lock_toolbar_buttons();
@@ -1369,13 +1358,10 @@ static void lhandle_transaction (GtkWidget *w)
   }
 
   /* set busy cursor */
-  c = gdk_cursor_new(GDK_WATCH);
   gdk_threads_enter();
   clear_execute_active();
-  gdk_window_set_cursor(gslapt->window,c);
-  gdk_flush();
+  set_busy_cursor();
   gdk_threads_leave();
-  gdk_cursor_destroy(c);
 
   slapt_free_transaction(trans);
   trans = slapt_init_transaction();
@@ -1389,8 +1375,7 @@ static void lhandle_transaction (GtkWidget *w)
   rebuild_treeviews(NULL,FALSE);
   rebuild_package_action_menu();
   unlock_toolbar_buttons();
-  gdk_window_set_cursor(gslapt->window,NULL);
-  gdk_flush();
+  unset_busy_cursor();
   notify((gchar *)_("Completed actions"),(gchar *)_("Successfully executed all actions."));
   gdk_threads_leave();
 
@@ -3352,5 +3337,59 @@ static int set_iter_for_remove(GtkTreeModel *model, GtkTreeIter *iter,
   gtk_list_store_set(GTK_LIST_STORE(model),iter,STATUS_COLUMN,status,-1);
   gtk_list_store_set(GTK_LIST_STORE(model),iter,MARKED_COLUMN,TRUE,-1);
   g_free(status);
+}
+
+
+void mark_obsolete_packages (GtkMenuItem *menuitem, gpointer user_data)
+{
+  GtkTreeIter iter;
+  GtkTreeModelFilter *filter_model;
+  GtkTreeModel *base_model;
+  GtkTreeModelSort *package_model;
+  GtkTreeView *treeview;
+
+  set_busy_cursor();
+
+  struct slapt_pkg_list *obsolete = slapt_get_obsolete_pkgs(
+    global_config, all, installed);
+  guint i;
+
+  treeview = GTK_TREE_VIEW(lookup_widget(gslapt,"pkg_listing_treeview"));
+  package_model = GTK_TREE_MODEL_SORT(gtk_tree_view_get_model(treeview));
+
+  filter_model = GTK_TREE_MODEL_FILTER(gtk_tree_model_sort_get_model(GTK_TREE_MODEL_SORT(package_model)));
+  base_model = GTK_TREE_MODEL(gtk_tree_model_filter_get_model(GTK_TREE_MODEL_FILTER(filter_model)));
+  
+  for (i = 0; i < obsolete->pkg_count; ++i) {
+
+    if (slapt_is_excluded(global_config, obsolete->pkgs[i]) == 1) {
+
+      slapt_add_exclude_to_transaction(trans, obsolete->pkgs[i]);
+
+    } else {
+
+      set_iter_to_pkg(base_model, &iter, obsolete->pkgs[i]);
+      set_iter_for_remove(base_model, &iter, obsolete->pkgs[i]);
+      set_execute_active();
+
+    }
+
+  }
+
+  unset_busy_cursor();
+}
+
+static void set_busy_cursor (void)
+{
+  GdkCursor *c = gdk_cursor_new(GDK_WATCH);
+  gdk_window_set_cursor(gslapt->window,c);
+  gdk_cursor_destroy(c);
+  gdk_flush();
+}
+
+static void unset_busy_cursor (void)
+{
+  gdk_window_set_cursor(gslapt->window,NULL);
+  gdk_flush();
 }
 

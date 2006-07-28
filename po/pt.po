@@ -1,14 +1,14 @@
 # pt translation for gslapt
 # Copyright (C) 2005 Pedro Pinto
 # This file is distributed under the same license as the gslapt package.
-# FIRST AUTHOR <pedro_nuno_pn@zmail.pt>, 2005.
+# FIRST AUTHOR <pedro_nuno_pn@zmail.pt>, 2005, 2006
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.3.14\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-05-06 11:10-0500\n"
-"PO-Revision-Date: 2006-06-18 17:00+0500\n"
+"PO-Revision-Date: 2006-07-28 21:45+0500\n"
 "Last-Translator: Pedro Pinto aka _PN_boy <pedro_nuno_pn@zmail.pt>\n"
 "Language-Team: slapt-get devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -462,4 +462,10 @@ msgstr "Marked"
 
 msgid "View Marked Packages"
 msgstr "View Marked Packages"
+
+msgid "Mark Obsolete"
+msgstr "Mark Obsolete"
+
+msgid "Mark all obsolete packages"
+msgstr "Mark all obsolete packages"
 
