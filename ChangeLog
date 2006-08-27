@@ -1,4 +1,8 @@
 
+0.3.15 Aug 27, 2006
+ * Makefile now uses the same Group ID of /usr/sbin on the system
+   for Slack 11 compatibility (Thanks Ricardo Garcia).
+
 0.3.14 Jul 27, 2006
  * added 'Mark Obsolete' option
  * removed redundant 'Installing packages' status message that stuck around

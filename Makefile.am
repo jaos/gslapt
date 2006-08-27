@@ -42,8 +42,8 @@ pkg: all
 	$(mkinstalldirs) $(PKGDIR)/install
 	install slack-desc $(PKGDIR)/install/
 	install slack-required $(PKGDIR)/install/
-	-chown root:bin $(PKGDIR)/$(sbindir)
-	-chown root:bin $(PKGDIR)/$(sbindir)/@PACKAGE@
+	-chown $$(stat --format "%u:%g" /usr/sbin) $(PKGDIR)/$(sbindir)
+	-chown $$(stat --format "%u:%g" /usr/sbin) $(PKGDIR)/$(sbindir)/@PACKAGE@
 	@echo -n "for DESKTOPFILE in " > $(PKGDIR)/install/doinst.sh
 	@echo -n "$(DESTDIR)/$(datadir)/applications/gslapt.desktop " |sed -re "s/^\/+//" >> $(PKGDIR)/install/doinst.sh
 	@echo "$(DESTDIR)/$(datadir)/applications/gslapt-kde.desktop" |sed -re "s/^\/+//" >> $(PKGDIR)/install/doinst.sh
