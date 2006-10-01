@@ -1,0 +1,482 @@
+# French translation for gslapt
+# Copyright (C) 2006 Natim
+# This file is distributed under the same license as the gslapt package.
+# FIRST AUTHOR Natim <natim@trunat.fr>, 2006
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.3.15\n"
+"Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
+"POT-Creation-Date: 2005-02-26 22:25-0500\n"
+"PO-Revision-Date: 2006-09-29 9:51+0200\n"
+"Last-Translator: Natim <natim@trunat.fr>\n"
+"Language-Team: slapt-get devel <slapt-get-devel@software.jaos.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "<b>Exclude List</b>"
+msgstr "<b>Liste d'expression exclue</b>"
+
+msgid "<b>Package Sources</b>"
+msgstr "<b>Packet de sources</b>"
+
+msgid "<b>Package and data storage</b>"
+msgstr "<b>Stockage des packets et des données</b>"
+
+msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Voullez-vous appliquer les modifications suivantes ?</span>"
+
+msgid "<span weight=\"bold\">Exclude Expression:</span>"
+msgstr "<span weight=\"bold\">Expression à exclure :</span>"
+
+msgid "<span weight=\"bold\">SOURCE=</span>"
+msgstr "<span weight=\"bold\">SOURCE=</span>"
+
+msgid "About gslapt"
+msgstr "À propos de gslapt"
+
+msgid "About"
+msgstr "À propos"
+
+msgid "Checking for new package data..."
+msgstr "Recherche des données sur les nouveaux packages"
+
+msgid "Clear search expression"
+msgstr "Effacer l'expression de recherche"
+
+msgid "Clear"
+msgstr "Effacer"
+
+msgid "Conflicts"
+msgstr "Conflits"
+
+#, c-format
+msgid "Couldn't find pixmap file: %s"
+msgstr "Impossible de trouver l'icone : %s"
+
+msgid "Description"
+msgstr "Description"
+
+msgid "Dismiss"
+msgstr ""
+
+msgid "Download packages only"
+msgstr "Télécharger les packets sans les installer"
+
+msgid "Downloading packages..."
+msgstr "Téléchargement des packets ..."
+
+msgid "Downloading..."
+msgstr "Téléchargement ..."
+
+msgid "Exclude package"
+msgstr "Packet exclu"
+
+msgid "Exclude"
+msgstr "Exclu"
+
+msgid "Excludes"
+msgstr "Exclus"
+
+msgid "Execute all scheduled actions in current transaction"
+msgstr "Exécuter toutes les actions de cette transaction"
+
+msgid "Execute"
+msgstr "Exécuter"
+
+msgid "Expression"
+msgstr "Expression"
+
+msgid "Gslapt"
+msgstr "Gslapt"
+
+msgid "Install"
+msgstr "Installer"
+
+msgid "Install/Upgrade package"
+msgstr "Installer/Mettre à jour le packet"
+
+msgid "Installed Size:"
+msgstr "Taille installé :"
+
+msgid "Installed"
+msgstr "Installés"
+
+msgid "Installing packages..."
+msgstr "Installation des packets..."
+
+msgid "Installing..."
+msgstr "Installation"
+
+msgid "Location"
+msgstr "Emplacement"
+
+msgid "Name"
+msgstr "Nom"
+
+msgid "No"
+msgstr "N°"
+
+msgid "Package Action"
+msgstr "Action sur le packet"
+
+msgid "Package Information"
+msgstr "Information sur le packet"
+
+msgid "Package"
+msgstr "Packet"
+
+msgid "Packages excluded"
+msgstr "Packet exclu"
+
+msgid "Packages to be installed"
+msgstr "Packets à installer"
+
+msgid "Packages to be removed"
+msgstr "Packets à supprimer"
+
+msgid "Packages to be upgraded"
+msgstr "Packets à mettre à jour"
+
+msgid "Preferences"
+msgstr "Préférences"
+
+msgid "Progress"
+msgstr "Progression"
+
+msgid "Quit"
+msgstr "Quitter"
+
+msgid "Remove package"
+msgstr "Supprimer le packet"
+
+msgid "Remove"
+msgstr "Supprimer"
+
+msgid "Removing packages..."
+msgstr "Suppression des packets ..."
+
+msgid "Required"
+msgstr "Requis"
+
+msgid "Search for expression"
+msgstr "Recherche de l'expression"
+
+msgid "Search"
+msgstr "Recherche"
+
+msgid "Size:"
+msgstr "Taille :"
+
+msgid "Source"
+msgstr "Source"
+
+msgid "Sources"
+msgstr "Sources"
+
+msgid "Suggests"
+msgstr "Suggestions"
+
+msgid "Summary"
+msgstr "Sommaire"
+
+msgid "This is a summary of the changes about to be performed."
+msgstr "Voici le sommaire des modifications qui vous être effectués"
+
+msgid "Uninstalling..."
+msgstr "Désinstallation ..."
+
+msgid "Up_grade"
+msgstr "Mise à niveau"
+
+msgid "Update local package cache"
+msgstr "Mise à jour de la cache locale des packets"
+
+msgid "Update"
+msgstr "Actualiser"
+
+msgid "Upgrade to newer release"
+msgstr "Mise à niveau de la nouvelle version"
+
+msgid "Upgrade"
+msgstr "Mise à niveau"
+
+msgid "Upgrading packages..."
+msgstr "Mise à niveau des packets ..."
+
+msgid "Upgrading..."
+msgstr "Mise à niveau ..."
+
+msgid "Version"
+msgstr "Version"
+
+msgid "WARNING"
+msgstr "ATTENTION"
+
+msgid "Working Directory"
+msgstr "Répertoire de travail"
+
+msgid "Yes"
+msgstr "Oui"
+
+msgid "_Help"
+msgstr "_Aide"
+
+msgid ""
+"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
+"Slackware"
+msgstr "gslapt est une application GTK+ pour faciliter l'utilisation de "
+"slapt-get, un gestionnaire de packet a l'instar de APT pour les pkgtools"
+
+msgid "total progress"
+msgstr "Progression totale"
+
+msgid "working"
+msgstr "En cours"
+
+msgid "Up to Date"
+msgstr "Mis à jour"
+
+msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Aucune mise à jour disponible</span>"
+
+msgid "%d upgraded, %d newly installed, %d to remove and %d not upgraded."
+msgstr "%d à mettre à niveau, %d à installer, %d à supprimer et %d à ne pas mettre à niveau."
+
+msgid "Need to get %.1d%s/%.1d%s of archives.\n"
+msgstr "%.1d%s/%.1d%s des archives doivent être téléchargées.\n"
+
+msgid "Need to get %.1d%s of archives."
+msgstr "%.1d%s des archives doivent être téléchargées."
+
+msgid "After unpacking %.1d%s disk space will be freed."
+msgstr "Après désarchivage %.1d%s de l'espace disque sera occupé."
+
+msgid "After unpacking %.1d%s of additional disk space will be used."
+msgstr "Après désarchivage %.1d%s d'espace disque additionnel seront utilisés"
+
+msgid "Ready"
+msgstr "Prêt"
+
+msgid "Re-Install"
+msgstr "Réinstaller"
+
+msgid "Downgrade"
+msgstr "Version inférieure"
+
+msgid "_File"
+msgstr "_Fichier"
+
+msgid "Pending changes. Click execute when ready."
+msgstr "Attente des modifications. Cliquer sur éxécuter lorsque vous êtes prêt."
+
+msgid "Packages with unmet dependencies"
+msgstr "Packet avec des dépendances inconnues"
+
+msgid ": Depends: "
+msgstr "Dépendances : "
+
+msgid "Package conflicts"
+msgstr "Conflits de packet"
+
+msgid ", which is required by "
+msgstr ", qui est requis par"
+
+msgid ", is excluded"
+msgstr ", est exclus"
+
+msgid "<b>Conflicts:</b>"
+msgstr "<b>Conflits : </b>"
+
+msgid "<b>Description:</b>"
+msgstr "<b>Description :</b>"
+
+msgid "<b>Location:</b>"
+msgstr "<b>Emplacement : </b>"
+
+msgid "Source:"
+msgstr "Source : "
+
+msgid "<b>Name:</b>"
+msgstr "<b>Nom :</b>"
+
+msgid "<b>Required:</b>"
+msgstr "<b>Requis :</b>"
+
+msgid "<b>Size:</b>"
+msgstr "<b>Taille :</b>"
+
+msgid "<b>Suggests:</b>"
+msgstr "<b>Suggestions :</b>"
+
+msgid "Version:"
+msgstr "Version :"
+
+msgid "<b>Version:</b>"
+msgstr "<b>Version :</b>"
+
+msgid "<b>Version</b>"
+msgstr "<b>Version</b>"
+
+msgid "<b>Source:</b>"
+msgstr "<b>Source :</b>"
+
+msgid "Common"
+msgstr "Description"
+
+msgid "Dependencies"
+msgstr "Dépendances"
+
+msgid "No package is selected."
+msgstr "Aucun packet n'est selectionné."
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Source download failed"
+msgstr "Le téléchargement de la source à échoué"
+
+msgid "Package(s) failed to download"
+msgstr "Impossible de télécharger les packet(s)"
+
+msgid "pkgtools returned an error"
+msgstr "pkgtools a retourné une erreur"
+
+msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Il n'y a pas assez d'espace libre</span>"
+
+msgid "<b>Excluding %s due to dependency failure</b>"
+msgstr "<b>Execution %s en raison de l'absence de dépendance</b>"
+
+msgid "Unmark"
+msgstr "Retirer"
+
+msgid "<b>Status:</b>"
+msgstr "<b>Status :</b>"
+
+msgid "Excluded"
+msgstr "Exclue"
+
+msgid "<b>The following icons are used to indicate the current status of a package:</b>"
+msgstr "<b>Les icones suivant sont utilisé pour indiquer le status actuel d'un packet :</b>"
+
+msgid "Not Installed"
+msgstr "Non Installé"
+
+msgid "To be Installed"
+msgstr "A installer"
+
+msgid "To be Re-Installed"
+msgstr "A réinstaller"
+
+msgid "To be Upgraded"
+msgstr "A mettre à jour"
+
+msgid "To be Removed"
+msgstr "A supprimer"
+
+msgid "To be Downgraded"
+msgstr "A télécharger"
+
+msgid "Icon Legend"
+msgstr "Légende des icônes"
+
+msgid "Completed actions"
+msgstr "Actions completées"
+
+msgid "Successfully executed all actions."
+msgstr "Toutes les actions ont été exécutées avec succès"
+
+msgid "<b>Installed Version</b>"
+msgstr "<b>Version Installée</b>"
+
+msgid "<b>Latest Available Version</b>"
+msgstr "<b>Dernière version disponible</b>"
+
+msgid "Failed to commit preferences"
+msgstr "Impossible de modifier les préférences"
+
+msgid "Mark All Upgrades"
+msgstr "Tout mettre à jour"
+
+msgid "_Edit"
+msgstr "_Edition"
+
+msgid "Unmark All"
+msgstr "Annuler les modifications"
+
+msgid "P_ackage"
+msgstr "P_acket"
+
+msgid "You need to reload the package list from the sources you have listed.  Do you want to do this now?"
+msgstr "Vous devez recharger la liste des packets depuis les sources que vous avez listées. Voullez-vous le faire maintenant ?"
+
+msgid "Repositories changed"
+msgstr "Répertoires modifiés"
+
+msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
+msgstr "<span size=\"large\" weight=\"bold\">Répertoires modifiés</span>"
+
+msgid "Retrieving package data..."
+msgstr "Recherche des données sur le packet"
+
+msgid "Retrieving patch list..."
+msgstr "Recherche de la liste des patchs"
+
+msgid "Retrieving checksum list..."
+msgstr "Recherche de la liste des sommes de contrôle"
+
+msgid "Reading Package Lists..."
+msgstr "Lecture de la liste des packets"
+
+msgid "_Delete Cached Package Files"
+msgstr "_Vider la cache"
+
+msgid "Mark all possible upgrades"
+msgstr "Marquer toutes les mises à jour possible"
+
+msgid "Enabled"
+msgstr "Permis"
+
+msgid "Missing dependencies may mean the software in this package will not function correctly.  Do you want to continue without the required packages?"
+msgstr "L'absence de dépendance peut entraîner le non fonctionnement du programme de ce packet. Voullez-vous continuer sans les packets requis ?"
+
+msgid "This package source failed or is not available. Do you want to disable this source and continue anyway?"
+msgstr "La source de ce packet n'est pas disponible. Voullez vous neutraliser cette source et continuer tout de même ?"
+
+msgid "Retrieving ChangeLog.txt..."
+msgstr "Recherche de ChangeLog.txt..."
+
+msgid "Changelog"
+msgstr "Liste des modifications"
+
+msgid "_View"
+msgstr "_Vue"
+
+msgid "All"
+msgstr "Tous"
+
+msgid "View all packages"
+msgstr "Regarder tous les packets"
+
+msgid "Available"
+msgstr "Disponibles"
+
+msgid "View available packages from current sources"
+msgstr "Regarder les packets disponibles depuis les sources courantes"
+
+msgid "View installed packages"
+msgstr "Regarder les packets installer"
+
+msgid "Marked"
+msgstr "Marqués"
+
+msgid "View Marked Packages"
+msgstr "Regarger les packets marqués"
+
+msgid "Mark Obsolete"
+msgstr "Marquer les packets obsolètes"
+
+msgid "Mark all obsolete packages"
+msgstr "Marquer tous les packets obsolètes"
