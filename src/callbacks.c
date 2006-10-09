@@ -3368,6 +3368,7 @@ void mark_obsolete_packages (GtkMenuItem *menuitem, gpointer user_data)
 
     } else {
 
+      slapt_add_remove_to_transaction(trans, obsolete->pkgs[i]);
       set_iter_to_pkg(base_model, &iter, obsolete->pkgs[i]);
       set_iter_for_remove(base_model, &iter, obsolete->pkgs[i]);
       set_execute_active();

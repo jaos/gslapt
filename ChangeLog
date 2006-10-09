@@ -1,4 +1,8 @@
 
+0.3.16 Oct 08, 2006
+ * fixed broken mark obsolete package that marked but did not schedule
+   the package for removal.
+
 0.3.15 Oct 01, 2006
  * French translation by Natim
  * Makefile now uses the same Group ID of /usr/sbin on the system
