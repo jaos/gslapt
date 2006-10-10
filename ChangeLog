@@ -1,5 +1,7 @@
 
-0.3.16 Oct 08, 2006
+0.3.16 Oct 09, 2006
+ * French translation updates from Natim.
+ * added fr to ALL_LINGUAS list so it will actually be built and included
  * fixed broken mark obsolete package that marked but did not schedule
    the package for removal.
 

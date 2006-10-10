@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: 0.3.15\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2006-09-29 9:51+0200\n"
+"PO-Revision-Date: 2006-10-04 18:35+0200\n"
 "Last-Translator: Natim <natim@trunat.fr>\n"
-"Language-Team: slapt-get devel <slapt-get-devel@software.jaos.org>\n"
+"Language-Team: <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,13 +19,13 @@ msgid "<b>Exclude List</b>"
 msgstr "<b>Liste d'expression exclue</b>"
 
 msgid "<b>Package Sources</b>"
-msgstr "<b>Packet de sources</b>"
+msgstr "<b>Sources de paquets</b>"
 
 msgid "<b>Package and data storage</b>"
 msgstr "<b>Stockage des packets et des données</b>"
 
 msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Voullez-vous appliquer les modifications suivantes ?</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Voulez-vous appliquer les modifications suivantes ?</span>"
 
 msgid "<span weight=\"bold\">Exclude Expression:</span>"
 msgstr "<span weight=\"bold\">Expression à exclure :</span>"
@@ -40,7 +40,7 @@ msgid "About"
 msgstr "À propos"
 
 msgid "Checking for new package data..."
-msgstr "Recherche des données sur les nouveaux packages"
+msgstr "Recherche de nouvelles données sur les paquets"
 
 msgid "Clear search expression"
 msgstr "Effacer l'expression de recherche"
@@ -59,19 +59,19 @@ msgid "Description"
 msgstr "Description"
 
 msgid "Dismiss"
-msgstr ""
+msgstr "Abandonner"
 
 msgid "Download packages only"
-msgstr "Télécharger les packets sans les installer"
+msgstr "Télécharger les paquets sans les installer"
 
 msgid "Downloading packages..."
-msgstr "Téléchargement des packets ..."
+msgstr "Téléchargement des paquets ..."
 
 msgid "Downloading..."
 msgstr "Téléchargement ..."
 
 msgid "Exclude package"
-msgstr "Packet exclu"
+msgstr "Paquet exclu"
 
 msgid "Exclude"
 msgstr "Exclu"
@@ -95,19 +95,19 @@ msgid "Install"
 msgstr "Installer"
 
 msgid "Install/Upgrade package"
-msgstr "Installer/Mettre à jour le packet"
+msgstr "Installer/Mettre à jour le paquet"
 
 msgid "Installed Size:"
-msgstr "Taille installé :"
+msgstr "Taille installée :"
 
 msgid "Installed"
 msgstr "Installés"
 
 msgid "Installing packages..."
-msgstr "Installation des packets..."
+msgstr "Installation des paquets..."
 
 msgid "Installing..."
-msgstr "Installation"
+msgstr "Installation..."
 
 msgid "Location"
 msgstr "Emplacement"
@@ -119,25 +119,25 @@ msgid "No"
 msgstr "N°"
 
 msgid "Package Action"
-msgstr "Action sur le packet"
+msgstr "Action sur le paquet"
 
 msgid "Package Information"
-msgstr "Information sur le packet"
+msgstr "Information sur le paquet"
 
 msgid "Package"
-msgstr "Packet"
+msgstr "Paquet"
 
 msgid "Packages excluded"
-msgstr "Packet exclu"
+msgstr "Paquets exclus"
 
 msgid "Packages to be installed"
-msgstr "Packets à installer"
+msgstr "Paquets à installer"
 
 msgid "Packages to be removed"
-msgstr "Packets à supprimer"
+msgstr "Paquets à supprimer"
 
 msgid "Packages to be upgraded"
-msgstr "Packets à mettre à jour"
+msgstr "Paquets à mettre à jour"
 
 msgid "Preferences"
 msgstr "Préférences"
@@ -155,7 +155,7 @@ msgid "Remove"
 msgstr "Supprimer"
 
 msgid "Removing packages..."
-msgstr "Suppression des packets ..."
+msgstr "Suppression des packets..."
 
 msgid "Required"
 msgstr "Requis"
@@ -179,10 +179,10 @@ msgid "Suggests"
 msgstr "Suggestions"
 
 msgid "Summary"
-msgstr "Sommaire"
+msgstr "Résumé"
 
 msgid "This is a summary of the changes about to be performed."
-msgstr "Voici le sommaire des modifications qui vous être effectués"
+msgstr "Voici le résumé des modifications qui vont être effectués"
 
 msgid "Uninstalling..."
 msgstr "Désinstallation ..."
@@ -191,7 +191,7 @@ msgid "Up_grade"
 msgstr "Mise à niveau"
 
 msgid "Update local package cache"
-msgstr "Mise à jour de la cache locale des packets"
+msgstr "Mise à jour du cache local des paquets"
 
 msgid "Update"
 msgstr "Actualiser"
@@ -203,7 +203,7 @@ msgid "Upgrade"
 msgstr "Mise à niveau"
 
 msgid "Upgrading packages..."
-msgstr "Mise à niveau des packets ..."
+msgstr "Mise à niveau des paquets ..."
 
 msgid "Upgrading..."
 msgstr "Mise à niveau ..."
@@ -251,7 +251,7 @@ msgid "Need to get %.1d%s of archives."
 msgstr "%.1d%s des archives doivent être téléchargées."
 
 msgid "After unpacking %.1d%s disk space will be freed."
-msgstr "Après désarchivage %.1d%s de l'espace disque sera occupé."
+msgstr "Après désarchivage %.1d%s de l'espace disque sera libéré."
 
 msgid "After unpacking %.1d%s of additional disk space will be used."
 msgstr "Après désarchivage %.1d%s d'espace disque additionnel seront utilisés"
@@ -263,28 +263,28 @@ msgid "Re-Install"
 msgstr "Réinstaller"
 
 msgid "Downgrade"
-msgstr "Version inférieure"
+msgstr "Version antérieure"
 
 msgid "_File"
 msgstr "_Fichier"
 
 msgid "Pending changes. Click execute when ready."
-msgstr "Attente des modifications. Cliquer sur éxécuter lorsque vous êtes prêt."
+msgstr "Modifications en attente. Cliquer sur exécuter lorsque vous êtes prêt."
 
 msgid "Packages with unmet dependencies"
-msgstr "Packet avec des dépendances inconnues"
+msgstr "Packet avec des dépendances non satisfaites"
 
 msgid ": Depends: "
 msgstr "Dépendances : "
 
 msgid "Package conflicts"
-msgstr "Conflits de packet"
+msgstr "Conflits de paquet"
 
 msgid ", which is required by "
 msgstr ", qui est requis par"
 
 msgid ", is excluded"
-msgstr ", est exclus"
+msgstr ", est exclu"
 
 msgid "<b>Conflicts:</b>"
 msgstr "<b>Conflits : </b>"
@@ -329,7 +329,7 @@ msgid "Dependencies"
 msgstr "Dépendances"
 
 msgid "No package is selected."
-msgstr "Aucun packet n'est selectionné."
+msgstr "Aucun paquet n'est selectionné."
 
 msgid "Status"
 msgstr "Status"
@@ -338,7 +338,7 @@ msgid "Source download failed"
 msgstr "Le téléchargement de la source à échoué"
 
 msgid "Package(s) failed to download"
-msgstr "Impossible de télécharger les packet(s)"
+msgstr "Impossible de télécharger le(s) paquet(s)"
 
 msgid "pkgtools returned an error"
 msgstr "pkgtools a retourné une erreur"
@@ -347,19 +347,19 @@ msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</sp
 msgstr "<span weight=\"bold\" size=\"large\">Il n'y a pas assez d'espace libre</span>"
 
 msgid "<b>Excluding %s due to dependency failure</b>"
-msgstr "<b>Execution %s en raison de l'absence de dépendance</b>"
+msgstr "<b>Exclusion de %s en raison de dépendances non satisfaites</b>"
 
 msgid "Unmark"
-msgstr "Retirer"
+msgstr "Retirer le marquage"
 
 msgid "<b>Status:</b>"
-msgstr "<b>Status :</b>"
+msgstr "<b>Statut :</b>"
 
 msgid "Excluded"
-msgstr "Exclue"
+msgstr "Exclu"
 
 msgid "<b>The following icons are used to indicate the current status of a package:</b>"
-msgstr "<b>Les icones suivant sont utilisé pour indiquer le status actuel d'un packet :</b>"
+msgstr "<b>Les icônes suivantes sont utilisées pour indiquer le statut actuel d'un paquet :</b>"
 
 msgid "Not Installed"
 msgstr "Non Installé"
@@ -377,13 +377,13 @@ msgid "To be Removed"
 msgstr "A supprimer"
 
 msgid "To be Downgraded"
-msgstr "A télécharger"
+msgstr "A réinstaller dans une version antérieure"
 
 msgid "Icon Legend"
 msgstr "Légende des icônes"
 
 msgid "Completed actions"
-msgstr "Actions completées"
+msgstr "Actions terminées"
 
 msgid "Successfully executed all actions."
 msgstr "Toutes les actions ont été exécutées avec succès"
@@ -407,19 +407,19 @@ msgid "Unmark All"
 msgstr "Annuler les modifications"
 
 msgid "P_ackage"
-msgstr "P_acket"
+msgstr "P_aquet"
 
 msgid "You need to reload the package list from the sources you have listed.  Do you want to do this now?"
-msgstr "Vous devez recharger la liste des packets depuis les sources que vous avez listées. Voullez-vous le faire maintenant ?"
+msgstr "Vous devez recharger la liste des paquets depuis les sources que vous avez listées. Voulez-vous le faire maintenant ?"
 
 msgid "Repositories changed"
-msgstr "Répertoires modifiés"
+msgstr "Dépôts modifiés"
 
 msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
-msgstr "<span size=\"large\" weight=\"bold\">Répertoires modifiés</span>"
+msgstr "<span size=\"large\" weight=\"bold\">Dépôts modifiés</span>"
 
 msgid "Retrieving package data..."
-msgstr "Recherche des données sur le packet"
+msgstr "Recherche des données sur le paquet"
 
 msgid "Retrieving patch list..."
 msgstr "Recherche de la liste des patchs"
@@ -428,10 +428,10 @@ msgid "Retrieving checksum list..."
 msgstr "Recherche de la liste des sommes de contrôle"
 
 msgid "Reading Package Lists..."
-msgstr "Lecture de la liste des packets"
+msgstr "Lecture des listes de paquets"
 
 msgid "_Delete Cached Package Files"
-msgstr "_Vider la cache"
+msgstr "_Vider le cache"
 
 msgid "Mark all possible upgrades"
 msgstr "Marquer toutes les mises à jour possible"
@@ -440,10 +440,10 @@ msgid "Enabled"
 msgstr "Permis"
 
 msgid "Missing dependencies may mean the software in this package will not function correctly.  Do you want to continue without the required packages?"
-msgstr "L'absence de dépendance peut entraîner le non fonctionnement du programme de ce packet. Voullez-vous continuer sans les packets requis ?"
+msgstr "Les dépendances non satisfaites peuvent entraîner le non fonctionnement du programme de ce paquet. Voulez-vous continuer sans les paquets requis ?"
 
 msgid "This package source failed or is not available. Do you want to disable this source and continue anyway?"
-msgstr "La source de ce packet n'est pas disponible. Voullez vous neutraliser cette source et continuer tout de même ?"
+msgstr "La source de ce paquet n'est pas disponible. Voulez vous neutraliser cette source et continuer tout de même ?"
 
 msgid "Retrieving ChangeLog.txt..."
 msgstr "Recherche de ChangeLog.txt..."
@@ -458,25 +458,26 @@ msgid "All"
 msgstr "Tous"
 
 msgid "View all packages"
-msgstr "Regarder tous les packets"
+msgstr "Afficher tous les paquets"
 
 msgid "Available"
 msgstr "Disponibles"
 
 msgid "View available packages from current sources"
-msgstr "Regarder les packets disponibles depuis les sources courantes"
+msgstr "Afficher les paquets disponibles depuis les sources courantes"
 
 msgid "View installed packages"
-msgstr "Regarder les packets installer"
+msgstr "Afficher les paquets installés"
 
 msgid "Marked"
 msgstr "Marqués"
 
 msgid "View Marked Packages"
-msgstr "Regarger les packets marqués"
+msgstr "Afficher les paquets marqués"
 
 msgid "Mark Obsolete"
-msgstr "Marquer les packets obsolètes"
+msgstr "Marquer les paquets obsolètes"
 
 msgid "Mark all obsolete packages"
 msgstr "Marquer tous les packets obsolètes"
+
