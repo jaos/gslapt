@@ -1243,6 +1243,7 @@ static void rebuild_treeviews (GtkWidget *current_window,gboolean reload)
   }
 
   rebuild_package_action_menu();
+  gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(lookup_widget(gslapt,"view_all_packages_menu")), TRUE);
   build_package_treeviewlist(treeview);
 
   if ((reload == FALSE) && (strcmp(search_text,"") != 0)) {
