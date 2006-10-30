@@ -1,5 +1,9 @@
 
-0.3.16 Oct 09, 2006
+0.3.16 Oct 29, 2006
+ * package sources can now be edited
+ * package sources and exclude expressions are now reorderable by dragging
+ * improved the preferences code architecture
+ * requires slapt-get 0.9.11g
  * French translation updates from Natim.
  * added fr to ALL_LINGUAS list so it will actually be built and included
  * fixed broken mark obsolete package that marked but did not schedule

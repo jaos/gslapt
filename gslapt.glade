@@ -293,7 +293,7 @@
 				  <property name="can_focus">True</property>
 				  <property name="headers_visible">False</property>
 				  <property name="rules_hint">True</property>
-				  <property name="reorderable">False</property>
+				  <property name="reorderable">True</property>
 				  <property name="enable_search">True</property>
 				  <property name="fixed_height_mode">False</property>
 				  <property name="hover_selection">False</property>
@@ -559,7 +559,7 @@
 				  <property name="can_focus">True</property>
 				  <property name="headers_visible">True</property>
 				  <property name="rules_hint">True</property>
-				  <property name="reorderable">False</property>
+				  <property name="reorderable">True</property>
 				  <property name="enable_search">True</property>
 				  <property name="fixed_height_mode">False</property>
 				  <property name="hover_selection">False</property>
@@ -590,6 +590,23 @@
 				  <property name="relief">GTK_RELIEF_NORMAL</property>
 				  <property name="focus_on_click">True</property>
 				  <signal name="clicked" handler="preferences_sources_remove" object="window_preferences" last_modification_time="Mon, 15 Nov 2004 04:02:03 GMT"/>
+				</widget>
+				<packing>
+				  <property name="padding">0</property>
+				  <property name="expand">False</property>
+				  <property name="fill">False</property>
+				</packing>
+			      </child>
+
+			      <child>
+				<widget class="GtkButton" id="button8">
+				  <property name="visible">True</property>
+				  <property name="can_focus">True</property>
+				  <property name="label">gtk-edit</property>
+				  <property name="use_stock">True</property>
+				  <property name="relief">GTK_RELIEF_NORMAL</property>
+				  <property name="focus_on_click">True</property>
+				  <signal name="clicked" handler="preferences_sources_edit" object="window_preferences" last_modification_time="Sun, 29 Oct 2006 21:20:22 GMT"/>
 				</widget>
 				<packing>
 				  <property name="padding">0</property>

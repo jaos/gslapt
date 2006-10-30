@@ -51,6 +51,8 @@ void show_pkg_details (GtkTreeSelection *selection, gpointer data);
 
 void preferences_sources_add (GtkWidget *w, gpointer user_data);
 void preferences_sources_remove (GtkWidget *w, gpointer user_data);
+void preferences_sources_edit (GtkWidget *w, gpointer user_data);
+void preferences_sources_modify (GtkWidget *w, gpointer user_data);
 void preferences_on_ok_clicked (GtkWidget *w, gpointer user_data);
 
 void transaction_okbutton_clicked (GtkWidget *w, gpointer user_data);
@@ -98,3 +100,5 @@ void view_installed_packages (GtkMenuItem *menuitem, gpointer user_data);
 void view_marked_packages (GtkMenuItem *menuitem, gpointer user_data);
 
 void mark_obsolete_packages (GtkMenuItem *menuitem, gpointer user_data);
+
+

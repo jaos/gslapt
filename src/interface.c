@@ -67,6 +67,7 @@ create_window_preferences (void)
   GtkWidget *preferences_sources_treeview;
   GtkWidget *vbox58;
   GtkWidget *preferences_remove_source_button;
+  GtkWidget *button8;
   GtkWidget *hbox94;
   GtkWidget *label163;
   GtkWidget *new_source_entry;
@@ -199,6 +200,7 @@ create_window_preferences (void)
   gtk_container_add (GTK_CONTAINER (scrolledwindow12), preferences_exclude_treeview);
   gtk_tree_view_set_headers_visible (GTK_TREE_VIEW (preferences_exclude_treeview), FALSE);
   gtk_tree_view_set_rules_hint (GTK_TREE_VIEW (preferences_exclude_treeview), TRUE);
+  gtk_tree_view_set_reorderable (GTK_TREE_VIEW (preferences_exclude_treeview), TRUE);
 
   vbox42 = gtk_vbox_new (FALSE, 6);
   gtk_widget_set_name (vbox42, "vbox42");
@@ -287,6 +289,7 @@ create_window_preferences (void)
   gtk_widget_show (preferences_sources_treeview);
   gtk_container_add (GTK_CONTAINER (scrolledwindow16), preferences_sources_treeview);
   gtk_tree_view_set_rules_hint (GTK_TREE_VIEW (preferences_sources_treeview), TRUE);
+  gtk_tree_view_set_reorderable (GTK_TREE_VIEW (preferences_sources_treeview), TRUE);
 
   vbox58 = gtk_vbox_new (FALSE, 6);
   gtk_widget_set_name (vbox58, "vbox58");
@@ -298,6 +301,11 @@ create_window_preferences (void)
   gtk_widget_show (preferences_remove_source_button);
   gtk_box_pack_start (GTK_BOX (vbox58), preferences_remove_source_button, FALSE, FALSE, 0);
   GTK_WIDGET_SET_FLAGS (preferences_remove_source_button, GTK_CAN_DEFAULT);
+
+  button8 = gtk_button_new_from_stock ("gtk-edit");
+  gtk_widget_set_name (button8, "button8");
+  gtk_widget_show (button8);
+  gtk_box_pack_start (GTK_BOX (vbox58), button8, FALSE, FALSE, 0);
 
   hbox94 = gtk_hbox_new (FALSE, 2);
   gtk_widget_set_name (hbox94, "hbox94");
@@ -368,6 +376,9 @@ create_window_preferences (void)
   g_signal_connect_swapped ((gpointer) preferences_remove_source_button, "clicked",
                             G_CALLBACK (preferences_sources_remove),
                             GTK_OBJECT (window_preferences));
+  g_signal_connect_swapped ((gpointer) button8, "clicked",
+                            G_CALLBACK (preferences_sources_edit),
+                            GTK_OBJECT (window_preferences));
   g_signal_connect_swapped ((gpointer) new_source_entry, "editing_done",
                             G_CALLBACK (preferences_sources_add),
                             GTK_OBJECT (window_preferences));
@@ -422,6 +433,7 @@ create_window_preferences (void)
   GLADE_HOOKUP_OBJECT (window_preferences, preferences_sources_treeview, "preferences_sources_treeview");
   GLADE_HOOKUP_OBJECT (window_preferences, vbox58, "vbox58");
   GLADE_HOOKUP_OBJECT (window_preferences, preferences_remove_source_button, "preferences_remove_source_button");
+  GLADE_HOOKUP_OBJECT (window_preferences, button8, "button8");
   GLADE_HOOKUP_OBJECT (window_preferences, hbox94, "hbox94");
   GLADE_HOOKUP_OBJECT (window_preferences, label163, "label163");
   GLADE_HOOKUP_OBJECT (window_preferences, new_source_entry, "new_source_entry");
