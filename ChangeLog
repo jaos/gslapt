@@ -1,5 +1,6 @@
 
-0.3.16 Oct 29, 2006
+0.3.16 Nov 05, 2006
+ * Search interface is now simplified.
  * package sources can now be edited
  * package sources and exclude expressions are now reorderable by dragging
  * improved the preferences code architecture

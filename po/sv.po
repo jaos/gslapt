@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.3.14\n"
+"Project-Id-Version: 0.3.16\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2006-07-28 21:45+0500\n"
+"PO-Revision-Date: 2006-11-05 03:34+0500\n"
 "Last-Translator: Hakan Lindqvist <tfy00hlt@cs.umu.se>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -159,9 +159,6 @@ msgstr "Tar bort paket..."
 
 msgid "Required"
 msgstr "Obligatorisk"
-
-msgid "Search for expression"
-msgstr "Sök efter uttrycket"
 
 msgid "Search"
 msgstr "Sök"

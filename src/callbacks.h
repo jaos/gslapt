@@ -38,7 +38,7 @@ void on_gslapt_destroy (GtkObject *object, gpointer user_data);
 void update_callback (GtkObject *object, gpointer user_data);
 void upgrade_callback (GtkObject *object, gpointer user_data);
 void execute_callback (GtkObject *object, gpointer user_data);
-void search_button_clicked (GtkWidget *gslapt, gpointer user_data);
+void search_activated (GtkWidget *gslapt, gpointer user_data);
 void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data);
 void add_pkg_for_reinstall (GtkWidget *gslapt, gpointer user_data);
 void add_pkg_for_removal (GtkWidget *gslapt, gpointer user_data);
@@ -58,8 +58,6 @@ void preferences_on_ok_clicked (GtkWidget *w, gpointer user_data);
 void transaction_okbutton_clicked (GtkWidget *w, gpointer user_data);
 void preferences_exclude_add (GtkWidget *w, gpointer user_data);
 void preferences_exclude_remove (GtkWidget *w, gpointer user_data);
-
-void clear_button_clicked (GtkWidget *button,gpointer user_data);
 
 int gtk_progress_callback (void *data, double dltotal, double dlnow,
                            double ultotal, double ulnow);
@@ -100,5 +98,4 @@ void view_installed_packages (GtkMenuItem *menuitem, gpointer user_data);
 void view_marked_packages (GtkMenuItem *menuitem, gpointer user_data);
 
 void mark_obsolete_packages (GtkMenuItem *menuitem, gpointer user_data);
-
 

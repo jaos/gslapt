@@ -509,9 +509,8 @@ create_gslapt (void)
   GtkWidget *search_vbox;
   GtkWidget *search_align;
   GtkWidget *search_hbox;
+  GtkWidget *label292;
   GtkWidget *search_entry;
-  GtkWidget *search_button;
-  GtkWidget *clear_button;
   GtkWidget *pkg_vpaned;
   GtkWidget *pkg_list_scrolled;
   GtkWidget *pkg_listing_treeview;
@@ -938,6 +937,11 @@ create_gslapt (void)
   gtk_widget_show (search_hbox);
   gtk_container_add (GTK_CONTAINER (search_align), search_hbox);
 
+  label292 = gtk_label_new (_("Search"));
+  gtk_widget_set_name (label292, "label292");
+  gtk_widget_show (label292);
+  gtk_box_pack_start (GTK_BOX (search_hbox), label292, FALSE, TRUE, 6);
+
   search_entry = gtk_entry_new ();
   gtk_widget_set_name (search_entry, "search_entry");
   gtk_widget_show (search_entry);
@@ -946,19 +950,6 @@ create_gslapt (void)
   gtk_widget_add_accelerator (search_entry, "grab_focus", accel_group,
                               GDK_L, (GdkModifierType) GDK_CONTROL_MASK,
                               GTK_ACCEL_VISIBLE);
-
-  search_button = gtk_button_new_with_mnemonic (_("Search"));
-  gtk_widget_set_name (search_button, "search_button");
-  gtk_widget_show (search_button);
-  gtk_box_pack_start (GTK_BOX (search_hbox), search_button, FALSE, FALSE, 0);
-  GTK_WIDGET_SET_FLAGS (search_button, GTK_CAN_DEFAULT);
-  gtk_tooltips_set_tip (tooltips, search_button, _("Search for expression"), NULL);
-
-  clear_button = gtk_button_new_with_mnemonic (_("Clear"));
-  gtk_widget_set_name (clear_button, "clear_button");
-  gtk_widget_show (clear_button);
-  gtk_box_pack_start (GTK_BOX (search_hbox), clear_button, FALSE, FALSE, 0);
-  gtk_tooltips_set_tip (tooltips, clear_button, _("Clear search expression"), NULL);
 
   pkg_vpaned = gtk_vpaned_new ();
   gtk_widget_set_name (pkg_vpaned, "pkg_vpaned");
@@ -1430,17 +1421,11 @@ create_gslapt (void)
                             G_CALLBACK (execute_callback),
                             GTK_OBJECT (gslapt));
   g_signal_connect_swapped ((gpointer) search_entry, "editing_done",
-                            G_CALLBACK (search_button_clicked),
+                            G_CALLBACK (search_activated),
                             GTK_OBJECT (gslapt));
   g_signal_connect_swapped ((gpointer) search_entry, "activate",
-                            G_CALLBACK (search_button_clicked),
+                            G_CALLBACK (search_activated),
                             GTK_OBJECT (gslapt));
-  g_signal_connect_swapped ((gpointer) search_button, "clicked",
-                            G_CALLBACK (search_button_clicked),
-                            GTK_OBJECT (gslapt));
-  g_signal_connect_swapped ((gpointer) clear_button, "clicked",
-                            G_CALLBACK (clear_button_clicked),
-                            GTK_OBJECT (search_entry));
 
   /* Store pointers to all widgets, for use by lookup_widget(). */
   GLADE_HOOKUP_OBJECT_NO_REF (gslapt, gslapt, "gslapt");
@@ -1499,9 +1484,8 @@ create_gslapt (void)
   GLADE_HOOKUP_OBJECT (gslapt, search_vbox, "search_vbox");
   GLADE_HOOKUP_OBJECT (gslapt, search_align, "search_align");
   GLADE_HOOKUP_OBJECT (gslapt, search_hbox, "search_hbox");
+  GLADE_HOOKUP_OBJECT (gslapt, label292, "label292");
   GLADE_HOOKUP_OBJECT (gslapt, search_entry, "search_entry");
-  GLADE_HOOKUP_OBJECT (gslapt, search_button, "search_button");
-  GLADE_HOOKUP_OBJECT (gslapt, clear_button, "clear_button");
   GLADE_HOOKUP_OBJECT (gslapt, pkg_vpaned, "pkg_vpaned");
   GLADE_HOOKUP_OBJECT (gslapt, pkg_list_scrolled, "pkg_list_scrolled");
   GLADE_HOOKUP_OBJECT (gslapt, pkg_listing_treeview, "pkg_listing_treeview");

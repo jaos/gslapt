@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.3.14\n"
+"Project-Id-Version: 0.3.16\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-17 14:52-0500\n"
-"PO-Revision-Date: 2006-07-28 21:45+0500\n"
+"PO-Revision-Date: 2006-11-05 03:34+0500\n"
 "Last-Translator: Piotr Simon <sajmon@tenboard.com>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -99,9 +99,6 @@ msgstr "Wykonaj wszystkie zaplanowane akcje w bie¿±cej transakcji"
 
 msgid "Quit"
 msgstr "Opu¶æ"
-
-msgid "Search"
-msgstr "Szukaj"
 
 msgid "Search for expression"
 msgstr "Szukaj wyra¿enia"

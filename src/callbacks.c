@@ -160,7 +160,7 @@ void open_preferences (GtkMenuItem *menuitem, gpointer user_data)
   gtk_widget_show(preferences);
 }
 
-void search_button_clicked (GtkWidget *gslapt, gpointer user_data) 
+void search_activated (GtkWidget *gslapt, gpointer user_data) 
 {
   gboolean valid = FALSE, exists = FALSE;
   GtkTreeIter iter;
@@ -168,9 +168,6 @@ void search_button_clicked (GtkWidget *gslapt, gpointer user_data)
   gchar *pattern = (gchar *)gtk_entry_get_text(GTK_ENTRY(lookup_widget(gslapt,"search_entry")));
   GtkEntryCompletion *completion = gtk_entry_get_completion(GTK_ENTRY(lookup_widget(gslapt,"search_entry")));
   GtkTreeModel *completions = gtk_entry_completion_get_model(completion);
-
-  gtk_widget_set_sensitive( lookup_widget(gslapt,
-                            "clear_button"), TRUE);
 
   build_searched_treeviewlist(GTK_WIDGET(treeview),pattern);
 
@@ -593,8 +590,8 @@ void build_searched_treeviewlist (GtkWidget *treeview, gchar *pattern)
   gboolean view_list_all = FALSE, view_list_installed = FALSE,
            view_list_available = FALSE, view_list_marked = FALSE;
 
-  if (pattern == NULL) {
-    return;
+  if (pattern == NULL || (strcmp(pattern,"") == 0)) {
+    reset_search_list();
   }
 
   package_model = GTK_TREE_MODEL_SORT(gtk_tree_view_get_model(GTK_TREE_VIEW(treeview)));
@@ -1240,7 +1237,6 @@ static void rebuild_treeviews (GtkWidget *current_window,gboolean reload)
 
   if (reload == TRUE) {
     gtk_entry_set_text(GTK_ENTRY(lookup_widget(gslapt,"search_entry")),"");
-    gtk_widget_set_sensitive(lookup_widget(gslapt,"clear_button"),FALSE);
   }
 
   rebuild_package_action_menu();
@@ -1683,14 +1679,6 @@ static int populate_transaction_window (GtkWidget *trans_window)
   return 0;
 }
 
-
-void clear_button_clicked(GtkWidget *w, gpointer user_data) 
-{
-  gtk_entry_set_text(GTK_ENTRY(w),"");
-  gtk_widget_set_sensitive( lookup_widget((GtkWidget *)user_data,
-                            "clear_button"), FALSE);
-  reset_search_list();
-}
 
 static void mark_upgrade_packages (void)
 {

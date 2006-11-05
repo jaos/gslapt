@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.3.14\n"
+"Project-Id-Version: 0.3.16\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-20 16:24-0500\n"
-"PO-Revision-Date: 2006-07-28 21:45+0500\n"
+"PO-Revision-Date: 2006-11-05 03:34+0500\n"
 "Last-Translator: Jason Woodward <woodwardj@jaos.org>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -159,9 +159,6 @@ msgstr "Removing packages..."
 
 msgid "Required"
 msgstr "Required"
-
-msgid "Search for expression"
-msgstr "Search for expression"
 
 msgid "Search"
 msgstr "Search"
