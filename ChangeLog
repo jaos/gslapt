@@ -1,5 +1,6 @@
 
-0.3.16 Nov 05, 2006
+0.3.16 Nov 11, 2006
+ * download speed is now shown on the download dialog
  * German language updates from Manfred.
  * Search interface is now simplified.
  * package sources can now be edited

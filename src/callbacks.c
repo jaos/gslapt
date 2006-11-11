@@ -1189,6 +1189,11 @@ int gtk_progress_callback(void *data, double dltotal, double dlnow,
 {
   GtkProgressBar *p_bar = GTK_PROGRESS_BAR(lookup_widget(progress_window,"dl_progress"));
   double perc = 1.0;
+  struct slapt_progress_data *cb_data = (struct slapt_progress_data *)data;
+  time_t now = time(NULL);
+  size_t elapsed = now - cb_data->start;
+  size_t speed = dlnow / (elapsed > 0 ? elapsed : 1) / 1000;
+  gchar *status = NULL;
 
   if (_cancelled == 1) {
     return -1;
@@ -1197,9 +1202,15 @@ int gtk_progress_callback(void *data, double dltotal, double dlnow,
   if ( dltotal != 0.0 )
     perc = ((dlnow * 100)/dltotal)/100;
 
+  status = g_strdup_printf("Download rate: %d%s/s",
+            speed, (speed > 1024) ? "M" : "k");
+
   gdk_threads_enter();
   gtk_progress_bar_set_fraction(p_bar,perc);
+  gtk_label_set_text(GTK_LABEL(lookup_widget(progress_window,"progress_dl_speed")),status);
   gdk_threads_leave();
+
+  g_free(status);
 
   return 0;
 }

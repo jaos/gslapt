@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: 0.3.16\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2006-11-05 03:34+0500\n"
+"PO-Revision-Date: 2006-11-11 02:51+0500\n"
 "Last-Translator: Manfred Mueller <mmueller@nekserve.de>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -473,4 +473,7 @@ msgstr "Markiere veraltete Pakete"
 
 msgid "Mark all obsolete packages"
 msgstr "Markiere ALLE veralteten Pakete"
+
+msgid "Download rate: %d%s/s"
+msgstr "Download rate: %d%s/s"
 

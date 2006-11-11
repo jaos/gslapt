@@ -1741,6 +1741,7 @@ create_dl_progress_window (void)
   GtkWidget *vbox49;
   GtkWidget *progress_progressbar;
   GtkWidget *dl_progress;
+  GtkWidget *progress_dl_speed;
   GtkWidget *progress_action;
   GtkWidget *progress_message;
   GtkWidget *progress_package_description;
@@ -1777,6 +1778,11 @@ create_dl_progress_window (void)
   gtk_widget_set_name (dl_progress, "dl_progress");
   gtk_widget_show (dl_progress);
   gtk_box_pack_start (GTK_BOX (vbox49), dl_progress, FALSE, TRUE, 2);
+
+  progress_dl_speed = gtk_label_new ("");
+  gtk_widget_set_name (progress_dl_speed, "progress_dl_speed");
+  gtk_widget_show (progress_dl_speed);
+  gtk_box_pack_start (GTK_BOX (vbox49), progress_dl_speed, FALSE, FALSE, 0);
 
   progress_action = gtk_label_new ("");
   gtk_widget_set_name (progress_action, "progress_action");
@@ -1818,6 +1824,7 @@ create_dl_progress_window (void)
   GLADE_HOOKUP_OBJECT (dl_progress_window, vbox49, "vbox49");
   GLADE_HOOKUP_OBJECT (dl_progress_window, progress_progressbar, "progress_progressbar");
   GLADE_HOOKUP_OBJECT (dl_progress_window, dl_progress, "dl_progress");
+  GLADE_HOOKUP_OBJECT (dl_progress_window, progress_dl_speed, "progress_dl_speed");
   GLADE_HOOKUP_OBJECT (dl_progress_window, progress_action, "progress_action");
   GLADE_HOOKUP_OBJECT (dl_progress_window, progress_message, "progress_message");
   GLADE_HOOKUP_OBJECT (dl_progress_window, progress_package_description, "progress_package_description");
