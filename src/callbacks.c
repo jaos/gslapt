@@ -1191,8 +1191,8 @@ int gtk_progress_callback(void *data, double dltotal, double dlnow,
   double perc = 1.0;
   struct slapt_progress_data *cb_data = (struct slapt_progress_data *)data;
   time_t now = time(NULL);
-  size_t elapsed = now - cb_data->start;
-  size_t speed = dlnow / (elapsed > 0 ? elapsed : 1) / 1000;
+  double elapsed = now - cb_data->start;
+  double speed = dlnow / (elapsed > 0 ? elapsed : 1);
   gchar *status = NULL;
 
   if (_cancelled == 1) {
@@ -1202,8 +1202,9 @@ int gtk_progress_callback(void *data, double dltotal, double dlnow,
   if ( dltotal != 0.0 )
     perc = ((dlnow * 100)/dltotal)/100;
 
-  status = g_strdup_printf("Download rate: %d%s/s",
-            speed, (speed > 1024) ? "M" : "k");
+  status = g_strdup_printf((gchar *)_("Download rate: %.0f%s/s"),
+            (speed > 1000) ? (speed > 1000000) ? speed / 1000000 : speed / 1000 : speed,
+            (speed > 1000) ? (speed > 1000000) ? "M" : "k" : "b");
 
   gdk_threads_enter();
   gtk_progress_bar_set_fraction(p_bar,perc);
@@ -3074,7 +3075,7 @@ static void display_dep_error_dialog (slapt_pkg_info_t *pkg,guint m, guint c)
   GtkWidget *w = create_dep_error_dialog();
   GtkTextBuffer *error_buf = NULL;
   guint i;
-  gchar *msg = g_strdup_printf("<b>Excluding %s due to dependency failure</b>",pkg->name);
+  gchar *msg = g_strdup_printf((gchar *)_("<b>Excluding %s due to dependency failure</b>"),pkg->name);
 
   gtk_window_set_title (GTK_WINDOW(w),(char *)_("Error"));
   gtk_label_set_text(GTK_LABEL(lookup_widget(w,"dep_error_label")),msg);

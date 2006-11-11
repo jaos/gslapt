@@ -474,6 +474,6 @@ msgstr "Markiere veraltete Pakete"
 msgid "Mark all obsolete packages"
 msgstr "Markiere ALLE veralteten Pakete"
 
-msgid "Download rate: %d%s/s"
-msgstr "Download rate: %d%s/s"
+msgid "Download rate: %.0f%s/s"
+msgstr "Download rate: %.0f%s/s"
 

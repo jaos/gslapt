@@ -475,6 +475,6 @@ msgstr "Mark Obsolete"
 msgid "Mark all obsolete packages"
 msgstr "Mark all obsolete packages"
 
-msgid "Download rate: %d%s/s"
-msgstr "Download rate: %d%s/s"
+msgid "Download rate: %.0f%s/s"
+msgstr "Download rate: %.0f%s/s"
 
