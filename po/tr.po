@@ -1,9 +1,6 @@
-# translation of gslapt_TR.po to tr_TR
-# gslapt translation template
-# Copyright (C) 2005 Jason Woodward
+# Turkish gslapt translation
+# Copyright (C) 2006 Bekir SONAT
 # This file is distributed under the same license as the gslapt package.
-#
-# FIRST AUTHOR Jason Woodward <woodwardj@jaos.org>, 2005.
 # Bekir SONAT <bekirsonat@kde.org.tr>, 2006.
 msgid ""
 msgstr ""
