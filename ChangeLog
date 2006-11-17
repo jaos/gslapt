@@ -1,5 +1,6 @@
 
-0.3.16 Nov 13, 2006
+0.3.16 Nov 16, 2006
+ * Added install size to the package listing (Dan)
  * added Turkish translation by Bekir SONAT 
  * download speed is now shown on the download dialog
  * German language updates from Manfred.

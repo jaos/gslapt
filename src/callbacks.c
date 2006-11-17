@@ -431,7 +431,8 @@ void build_package_treeviewlist (GtkWidget *treeview)
   base_model = GTK_TREE_MODEL(gtk_list_store_new (
     NUMBER_OF_COLUMNS,
     GDK_TYPE_PIXBUF, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING,
-    G_TYPE_STRING, G_TYPE_STRING, G_TYPE_BOOLEAN, G_TYPE_BOOLEAN, G_TYPE_BOOLEAN
+    G_TYPE_STRING, G_TYPE_UINT, G_TYPE_STRING, G_TYPE_BOOLEAN,
+    G_TYPE_BOOLEAN, G_TYPE_BOOLEAN
   ));
 
   for (i = 0; i < all->pkg_count; i++ ) {
@@ -512,6 +513,7 @@ void build_package_treeviewlist (GtkWidget *treeview)
       VERSION_COLUMN,all->pkgs[i]->version,
       LOCATION_COLUMN,location,
       DESC_COLUMN,short_desc,
+      SIZE_COLUMN,all->pkgs[i]->size_u,
       STATUS_COLUMN,status,
       INST_COLUMN, FALSE,
       VISIBLE_COLUMN,TRUE,
@@ -556,6 +558,7 @@ void build_package_treeviewlist (GtkWidget *treeview)
         VERSION_COLUMN,installed->pkgs[i]->version,
         LOCATION_COLUMN,installed->pkgs[i]->location,
         DESC_COLUMN,short_desc,
+        SIZE_COLUMN,installed->pkgs[i]->size_u,
         STATUS_COLUMN,status,
         INST_COLUMN, TRUE,
         VISIBLE_COLUMN,TRUE,
@@ -2696,6 +2699,14 @@ void build_treeview_columns (GtkWidget *treeview)
   column = gtk_tree_view_column_new_with_attributes ((gchar *)_("Description"), renderer,
     "text", DESC_COLUMN, NULL);
   gtk_tree_view_column_set_sort_column_id (column, DESC_COLUMN);
+  gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
+  gtk_tree_view_column_set_resizable(column, TRUE);
+
+  /* column for installed size */
+  renderer = gtk_cell_renderer_text_new();
+  column = gtk_tree_view_column_new_with_attributes ((gchar *)_("Installed Size"), renderer,
+    "text", SIZE_COLUMN, NULL);
+  gtk_tree_view_column_set_sort_column_id (column, SIZE_COLUMN);
   gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
   gtk_tree_view_column_set_resizable(column, TRUE);
 
