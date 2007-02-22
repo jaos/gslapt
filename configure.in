@@ -1,7 +1,7 @@
 dnl Process this file with autoconf to produce a configure script.
 
 AC_INIT(configure.in)
-AM_INIT_AUTOMAKE(gslapt, 0.3.16)
+AM_INIT_AUTOMAKE(gslapt, 0.3.17)
 AM_CONFIG_HEADER(config.h)
 AM_MAINTAINER_MODE
 
@@ -33,7 +33,7 @@ AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Gettext package.])
 
 dnl Add the languages which your application supports here.
-ALL_LINGUAS="bg de en es fr id it ja nl pl pt pt_BR ru sk sv tr uk vi zh_CN"
+ALL_LINGUAS="bg de en es fr gl_ES id it ja nl pl pt pt_BR ru sk sv tr uk vi zh_CN"
 AM_GLIB_GNU_GETTEXT
 
 AC_OUTPUT([

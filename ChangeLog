@@ -1,4 +1,8 @@
 
+0.3.17 Feb 22, 2007
+ * Updated spanish translation by Manuel Barallobre Seoane
+ * Added galician translation by Manuel Barallobre Seoane
+
 0.3.16 Nov 18, 2006
  * fixed bug in incorrectly detecting requirements on package removal
  * Added install size to the package listing (Dan)
