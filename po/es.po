@@ -5,7 +5,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.3.16\n"
+"Project-Id-Version: 0.3.17\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
 "PO-Revision-Date: 2007-02-20 16:37+0100\n"
@@ -25,7 +25,7 @@ msgid "<b>Package and data storage</b>"
 msgstr "<b>Almacen de datos y paquetes</b>"
 
 msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
-msgstr "<span weight=\"bold\" size=\"large\">¿Aplicar los siguientes cambios?</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Â¿Aplicar los siguientes cambios?</span>"
 
 msgid "<span weight=\"bold\">Exclude Expression:</span>"
 msgstr "<span weight=\"bold\">Expresion de Exclusion:</span>"
@@ -98,7 +98,7 @@ msgid "Install/Upgrade package"
 msgstr "Instalar/Actualizar el paquete"
 
 msgid "Installed Size:"
-msgstr "Tamaño Instalado:"
+msgstr "TamaÃ±o Instalado:"
 
 msgid "Installed"
 msgstr "Instalado"
@@ -164,7 +164,7 @@ msgid "Search"
 msgstr "Buscar"
 
 msgid "Size:"
-msgstr "Tamaño:"
+msgstr "TamaÃ±o:"
 
 msgid "Source"
 msgstr "Fuente"
@@ -296,7 +296,7 @@ msgid "<b>Required:</b>"
 msgstr "<b>Necesario:</b>"
 
 msgid "<b>Size:</b>"
-msgstr "<b>Tamaño:</b>"
+msgstr "<b>TamaÃ±o:</b>"
 
 msgid "<b>Suggests:</b>"
 msgstr "<b>Sugerencia:</b>"
@@ -425,10 +425,10 @@ msgid "Enabled"
 msgstr "Permitido"
 
 msgid "Missing dependencies may mean the software in this package will not function correctly.  Do you want to continue without the required packages?"
-msgstr "Dependencias perdidas puede significar que el software de este paquete no funcionara correctamente. ¿Quiere continuar sin los paquetes requeridos?"
+msgstr "Dependencias perdidas puede significar que el software de este paquete no funcionara correctamente. Â¿Quiere continuar sin los paquetes requeridos?"
 
 msgid "This package source failed or is not available. Do you want to disable this source and continue anyway?"
-msgstr "La fuente de este paquete fallo o no esta disponible. ¿Quieres desactivarlo y continuar?"
+msgstr "La fuente de este paquete fallo o no esta disponible. Â¿Quieres desactivarlo y continuar?"
 
 msgid "Retrieving ChangeLog.txt..."
 msgstr "Recuperando ChangeLog.txt..."
