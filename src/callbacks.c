@@ -38,6 +38,7 @@ extern struct slapt_source_list *disabled_sources;
 
 
 static GtkWidget *progress_window;
+G_LOCK_DEFINE_STATIC (_cancelled);
 static volatile guint _cancelled = 0;
 static gboolean sources_modified = FALSE;
 static gboolean excludes_modified = FALSE;
@@ -61,7 +62,7 @@ static void unlock_toolbar_buttons (void);
 static void build_sources_treeviewlist (GtkWidget *treeview);
 static void build_exclude_treeviewlist (GtkWidget *treeview);
 static int populate_transaction_window (GtkWidget *trans_window);
-static gboolean download_packages (void);
+char *download_packages (void);
 static gboolean install_packages (void);
 static gboolean write_preferences (void);
 static void set_execute_active (void);
@@ -97,6 +98,7 @@ void on_gslapt_destroy (GtkObject *object, gpointer user_data)
   slapt_free_pkg_list(all);
   slapt_free_pkg_list(installed);
   slapt_free_rc_config(global_config);
+  slapt_free_source_list(disabled_sources);
 
   gtk_main_quit();
   exit(0);
@@ -521,6 +523,7 @@ void build_package_treeviewlist (GtkWidget *treeview)
       -1
     );
 
+    gdk_pixbuf_unref(status_icon);
     g_free(status);
     g_free(short_desc);
   }
@@ -566,6 +569,7 @@ void build_package_treeviewlist (GtkWidget *treeview)
         -1
       );
 
+      gdk_pixbuf_unref(status_icon);
       g_free(status);
       g_free(short_desc);
     }
@@ -953,7 +957,9 @@ static void get_package_data (void)
   dl_files = (global_config->sources->count * 4.0 );
 
   if (_cancelled == 1) {
+    G_LOCK(_cancelled);
     _cancelled = 0;
+    G_UNLOCK(_cancelled);
     gdk_threads_enter();
     gslapt_clear_status(context_id);
     gtk_widget_destroy(progress_window);
@@ -967,9 +973,12 @@ static void get_package_data (void)
     struct slapt_pkg_list *available_pkgs = NULL;
     struct slapt_pkg_list *patch_pkgs = NULL;
     FILE *tmp_checksum_f = NULL;
+    unsigned int compressed = 0;
 
     if (_cancelled == 1) {
+      G_LOCK(_cancelled);
       _cancelled = 0;
+      G_UNLOCK(_cancelled);
       gdk_threads_enter();
       gslapt_clear_status(context_id);
       gtk_widget_destroy(progress_window);
@@ -987,7 +996,8 @@ static void get_package_data (void)
     /* download our SLAPT_PKG_LIST */
     available_pkgs =
       slapt_get_pkg_source_packages(global_config,
-                                    global_config->sources->url[i]);
+                                    global_config->sources->url[i],
+                                    &compressed);
 
     /* make sure we found a package listing */
     if (available_pkgs == NULL) {
@@ -996,7 +1006,9 @@ static void get_package_data (void)
       gdk_threads_enter();
 
       if (_cancelled == 1) {
+        G_LOCK(_cancelled);
         _cancelled = 0;
+        G_UNLOCK(_cancelled);
         gtk_widget_destroy(progress_window);
         unlock_toolbar_buttons();
         gslapt_clear_status(context_id);
@@ -1036,7 +1048,9 @@ static void get_package_data (void)
     ++dl_count;
 
     if (_cancelled == 1) {
+      G_LOCK(_cancelled);
       _cancelled = 0;
+      G_UNLOCK(_cancelled);
       gdk_threads_enter();
       gslapt_clear_status(context_id);
       gtk_widget_destroy(progress_window);
@@ -1055,11 +1069,14 @@ static void get_package_data (void)
     /* download SLAPT_PATCHES_LIST */
     patch_pkgs =
       slapt_get_pkg_source_patches(global_config,
-                                   global_config->sources->url[i]);
+                                   global_config->sources->url[i],
+                                   &compressed);
 
 
     if (_cancelled == 1) {
+      G_LOCK(_cancelled);
       _cancelled = 0;
+      G_UNLOCK(_cancelled);
       gdk_threads_enter();
       gslapt_clear_status(context_id);
       gtk_widget_destroy(progress_window);
@@ -1080,14 +1097,17 @@ static void get_package_data (void)
     /* download checksum file */
     tmp_checksum_f =
       slapt_get_pkg_source_checksums(global_config,
-                                     global_config->sources->url[i]);
+                                     global_config->sources->url[i],
+                                     &compressed);
 
     if (tmp_checksum_f == NULL) {
       gdk_threads_enter();
       gslapt_clear_status(context_id);
       gtk_widget_destroy(progress_window);
       if (_cancelled == 1) {
+        G_LOCK(_cancelled);
         _cancelled = 0;
+        G_UNLOCK(_cancelled);
         unlock_toolbar_buttons();
       } else {
         notify((gchar *)_("Source download failed"),global_config->sources->url[i]);
@@ -1106,7 +1126,8 @@ static void get_package_data (void)
     gdk_threads_leave();
 
     slapt_get_pkg_source_changelog(global_config,
-                                     global_config->sources->url[i]);
+                                   global_config->sources->url[i],
+                                   &compressed);
 
 
 
@@ -1199,6 +1220,10 @@ int gtk_progress_callback(void *data, double dltotal, double dlnow,
   gchar *status = NULL;
 
   if (_cancelled == 1) {
+    return -1;
+  }
+
+  if (p_bar == NULL) {
     return -1;
   }
 
@@ -1326,15 +1351,25 @@ static void lhandle_transaction (GtkWidget *w)
 
   /* download the pkgs */
   if ( trans->install_pkgs->pkg_count > 0 || trans->upgrade_pkgs->pkg_count > 0 ) {
-    if ( download_packages() == FALSE ) {
+    char *err = download_packages();
+    if ( err != NULL || _cancelled == 1) {
+
       gdk_threads_enter();
-      if (_cancelled == 1) {
-        _cancelled = 0;
-      } else {
-        notify((gchar *)_("Error"),(gchar *)_("Package(s) failed to download"));
+      if (err != NULL && _cancelled == 0) {
+        notify((gchar *)_("Error"),(gchar *)err);
       }
       unlock_toolbar_buttons();
       gdk_threads_leave();
+
+      if (_cancelled == 1) {
+        G_LOCK(_cancelled);
+        _cancelled = 0;
+        G_UNLOCK(_cancelled);
+      }
+      if (err != NULL) {
+        free(err);
+      }
+
       return;
     }
   }
@@ -1352,7 +1387,9 @@ static void lhandle_transaction (GtkWidget *w)
   }
 
   if (_cancelled == 1) {
+    G_LOCK(_cancelled);
     _cancelled = 0;
+    G_UNLOCK(_cancelled);
     gdk_threads_enter();
     unlock_toolbar_buttons();
     rebuild_treeviews(NULL,FALSE);
@@ -1419,26 +1456,35 @@ static void build_sources_treeviewlist(GtkWidget *treeview)
   );
 
   for (i = 0; i < global_config->sources->count; ++i) {
+    GdkPixbuf *status_icon = NULL;
 
     if ( global_config->sources->url[i] == NULL )
       continue;
 
+    status_icon = create_pixbuf("pkg_action_installed.png");
+
     gtk_list_store_append(store, &iter);
     gtk_list_store_set(store,&iter,
-      0,create_pixbuf("pkg_action_installed.png"),
+      0,status_icon,
       1,global_config->sources->url[i],
       2,TRUE,
       -1);
+
+    gdk_pixbuf_unref(status_icon);
   }
 
   /* show disabled sources here */
   for (i = 0; i < disabled_sources->count; ++i) {
+    GdkPixbuf *status_icon = create_pixbuf("pkg_action_installed.png");
+
     gtk_list_store_append(store, &iter);
     gtk_list_store_set(store,&iter,
-      0,create_pixbuf("pkg_action_available.png"),
+      0,status_icon,
       1,disabled_sources->url[i],
       2,FALSE,
       -1);
+
+    gdk_pixbuf_unref(status_icon);
   }
 
   /* column for enabled status */
@@ -1771,12 +1817,13 @@ static void mark_upgrade_packages (void)
   }
 }
 
-static gboolean download_packages (void)
+char *download_packages (void)
 {
   GtkLabel *progress_action_label,*progress_message_label,*progress_pkg_desc;
   GtkProgressBar *p_bar;
   guint i,context_id;
   gfloat pkgs_to_dl = 0.0,count = 0.0;
+  const char *err = NULL;
 
   pkgs_to_dl += trans->install_pkgs->pkg_count;
   pkgs_to_dl += trans->upgrade_pkgs->pkg_count;
@@ -1799,7 +1846,7 @@ static gboolean download_packages (void)
     gtk_widget_destroy(progress_window);
     gslapt_clear_status(context_id);
     gdk_threads_leave();
-    return FALSE;
+    return NULL;
   }
 
   for (i = 0; i < trans->install_pkgs->pkg_count;++i) {
@@ -1837,15 +1884,17 @@ static gboolean download_packages (void)
       gtk_widget_destroy(progress_window);
       gslapt_clear_status(context_id);
       gdk_threads_leave();
-      return FALSE;
+      return NULL;
     }
 
-    if ( slapt_download_pkg(global_config,trans->install_pkgs->pkgs[i]) == -1) {
+    err = slapt_download_pkg(global_config,trans->install_pkgs->pkgs[i]);
+    if (err) {
       gdk_threads_enter();
       gtk_widget_destroy(progress_window);
       gslapt_clear_status(context_id);
       gdk_threads_leave();
-      return FALSE;
+      return g_strdup_printf(_("Failed to download %s: %s"),
+                        trans->install_pkgs->pkgs[i]->name, err);
     }
     ++count;
   }
@@ -1884,15 +1933,17 @@ static gboolean download_packages (void)
       gtk_widget_destroy(progress_window);
       gslapt_clear_status(context_id);
       gdk_threads_leave();
-      return FALSE;
+      return NULL;
     }
 
-    if (slapt_download_pkg(global_config,trans->upgrade_pkgs->pkgs[i]->upgrade) == -1) {
+    err = slapt_download_pkg(global_config,trans->upgrade_pkgs->pkgs[i]->upgrade);
+    if (err) {
       gdk_threads_enter();
       gtk_widget_destroy(progress_window);
       gslapt_clear_status(context_id);
       gdk_threads_leave();
-      return FALSE;
+      return g_strdup_printf("Failed to download %s: %s",
+                        trans->upgrade_pkgs->pkgs[i]->upgrade->name, err);
     }
     ++count;
   }
@@ -1901,8 +1952,7 @@ static gboolean download_packages (void)
   gtk_widget_destroy(progress_window);
   gslapt_clear_status(context_id);
   gdk_threads_leave();
-
-  return TRUE;
+  return NULL;
 }
 
 static gboolean install_packages (void)
@@ -2486,11 +2536,15 @@ void unmark_package(GtkWidget *gslapt, gpointer user_data)
     model = GTK_TREE_MODEL(gtk_tree_model_filter_get_model(GTK_TREE_MODEL_FILTER(filter_model)));
 
     if (is_installed == 1) {
-      gtk_list_store_set(GTK_LIST_STORE(model),&actual_iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_installed.png"),-1);
+      GdkPixbuf *status_icon = create_pixbuf("pkg_action_installed.png");
+      gtk_list_store_set(GTK_LIST_STORE(model),&actual_iter,STATUS_ICON_COLUMN,status_icon,-1);
       status = g_strdup_printf("a%s",pkg->name);
+      gdk_pixbuf_unref(status_icon);
     } else {
-      gtk_list_store_set(GTK_LIST_STORE(model),&actual_iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_available.png"),-1);
+      GdkPixbuf *status_icon = create_pixbuf("pkg_action_available.png");
+      gtk_list_store_set(GTK_LIST_STORE(model),&actual_iter,STATUS_ICON_COLUMN,status_icon,-1);
       status = g_strdup_printf("z%s",pkg->name);
+      gdk_pixbuf_unref(status_icon);
     }
     gtk_list_store_set(GTK_LIST_STORE(model),&actual_iter,STATUS_COLUMN,status,-1);
     g_free(status);
@@ -2508,9 +2562,11 @@ void unmark_package(GtkWidget *gslapt, gpointer user_data)
 
         if (set_iter_to_pkg(model,&actual_iter,installed_pkg)) {
           gchar *istatus = g_strdup_printf("i%s",installed_pkg->name);
-          gtk_list_store_set(GTK_LIST_STORE(model),&actual_iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_installed.png"),-1);
+          GdkPixbuf *status_icon = create_pixbuf("pkg_action_installed.png");
+          gtk_list_store_set(GTK_LIST_STORE(model),&actual_iter,STATUS_ICON_COLUMN,status_icon,-1);
           gtk_list_store_set(GTK_LIST_STORE(model),&actual_iter,STATUS_COLUMN,istatus,-1);
           g_free(istatus);
+          gdk_pixbuf_unref(status_icon);
         } else {
           fprintf(stderr,"failed to find iter for installed package %s-%s to unmark\n",trans->upgrade_pkgs->pkgs[i]->installed->name,trans->upgrade_pkgs->pkgs[i]->installed->version);
         }
@@ -2764,7 +2820,9 @@ void open_icon_legend (GtkObject *object, gpointer user_data)
 
 void on_button_cancel_clicked (GtkButton *button, gpointer user_data)
 {
+  G_LOCK(_cancelled);
   _cancelled = 1;
+  G_UNLOCK(_cancelled);
 }
 
 static void build_package_action_menu (slapt_pkg_info_t *pkg)
@@ -3007,9 +3065,7 @@ struct slapt_source_list *parse_disabled_package_sources (const char *file_name)
   char *getline_buffer = NULL;
   size_t gb_length = 0;
   ssize_t g_size;
-  struct slapt_source_list *list = slapt_malloc(sizeof *list);
-  list->url = slapt_malloc(sizeof *list->url);
-  list->count = 0;
+  struct slapt_source_list *list = slapt_init_source_list();
 
   rc = slapt_open_file(file_name,"r");
   if (rc == NULL)
@@ -3063,15 +3119,19 @@ static gboolean toggle_source_status (GtkTreeView *treeview, gpointer data)
     gtk_tree_model_get(model,&iter,1,&source,2,&status,-1 );
 
     if (status) { /* is active */
+      GdkPixbuf *status_icon = create_pixbuf("pkg_action_available.png");
       gtk_list_store_set(GTK_LIST_STORE(model),&iter,
-                         0,create_pixbuf("pkg_action_available.png"),
+                         0,status_icon,
                          2,FALSE,
                          -1);
+      gdk_pixbuf_unref(status_icon);
     } else { /* is not active */
+      GdkPixbuf *status_icon = create_pixbuf("pkg_action_installed.png");
       gtk_list_store_set(GTK_LIST_STORE(model),&iter,
-                         0,create_pixbuf("pkg_action_installed.png"),
+                         0,status_icon,
                          2,TRUE,
                          -1);
+      gdk_pixbuf_unref(status_icon);
     }
 
     sources_modified = TRUE;
@@ -3328,50 +3388,60 @@ static int set_iter_for_install(GtkTreeModel *model, GtkTreeIter *iter,
                            slapt_pkg_info_t *pkg)
 {
   gchar *status = g_strdup_printf("i%s",pkg->name);
-  gtk_list_store_set(GTK_LIST_STORE(model),iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_install.png"),-1);
+  GdkPixbuf *status_icon = create_pixbuf("pkg_action_install.png");
+  gtk_list_store_set(GTK_LIST_STORE(model),iter,STATUS_ICON_COLUMN,status_icon,-1);
   gtk_list_store_set(GTK_LIST_STORE(model),iter,STATUS_COLUMN,status,-1);
   gtk_list_store_set(GTK_LIST_STORE(model),iter,MARKED_COLUMN,TRUE,-1);
   g_free(status);
+  gdk_pixbuf_unref(status_icon);
 }
 
 static int set_iter_for_reinstall(GtkTreeModel *model, GtkTreeIter *iter,
                            slapt_pkg_info_t *pkg)
 {
   gchar *status = g_strdup_printf("u%s",pkg->name);
-  gtk_list_store_set(GTK_LIST_STORE(model),iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_reinstall.png"),-1);
+  GdkPixbuf *status_icon = create_pixbuf("pkg_action_reinstall.png");
+  gtk_list_store_set(GTK_LIST_STORE(model),iter,STATUS_ICON_COLUMN,status_icon,-1);
   gtk_list_store_set(GTK_LIST_STORE(model),iter,STATUS_COLUMN,status,-1);
   gtk_list_store_set(GTK_LIST_STORE(model),iter,MARKED_COLUMN,TRUE,-1);
   g_free(status);
+  gdk_pixbuf_unref(status_icon);
 }
 
 static int set_iter_for_downgrade(GtkTreeModel *model, GtkTreeIter *iter,
                            slapt_pkg_info_t *pkg)
 {
   gchar *status = g_strdup_printf("u%s",pkg->name);
-  gtk_list_store_set(GTK_LIST_STORE(model),iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_downgrade.png"),-1);
+  GdkPixbuf *status_icon = create_pixbuf("pkg_action_downgrade.png");
+  gtk_list_store_set(GTK_LIST_STORE(model),iter,STATUS_ICON_COLUMN,status_icon,-1);
   gtk_list_store_set(GTK_LIST_STORE(model),iter,STATUS_COLUMN,status,-1);
   gtk_list_store_set(GTK_LIST_STORE(model),iter,MARKED_COLUMN,TRUE,-1);
   g_free(status);
+  gdk_pixbuf_unref(status_icon);
 }
 
 static int set_iter_for_upgrade(GtkTreeModel *model, GtkTreeIter *iter,
                            slapt_pkg_info_t *pkg)
 {
   gchar *status = g_strdup_printf("u%s",pkg->name);
-  gtk_list_store_set(GTK_LIST_STORE(model),iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_upgrade.png"),-1);
+  GdkPixbuf *status_icon = create_pixbuf("pkg_action_upgrade.png");
+  gtk_list_store_set(GTK_LIST_STORE(model),iter,STATUS_ICON_COLUMN,status_icon,-1);
   gtk_list_store_set(GTK_LIST_STORE(model),iter,STATUS_COLUMN,status,-1);
   gtk_list_store_set(GTK_LIST_STORE(model),iter,MARKED_COLUMN,TRUE,-1);
   g_free(status);
+  gdk_pixbuf_unref(status_icon);
 }
 
 static int set_iter_for_remove(GtkTreeModel *model, GtkTreeIter *iter,
                            slapt_pkg_info_t *pkg)
 {
   gchar *status = g_strdup_printf("r%s",pkg->name);
-  gtk_list_store_set(GTK_LIST_STORE(model),iter,STATUS_ICON_COLUMN,create_pixbuf("pkg_action_remove.png"),-1);
+  GdkPixbuf *status_icon = create_pixbuf("pkg_action_remove.png");
+  gtk_list_store_set(GTK_LIST_STORE(model),iter,STATUS_ICON_COLUMN,status_icon,-1);
   gtk_list_store_set(GTK_LIST_STORE(model),iter,STATUS_COLUMN,status,-1);
   gtk_list_store_set(GTK_LIST_STORE(model),iter,MARKED_COLUMN,TRUE,-1);
   g_free(status);
+  gdk_pixbuf_unref(status_icon);
 }
 
 

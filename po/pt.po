@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.3.16\n"
+"Project-Id-Version: 0.3.18\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-05-06 11:10-0500\n"
-"PO-Revision-Date: 2006-11-11 02:51+0500\n"
+"PO-Revision-Date: 2007-06-09 11:40+0500\n"
 "Last-Translator: Pedro Pinto aka _PN_boy <pedro_nuno_pn@zmail.pt>\n"
 "Language-Team: slapt-get devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -325,9 +325,6 @@ msgstr "Estado"
 msgid "Source download failed"
 msgstr "Download da fonte falhou"
 
-msgid "Package(s) failed to download"
-msgstr "Falhou ao descarregar o(s) Pacote(s)"
-
 msgid "pkgtools returned an error"
 msgstr "pkgtools returnou um erro"
 
@@ -468,4 +465,7 @@ msgstr "Mark all obsolete packages"
 
 msgid "Download rate: %.0f%s/s"
 msgstr "Download rate: %.0f%s/s"
+
+msgid "Failed to download %s: %s"
+msgstr "Failed to download %s: %s"
 

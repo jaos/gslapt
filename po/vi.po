@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.3.16\n"
+"Project-Id-Version: 0.3.18\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2006-11-11 02:51+0500\n"
+"PO-Revision-Date: 2007-06-09 11:40+0500\n"
 "Last-Translator: Nguyễn Văn Vũ <vncasper@yahoo.com>\n"
 "Language-Team: gnome-vi <gnomevi-list@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -329,9 +329,6 @@ msgstr "Trạng thái"
 msgid "Source download failed"
 msgstr "Nguồn dữ liệu bị lỗi"
 
-msgid "Package(s) failed to download"
-msgstr "Bị lỗi trong khi lấy dữ liệu"
-
 msgid "pkgtools returned an error"
 msgstr "pkgtools trả về một lỗi"
 
@@ -472,4 +469,7 @@ msgstr "Mark all obsolete packages"
 
 msgid "Download rate: %.0f%s/s"
 msgstr "Download rate: %.0f%s/s"
+
+msgid "Failed to download %s: %s"
+msgstr "Failed to download %s: %s"
 

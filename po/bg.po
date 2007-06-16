@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.3.16\n"
+"Project-Id-Version: 0.3.18\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2006-11-11 02:51+0500\n"
+"PO-Revision-Date: 2007-06-09 11:40+0500\n"
 "Last-Translator: Victor Keranov <victor_keranov@mail.bg>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -331,9 +331,6 @@ msgstr "Статус"
 msgid "Source download failed"
 msgstr "Неуспех при изтегляне от източника"
 
-msgid "Package(s) failed to download"
-msgstr "Неуспех при изтеглянето на пакет(и)"
-
 msgid "pkgtools returned an error"
 msgstr "pkgtools съобщи за грешка"
 
@@ -477,4 +474,7 @@ msgstr "Mark all obsolete packages"
 
 msgid "Download rate: %.0f%s/s"
 msgstr "Download rate: %.0f%s/s"
+
+msgid "Failed to download %s: %s"
+msgstr "Failed to download %s: %s"
 

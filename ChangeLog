@@ -1,6 +1,12 @@
 
-0.3.17 Jun 04, 2007
+0.3.18 Jun 16, 2007
+ * requires slapt-get 0.9.12
+ * unreference generated pixbufs where previously left referenced
+ * Updated thread locking of download cancel variable
+ * Failed package downloads now report why they failed
  * updated configure.in
+
+0.3.17 Feb 25, 2007
  * Updated spanish translation by Manuel Barallobre Seoane
  * Added galician translation by Manuel Barallobre Seoane
 

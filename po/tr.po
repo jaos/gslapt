@@ -4,10 +4,10 @@
 # Bekir SONAT <bekirsonat@kde.org.tr>, 2006.
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.3.16\n"
+"Project-Id-Version: 0.3.18\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2006-11-13 19:21+0200\n"
+"PO-Revision-Date: 2007-06-09 11:40+0500\n"
 "Last-Translator: Bekir SONAT <bekirsonat@kde.org.tr>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -341,9 +341,6 @@ msgstr "Durum"
 msgid "Source download failed"
 msgstr "Kaynak indirme başarısız"
 
-msgid "Package(s) failed to download"
-msgstr "Paket(ler)i indirme başarısız"
-
 msgid "pkgtools returned an error"
 msgstr "pkgtools hata bildiriyor"
 
@@ -488,4 +485,7 @@ msgstr "Tüm terkedilmiş paketleri göster"
 
 msgid "Download rate: %.0f%s/s"
 msgstr "İndirme hızı: %.0f%s/s"
+
+msgid "Failed to download %s: %s"
+msgstr "Failed to download %s: %s"
 
