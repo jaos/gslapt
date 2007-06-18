@@ -73,6 +73,19 @@ create_window_preferences (void)
   GtkWidget *new_source_entry;
   GtkWidget *preferences_add_source_button;
   GtkWidget *label160;
+  #ifdef SLAPT_HAS_GPGME
+  GtkWidget *preferences_verification_vbox;
+  GtkWidget *vbox76;
+  GtkWidget *label294;
+  GtkWidget *hbox116;
+  GtkWidget *label295;
+  GtkWidget *hbox117;
+  GtkWidget *scrolledwindow24;
+  GtkWidget *preferences_verification_sources_treeview;
+  GtkWidget *vbox77;
+  GtkWidget *button9;
+  GtkWidget *label293;
+  #endif
   GtkWidget *preferences_hbuttonbox;
   GtkWidget *preferences_close_button;
   GtkWidget *preferences_ok_button;
@@ -335,6 +348,73 @@ create_window_preferences (void)
   gtk_widget_show (label160);
   gtk_notebook_set_tab_label (GTK_NOTEBOOK (preferences_notebook), gtk_notebook_get_nth_page (GTK_NOTEBOOK (preferences_notebook), 2), label160);
 
+  #ifdef SLAPT_HAS_GPGME
+  preferences_verification_vbox = gtk_vbox_new (FALSE, 18);
+  gtk_widget_set_name (preferences_verification_vbox, "preferences_verification_vbox");
+  gtk_widget_show (preferences_verification_vbox);
+  gtk_container_add (GTK_CONTAINER (preferences_notebook), preferences_verification_vbox);
+  gtk_container_set_border_width (GTK_CONTAINER (preferences_verification_vbox), 12);
+
+  vbox76 = gtk_vbox_new (FALSE, 6);
+  gtk_widget_set_name (vbox76, "vbox76");
+  gtk_widget_show (vbox76);
+  gtk_box_pack_start (GTK_BOX (preferences_verification_vbox), vbox76, TRUE, TRUE, 0);
+  gtk_container_set_border_width (GTK_CONTAINER (vbox76), 12);
+
+  label294 = gtk_label_new (_("<b>GPG Keys</b>"));
+  gtk_widget_set_name (label294, "label294");
+  gtk_widget_show (label294);
+  gtk_box_pack_start (GTK_BOX (vbox76), label294, FALSE, FALSE, 0);
+  gtk_label_set_use_markup (GTK_LABEL (label294), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label294), 0, 0.5);
+
+  hbox116 = gtk_hbox_new (FALSE, 0);
+  gtk_widget_set_name (hbox116, "hbox116");
+  gtk_widget_show (hbox116);
+  gtk_box_pack_start (GTK_BOX (vbox76), hbox116, TRUE, TRUE, 0);
+  gtk_widget_set_size_request (hbox116, -1, 174);
+
+  label295 = gtk_label_new ("    ");
+  gtk_widget_set_name (label295, "label295");
+  gtk_widget_show (label295);
+  gtk_box_pack_start (GTK_BOX (hbox116), label295, FALSE, FALSE, 0);
+
+  hbox117 = gtk_hbox_new (FALSE, 12);
+  gtk_widget_set_name (hbox117, "hbox117");
+  gtk_widget_show (hbox117);
+  gtk_box_pack_start (GTK_BOX (hbox116), hbox117, TRUE, TRUE, 0);
+
+  scrolledwindow24 = gtk_scrolled_window_new (NULL, NULL);
+  gtk_widget_set_name (scrolledwindow24, "scrolledwindow24");
+  gtk_widget_show (scrolledwindow24);
+  gtk_box_pack_start (GTK_BOX (hbox117), scrolledwindow24, TRUE, TRUE, 0);
+  gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolledwindow24), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
+  gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scrolledwindow24), GTK_SHADOW_IN);
+
+  preferences_verification_sources_treeview = gtk_tree_view_new ();
+  gtk_widget_set_name (preferences_verification_sources_treeview, "preferences_verification_sources_treeview");
+  gtk_widget_show (preferences_verification_sources_treeview);
+  gtk_container_add (GTK_CONTAINER (scrolledwindow24), preferences_verification_sources_treeview);
+  gtk_tree_view_set_rules_hint (GTK_TREE_VIEW (preferences_verification_sources_treeview), TRUE);
+  gtk_tree_view_set_reorderable (GTK_TREE_VIEW (preferences_verification_sources_treeview), TRUE);
+
+  vbox77 = gtk_vbox_new (FALSE, 6);
+  gtk_widget_set_name (vbox77, "vbox77");
+  gtk_widget_show (vbox77);
+  gtk_box_pack_start (GTK_BOX (hbox117), vbox77, FALSE, FALSE, 0);
+
+  button9 = gtk_button_new_from_stock ("gtk-add");
+  gtk_widget_set_name (button9, "button9");
+  gtk_widget_show (button9);
+  gtk_box_pack_start (GTK_BOX (vbox77), button9, FALSE, FALSE, 0);
+  GTK_WIDGET_SET_FLAGS (button9, GTK_CAN_DEFAULT);
+
+  label293 = gtk_label_new (_("Verification"));
+  gtk_widget_set_name (label293, "label293");
+  gtk_widget_show (label293);
+  gtk_notebook_set_tab_label (GTK_NOTEBOOK (preferences_notebook), gtk_notebook_get_nth_page (GTK_NOTEBOOK (preferences_notebook), 3), label293);
+  #endif
+
   preferences_hbuttonbox = gtk_hbutton_box_new ();
   gtk_widget_set_name (preferences_hbuttonbox, "preferences_hbuttonbox");
   gtk_widget_show (preferences_hbuttonbox);
@@ -388,6 +468,11 @@ create_window_preferences (void)
   g_signal_connect_swapped ((gpointer) preferences_add_source_button, "clicked",
                             G_CALLBACK (preferences_sources_add),
                             GTK_OBJECT (window_preferences));
+  #ifdef SLAPT_HAS_GPGME
+  g_signal_connect_swapped ((gpointer) button9, "clicked",
+                            G_CALLBACK (preferences_sources_add_key),
+                            GTK_OBJECT (window_preferences));
+  #endif
   g_signal_connect_swapped ((gpointer) preferences_close_button, "clicked",
                             G_CALLBACK (cancel_preferences),
                             GTK_OBJECT (window_preferences));
@@ -439,6 +524,19 @@ create_window_preferences (void)
   GLADE_HOOKUP_OBJECT (window_preferences, new_source_entry, "new_source_entry");
   GLADE_HOOKUP_OBJECT (window_preferences, preferences_add_source_button, "preferences_add_source_button");
   GLADE_HOOKUP_OBJECT (window_preferences, label160, "label160");
+  #ifdef SLAPT_HAS_GPGME
+  GLADE_HOOKUP_OBJECT (window_preferences, preferences_verification_vbox, "preferences_verification_vbox");
+  GLADE_HOOKUP_OBJECT (window_preferences, vbox76, "vbox76");
+  GLADE_HOOKUP_OBJECT (window_preferences, label294, "label294");
+  GLADE_HOOKUP_OBJECT (window_preferences, hbox116, "hbox116");
+  GLADE_HOOKUP_OBJECT (window_preferences, label295, "label295");
+  GLADE_HOOKUP_OBJECT (window_preferences, hbox117, "hbox117");
+  GLADE_HOOKUP_OBJECT (window_preferences, scrolledwindow24, "scrolledwindow24");
+  GLADE_HOOKUP_OBJECT (window_preferences, preferences_verification_sources_treeview, "preferences_verification_sources_treeview");
+  GLADE_HOOKUP_OBJECT (window_preferences, vbox77, "vbox77");
+  GLADE_HOOKUP_OBJECT (window_preferences, button9, "button9");
+  GLADE_HOOKUP_OBJECT (window_preferences, label293, "label293");
+  #endif
   GLADE_HOOKUP_OBJECT (window_preferences, preferences_hbuttonbox, "preferences_hbuttonbox");
   GLADE_HOOKUP_OBJECT (window_preferences, preferences_close_button, "preferences_close_button");
   GLADE_HOOKUP_OBJECT (window_preferences, preferences_ok_button, "preferences_ok_button");

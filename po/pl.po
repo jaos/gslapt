@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: 0.3.18\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-17 14:52-0500\n"
-"PO-Revision-Date: 2007-06-09 11:40+0500\n"
+"PO-Revision-Date: 2007-06-17 21:05+0500\n"
 "Last-Translator: Piotr Simon <sajmon@tenboard.com>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -448,4 +448,25 @@ msgstr "Download rate: %.0f%s/s"
 
 msgid "Failed to download %s: %s"
 msgstr "Failed to download %s: %s"
+
+msgid "Import"
+msgstr "Import"
+
+msgid "No key found"
+msgstr "No key found"
+
+msgid "<b>GPG Keys</b>"
+msgstr "<b>GPG Keys</b>"
+
+msgid "Verification"
+msgstr "Verification"
+
+msgid "Retrieving checksum signature..."
+msgstr "Retrieving checksum signature..."
+
+msgid "Verifying checksum signature..."
+msgstr "Verifying checksum signature..."
+
+msgid "GPG Key verification failed"
+msgstr "GPG Key verification failed"
 

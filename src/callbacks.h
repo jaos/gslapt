@@ -100,3 +100,7 @@ void view_marked_packages (GtkMenuItem *menuitem, gpointer user_data);
 
 void mark_obsolete_packages (GtkMenuItem *menuitem, gpointer user_data);
 
+#ifdef SLAPT_HAS_GPGME
+void preferences_sources_add_key (GtkWidget *w, gpointer user_data);
+#endif
+

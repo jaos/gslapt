@@ -1,5 +1,10 @@
 
-0.3.18 Jun 16, 2007
+0.3.18 Jun 17, 2007
+ * download checksum signatures and attempt to verify 
+ * german updates by Manfred
+ * updated translations
+ * configure tries to detect if libslapt has built in gpgme support
+ * Added "Verification" tab to preferences to add GPG-KEYs for each source
  * requires slapt-get 0.9.12
  * unreference generated pixbufs where previously left referenced
  * Updated thread locking of download cancel variable

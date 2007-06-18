@@ -60,6 +60,9 @@ static void gslapt_clear_status (guint context_id);
 static void lock_toolbar_buttons (void);
 static void unlock_toolbar_buttons (void);
 static void build_sources_treeviewlist (GtkWidget *treeview);
+#ifdef SLAPT_HAS_GPGME
+static void build_verification_sources_treeviewlist (GtkWidget *treeview);
+#endif
 static void build_exclude_treeviewlist (GtkWidget *treeview);
 static int populate_transaction_window (GtkWidget *trans_window);
 char *download_packages (void);
@@ -148,6 +151,9 @@ void open_preferences (GtkMenuItem *menuitem, gpointer user_data)
   GtkWidget *preferences;
   GtkEntry *working_dir;
   GtkTreeView *source_tree,*exclude_tree;
+  #ifdef SLAPT_HAS_GPGME
+  GtkTreeView *verification_source_tree;
+  #endif
 
   preferences = (GtkWidget *)create_window_preferences();
 
@@ -156,6 +162,12 @@ void open_preferences (GtkMenuItem *menuitem, gpointer user_data)
 
   source_tree = GTK_TREE_VIEW(lookup_widget(preferences,"preferences_sources_treeview"));
   build_sources_treeviewlist((GtkWidget *)source_tree);
+
+  #ifdef SLAPT_HAS_GPGME
+  verification_source_tree = GTK_TREE_VIEW(lookup_widget(preferences,"preferences_verification_sources_treeview"));
+  build_verification_sources_treeviewlist((GtkWidget *)verification_source_tree);
+  #endif
+
   exclude_tree = GTK_TREE_VIEW(lookup_widget(preferences,"preferences_exclude_treeview"));
   build_exclude_treeviewlist((GtkWidget *)exclude_tree);
 
@@ -954,7 +966,11 @@ static void get_package_data (void)
   gtk_widget_show(progress_window);
   gdk_threads_leave();
 
-  dl_files = (global_config->sources->count * 4.0 );
+  #ifdef SLAPT_HAS_GPGME
+    dl_files = (global_config->sources->count * 5.0 );
+  #else
+    dl_files = (global_config->sources->count * 4.0 );
+  #endif
 
   if (_cancelled == 1) {
     G_LOCK(_cancelled);
@@ -973,6 +989,9 @@ static void get_package_data (void)
     struct slapt_pkg_list *available_pkgs = NULL;
     struct slapt_pkg_list *patch_pkgs = NULL;
     FILE *tmp_checksum_f = NULL;
+    #ifdef SLAPT_HAS_GPGME
+    FILE *tmp_signature_f = NULL;
+    #endif
     unsigned int compressed = 0;
 
     if (_cancelled == 1) {
@@ -1104,11 +1123,11 @@ static void get_package_data (void)
       gdk_threads_enter();
       gslapt_clear_status(context_id);
       gtk_widget_destroy(progress_window);
+      unlock_toolbar_buttons();
       if (_cancelled == 1) {
         G_LOCK(_cancelled);
         _cancelled = 0;
         G_UNLOCK(_cancelled);
-        unlock_toolbar_buttons();
       } else {
         notify((gchar *)_("Source download failed"),global_config->sources->url[i]);
       }
@@ -1117,6 +1136,73 @@ static void get_package_data (void)
     }
 
     ++dl_count;
+
+    #ifdef SLAPT_HAS_GPGME
+    gdk_threads_enter();
+    gtk_progress_bar_set_fraction(p_bar,((dl_count * 100)/dl_files)/100);
+    gtk_progress_bar_set_fraction(dl_bar,0.0);
+    gtk_label_set_text(progress_action_label,(gchar *)_("Retrieving checksum signature..."));
+    gdk_threads_leave();
+
+    tmp_signature_f = slapt_get_pkg_source_checksums_signature (global_config,
+                                                                global_config->sources->url[i],
+                                                                &compressed);
+
+    if (tmp_signature_f == NULL) {
+      if (_cancelled == 1) {
+        gdk_threads_enter();
+        gslapt_clear_status(context_id);
+        gtk_widget_destroy(progress_window);
+        G_LOCK(_cancelled);
+        _cancelled = 0;
+        G_UNLOCK(_cancelled);
+        unlock_toolbar_buttons();
+        gdk_threads_leave();
+        return;
+      }
+    } else {
+      FILE *tmp_checksum_to_verify_f = NULL;
+
+      /* if we downloaded the compressed checksums, open it raw (w/o gunzippign) */
+      if (compressed == 1) {
+        char *filename = slapt_gen_filename_from_url(global_config->sources->url[i],
+                                                     SLAPT_CHECKSUM_FILE_GZ);
+        tmp_checksum_to_verify_f = slapt_open_file(filename,"r");
+        free(filename);
+      } else {
+        tmp_checksum_to_verify_f = tmp_checksum_f;
+      }
+
+      if (tmp_checksum_to_verify_f != NULL) {
+        slapt_code_t verified = SLAPT_CHECKSUMS_NOT_VERIFIED;
+        gdk_threads_enter();
+        gtk_label_set_text(progress_action_label,(gchar *)_("Verifying checksum signature..."));
+        gdk_threads_leave();
+        verified = slapt_gpg_verify_checksums(tmp_checksum_to_verify_f, tmp_signature_f);
+        if (verified == SLAPT_CHECKSUMS_NOT_VERIFIED) {
+          fclose(tmp_checksum_f);
+          fclose(tmp_signature_f);
+          if (compressed == 1)
+            fclose(tmp_checksum_to_verify_f);
+          gdk_threads_enter();
+          gslapt_clear_status(context_id);
+          gtk_widget_destroy(progress_window);
+          unlock_toolbar_buttons();
+          notify((gchar *)_("GPG Key verification failed"),global_config->sources->url[i]);
+          gdk_threads_leave();
+          return;
+        }
+      }
+
+      fclose(tmp_signature_f);
+
+      /* if we opened the raw gzipped checksums, close it here */
+      if (compressed == 1)
+        fclose(tmp_checksum_to_verify_f);
+    }
+
+    ++dl_count;
+    #endif
 
     /* download changelog file */
     gdk_threads_enter();
@@ -1475,7 +1561,7 @@ static void build_sources_treeviewlist(GtkWidget *treeview)
 
   /* show disabled sources here */
   for (i = 0; i < disabled_sources->count; ++i) {
-    GdkPixbuf *status_icon = create_pixbuf("pkg_action_installed.png");
+    GdkPixbuf *status_icon = create_pixbuf("pkg_action_available.png");
 
     gtk_list_store_append(store, &iter);
     gtk_list_store_set(store,&iter,
@@ -3499,3 +3585,113 @@ static void unset_busy_cursor (void)
   gdk_flush();
 }
 
+
+static void build_verification_sources_treeviewlist (GtkWidget *treeview)
+{
+  GtkListStore *store;
+  GtkTreeIter iter;
+  GtkCellRenderer *renderer;
+  GtkTreeViewColumn *column;
+  GtkTreeSelection *select;
+  guint i = 0;
+
+  store = gtk_list_store_new (
+    1,
+    G_TYPE_STRING
+  );
+
+  for (i = 0; i < global_config->sources->count; ++i) {
+    if ( global_config->sources->url[i] == NULL )
+      continue;
+
+    gtk_list_store_append(store, &iter);
+    gtk_list_store_set(store,&iter, 0,global_config->sources->url[i], -1);
+  }
+
+  /* column for url */
+  renderer = gtk_cell_renderer_text_new();
+  column = gtk_tree_view_column_new_with_attributes ((gchar *)_("Source"), renderer,
+    "text", 0, NULL);
+  gtk_tree_view_column_set_sort_column_id (column, 0);
+  gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
+
+  gtk_tree_view_set_model (GTK_TREE_VIEW(treeview),GTK_TREE_MODEL(store));
+  select = gtk_tree_view_get_selection (GTK_TREE_VIEW (treeview));
+  gtk_tree_selection_set_mode (select, GTK_SELECTION_SINGLE);
+}
+
+#ifdef SLAPT_HAS_GPGME
+static void get_gpg_key(GtkWidget *w)
+{
+  GtkTreeIter iter;
+  GtkTreeModel *model;
+  GtkTreeView *source_tree = GTK_TREE_VIEW(lookup_widget(w,"preferences_verification_sources_treeview"));
+  GtkTreeSelection *select = gtk_tree_view_get_selection (GTK_TREE_VIEW (source_tree));
+  GtkListStore *store = GTK_LIST_STORE(gtk_tree_view_get_model(source_tree));
+
+  if ( gtk_tree_selection_get_selected(select,&model,&iter)) {
+    GtkLabel *progress_action_label, *progress_message_label;
+    GtkProgressBar *p_bar, *dl_bar;
+    unsigned int compressed = 0;
+    FILE *gpg_key= NULL;
+    slapt_code_t result;
+    gchar *url;
+    gtk_tree_model_get(GTK_TREE_MODEL(model), &iter, 0, &url, -1);
+
+    progress_window = create_dl_progress_window();
+    gtk_window_set_title(GTK_WINDOW(progress_window),(gchar *)_("Progress"));
+    p_bar = GTK_PROGRESS_BAR(lookup_widget(progress_window,"progress_progressbar"));
+    dl_bar = GTK_PROGRESS_BAR(lookup_widget(progress_window,"dl_progress"));
+    progress_action_label = GTK_LABEL(lookup_widget(progress_window,"progress_action"));
+    progress_message_label = GTK_LABEL(lookup_widget(progress_window,"progress_message"));
+    gtk_progress_bar_set_fraction(dl_bar,0.0);
+    gtk_label_set_text(progress_message_label,url);
+    gtk_label_set_text(progress_action_label,(gchar *)SLAPT_GPG_KEY);
+
+    gdk_threads_enter();
+    gtk_widget_show(progress_window);
+    gdk_threads_leave();
+
+    gpg_key = slapt_get_pkg_source_gpg_key(global_config, url, &compressed);
+
+    if (_cancelled == 1)
+    {
+      G_LOCK(_cancelled);
+      _cancelled = 0;
+      G_UNLOCK(_cancelled);
+      if (gpg_key) {
+        fclose(gpg_key);
+        gpg_key = NULL;
+      }
+    }
+
+    if (gpg_key)
+    {
+      result = slapt_add_pkg_source_gpg_key (gpg_key);
+      gdk_threads_enter();
+      notify(_("Import"),slapt_strerror(result));
+      gdk_threads_leave();
+    } else {
+      gdk_threads_enter();
+      notify(_("Import"),_("No key found"));
+      gdk_threads_leave();
+    }
+
+    g_free(url);
+
+    gdk_threads_enter();
+    gtk_widget_destroy(progress_window);
+    gdk_threads_leave();
+
+  }
+
+}
+
+void preferences_sources_add_key (GtkWidget *w, gpointer user_data)
+{
+  GThread *gdp;
+  gdp = g_thread_create((GThreadFunc)get_gpg_key,w,FALSE,NULL);
+
+  return;
+}
+#endif
