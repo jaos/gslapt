@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: 0.3.18\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2007-06-17 21:05+0500\n"
+"PO-Revision-Date: 2007-06-19 19:42+0100\n"
 "Last-Translator: Manfred Mueller <mmueller@live-modules.org>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -481,20 +481,20 @@ msgid "Import"
 msgstr "Import"
 
 msgid "No key found"
-msgstr "No key found"
+msgstr "Kein Schluessel gefunden"
 
 msgid "<b>GPG Keys</b>"
-msgstr "<b>GPG Keys</b>"
+msgstr "<b>GPG Schluessel</b>"
 
 msgid "Verification"
-msgstr "Verification"
+msgstr "Ueberpruefung"
 
 msgid "Retrieving checksum signature..."
-msgstr "Retrieving checksum signature..."
+msgstr "Empfanege Pruefsummen-Signatur..."
 
 msgid "Verifying checksum signature..."
-msgstr "Verifying checksum signature..."
+msgstr "Ueberpruefe Pruefsummen-Signatur..."
 
 msgid "GPG Key verification failed"
-msgstr "GPG Key verification failed"
+msgstr "GPG-Schluessel Ueberpruefung fehlgeschlagen"
 
