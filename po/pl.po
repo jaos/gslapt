@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: 0.3.18\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-17 14:52-0500\n"
-"PO-Revision-Date: 2007-06-17 21:05+0500\n"
+"PO-Revision-Date: 2007-06-21 16:36+0500\n"
 "Last-Translator: Piotr Simon <sajmon@tenboard.com>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -432,41 +432,41 @@ msgid "View installed packages"
 msgstr "Poka¿ zainstalowane pakiety"
 
 msgid "Marked"
-msgstr "Zamarkowane"
+msgstr "Zaznaczone"
 
 msgid "View Marked Packages"
-msgstr "Poka¿ zamarkowane pakiety"
+msgstr "Poka¿ zaznaczone pakiety"
 
 msgid "Mark Obsolete"
-msgstr "Mark Obsolete"
+msgstr "Zaznacz przestarza³e"
 
 msgid "Mark all obsolete packages"
-msgstr "Mark all obsolete packages"
+msgstr "Zaznacz wszyskie przestarza³e pakiety"
 
 msgid "Download rate: %.0f%s/s"
 msgstr "Download rate: %.0f%s/s"
 
 msgid "Failed to download %s: %s"
-msgstr "Failed to download %s: %s"
+msgstr "Pobieranie nie powiod³o siê %s: %s"
 
 msgid "Import"
-msgstr "Import"
+msgstr "Importuj"
 
 msgid "No key found"
-msgstr "No key found"
+msgstr "Klucz nie znaleziony"
 
 msgid "<b>GPG Keys</b>"
-msgstr "<b>GPG Keys</b>"
+msgstr "<b>GPG Klucze</b>"
 
 msgid "Verification"
-msgstr "Verification"
+msgstr "Sprawdzenie"
 
 msgid "Retrieving checksum signature..."
-msgstr "Retrieving checksum signature..."
+msgstr "Pobieram sumê kontroln± podpisu..."
 
 msgid "Verifying checksum signature..."
-msgstr "Verifying checksum signature..."
+msgstr "Sprawdzam sume kontroln± podpisu..."
 
 msgid "GPG Key verification failed"
-msgstr "GPG Key verification failed"
+msgstr "Nie powiod³o siê sprawdzanie klucza GPG"
 
