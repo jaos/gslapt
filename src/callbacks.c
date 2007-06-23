@@ -1199,6 +1199,8 @@ static void get_package_data (void)
       /* if we opened the raw gzipped checksums, close it here */
       if (compressed == 1)
         fclose(tmp_checksum_to_verify_f);
+      else
+        rewind(tmp_checksum_f);
     }
 
     ++dl_count;
