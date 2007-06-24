@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: 0.3.18\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-09-08 00:54\n"
-"PO-Revision-Date: 2007-06-17 21:05+0500\n"
+"PO-Revision-Date: 2007-06-24 14:00+0500\n"
 "Last-Translator: sin <digitalhunger@gmail.com>\n"
 "Language-Team: DeepStyle team <deep@deepstyle.org.ua>\n"
 "MIME-Version: 1.0\n"
@@ -427,41 +427,41 @@ msgid "View installed packages"
 msgstr "Просмотреть установленные пакеты"
 
 msgid "Marked"
-msgstr "Marked"
+msgstr "Отмечено"
 
 msgid "View Marked Packages"
-msgstr "View Marked Packages"
+msgstr "Просмотреть отмеченные пакеты"
 
 msgid "Mark Obsolete"
-msgstr "Mark Obsolete"
+msgstr "Отметить устаревшие"
 
 msgid "Mark all obsolete packages"
-msgstr "Mark all obsolete packages"
+msgstr "Отметить все устаревшие пакеты"
 
 msgid "Download rate: %.0f%s/s"
-msgstr "Download rate: %.0f%s/s"
+msgstr "Скорость закачки: %.0f%s/s"
 
 msgid "Failed to download %s: %s"
-msgstr "Failed to download %s: %s"
+msgstr "Не удалось загрузить %s: %s"
 
 msgid "Import"
-msgstr "Import"
+msgstr "Импорт"
 
 msgid "No key found"
-msgstr "No key found"
+msgstr "Ключ не найден"
 
 msgid "<b>GPG Keys</b>"
-msgstr "<b>GPG Keys</b>"
+msgstr "<b>Ключи GPG</b>"
 
 msgid "Verification"
-msgstr "Verification"
+msgstr "Проверка"
 
 msgid "Retrieving checksum signature..."
-msgstr "Retrieving checksum signature..."
+msgstr "Получение контрольной суммы..."
 
 msgid "Verifying checksum signature..."
-msgstr "Verifying checksum signature..."
+msgstr "Проверка контрольной суммы..."
 
 msgid "GPG Key verification failed"
-msgstr "GPG Key verification failed"
+msgstr "Ошибка проверки ключа GPG"
 

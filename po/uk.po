@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: 0.3.18\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-09-08 00:54\n"
-"PO-Revision-Date: 2007-06-17 21:05+0500\n"
+"PO-Revision-Date: 2007-06-24 14:00+0500\n"
 "Last-Translator: sin <digitalhunger@gmail.com>\n"
 "Language-Team: DeepStyle team <deep@deepstyle.org.ua>\n"
 "MIME-Version: 1.0\n"
@@ -427,41 +427,41 @@ msgid "View installed packages"
 msgstr "Перегляд встановлених пакунк╕в"
 
 msgid "Marked"
-msgstr "Marked"
+msgstr "В╕дм╕чено"
 
 msgid "View Marked Packages"
-msgstr "View Marked Packages"
+msgstr "Перегляд в╕дм╕чених пакунк╕в"
 
 msgid "Mark Obsolete"
-msgstr "Mark Obsolete"
+msgstr "В╕дм╕тити застар╕л╕"
 
 msgid "Mark all obsolete packages"
-msgstr "Mark all obsolete packages"
+msgstr "В╕дм╕тити ус╕ застар╕л╕ пакунки"
 
 msgid "Download rate: %.0f%s/s"
-msgstr "Download rate: %.0f%s/s"
+msgstr "Швидк╕сть завантаження: %.0f%s/s"
 
 msgid "Failed to download %s: %s"
-msgstr "Failed to download %s: %s"
+msgstr "Не вдалося завантажити %s: %s"
 
 msgid "Import"
-msgstr "Import"
+msgstr "╤мпорт"
 
 msgid "No key found"
-msgstr "No key found"
+msgstr "Ключ не знайдено"
 
 msgid "<b>GPG Keys</b>"
-msgstr "<b>GPG Keys</b>"
+msgstr "<b>Ключ╕ GPG</b>"
 
 msgid "Verification"
-msgstr "Verification"
+msgstr "Перев╕рка"
 
 msgid "Retrieving checksum signature..."
-msgstr "Retrieving checksum signature..."
+msgstr "Отримання контрольно╖ суми..."
 
 msgid "Verifying checksum signature..."
-msgstr "Verifying checksum signature..."
+msgstr "Перев╕рка контрольно╖ суми..."
 
 msgid "GPG Key verification failed"
-msgstr "GPG Key verification failed"
+msgstr "Помилка перев╕рки ключа GPG"
 
