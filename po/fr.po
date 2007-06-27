@@ -58,9 +58,6 @@ msgstr "Impossible de trouver l'icone : %s"
 msgid "Description"
 msgstr "Description"
 
-msgid "Dismiss"
-msgstr "Abandonner"
-
 msgid "Download packages only"
 msgstr "Télécharger les paquets sans les installer"
 
@@ -193,9 +190,6 @@ msgstr "Mise à jour du cache local des paquets"
 msgid "Update"
 msgstr "Actualiser"
 
-msgid "Upgrade to newer release"
-msgstr "Mise à niveau de la nouvelle version"
-
 msgid "Upgrade"
 msgstr "Mise à niveau"
 
@@ -207,9 +201,6 @@ msgstr "Mise à niveau ..."
 
 msgid "Version"
 msgstr "Version"
-
-msgid "WARNING"
-msgstr "ATTENTION"
 
 msgid "Working Directory"
 msgstr "Répertoire de travail"
@@ -484,8 +475,8 @@ msgstr "Failed to download %s: %s"
 msgid "Import"
 msgstr "Import"
 
-msgid "No key found"
-msgstr "No key found"
+msgid "No key found."
+msgstr "No key found."
 
 msgid "<b>GPG Keys</b>"
 msgstr "<b>GPG Keys</b>"
@@ -501,4 +492,10 @@ msgstr "Verifying checksum signature..."
 
 msgid "GPG Key verification failed"
 msgstr "GPG Key verification failed"
+
+msgid "Error"
+msgstr "Error"
+
+msgid "Visible"
+msgstr "Visible"
 

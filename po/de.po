@@ -59,9 +59,6 @@ msgstr "Kann Pixmap-Datei %s nicht finden"
 msgid "Description"
 msgstr "Beschreibung"
 
-msgid "Dismiss"
-msgstr "Abwaehlen"
-
 msgid "Download packages only"
 msgstr "Pakete nur laden"
 
@@ -161,9 +158,6 @@ msgstr "Entferne Pakete"
 msgid "Required"
 msgstr "Erforderlich"
 
-msgid "Search for expression"
-msgstr "Suche Ausdruck"
-
 msgid "Search"
 msgstr "Suche"
 
@@ -208,9 +202,6 @@ msgstr "Aktualisiere..."
 
 msgid "Version"
 msgstr "Version"
-
-msgid "WARNING"
-msgstr "WARNUNG"
 
 msgid "Working Directory"
 msgstr "Arbeitsverzeichnis"
@@ -317,6 +308,9 @@ msgstr "<b>Version:</b>"
 
 msgid "<b>Version</b>"
 msgstr "<b>Version</b>"
+
+msgid "<b>Source:</b>"
+msgstr "<b>Source:</b>"
 
 msgid "Common"
 msgstr "Allgemein"
@@ -426,6 +420,9 @@ msgstr "Lese Paket-Liste ein..."
 msgid "_Delete Cached Package Files"
 msgstr "Paket-Cache loeschen"
 
+msgid "Mark all possible upgrades"
+msgstr "Mark all possible upgrades"
+
 msgid "Enabled"
 msgstr "Aktiviert"
 
@@ -480,8 +477,8 @@ msgstr "Download von %s: %s gescheitert"
 msgid "Import"
 msgstr "Import"
 
-msgid "No key found"
-msgstr "Kein Schluessel gefunden"
+msgid "No key found."
+msgstr "Kein Schluessel gefunden."
 
 msgid "<b>GPG Keys</b>"
 msgstr "<b>GPG Schluessel</b>"
@@ -497,4 +494,10 @@ msgstr "Ueberpruefe Pruefsummen-Signatur..."
 
 msgid "GPG Key verification failed"
 msgstr "GPG-Schluessel Ueberpruefung fehlgeschlagen"
+
+msgid "Error"
+msgstr "Error"
+
+msgid "Visible"
+msgstr "Visible"
 

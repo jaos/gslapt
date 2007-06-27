@@ -26,7 +26,7 @@ msgstr "<b>Fonte Pacchetti</b>"
 msgid "<b>Package and data storage</b>"
 msgstr "<b>Pacchetti e salvataggio dati</b>"
 
-msgid "<span weight=\"bold\" size=\"large\">Apply the folowing changes?</span>"
+msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Applicare le modifiche seguenti?</span>"
 
 msgid "<span weight=\"bold\">Exclude Expression:</span>"
@@ -59,9 +59,6 @@ msgstr "Impossibile trovare file pixmap: %s"
 
 msgid "Description"
 msgstr "Descrizione"
-
-msgid "Dismiss"
-msgstr "Annulla"
 
 msgid "Download packages only"
 msgstr "Scarica solamente i pacchetti"
@@ -99,8 +96,8 @@ msgstr "Installa"
 msgid "Install/Upgrade package"
 msgstr "Installazione/Aggiornamento pacchetto"
 
-msgid "Installed Size"
-msgstr "Dimensione Installato"
+msgid "Installed Size:"
+msgstr "Dimensione Installato:"
 
 msgid "Installed"
 msgstr "Installato"
@@ -113,12 +110,6 @@ msgstr "Installazione..."
 
 msgid "Location"
 msgstr "Percorso"
-
-msgid "Mirror"
-msgstr "Mirror"
-
-msgid "NO"
-msgstr "NO"
 
 msgid "Name"
 msgstr "Nome"
@@ -171,11 +162,14 @@ msgstr "Richiesto"
 msgid "Search"
 msgstr "Cerca"
 
-msgid "Size"
-msgstr "Dimensione"
+msgid "Size:"
+msgstr "Dimensione:"
 
 msgid "Source"
 msgstr "Origine"
+
+msgid "Source:"
+msgstr "Origine:"
 
 msgid "Sources"
 msgstr "Origini"
@@ -201,9 +195,6 @@ msgstr "Aggiorna cache locale pacchetto"
 msgid "Update"
 msgstr "Aggiorna"
 
-msgid "Upgrade All"
-msgstr "Aggiorna tutto"
-
 msgid "Upgrade"
 msgstr "Aggiorna"
 
@@ -216,8 +207,8 @@ msgstr "Aggiornamento..."
 msgid "Version"
 msgstr "Versione"
 
-msgid "WARNING"
-msgstr "ATTENZIONE"
+msgid "Version:"
+msgstr "Versione:"
 
 msgid "Working Directory"
 msgstr "Directory di Lavoro"
@@ -290,32 +281,26 @@ msgstr ", che è richiesto da "
 msgid ", is excluded"
 msgstr ", è escluso"
 
-msgid "<b>Conflicts</b>"
-msgstr "<b>Conflitti</b>"
+msgid "<b>Conflicts:</b>"
+msgstr "<b>Conflitti:</b>"
 
-msgid "<b>Description</b>"
-msgstr "<b>Descrizione</b>"
+msgid "<b>Description:</b>"
+msgstr "<b>Descrizione:</b>"
 
-msgid "<b>Installed Size</b>"
-msgstr "<b>Dimensione Installato</b>"
+msgid "<b>Location:</b>"
+msgstr "<b>Percorso:</b>"
 
-msgid "<b>Location</b>"
-msgstr "<b>Percorso</b>"
+msgid "<b>Name:</b>"
+msgstr "<b>Nome:</b>"
 
-msgid "<b>Mirror</b>"
-msgstr "<b>Mirror</b> "
+msgid "<b>Required:</b>"
+msgstr "<b>Richiesto:</b>"
 
-msgid "<b>Name</b>"
-msgstr "<b>Nome</b>"
+msgid "<b>Size:</b>"
+msgstr "<b>Dimensione:</b>"
 
-msgid "<b>Required</b>"
-msgstr "<b>Richiesto</b>"
-
-msgid "<b>Size</b>"
-msgstr "<b>Dimensione</b>"
-
-msgid "<b>Suggests</b>"
-msgstr "<b>Suggerito</b>"
+msgid "<b>Suggests:</b>"
+msgstr "<b>Suggerito:</b>"
 
 msgid "<b>Version:</b>"
 msgstr "<b>Versione:</b>"
@@ -323,14 +308,17 @@ msgstr "<b>Versione:</b>"
 msgid "<b>Version</b>"
 msgstr "<b>Versione</b>"
 
+msgid "<b>Source:</b>"
+msgstr "<b>Source:</b>"
+
 msgid "Common"
 msgstr "Comune"
 
 msgid "Dependencies"
 msgstr "Dipendenze"
 
-msgid "No package is selected.\n"
-msgstr "Nessun pacchetto è selezionato.\n"
+msgid "No package is selected."
+msgstr "Nessun pacchetto è selezionato."
 
 msgid "Status"
 msgstr "Stato"
@@ -431,6 +419,9 @@ msgstr "Lettura Liste Pacchetti..."
 msgid "_Delete Cached Package Files"
 msgstr "Lime _Del Pacchetto Nascoste Cancellazione"
 
+msgid "Mark all possible upgrades"
+msgstr "Mark all possible upgrades"
+
 msgid "Enabled"
 msgstr "Permesso"
 
@@ -485,8 +476,8 @@ msgstr "Failed to download %s: %s"
 msgid "Import"
 msgstr "Import"
 
-msgid "No key found"
-msgstr "No key found"
+msgid "No key found."
+msgstr "No key found."
 
 msgid "<b>GPG Keys</b>"
 msgstr "<b>GPG Keys</b>"
@@ -502,4 +493,10 @@ msgstr "Verifying checksum signature..."
 
 msgid "GPG Key verification failed"
 msgstr "GPG Key verification failed"
+
+msgid "Error"
+msgstr "Error"
+
+msgid "Visible"
+msgstr "Visible"
 

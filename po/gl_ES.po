@@ -58,9 +58,6 @@ msgstr "Non se pode encontrar o ficheiro de pixmap: %s"
 msgid "Description"
 msgstr "Descripcion"
 
-msgid "Dismiss"
-msgstr "Anular"
-
 msgid "Download packages only"
 msgstr "Descargar paquetes nada mais"
 
@@ -193,9 +190,6 @@ msgstr "Actualizar a cache local de paquetes"
 msgid "Update"
 msgstr "Actualizar"
 
-msgid "Upgrade to newer release"
-msgstr "Actualizar a unha version mais nova"
-
 msgid "Upgrade"
 msgstr "Actualizar"
 
@@ -207,9 +201,6 @@ msgstr "Actualizando..."
 
 msgid "Version"
 msgstr "Vesion"
-
-msgid "WARNING"
-msgstr "PERIGO"
 
 msgid "Working Directory"
 msgstr "Directorio de Traballo"
@@ -481,8 +472,8 @@ msgstr "Failed to download %s: %s"
 msgid "Import"
 msgstr "Import"
 
-msgid "No key found"
-msgstr "No key found"
+msgid "No key found."
+msgstr "No key found."
 
 msgid "<b>GPG Keys</b>"
 msgstr "<b>GPG Keys</b>"
@@ -498,4 +489,10 @@ msgstr "Verifying checksum signature..."
 
 msgid "GPG Key verification failed"
 msgstr "GPG Key verification failed"
+
+msgid "Error"
+msgstr "Error"
+
+msgid "Visible"
+msgstr "Visible"
 

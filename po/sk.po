@@ -58,9 +58,6 @@ msgstr "Nemô¾em nájs» pixmap súbor: %s"
 msgid "Description"
 msgstr "Popis"
 
-msgid "Dismiss"
-msgstr "Vyradi»"
-
 msgid "Download packages only"
 msgstr "Len stiahnu» balík"
 
@@ -205,9 +202,6 @@ msgstr "Upgradujem..."
 msgid "Version"
 msgstr "Verzia"
 
-msgid "WARNING"
-msgstr "UPOZORNENIE"
-
 msgid "Working Directory"
 msgstr "Pracovný Adresár"
 
@@ -313,6 +307,9 @@ msgstr "<b>Verzia:</b>"
 
 msgid "<b>Version</b>"
 msgstr "<b>Verzia</b>"
+
+msgid "<b>Source:</b>"
+msgstr "<b>Source:</b>"
 
 msgid "Common"
 msgstr "Spoloèný"
@@ -422,6 +419,9 @@ msgstr "Reading Package Lists..."
 msgid "_Delete Cached Package Files"
 msgstr "_Delete Cached Package Files"
 
+msgid "Mark all possible upgrades"
+msgstr "Mark all possible upgrades"
+
 msgid "Enabled"
 msgstr "Enabled"
 
@@ -476,8 +476,8 @@ msgstr "Failed to download %s: %s"
 msgid "Import"
 msgstr "Import"
 
-msgid "No key found"
-msgstr "No key found"
+msgid "No key found."
+msgstr "No key found."
 
 msgid "<b>GPG Keys</b>"
 msgstr "<b>GPG Keys</b>"
@@ -493,4 +493,10 @@ msgstr "Verifying checksum signature..."
 
 msgid "GPG Key verification failed"
 msgstr "GPG Key verification failed"
+
+msgid "Error"
+msgstr "Error"
+
+msgid "Visible"
+msgstr "Visible"
 

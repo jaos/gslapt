@@ -60,9 +60,6 @@ msgstr "pixmap が見つかりません : %s"
 msgid "Description"
 msgstr "説明"
 
-msgid "Dismiss"
-msgstr "破棄(Dismiss)"
-
 msgid "Download packages only"
 msgstr "パッケージのダウンロードのみ"
 
@@ -207,9 +204,6 @@ msgstr "アップグレード中..."
 msgid "Version"
 msgstr "バージョン"
 
-msgid "WARNING"
-msgstr "注意"
-
 msgid "Working Directory"
 msgstr "作業ディレクトリ"
 
@@ -315,6 +309,9 @@ msgstr "<b>バージョン:</b>"
 
 msgid "<b>Version</b>"
 msgstr "<b>バージョン</b>"
+
+msgid "<b>Source:</b>"
+msgstr "<b>Source:</b>"
 
 msgid "Common"
 msgstr "一般情報"
@@ -426,6 +423,9 @@ msgstr "パッケージリストを読み込み中..."
 msgid "_Delete Cached Package Files"
 msgstr "キャッシュされたパッケージを削除(_D)"
 
+msgid "Mark all possible upgrades"
+msgstr "Mark all possible upgrades"
+
 msgid "Enabled"
 msgstr "有効"
 
@@ -484,8 +484,8 @@ msgstr "Failed to download %s: %s"
 msgid "Import"
 msgstr "Import"
 
-msgid "No key found"
-msgstr "No key found"
+msgid "No key found."
+msgstr "No key found."
 
 msgid "<b>GPG Keys</b>"
 msgstr "<b>GPG Keys</b>"
@@ -501,4 +501,10 @@ msgstr "Verifying checksum signature..."
 
 msgid "GPG Key verification failed"
 msgstr "GPG Key verification failed"
+
+msgid "Error"
+msgstr "Error"
+
+msgid "Visible"
+msgstr "Visible"
 

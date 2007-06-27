@@ -58,9 +58,6 @@ msgstr ""
 msgid "Description"
 msgstr ""
 
-msgid "Dismiss"
-msgstr ""
-
 msgid "Download packages only"
 msgstr ""
 
@@ -193,9 +190,6 @@ msgstr ""
 msgid "Update"
 msgstr ""
 
-msgid "Upgrade to newer release"
-msgstr ""
-
 msgid "Upgrade"
 msgstr ""
 
@@ -206,9 +200,6 @@ msgid "Upgrading..."
 msgstr ""
 
 msgid "Version"
-msgstr ""
-
-msgid "WARNING"
 msgstr ""
 
 msgid "Working Directory"
@@ -499,5 +490,11 @@ msgid "Verifying checksum signature..."
 msgstr ""
 
 msgid "GPG Key verification failed"
+msgstr ""
+
+msgid "Error"
+msgstr ""
+
+msgid "Visible"
 msgstr ""
 

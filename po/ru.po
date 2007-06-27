@@ -16,13 +16,6 @@ msgstr ""
 "Content-Type: text/plain; charset=koi8-r\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Failed to calloc url\n"
-msgstr "Не могу выполнить calloc для url\n"
-
-#, c-format
-msgid "Failed to download: %s\n"
-msgstr "Не могу загрузить: %s\n"
-
 msgid "Packages excluded"
 msgstr "Пропуск пакетов"
 
@@ -38,11 +31,17 @@ msgstr "Пакеты к удалению"
 msgid "Downloading packages..."
 msgstr "Загрузка пакетов..."
 
+msgid "Downloading..."
+msgstr "Downloading..."
+
 msgid "Removing packages..."
 msgstr "Удаление пакетов..."
 
 msgid "Installing packages..."
 msgstr "Установка пакетов..."
+
+msgid "Installing..."
+msgstr "Installing..."
 
 msgid "Upgrading packages..."
 msgstr "Обновление пакетов..."
@@ -83,6 +82,13 @@ msgstr "Обновить"
 msgid "_Help"
 msgstr "Помощь"
 
+msgid ""
+"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
+"Slackware"
+msgstr ""
+"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
+"Slackware"
+
 msgid "About"
 msgstr "О программе"
 
@@ -95,23 +101,23 @@ msgstr "Обновить локальный кэш пакетов"
 msgid "Execute"
 msgstr "Выполнить"
 
+msgid "Expression"
+msgstr "Expression"
+
 msgid "Execute all scheduled actions in current transaction"
 msgstr "Выполнить все запланированные задания в текущей транзакции"
 
 msgid "Quit"
 msgstr "Выход"
 
-msgid "Search for expression"
-msgstr "Искать выражение"
+msgid "Search"
+msgstr "Search"
 
 msgid "Clear"
 msgstr "Очистить"
 
 msgid "Clear search expression"
 msgstr "Очистить выражение поиска"
-
-msgid "Packages"
-msgstr "Пакеты"
 
 msgid "Name"
 msgstr "Имя"
@@ -146,6 +152,9 @@ msgstr "Описание"
 msgid "Package Information"
 msgstr "Информация о пакете"
 
+msgid "Package"
+msgstr "Package"
+
 msgid "Install/Upgrade package"
 msgstr "Установить/обновить пакет"
 
@@ -175,6 +184,9 @@ msgstr "<span weight=\"bold\" size=\"large\">Применить изменения?</span>"
 
 msgid "This is a summary of the changes about to be performed."
 msgstr "Будут произведены следующие изменения"
+
+msgid "Uninstalling..."
+msgstr "Uninstalling..."
 
 msgid "Download packages only"
 msgstr "Только загрузить пакеты"
@@ -270,6 +282,9 @@ msgstr "<b>Размещение:</b>"
 msgid "Source:"
 msgstr "Источник:"
 
+msgid "Source"
+msgstr "Источник"
+
 msgid "<b>Name:</b>"
 msgstr "<b>Имя:</b>"
 
@@ -282,6 +297,9 @@ msgstr "<b>Размер:</b>"
 msgid "<b>Suggests:</b>"
 msgstr "<b>Желательно:</b>"
 
+msgid "Upgrading..."
+msgstr "Upgrading..."
+
 msgid "Version:"
 msgstr "Версия:"
 
@@ -290,6 +308,9 @@ msgstr "<b>Версия:</b>"
 
 msgid "<b>Version</b>"
 msgstr "<b>Версия</b>"
+
+msgid "<b>Source:</b>"
+msgstr "<b>Источник:</b>"
 
 msgid "Common"
 msgstr "Общее"
@@ -348,6 +369,12 @@ msgstr "Откат к старой версии"
 msgid "Icon Legend"
 msgstr "Описание значков"
 
+msgid "Completed actions"
+msgstr "Completed actions"
+
+msgid "Successfully executed all actions."
+msgstr "Successfully executed all actions."
+
 msgid "Failed to commit preferences"
 msgstr "Не могу применить настройки"
 
@@ -392,6 +419,9 @@ msgstr "<b>Последняя доступная версия</b>"
 
 msgid "_Delete Cached Package Files"
 msgstr "Очистить кэш пакетов"
+
+msgid "Mark all possible upgrades"
+msgstr "Mark all possible upgrades"
 
 msgid "Enabled"
 msgstr "Включен"
@@ -447,8 +477,8 @@ msgstr "Не удалось загрузить %s: %s"
 msgid "Import"
 msgstr "Импорт"
 
-msgid "No key found"
-msgstr "Ключ не найден"
+msgid "No key found."
+msgstr "Ключ не найден."
 
 msgid "<b>GPG Keys</b>"
 msgstr "<b>Ключи GPG</b>"
@@ -464,4 +494,10 @@ msgstr "Проверка контрольной суммы..."
 
 msgid "GPG Key verification failed"
 msgstr "Ошибка проверки ключа GPG"
+
+msgid "Error"
+msgstr "Error"
+
+msgid "Visible"
+msgstr "Visible"
 

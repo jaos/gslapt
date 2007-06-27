@@ -58,9 +58,6 @@ msgstr "Bulunamayan pixmap dosyası: %s"
 msgid "Description"
 msgstr "Açıklama"
 
-msgid "Dismiss"
-msgstr "Reddet"
-
 msgid "Download packages only"
 msgstr "Paketleri sadece indir"
 
@@ -172,7 +169,6 @@ msgstr "Kaynak"
 msgid "Sources"
 msgstr "Kaynaklar"
 
-#, fuzzy
 msgid "Suggests"
 msgstr "Önerilir"
 
@@ -194,9 +190,6 @@ msgstr "Yerel paket zulasını güncelle"
 msgid "Update"
 msgstr "Güncelle"
 
-msgid "Upgrade to newer release"
-msgstr "Yeni sürümlerine yükselt"
-
 msgid "Upgrade"
 msgstr "Yükselt"
 
@@ -208,9 +201,6 @@ msgstr "Yükseltiyor..."
 
 msgid "Version"
 msgstr "Sürüm"
-
-msgid "WARNING"
-msgstr "UYARI"
 
 msgid "Working Directory"
 msgstr "Çalışma Dizini"
@@ -249,11 +239,9 @@ msgstr "Arşivlerden  %.1d%s/%.1d%s alınacak.\n"
 msgid "Need to get %.1d%s of archives."
 msgstr "Arşivlerden  %.1d%s alınacak."
 
-#, fuzzy
 msgid "After unpacking %.1d%s disk space will be freed."
 msgstr "Paketlerin açılmasından sonra %.1d%s disk boşluğu kazanılacak."
 
-#, fuzzy
 msgid "After unpacking %.1d%s of additional disk space will be used."
 msgstr "Paketlerin açılmasından sonra %.1d%s ilave disk boşluğu kullanılacak."
 
@@ -281,7 +269,6 @@ msgstr ":Bağımlılık:"
 msgid "Package conflicts"
 msgstr "Paket çakışmaları"
 
-#, fuzzy
 msgid ", which is required by "
 msgstr ", gereksinim duyan"
 
@@ -303,7 +290,6 @@ msgstr "Kaynak:"
 msgid "<b>Name:</b>"
 msgstr "<b>Adı:</b>"
 
-#, fuzzy
 msgid "<b>Required:</b>"
 msgstr "<b>Gereksinim:</b>"
 
@@ -325,7 +311,6 @@ msgstr "<b>Sürüm</b>"
 msgid "<b>Source:</b>"
 msgstr "<b>Kaynak:</b>"
 
-#, fuzzy
 msgid "Common"
 msgstr "Ortak"
 
@@ -395,7 +380,6 @@ msgstr "<b>Kurulu Sürüm</b>"
 msgid "<b>Latest Available Version</b>"
 msgstr "<b>Uygun enson Sürüm</b>"
 
-#, fuzzy
 msgid "Failed to commit preferences"
 msgstr "Ayarları uygulamada başarısızlık"
 
@@ -492,8 +476,8 @@ msgstr "Failed to download %s: %s"
 msgid "Import"
 msgstr "Import"
 
-msgid "No key found"
-msgstr "No key found"
+msgid "No key found."
+msgstr "No key found."
 
 msgid "<b>GPG Keys</b>"
 msgstr "<b>GPG Keys</b>"
@@ -509,4 +493,10 @@ msgstr "Verifying checksum signature..."
 
 msgid "GPG Key verification failed"
 msgstr "GPG Key verification failed"
+
+msgid "Error"
+msgstr "Error"
+
+msgid "Visible"
+msgstr "Visible"
 

@@ -15,13 +15,6 @@ msgstr ""
 "Content-Type: text/plain; charset=ISO-8859-2\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Failed to calloc url\n"
-msgstr "Failed to calloc url\n"
-
-#, c-format
-msgid "Failed to download: %s\n"
-msgstr "Pobranie nie powiod³o siê: %s\n"
-
 msgid "Packages excluded"
 msgstr "Wykluczone pakiety"
 
@@ -43,8 +36,14 @@ msgstr "Usuwanie pakietu..."
 msgid "Installing packages..."
 msgstr "Instalacja packages..."
 
+msgid "Installing..."
+msgstr "Installing..."
+
 msgid "Upgrading packages..."
 msgstr "Aktualizacja pakietu..."
+
+msgid "Upgrading..."
+msgstr "Upgrading..."
 
 msgid "Preferences"
 msgstr "Preferencje"
@@ -82,6 +81,13 @@ msgstr "Up_grade"
 msgid "_Help"
 msgstr "_Pomoc"
 
+msgid ""
+"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
+"Slackware"
+msgstr ""
+"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
+"Slackware"
+
 msgid "About"
 msgstr "o programie"
 
@@ -94,23 +100,20 @@ msgstr "Aktualizuj lokalne cache"
 msgid "Execute"
 msgstr "Wykonaj"
 
+msgid "Expression"
+msgstr "Expression"
+
 msgid "Execute all scheduled actions in current transaction"
 msgstr "Wykonaj wszystkie zaplanowane akcje w bie¿±cej transakcji"
 
 msgid "Quit"
 msgstr "Opu¶æ"
 
-msgid "Search for expression"
-msgstr "Szukaj wyra¿enia"
-
 msgid "Clear"
 msgstr "Wyczy¶æ"
 
 msgid "Clear search expression"
 msgstr "Wyczy¶æ wyra¿enia"
-
-msgid "Packages"
-msgstr "Pakiety"
 
 msgid "Name"
 msgstr "Nazwa"
@@ -121,8 +124,14 @@ msgstr "Lokacja"
 msgid "Version"
 msgstr "Wersja"
 
+msgid "Search"
+msgstr "Search"
+
 msgid "Size:"
 msgstr "Rozmiar:"
+
+msgid "Source"
+msgstr "Source"
 
 msgid "Installed Size:"
 msgstr "Rozmiar po instalacji:"
@@ -145,6 +154,9 @@ msgstr "Opis"
 msgid "Package Information"
 msgstr "Informacje pakietu"
 
+msgid "Package"
+msgstr "Package"
+
 msgid "Install/Upgrade package"
 msgstr "Instaluj/Re-instaluj/Aktualizuj pakiet"
 
@@ -156,6 +168,9 @@ msgstr "Usuñ pakiet"
 
 msgid "Remove"
 msgstr "Usuñ"
+
+msgid "Downloading..."
+msgstr "Downloading..."
 
 msgid "Exclude package"
 msgstr "Wyklucz pakiet"
@@ -174,6 +189,9 @@ msgstr "<span weight=\"bold\" size=\"large\">U¿yæ nastêpuj±cych zmian?</span>"
 
 msgid "This is a summary of the changes about to be performed."
 msgstr "To jest podsumowanie zmian, które maj± zostaæ przeprowadzone."
+
+msgid "Uninstalling..."
+msgstr "Uninstalling..."
 
 msgid "Download packages only"
 msgstr "Tylko pobierz"
@@ -290,6 +308,9 @@ msgstr "<b>Wersja:</b>"
 msgid "<b>Version</b>"
 msgstr "<b>Wersja</b>"
 
+msgid "<b>Source:</b>"
+msgstr "<b>Source:</b>"
+
 msgid "Common"
 msgstr "Ogólne"
 
@@ -392,6 +413,9 @@ msgstr "<b>Ostatnio dostêpna wersja</b>"
 msgid "_Delete Cached Package Files"
 msgstr "_Usuñ pakiety w cache"
 
+msgid "Mark all possible upgrades"
+msgstr "Mark all possible upgrades"
+
 msgid "Enabled"
 msgstr "Umo¿liwiony"
 
@@ -452,8 +476,8 @@ msgstr "Pobieranie nie powiod³o siê %s: %s"
 msgid "Import"
 msgstr "Importuj"
 
-msgid "No key found"
-msgstr "Klucz nie znaleziony"
+msgid "No key found."
+msgstr "Klucz nie znaleziony."
 
 msgid "<b>GPG Keys</b>"
 msgstr "<b>GPG Klucze</b>"
@@ -469,4 +493,10 @@ msgstr "Sprawdzam sume kontroln± podpisu..."
 
 msgid "GPG Key verification failed"
 msgstr "Nie powiod³o siê sprawdzanie klucza GPG"
+
+msgid "Error"
+msgstr "Error"
+
+msgid "Visible"
+msgstr "Visible"
 

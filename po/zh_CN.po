@@ -58,9 +58,6 @@ msgstr "无法找到图像文件: %s"
 msgid "Description"
 msgstr "描述"
 
-msgid "Dismiss"
-msgstr "Dismiss"
-
 msgid "Download packages only"
 msgstr "仅下载软件包"
 
@@ -193,9 +190,6 @@ msgstr "更新本地软件包缓存"
 msgid "Update"
 msgstr "更新"
 
-msgid "Upgrade to newer release"
-msgstr "升级至更新的发行版"
-
 msgid "Upgrade"
 msgstr "升级"
 
@@ -207,9 +201,6 @@ msgstr "正在升级..."
 
 msgid "Version"
 msgstr "版本"
-
-msgid "WARNING"
-msgstr "_警告_"
 
 msgid "Working Directory"
 msgstr "工作目录"
@@ -316,6 +307,9 @@ msgstr "<b>版本:</b>"
 
 msgid "<b>Version</b>"
 msgstr "<b>版本</b>"
+
+msgid "<b>Source:</b>"
+msgstr "<b>Source:</b>"
 
 msgid "Common"
 msgstr "通用"
@@ -483,8 +477,8 @@ msgstr "Failed to download %s: %s"
 msgid "Import"
 msgstr "Import"
 
-msgid "No key found"
-msgstr "No key found"
+msgid "No key found."
+msgstr "No key found."
 
 msgid "<b>GPG Keys</b>"
 msgstr "<b>GPG Keys</b>"
@@ -500,4 +494,10 @@ msgstr "Verifying checksum signature..."
 
 msgid "GPG Key verification failed"
 msgstr "GPG Key verification failed"
+
+msgid "Error"
+msgstr "Error"
+
+msgid "Visible"
+msgstr "Visible"
 

@@ -59,9 +59,6 @@ msgstr "Kon pixmapbestand %s niet vinden"
 msgid "Description"
 msgstr "Beschrijving"
 
-msgid "Dismiss"
-msgstr "Sluit venster"
-
 msgid "Download packages only"
 msgstr "De pakketten alleen binnenhalen"
 
@@ -194,9 +191,6 @@ msgstr "Werk lokale pakkettencache bij"
 msgid "Update"
 msgstr "Werk bij"
 
-msgid "Upgrade to newer release"
-msgstr "Waardeer op naar nieuwere uitgave"
-
 msgid "Upgrade"
 msgstr "Waardeer op"
 
@@ -208,9 +202,6 @@ msgstr "Opwaarderen..."
 
 msgid "Version"
 msgstr "Versie"
-
-msgid "WARNING"
-msgstr "WAARSCHUWING"
 
 msgid "Working Directory"
 msgstr "Werkmap"
@@ -317,6 +308,9 @@ msgstr "<b>Versie:</b>"
 
 msgid "<b>Version</b>"
 msgstr "<b>Versie</b>"
+
+msgid "<b>Source:</b>"
+msgstr "<b>Source:</b>"
 
 msgid "Common"
 msgstr "Gemeenschappelijk"
@@ -483,8 +477,8 @@ msgstr "Failed to download %s: %s"
 msgid "Import"
 msgstr "Import"
 
-msgid "No key found"
-msgstr "No key found"
+msgid "No key found."
+msgstr "No key found."
 
 msgid "<b>GPG Keys</b>"
 msgstr "<b>GPG Keys</b>"
@@ -500,4 +494,10 @@ msgstr "Verifying checksum signature..."
 
 msgid "GPG Key verification failed"
 msgstr "GPG Key verification failed"
+
+msgid "Error"
+msgstr "Error"
+
+msgid "Visible"
+msgstr "Visible"
 

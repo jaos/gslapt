@@ -58,9 +58,6 @@ msgstr "KUnde inte hitta en pixmapfilen: %s"
 msgid "Description"
 msgstr "Beskrivning"
 
-msgid "Dismiss"
-msgstr "Avfärda"
-
 msgid "Download packages only"
 msgstr "Ladda endast ner paket"
 
@@ -205,9 +202,6 @@ msgstr "Uppgraderar..."
 msgid "Version"
 msgstr "Version"
 
-msgid "WARNING"
-msgstr "VARNING"
-
 msgid "Working Directory"
 msgstr "Arbetskatalog"
 
@@ -313,6 +307,9 @@ msgstr "<b>Version:</b>"
 
 msgid "<b>Version</b>"
 msgstr "<b>Version</b>"
+
+msgid "<b>Source:</b>"
+msgstr "<b>Source:</b>"
 
 msgid "Common"
 msgstr "Vanlig"
@@ -422,6 +419,9 @@ msgstr "Reading Package Lists..."
 msgid "_Delete Cached Package Files"
 msgstr "_Delete Cached Package Files"
 
+msgid "Mark all possible upgrades"
+msgstr "Mark all possible upgrades"
+
 msgid "Enabled"
 msgstr "Enabled"
 
@@ -476,8 +476,8 @@ msgstr "Failed to download %s: %s"
 msgid "Import"
 msgstr "Import"
 
-msgid "No key found"
-msgstr "No key found"
+msgid "No key found."
+msgstr "No key found."
 
 msgid "<b>GPG Keys</b>"
 msgstr "<b>GPG Keys</b>"
@@ -493,4 +493,10 @@ msgstr "Verifying checksum signature..."
 
 msgid "GPG Key verification failed"
 msgstr "GPG Key verification failed"
+
+msgid "Error"
+msgstr "Error"
+
+msgid "Visible"
+msgstr "Visible"
 
