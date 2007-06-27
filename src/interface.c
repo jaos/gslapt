@@ -92,7 +92,7 @@ create_window_preferences (void)
 
   window_preferences = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_widget_set_name (window_preferences, "window_preferences");
-  gtk_window_set_title (GTK_WINDOW (window_preferences), gettext("Preferences"));
+  gtk_window_set_title (GTK_WINDOW (window_preferences), _("Preferences"));
   gtk_window_set_position (GTK_WINDOW (window_preferences), GTK_WIN_POS_CENTER);
   gtk_window_set_modal (GTK_WINDOW (window_preferences), TRUE);
   gtk_window_set_default_size (GTK_WINDOW (window_preferences), 400, 300);
@@ -127,7 +127,7 @@ create_window_preferences (void)
   gtk_widget_show (preferences_working_dir_vbox_vbox);
   gtk_box_pack_start (GTK_BOX (preferences_working_dir_vbox), preferences_working_dir_vbox_vbox, TRUE, TRUE, 0);
 
-  preferences_working_dir_label = gtk_label_new (gettext("<b>Package and data storage</b>"));
+  preferences_working_dir_label = gtk_label_new (_("<b>Package and data storage</b>"));
   gtk_widget_set_name (preferences_working_dir_label, "preferences_working_dir_label");
   gtk_widget_show (preferences_working_dir_label);
   gtk_box_pack_start (GTK_BOX (preferences_working_dir_vbox_vbox), preferences_working_dir_label, FALSE, FALSE, 0);
@@ -154,12 +154,12 @@ create_window_preferences (void)
   gtk_widget_show (preferences_working_dir_entry);
   gtk_box_pack_start (GTK_BOX (vbox12), preferences_working_dir_entry, FALSE, FALSE, 0);
 
-  button7 = gtk_button_new_with_mnemonic (gettext("_Delete Cached Package Files"));
+  button7 = gtk_button_new_with_mnemonic (_("_Delete Cached Package Files"));
   gtk_widget_set_name (button7, "button7");
   gtk_widget_show (button7);
   gtk_box_pack_start (GTK_BOX (vbox12), button7, FALSE, FALSE, 0);
 
-  label50 = gtk_label_new (gettext("Working Directory"));
+  label50 = gtk_label_new (_("Working Directory"));
   gtk_widget_set_name (label50, "label50");
   gtk_widget_show (label50);
   gtk_notebook_set_tab_label (GTK_NOTEBOOK (preferences_notebook), gtk_notebook_get_nth_page (GTK_NOTEBOOK (preferences_notebook), 0), label50);
@@ -177,7 +177,7 @@ create_window_preferences (void)
   gtk_box_pack_start (GTK_BOX (preferences_exclude_vbox), preferences_exclude_vbox_vbox, TRUE, TRUE, 0);
   gtk_container_set_border_width (GTK_CONTAINER (preferences_exclude_vbox_vbox), 12);
 
-  preferences_exclude_label = gtk_label_new (gettext("<b>Exclude List</b>"));
+  preferences_exclude_label = gtk_label_new (_("<b>Exclude List</b>"));
   gtk_widget_set_name (preferences_exclude_label, "preferences_exclude_label");
   gtk_widget_show (preferences_exclude_label);
   gtk_box_pack_start (GTK_BOX (preferences_exclude_vbox_vbox), preferences_exclude_label, FALSE, FALSE, 0);
@@ -232,7 +232,7 @@ create_window_preferences (void)
   gtk_box_pack_start (GTK_BOX (preferences_exclude_vbox_vbox), hbox95, FALSE, TRUE, 0);
   gtk_container_set_border_width (GTK_CONTAINER (hbox95), 6);
 
-  label164 = gtk_label_new (gettext("<span weight=\"bold\">Exclude Expression:</span>"));
+  label164 = gtk_label_new (_("<span weight=\"bold\">Exclude Expression:</span>"));
   gtk_widget_set_name (label164, "label164");
   gtk_widget_show (label164);
   gtk_box_pack_start (GTK_BOX (hbox95), label164, FALSE, FALSE, 0);
@@ -249,7 +249,7 @@ create_window_preferences (void)
   gtk_box_pack_start (GTK_BOX (hbox95), preferences_add_exclude_button, FALSE, FALSE, 0);
   GTK_WIDGET_SET_FLAGS (preferences_add_exclude_button, GTK_CAN_DEFAULT);
 
-  label51 = gtk_label_new (gettext("Excludes"));
+  label51 = gtk_label_new (_("Excludes"));
   gtk_widget_set_name (label51, "label51");
   gtk_widget_show (label51);
   gtk_notebook_set_tab_label (GTK_NOTEBOOK (preferences_notebook), gtk_notebook_get_nth_page (GTK_NOTEBOOK (preferences_notebook), 1), label51);
@@ -267,7 +267,7 @@ create_window_preferences (void)
   gtk_box_pack_start (GTK_BOX (preferences_sources_vbox), vbox57, TRUE, TRUE, 0);
   gtk_container_set_border_width (GTK_CONTAINER (vbox57), 12);
 
-  label161 = gtk_label_new (gettext("<b>Package Sources</b>"));
+  label161 = gtk_label_new (_("<b>Package Sources</b>"));
   gtk_widget_set_name (label161, "label161");
   gtk_widget_show (label161);
   gtk_box_pack_start (GTK_BOX (vbox57), label161, FALSE, FALSE, 0);
@@ -326,7 +326,7 @@ create_window_preferences (void)
   gtk_box_pack_start (GTK_BOX (vbox57), hbox94, FALSE, TRUE, 0);
   gtk_container_set_border_width (GTK_CONTAINER (hbox94), 6);
 
-  label163 = gtk_label_new (gettext("<span weight=\"bold\">SOURCE=</span>"));
+  label163 = gtk_label_new (_("<span weight=\"bold\">SOURCE=</span>"));
   gtk_widget_set_name (label163, "label163");
   gtk_widget_show (label163);
   gtk_box_pack_start (GTK_BOX (hbox94), label163, FALSE, FALSE, 0);
@@ -343,7 +343,7 @@ create_window_preferences (void)
   gtk_box_pack_start (GTK_BOX (hbox94), preferences_add_source_button, FALSE, FALSE, 0);
   GTK_WIDGET_SET_FLAGS (preferences_add_source_button, GTK_CAN_DEFAULT);
 
-  label160 = gtk_label_new (gettext("Sources"));
+  label160 = gtk_label_new (_("Sources"));
   gtk_widget_set_name (label160, "label160");
   gtk_widget_show (label160);
   gtk_notebook_set_tab_label (GTK_NOTEBOOK (preferences_notebook), gtk_notebook_get_nth_page (GTK_NOTEBOOK (preferences_notebook), 2), label160);
@@ -361,7 +361,7 @@ create_window_preferences (void)
   gtk_box_pack_start (GTK_BOX (preferences_verification_vbox), vbox76, TRUE, TRUE, 0);
   gtk_container_set_border_width (GTK_CONTAINER (vbox76), 12);
 
-  label294 = gtk_label_new (gettext("<b>GPG Keys</b>"));
+  label294 = gtk_label_new (_("<b>GPG Keys</b>"));
   gtk_widget_set_name (label294, "label294");
   gtk_widget_show (label294);
   gtk_box_pack_start (GTK_BOX (vbox76), label294, FALSE, FALSE, 0);
@@ -409,7 +409,7 @@ create_window_preferences (void)
   gtk_box_pack_start (GTK_BOX (vbox77), button9, FALSE, FALSE, 0);
   GTK_WIDGET_SET_FLAGS (button9, GTK_CAN_DEFAULT);
 
-  label293 = gtk_label_new (gettext("Verification"));
+  label293 = gtk_label_new (_("Verification"));
   gtk_widget_set_name (label293, "label293");
   gtk_widget_show (label293);
   gtk_notebook_set_tab_label (GTK_NOTEBOOK (preferences_notebook), gtk_notebook_get_nth_page (GTK_NOTEBOOK (preferences_notebook), 3), label293);
@@ -672,7 +672,7 @@ create_gslapt (void)
 
   gslapt = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_widget_set_name (gslapt, "gslapt");
-  gtk_window_set_title (GTK_WINDOW (gslapt), gettext("Gslapt"));
+  gtk_window_set_title (GTK_WINDOW (gslapt), _("Gslapt"));
   gtk_window_set_position (GTK_WINDOW (gslapt), GTK_WIN_POS_CENTER);
   gtk_window_set_default_size (GTK_WINDOW (gslapt), 640, 480);
   gslapt_icon_pixbuf = create_pixbuf ("gslapt.png");
@@ -693,7 +693,7 @@ create_gslapt (void)
   gtk_widget_show (top_menubar);
   gtk_box_pack_start (GTK_BOX (gslapt_vbox), top_menubar, FALSE, FALSE, 0);
 
-  actions2 = gtk_menu_item_new_with_mnemonic (gettext("_File"));
+  actions2 = gtk_menu_item_new_with_mnemonic (_("_File"));
   gtk_widget_set_name (actions2, "actions2");
   gtk_widget_show (actions2);
   gtk_container_add (GTK_CONTAINER (top_menubar), actions2);
@@ -702,11 +702,11 @@ create_gslapt (void)
   gtk_widget_set_name (actions2_menu, "actions2_menu");
   gtk_menu_item_set_submenu (GTK_MENU_ITEM (actions2), actions2_menu);
 
-  update1 = gtk_image_menu_item_new_with_mnemonic (gettext("Update"));
+  update1 = gtk_image_menu_item_new_with_mnemonic (_("Update"));
   gtk_widget_set_name (update1, "update1");
   gtk_widget_show (update1);
   gtk_container_add (GTK_CONTAINER (actions2_menu), update1);
-  gtk_tooltips_set_tip (tooltips, update1, gettext("Update local package cache"), NULL);
+  gtk_tooltips_set_tip (tooltips, update1, _("Update local package cache"), NULL);
   gtk_widget_add_accelerator (update1, "activate", accel_group,
                               GDK_y, (GdkModifierType) GDK_CONTROL_MASK,
                               GTK_ACCEL_VISIBLE);
@@ -716,11 +716,11 @@ create_gslapt (void)
   gtk_widget_show (image1676);
   gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (update1), image1676);
 
-  mark_all_upgrades2 = gtk_image_menu_item_new_with_mnemonic (gettext("Mark All Upgrades"));
+  mark_all_upgrades2 = gtk_image_menu_item_new_with_mnemonic (_("Mark All Upgrades"));
   gtk_widget_set_name (mark_all_upgrades2, "mark_all_upgrades2");
   gtk_widget_show (mark_all_upgrades2);
   gtk_container_add (GTK_CONTAINER (actions2_menu), mark_all_upgrades2);
-  gtk_tooltips_set_tip (tooltips, mark_all_upgrades2, gettext("Mark all possible upgrades"), NULL);
+  gtk_tooltips_set_tip (tooltips, mark_all_upgrades2, _("Mark all possible upgrades"), NULL);
   gtk_widget_add_accelerator (mark_all_upgrades2, "activate", accel_group,
                               GDK_a, (GdkModifierType) GDK_CONTROL_MASK,
                               GTK_ACCEL_VISIBLE);
@@ -730,11 +730,11 @@ create_gslapt (void)
   gtk_widget_show (image1677);
   gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (mark_all_upgrades2), image1677);
 
-  mark_obsolete1 = gtk_image_menu_item_new_with_mnemonic (gettext("Mark Obsolete"));
+  mark_obsolete1 = gtk_image_menu_item_new_with_mnemonic (_("Mark Obsolete"));
   gtk_widget_set_name (mark_obsolete1, "mark_obsolete1");
   gtk_widget_show (mark_obsolete1);
   gtk_container_add (GTK_CONTAINER (actions2_menu), mark_obsolete1);
-  gtk_tooltips_set_tip (tooltips, mark_obsolete1, gettext("Mark all obsolete packages"), NULL);
+  gtk_tooltips_set_tip (tooltips, mark_obsolete1, _("Mark all obsolete packages"), NULL);
   gtk_widget_add_accelerator (mark_obsolete1, "activate", accel_group,
                               GDK_o, (GdkModifierType) GDK_CONTROL_MASK,
                               GTK_ACCEL_VISIBLE);
@@ -744,11 +744,11 @@ create_gslapt (void)
   gtk_widget_show (image1678);
   gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (mark_obsolete1), image1678);
 
-  execute1 = gtk_image_menu_item_new_with_mnemonic (gettext("Execute"));
+  execute1 = gtk_image_menu_item_new_with_mnemonic (_("Execute"));
   gtk_widget_set_name (execute1, "execute1");
   gtk_widget_show (execute1);
   gtk_container_add (GTK_CONTAINER (actions2_menu), execute1);
-  gtk_tooltips_set_tip (tooltips, execute1, gettext("Execute all scheduled actions in current transaction"), NULL);
+  gtk_tooltips_set_tip (tooltips, execute1, _("Execute all scheduled actions in current transaction"), NULL);
   gtk_widget_add_accelerator (execute1, "activate", accel_group,
                               GDK_Return, (GdkModifierType) GDK_CONTROL_MASK,
                               GTK_ACCEL_VISIBLE);
@@ -769,7 +769,7 @@ create_gslapt (void)
   gtk_widget_show (quit);
   gtk_container_add (GTK_CONTAINER (actions2_menu), quit);
 
-  edit1 = gtk_menu_item_new_with_mnemonic (gettext("_Edit"));
+  edit1 = gtk_menu_item_new_with_mnemonic (_("_Edit"));
   gtk_widget_set_name (edit1, "edit1");
   gtk_widget_show (edit1);
   gtk_container_add (GTK_CONTAINER (top_menubar), edit1);
@@ -778,7 +778,7 @@ create_gslapt (void)
   gtk_widget_set_name (edit1_menu, "edit1_menu");
   gtk_menu_item_set_submenu (GTK_MENU_ITEM (edit1), edit1_menu);
 
-  unmark_all1 = gtk_image_menu_item_new_with_mnemonic (gettext("Unmark All"));
+  unmark_all1 = gtk_image_menu_item_new_with_mnemonic (_("Unmark All"));
   gtk_widget_set_name (unmark_all1, "unmark_all1");
   gtk_widget_show (unmark_all1);
   gtk_container_add (GTK_CONTAINER (edit1_menu), unmark_all1);
@@ -797,7 +797,7 @@ create_gslapt (void)
   gtk_container_add (GTK_CONTAINER (edit1_menu), separator1);
   gtk_widget_set_sensitive (separator1, FALSE);
 
-  preferences2 = gtk_image_menu_item_new_with_mnemonic (gettext("Preferences"));
+  preferences2 = gtk_image_menu_item_new_with_mnemonic (_("Preferences"));
   gtk_widget_set_name (preferences2, "preferences2");
   gtk_widget_show (preferences2);
   gtk_container_add (GTK_CONTAINER (edit1_menu), preferences2);
@@ -810,7 +810,7 @@ create_gslapt (void)
   gtk_widget_show (image1681);
   gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (preferences2), image1681);
 
-  view1 = gtk_menu_item_new_with_mnemonic (gettext("_View"));
+  view1 = gtk_menu_item_new_with_mnemonic (_("_View"));
   gtk_widget_set_name (view1, "view1");
   gtk_widget_show (view1);
   gtk_container_add (GTK_CONTAINER (top_menubar), view1);
@@ -819,48 +819,48 @@ create_gslapt (void)
   gtk_widget_set_name (view1_menu, "view1_menu");
   gtk_menu_item_set_submenu (GTK_MENU_ITEM (view1), view1_menu);
 
-  view_all_packages_menu = gtk_radio_menu_item_new_with_mnemonic (view_all_packages_menu_group, gettext("All"));
+  view_all_packages_menu = gtk_radio_menu_item_new_with_mnemonic (view_all_packages_menu_group, _("All"));
   view_all_packages_menu_group = gtk_radio_menu_item_get_group (GTK_RADIO_MENU_ITEM (view_all_packages_menu));
   gtk_widget_set_name (view_all_packages_menu, "view_all_packages_menu");
   gtk_widget_show (view_all_packages_menu);
   gtk_container_add (GTK_CONTAINER (view1_menu), view_all_packages_menu);
-  gtk_tooltips_set_tip (tooltips, view_all_packages_menu, gettext("View all packages"), NULL);
+  gtk_tooltips_set_tip (tooltips, view_all_packages_menu, _("View all packages"), NULL);
   gtk_widget_add_accelerator (view_all_packages_menu, "activate", accel_group,
                               GDK_F1, (GdkModifierType) 0,
                               GTK_ACCEL_VISIBLE);
   gtk_check_menu_item_set_active (GTK_CHECK_MENU_ITEM (view_all_packages_menu), TRUE);
 
-  view_available_packages_menu = gtk_radio_menu_item_new_with_mnemonic (view_all_packages_menu_group, gettext("Available"));
+  view_available_packages_menu = gtk_radio_menu_item_new_with_mnemonic (view_all_packages_menu_group, _("Available"));
   view_all_packages_menu_group = gtk_radio_menu_item_get_group (GTK_RADIO_MENU_ITEM (view_available_packages_menu));
   gtk_widget_set_name (view_available_packages_menu, "view_available_packages_menu");
   gtk_widget_show (view_available_packages_menu);
   gtk_container_add (GTK_CONTAINER (view1_menu), view_available_packages_menu);
-  gtk_tooltips_set_tip (tooltips, view_available_packages_menu, gettext("View available packages from current sources"), NULL);
+  gtk_tooltips_set_tip (tooltips, view_available_packages_menu, _("View available packages from current sources"), NULL);
   gtk_widget_add_accelerator (view_available_packages_menu, "activate", accel_group,
                               GDK_F2, (GdkModifierType) 0,
                               GTK_ACCEL_VISIBLE);
 
-  view_installed_packages_menu = gtk_radio_menu_item_new_with_mnemonic (view_all_packages_menu_group, gettext("Installed"));
+  view_installed_packages_menu = gtk_radio_menu_item_new_with_mnemonic (view_all_packages_menu_group, _("Installed"));
   view_all_packages_menu_group = gtk_radio_menu_item_get_group (GTK_RADIO_MENU_ITEM (view_installed_packages_menu));
   gtk_widget_set_name (view_installed_packages_menu, "view_installed_packages_menu");
   gtk_widget_show (view_installed_packages_menu);
   gtk_container_add (GTK_CONTAINER (view1_menu), view_installed_packages_menu);
-  gtk_tooltips_set_tip (tooltips, view_installed_packages_menu, gettext("View installed packages"), NULL);
+  gtk_tooltips_set_tip (tooltips, view_installed_packages_menu, _("View installed packages"), NULL);
   gtk_widget_add_accelerator (view_installed_packages_menu, "activate", accel_group,
                               GDK_F3, (GdkModifierType) 0,
                               GTK_ACCEL_VISIBLE);
 
-  view_marked_packages_menu = gtk_radio_menu_item_new_with_mnemonic (view_all_packages_menu_group, gettext("Marked"));
+  view_marked_packages_menu = gtk_radio_menu_item_new_with_mnemonic (view_all_packages_menu_group, _("Marked"));
   view_all_packages_menu_group = gtk_radio_menu_item_get_group (GTK_RADIO_MENU_ITEM (view_marked_packages_menu));
   gtk_widget_set_name (view_marked_packages_menu, "view_marked_packages_menu");
   gtk_widget_show (view_marked_packages_menu);
   gtk_container_add (GTK_CONTAINER (view1_menu), view_marked_packages_menu);
-  gtk_tooltips_set_tip (tooltips, view_marked_packages_menu, gettext("View Marked Packages"), NULL);
+  gtk_tooltips_set_tip (tooltips, view_marked_packages_menu, _("View Marked Packages"), NULL);
   gtk_widget_add_accelerator (view_marked_packages_menu, "activate", accel_group,
                               GDK_F4, (GdkModifierType) 0,
                               GTK_ACCEL_VISIBLE);
 
-  package1 = gtk_menu_item_new_with_mnemonic (gettext("P_ackage"));
+  package1 = gtk_menu_item_new_with_mnemonic (_("P_ackage"));
   gtk_widget_set_name (package1, "package1");
   gtk_widget_show (package1);
   gtk_container_add (GTK_CONTAINER (top_menubar), package1);
@@ -869,7 +869,7 @@ create_gslapt (void)
   gtk_widget_set_name (package1_menu, "package1_menu");
   gtk_menu_item_set_submenu (GTK_MENU_ITEM (package1), package1_menu);
 
-  unmark1 = gtk_image_menu_item_new_with_mnemonic (gettext("Unmark"));
+  unmark1 = gtk_image_menu_item_new_with_mnemonic (_("Unmark"));
   gtk_widget_set_name (unmark1, "unmark1");
   gtk_widget_show (unmark1);
   gtk_container_add (GTK_CONTAINER (package1_menu), unmark1);
@@ -883,7 +883,7 @@ create_gslapt (void)
   gtk_widget_show (image1682);
   gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (unmark1), image1682);
 
-  install1 = gtk_image_menu_item_new_with_mnemonic (gettext("Install"));
+  install1 = gtk_image_menu_item_new_with_mnemonic (_("Install"));
   gtk_widget_set_name (install1, "install1");
   gtk_widget_show (install1);
   gtk_container_add (GTK_CONTAINER (package1_menu), install1);
@@ -897,7 +897,7 @@ create_gslapt (void)
   gtk_widget_show (image1683);
   gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (install1), image1683);
 
-  re_install1 = gtk_image_menu_item_new_with_mnemonic (gettext("Re-Install"));
+  re_install1 = gtk_image_menu_item_new_with_mnemonic (_("Re-Install"));
   gtk_widget_set_name (re_install1, "re_install1");
   gtk_widget_show (re_install1);
   gtk_container_add (GTK_CONTAINER (package1_menu), re_install1);
@@ -911,7 +911,7 @@ create_gslapt (void)
   gtk_widget_show (image1684);
   gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (re_install1), image1684);
 
-  upgrade1 = gtk_image_menu_item_new_with_mnemonic (gettext("Upgrade"));
+  upgrade1 = gtk_image_menu_item_new_with_mnemonic (_("Upgrade"));
   gtk_widget_set_name (upgrade1, "upgrade1");
   gtk_widget_show (upgrade1);
   gtk_container_add (GTK_CONTAINER (package1_menu), upgrade1);
@@ -925,7 +925,7 @@ create_gslapt (void)
   gtk_widget_show (image1685);
   gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (upgrade1), image1685);
 
-  downgrade1 = gtk_image_menu_item_new_with_mnemonic (gettext("Downgrade"));
+  downgrade1 = gtk_image_menu_item_new_with_mnemonic (_("Downgrade"));
   gtk_widget_set_name (downgrade1, "downgrade1");
   gtk_widget_show (downgrade1);
   gtk_container_add (GTK_CONTAINER (package1_menu), downgrade1);
@@ -939,7 +939,7 @@ create_gslapt (void)
   gtk_widget_show (image1686);
   gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (downgrade1), image1686);
 
-  remove1 = gtk_image_menu_item_new_with_mnemonic (gettext("Remove"));
+  remove1 = gtk_image_menu_item_new_with_mnemonic (_("Remove"));
   gtk_widget_set_name (remove1, "remove1");
   gtk_widget_show (remove1);
   gtk_container_add (GTK_CONTAINER (package1_menu), remove1);
@@ -953,7 +953,7 @@ create_gslapt (void)
   gtk_widget_show (image1687);
   gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (remove1), image1687);
 
-  help3 = gtk_menu_item_new_with_mnemonic (gettext("_Help"));
+  help3 = gtk_menu_item_new_with_mnemonic (_("_Help"));
   gtk_widget_set_name (help3, "help3");
   gtk_widget_show (help3);
   gtk_container_add (GTK_CONTAINER (top_menubar), help3);
@@ -962,7 +962,7 @@ create_gslapt (void)
   gtk_widget_set_name (help3_menu, "help3_menu");
   gtk_menu_item_set_submenu (GTK_MENU_ITEM (help3), help3_menu);
 
-  icon_legend1 = gtk_image_menu_item_new_with_mnemonic (gettext("Icon Legend"));
+  icon_legend1 = gtk_image_menu_item_new_with_mnemonic (_("Icon Legend"));
   gtk_widget_set_name (icon_legend1, "icon_legend1");
   gtk_widget_show (icon_legend1);
   gtk_container_add (GTK_CONTAINER (help3_menu), icon_legend1);
@@ -972,7 +972,7 @@ create_gslapt (void)
   gtk_widget_show (image1688);
   gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (icon_legend1), image1688);
 
-  about3 = gtk_image_menu_item_new_with_mnemonic (gettext("About"));
+  about3 = gtk_image_menu_item_new_with_mnemonic (_("About"));
   gtk_widget_set_name (about3, "about3");
   gtk_widget_show (about3);
   gtk_container_add (GTK_CONTAINER (help3_menu), about3);
@@ -991,19 +991,19 @@ create_gslapt (void)
 
   tmp_image = gtk_image_new_from_stock ("gtk-refresh", tmp_toolbar_icon_size);
   gtk_widget_show (tmp_image);
-  action_bar_update_button = (GtkWidget*) gtk_tool_button_new (tmp_image, gettext("Update"));
+  action_bar_update_button = (GtkWidget*) gtk_tool_button_new (tmp_image, _("Update"));
   gtk_widget_set_name (action_bar_update_button, "action_bar_update_button");
   gtk_widget_show (action_bar_update_button);
   gtk_container_add (GTK_CONTAINER (action_toolbar), action_bar_update_button);
-  gtk_tool_item_set_tooltip (GTK_TOOL_ITEM (action_bar_update_button), tooltips, gettext("Update local package cache"), NULL);
+  gtk_tool_item_set_tooltip (GTK_TOOL_ITEM (action_bar_update_button), tooltips, _("Update local package cache"), NULL);
 
   tmp_image = gtk_image_new_from_stock ("gtk-go-up", tmp_toolbar_icon_size);
   gtk_widget_show (tmp_image);
-  action_bar_upgrade_button = (GtkWidget*) gtk_tool_button_new (tmp_image, gettext("Mark All Upgrades"));
+  action_bar_upgrade_button = (GtkWidget*) gtk_tool_button_new (tmp_image, _("Mark All Upgrades"));
   gtk_widget_set_name (action_bar_upgrade_button, "action_bar_upgrade_button");
   gtk_widget_show (action_bar_upgrade_button);
   gtk_container_add (GTK_CONTAINER (action_toolbar), action_bar_upgrade_button);
-  gtk_tool_item_set_tooltip (GTK_TOOL_ITEM (action_bar_upgrade_button), tooltips, gettext("Mark all possible upgrades"), NULL);
+  gtk_tool_item_set_tooltip (GTK_TOOL_ITEM (action_bar_upgrade_button), tooltips, _("Mark all possible upgrades"), NULL);
 
   separatortoolitem1 = (GtkWidget*) gtk_separator_tool_item_new ();
   gtk_widget_set_name (separatortoolitem1, "separatortoolitem1");
@@ -1012,11 +1012,11 @@ create_gslapt (void)
 
   tmp_image = gtk_image_new_from_stock ("gtk-apply", tmp_toolbar_icon_size);
   gtk_widget_show (tmp_image);
-  action_bar_execute_button = (GtkWidget*) gtk_tool_button_new (tmp_image, gettext("Execute"));
+  action_bar_execute_button = (GtkWidget*) gtk_tool_button_new (tmp_image, _("Execute"));
   gtk_widget_set_name (action_bar_execute_button, "action_bar_execute_button");
   gtk_widget_show (action_bar_execute_button);
   gtk_container_add (GTK_CONTAINER (action_toolbar), action_bar_execute_button);
-  gtk_tool_item_set_tooltip (GTK_TOOL_ITEM (action_bar_execute_button), tooltips, gettext("Execute all scheduled actions in current transaction"), NULL);
+  gtk_tool_item_set_tooltip (GTK_TOOL_ITEM (action_bar_execute_button), tooltips, _("Execute all scheduled actions in current transaction"), NULL);
 
   search_vbox = gtk_vbox_new (FALSE, 6);
   gtk_widget_set_name (search_vbox, "search_vbox");
@@ -1035,7 +1035,7 @@ create_gslapt (void)
   gtk_widget_show (search_hbox);
   gtk_container_add (GTK_CONTAINER (search_align), search_hbox);
 
-  label292 = gtk_label_new (gettext("Search"));
+  label292 = gtk_label_new (_("Search"));
   gtk_widget_set_name (label292, "label292");
   gtk_widget_show (label292);
   gtk_box_pack_start (GTK_BOX (search_hbox), label292, FALSE, TRUE, 6);
@@ -1100,7 +1100,7 @@ create_gslapt (void)
   gtk_table_set_row_spacings (GTK_TABLE (table2), 6);
   gtk_table_set_col_spacings (GTK_TABLE (table2), 12);
 
-  label226 = gtk_label_new (gettext("<b>Name:</b>"));
+  label226 = gtk_label_new (_("<b>Name:</b>"));
   gtk_widget_set_name (label226, "label226");
   gtk_widget_show (label226);
   gtk_table_attach (GTK_TABLE (table2), label226, 0, 1, 0, 1,
@@ -1109,7 +1109,7 @@ create_gslapt (void)
   gtk_label_set_use_markup (GTK_LABEL (label226), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label226), 0, 0.5);
 
-  pkg_info_name = gtk_label_new (gettext("No package is selected."));
+  pkg_info_name = gtk_label_new (_("No package is selected."));
   gtk_widget_set_name (pkg_info_name, "pkg_info_name");
   gtk_widget_show (pkg_info_name);
   gtk_table_attach (GTK_TABLE (table2), pkg_info_name, 1, 2, 0, 1,
@@ -1120,7 +1120,7 @@ create_gslapt (void)
   gtk_label_set_selectable (GTK_LABEL (pkg_info_name), TRUE);
   gtk_misc_set_alignment (GTK_MISC (pkg_info_name), 0, 0.5);
 
-  label244 = gtk_label_new (gettext("<b>Location:</b>"));
+  label244 = gtk_label_new (_("<b>Location:</b>"));
   gtk_widget_set_name (label244, "label244");
   gtk_widget_show (label244);
   gtk_table_attach (GTK_TABLE (table2), label244, 0, 1, 3, 4,
@@ -1140,7 +1140,7 @@ create_gslapt (void)
   gtk_label_set_selectable (GTK_LABEL (pkg_info_location), TRUE);
   gtk_misc_set_alignment (GTK_MISC (pkg_info_location), 0, 0.5);
 
-  label250 = gtk_label_new (gettext("<b>Status:</b>"));
+  label250 = gtk_label_new (_("<b>Status:</b>"));
   gtk_widget_set_name (label250, "label250");
   gtk_widget_show (label250);
   gtk_table_attach (GTK_TABLE (table2), label250, 0, 1, 2, 3,
@@ -1149,7 +1149,7 @@ create_gslapt (void)
   gtk_label_set_use_markup (GTK_LABEL (label250), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label250), 0, 0.5);
 
-  label227 = gtk_label_new (gettext("<b>Description:</b>"));
+  label227 = gtk_label_new (_("<b>Description:</b>"));
   gtk_widget_set_name (label227, "label227");
   gtk_widget_show (label227);
   gtk_table_attach (GTK_TABLE (table2), label227, 0, 1, 1, 2,
@@ -1167,7 +1167,7 @@ create_gslapt (void)
   gtk_label_set_use_markup (GTK_LABEL (pkg_info_description), TRUE);
   gtk_misc_set_alignment (GTK_MISC (pkg_info_description), 0, 0.5);
 
-  label273 = gtk_label_new (gettext("<b>Version:</b>"));
+  label273 = gtk_label_new (_("<b>Version:</b>"));
   gtk_widget_set_name (label273, "label273");
   gtk_widget_show (label273);
   gtk_table_attach (GTK_TABLE (table2), label273, 0, 1, 4, 5,
@@ -1196,7 +1196,7 @@ create_gslapt (void)
   gtk_label_set_use_markup (GTK_LABEL (pkg_info_status), TRUE);
   gtk_misc_set_alignment (GTK_MISC (pkg_info_status), 0, 0.5);
 
-  label291 = gtk_label_new (gettext("<b>Source:</b>"));
+  label291 = gtk_label_new (_("<b>Source:</b>"));
   gtk_widget_set_name (label291, "label291");
   gtk_widget_show (label291);
   gtk_table_attach (GTK_TABLE (table2), label291, 0, 1, 5, 6,
@@ -1221,7 +1221,7 @@ create_gslapt (void)
   gtk_widget_show (vbox67);
   gtk_box_pack_start (GTK_BOX (vbox63), vbox67, FALSE, FALSE, 0);
 
-  label272 = gtk_label_new (gettext("<b>Installed Version</b>"));
+  label272 = gtk_label_new (_("<b>Installed Version</b>"));
   gtk_widget_set_name (label272, "label272");
   gtk_widget_show (label272);
   gtk_box_pack_start (GTK_BOX (vbox67), label272, FALSE, FALSE, 0);
@@ -1233,7 +1233,7 @@ create_gslapt (void)
   gtk_widget_show (hbox106);
   gtk_box_pack_start (GTK_BOX (vbox67), hbox106, TRUE, TRUE, 0);
 
-  label271 = gtk_label_new (gettext("   "));
+  label271 = gtk_label_new (_("   "));
   gtk_widget_set_name (label271, "label271");
   gtk_widget_show (label271);
   gtk_box_pack_start (GTK_BOX (hbox106), label271, FALSE, FALSE, 0);
@@ -1247,7 +1247,7 @@ create_gslapt (void)
   gtk_table_set_row_spacings (GTK_TABLE (table3), 6);
   gtk_table_set_col_spacings (GTK_TABLE (table3), 12);
 
-  label237 = gtk_label_new (gettext("Version:"));
+  label237 = gtk_label_new (_("Version:"));
   gtk_widget_set_name (label237, "label237");
   gtk_widget_show (label237);
   gtk_table_attach (GTK_TABLE (table3), label237, 0, 1, 0, 1,
@@ -1267,7 +1267,7 @@ create_gslapt (void)
   gtk_label_set_selectable (GTK_LABEL (pkg_info_installed_version), TRUE);
   gtk_misc_set_alignment (GTK_MISC (pkg_info_installed_version), 0, 0.5);
 
-  label239 = gtk_label_new (gettext("Installed Size:"));
+  label239 = gtk_label_new (_("Installed Size:"));
   gtk_widget_set_name (label239, "label239");
   gtk_widget_show (label239);
   gtk_table_attach (GTK_TABLE (table3), label239, 0, 1, 1, 2,
@@ -1290,7 +1290,7 @@ create_gslapt (void)
   gtk_widget_show (vbox66);
   gtk_box_pack_start (GTK_BOX (vbox63), vbox66, TRUE, TRUE, 0);
 
-  label261 = gtk_label_new (gettext("<b>Latest Available Version</b>"));
+  label261 = gtk_label_new (_("<b>Latest Available Version</b>"));
   gtk_widget_set_name (label261, "label261");
   gtk_widget_show (label261);
   gtk_box_pack_start (GTK_BOX (vbox66), label261, FALSE, FALSE, 0);
@@ -1302,7 +1302,7 @@ create_gslapt (void)
   gtk_widget_show (hbox105);
   gtk_box_pack_start (GTK_BOX (vbox66), hbox105, TRUE, TRUE, 0);
 
-  label262 = gtk_label_new (gettext("   "));
+  label262 = gtk_label_new (_("   "));
   gtk_widget_set_name (label262, "label262");
   gtk_widget_show (label262);
   gtk_box_pack_start (GTK_BOX (hbox105), label262, FALSE, TRUE, 0);
@@ -1314,7 +1314,7 @@ create_gslapt (void)
   gtk_table_set_row_spacings (GTK_TABLE (table5), 6);
   gtk_table_set_col_spacings (GTK_TABLE (table5), 12);
 
-  label263 = gtk_label_new (gettext("Version:"));
+  label263 = gtk_label_new (_("Version:"));
   gtk_widget_set_name (label263, "label263");
   gtk_widget_show (label263);
   gtk_table_attach (GTK_TABLE (table5), label263, 0, 1, 0, 1,
@@ -1323,7 +1323,7 @@ create_gslapt (void)
   gtk_label_set_use_markup (GTK_LABEL (label263), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label263), 0, 0.5);
 
-  label264 = gtk_label_new (gettext("Size:"));
+  label264 = gtk_label_new (_("Size:"));
   gtk_widget_set_name (label264, "label264");
   gtk_widget_show (label264);
   gtk_table_attach (GTK_TABLE (table5), label264, 0, 1, 1, 2,
@@ -1332,7 +1332,7 @@ create_gslapt (void)
   gtk_label_set_use_markup (GTK_LABEL (label264), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label264), 0, 0.5);
 
-  label265 = gtk_label_new (gettext("Installed Size:"));
+  label265 = gtk_label_new (_("Installed Size:"));
   gtk_widget_set_name (label265, "label265");
   gtk_widget_show (label265);
   gtk_table_attach (GTK_TABLE (table5), label265, 0, 1, 2, 3,
@@ -1341,7 +1341,7 @@ create_gslapt (void)
   gtk_label_set_use_markup (GTK_LABEL (label265), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label265), 0, 0.5);
 
-  label266 = gtk_label_new (gettext("Source:"));
+  label266 = gtk_label_new (_("Source:"));
   gtk_widget_set_name (label266, "label266");
   gtk_widget_show (label266);
   gtk_table_attach (GTK_TABLE (table5), label266, 0, 1, 3, 4,
@@ -1390,7 +1390,7 @@ create_gslapt (void)
   gtk_label_set_selectable (GTK_LABEL (pkg_info_available_source), TRUE);
   gtk_misc_set_alignment (GTK_MISC (pkg_info_available_source), 0, 0.5);
 
-  pkg_info_common_label = gtk_label_new (gettext("Common"));
+  pkg_info_common_label = gtk_label_new (_("Common"));
   gtk_widget_set_name (pkg_info_common_label, "pkg_info_common_label");
   gtk_widget_show (pkg_info_common_label);
   gtk_notebook_set_tab_label (GTK_NOTEBOOK (pkg_info_notebook), gtk_notebook_get_nth_page (GTK_NOTEBOOK (pkg_info_notebook), 0), pkg_info_common_label);
@@ -1415,7 +1415,7 @@ create_gslapt (void)
   gtk_text_view_set_editable (GTK_TEXT_VIEW (pkg_description_textview), FALSE);
   gtk_text_view_set_cursor_visible (GTK_TEXT_VIEW (pkg_description_textview), FALSE);
 
-  pkg_info_description_label = gtk_label_new (gettext("Description"));
+  pkg_info_description_label = gtk_label_new (_("Description"));
   gtk_widget_set_name (pkg_info_description_label, "pkg_info_description_label");
   gtk_widget_show (pkg_info_description_label);
   gtk_notebook_set_tab_label (GTK_NOTEBOOK (pkg_info_notebook), gtk_notebook_get_nth_page (GTK_NOTEBOOK (pkg_info_notebook), 1), pkg_info_description_label);
@@ -1434,7 +1434,7 @@ create_gslapt (void)
   gtk_tree_view_set_headers_visible (GTK_TREE_VIEW (dep_conf_sug_treeview), FALSE);
   gtk_tree_view_set_enable_search (GTK_TREE_VIEW (dep_conf_sug_treeview), FALSE);
 
-  pkg_info_dependencies_label = gtk_label_new (gettext("Dependencies"));
+  pkg_info_dependencies_label = gtk_label_new (_("Dependencies"));
   gtk_widget_set_name (pkg_info_dependencies_label, "pkg_info_dependencies_label");
   gtk_widget_show (pkg_info_dependencies_label);
   gtk_notebook_set_tab_label (GTK_NOTEBOOK (pkg_info_notebook), gtk_notebook_get_nth_page (GTK_NOTEBOOK (pkg_info_notebook), 2), pkg_info_dependencies_label);
@@ -1454,7 +1454,7 @@ create_gslapt (void)
   gtk_text_view_set_wrap_mode (GTK_TEXT_VIEW (pkg_changelog_textview), GTK_WRAP_WORD);
   gtk_text_view_set_cursor_visible (GTK_TEXT_VIEW (pkg_changelog_textview), FALSE);
 
-  pkg_info_changelog = gtk_label_new (gettext("Changelog"));
+  pkg_info_changelog = gtk_label_new (_("Changelog"));
   gtk_widget_set_name (pkg_info_changelog, "pkg_info_changelog");
   gtk_widget_show (pkg_info_changelog);
   gtk_notebook_set_tab_label (GTK_NOTEBOOK (pkg_info_notebook), gtk_notebook_get_nth_page (GTK_NOTEBOOK (pkg_info_notebook), 3), pkg_info_changelog);
@@ -1673,7 +1673,7 @@ create_transaction_window (void)
   transaction_window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_widget_set_name (transaction_window, "transaction_window");
   gtk_container_set_border_width (GTK_CONTAINER (transaction_window), 12);
-  gtk_window_set_title (GTK_WINDOW (transaction_window), gettext("Summary"));
+  gtk_window_set_title (GTK_WINDOW (transaction_window), _("Summary"));
   gtk_window_set_position (GTK_WINDOW (transaction_window), GTK_WIN_POS_CENTER);
   gtk_window_set_modal (GTK_WINDOW (transaction_window), TRUE);
   gtk_window_set_default_size (GTK_WINDOW (transaction_window), 200, 400);
@@ -1714,14 +1714,14 @@ create_transaction_window (void)
   gtk_box_pack_start (GTK_BOX (hbox97), vbox62, TRUE, TRUE, 0);
   gtk_container_set_border_width (GTK_CONTAINER (vbox62), 6);
 
-  label167 = gtk_label_new (gettext("<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"));
+  label167 = gtk_label_new (_("<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"));
   gtk_widget_set_name (label167, "label167");
   gtk_widget_show (label167);
   gtk_box_pack_start (GTK_BOX (vbox62), label167, FALSE, FALSE, 0);
   gtk_label_set_use_markup (GTK_LABEL (label167), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label167), 0, 0);
 
-  label168 = gtk_label_new (gettext("This is a summary of the changes about to be performed."));
+  label168 = gtk_label_new (_("This is a summary of the changes about to be performed."));
   gtk_widget_set_name (label168, "label168");
   gtk_widget_show (label168);
   gtk_box_pack_start (GTK_BOX (vbox62), label168, FALSE, FALSE, 0);
@@ -1773,7 +1773,7 @@ create_transaction_window (void)
   gtk_misc_set_alignment (GTK_MISC (summary_free_space), 0, 0);
   gtk_misc_set_padding (GTK_MISC (summary_free_space), 6, 1);
 
-  download_only_checkbutton = gtk_check_button_new_with_mnemonic (gettext("Download packages only"));
+  download_only_checkbutton = gtk_check_button_new_with_mnemonic (_("Download packages only"));
   gtk_widget_set_name (download_only_checkbutton, "download_only_checkbutton");
   gtk_widget_show (download_only_checkbutton);
   gtk_box_pack_start (GTK_BOX (vbox61), download_only_checkbutton, FALSE, TRUE, 0);
@@ -1849,7 +1849,7 @@ create_dl_progress_window (void)
   dl_progress_window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_widget_set_name (dl_progress_window, "dl_progress_window");
   gtk_container_set_border_width (GTK_CONTAINER (dl_progress_window), 12);
-  gtk_window_set_title (GTK_WINDOW (dl_progress_window), gettext("working"));
+  gtk_window_set_title (GTK_WINDOW (dl_progress_window), _("working"));
   gtk_window_set_position (GTK_WINDOW (dl_progress_window), GTK_WIN_POS_CENTER);
   gtk_window_set_modal (GTK_WINDOW (dl_progress_window), TRUE);
   dl_progress_window_icon_pixbuf = create_pixbuf ("gslapt.png");
@@ -1870,7 +1870,7 @@ create_dl_progress_window (void)
   gtk_widget_set_name (progress_progressbar, "progress_progressbar");
   gtk_widget_show (progress_progressbar);
   gtk_box_pack_start (GTK_BOX (vbox49), progress_progressbar, FALSE, TRUE, 0);
-  gtk_progress_bar_set_text (GTK_PROGRESS_BAR (progress_progressbar), gettext("total progress"));
+  gtk_progress_bar_set_text (GTK_PROGRESS_BAR (progress_progressbar), _("total progress"));
 
   dl_progress = gtk_progress_bar_new ();
   gtk_widget_set_name (dl_progress, "dl_progress");
@@ -1949,7 +1949,7 @@ create_about (void)
 
   about = gtk_dialog_new ();
   gtk_widget_set_name (about, "about");
-  gtk_window_set_title (GTK_WINDOW (about), gettext("About gslapt"));
+  gtk_window_set_title (GTK_WINDOW (about), _("About gslapt"));
   gtk_window_set_position (GTK_WINDOW (about), GTK_WIN_POS_CENTER);
   gtk_window_set_destroy_with_parent (GTK_WINDOW (about), TRUE);
   about_icon_pixbuf = create_pixbuf ("gslapt.png");
@@ -1984,7 +1984,7 @@ create_about (void)
   gtk_label_set_justify (GTK_LABEL (label146), GTK_JUSTIFY_RIGHT);
   gtk_label_set_selectable (GTK_LABEL (label146), TRUE);
 
-  label147 = gtk_label_new (gettext("gslapt is a GTK+ frontend to slapt-get, an APT like package system for Slackware"));
+  label147 = gtk_label_new (_("gslapt is a GTK+ frontend to slapt-get, an APT like package system for Slackware"));
   gtk_widget_set_name (label147, "label147");
   gtk_widget_show (label147);
   gtk_box_pack_start (GTK_BOX (vbox50), label147, TRUE, TRUE, 0);
@@ -2157,7 +2157,7 @@ create_icon_legend (void)
   icon_legend = gtk_dialog_new ();
   gtk_widget_set_name (icon_legend, "icon_legend");
   gtk_container_set_border_width (GTK_CONTAINER (icon_legend), 2);
-  gtk_window_set_title (GTK_WINDOW (icon_legend), gettext("Icon Legend"));
+  gtk_window_set_title (GTK_WINDOW (icon_legend), _("Icon Legend"));
   gtk_window_set_position (GTK_WINDOW (icon_legend), GTK_WIN_POS_CENTER);
   icon_legend_icon_pixbuf = create_pixbuf ("gslapt.png");
   if (icon_legend_icon_pixbuf)
@@ -2178,7 +2178,7 @@ create_icon_legend (void)
   gtk_box_pack_start (GTK_BOX (dialog_vbox4), vbox65, TRUE, TRUE, 0);
   gtk_container_set_border_width (GTK_CONTAINER (vbox65), 6);
 
-  label252 = gtk_label_new (gettext("<b>The following icons are used to indicate the current status of a package:</b>"));
+  label252 = gtk_label_new (_("<b>The following icons are used to indicate the current status of a package:</b>"));
   gtk_widget_set_name (label252, "label252");
   gtk_widget_show (label252);
   gtk_box_pack_start (GTK_BOX (vbox65), label252, FALSE, FALSE, 0);
@@ -2200,7 +2200,7 @@ create_icon_legend (void)
   gtk_widget_show (image865);
   gtk_box_pack_start (GTK_BOX (hbox98), image865, FALSE, TRUE, 6);
 
-  label253 = gtk_label_new (gettext("Not Installed"));
+  label253 = gtk_label_new (_("Not Installed"));
   gtk_widget_set_name (label253, "label253");
   gtk_widget_show (label253);
   gtk_box_pack_start (GTK_BOX (hbox98), label253, FALSE, TRUE, 6);
@@ -2215,17 +2215,17 @@ create_icon_legend (void)
   gtk_widget_show (image1257);
   gtk_box_pack_start (GTK_BOX (hbox109), image1257, FALSE, TRUE, 6);
 
-  label277 = gtk_label_new (gettext("Not Installed"));
+  label277 = gtk_label_new (_("Not Installed"));
   gtk_widget_set_name (label277, "label277");
   gtk_widget_show (label277);
   gtk_box_pack_start (GTK_BOX (hbox109), label277, FALSE, TRUE, 6);
 
-  label280 = gtk_label_new (gettext("/"));
+  label280 = gtk_label_new (_("/"));
   gtk_widget_set_name (label280, "label280");
   gtk_widget_show (label280);
   gtk_box_pack_start (GTK_BOX (hbox109), label280, FALSE, FALSE, 0);
 
-  label281 = gtk_label_new (gettext("Excluded"));
+  label281 = gtk_label_new (_("Excluded"));
   gtk_widget_set_name (label281, "label281");
   gtk_widget_show (label281);
   gtk_box_pack_start (GTK_BOX (hbox109), label281, FALSE, FALSE, 6);
@@ -2240,7 +2240,7 @@ create_icon_legend (void)
   gtk_widget_show (image866);
   gtk_box_pack_start (GTK_BOX (hbox99), image866, FALSE, TRUE, 6);
 
-  label254 = gtk_label_new (gettext("Installed"));
+  label254 = gtk_label_new (_("Installed"));
   gtk_widget_set_name (label254, "label254");
   gtk_widget_show (label254);
   gtk_box_pack_start (GTK_BOX (hbox99), label254, FALSE, TRUE, 6);
@@ -2255,17 +2255,17 @@ create_icon_legend (void)
   gtk_widget_show (image1256);
   gtk_box_pack_start (GTK_BOX (hbox108), image1256, FALSE, TRUE, 6);
 
-  label276 = gtk_label_new (gettext("Installed"));
+  label276 = gtk_label_new (_("Installed"));
   gtk_widget_set_name (label276, "label276");
   gtk_widget_show (label276);
   gtk_box_pack_start (GTK_BOX (hbox108), label276, FALSE, TRUE, 6);
 
-  label278 = gtk_label_new (gettext("/"));
+  label278 = gtk_label_new (_("/"));
   gtk_widget_set_name (label278, "label278");
   gtk_widget_show (label278);
   gtk_box_pack_start (GTK_BOX (hbox108), label278, FALSE, TRUE, 0);
 
-  label279 = gtk_label_new (gettext("Excluded"));
+  label279 = gtk_label_new (_("Excluded"));
   gtk_widget_set_name (label279, "label279");
   gtk_widget_show (label279);
   gtk_box_pack_start (GTK_BOX (hbox108), label279, FALSE, TRUE, 6);
@@ -2280,7 +2280,7 @@ create_icon_legend (void)
   gtk_widget_show (image867);
   gtk_box_pack_start (GTK_BOX (hbox100), image867, FALSE, TRUE, 6);
 
-  label255 = gtk_label_new (gettext("To be Installed"));
+  label255 = gtk_label_new (_("To be Installed"));
   gtk_widget_set_name (label255, "label255");
   gtk_widget_show (label255);
   gtk_box_pack_start (GTK_BOX (hbox100), label255, FALSE, TRUE, 6);
@@ -2295,7 +2295,7 @@ create_icon_legend (void)
   gtk_widget_show (image868);
   gtk_box_pack_start (GTK_BOX (hbox101), image868, FALSE, TRUE, 6);
 
-  label256 = gtk_label_new (gettext("To be Re-Installed"));
+  label256 = gtk_label_new (_("To be Re-Installed"));
   gtk_widget_set_name (label256, "label256");
   gtk_widget_show (label256);
   gtk_box_pack_start (GTK_BOX (hbox101), label256, FALSE, TRUE, 6);
@@ -2310,7 +2310,7 @@ create_icon_legend (void)
   gtk_widget_show (image869);
   gtk_box_pack_start (GTK_BOX (hbox102), image869, FALSE, TRUE, 6);
 
-  label257 = gtk_label_new (gettext("To be Upgraded"));
+  label257 = gtk_label_new (_("To be Upgraded"));
   gtk_widget_set_name (label257, "label257");
   gtk_widget_show (label257);
   gtk_box_pack_start (GTK_BOX (hbox102), label257, FALSE, TRUE, 6);
@@ -2325,7 +2325,7 @@ create_icon_legend (void)
   gtk_widget_show (image870);
   gtk_box_pack_start (GTK_BOX (hbox103), image870, FALSE, TRUE, 6);
 
-  label258 = gtk_label_new (gettext("To be Removed"));
+  label258 = gtk_label_new (_("To be Removed"));
   gtk_widget_set_name (label258, "label258");
   gtk_widget_show (label258);
   gtk_box_pack_start (GTK_BOX (hbox103), label258, FALSE, TRUE, 6);
@@ -2340,7 +2340,7 @@ create_icon_legend (void)
   gtk_widget_show (image871);
   gtk_box_pack_start (GTK_BOX (hbox104), image871, FALSE, TRUE, 6);
 
-  label259 = gtk_label_new (gettext("To be Downgraded"));
+  label259 = gtk_label_new (_("To be Downgraded"));
   gtk_widget_set_name (label259, "label259");
   gtk_widget_show (label259);
   gtk_box_pack_start (GTK_BOX (hbox104), label259, FALSE, TRUE, 6);
@@ -2417,7 +2417,7 @@ create_pkgtools_progress_window (void)
   pkgtools_progress_window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_widget_set_name (pkgtools_progress_window, "pkgtools_progress_window");
   gtk_container_set_border_width (GTK_CONTAINER (pkgtools_progress_window), 12);
-  gtk_window_set_title (GTK_WINDOW (pkgtools_progress_window), gettext("working"));
+  gtk_window_set_title (GTK_WINDOW (pkgtools_progress_window), _("working"));
   gtk_window_set_position (GTK_WINDOW (pkgtools_progress_window), GTK_WIN_POS_CENTER);
   gtk_window_set_modal (GTK_WINDOW (pkgtools_progress_window), TRUE);
   pkgtools_progress_window_icon_pixbuf = create_pixbuf ("gslapt.png");
@@ -2438,7 +2438,7 @@ create_pkgtools_progress_window (void)
   gtk_widget_set_name (progress_progressbar, "progress_progressbar");
   gtk_widget_show (progress_progressbar);
   gtk_box_pack_start (GTK_BOX (vbox68), progress_progressbar, FALSE, TRUE, 0);
-  gtk_progress_bar_set_text (GTK_PROGRESS_BAR (progress_progressbar), gettext("total progress"));
+  gtk_progress_bar_set_text (GTK_PROGRESS_BAR (progress_progressbar), _("total progress"));
 
   progress_action = gtk_label_new ("");
   gtk_widget_set_name (progress_action, "progress_action");
@@ -2488,7 +2488,7 @@ create_repositories_changed (void)
 
   repositories_changed = gtk_dialog_new ();
   gtk_widget_set_name (repositories_changed, "repositories_changed");
-  gtk_window_set_title (GTK_WINDOW (repositories_changed), gettext("Repositories changed"));
+  gtk_window_set_title (GTK_WINDOW (repositories_changed), _("Repositories changed"));
   gtk_window_set_modal (GTK_WINDOW (repositories_changed), TRUE);
   repositories_changed_icon_pixbuf = create_pixbuf ("gslapt.png");
   if (repositories_changed_icon_pixbuf)
@@ -2520,14 +2520,14 @@ create_repositories_changed (void)
   gtk_box_pack_start (GTK_BOX (hbox114), vbox73, TRUE, TRUE, 0);
   gtk_container_set_border_width (GTK_CONTAINER (vbox73), 6);
 
-  label287 = gtk_label_new (gettext("<span size=\"large\" weight=\"bold\">Repositories changed</span>"));
+  label287 = gtk_label_new (_("<span size=\"large\" weight=\"bold\">Repositories changed</span>"));
   gtk_widget_set_name (label287, "label287");
   gtk_widget_show (label287);
   gtk_box_pack_start (GTK_BOX (vbox73), label287, FALSE, FALSE, 6);
   gtk_label_set_use_markup (GTK_LABEL (label287), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label287), 0, 0.5);
 
-  label288 = gtk_label_new (gettext("You need to reload the package list from the sources you have listed.  Do you want to do this now?"));
+  label288 = gtk_label_new (_("You need to reload the package list from the sources you have listed.  Do you want to do this now?"));
   gtk_widget_set_name (label288, "label288");
   gtk_widget_show (label288);
   gtk_box_pack_start (GTK_BOX (vbox73), label288, TRUE, TRUE, 6);
@@ -2731,7 +2731,7 @@ create_source_failed_dialog (void)
 
   source_failed_dialog = gtk_dialog_new ();
   gtk_widget_set_name (source_failed_dialog, "source_failed_dialog");
-  gtk_window_set_title (GTK_WINDOW (source_failed_dialog), gettext("Source failed"));
+  gtk_window_set_title (GTK_WINDOW (source_failed_dialog), _("Source failed"));
   source_failed_dialog_icon_pixbuf = create_pixbuf ("gslapt.png");
   if (source_failed_dialog_icon_pixbuf)
     {
@@ -2769,7 +2769,7 @@ create_source_failed_dialog (void)
   gtk_label_set_use_markup (GTK_LABEL (failed_source_label), TRUE);
   gtk_misc_set_alignment (GTK_MISC (failed_source_label), 0, 0.5);
 
-  label290 = gtk_label_new (gettext("This package source failed or is not available.  Do you want to disable this source and continue anyway?"));
+  label290 = gtk_label_new (_("This package source failed or is not available.  Do you want to disable this source and continue anyway?"));
   gtk_widget_set_name (label290, "label290");
   gtk_widget_show (label290);
   gtk_box_pack_start (GTK_BOX (vbox74), label290, TRUE, TRUE, 6);
