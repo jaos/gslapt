@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: 0.3.18\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-17 14:52-0500\n"
-"PO-Revision-Date: 2007-06-21 16:36+0500\n"
+"PO-Revision-Date: 2007-06-28 09:11+0000\n"
 "Last-Translator: Piotr Simon <sajmon@tenboard.com>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -489,14 +489,14 @@ msgid "Retrieving checksum signature..."
 msgstr "Pobieram sumê kontroln± podpisu..."
 
 msgid "Verifying checksum signature..."
-msgstr "Sprawdzam sume kontroln± podpisu..."
+msgstr "Sprawdzam sumê kontroln± podpisu..."
 
 msgid "GPG Key verification failed"
 msgstr "Nie powiod³o siê sprawdzanie klucza GPG"
 
 msgid "Error"
-msgstr "Error"
+msgstr "B³±d"
 
 msgid "Visible"
-msgstr "Visible"
+msgstr "Widoczny"
 
