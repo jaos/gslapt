@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.3.18\n"
+"Project-Id-Version: 0.3.19\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2007-06-17 21:05+0500\n"
+"PO-Revision-Date: 2007-07-13 10:52+0100\n"
 "Last-Translator: Manuel Barallobre Seoane <bara666@gmail.com>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -467,28 +467,28 @@ msgid "Download rate: %.0f%s/s"
 msgstr "Velocidad de descarga: %.0f%s/s"
 
 msgid "Failed to download %s: %s"
-msgstr "Failed to download %s: %s"
+msgstr "Fallo al descargar %s: %s"
 
 msgid "Import"
-msgstr "Import"
+msgstr "Importar"
 
 msgid "No key found."
-msgstr "No key found."
+msgstr "Clave no encontrada."
 
 msgid "<b>GPG Keys</b>"
-msgstr "<b>GPG Keys</b>"
+msgstr "<b>GPG Clave</b>"
 
 msgid "Verification"
-msgstr "Verification"
+msgstr "Verificacion"
 
 msgid "Retrieving checksum signature..."
-msgstr "Retrieving checksum signature..."
+msgstr "Recuperando checksum signature..."
 
 msgid "Verifying checksum signature..."
-msgstr "Verifying checksum signature..."
+msgstr "Verificando checksum signature..."
 
 msgid "GPG Key verification failed"
-msgstr "GPG Key verification failed"
+msgstr "GPG Clave verificacion fallida"
 
 msgid "Error"
 msgstr "Error"
