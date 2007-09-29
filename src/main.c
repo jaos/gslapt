@@ -142,7 +142,6 @@ int main (int argc, char *argv[]) {
   } else {
     global_config = slapt_read_rc_config(rc);
     strncpy(rc_location,rc,1023);
-    g_free(rc);
     disabled_sources = parse_disabled_package_sources(rc_location);
   }
   if (global_config == NULL)
