@@ -1,4 +1,7 @@
 
+0.3.20 Sep 28, 2007
+ * fixed invalid free of command line argument
+
 0.3.19 Jul 14, 2007
  * es and gl_es updates from Manuel
 
