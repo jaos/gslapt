@@ -1975,7 +1975,7 @@ char *download_packages (void)
       return NULL;
     }
 
-    err = slapt_download_pkg(global_config,trans->install_pkgs->pkgs[i]);
+    err = slapt_download_pkg(global_config,trans->install_pkgs->pkgs[i], NULL);
     if (err) {
       gdk_threads_enter();
       gtk_widget_destroy(progress_window);
@@ -2024,7 +2024,7 @@ char *download_packages (void)
       return NULL;
     }
 
-    err = slapt_download_pkg(global_config,trans->upgrade_pkgs->pkgs[i]->upgrade);
+    err = slapt_download_pkg(global_config,trans->upgrade_pkgs->pkgs[i]->upgrade, NULL);
     if (err) {
       gdk_threads_enter();
       gtk_widget_destroy(progress_window);

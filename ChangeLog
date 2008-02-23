@@ -1,4 +1,7 @@
 
+0.3.19a Feb 22, 2008
+ * compat with slapt-get 0.9.12d
+
 0.3.19 Oct 08, 2007
  * fixed invalid free of command line argument
  * es and gl_es updates from Manuel
