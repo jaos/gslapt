@@ -3754,7 +3754,7 @@ void view_upgradeable_packages (GtkMenuItem *menuitem, gpointer user_data)
 
 void view_changelogs (GtkMenuItem *menuitem, gpointer user_data)
 {
-  int i;
+  int i, changelogs = 0;
   GtkWidget *changelog_window = create_changelog_window();
   GtkWidget *changelog_notebook = lookup_widget(changelog_window, "changelog_notebook");
 
@@ -3843,8 +3843,14 @@ void view_changelogs (GtkMenuItem *menuitem, gpointer user_data)
 
     g_free(changelog_txt);
     g_free(source_url);
+    changelogs++;
   }
 
-  gtk_widget_show(changelog_window);
+  if (changelogs > 0) {
+    gtk_widget_show(changelog_window);
+  } else {
+    gtk_widget_destroy(changelog_window);
+    notify((gchar *)_("ChangeLogs"),_("No changelogs found."));
+  }
 }
 
