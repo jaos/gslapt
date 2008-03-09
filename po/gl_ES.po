@@ -1,15 +1,15 @@
 # Plantilla de traduccion Gslapt
-# Copyright (C) 2005, 2006, 2007 Jason Woodward
+# Copyright (C) 2005, 2006, 2007, 2008 Jason Woodward
 # Este fichero es distribuido bajo la misma licencia que el paquete gslapt.
-# PRIMER AUTOR Manuel Barallobre (BARA) <bara666@gmail.com>, 2005, 2006, 2007
+# PRIMER AUTOR Manuel Barallobre (BARA) <bara666@gmail.com>, 2005, 2006, 2007, 2008
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.4.0\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2008-03-08 21:06+0500\n"
-"Last-Translator: Manuel Barallobre Seoane <bara666@gmail.com>\n"
+"PO-Revision-Date: 2008-03-09 17:55+0100\n"
+"Last-Translator: Manuel Barallobre (BARA) <bara666@gmail.com>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
@@ -497,13 +497,13 @@ msgid "Visible"
 msgstr "Visible"
 
 msgid "Upgradeable"
-msgstr "Upgradeable"
+msgstr "Actualizables"
 
 msgid "View Upgradeable Packages"
-msgstr "View Upgradeable Packages"
+msgstr "Ver Paquetes Actualizables"
 
 msgid "View ChangeLogs"
-msgstr "View ChangeLogs"
+msgstr "Ver ChangeLogs"
 
 msgid "ChangeLogs"
 msgstr "ChangeLogs"
