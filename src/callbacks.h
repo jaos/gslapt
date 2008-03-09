@@ -16,7 +16,6 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#define _LIBINTL_H
 #include <gtk/gtk.h>
 #include <slapt.h>
 #define RC_LOCATION "/etc/slapt-get/slapt-getrc"
