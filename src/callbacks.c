@@ -459,12 +459,12 @@ void build_package_treeviewlist (GtkWidget *treeview)
     slapt_pkg_info_t *installed_pkg = NULL;
     gchar *location = NULL;
 
-    if ((installed_pkg = slapt_get_exact_pkg(installed,all->pkgs[i]->name,
-                                             all->pkgs[i]->version)) != NULL) {
-      is_inst = TRUE;
-
-    } else if ((installed_pkg = slapt_get_newest_pkg(installed,all->pkgs[i]->name)) != NULL) {
-      if (slapt_cmp_pkgs(all->pkgs[i],installed_pkg) > 0)
+    installed_pkg = slapt_get_newest_pkg(installed,all->pkgs[i]->name);
+    if (installed_pkg != NULL) {
+      int cmp = slapt_cmp_pkgs(all->pkgs[i], installed_pkg);
+      if (cmp == 0)
+        is_inst = TRUE;
+      else if (cmp > 0)
         is_an_upgrade = TRUE;
     }
 
