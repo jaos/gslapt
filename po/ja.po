@@ -6,10 +6,10 @@
 # JW <J_W@somewhere.c0.jp>, 2006.
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.3.18\n"
+"Project-Id-Version: 0.4.0\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2006-03-07 20:26+0900\n"
-"PO-Revision-Date: 2007-06-17 21:05+0500\n"
+"PO-Revision-Date: 2008-03-08 21:06+0500\n"
 "Last-Translator: JW <J_W@somewhere.c0.jp>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -507,4 +507,16 @@ msgstr "Error"
 
 msgid "Visible"
 msgstr "Visible"
+
+msgid "Upgradeable"
+msgstr "Upgradeable"
+
+msgid "View Upgradeable Packages"
+msgstr "View Upgradeable Packages"
+
+msgid "View ChangeLogs"
+msgstr "View ChangeLogs"
+
+msgid "ChangeLogs"
+msgstr "ChangeLogs"
 

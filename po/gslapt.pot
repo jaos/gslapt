@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.3.18\n"
+"Project-Id-Version: 0.4.0\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2007-06-17 21:05+0500\n"
+"PO-Revision-Date: 2008-03-09 21:06+0500\n"
 "Last-Translator: Jason Woodward <woodwardj@jaos.org>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -496,5 +496,17 @@ msgid "Error"
 msgstr ""
 
 msgid "Visible"
+msgstr ""
+
+msgid "Upgradeable"
+msgstr ""
+
+msgid "View Upgradeable Packages"
+msgstr ""
+
+msgid "View ChangeLogs"
+msgstr ""
+
+msgid "ChangeLogs"
 msgstr ""
 
