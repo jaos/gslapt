@@ -3832,8 +3832,7 @@ void view_changelogs (GtkMenuItem *menuitem, gpointer user_data)
       gchar *converted = g_convert(changelog_txt, strlen(changelog_txt), "UTF-8", "ISO-8859-1", NULL, NULL, NULL);
       if (converted != NULL) {
         g_free(changelog_txt);
-        changelog_txt = g_strdup(converted);
-        g_free(converted);
+        changelog_txt = converted;
       }
     }
 
