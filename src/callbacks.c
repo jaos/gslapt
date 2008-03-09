@@ -888,6 +888,13 @@ static void fillin_pkg_details (slapt_pkg_info_t *pkg)
   /* changelog tab */
   pkg_changelog = gtk_text_view_get_buffer(GTK_TEXT_VIEW(lookup_widget(gslapt,"pkg_changelog_textview")));
   if ((changelog = slapt_get_pkg_changelog(pkg)) != NULL) {
+    if (!g_utf8_validate(changelog, -1, NULL)) {
+      char *converted = g_convert(changelog, strlen(changelog), "UTF-8", "ISO-8859-1", NULL, NULL, NULL);
+      if (converted != NULL) {
+        free(changelog);
+        changelog = converted;
+      }
+    }
     gtk_text_buffer_set_text(pkg_changelog, changelog, -1);
     free(changelog);
   } else {
@@ -3827,8 +3834,7 @@ void view_changelogs (GtkMenuItem *menuitem, gpointer user_data)
     textview        = gtk_text_view_new ();
     label           = gtk_label_new ( source_url );
 
-    if (!g_utf8_validate(changelog_txt, -1, NULL))
-    {
+    if (!g_utf8_validate(changelog_txt, -1, NULL)) {
       gchar *converted = g_convert(changelog_txt, strlen(changelog_txt), "UTF-8", "ISO-8859-1", NULL, NULL, NULL);
       if (converted != NULL) {
         g_free(changelog_txt);
@@ -3844,7 +3850,7 @@ void view_changelogs (GtkMenuItem *menuitem, gpointer user_data)
     gtk_widget_show( label );
 
     gtk_container_add ( GTK_CONTAINER(changelog_notebook), scrolledwindow );
-    gtk_container_set_border_width ( GTK_SCROLLED_WINDOW(scrolledwindow), 2 );
+    gtk_container_set_border_width ( GTK_CONTAINER(scrolledwindow), 2 );
     gtk_scrolled_window_set_policy ( GTK_SCROLLED_WINDOW(scrolledwindow), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC );
     
     gtk_container_add ( GTK_CONTAINER(scrolledwindow), textview );
