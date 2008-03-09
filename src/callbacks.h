@@ -32,6 +32,7 @@ enum {
   VISIBLE_COLUMN,
   INST_COLUMN,
   MARKED_COLUMN,
+  UPGRADEABLE_COLUMN,
   NUMBER_OF_COLUMNS
 };
 
@@ -104,3 +105,6 @@ void mark_obsolete_packages (GtkMenuItem *menuitem, gpointer user_data);
 void preferences_sources_add_key (GtkWidget *w, gpointer user_data);
 #endif
 
+
+void view_upgradeable_packages (GtkMenuItem *menuitem, gpointer user_data);
+void view_changelogs (GtkMenuItem *menuitem, gpointer user_data);

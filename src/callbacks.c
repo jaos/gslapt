@@ -446,14 +446,14 @@ void build_package_treeviewlist (GtkWidget *treeview)
     NUMBER_OF_COLUMNS,
     GDK_TYPE_PIXBUF, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING,
     G_TYPE_STRING, G_TYPE_UINT, G_TYPE_STRING, G_TYPE_BOOLEAN,
-    G_TYPE_BOOLEAN, G_TYPE_BOOLEAN
+    G_TYPE_BOOLEAN, G_TYPE_BOOLEAN, G_TYPE_BOOLEAN
   ));
 
   for (i = 0; i < all->pkg_count; i++ ) {
     /* we use this for sorting the status */
     /* a=installed,i=install,r=remove,u=upgrade,z=available */
     gchar *status = NULL;
-    guint is_inst = 0;
+    gboolean is_inst = FALSE, is_an_upgrade = FALSE;
     GdkPixbuf *status_icon = NULL;
     gchar *short_desc = slapt_gen_short_pkg_description(all->pkgs[i]);
     slapt_pkg_info_t *installed_pkg = NULL;
@@ -461,7 +461,11 @@ void build_package_treeviewlist (GtkWidget *treeview)
 
     if ((installed_pkg = slapt_get_exact_pkg(installed,all->pkgs[i]->name,
                                              all->pkgs[i]->version)) != NULL) {
-      is_inst = 1;
+      is_inst = TRUE;
+
+    } else if ((installed_pkg = slapt_get_newest_pkg(installed,all->pkgs[i]->name)) != NULL) {
+      if (slapt_cmp_pkgs(all->pkgs[i],installed_pkg) > 0)
+        is_an_upgrade = TRUE;
     }
 
     if (trans->exclude_pkgs->pkg_count > 0 &&
@@ -494,7 +498,7 @@ void build_package_treeviewlist (GtkWidget *treeview)
       status_icon = create_pixbuf("pkg_action_upgrade.png");
       status = g_strdup_printf("u%s",all->pkgs[i]->name);
       location = all->pkgs[i]->location;
-    } else if (is_inst == 1) {
+    } else if (is_inst) {
       /* if it's excluded */
       if ((trans->exclude_pkgs->pkg_count > 0 &&
            slapt_get_exact_pkg(trans->exclude_pkgs,all->pkgs[i]->name,
@@ -532,6 +536,7 @@ void build_package_treeviewlist (GtkWidget *treeview)
       INST_COLUMN, FALSE,
       VISIBLE_COLUMN,TRUE,
       MARKED_COLUMN, FALSE,
+      UPGRADEABLE_COLUMN, is_an_upgrade,
       -1
     );
 
@@ -578,6 +583,7 @@ void build_package_treeviewlist (GtkWidget *treeview)
         INST_COLUMN, TRUE,
         VISIBLE_COLUMN,TRUE,
         MARKED_COLUMN, FALSE,
+        UPGRADEABLE_COLUMN, FALSE,
         -1
       );
 
@@ -607,7 +613,8 @@ void build_searched_treeviewlist (GtkWidget *treeview, gchar *pattern)
   struct slapt_pkg_list *a_matches = NULL,*i_matches = NULL;
   GtkTreeModelSort *package_model;
   gboolean view_list_all = FALSE, view_list_installed = FALSE,
-           view_list_available = FALSE, view_list_marked = FALSE;
+           view_list_available = FALSE, view_list_marked = FALSE,
+           view_list_upgradeable = FALSE;
 
   if (pattern == NULL || (strcmp(pattern,"") == 0)) {
     reset_search_list();
@@ -618,10 +625,11 @@ void build_searched_treeviewlist (GtkWidget *treeview, gchar *pattern)
   filter_model = GTK_TREE_MODEL_FILTER(gtk_tree_model_sort_get_model(GTK_TREE_MODEL_SORT(package_model)));
   base_model = GTK_TREE_MODEL(gtk_tree_model_filter_get_model(GTK_TREE_MODEL_FILTER(filter_model)));
 
-  view_list_all       = gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(lookup_widget(gslapt,"view_all_packages_menu")));
-  view_list_available = gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(lookup_widget(gslapt,"view_available_packages_menu")));
-  view_list_installed = gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(lookup_widget(gslapt,"view_installed_packages_menu")));
-  view_list_marked    = gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(lookup_widget(gslapt,"view_marked_packages_menu")));
+  view_list_all         = gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(lookup_widget(gslapt,"view_all_packages_menu")));
+  view_list_available   = gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(lookup_widget(gslapt,"view_available_packages_menu")));
+  view_list_installed   = gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(lookup_widget(gslapt,"view_installed_packages_menu")));
+  view_list_marked      = gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(lookup_widget(gslapt,"view_marked_packages_menu")));
+  view_list_upgradeable = gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(lookup_widget(gslapt,"view_upgradeable_packages_menu")));
 
   a_matches = slapt_search_pkg_list(all,pattern);
   i_matches = slapt_search_pkg_list(installed,pattern);
@@ -629,13 +637,15 @@ void build_searched_treeviewlist (GtkWidget *treeview, gchar *pattern)
   while (valid) {
     gchar *name = NULL,*version = NULL,*location = NULL;
     slapt_pkg_info_t *a_pkg = NULL, *i_pkg = NULL;
-    gboolean marked = FALSE;
+    gboolean marked       = FALSE;
+    gboolean upgradeable  = FALSE;
 
     gtk_tree_model_get(base_model,&iter,
       NAME_COLUMN, &name,
       VERSION_COLUMN, &version,
       LOCATION_COLUMN, &location,
       MARKED_COLUMN, &marked,
+      UPGRADEABLE_COLUMN, &upgradeable,
       -1
     );
 
@@ -649,6 +659,8 @@ void build_searched_treeviewlist (GtkWidget *treeview, gchar *pattern)
     } else if (view_list_all && (a_pkg != NULL || i_pkg != NULL)) {
       gtk_list_store_set(GTK_LIST_STORE(base_model),&iter,VISIBLE_COLUMN,TRUE,-1);
     } else if (view_list_marked && marked && (a_pkg != NULL || i_pkg != NULL)) {
+      gtk_list_store_set(GTK_LIST_STORE(base_model),&iter,VISIBLE_COLUMN,TRUE,-1);
+    } else if (view_list_upgradeable && upgradeable && a_pkg != NULL) {
       gtk_list_store_set(GTK_LIST_STORE(base_model),&iter,VISIBLE_COLUMN,TRUE,-1);
     } else {
       gtk_list_store_set(GTK_LIST_STORE(base_model),&iter,VISIBLE_COLUMN,FALSE,-1);
@@ -3087,12 +3099,14 @@ void unmark_all_activate (GtkMenuItem *menuitem, gpointer user_data)
 static void reset_search_list (void)
 {
   gboolean view_list_all = FALSE, view_list_installed = FALSE,
-           view_list_available = FALSE, view_list_marked = FALSE;
+           view_list_available = FALSE, view_list_marked = FALSE,
+           view_list_upgradeable = FALSE;
 
-  view_list_all       = gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(lookup_widget(gslapt,"view_all_packages_menu")));
-  view_list_available = gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(lookup_widget(gslapt,"view_available_packages_menu")));
-  view_list_installed = gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(lookup_widget(gslapt,"view_installed_packages_menu")));
-  view_list_marked    = gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(lookup_widget(gslapt,"view_marked_packages_menu")));
+  view_list_all         = gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(lookup_widget(gslapt,"view_all_packages_menu")));
+  view_list_available   = gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(lookup_widget(gslapt,"view_available_packages_menu")));
+  view_list_installed   = gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(lookup_widget(gslapt,"view_installed_packages_menu")));
+  view_list_marked      = gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(lookup_widget(gslapt,"view_marked_packages_menu")));
+  view_list_upgradeable = gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(lookup_widget(gslapt,"view_upgradeable_packages_menu")));
 
   if (view_list_all) {
     view_all_packages(NULL,NULL);
@@ -3102,6 +3116,8 @@ static void reset_search_list (void)
     view_available_packages(NULL,NULL);
   } else if (view_list_marked) {
     view_marked_packages(NULL,NULL);
+  } else if (view_list_upgradeable) {
+    view_upgradeable_packages(NULL,NULL);
   }
 
 }
@@ -3697,3 +3713,138 @@ void preferences_sources_add_key (GtkWidget *w, gpointer user_data)
   return;
 }
 #endif
+
+void view_upgradeable_packages (GtkMenuItem *menuitem, gpointer user_data)
+{
+  gboolean valid;
+  GtkTreeIter iter;
+  GtkTreeModelFilter *filter_model;
+  GtkTreeModel *base_model;
+  GtkTreeModelSort *package_model;
+  GtkTreeView *treeview;
+  gchar *pattern = (gchar *)gtk_entry_get_text(GTK_ENTRY(lookup_widget(gslapt,"search_entry")));
+
+  treeview = GTK_TREE_VIEW(lookup_widget(gslapt,"pkg_listing_treeview"));
+  package_model = GTK_TREE_MODEL_SORT(gtk_tree_view_get_model(GTK_TREE_VIEW(treeview)));
+
+  filter_model = GTK_TREE_MODEL_FILTER(gtk_tree_model_sort_get_model(GTK_TREE_MODEL_SORT(package_model)));
+  base_model = GTK_TREE_MODEL(gtk_tree_model_filter_get_model(GTK_TREE_MODEL_FILTER(filter_model)));
+
+  valid = gtk_tree_model_get_iter_first(base_model,&iter);
+  while (valid) {
+    gboolean upgradeable = FALSE;
+
+    gtk_tree_model_get(base_model,&iter,
+      UPGRADEABLE_COLUMN, &upgradeable,
+      -1
+    );
+
+    if (upgradeable) {
+      gtk_list_store_set(GTK_LIST_STORE(base_model),&iter,VISIBLE_COLUMN,TRUE,-1);
+    } else {
+      gtk_list_store_set(GTK_LIST_STORE(base_model),&iter,VISIBLE_COLUMN,FALSE,-1);
+    }
+
+    valid = gtk_tree_model_iter_next(base_model,&iter);
+  }
+
+  if (pattern && strlen(pattern) > 0)
+    build_searched_treeviewlist(GTK_WIDGET(treeview), pattern);
+}
+
+void view_changelogs (GtkMenuItem *menuitem, gpointer user_data)
+{
+  int i;
+  GtkWidget *changelog_window = create_changelog_window();
+  GtkWidget *changelog_notebook = lookup_widget(changelog_window, "changelog_notebook");
+
+  for (i = 0; i < global_config->sources->count; ++i) {
+    char *changelog_filename, *changelog_data;
+    gchar *source_url, *path_and_file, *changelog_txt;
+    struct stat stat_buf;
+    size_t pls = 1;
+    FILE *changelog_f = NULL;
+    GtkWidget *textview, *scrolledwindow, *label;
+    GtkTextBuffer *changelog_buffer;
+
+    if ( global_config->sources->url[i] == NULL )
+      continue;
+
+    source_url = g_strdup ( global_config->sources->url[i] );
+
+    changelog_filename = slapt_gen_filename_from_url(source_url,SLAPT_CHANGELOG_FILE);
+    path_and_file = g_strjoin("/", global_config->working_dir, changelog_filename, NULL);
+
+    if ((changelog_f = fopen(path_and_file,"rb")) == NULL) {
+      free(changelog_filename);
+      g_free(path_and_file);
+      g_free(source_url);
+      continue;
+    }
+
+    if (stat(changelog_filename,&stat_buf) == -1) {
+      fclose(changelog_f);
+      free(changelog_filename);
+      g_free(path_and_file);
+      g_free(source_url);
+      continue;
+    }
+
+    free(changelog_filename);
+    g_free(path_and_file);
+
+    /* don't mmap empty files */
+    if ((int)stat_buf.st_size < 1) {
+      fclose(changelog_f);
+      g_free(source_url);
+      continue;
+    }
+
+    pls = (size_t)stat_buf.st_size;
+
+    changelog_data = (char *)mmap(0, pls,
+      PROT_READ|PROT_WRITE, MAP_PRIVATE, fileno(changelog_f), 0);
+
+    fclose(changelog_f);
+
+    if (changelog_data == (void *)-1) {
+      g_free(source_url);
+      continue;
+    }
+
+    changelog_data[pls - 1] = '\0';
+
+    changelog_txt = g_strdup(changelog_data);
+
+    /* munmap now that we are done */
+    if (munmap(changelog_data,pls) == -1) {
+      g_free(changelog_txt);
+      g_free(source_url);
+      continue;
+    }
+
+    scrolledwindow  = gtk_scrolled_window_new ( NULL, NULL );
+    textview        = gtk_text_view_new ();
+    label           = gtk_label_new ( source_url );
+
+    changelog_buffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW(textview));
+    gtk_text_buffer_set_text(changelog_buffer, changelog_txt, -1);
+
+    gtk_widget_show( scrolledwindow );
+    gtk_widget_show( textview );
+    gtk_widget_show( label );
+
+    gtk_container_add ( GTK_CONTAINER(changelog_notebook), scrolledwindow );
+    gtk_container_set_border_width ( GTK_SCROLLED_WINDOW(scrolledwindow), 2 );
+    gtk_scrolled_window_set_policy ( GTK_SCROLLED_WINDOW(scrolledwindow), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC );
+    
+    gtk_container_add ( GTK_CONTAINER(scrolledwindow), textview );
+    gtk_notebook_set_tab_label (GTK_NOTEBOOK (changelog_notebook), gtk_notebook_get_nth_page (GTK_NOTEBOOK (changelog_notebook), i), label);
+
+    g_free(changelog_txt);
+    g_free(source_url);
+  }
+
+  gtk_widget_show(changelog_window);
+}
+

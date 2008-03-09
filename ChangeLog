@@ -1,4 +1,10 @@
 
+0.4.0 Mar 09, 2008
+ * added ability to show all packages that have available upgrades
+   as (Show Upgradeable).  Thanks to ahuillet for the feature request.
+ * added ChangeLogs view from help menu.  Thanks to ahuillet for the
+   feature request.
+
 0.3.19a Feb 22, 2008
  * compat with slapt-get 0.9.12d
 
