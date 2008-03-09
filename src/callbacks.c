@@ -3827,6 +3827,16 @@ void view_changelogs (GtkMenuItem *menuitem, gpointer user_data)
     textview        = gtk_text_view_new ();
     label           = gtk_label_new ( source_url );
 
+    if (!g_utf8_validate(changelog_txt, -1, NULL))
+    {
+      gchar *converted = g_convert(changelog_txt, strlen(changelog_txt), "UTF-8", "ISO-8859-1", NULL, NULL, NULL);
+      if (converted != NULL) {
+        g_free(changelog_txt);
+        changelog_txt = g_strdup(converted);
+        g_free(converted);
+      }
+    }
+
     changelog_buffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW(textview));
     gtk_text_buffer_set_text(changelog_buffer, changelog_txt, -1);
 
