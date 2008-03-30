@@ -3844,6 +3844,7 @@ void view_changelogs (GtkMenuItem *menuitem, gpointer user_data)
 
     changelog_buffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW(textview));
     gtk_text_buffer_set_text(changelog_buffer, changelog_txt, -1);
+    gtk_text_view_set_editable (GTK_TEXT_VIEW (textview), FALSE);
 
     gtk_widget_show( scrolledwindow );
     gtk_widget_show( textview );
