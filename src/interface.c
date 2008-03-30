@@ -2854,6 +2854,7 @@ create_changelog_window (void)
   changelog_window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_widget_set_name (changelog_window, "changelog_window");
   gtk_window_set_title (GTK_WINDOW (changelog_window), _("ChangeLogs"));
+  gtk_window_set_default_size (GTK_WINDOW (changelog_window), 640, 480);
   changelog_window_icon_pixbuf = create_pixbuf ("gslapt.png");
   if (changelog_window_icon_pixbuf)
     {
