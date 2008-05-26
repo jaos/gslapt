@@ -1,4 +1,7 @@
 
+0.4.0a May 26, 2008
+ * German translation updates by Manfred.
+
 0.4.0 Mar 30, 2008
  * make changelog window 640x480 by default
  * added ability to show all packages that have available upgrades
