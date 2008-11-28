@@ -107,3 +107,6 @@ void preferences_sources_add_key (GtkWidget *w, gpointer user_data);
 
 void view_upgradeable_packages (GtkMenuItem *menuitem, gpointer user_data);
 void view_changelogs (GtkMenuItem *menuitem, gpointer user_data);
+
+void cancel_source_edit (GtkWidget *w, gpointer user_data);
+void source_edit_ok (GtkWidget *w, gpointer user_data);

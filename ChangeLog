@@ -1,5 +1,9 @@
 
-0.4.0a May 26, 2008
+0.5.0 Nov 28, 2008
+ * added priority to source management
+ * modified source management to use a new window for adding and editing
+   the source.
+ * updated for new libslapt changes
  * German translation updates by Manfred.
 
 0.4.0 Mar 30, 2008

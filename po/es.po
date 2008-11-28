@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.4.0\n"
+"Project-Id-Version: 0.5.0\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2008-03-09 17:52+0100\n"
+"PO-Revision-Date: 2008-11-28 01:29+0500\n"
 "Last-Translator: Manuel Barallobre (BARA) <bara666@gmail.com>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -507,4 +507,28 @@ msgstr "Ver ChangeLogs"
 
 msgid "ChangeLogs"
 msgstr "ChangeLogs"
+
+msgid "Priority"
+msgstr "Priority"
+
+msgid "Package Source"
+msgstr "Package Source"
+
+msgid "<b>Priority:</b>"
+msgstr "<b>Priority:</b>"
+
+msgid "<b>Source</b>"
+msgstr "<b>Source</b>"
+
+msgid "Default"
+msgstr "Default"
+
+msgid "Preferred"
+msgstr "Preferred"
+
+msgid "Official"
+msgstr "Official"
+
+msgid "Custom"
+msgstr "Custom"
 

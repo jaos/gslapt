@@ -34,10 +34,10 @@ extern struct slapt_pkg_list *all;
 extern struct slapt_pkg_list *installed;
 extern slapt_transaction_t *trans;
 extern char rc_location[];
-extern struct slapt_source_list *disabled_sources;
 
 
 static GtkWidget *progress_window;
+static GtkWidget *preferences_window;
 G_LOCK_DEFINE_STATIC (_cancelled);
 static volatile guint _cancelled = 0;
 static gboolean sources_modified = FALSE;
@@ -67,7 +67,6 @@ static void build_exclude_treeviewlist (GtkWidget *treeview);
 static int populate_transaction_window (GtkWidget *trans_window);
 char *download_packages (void);
 static gboolean install_packages (void);
-static gboolean write_preferences (void);
 static void set_execute_active (void);
 static void clear_execute_active (void);
 static void notify (const char *title,const char *message);
@@ -93,6 +92,8 @@ static int set_iter_for_remove(GtkTreeModel *model, GtkTreeIter *iter,
 
 static void set_busy_cursor (void);
 static void unset_busy_cursor (void);
+static SLAPT_PRIORITY_T convert_gslapt_priority_to_slapt_priority(gint p);
+static gint convert_slapt_priority_to_gslapt_priority(SLAPT_PRIORITY_T p);
 
 void on_gslapt_destroy (GtkObject *object, gpointer user_data) 
 {
@@ -101,7 +102,6 @@ void on_gslapt_destroy (GtkObject *object, gpointer user_data)
   slapt_free_pkg_list(all);
   slapt_free_pkg_list(installed);
   slapt_free_rc_config(global_config);
-  slapt_free_source_list(disabled_sources);
 
   gtk_main_quit();
   exit(0);
@@ -172,6 +172,7 @@ void open_preferences (GtkMenuItem *menuitem, gpointer user_data)
   build_exclude_treeviewlist((GtkWidget *)exclude_tree);
 
   gtk_widget_show(preferences);
+  preferences_window = preferences;
 }
 
 void search_activated (GtkWidget *gslapt, gpointer user_data) 
@@ -1013,6 +1014,9 @@ static void get_package_data (void)
     #endif
     unsigned int compressed = 0;
 
+    if (global_config->sources->src[i]->disabled == SLAPT_TRUE)
+      continue;
+
     if (_cancelled == 1) {
       G_LOCK(_cancelled);
       _cancelled = 0;
@@ -1027,14 +1031,14 @@ static void get_package_data (void)
 
     gdk_threads_enter();
     gtk_progress_bar_set_fraction(dl_bar,0.0);
-    gtk_label_set_text(progress_message_label,global_config->sources->url[i]);
+    gtk_label_set_text(progress_message_label,global_config->sources->src[i]->url);
     gtk_label_set_text(progress_action_label,(gchar *)_("Retrieving package data..."));
     gdk_threads_leave();
 
     /* download our SLAPT_PKG_LIST */
     available_pkgs =
       slapt_get_pkg_source_packages(global_config,
-                                    global_config->sources->url[i],
+                                    global_config->sources->src[i]->url,
                                     &compressed);
 
     /* make sure we found a package listing */
@@ -1055,17 +1059,16 @@ static void get_package_data (void)
         GtkWidget *q = create_source_failed_dialog();
         gtk_label_set_text(
           GTK_LABEL(lookup_widget(q,"failed_source_label")),
-          global_config->sources->url[i]
+          global_config->sources->src[i]->url
         );
 
         gint result = gtk_dialog_run(GTK_DIALOG(q));
         if (result == GTK_RESPONSE_YES) {
           /* we'll disable this source and continue on */
           /* this is only disabled for the current session since
-             write_preferences() is not called */
+             slapt_write_rc_config() is not called */
           continue_anyway = TRUE;
-          slapt_add_source(disabled_sources,global_config->sources->url[i]);
-          slapt_remove_source(global_config->sources,global_config->sources->url[i]);
+          global_config->sources->src[i]->disabled = SLAPT_TRUE;
         } else {
           gtk_widget_destroy(progress_window);
           unlock_toolbar_buttons();
@@ -1107,7 +1110,7 @@ static void get_package_data (void)
     /* download SLAPT_PATCHES_LIST */
     patch_pkgs =
       slapt_get_pkg_source_patches(global_config,
-                                   global_config->sources->url[i],
+                                   global_config->sources->src[i]->url,
                                    &compressed);
 
 
@@ -1135,7 +1138,7 @@ static void get_package_data (void)
     /* download checksum file */
     tmp_checksum_f =
       slapt_get_pkg_source_checksums(global_config,
-                                     global_config->sources->url[i],
+                                     global_config->sources->src[i]->url,
                                      &compressed);
 
     if (tmp_checksum_f == NULL) {
@@ -1148,7 +1151,7 @@ static void get_package_data (void)
         _cancelled = 0;
         G_UNLOCK(_cancelled);
       } else {
-        notify((gchar *)_("Source download failed"),global_config->sources->url[i]);
+        notify((gchar *)_("Source download failed"),global_config->sources->src[i]->url);
       }
       gdk_threads_leave();
       return;
@@ -1164,7 +1167,7 @@ static void get_package_data (void)
     gdk_threads_leave();
 
     tmp_signature_f = slapt_get_pkg_source_checksums_signature (global_config,
-                                                                global_config->sources->url[i],
+                                                                global_config->sources->src[i]->url,
                                                                 &compressed);
 
     if (tmp_signature_f == NULL) {
@@ -1184,7 +1187,7 @@ static void get_package_data (void)
 
       /* if we downloaded the compressed checksums, open it raw (w/o gunzippign) */
       if (compressed == 1) {
-        char *filename = slapt_gen_filename_from_url(global_config->sources->url[i],
+        char *filename = slapt_gen_filename_from_url(global_config->sources->src[i]->url,
                                                      SLAPT_CHECKSUM_FILE_GZ);
         tmp_checksum_to_verify_f = slapt_open_file(filename,"r");
         free(filename);
@@ -1207,7 +1210,7 @@ static void get_package_data (void)
           gslapt_clear_status(context_id);
           gtk_widget_destroy(progress_window);
           unlock_toolbar_buttons();
-          notify((gchar *)_("GPG Key verification failed"),global_config->sources->url[i]);
+          notify((gchar *)_("GPG Key verification failed"),global_config->sources->src[i]->url);
           gdk_threads_leave();
           return;
         }
@@ -1233,7 +1236,7 @@ static void get_package_data (void)
     gdk_threads_leave();
 
     slapt_get_pkg_source_changelog(global_config,
-                                   global_config->sources->url[i],
+                                   global_config->sources->src[i]->url,
                                    &compressed);
 
 
@@ -1255,7 +1258,7 @@ static void get_package_data (void)
         /* honor the mirror if it was set in the PACKAGES.TXT */
         if (available_pkgs->pkgs[pkg_i]->mirror == NULL ||
             strlen(available_pkgs->pkgs[pkg_i]->mirror) == 0) {
-          available_pkgs->pkgs[pkg_i]->mirror = strdup(global_config->sources->url[i]);
+          available_pkgs->pkgs[pkg_i]->mirror = strdup(global_config->sources->src[i]->url);
         }
         slapt_add_pkg_to_pkg_list(new_pkgs,available_pkgs->pkgs[pkg_i]);
       }
@@ -1277,7 +1280,7 @@ static void get_package_data (void)
         /* honor the mirror if it was set in the PACKAGES.TXT */
         if (patch_pkgs->pkgs[pkg_i]->mirror == NULL ||
             strlen(patch_pkgs->pkgs[pkg_i]->mirror) == 0) {
-          patch_pkgs->pkgs[pkg_i]->mirror = strdup(global_config->sources->url[i]);
+          patch_pkgs->pkgs[pkg_i]->mirror = strdup(global_config->sources->src[i]->url);
         }
         slapt_add_pkg_to_pkg_list(new_pkgs,patch_pkgs->pkgs[pkg_i]);
       }
@@ -1556,43 +1559,45 @@ static void build_sources_treeviewlist(GtkWidget *treeview)
   GtkTreeViewColumn *column;
   GtkTreeSelection *select;
   guint i = 0;
+  GdkPixbuf *enabled_status_icon   = create_pixbuf("pkg_action_installed.png");
+  GdkPixbuf *disabled_status_icon  = create_pixbuf("pkg_action_available.png");
+  gboolean enabled = TRUE;
 
   store = gtk_list_store_new (
-    3,
-    GDK_TYPE_PIXBUF,G_TYPE_STRING,G_TYPE_BOOLEAN
+    5,
+    GDK_TYPE_PIXBUF,G_TYPE_STRING,G_TYPE_BOOLEAN,G_TYPE_STRING,G_TYPE_UINT
   );
 
   for (i = 0; i < global_config->sources->count; ++i) {
-    GdkPixbuf *status_icon = NULL;
+    GdkPixbuf *status_icon;
+    const char *priority_str;
 
-    if ( global_config->sources->url[i] == NULL )
+    if ( global_config->sources->src[i]->url == NULL )
       continue;
 
-    status_icon = create_pixbuf("pkg_action_installed.png");
+    if (global_config->sources->src[i]->disabled == SLAPT_TRUE) {
+      enabled = FALSE;
+      status_icon = disabled_status_icon;
+    } else {
+      enabled = TRUE;
+      status_icon = enabled_status_icon;
+    }
+
+    priority_str = slapt_priority_to_str(global_config->sources->src[i]->priority);
 
     gtk_list_store_append(store, &iter);
     gtk_list_store_set(store,&iter,
       0,status_icon,
-      1,global_config->sources->url[i],
-      2,TRUE,
+      1,global_config->sources->src[i]->url,
+      2,enabled,
+      3,priority_str,
+      4,global_config->sources->src[i]->priority,
       -1);
 
-    gdk_pixbuf_unref(status_icon);
   }
 
-  /* show disabled sources here */
-  for (i = 0; i < disabled_sources->count; ++i) {
-    GdkPixbuf *status_icon = create_pixbuf("pkg_action_available.png");
-
-    gtk_list_store_append(store, &iter);
-    gtk_list_store_set(store,&iter,
-      0,status_icon,
-      1,disabled_sources->url[i],
-      2,FALSE,
-      -1);
-
-    gdk_pixbuf_unref(status_icon);
-  }
+  gdk_pixbuf_unref(enabled_status_icon);
+  gdk_pixbuf_unref(disabled_status_icon);
 
   /* column for enabled status */
   renderer = gtk_cell_renderer_pixbuf_new();
@@ -1612,6 +1617,12 @@ static void build_sources_treeviewlist(GtkWidget *treeview)
     "radio",2,NULL);
   gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
   gtk_tree_view_column_set_visible(column,FALSE);
+
+  /* priority column */
+  renderer = gtk_cell_renderer_text_new();
+  column = gtk_tree_view_column_new_with_attributes((gchar *)_("Priority"),renderer,
+    "text",3,NULL);
+  gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
 
   gtk_tree_view_set_model (GTK_TREE_VIEW(treeview),GTK_TREE_MODEL(store));
 
@@ -2196,24 +2207,10 @@ void clean_callback (GtkWidget *widget, gpointer user_data)
 
 void preferences_sources_add (GtkWidget *w, gpointer user_data)
 {
-  GtkTreeIter iter;
-  GtkTreeView *source_tree = GTK_TREE_VIEW(lookup_widget(w,"preferences_sources_treeview"));
-  GtkEntry *new_source_entry = GTK_ENTRY(lookup_widget(w,"new_source_entry"));
-  const gchar *new_source = gtk_entry_get_text(new_source_entry);
-  GtkListStore *store;
-
-  if ( new_source == NULL || strlen(new_source) < 1 )
-    return;
-
-  store = GTK_LIST_STORE(gtk_tree_view_get_model(source_tree));
-
-  gtk_list_store_append(store, &iter);
-  gtk_list_store_set(store, &iter, 1, new_source, 2, TRUE, -1);
-
-  gtk_entry_set_text(new_source_entry,"");
-
-  sources_modified = TRUE;
-
+  GtkWidget *source_window      = create_source_window();
+  GtkComboBox *source_priority  = GTK_COMBO_BOX(lookup_widget(source_window,"source_priority"));
+  gtk_combo_box_set_active (source_priority,0);
+  gtk_widget_show(source_window);
 }
 
 void preferences_sources_remove (GtkWidget *w, gpointer user_data)
@@ -2239,74 +2236,24 @@ void preferences_sources_edit (GtkWidget *w, gpointer user_data)
   GtkTreeSelection *select = gtk_tree_view_get_selection (GTK_TREE_VIEW (source_tree));
 
   if ( gtk_tree_selection_get_selected(select,&model,&iter)) {
-    guint i = 0;
+    guint i = 0, priority;
     gchar *source;
 
-    gtk_tree_model_get(model,&iter,1,&source,-1);
+    gtk_tree_model_get(model,&iter,1,&source,4,&priority,-1);
 
     if (source) {
-      GtkEntry  *source_entry = GTK_ENTRY(lookup_widget(w,"new_source_entry"));
-      GtkButton *button       = GTK_BUTTON(lookup_widget(w,"preferences_add_source_button"));
+      GtkWidget *source_window      = create_source_window();
+      GtkEntry  *source_entry       = GTK_ENTRY(lookup_widget(source_window,"source_entry"));
+      GtkComboBox *source_priority  = GTK_COMBO_BOX(lookup_widget(source_window,"source_priority"));
 
+      g_object_set_data ( G_OBJECT(source_window), "original_url", source);
       gtk_entry_set_text(source_entry,source);
-
-      gtk_button_set_label(button, "gtk-save");
-      gtk_button_set_use_stock(button, TRUE);
-      g_signal_handlers_disconnect_by_func(GTK_OBJECT(button),preferences_sources_add,GTK_OBJECT(w));
-      g_signal_connect_swapped ((gpointer) button, "clicked",
-                                G_CALLBACK (preferences_sources_modify),
-                                GTK_OBJECT (w));
+      gtk_combo_box_set_active (source_priority,convert_slapt_priority_to_gslapt_priority(priority));
+      gtk_widget_show(source_window);
     }
 
   }
 
-}
-
-void preferences_sources_modify (GtkWidget *w, gpointer user_data)
-{
-  GtkTreeIter iter;
-  GtkTreeModel *model;
-  GtkTreeView *source_tree = GTK_TREE_VIEW(lookup_widget(w,"preferences_sources_treeview"));
-  GtkTreeSelection *select = gtk_tree_view_get_selection (GTK_TREE_VIEW (source_tree));
-  GtkEntry  *source_entry = GTK_ENTRY(lookup_widget(w,"new_source_entry"));
-  GtkButton *button       = GTK_BUTTON(lookup_widget(w,"preferences_add_source_button"));
-  GtkListStore *store;
-
-  if ( gtk_tree_selection_get_selected(select,&model,&iter)) {
-    guint i = 0;
-    gchar *source;
-    const gchar *modified_source_c  = gtk_entry_get_text(source_entry);
-
-    gtk_tree_model_get(model,&iter,1,&source,-1);
-
-    if ( source && modified_source_c != NULL && strlen(modified_source_c) > 1) {
-      const gchar *modified_source_c  = gtk_entry_get_text(source_entry);
-      gchar *modified_source          = g_strdup(modified_source_c);
-
-      store = GTK_LIST_STORE(gtk_tree_view_get_model(source_tree));
-      gtk_list_store_set(store, &iter, 1, modified_source, -1);
-
-      for(i = 0; i < global_config->sources->count; ++i)
-      {
-        if (strcmp( global_config->sources->url[i], (const char *)source) == 0) 
-        {
-          char *tmp = global_config->sources->url[i];
-          global_config->sources->url[i] = modified_source;
-          free(tmp);
-          sources_modified = TRUE;
-        }
-      }
-
-    }
-  }
-
-  gtk_entry_set_text(source_entry,"");
-  gtk_button_set_label(button, "gtk-add");
-  gtk_button_set_use_stock(button, TRUE);
-  g_signal_handlers_disconnect_by_func(GTK_OBJECT(button),preferences_sources_modify,GTK_OBJECT(w));
-  g_signal_connect_swapped ((gpointer) button, "clicked",
-                            G_CALLBACK (preferences_sources_add),
-                            GTK_OBJECT (w));
 }
 
 void preferences_on_ok_clicked (GtkWidget *w, gpointer user_data)
@@ -2333,9 +2280,6 @@ void preferences_on_ok_clicked (GtkWidget *w, gpointer user_data)
   global_config->exclude_list = slapt_init_exclude_list();
   global_config->sources      = slapt_init_source_list();
 
-  slapt_free_source_list(disabled_sources);
-  disabled_sources            = slapt_init_source_list();
-
   tree  = GTK_TREE_VIEW(lookup_widget(w,"preferences_sources_treeview"));
   model = gtk_tree_view_get_model(tree);
   valid = gtk_tree_model_get_iter_first(model,&iter);
@@ -2343,14 +2287,24 @@ void preferences_on_ok_clicked (GtkWidget *w, gpointer user_data)
   {
     gchar *source = NULL;
     gboolean status;
-    gtk_tree_model_get(model, &iter, 1, &source, 2, &status, -1);
+    SLAPT_PRIORITY_T priority;
+    gtk_tree_model_get(model, &iter, 1, &source, 2, &status, 4, &priority, -1);
 
-    if (status)
-      slapt_add_source(global_config->sources,source);
-    else
-      slapt_add_source(disabled_sources,source);
+    if (source != NULL) {
+      slapt_source_t *src = slapt_init_source(source);
+      if (src != NULL) {
+
+        if (status)
+          src->disabled = SLAPT_FALSE;
+        else
+          src->disabled = SLAPT_TRUE;
   
-    g_free(source);
+        src->priority = priority;
+
+        slapt_add_source(global_config->sources,src);
+      }
+      g_free(source);
+    }
 
     valid = gtk_tree_model_iter_next(model, &iter);
   }
@@ -2369,11 +2323,12 @@ void preferences_on_ok_clicked (GtkWidget *w, gpointer user_data)
     valid = gtk_tree_model_iter_next(model, &iter);
   }
 
-  if ( write_preferences() == FALSE ) {
+  if ( slapt_write_rc_config(global_config, rc_location) != 0) {
     notify((gchar *)_("Error"),(gchar *)_("Failed to commit preferences"));
     on_gslapt_destroy(NULL,NULL);
   }
 
+  preferences_window = NULL;
   gtk_widget_destroy(w);
 
   /* dialog to resync package sources */
@@ -2426,43 +2381,10 @@ void preferences_exclude_remove(GtkWidget *w, gpointer user_data)
 
 }
 
-static gboolean write_preferences (void)
-{
-  guint i;
-  FILE *rc;
-
-  rc = slapt_open_file(rc_location,"w+");
-  if ( rc == NULL )
-    return FALSE;
-
-  fprintf(rc,"%s%s\n",WORKINGDIR_TOKEN,global_config->working_dir);
-
-  fprintf(rc,"%s",EXCLUDE_TOKEN);
-  for (i = 0;i < global_config->exclude_list->count;++i) {
-    if ( i+1 == global_config->exclude_list->count) {
-      fprintf(rc,"%s",global_config->exclude_list->excludes[i]);
-    }else{
-      fprintf(rc,"%s,",global_config->exclude_list->excludes[i]);
-    }
-  }
-  fprintf(rc,"\n");
-
-  for (i = 0; i < global_config->sources->count;++i) {
-    fprintf(rc,"%s%s\n",SOURCE_TOKEN,global_config->sources->url[i]);
-  }
-
-  for (i = 0; i < disabled_sources->count; ++i) {
-    fprintf(rc,"#DISABLED=%s\n",disabled_sources->url[i]);
-  }
-
-  fclose(rc);
-
-  return TRUE;
-}
-
 
 void cancel_preferences (GtkWidget *w, gpointer user_data)
 {
+  preferences_window = NULL;
   gtk_widget_destroy(w);
 }
 
@@ -3190,7 +3112,9 @@ struct slapt_source_list *parse_disabled_package_sources (const char *file_name)
 
     if (strstr(getline_buffer,"#DISABLED=") != NULL) {
       if (g_size > 10) {
-        slapt_add_source(list,getline_buffer + 10);
+        slapt_source_t *src = slapt_init_source(getline_buffer + 10);
+        if (src != NULL)
+          slapt_add_source(list,src);
       }
     }
   }
@@ -3626,11 +3550,11 @@ static void build_verification_sources_treeviewlist (GtkWidget *treeview)
   );
 
   for (i = 0; i < global_config->sources->count; ++i) {
-    if ( global_config->sources->url[i] == NULL )
+    if ( global_config->sources->src[i]->url == NULL )
       continue;
 
     gtk_list_store_append(store, &iter);
-    gtk_list_store_set(store,&iter, 0,global_config->sources->url[i], -1);
+    gtk_list_store_set(store,&iter, 0,global_config->sources->src[i]->url, -1);
   }
 
   /* column for url */
@@ -3774,10 +3698,12 @@ void view_changelogs (GtkMenuItem *menuitem, gpointer user_data)
     GtkWidget *textview, *scrolledwindow, *label;
     GtkTextBuffer *changelog_buffer;
 
-    if ( global_config->sources->url[i] == NULL )
+    if ( global_config->sources->src[i]->url == NULL )
+      continue;
+    if ( global_config->sources->src[i]->disabled == SLAPT_TRUE)
       continue;
 
-    source_url = g_strdup ( global_config->sources->url[i] );
+    source_url = g_strdup ( global_config->sources->src[i]->url );
 
     changelog_filename = slapt_gen_filename_from_url(source_url,SLAPT_CHANGELOG_FILE);
     path_and_file = g_strjoin("/", global_config->working_dir, changelog_filename, NULL);
@@ -3855,7 +3781,7 @@ void view_changelogs (GtkMenuItem *menuitem, gpointer user_data)
     gtk_scrolled_window_set_policy ( GTK_SCROLLED_WINDOW(scrolledwindow), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC );
     
     gtk_container_add ( GTK_CONTAINER(scrolledwindow), textview );
-    gtk_notebook_set_tab_label (GTK_NOTEBOOK (changelog_notebook), gtk_notebook_get_nth_page (GTK_NOTEBOOK (changelog_notebook), i), label);
+    gtk_notebook_set_tab_label (GTK_NOTEBOOK (changelog_notebook), gtk_notebook_get_nth_page (GTK_NOTEBOOK (changelog_notebook), changelogs), label);
 
     g_free(changelog_txt);
     g_free(source_url);
@@ -3868,5 +3794,85 @@ void view_changelogs (GtkMenuItem *menuitem, gpointer user_data)
     gtk_widget_destroy(changelog_window);
     notify((gchar *)_("ChangeLogs"),_("No changelogs found."));
   }
+}
+
+void cancel_source_edit (GtkWidget *w, gpointer user_data)
+{
+  gtk_widget_destroy(w);
+}
+
+void source_edit_ok (GtkWidget *w, gpointer user_data)
+{
+  SLAPT_PRIORITY_T priority;
+  const char *original_url      = NULL;
+  const gchar *source           = NULL;
+  GtkEntry  *source_entry       = GTK_ENTRY(lookup_widget(w,"source_entry"));
+  GtkComboBox *source_priority  = GTK_COMBO_BOX(lookup_widget(w,"source_priority"));
+  GtkTreeIter iter;
+  GtkTreeModel *model;
+  GtkTreeView *source_tree      = GTK_TREE_VIEW(lookup_widget(preferences_window,"preferences_sources_treeview"));
+  GtkTreeSelection *select      = gtk_tree_view_get_selection (GTK_TREE_VIEW (source_tree));
+  GtkListStore *store           = GTK_LIST_STORE(gtk_tree_view_get_model(source_tree));
+
+  source  = gtk_entry_get_text(source_entry);
+
+  if ( source == NULL || strlen(source) < 1 )
+    return;
+
+  priority = convert_gslapt_priority_to_slapt_priority(gtk_combo_box_get_active(source_priority));
+
+  if ((original_url = g_object_get_data( G_OBJECT(w), "original_url")) != NULL) {
+    int i;
+
+    if ( gtk_tree_selection_get_selected(select,&model,&iter))
+      gtk_list_store_set(store, &iter, 1, source, 4, priority, -1);
+
+  } else {
+    const char *priority_str = slapt_priority_to_str(priority);
+    GdkPixbuf *status_icon   = create_pixbuf("pkg_action_installed.png");
+    gtk_list_store_append(store, &iter);
+    gtk_list_store_set(store, &iter,
+      0, status_icon,
+      1, source,
+      2, TRUE,
+      3, priority_str,
+      4, priority,
+      -1);
+    gdk_pixbuf_unref(status_icon);
+  }
+
+  sources_modified = TRUE;
+  gtk_widget_destroy(w);
+}
+
+static SLAPT_PRIORITY_T convert_gslapt_priority_to_slapt_priority(gint p)
+{
+  switch (p) {
+    case 1:
+      return SLAPT_PRIORITY_PREFERRED;
+    case 2:
+      return SLAPT_PRIORITY_OFFICIAL;
+    case 3:
+      return SLAPT_PRIORITY_CUSTOM;
+    case 0:
+    defualt:
+      return SLAPT_PRIORITY_DEFAULT;
+  };
+}
+
+static gint convert_slapt_priority_to_gslapt_priority(SLAPT_PRIORITY_T p)
+{
+  switch (p) {
+    case SLAPT_PRIORITY_DEFAULT:
+      return 0;
+    case SLAPT_PRIORITY_PREFERRED:
+      return 1;
+    case SLAPT_PRIORITY_OFFICIAL:
+      return 2;
+    case SLAPT_PRIORITY_CUSTOM:
+      return 3;
+    defualt:
+      return -1;
+  };
 }
 

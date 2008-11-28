@@ -6,10 +6,10 @@
 
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.4.0\n"
+"Project-Id-Version: 0.5.0\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-09-08 00:54\n"
-"PO-Revision-Date: 2008-03-08 21:06+0500\n"
+"PO-Revision-Date: 2008-11-28 01:29+0500\n"
 "Last-Translator: sin <digitalhunger@gmail.com>\n"
 "Language-Team: DeepStyle team <deep@deepstyle.org.ua>\n"
 "MIME-Version: 1.0\n"
@@ -512,4 +512,28 @@ msgstr "View ChangeLogs"
 
 msgid "ChangeLogs"
 msgstr "ChangeLogs"
+
+msgid "Priority"
+msgstr "Priority"
+
+msgid "Package Source"
+msgstr "Package Source"
+
+msgid "<b>Priority:</b>"
+msgstr "<b>Priority:</b>"
+
+msgid "<b>Source</b>"
+msgstr "<b>Source</b>"
+
+msgid "Default"
+msgstr "Default"
+
+msgid "Preferred"
+msgstr "Preferred"
+
+msgid "Official"
+msgstr "Official"
+
+msgid "Custom"
+msgstr "Custom"
 

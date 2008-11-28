@@ -66,12 +66,9 @@ create_window_preferences (void)
   GtkWidget *scrolledwindow16;
   GtkWidget *preferences_sources_treeview;
   GtkWidget *vbox58;
-  GtkWidget *preferences_remove_source_button;
-  GtkWidget *button8;
-  GtkWidget *hbox94;
-  GtkWidget *label163;
-  GtkWidget *new_source_entry;
   GtkWidget *preferences_add_source_button;
+  GtkWidget *button8;
+  GtkWidget *preferences_remove_source_button;
   GtkWidget *label160;
   #ifdef SLAPT_HAS_GPGME
   GtkWidget *preferences_verification_vbox;
@@ -309,39 +306,22 @@ create_window_preferences (void)
   gtk_widget_show (vbox58);
   gtk_box_pack_start (GTK_BOX (hbox93), vbox58, FALSE, FALSE, 0);
 
-  preferences_remove_source_button = gtk_button_new_from_stock ("gtk-remove");
-  gtk_widget_set_name (preferences_remove_source_button, "preferences_remove_source_button");
-  gtk_widget_show (preferences_remove_source_button);
-  gtk_box_pack_start (GTK_BOX (vbox58), preferences_remove_source_button, FALSE, FALSE, 0);
-  GTK_WIDGET_SET_FLAGS (preferences_remove_source_button, GTK_CAN_DEFAULT);
+  preferences_add_source_button = gtk_button_new_from_stock ("gtk-add");
+  gtk_widget_set_name (preferences_add_source_button, "preferences_add_source_button");
+  gtk_widget_show (preferences_add_source_button);
+  gtk_box_pack_start (GTK_BOX (vbox58), preferences_add_source_button, FALSE, FALSE, 0);
+  GTK_WIDGET_SET_FLAGS (preferences_add_source_button, GTK_CAN_DEFAULT);
 
   button8 = gtk_button_new_from_stock ("gtk-edit");
   gtk_widget_set_name (button8, "button8");
   gtk_widget_show (button8);
   gtk_box_pack_start (GTK_BOX (vbox58), button8, FALSE, FALSE, 0);
 
-  hbox94 = gtk_hbox_new (FALSE, 2);
-  gtk_widget_set_name (hbox94, "hbox94");
-  gtk_widget_show (hbox94);
-  gtk_box_pack_start (GTK_BOX (vbox57), hbox94, FALSE, TRUE, 0);
-  gtk_container_set_border_width (GTK_CONTAINER (hbox94), 6);
-
-  label163 = gtk_label_new (_("<span weight=\"bold\">SOURCE=</span>"));
-  gtk_widget_set_name (label163, "label163");
-  gtk_widget_show (label163);
-  gtk_box_pack_start (GTK_BOX (hbox94), label163, FALSE, FALSE, 0);
-  gtk_label_set_use_markup (GTK_LABEL (label163), TRUE);
-
-  new_source_entry = gtk_entry_new ();
-  gtk_widget_set_name (new_source_entry, "new_source_entry");
-  gtk_widget_show (new_source_entry);
-  gtk_box_pack_start (GTK_BOX (hbox94), new_source_entry, TRUE, TRUE, 0);
-
-  preferences_add_source_button = gtk_button_new_from_stock ("gtk-add");
-  gtk_widget_set_name (preferences_add_source_button, "preferences_add_source_button");
-  gtk_widget_show (preferences_add_source_button);
-  gtk_box_pack_start (GTK_BOX (hbox94), preferences_add_source_button, FALSE, FALSE, 0);
-  GTK_WIDGET_SET_FLAGS (preferences_add_source_button, GTK_CAN_DEFAULT);
+  preferences_remove_source_button = gtk_button_new_from_stock ("gtk-remove");
+  gtk_widget_set_name (preferences_remove_source_button, "preferences_remove_source_button");
+  gtk_widget_show (preferences_remove_source_button);
+  gtk_box_pack_start (GTK_BOX (vbox58), preferences_remove_source_button, FALSE, FALSE, 0);
+  GTK_WIDGET_SET_FLAGS (preferences_remove_source_button, GTK_CAN_DEFAULT);
 
   label160 = gtk_label_new (_("Sources"));
   gtk_widget_set_name (label160, "label160");
@@ -453,20 +433,14 @@ create_window_preferences (void)
   g_signal_connect_swapped ((gpointer) preferences_add_exclude_button, "clicked",
                             G_CALLBACK (preferences_exclude_add),
                             GTK_OBJECT (window_preferences));
-  g_signal_connect_swapped ((gpointer) preferences_remove_source_button, "clicked",
-                            G_CALLBACK (preferences_sources_remove),
+  g_signal_connect_swapped ((gpointer) preferences_add_source_button, "clicked",
+                            G_CALLBACK (preferences_sources_add),
                             GTK_OBJECT (window_preferences));
   g_signal_connect_swapped ((gpointer) button8, "clicked",
                             G_CALLBACK (preferences_sources_edit),
                             GTK_OBJECT (window_preferences));
-  g_signal_connect_swapped ((gpointer) new_source_entry, "editing_done",
-                            G_CALLBACK (preferences_sources_add),
-                            GTK_OBJECT (window_preferences));
-  g_signal_connect_swapped ((gpointer) new_source_entry, "activate",
-                            G_CALLBACK (preferences_sources_add),
-                            GTK_OBJECT (window_preferences));
-  g_signal_connect_swapped ((gpointer) preferences_add_source_button, "clicked",
-                            G_CALLBACK (preferences_sources_add),
+  g_signal_connect_swapped ((gpointer) preferences_remove_source_button, "clicked",
+                            G_CALLBACK (preferences_sources_remove),
                             GTK_OBJECT (window_preferences));
   #ifdef SLAPT_HAS_GPGME
   g_signal_connect_swapped ((gpointer) button9, "clicked",
@@ -517,12 +491,9 @@ create_window_preferences (void)
   GLADE_HOOKUP_OBJECT (window_preferences, scrolledwindow16, "scrolledwindow16");
   GLADE_HOOKUP_OBJECT (window_preferences, preferences_sources_treeview, "preferences_sources_treeview");
   GLADE_HOOKUP_OBJECT (window_preferences, vbox58, "vbox58");
-  GLADE_HOOKUP_OBJECT (window_preferences, preferences_remove_source_button, "preferences_remove_source_button");
-  GLADE_HOOKUP_OBJECT (window_preferences, button8, "button8");
-  GLADE_HOOKUP_OBJECT (window_preferences, hbox94, "hbox94");
-  GLADE_HOOKUP_OBJECT (window_preferences, label163, "label163");
-  GLADE_HOOKUP_OBJECT (window_preferences, new_source_entry, "new_source_entry");
   GLADE_HOOKUP_OBJECT (window_preferences, preferences_add_source_button, "preferences_add_source_button");
+  GLADE_HOOKUP_OBJECT (window_preferences, button8, "button8");
+  GLADE_HOOKUP_OBJECT (window_preferences, preferences_remove_source_button, "preferences_remove_source_button");
   GLADE_HOOKUP_OBJECT (window_preferences, label160, "label160");
   #ifdef SLAPT_HAS_GPGME
   GLADE_HOOKUP_OBJECT (window_preferences, preferences_verification_vbox, "preferences_verification_vbox");
@@ -2899,5 +2870,126 @@ create_changelog_window (void)
   GLADE_HOOKUP_OBJECT (changelog_window, button12, "button12");
 
   return changelog_window;
+}
+
+GtkWidget*
+create_source_window (void)
+{
+  GtkWidget *source_window;
+  GdkPixbuf *source_window_icon_pixbuf;
+  GtkWidget *vbox79;
+  GtkWidget *table6;
+  GtkWidget *priority_label;
+  GtkWidget *source_label;
+  GtkWidget *source_entry;
+  GtkWidget *source_priority;
+  GtkWidget *hbuttonbox4;
+  GtkWidget *button13;
+  GtkWidget *button14;
+
+  source_window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+  gtk_widget_set_name (source_window, "source_window");
+  gtk_container_set_border_width (GTK_CONTAINER (source_window), 6);
+  gtk_window_set_title (GTK_WINDOW (source_window), _("Package Source"));
+  gtk_window_set_position (GTK_WINDOW (source_window), GTK_WIN_POS_CENTER);
+  gtk_window_set_modal (GTK_WINDOW (source_window), TRUE);
+  source_window_icon_pixbuf = create_pixbuf ("gslapt.png");
+  if (source_window_icon_pixbuf)
+    {
+      gtk_window_set_icon (GTK_WINDOW (source_window), source_window_icon_pixbuf);
+      gdk_pixbuf_unref (source_window_icon_pixbuf);
+    }
+
+  vbox79 = gtk_vbox_new (FALSE, 0);
+  gtk_widget_set_name (vbox79, "vbox79");
+  gtk_widget_show (vbox79);
+  gtk_container_add (GTK_CONTAINER (source_window), vbox79);
+  gtk_container_set_border_width (GTK_CONTAINER (vbox79), 6);
+
+  table6 = gtk_table_new (2, 2, FALSE);
+  gtk_widget_set_name (table6, "table6");
+  gtk_widget_show (table6);
+  gtk_box_pack_start (GTK_BOX (vbox79), table6, TRUE, TRUE, 6);
+  gtk_container_set_border_width (GTK_CONTAINER (table6), 6);
+  gtk_table_set_row_spacings (GTK_TABLE (table6), 6);
+  gtk_table_set_col_spacings (GTK_TABLE (table6), 6);
+
+  priority_label = gtk_label_new (_("<b>Priority:</b>"));
+  gtk_widget_set_name (priority_label, "priority_label");
+  gtk_widget_show (priority_label);
+  gtk_table_attach (GTK_TABLE (table6), priority_label, 0, 1, 1, 2,
+                    (GtkAttachOptions) (GTK_FILL),
+                    (GtkAttachOptions) (GTK_FILL), 6, 0);
+  gtk_label_set_use_markup (GTK_LABEL (priority_label), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (priority_label), 0, 0.5);
+
+  source_label = gtk_label_new (_("<b>Source:</b>"));
+  gtk_widget_set_name (source_label, "source_label");
+  gtk_widget_show (source_label);
+  gtk_table_attach (GTK_TABLE (table6), source_label, 0, 1, 0, 1,
+                    (GtkAttachOptions) (GTK_FILL),
+                    (GtkAttachOptions) (GTK_FILL), 6, 0);
+  gtk_label_set_use_markup (GTK_LABEL (source_label), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (source_label), 0, 0.5);
+
+  source_entry = gtk_entry_new ();
+  gtk_widget_set_name (source_entry, "source_entry");
+  gtk_widget_show (source_entry);
+  gtk_table_attach (GTK_TABLE (table6), source_entry, 1, 2, 0, 1,
+                    (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
+                    (GtkAttachOptions) (GTK_EXPAND), 0, 0);
+  gtk_entry_set_invisible_char (GTK_ENTRY (source_entry), 9679);
+  gtk_entry_set_width_chars (GTK_ENTRY (source_entry), 60);
+
+  source_priority = gtk_combo_box_entry_new_text ();
+  gtk_widget_set_name (source_priority, "source_priority");
+  gtk_widget_show (source_priority);
+  gtk_table_attach (GTK_TABLE (table6), source_priority, 1, 2, 1, 2,
+                    (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
+                    (GtkAttachOptions) (GTK_EXPAND | GTK_FILL), 0, 0);
+  gtk_container_set_border_width (GTK_CONTAINER (source_priority), 6);
+  gtk_combo_box_append_text (GTK_COMBO_BOX (source_priority), _("Default"));
+  gtk_combo_box_append_text (GTK_COMBO_BOX (source_priority), _("Preferred"));
+  gtk_combo_box_append_text (GTK_COMBO_BOX (source_priority), _("Official"));
+  gtk_combo_box_append_text (GTK_COMBO_BOX (source_priority), _("Custom"));
+
+  hbuttonbox4 = gtk_hbutton_box_new ();
+  gtk_widget_set_name (hbuttonbox4, "hbuttonbox4");
+  gtk_widget_show (hbuttonbox4);
+  gtk_box_pack_start (GTK_BOX (vbox79), hbuttonbox4, FALSE, TRUE, 0);
+  gtk_button_box_set_layout (GTK_BUTTON_BOX (hbuttonbox4), GTK_BUTTONBOX_END);
+
+  button13 = gtk_button_new_from_stock ("gtk-cancel");
+  gtk_widget_set_name (button13, "button13");
+  gtk_widget_show (button13);
+  gtk_container_add (GTK_CONTAINER (hbuttonbox4), button13);
+  GTK_WIDGET_SET_FLAGS (button13, GTK_CAN_DEFAULT);
+
+  button14 = gtk_button_new_from_stock ("gtk-ok");
+  gtk_widget_set_name (button14, "button14");
+  gtk_widget_show (button14);
+  gtk_container_add (GTK_CONTAINER (hbuttonbox4), button14);
+  GTK_WIDGET_SET_FLAGS (button14, GTK_CAN_DEFAULT);
+
+  g_signal_connect_swapped ((gpointer) button13, "clicked",
+                            G_CALLBACK (cancel_source_edit),
+                            GTK_OBJECT (source_window));
+  g_signal_connect_swapped ((gpointer) button14, "clicked",
+                            G_CALLBACK (source_edit_ok),
+                            GTK_OBJECT (source_window));
+
+  /* Store pointers to all widgets, for use by lookup_widget(). */
+  GLADE_HOOKUP_OBJECT_NO_REF (source_window, source_window, "source_window");
+  GLADE_HOOKUP_OBJECT (source_window, vbox79, "vbox79");
+  GLADE_HOOKUP_OBJECT (source_window, table6, "table6");
+  GLADE_HOOKUP_OBJECT (source_window, priority_label, "priority_label");
+  GLADE_HOOKUP_OBJECT (source_window, source_label, "source_label");
+  GLADE_HOOKUP_OBJECT (source_window, source_entry, "source_entry");
+  GLADE_HOOKUP_OBJECT (source_window, source_priority, "source_priority");
+  GLADE_HOOKUP_OBJECT (source_window, hbuttonbox4, "hbuttonbox4");
+  GLADE_HOOKUP_OBJECT (source_window, button13, "button13");
+  GLADE_HOOKUP_OBJECT (source_window, button14, "button14");
+
+  return source_window;
 }
 
