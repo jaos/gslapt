@@ -3822,10 +3822,10 @@ void source_edit_ok (GtkWidget *w, gpointer user_data)
   priority = convert_gslapt_priority_to_slapt_priority(gtk_combo_box_get_active(source_priority));
 
   if ((original_url = g_object_get_data( G_OBJECT(w), "original_url")) != NULL) {
-    int i;
+    const char *priority_str = slapt_priority_to_str(priority);
 
     if ( gtk_tree_selection_get_selected(select,&model,&iter))
-      gtk_list_store_set(store, &iter, 1, source, 4, priority, -1);
+      gtk_list_store_set(store, &iter, 1, source, 3, priority_str, 4, priority, -1);
 
   } else {
     const char *priority_str = slapt_priority_to_str(priority);
