@@ -3855,7 +3855,7 @@ static SLAPT_PRIORITY_T convert_gslapt_priority_to_slapt_priority(gint p)
     case 3:
       return SLAPT_PRIORITY_CUSTOM;
     case 0:
-    defualt:
+    default:
       return SLAPT_PRIORITY_DEFAULT;
   };
 }
@@ -3871,7 +3871,7 @@ static gint convert_slapt_priority_to_gslapt_priority(SLAPT_PRIORITY_T p)
       return 2;
     case SLAPT_PRIORITY_CUSTOM:
       return 3;
-    defualt:
+    default:
       return -1;
   };
 }
