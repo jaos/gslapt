@@ -593,8 +593,6 @@ create_gslapt (void)
   GtkWidget *table2;
   GtkWidget *label226;
   GtkWidget *pkg_info_name;
-  GtkWidget *label244;
-  GtkWidget *pkg_info_location;
   GtkWidget *label250;
   GtkWidget *label227;
   GtkWidget *pkg_info_description;
@@ -603,6 +601,10 @@ create_gslapt (void)
   GtkWidget *pkg_info_status;
   GtkWidget *label291;
   GtkWidget *pkg_info_source;
+  GtkWidget *label298;
+  GtkWidget *pkg_info_priority;
+  GtkWidget *label244;
+  GtkWidget *pkg_info_location;
   GtkWidget *vbox67;
   GtkWidget *label272;
   GtkWidget *hbox106;
@@ -1087,7 +1089,7 @@ create_gslapt (void)
   gtk_container_add (GTK_CONTAINER (viewport1), vbox63);
   gtk_container_set_border_width (GTK_CONTAINER (vbox63), 6);
 
-  table2 = gtk_table_new (6, 2, FALSE);
+  table2 = gtk_table_new (7, 2, FALSE);
   gtk_widget_set_name (table2, "table2");
   gtk_widget_show (table2);
   gtk_box_pack_start (GTK_BOX (vbox63), table2, FALSE, FALSE, 0);
@@ -1113,26 +1115,6 @@ create_gslapt (void)
   gtk_label_set_use_markup (GTK_LABEL (pkg_info_name), TRUE);
   gtk_label_set_selectable (GTK_LABEL (pkg_info_name), TRUE);
   gtk_misc_set_alignment (GTK_MISC (pkg_info_name), 0, 0.5);
-
-  label244 = gtk_label_new (_("<b>Location:</b>"));
-  gtk_widget_set_name (label244, "label244");
-  gtk_widget_show (label244);
-  gtk_table_attach (GTK_TABLE (table2), label244, 0, 1, 3, 4,
-                    (GtkAttachOptions) (GTK_FILL),
-                    (GtkAttachOptions) (0), 0, 0);
-  gtk_label_set_use_markup (GTK_LABEL (label244), TRUE);
-  gtk_misc_set_alignment (GTK_MISC (label244), 0, 0.5);
-
-  pkg_info_location = gtk_label_new ("");
-  gtk_widget_set_name (pkg_info_location, "pkg_info_location");
-  gtk_widget_show (pkg_info_location);
-  gtk_table_attach (GTK_TABLE (table2), pkg_info_location, 1, 2, 3, 4,
-                    (GtkAttachOptions) (GTK_FILL),
-                    (GtkAttachOptions) (0), 0, 0);
-  GTK_WIDGET_SET_FLAGS (pkg_info_location, GTK_CAN_FOCUS);
-  gtk_label_set_use_markup (GTK_LABEL (pkg_info_location), TRUE);
-  gtk_label_set_selectable (GTK_LABEL (pkg_info_location), TRUE);
-  gtk_misc_set_alignment (GTK_MISC (pkg_info_location), 0, 0.5);
 
   label250 = gtk_label_new (_("<b>Status:</b>"));
   gtk_widget_set_name (label250, "label250");
@@ -1209,6 +1191,43 @@ create_gslapt (void)
   gtk_label_set_use_markup (GTK_LABEL (pkg_info_source), TRUE);
   gtk_label_set_selectable (GTK_LABEL (pkg_info_source), TRUE);
   gtk_misc_set_alignment (GTK_MISC (pkg_info_source), 0, 0.5);
+
+  label298 = gtk_label_new (_("<b>Priority:</b>"));
+  gtk_widget_set_name (label298, "label298");
+  gtk_widget_show (label298);
+  gtk_table_attach (GTK_TABLE (table2), label298, 0, 1, 6, 7,
+                    (GtkAttachOptions) (GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 0);
+  gtk_label_set_use_markup (GTK_LABEL (label298), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label298), 0, 0.5);
+
+  pkg_info_priority = gtk_label_new ("");
+  gtk_widget_set_name (pkg_info_priority, "pkg_info_priority");
+  gtk_widget_show (pkg_info_priority);
+  gtk_table_attach (GTK_TABLE (table2), pkg_info_priority, 1, 2, 6, 7,
+                    (GtkAttachOptions) (GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 0);
+  gtk_misc_set_alignment (GTK_MISC (pkg_info_priority), 0, 0.5);
+
+  label244 = gtk_label_new (_("<b>Location:</b>"));
+  gtk_widget_set_name (label244, "label244");
+  gtk_widget_show (label244);
+  gtk_table_attach (GTK_TABLE (table2), label244, 0, 1, 3, 4,
+                    (GtkAttachOptions) (GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 0);
+  gtk_label_set_use_markup (GTK_LABEL (label244), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label244), 0, 0.5);
+
+  pkg_info_location = gtk_label_new ("");
+  gtk_widget_set_name (pkg_info_location, "pkg_info_location");
+  gtk_widget_show (pkg_info_location);
+  gtk_table_attach (GTK_TABLE (table2), pkg_info_location, 1, 2, 3, 4,
+                    (GtkAttachOptions) (GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 0);
+  GTK_WIDGET_SET_FLAGS (pkg_info_location, GTK_CAN_FOCUS);
+  gtk_label_set_use_markup (GTK_LABEL (pkg_info_location), TRUE);
+  gtk_label_set_selectable (GTK_LABEL (pkg_info_location), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (pkg_info_location), 0, 0.5);
 
   vbox67 = gtk_vbox_new (FALSE, 0);
   gtk_widget_set_name (vbox67, "vbox67");
@@ -1597,8 +1616,6 @@ create_gslapt (void)
   GLADE_HOOKUP_OBJECT (gslapt, table2, "table2");
   GLADE_HOOKUP_OBJECT (gslapt, label226, "label226");
   GLADE_HOOKUP_OBJECT (gslapt, pkg_info_name, "pkg_info_name");
-  GLADE_HOOKUP_OBJECT (gslapt, label244, "label244");
-  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_location, "pkg_info_location");
   GLADE_HOOKUP_OBJECT (gslapt, label250, "label250");
   GLADE_HOOKUP_OBJECT (gslapt, label227, "label227");
   GLADE_HOOKUP_OBJECT (gslapt, pkg_info_description, "pkg_info_description");
@@ -1607,6 +1624,10 @@ create_gslapt (void)
   GLADE_HOOKUP_OBJECT (gslapt, pkg_info_status, "pkg_info_status");
   GLADE_HOOKUP_OBJECT (gslapt, label291, "label291");
   GLADE_HOOKUP_OBJECT (gslapt, pkg_info_source, "pkg_info_source");
+  GLADE_HOOKUP_OBJECT (gslapt, label298, "label298");
+  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_priority, "pkg_info_priority");
+  GLADE_HOOKUP_OBJECT (gslapt, label244, "label244");
+  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_location, "pkg_info_location");
   GLADE_HOOKUP_OBJECT (gslapt, vbox67, "vbox67");
   GLADE_HOOKUP_OBJECT (gslapt, label272, "label272");
   GLADE_HOOKUP_OBJECT (gslapt, hbox106, "hbox106");
@@ -2819,6 +2840,7 @@ create_changelog_window (void)
   GdkPixbuf *changelog_window_icon_pixbuf;
   GtkWidget *vbox78;
   GtkWidget *changelog_notebook;
+  GtkWidget *label296;
   GtkWidget *hbuttonbox3;
   GtkWidget *button12;
 
@@ -2843,6 +2865,11 @@ create_changelog_window (void)
   gtk_widget_show (changelog_notebook);
   gtk_box_pack_start (GTK_BOX (vbox78), changelog_notebook, TRUE, TRUE, 6);
 
+  label296 = gtk_label_new ("");
+  gtk_widget_set_name (label296, "label296");
+  gtk_widget_show (label296);
+  gtk_notebook_set_tab_label (GTK_NOTEBOOK (changelog_notebook), gtk_notebook_get_nth_page (GTK_NOTEBOOK (changelog_notebook), 0), label296);
+
   hbuttonbox3 = gtk_hbutton_box_new ();
   gtk_widget_set_name (hbuttonbox3, "hbuttonbox3");
   gtk_widget_show (hbuttonbox3);
@@ -2866,6 +2893,7 @@ create_changelog_window (void)
   GLADE_HOOKUP_OBJECT_NO_REF (changelog_window, changelog_window, "changelog_window");
   GLADE_HOOKUP_OBJECT (changelog_window, vbox78, "vbox78");
   GLADE_HOOKUP_OBJECT (changelog_window, changelog_notebook, "changelog_notebook");
+  GLADE_HOOKUP_OBJECT (changelog_window, label296, "label296");
   GLADE_HOOKUP_OBJECT (changelog_window, hbuttonbox3, "hbuttonbox3");
   GLADE_HOOKUP_OBJECT (changelog_window, button12, "button12");
 

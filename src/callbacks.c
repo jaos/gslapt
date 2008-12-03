@@ -737,6 +737,7 @@ static void fillin_pkg_details (slapt_pkg_info_t *pkg)
   slapt_pkg_info_t *latest_pkg = slapt_get_newest_pkg(all,pkg->name);
   slapt_pkg_info_t *installed_pkg = slapt_get_newest_pkg(installed,pkg->name);
   char *clean_desc = NULL, *changelog = NULL;
+  const char *priority_str = NULL;
 
   /* set package details */
   gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_name")),pkg->name);
@@ -750,6 +751,10 @@ static void fillin_pkg_details (slapt_pkg_info_t *pkg)
   } else {
     gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_description")),"");
   }
+
+  priority_str = slapt_priority_to_str(pkg->priority);
+  fprintf(stderr,"%s\n", priority_str);
+  gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_priority")),priority_str);
 
   /* dependency information tab */
   store = gtk_tree_store_new(1,G_TYPE_STRING);
@@ -1013,6 +1018,7 @@ static void get_package_data (void)
     FILE *tmp_signature_f = NULL;
     #endif
     unsigned int compressed = 0;
+    SLAPT_PRIORITY_T source_priority = global_config->sources->src[i]->priority;
 
     if (global_config->sources->src[i]->disabled == SLAPT_TRUE)
       continue;
@@ -1260,6 +1266,8 @@ static void get_package_data (void)
             strlen(available_pkgs->pkgs[pkg_i]->mirror) == 0) {
           available_pkgs->pkgs[pkg_i]->mirror = strdup(global_config->sources->src[i]->url);
         }
+        /* set the priority of the package based on the source */
+        available_pkgs->pkgs[pkg_i]->priority = source_priority;
         slapt_add_pkg_to_pkg_list(new_pkgs,available_pkgs->pkgs[pkg_i]);
       }
 
@@ -1282,6 +1290,8 @@ static void get_package_data (void)
             strlen(patch_pkgs->pkgs[pkg_i]->mirror) == 0) {
           patch_pkgs->pkgs[pkg_i]->mirror = strdup(global_config->sources->src[i]->url);
         }
+        /* set the priority of the package based on the source, plus 1 for the patch priority */
+        patch_pkgs->pkgs[pkg_i]->priority = source_priority + 1;
         slapt_add_pkg_to_pkg_list(new_pkgs,patch_pkgs->pkgs[pkg_i]);
       }
 
