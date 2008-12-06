@@ -407,16 +407,21 @@ void add_pkg_for_removal (GtkWidget *gslapt, gpointer user_data)
       gtk_tree_model_filter_convert_iter_to_child_iter(GTK_TREE_MODEL_FILTER(filter_model),&actual_iter,&filter_iter);
       model = GTK_TREE_MODEL(gtk_tree_model_filter_get_model(GTK_TREE_MODEL_FILTER(filter_model)));
 
-      deps = slapt_is_required_by(global_config,all,pkg);
+      deps = slapt_is_required_by(global_config, all, pkg);
 
       slapt_add_remove_to_transaction(trans,pkg);
       set_iter_for_remove(model, &actual_iter, pkg);
       set_execute_active();
 
       for (c = 0; c < deps->pkg_count;c++) {
-        slapt_add_remove_to_transaction(trans,deps->pkgs[c]);
-        if (set_iter_to_pkg(model,&actual_iter,deps->pkgs[c])) {
-          set_iter_for_remove(model, &actual_iter, deps->pkgs[c]);
+        slapt_pkg_info_t *dep = deps->pkgs[c];
+        /* need to check that it is actually installed */
+        slapt_pkg_info_t *installed_dep = slapt_get_exact_pkg(installed, dep->name, dep->version);
+        if (installed_dep != NULL ) {
+          slapt_add_remove_to_transaction(trans, installed_dep);
+          if (set_iter_to_pkg(model, &actual_iter, installed_dep)) {
+            set_iter_for_remove(model, &actual_iter, installed_dep);
+          }
         }
       }
 
