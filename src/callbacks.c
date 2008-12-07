@@ -758,7 +758,6 @@ static void fillin_pkg_details (slapt_pkg_info_t *pkg)
   }
 
   priority_str = slapt_priority_to_str(pkg->priority);
-  fprintf(stderr,"%s\n", priority_str);
   gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_priority")),priority_str);
 
   /* dependency information tab */
