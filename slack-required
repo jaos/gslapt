@@ -2,6 +2,7 @@ curl
 glib2
 gpgme
 gtk+2
+gnome-icon-theme
 libX11
 libXau
 libXcursor
