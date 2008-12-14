@@ -1,5 +1,7 @@
 
 0.5.1 Dec 14, 2008
+ * better status labels in the package description when upgrading, installing,
+   reinstalling, and dowgrading packages
  * updated for libslapt 0.10.1 compatibility
  * use the actual file extension when printing the package name while downloading
  * fixed the show upgradeable view to account for package priorities

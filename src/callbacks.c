@@ -48,7 +48,7 @@ static int disk_space(int space_needed);
 static gboolean pkg_action_popup_menu (GtkTreeView *treeview, gpointer data);
 static int set_iter_to_pkg (GtkTreeModel *model, GtkTreeIter *iter,
                             slapt_pkg_info_t *pkg);
-static int lsearch_upgrade_transaction (slapt_transaction_t *tran,slapt_pkg_info_t *pkg);
+static slapt_pkg_upgrade_t *lsearch_upgrade_transaction (slapt_transaction_t *tran,slapt_pkg_info_t *pkg);
 static void build_package_action_menu (slapt_pkg_info_t *pkg);
 static void rebuild_package_action_menu (void);
 static void mark_upgrade_packages (void);
@@ -482,12 +482,9 @@ void build_package_treeviewlist (GtkWidget *treeview)
       }
     }
 
-    if (trans->exclude_pkgs->pkg_count > 0 &&
-    slapt_get_exact_pkg(trans->exclude_pkgs,all->pkgs[i]->name,all->pkgs[i]->version) != NULL) {
+    if (slapt_get_exact_pkg(trans->exclude_pkgs,all->pkgs[i]->name,all->pkgs[i]->version) != NULL) {
       /* if it's excluded */
-      if ((trans->exclude_pkgs->pkg_count > 0 &&
-           slapt_get_exact_pkg(trans->exclude_pkgs,all->pkgs[i]->name,
-                               all->pkgs[i]->version) != NULL) ||
+      if ((slapt_get_exact_pkg(trans->exclude_pkgs,all->pkgs[i]->name, all->pkgs[i]->version) != NULL) ||
            slapt_is_excluded(global_config,all->pkgs[i]) == 1) {
         status_icon = create_pixbuf("pkg_action_available_excluded.png");
       } else {
@@ -495,28 +492,21 @@ void build_package_treeviewlist (GtkWidget *treeview)
       }
       status = g_strdup_printf("z%s",all->pkgs[i]->name);
       location = all->pkgs[i]->location;
-    } else if (trans->remove_pkgs->pkg_count > 0 &&
-    slapt_get_exact_pkg(trans->remove_pkgs,all->pkgs[i]->name,
-                        all->pkgs[i]->version) != NULL) {
+    } else if (slapt_get_exact_pkg(trans->remove_pkgs,all->pkgs[i]->name, all->pkgs[i]->version) != NULL) {
       status_icon = create_pixbuf("pkg_action_remove.png");
       status = g_strdup_printf("r%s",all->pkgs[i]->name);
       location = all->pkgs[i]->location;
-    } else if (trans->install_pkgs->pkg_count > 0 &&
-    slapt_get_exact_pkg(trans->install_pkgs,all->pkgs[i]->name,
-                        all->pkgs[i]->version) != NULL) {
+    } else if (slapt_get_exact_pkg(trans->install_pkgs,all->pkgs[i]->name, all->pkgs[i]->version) != NULL) {
       status_icon = create_pixbuf("pkg_action_install.png");
       status = g_strdup_printf("i%s",all->pkgs[i]->name);
       location = all->pkgs[i]->location;
-    } else if (trans->upgrade_pkgs->pkg_count > 0 &&
-               lsearch_upgrade_transaction(trans,all->pkgs[i]) == 1) {
+    } else if (lsearch_upgrade_transaction(trans,all->pkgs[i]) != NULL) {
       status_icon = create_pixbuf("pkg_action_upgrade.png");
       status = g_strdup_printf("u%s",all->pkgs[i]->name);
       location = all->pkgs[i]->location;
     } else if (is_inst) {
       /* if it's excluded */
-      if ((trans->exclude_pkgs->pkg_count > 0 &&
-           slapt_get_exact_pkg(trans->exclude_pkgs,all->pkgs[i]->name,
-                              all->pkgs[i]->version) != NULL) ||
+      if ((slapt_get_exact_pkg(trans->exclude_pkgs,all->pkgs[i]->name, all->pkgs[i]->version) != NULL) ||
            slapt_is_excluded(global_config,all->pkgs[i]) == 1) {
         status_icon = create_pixbuf("pkg_action_installed_excluded.png");
       } else {
@@ -526,9 +516,7 @@ void build_package_treeviewlist (GtkWidget *treeview)
       location = installed_pkg->location;
     } else {
       /* if it's excluded */
-      if ((trans->exclude_pkgs->pkg_count > 0 &&
-           slapt_get_exact_pkg(trans->exclude_pkgs,all->pkgs[i]->name,
-                               all->pkgs[i]->version) != NULL) ||
+      if ((slapt_get_exact_pkg(trans->exclude_pkgs,all->pkgs[i]->name, all->pkgs[i]->version) != NULL) ||
            slapt_is_excluded(global_config,all->pkgs[i]) == 1) {
         status_icon = create_pixbuf("pkg_action_available_excluded.png");
       } else {
@@ -567,16 +555,12 @@ void build_package_treeviewlist (GtkWidget *treeview)
       GdkPixbuf *status_icon = NULL;
       gchar *short_desc = slapt_gen_short_pkg_description(installed->pkgs[i]);
 
-      if (trans->remove_pkgs->pkg_count > 0 &&
-      slapt_get_exact_pkg(trans->remove_pkgs,installed->pkgs[i]->name,
-                          installed->pkgs[i]->version) != NULL) {
+      if (slapt_get_exact_pkg(trans->remove_pkgs,installed->pkgs[i]->name, installed->pkgs[i]->version) != NULL) {
         status_icon = create_pixbuf("pkg_action_remove.png");
         status = g_strdup_printf("r%s",installed->pkgs[i]->name);
       } else {
         /* if it's excluded */
-        if ((trans->exclude_pkgs->pkg_count > 0 &&
-            slapt_get_exact_pkg(trans->exclude_pkgs,installed->pkgs[i]->name,
-                                installed->pkgs[i]->version) != NULL) ||
+        if ((slapt_get_exact_pkg(trans->exclude_pkgs,installed->pkgs[i]->name, installed->pkgs[i]->version) != NULL) ||
             slapt_is_excluded(global_config,installed->pkgs[i]) == 1) {
           status_icon = create_pixbuf("pkg_action_installed_excluded.png");
         } else {
@@ -749,6 +733,7 @@ static void fillin_pkg_details (slapt_pkg_info_t *pkg)
   GtkWidget *treeview = lookup_widget(gslapt,"dep_conf_sug_treeview");
   slapt_pkg_info_t *latest_pkg = slapt_get_newest_pkg(all,pkg->name);
   slapt_pkg_info_t *installed_pkg = slapt_get_newest_pkg(installed,pkg->name);
+  slapt_pkg_upgrade_t *pkg_upgrade = NULL;
   char *clean_desc = NULL, *changelog = NULL;
   const char *priority_str = NULL;
 
@@ -920,25 +905,23 @@ static void fillin_pkg_details (slapt_pkg_info_t *pkg)
   }
 
   /* set status */
-  if ((trans->exclude_pkgs->pkg_count > 0 &&
-  slapt_get_exact_pkg(trans->exclude_pkgs,pkg->name,pkg->version) != NULL) ||
+  if ((slapt_get_exact_pkg(trans->exclude_pkgs,pkg->name,pkg->version) != NULL) ||
   slapt_is_excluded(global_config,pkg) == 1) {
     gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_status")),(gchar *)_("Excluded"));
-  } else if (trans->remove_pkgs->pkg_count > 0 &&
-  slapt_get_exact_pkg(trans->remove_pkgs,pkg->name,pkg->version) != NULL) {
+  } else if (slapt_get_exact_pkg(trans->remove_pkgs,pkg->name,pkg->version) != NULL) {
     gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_status")),(gchar *)_("To be Removed"));
-  } else if (trans->install_pkgs->pkg_count > 0 &&
-  slapt_get_exact_pkg(trans->install_pkgs,pkg->name,pkg->version) != NULL) {
+  } else if (slapt_get_exact_pkg(trans->install_pkgs,pkg->name,pkg->version) != NULL) {
     gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_status")),(gchar *)_("To be Installed"));
-  } else if (trans->upgrade_pkgs->pkg_count > 0 && lsearch_upgrade_transaction(trans,pkg) == 1) {
-    slapt_pkg_info_t *installed_pkg = slapt_get_newest_pkg(installed,pkg->name);
-    int cmp = slapt_cmp_pkgs(pkg,installed_pkg);
-    if (cmp == 0) {
+  } else if ( (pkg_upgrade = lsearch_upgrade_transaction(trans,pkg)) != NULL) {
+    if (slapt_cmp_pkgs(pkg, pkg_upgrade->installed) == 0 &&
+        slapt_cmp_pkg_versions(pkg_upgrade->upgrade->version,pkg_upgrade->installed->version) == 0) {
       gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_status")),(gchar *)_("To be Re-Installed"));
-    } else if (cmp < 0 ) {
-      gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_status")),(gchar *)_("To be Downgraded"));
-    } else {
+    } else if (slapt_cmp_pkgs(pkg, pkg_upgrade->upgrade) < 0) {
       gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_status")),(gchar *)_("To be Upgraded"));
+    } else if (slapt_cmp_pkgs(pkg, pkg_upgrade->upgrade) == 0) {
+      gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_status")),(gchar *)_("To be Installed"));
+    } else if (slapt_cmp_pkgs(pkg, pkg_upgrade->upgrade) > 0) {
+      gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_status")),(gchar *)_("To be Downgraded"));
     }
   } else if (slapt_get_exact_pkg(installed,pkg->name,pkg->version) != NULL) {
     gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_status")),(gchar *)_("Installed"));
@@ -2846,9 +2829,9 @@ void build_treeview_columns (GtkWidget *treeview)
 
 }
 
-static int lsearch_upgrade_transaction (slapt_transaction_t *tran,slapt_pkg_info_t *pkg)
+static slapt_pkg_upgrade_t *lsearch_upgrade_transaction (slapt_transaction_t *tran,slapt_pkg_info_t *pkg)
 {
-  unsigned int i,found = 1, not_found = 0;
+  unsigned int i;
 
   /*
     lookup the package in the upgrade list, checking for the same name,version
@@ -2860,11 +2843,11 @@ static int lsearch_upgrade_transaction (slapt_transaction_t *tran,slapt_pkg_info
     strcmp(pkg->version,tran->upgrade_pkgs->pkgs[i]->upgrade->version) == 0 &&
     (strcmp(pkg->location,tran->upgrade_pkgs->pkgs[i]->upgrade->location) == 0) || 
     (strcmp(pkg->location,tran->upgrade_pkgs->pkgs[i]->installed->location) == 0)) {
-      return found;
+      return tran->upgrade_pkgs->pkgs[i];
     }
   }
  
-  return not_found;
+  return NULL;
 }
 
 void open_icon_legend (GtkObject *object, gpointer user_data)
