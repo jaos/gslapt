@@ -1992,7 +1992,7 @@ char *download_packages (void)
 
     guint msg_len = strlen(trans->install_pkgs->pkgs[i]->name)
         + strlen("-") + strlen(trans->install_pkgs->pkgs[i]->version)
-        + strlen(".") + strlen(".tgz");
+        + strlen(".") + strlen(trans->install_pkgs->pkgs[i]->file_ext);
     gchar *msg = slapt_malloc(msg_len * sizeof *msg);
     gchar dl_size[20];
 
@@ -2000,10 +2000,11 @@ char *download_packages (void)
       strlen(trans->install_pkgs->pkgs[i]->name)
       + strlen("-")
       + strlen(trans->install_pkgs->pkgs[i]->version)
-      + strlen(".") + strlen(".tgz"),
-      "%s-%s.tgz",
+      + strlen(".") + strlen(trans->install_pkgs->pkgs[i]->file_ext),
+      "%s-%s%s",
       trans->install_pkgs->pkgs[i]->name,
-      trans->install_pkgs->pkgs[i]->version
+      trans->install_pkgs->pkgs[i]->version,
+      trans->install_pkgs->pkgs[i]->file_ext
     );
     sprintf(dl_size,"%d K",trans->install_pkgs->pkgs[i]->size_c);
 
@@ -2041,7 +2042,7 @@ char *download_packages (void)
 
     guint msg_len = strlen(trans->upgrade_pkgs->pkgs[i]->upgrade->name)
         + strlen("-") + strlen(trans->upgrade_pkgs->pkgs[i]->upgrade->version)
-        + strlen(".") + strlen(".tgz");
+        + strlen(".") + strlen(trans->upgrade_pkgs->pkgs[i]->upgrade->file_ext);
     gchar *msg = slapt_malloc( sizeof *msg * msg_len);
     gchar dl_size[20];
 
@@ -2049,10 +2050,11 @@ char *download_packages (void)
       strlen(trans->upgrade_pkgs->pkgs[i]->upgrade->name)
       + strlen("-")
       + strlen(trans->upgrade_pkgs->pkgs[i]->upgrade->version)
-      + strlen(".") + strlen(".tgz"),
-      "%s-%s.tgz",
+      + strlen(".") + strlen(trans->upgrade_pkgs->pkgs[i]->upgrade->file_ext),
+      "%s-%s%s",
       trans->upgrade_pkgs->pkgs[i]->upgrade->name,
-      trans->upgrade_pkgs->pkgs[i]->upgrade->version
+      trans->upgrade_pkgs->pkgs[i]->upgrade->version,
+      trans->upgrade_pkgs->pkgs[i]->upgrade->file_ext
     );
     sprintf(dl_size,"%d K",trans->upgrade_pkgs->pkgs[i]->upgrade->size_c);
 

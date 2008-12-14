@@ -1,5 +1,6 @@
 
 0.5.1 Dec 13, 2008
+ * use the actual file extension when printing the package name while downloading
  * fixed the show upgradeable view to account for package priorities
 
 0.5.0 Dec 07, 2008
