@@ -1,5 +1,6 @@
 
-0.5.1 Dec 13, 2008
+0.5.1 Dec 14, 2008
+ * updated for libslapt 0.10.1 compatibility
  * use the actual file extension when printing the package name while downloading
  * fixed the show upgradeable view to account for package priorities
 

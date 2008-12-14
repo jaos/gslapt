@@ -425,8 +425,7 @@ void add_pkg_for_removal (GtkWidget *gslapt, gpointer user_data)
         }
       }
 
-      free(deps->pkgs);
-      free(deps);
+      slapt_free_pkg_list(deps);
 
     }
 
@@ -1302,7 +1301,10 @@ static void get_package_data (void)
           patch_pkgs->pkgs[pkg_i]->mirror = strdup(global_config->sources->src[i]->url);
         }
         /* set the priority of the package based on the source, plus 1 for the patch priority */
-        patch_pkgs->pkgs[pkg_i]->priority = source_priority + 1;
+        if (global_config->use_priority == SLAPT_TRUE)
+          patch_pkgs->pkgs[pkg_i]->priority = source_priority + 1;
+        else
+          patch_pkgs->pkgs[pkg_i]->priority = source_priority;
         slapt_add_pkg_to_pkg_list(new_pkgs,patch_pkgs->pkgs[pkg_i]);
       }
 
