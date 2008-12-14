@@ -462,8 +462,15 @@ void build_package_treeviewlist (GtkWidget *treeview)
     gboolean is_inst = FALSE, is_an_upgrade = FALSE;
     GdkPixbuf *status_icon = NULL;
     gchar *short_desc = slapt_gen_short_pkg_description(all->pkgs[i]);
-    slapt_pkg_info_t *installed_pkg = NULL;
+    slapt_pkg_info_t *installed_pkg = NULL, *newer_available_pkg = NULL;
     gchar *location = NULL;
+
+    /* we need to see if there is another available package
+       that is newer than this one */
+    if ( (newer_available_pkg = slapt_get_newest_pkg(all, all->pkgs[i]->name)) != NULL) {
+      if ( slapt_cmp_pkgs(all->pkgs[i], newer_available_pkg) < 0 )
+        continue;
+    }
 
     installed_pkg = slapt_get_newest_pkg(installed,all->pkgs[i]->name);
     if (installed_pkg != NULL) {
