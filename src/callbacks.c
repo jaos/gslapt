@@ -464,20 +464,22 @@ void build_package_treeviewlist (GtkWidget *treeview)
     slapt_pkg_info_t *installed_pkg = NULL, *newer_available_pkg = NULL;
     gchar *location = NULL;
 
-    /* we need to see if there is another available package
-       that is newer than this one */
-    if ( (newer_available_pkg = slapt_get_newest_pkg(all, all->pkgs[i]->name)) != NULL) {
-      if ( slapt_cmp_pkgs(all->pkgs[i], newer_available_pkg) < 0 )
-        continue;
-    }
-
     installed_pkg = slapt_get_newest_pkg(installed,all->pkgs[i]->name);
     if (installed_pkg != NULL) {
       int cmp = slapt_cmp_pkgs(all->pkgs[i], installed_pkg);
-      if (cmp == 0)
+      if (cmp == 0) {
         is_inst = TRUE;
-      else if (cmp > 0)
+      } else if (cmp > 0) {
         is_an_upgrade = TRUE;
+
+        /* we need to see if there is another available package
+           that is newer than this one */
+        if ( (newer_available_pkg = slapt_get_newest_pkg(all, all->pkgs[i]->name)) != NULL) {
+          if ( slapt_cmp_pkgs(all->pkgs[i], newer_available_pkg) < 0 )
+            is_an_upgrade = FALSE;
+        }
+
+      }
     }
 
     if (trans->exclude_pkgs->pkg_count > 0 &&
@@ -3874,9 +3876,9 @@ static SLAPT_PRIORITY_T convert_gslapt_priority_to_slapt_priority(gint p)
 {
   switch (p) {
     case 1:
-      return SLAPT_PRIORITY_PREFERRED;
-    case 2:
       return SLAPT_PRIORITY_OFFICIAL;
+    case 2:
+      return SLAPT_PRIORITY_PREFERRED;
     case 3:
       return SLAPT_PRIORITY_CUSTOM;
     case 0:
@@ -3890,9 +3892,9 @@ static gint convert_slapt_priority_to_gslapt_priority(SLAPT_PRIORITY_T p)
   switch (p) {
     case SLAPT_PRIORITY_DEFAULT:
       return 0;
-    case SLAPT_PRIORITY_PREFERRED:
-      return 1;
     case SLAPT_PRIORITY_OFFICIAL:
+      return 1;
+    case SLAPT_PRIORITY_PREFERRED:
       return 2;
     case SLAPT_PRIORITY_CUSTOM:
       return 3;

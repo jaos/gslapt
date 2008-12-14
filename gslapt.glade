@@ -5310,8 +5310,8 @@ http://software.jaos.org/#gslapt&lt;/span&gt;</property>
 	      <property name="border_width">6</property>
 	      <property name="visible">True</property>
 	      <property name="items" translatable="yes">Default
-Preferred
 Official
+Preferred
 Custom</property>
 	      <property name="add_tearoffs">False</property>
 	      <property name="has_frame">True</property>

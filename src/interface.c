@@ -2977,8 +2977,8 @@ create_source_window (void)
                     (GtkAttachOptions) (GTK_EXPAND | GTK_FILL), 0, 0);
   gtk_container_set_border_width (GTK_CONTAINER (source_priority), 6);
   gtk_combo_box_append_text (GTK_COMBO_BOX (source_priority), _("Default"));
-  gtk_combo_box_append_text (GTK_COMBO_BOX (source_priority), _("Preferred"));
   gtk_combo_box_append_text (GTK_COMBO_BOX (source_priority), _("Official"));
+  gtk_combo_box_append_text (GTK_COMBO_BOX (source_priority), _("Preferred"));
   gtk_combo_box_append_text (GTK_COMBO_BOX (source_priority), _("Custom"));
 
   hbuttonbox4 = gtk_hbutton_box_new ();
