@@ -312,7 +312,7 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
       display_dep_error_dialog(pkg,missing_count,conflict_count);
     }
 
-  }else{ /* else we upgrade or reinstall */
+  } else { /* else we upgrade or reinstall */
      int ver_cmp;
 
     /* it is already installed, attempt an upgrade */
@@ -916,6 +916,8 @@ static void fillin_pkg_details (slapt_pkg_info_t *pkg)
     if (slapt_cmp_pkgs(pkg, pkg_upgrade->installed) == 0 &&
         slapt_cmp_pkg_versions(pkg_upgrade->upgrade->version,pkg_upgrade->installed->version) == 0) {
       gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_status")),(gchar *)_("To be Re-Installed"));
+    } else if (slapt_cmp_pkgs(latest_pkg, pkg_upgrade->upgrade) > 0 && slapt_cmp_pkg_versions(pkg->version, pkg_upgrade->upgrade->version) > 0) {
+      gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_status")),(gchar *)_("To be Downgraded"));
     } else if (slapt_cmp_pkgs(pkg, pkg_upgrade->upgrade) < 0) {
       gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_status")),(gchar *)_("To be Upgraded"));
     } else if (slapt_cmp_pkgs(pkg, pkg_upgrade->upgrade) == 0) {
@@ -2878,14 +2880,19 @@ static void build_package_action_menu (slapt_pkg_info_t *pkg)
   if (slapt_get_exact_pkg(all,pkg->name,pkg->version) != NULL)
     is_downloadable = 1;
 
+  /* find out if there is a newer available package */
   upgrade_pkg = slapt_get_newest_pkg(all,pkg->name);
   if (upgrade_pkg != NULL && slapt_cmp_pkgs(pkg,upgrade_pkg) < 0)
     is_newest = 0;
 
   if ((newest_installed = slapt_get_newest_pkg(installed,pkg->name)) != NULL) {
-    /* if pkg is not the newest available version and the version is actually 
-       less (disregarding priority) then we consider this a downgrade */
-    if (is_newest == 0 && slapt_cmp_pkg_versions(pkg->version,newest_installed->version) < 0) {
+    /* this will always be true for high priority package sources */
+    if (slapt_cmp_pkgs(pkg,newest_installed) < 0) {
+      is_downgrade = 1;
+    } else if (is_newest == 0 && slapt_cmp_pkg_versions(pkg->version,newest_installed->version) < 0) {
+      /* if pkg is not the newest available version and the version is actually 
+         less (and does not have a higher priority or would have been handled
+         above) then we consider this a downgrade */
       is_downgrade = 1;
     } else if (slapt_cmp_pkgs(pkg,newest_installed) == 0) {
       /* maybe this isn't the exact installed package, but it's different enough
