@@ -1,5 +1,7 @@
 
 0.5.1 Dec 14, 2008
+ * determine possible downgrades even with respect to priorities and allow
+   the package action menu to provide a downgrade option
  * better status labels in the package description when upgrading, installing,
    reinstalling, and dowgrading packages
  * updated for libslapt 0.10.1 compatibility

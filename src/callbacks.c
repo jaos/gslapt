@@ -2878,20 +2878,22 @@ static void build_package_action_menu (slapt_pkg_info_t *pkg)
   if (slapt_get_exact_pkg(all,pkg->name,pkg->version) != NULL)
     is_downloadable = 1;
 
-  newest_installed = slapt_get_newest_pkg(installed,pkg->name);
-  if (newest_installed != NULL && slapt_cmp_pkgs(pkg,newest_installed) < 0) {
-    is_downgrade = 1;
-  } else if (newest_installed != NULL && slapt_cmp_pkgs(pkg,newest_installed) == 0) {
-    /*
-      maybe this isn't the exact installed package, but it's different enough
-      to warrant reinstall-ability
-    */
-    is_installed = 1;
-  }
-
   upgrade_pkg = slapt_get_newest_pkg(all,pkg->name);
   if (upgrade_pkg != NULL && slapt_cmp_pkgs(pkg,upgrade_pkg) < 0)
     is_newest = 0;
+
+  if ((newest_installed = slapt_get_newest_pkg(installed,pkg->name)) != NULL) {
+    /* if pkg is not the newest available version and the version is actually 
+       less (disregarding priority) then we consider this a downgrade */
+    if (is_newest == 0 && slapt_cmp_pkg_versions(pkg->version,newest_installed->version) < 0) {
+      is_downgrade = 1;
+    } else if (slapt_cmp_pkgs(pkg,newest_installed) == 0) {
+      /* maybe this isn't the exact installed package, but it's different enough
+         to warrant reinstall-ability... it is questionable if this is ever
+         reached */
+      is_installed = 1;
+    }
+  }
 
   if ( slapt_is_excluded(global_config,pkg) == 1 
   || slapt_get_exact_pkg(trans->exclude_pkgs,pkg->name,pkg->version) != NULL) {
