@@ -2550,14 +2550,13 @@ void unmark_package(GtkWidget *gslapt, gpointer user_data)
       return;
     }
 
+    if (slapt_get_exact_pkg(installed,pkg_name,pkg_version) != NULL)
+      is_installed = 1;
+
     if (((pkg = slapt_get_pkg_by_details(all,pkg_name,pkg_version,pkg_location)) == NULL)) {
       pkg = slapt_get_exact_pkg(installed,pkg_name,pkg_version);
-      is_installed = 1;
-    } else {
-      if (slapt_get_exact_pkg(installed,pkg_name,pkg_version) != NULL) {
-        is_installed = 1;
-      }
     }
+
     if (pkg == NULL) {
       fprintf(stderr,"Failed to find package: %s-%s@%s\n",pkg_name,pkg_version,pkg_location);
       g_free(pkg_name);
@@ -2606,6 +2605,7 @@ void unmark_package(GtkWidget *gslapt, gpointer user_data)
           GdkPixbuf *status_icon = create_pixbuf("pkg_action_installed.png");
           gtk_list_store_set(GTK_LIST_STORE(model),&actual_iter,STATUS_ICON_COLUMN,status_icon,-1);
           gtk_list_store_set(GTK_LIST_STORE(model),&actual_iter,STATUS_COLUMN,istatus,-1);
+          gtk_list_store_set(GTK_LIST_STORE(model),&actual_iter,MARKED_COLUMN,FALSE,-1);
           g_free(istatus);
           gdk_pixbuf_unref(status_icon);
         } else {
