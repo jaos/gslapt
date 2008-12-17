@@ -2,6 +2,7 @@
 # Copyright (C) 2005 Frederico Henrique Gonçalves Lima
 # This file is distributed under the same license as the gslapt package.
 # FIRST AUTHOR Frederico Henrique Gonçalves Lima <fredhgl@yahoo.com.br>, 2005, 2006
+# Sérgio Surkamp <surkamp@gmail.com>, 2008
 #
 msgid ""
 msgstr ""
@@ -9,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
 "PO-Revision-Date: 2008-11-28 01:29+0500\n"
-"Last-Translator: Frederico Henrique Gonçalves Lima <fredhgl@yahoo.com.br>\n"
+"Last-Translator: Sérgio Surkamp <surkamp@gamil.com>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
@@ -40,7 +41,7 @@ msgid "About"
 msgstr "Sobre"
 
 msgid "Checking for new package data..."
-msgstr "Checando dados de novos pacotes..."
+msgstr "Verificando se há novos pacotes..."
 
 msgid "Clear search expression"
 msgstr "Limpar expressão de procura"
@@ -95,7 +96,7 @@ msgid "Install/Upgrade package"
 msgstr "Instalar/Atualizar pacote"
 
 msgid "Installed Size:"
-msgstr "Tamanho da instalação:"
+msgstr "Tamanho instalado:"
 
 msgid "Installed"
 msgstr "Instalado"
@@ -179,7 +180,7 @@ msgid "This is a summary of the changes about to be performed."
 msgstr "Este é o relatório das mudanças a serem realizadas."
 
 msgid "Uninstalling..."
-msgstr "desinstalando..."
+msgstr "Desinstalando..."
 
 msgid "Up_grade"
 msgstr "Up_grade"
@@ -215,7 +216,7 @@ msgid ""
 "gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
 "Slackware"
 msgstr ""
-"gslapt é um frontend feito em GTK+ para o slapt-get, um sistema de pacotes como o APT para "
+"gslapt é um frontend feito em GTK+ para o slapt-get, um sistema de pacotes semelhante ao APT para "
 "Slackware"
 
 msgid "total progress"
@@ -234,16 +235,16 @@ msgid "%d upgraded, %d newly installed, %d to remove and %d not upgraded."
 msgstr "%d atualizados, %d novos instalados, %d para ser removidos e %d não atualizados."
 
 msgid "Need to get %.1d%s/%.1d%s of archives.\n"
-msgstr "Necessário puxar %.1d%s/%.1d%s de arquivos.\n"
+msgstr "Necessário baixar %.1d%s/%.1d%s de arquivos.\n"
 
 msgid "Need to get %.1d%s of archives."
-msgstr "Need to get %.1d%s of archives."
+msgstr "Necessário baixar %.1d%s de arquivos."
 
 msgid "After unpacking %.1d%s disk space will be freed."
-msgstr "Após descompactar %.1d%s de espaço em disco será liberado."
+msgstr "Após descompactar será liberado %.1d%s de espaço em disco."
 
 msgid "After unpacking %.1d%s of additional disk space will be used."
-msgstr "Após descompactar %.1d%s de espaço em disco será utilizado."
+msgstr "Após descompactar será utilizado %.1d%s de espaço em disco."
 
 msgid "Ready"
 msgstr "Pronto"
@@ -321,7 +322,7 @@ msgid "No package is selected."
 msgstr "Nenhum pacote selecionado."
 
 msgid "Status"
-msgstr "Status"
+msgstr "Estado"
 
 msgid "Source download failed"
 msgstr "Falha ao descarregar origem"
@@ -339,7 +340,7 @@ msgid "Unmark"
 msgstr "Desmarcar"
 
 msgid "<b>Status:</b>"
-msgstr "<b>Status:</b>"
+msgstr "<b>Estado:</b>"
 
 msgid "Excluded"
 msgstr "Excluído"
@@ -408,7 +409,7 @@ msgid "Retrieving package data..."
 msgstr "Recebendo dados de pacotes..."
 
 msgid "Retrieving patch list..."
-msgstr "Recebendo lista de patches..."
+msgstr "Recebendo lista de correções..."
 
 msgid "Retrieving checksum list..."
 msgstr "Recebendo lista de checksums..."
@@ -417,7 +418,7 @@ msgid "Reading Package Lists..."
 msgstr "Lendo lista de pacotes..."
 
 msgid "_Delete Cached Package Files"
-msgstr "_Apaga Arquivos de Pacotes em Cache"
+msgstr "_Apagar Arquivos de Pacotes em Cache"
 
 msgid "Mark all possible upgrades"
 msgstr "Marcar todas as atualizações possíveis"
@@ -426,113 +427,113 @@ msgid "Enabled"
 msgstr "Habilitado"
 
 msgid "Missing dependencies may mean the software in this package will not function correctly.  Do you want to continue without the required packages?"
-msgstr "Missing dependencies may mean the software in this package will not function correctly.  Do you want to continue without the required packages?"
+msgstr "Há dependências não encontradas o que significa que o software deste pacote pode não funcionar corretamente. Você gostaria de continuar sem os pacotes requeridos?"
 
 msgid "This package source failed or is not available. Do you want to disable this source and continue anyway?"
-msgstr "This package source failed or is not available. Do you want to disable this source and continue anyway?"
+msgstr "Esta origem do pacote falho ou não está disponível. Você gostaria de desativar esta origem e continuar?"
 
 msgid "Retrieving ChangeLog.txt..."
-msgstr "Retrieving ChangeLog.txt..."
+msgstr "Recebendo ChangeLog.txt..."
 
 msgid "Changelog"
 msgstr "Changelog"
 
 msgid "_View"
-msgstr "_View"
+msgstr "_Visualizar"
 
 msgid "All"
-msgstr "All"
+msgstr "Tudo"
 
 msgid "View all packages"
-msgstr "View all packages"
+msgstr "Visualizar todos os pacotes"
 
 msgid "Available"
-msgstr "Available"
+msgstr "Disponível"
 
 msgid "View available packages from current sources"
-msgstr "View available packages from current sources"
+msgstr "Visualizar pacotes disponíveis das fontes atuais"
 
 msgid "View installed packages"
-msgstr "View installed packages"
+msgstr "Visualizar pacotes instalados"
 
 msgid "Marked"
-msgstr "Marked"
+msgstr "Selecionados"
 
 msgid "View Marked Packages"
-msgstr "View Marked Packages"
+msgstr "Visualiza pacotes selecionados"
 
 msgid "Mark Obsolete"
-msgstr "Mark Obsolete"
+msgstr "Seleciona Obsoletos"
 
 msgid "Mark all obsolete packages"
-msgstr "Mark all obsolete packages"
+msgstr "Seleciona todos os pacotes obsoletos"
 
 msgid "Download rate: %.0f%s/s"
-msgstr "Download rate: %.0f%s/s"
+msgstr "Velocidade de descarregamento: %.0f%s/s"
 
 msgid "Failed to download %s: %s"
-msgstr "Failed to download %s: %s"
+msgstr "Falha ao descarregar %s: %s"
 
 msgid "Import"
-msgstr "Import"
+msgstr "Importar"
 
 msgid "No key found."
-msgstr "No key found."
+msgstr "Chave não encontrada."
 
 msgid "<b>GPG Keys</b>"
-msgstr "<b>GPG Keys</b>"
+msgstr "<b>Chaves GPG</b>"
 
 msgid "Verification"
-msgstr "Verification"
+msgstr "Verificação"
 
 msgid "Retrieving checksum signature..."
-msgstr "Retrieving checksum signature..."
+msgstr "Recebendo assinaturas checksum..."
 
 msgid "Verifying checksum signature..."
-msgstr "Verifying checksum signature..."
+msgstr "Verificando assinaturas checksum..."
 
 msgid "GPG Key verification failed"
-msgstr "GPG Key verification failed"
+msgstr "Verificação da chave GPG falhou"
 
 msgid "Error"
-msgstr "Error"
+msgstr "Erro"
 
 msgid "Visible"
-msgstr "Visible"
+msgstr "Visível"
 
 msgid "Upgradeable"
-msgstr "Upgradeable"
+msgstr "Atualizável"
 
 msgid "View Upgradeable Packages"
-msgstr "View Upgradeable Packages"
+msgstr "Visualizar pacotes atualizáveis"
 
 msgid "View ChangeLogs"
-msgstr "View ChangeLogs"
+msgstr "Visualizar ChangeLogs"
 
 msgid "ChangeLogs"
 msgstr "ChangeLogs"
 
 msgid "Priority"
-msgstr "Priority"
+msgstr "Prioridade"
 
 msgid "Package Source"
-msgstr "Package Source"
+msgstr "Origem do Pacote"
 
 msgid "<b>Priority:</b>"
-msgstr "<b>Priority:</b>"
+msgstr "<b>Prioridade:</b>"
 
 msgid "<b>Source</b>"
-msgstr "<b>Source</b>"
+msgstr "<b>Origem</b>"
 
 msgid "Default"
-msgstr "Default"
+msgstr "Padrão"
 
 msgid "Preferred"
-msgstr "Preferred"
+msgstr "Preferencial"
 
 msgid "Official"
-msgstr "Official"
+msgstr "Oficial"
 
 msgid "Custom"
-msgstr "Custom"
+msgstr "Personalizado"
 

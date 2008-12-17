@@ -1,4 +1,7 @@
 
+0.5.1a Dec 16, 2008
+ * updated pt_BR translation from Sergio Surkamp
+
 0.5.1 Dec 14, 2008
  * determine possible downgrades even with respect to priorities and allow
    the package action menu to provide a downgrade option
