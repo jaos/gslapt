@@ -54,4 +54,8 @@ pkg: all
 	strip --strip-unneeded $(PKGDIR)/$(sbindir)/@PACKAGE@
 	( cd $(PKGDIR) && /sbin/makepkg -l y -c n @PACKAGE@-@VERSION@-@host_cpu@-1.tgz )
 
+pkgclean:
+	rm -rf $(PKGDIR)
+
+clean-generic: pkgclean
 
