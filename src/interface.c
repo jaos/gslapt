@@ -2022,7 +2022,7 @@ create_about (void)
   gtk_widget_show (label170);
   gtk_box_pack_start (GTK_BOX (vbox50), label170, FALSE, FALSE, 0);
 
-  label149 = gtk_label_new ("<span size=\"small\">Copyright (c) 2005,2006,2007,2008 Jason Woodward\nhttp://software.jaos.org/#gslapt</span>");
+  label149 = gtk_label_new ("<span size=\"small\">Copyright (c) 2005,2006,2007,2008,2009 Jason Woodward\nhttp://software.jaos.org/#gslapt</span>");
   gtk_widget_set_name (label149, "label149");
   gtk_widget_show (label149);
   gtk_box_pack_start (GTK_BOX (vbox50), label149, TRUE, TRUE, 0);
@@ -2840,7 +2840,6 @@ create_changelog_window (void)
   GdkPixbuf *changelog_window_icon_pixbuf;
   GtkWidget *vbox78;
   GtkWidget *changelog_notebook;
-  GtkWidget *label296;
   GtkWidget *hbuttonbox3;
   GtkWidget *button12;
 
@@ -2865,11 +2864,6 @@ create_changelog_window (void)
   gtk_widget_show (changelog_notebook);
   gtk_box_pack_start (GTK_BOX (vbox78), changelog_notebook, TRUE, TRUE, 6);
 
-  label296 = gtk_label_new ("");
-  gtk_widget_set_name (label296, "label296");
-  gtk_widget_show (label296);
-  gtk_notebook_set_tab_label (GTK_NOTEBOOK (changelog_notebook), gtk_notebook_get_nth_page (GTK_NOTEBOOK (changelog_notebook), 0), label296);
-
   hbuttonbox3 = gtk_hbutton_box_new ();
   gtk_widget_set_name (hbuttonbox3, "hbuttonbox3");
   gtk_widget_show (hbuttonbox3);
@@ -2893,7 +2887,6 @@ create_changelog_window (void)
   GLADE_HOOKUP_OBJECT_NO_REF (changelog_window, changelog_window, "changelog_window");
   GLADE_HOOKUP_OBJECT (changelog_window, vbox78, "vbox78");
   GLADE_HOOKUP_OBJECT (changelog_window, changelog_notebook, "changelog_notebook");
-  GLADE_HOOKUP_OBJECT (changelog_window, label296, "label296");
   GLADE_HOOKUP_OBJECT (changelog_window, hbuttonbox3, "hbuttonbox3");
   GLADE_HOOKUP_OBJECT (changelog_window, button12, "button12");
 
