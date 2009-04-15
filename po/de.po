@@ -2,14 +2,14 @@
 # Copyright (C) 2005 Sebastian Jauch, Manfred Mueller
 # This file is distributed under the same license as the gslapt package.
 # Sebastian Jauch <stellarboy653-minislack@yahoo.de>, 2005
-# Manfred Mueller <linux@nass-ek.de>, 2005, 2006, 2007
+# Manfred Mueller <linux@nass-ek.de>, 2005-2009
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.5.0\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2008-11-28 01:29+0500\n"
+"PO-Revision-Date: 2009-04-15 00:22+0100\n"
 "Last-Translator: Manfred Mueller <mmueller@live-modules.org>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -487,7 +487,7 @@ msgid "Verification"
 msgstr "Ueberpruefung"
 
 msgid "Retrieving checksum signature..."
-msgstr "Empfanege Pruefsummen-Signatur..."
+msgstr "Empfange Pruefsummen-Signatur..."
 
 msgid "Verifying checksum signature..."
 msgstr "Ueberpruefe Pruefsummen-Signatur..."
@@ -517,26 +517,26 @@ msgid "No changelogs found."
 msgstr "Keine ChangeLogs gefunden."
 
 msgid "Priority"
-msgstr "Priority"
+msgstr "Prioritaet"
 
 msgid "Package Source"
-msgstr "Package Source"
+msgstr "Paket-Quelle"
 
 msgid "<b>Priority:</b>"
-msgstr "<b>Priority:</b>"
+msgstr "<b>Prioritaet:</b>"
 
 msgid "<b>Source</b>"
-msgstr "<b>Source</b>"
+msgstr "<b>Quelle</b>"
 
 msgid "Default"
-msgstr "Default"
+msgstr "Standard"
 
 msgid "Preferred"
-msgstr "Preferred"
+msgstr "Bevorzugt"
 
 msgid "Official"
-msgstr "Official"
+msgstr "Offiziell"
 
 msgid "Custom"
-msgstr "Custom"
+msgstr "Inoffiziell"
 
