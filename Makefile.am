@@ -2,7 +2,7 @@
 
 SUBDIRS = src po
 
-PKGDIR := `pwd`/pkg
+PKGDIR = `pwd`/pkg
 
 EXTRA_DIST = \
 	autogen.sh \
