@@ -1,5 +1,7 @@
 
-0.5.1a Apr 14, 2009
+0.5.1a Apr 28, 2009
+ * updated pkg make target to conform to new makepkg restriction for
+   creating a package in the current working directory.
  * updated de translation from Manfred Mueller
  * updated changelog window creation
  * updated pt_BR translation from Sergio Surkamp
