@@ -1,11 +1,14 @@
-curl
+atk
+cairo
+fontconfig
+freetype
 glib2
-gpgme
 gtk+2
-gnome-icon-theme
 libX11
 libXau
+libXcomposite
 libXcursor
+libXdamage
 libXdmcp
 libXext
 libXfixes
@@ -13,11 +16,11 @@ libXi
 libXinerama
 libXrandr
 libXrender
-libgpg-error
 libidn
 libpng
 libxcb
 openssl-solibs | openssl
 pango
+pixman
 slapt-get
 zlib
