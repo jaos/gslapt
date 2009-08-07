@@ -1,4 +1,7 @@
 
+0.5.1b Aug 07, 2009
+ * added greek translation from George Vlahavas
+
 0.5.1a Apr 28, 2009
  * updated pkg make target to conform to new makepkg restriction for
    creating a package in the current working directory.
