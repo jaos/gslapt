@@ -292,19 +292,22 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
           conflict_count = trans->conflict_err->err_count;
 
     if ( ladd_deps_to_trans(trans,all,installed,pkg) == 0 ) {
-      slapt_pkg_info_t *conflicted_pkg = NULL;
-      gchar *status = NULL;
+      struct slapt_pkg_list *conflicts = slapt_is_conflicted(trans,all,installed,pkg);
 
       slapt_add_install_to_transaction(trans,pkg);
       set_iter_for_install(model, &actual_iter, pkg);
       set_execute_active();
 
       /* if there is a conflict, we schedule the conflict for removal */
-      if ( (conflicted_pkg = slapt_is_conflicted(trans,all,installed,pkg)) != NULL ) {
-        slapt_add_remove_to_transaction(trans,conflicted_pkg);
-        set_execute_active();
-        if (set_iter_to_pkg(model,&actual_iter,conflicted_pkg)) {
-          set_iter_for_remove(model, &actual_iter, conflicted_pkg);
+      if ( conflicts->pkg_count > 0) {
+        unsigned int cindex = 0;
+        for (cindex = 0; cindex < conflicts->pkg_count; cindex++) {
+          slapt_pkg_info_t *conflicted_pkg = conflicts->pkgs[cindex];
+          slapt_add_remove_to_transaction(trans,conflicted_pkg);
+          set_execute_active();
+          if (set_iter_to_pkg(model,&actual_iter,conflicted_pkg)) {
+            set_iter_for_remove(model, &actual_iter, conflicted_pkg);
+          }
         }
       }
 
@@ -324,14 +327,18 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
           conflict_count = trans->conflict_err->err_count;
 
       if ( ladd_deps_to_trans(trans,all,installed,pkg) == 0 ) {
-        slapt_pkg_info_t *conflicted_pkg = NULL;
+        struct slapt_pkg_list *conflicts = slapt_is_conflicted(trans,all,installed,pkg);
 
-        if ( (conflicted_pkg = slapt_is_conflicted(trans,all,installed,pkg)) != NULL ) {
-          fprintf(stderr,"%s conflicts with %s\n",pkg->name,conflicted_pkg->name);
-          slapt_add_remove_to_transaction(trans,conflicted_pkg);
-          set_execute_active();
-          if (set_iter_to_pkg(model,&actual_iter,conflicted_pkg)) {
-            set_iter_for_remove(model, &actual_iter, conflicted_pkg);
+        if (conflicts->pkg_count > 0) {
+          unsigned int cindex = 0;
+          for (cindex = 0; cindex < conflicts->pkg_count;cindex++) {
+            slapt_pkg_info_t *conflicted_pkg = conflicts->pkgs[cindex];
+            fprintf(stderr,"%s conflicts with %s\n",pkg->name,conflicted_pkg->name);
+            slapt_add_remove_to_transaction(trans,conflicted_pkg);
+            set_execute_active();
+            if (set_iter_to_pkg(model,&actual_iter,conflicted_pkg)) {
+              set_iter_for_remove(model, &actual_iter, conflicted_pkg);
+            }
           }
         }else{
           slapt_add_upgrade_to_transaction(trans,installed_pkg,pkg);
@@ -395,7 +402,6 @@ void add_pkg_for_removal (GtkWidget *gslapt, gpointer user_data)
     if ( (pkg = slapt_get_exact_pkg(installed,pkg_name,pkg_version)) != NULL ) {
       guint c;
       struct slapt_pkg_list *deps;
-      gchar *status = NULL;
       GtkTreeModel *model;
       GtkTreeIter filter_iter,actual_iter;
       GtkTreeModelFilter *filter_model;
@@ -1917,10 +1923,12 @@ static void mark_upgrade_packages (void)
         ) {
           slapt_add_exclude_to_transaction(trans,update_pkg);
         }else{
+          struct slapt_pkg_list *conflicts = slapt_is_conflicted(trans,all,installed,update_pkg);
+
           /* if all deps are added and there is no conflicts, add on */
           if (
             (ladd_deps_to_trans(trans,all,installed,update_pkg) == 0)
-            && (slapt_is_conflicted(trans,all,installed,update_pkg) == NULL)
+            && (conflicts->pkg_count == 0)
           ) {
             slapt_add_upgrade_to_transaction(trans,installed->pkgs[i],update_pkg);
             if (set_iter_to_pkg(base_model,&iter,update_pkg)) {
@@ -1931,6 +1939,7 @@ static void mark_upgrade_packages (void)
             /* otherwise exclude */
             slapt_add_exclude_to_transaction(trans,update_pkg);
           }
+          slapt_free_pkg_list(conflicts);
         }
 
       }
@@ -2678,18 +2687,22 @@ static int ladd_deps_to_trans (slapt_transaction_t *tran, struct slapt_pkg_list 
   /* loop through the deps */
   for (c = 0; c < deps->pkg_count;c++) {
     slapt_pkg_info_t *dep_installed;
-    slapt_pkg_info_t *conflicted_pkg = NULL;
+    struct slapt_pkg_list *conflicts = slapt_is_conflicted(tran,avail_pkgs,
+                                        installed_pkgs,deps->pkgs[c]);
 
     /*
      * the dep wouldn't get this far if it where excluded,
      * so we don't check for that here
      */
 
-    conflicted_pkg = slapt_is_conflicted(tran,avail_pkgs,installed_pkgs,deps->pkgs[c]);
-    if ( conflicted_pkg != NULL ) {
-      slapt_add_remove_to_transaction(tran,conflicted_pkg);
-      if (set_iter_to_pkg(GTK_TREE_MODEL(base_model),&iter,conflicted_pkg)) {
-        set_iter_for_remove(base_model, &iter, conflicted_pkg);
+    if ( conflicts->pkg_count > 1 ) {
+      unsigned int cindex = 0;
+      for (cindex = 0; cindex < conflicts->pkg_count; cindex++) {
+        slapt_pkg_info_t *conflicted_pkg = conflicts->pkgs[cindex];
+        slapt_add_remove_to_transaction(tran,conflicted_pkg);
+        if (set_iter_to_pkg(GTK_TREE_MODEL(base_model),&iter,conflicted_pkg)) {
+          set_iter_for_remove(base_model, &iter, conflicted_pkg);
+        }
       }
     }
 
