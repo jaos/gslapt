@@ -40,7 +40,7 @@ AC_CHECK_LIB(gpgme,gpgme_new, [
       [AC_MSG_WARN(libslapt does not have gpgme support)])
 ], [AC_MSG_WARN(gpg support disabled)])
 dnl AC_CHECK_LIB(slapt,slapt_priority_to_str, [], [AC_MSG_ERROR(libslapt 0.10.0 or greater is required)])
-AC_CHECK_MEMBER([slapt_rc_config.use_priority], [LIBS="$LIBS -lslapt"], [AC_MSG_ERROR([libslapt 0.10.1 or greater is required])], [[#include <slapt.h>]])
+AC_CHECK_MEMBER([slapt_rc_config.use_priority], [LIBS="$LIBS -lslapt"], [AC_MSG_ERROR([libslapt 0.10.2 or greater is required])], [[#include <slapt.h>]])
 LIBS="$LIBS -lglib-2.0 -lgthread-2.0"
 
 
