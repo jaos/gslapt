@@ -638,6 +638,9 @@ create_gslapt (void)
   GtkWidget *scrolledwindow23;
   GtkWidget *pkg_changelog_textview;
   GtkWidget *pkg_info_changelog;
+  GtkWidget *scrolledwindow25;
+  GtkWidget *pkg_filelist_textview;
+  GtkWidget *pkg_info_filelist;
   GtkWidget *bottom_statusbar;
   GtkAccelGroup *accel_group;
   GtkTooltips *tooltips;
@@ -1472,6 +1475,25 @@ create_gslapt (void)
   gtk_widget_show (pkg_info_changelog);
   gtk_notebook_set_tab_label (GTK_NOTEBOOK (pkg_info_notebook), gtk_notebook_get_nth_page (GTK_NOTEBOOK (pkg_info_notebook), 3), pkg_info_changelog);
 
+  scrolledwindow25 = gtk_scrolled_window_new (NULL, NULL);
+  gtk_widget_set_name (scrolledwindow25, "scrolledwindow25");
+  gtk_widget_show (scrolledwindow25);
+  gtk_container_add (GTK_CONTAINER (pkg_info_notebook), scrolledwindow25);
+  gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scrolledwindow25), GTK_SHADOW_IN);
+
+  pkg_filelist_textview = gtk_text_view_new ();
+  gtk_widget_set_name (pkg_filelist_textview, "pkg_filelist_textview");
+  gtk_widget_show (pkg_filelist_textview);
+  gtk_container_add (GTK_CONTAINER (scrolledwindow25), pkg_filelist_textview);
+  gtk_text_view_set_editable (GTK_TEXT_VIEW (pkg_filelist_textview), FALSE);
+  gtk_text_view_set_wrap_mode (GTK_TEXT_VIEW (pkg_filelist_textview), GTK_WRAP_WORD);
+  gtk_text_view_set_cursor_visible (GTK_TEXT_VIEW (pkg_filelist_textview), FALSE);
+
+  pkg_info_filelist = gtk_label_new (_("Files"));
+  gtk_widget_set_name (pkg_info_filelist, "pkg_info_filelist");
+  gtk_widget_show (pkg_info_filelist);
+  gtk_notebook_set_tab_label (GTK_NOTEBOOK (pkg_info_notebook), gtk_notebook_get_nth_page (GTK_NOTEBOOK (pkg_info_notebook), 4), pkg_info_filelist);
+
   bottom_statusbar = gtk_statusbar_new ();
   gtk_widget_set_name (bottom_statusbar, "bottom_statusbar");
   gtk_widget_show (bottom_statusbar);
@@ -1661,6 +1683,9 @@ create_gslapt (void)
   GLADE_HOOKUP_OBJECT (gslapt, scrolledwindow23, "scrolledwindow23");
   GLADE_HOOKUP_OBJECT (gslapt, pkg_changelog_textview, "pkg_changelog_textview");
   GLADE_HOOKUP_OBJECT (gslapt, pkg_info_changelog, "pkg_info_changelog");
+  GLADE_HOOKUP_OBJECT (gslapt, scrolledwindow25, "scrolledwindow25");
+  GLADE_HOOKUP_OBJECT (gslapt, pkg_filelist_textview, "pkg_filelist_textview");
+  GLADE_HOOKUP_OBJECT (gslapt, pkg_info_filelist, "pkg_info_filelist");
   GLADE_HOOKUP_OBJECT (gslapt, bottom_statusbar, "bottom_statusbar");
   GLADE_HOOKUP_OBJECT_NO_REF (gslapt, tooltips, "tooltips");
 

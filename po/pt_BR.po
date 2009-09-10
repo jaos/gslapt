@@ -6,10 +6,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.5.0\n"
+"Project-Id-Version: 0.5.2\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2008-11-28 01:29+0500\n"
+"PO-Revision-Date: 2009-09-09 10:40+0500\n"
 "Last-Translator: Sérgio Surkamp <surkamp@gamil.com>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -536,4 +536,7 @@ msgstr "Oficial"
 
 msgid "Custom"
 msgstr "Personalizado"
+
+msgid "Files"
+msgstr "Files"
 

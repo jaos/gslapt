@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: gslapt\n"
+"Project-Id-Version: 0.5.2\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
 "PO-Revision-Date: \n"
@@ -536,3 +536,7 @@ msgstr "Προσαρμοσμένη"
 
 msgid "Installed Size"
 msgstr "Μέγεθος εγκατάστασης"
+
+msgid "Files"
+msgstr "Files"
+

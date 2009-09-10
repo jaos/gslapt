@@ -6,10 +6,10 @@
 
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.5.0\n"
+"Project-Id-Version: 0.5.2\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-09-08 00:54\n"
-"PO-Revision-Date: 2008-11-28 01:29+0500\n"
+"PO-Revision-Date: 2009-09-09 10:40+0500\n"
 "Last-Translator: sin <digitalhunger@gmail.com>\n"
 "Language-Team: DeepStyle team <deep@deepstyle.org.ua>\n"
 "MIME-Version: 1.0\n"
@@ -536,4 +536,7 @@ msgstr "Official"
 
 msgid "Custom"
 msgstr "Custom"
+
+msgid "Files"
+msgstr "Files"
 

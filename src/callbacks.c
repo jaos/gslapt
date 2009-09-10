@@ -730,6 +730,7 @@ static void fillin_pkg_details (slapt_pkg_info_t *pkg)
   gchar *short_desc;
   GtkTextBuffer *pkg_full_desc;
   GtkTextBuffer *pkg_changelog;
+  GtkTextBuffer *pkg_filelist;
   GtkTreeStore *store;
   GtkTreeIter iter;
   GtkCellRenderer *renderer;
@@ -740,7 +741,7 @@ static void fillin_pkg_details (slapt_pkg_info_t *pkg)
   slapt_pkg_info_t *latest_pkg = slapt_get_newest_pkg(all,pkg->name);
   slapt_pkg_info_t *installed_pkg = slapt_get_newest_pkg(installed,pkg->name);
   slapt_pkg_upgrade_t *pkg_upgrade = NULL;
-  char *clean_desc = NULL, *changelog = NULL;
+  char *clean_desc = NULL, *changelog = NULL, *filelist = NULL;
   const char *priority_str = NULL;
 
   /* set package details */
@@ -908,6 +909,22 @@ static void fillin_pkg_details (slapt_pkg_info_t *pkg)
     free(changelog);
   } else {
     gtk_text_buffer_set_text(pkg_changelog, "", -1);
+  }
+
+  /* file list tab */
+  pkg_filelist = gtk_text_view_get_buffer(GTK_TEXT_VIEW(lookup_widget(gslapt,"pkg_filelist_textview")));
+  if ((filelist = slapt_get_pkg_filelist(pkg)) != NULL) {
+    if (!g_utf8_validate(filelist, -1, NULL)) {
+      char *converted = g_convert(filelist, strlen(filelist), "UTF-8", "ISO-8859-1", NULL, NULL, NULL);
+      if (converted != NULL) {
+        free(filelist);
+        filelist = converted;
+      }
+    }
+    gtk_text_buffer_set_text(pkg_filelist, filelist, -1);
+    free(filelist);
+  } else {
+    gtk_text_buffer_set_text(pkg_filelist, "", -1);
   }
 
   /* set status */
