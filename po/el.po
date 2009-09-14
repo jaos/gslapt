@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.5.2\n"
+"Project-Id-Version: gslapt\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
 "PO-Revision-Date: \n"
@@ -24,7 +24,7 @@ msgid "<b>Package and data storage</b>"
 msgstr "<b>Κατάλογος αποθήκης πακέτων και δεδομένων</b>"
 
 msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Να εφαρμουστούν οι παρακάτω αλλαγές;</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Να εφαρμοστούν οι παρακάτω αλλαγές;</span>"
 
 msgid "<span weight=\"bold\">Exclude Expression:</span>"
 msgstr "<span weight=\"bold\">Έκφραση αποκλεισμού:</span>"
@@ -208,7 +208,7 @@ msgid "Yes"
 msgstr "Ναι"
 
 msgid "_Help"
-msgstr "Βοήθεια"
+msgstr "_Βοήθεια"
 
 msgid "gslapt is a GTK+ frontend to slapt-get, an APT like package system for Slackware"
 msgstr "Το gslapt είναι ένα γραφικό περιβάλλον χρήσης του slapt-get, ένα σύστημα διαχείρισης πακέτων για το Slackware όμοιο με το APT"
@@ -385,7 +385,7 @@ msgid "_Edit"
 msgstr "_Επεξεργασία"
 
 msgid "Unmark All"
-msgstr "Αποεπιλογή ολων"
+msgstr "Αποεπιλογή όλων"
 
 msgid "P_ackage"
 msgstr "_Πακέτα"
@@ -534,9 +534,9 @@ msgstr "Επίσημη"
 msgid "Custom"
 msgstr "Προσαρμοσμένη"
 
-msgid "Installed Size"
-msgstr "Μέγεθος εγκατάστασης"
-
 msgid "Files"
-msgstr "Files"
+msgstr "Αρχεία"
+
+#~ msgid "Installed Size"
+#~ msgstr "Μέγεθος εγκατάστασης"
 
