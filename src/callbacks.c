@@ -44,7 +44,6 @@ static gboolean sources_modified = FALSE;
 static gboolean excludes_modified = FALSE;
 static volatile guint pending_trans_context_id = 0;
 
-static int disk_space(int space_needed);
 static gboolean pkg_action_popup_menu (GtkTreeView *treeview, gpointer data);
 static int set_iter_to_pkg (GtkTreeModel *model, GtkTreeIter *iter,
                             slapt_pkg_info_t *pkg);
@@ -1712,7 +1711,7 @@ static int populate_transaction_window (GtkWidget *trans_window)
   GtkTreeViewColumn *column;
   GtkLabel *sum_pkg_num,*sum_dl_size,*sum_free_space;
   guint i;
-  gint dl_size = 0,free_space = 0,already_dl_size = 0;
+  double dl_size = 0,free_space = 0,already_dl_size = 0;
   gchar buf[512];
 
   summary_treeview = GTK_TREE_VIEW(lookup_widget(trans_window,"transaction_summary_treeview"));
@@ -1850,15 +1849,20 @@ static int populate_transaction_window (GtkWidget *trans_window)
   );
   gtk_label_set_text(GTK_LABEL(sum_pkg_num),buf);
 
-  /* if we don't have enough free space */
-  if (disk_space(dl_size - already_dl_size + free_space) != 0) {
+  /* if we don't have enough free space to download */
+  if (slapt_disk_space_check(global_config->working_dir,dl_size - already_dl_size) == SLAPT_FALSE) {
+    notify((gchar *)_("Error"),(gchar *)_("<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"));
+    return -1;
+  }
+  /* if we don't have enough free space to install on / */
+  if (slapt_disk_space_check("/",free_space) == SLAPT_FALSE) {
     notify((gchar *)_("Error"),(gchar *)_("<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"));
     return -1;
   }
 
   if ( already_dl_size > 0 ) {
-    int need_to_dl = dl_size - already_dl_size;
-    snprintf(buf,512,(gchar *)_("Need to get %.1d%s/%.1d%s of archives.\n"),
+    double need_to_dl = dl_size - already_dl_size;
+    snprintf(buf,512,(gchar *)_("Need to get %.0f%s/%.0f%s of archives.\n"),
       (need_to_dl > 1024 ) ? need_to_dl / 1024
         : need_to_dl,
       (need_to_dl > 1024 ) ? "MB" : "kB",
@@ -1866,7 +1870,7 @@ static int populate_transaction_window (GtkWidget *trans_window)
       (dl_size > 1024 ) ? "MB" : "kB"
     );
   }else{
-    snprintf(buf,512,(gchar *)_("Need to get %.1d%s of archives."),
+    snprintf(buf,512,(gchar *)_("Need to get %.0f%s of archives."),
       (dl_size > 1024 ) ? dl_size / 1024 : dl_size,
       (dl_size > 1024 ) ? "MB" : "kB"
     );
@@ -1875,13 +1879,13 @@ static int populate_transaction_window (GtkWidget *trans_window)
 
   if ( free_space < 0 ) {
     free_space *= -1;
-    snprintf(buf,512,(gchar *)_("After unpacking %.1d%s disk space will be freed."),
+    snprintf(buf,512,(gchar *)_("After unpacking %.0f%s disk space will be freed."),
       (free_space > 1024 ) ? free_space / 1024
         : free_space,
       (free_space > 1024 ) ? "MB" : "kB"
     );
   }else{
-    snprintf(buf,512,(gchar *)_("After unpacking %.1d%s of additional disk space will be used."),
+    snprintf(buf,512,(gchar *)_("After unpacking %.0f%s of additional disk space will be used."),
       (free_space > 1024 ) ? free_space / 1024 : free_space,
         (free_space > 1024 ) ? "MB" : "kB"
     );
@@ -2479,27 +2483,6 @@ static void notify (const char *title,const char *message)
   gtk_label_set_use_markup (GTK_LABEL(lookup_widget(w,"notification_label")),
                             TRUE);
   gtk_widget_show(w);
-}
-
-static int disk_space (int space_needed)
-{
-  struct statvfs statvfs_buf;
-
-  space_needed *= 1024;
-
-  if (space_needed < 0)
-    return 0;
-
-  if (statvfs(global_config->working_dir,&statvfs_buf) != 0) {
-    if (errno)
-      perror("statvfs");
-    return 1;
-  } else {
-    if (statvfs_buf.f_bfree < (space_needed / statvfs_buf.f_bsize))
-      return 1;
-  }
-
-  return 0;
 }
 
 static gboolean pkg_action_popup_menu (GtkTreeView *treeview, gpointer data)

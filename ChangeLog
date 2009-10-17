@@ -1,4 +1,7 @@
 
+0.5.2a Oct 17, 2009
+ * use slapt_disk_space_check from libslapt
+
 0.5.2 Sep 14, 2009
  * updated greek translation from George Vlahavas
  * added file list tab in package view
