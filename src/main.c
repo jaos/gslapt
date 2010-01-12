@@ -174,6 +174,7 @@ int main (int argc, char *argv[]) {
   gtk_widget_set_sensitive(lookup_widget(gslapt,"execute1"),FALSE);
   gtk_widget_set_sensitive(lookup_widget(gslapt,"unmark_all1"),FALSE);
 
+  gtk_window_maximize(GTK_WINDOW(gslapt));
   gtk_widget_show (gslapt);
 
   if (do_upgrade == 1) {

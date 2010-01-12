@@ -1,5 +1,6 @@
 
-0.5.2a Jan 11, 2010
+0.5.2b Jan 11, 2010
+ * start the window maximized
  * free several package lists that were never freed
  * updated handling of conflicts from command line package names
 
