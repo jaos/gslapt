@@ -309,8 +309,8 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
           }
         }
       }
-
-    }else{
+      slapt_free_pkg_list(conflicts);
+    } else {
       display_dep_error_dialog(pkg,missing_count,conflict_count);
     }
 
@@ -366,7 +366,8 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
           set_execute_active();
         }
 
-      }else{
+        slapt_free_pkg_list(conflicts);
+      } else {
         display_dep_error_dialog(pkg,missing_count,conflict_count);
       }
 
@@ -675,6 +676,8 @@ void build_searched_treeviewlist (GtkWidget *treeview, gchar *pattern)
     valid = gtk_tree_model_iter_next(base_model,&iter);
   }
 
+  slapt_free_pkg_list(a_matches);
+  slapt_free_pkg_list(i_matches);
 }
 
 
@@ -3550,6 +3553,7 @@ void mark_obsolete_packages (GtkMenuItem *menuitem, gpointer user_data)
   }
 
   unset_busy_cursor();
+  slapt_free_pkg_list(obsolete);
 }
 
 static void set_busy_cursor (void)
