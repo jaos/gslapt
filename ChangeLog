@@ -1,6 +1,7 @@
 
 0.5.2a Jan 11, 2010
  * free several package lists that were never freed
+ * updated handling of conflicts from command line package names
 
 0.5.2a Oct 17, 2009
  * use slapt_disk_space_check from libslapt

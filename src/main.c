@@ -196,11 +196,15 @@ int main (int argc, char *argv[]) {
           }
         } else {
           if (slapt_add_deps_to_trans(global_config,trans,all,installed,p) == 0) {
-            slapt_pkg_info_t *conflict_p;
+            struct slapt_pkg_list *conflicts;
             slapt_add_install_to_transaction(trans,p);
-            if ( (conflict_p = slapt_is_conflicted(trans,all,installed,p)) != NULL) {
-              slapt_add_remove_to_transaction(trans,conflict_p);
+            if ( conflicts->pkg_count > 0) {
+              unsigned int cindex = 0;
+              for (cindex = 0; cindex < conflicts->pkg_count; cindex++) {
+                slapt_add_remove_to_transaction(trans,conflicts->pkgs[cindex]);
+              }
             }
+            slapt_free_pkg_list(conflicts);
           } else {
             exit(1);
           }
