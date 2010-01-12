@@ -2047,7 +2047,7 @@ create_about (void)
   gtk_widget_show (label170);
   gtk_box_pack_start (GTK_BOX (vbox50), label170, FALSE, FALSE, 0);
 
-  label149 = gtk_label_new ("<span size=\"small\">Copyright (c) 2005-2009 Jason Woodward\nhttp://software.jaos.org/#gslapt</span>");
+  label149 = gtk_label_new ("<span size=\"small\">Copyright (c) 2005-2010 Jason Woodward\nhttp://software.jaos.org/#gslapt</span>");
   gtk_widget_set_name (label149, "label149");
   gtk_widget_show (label149);
   gtk_box_pack_start (GTK_BOX (vbox50), label149, TRUE, TRUE, 0);
