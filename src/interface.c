@@ -653,7 +653,6 @@ create_gslapt (void)
   gtk_widget_set_name (gslapt, "gslapt");
   gtk_window_set_title (GTK_WINDOW (gslapt), _("Gslapt"));
   gtk_window_set_position (GTK_WINDOW (gslapt), GTK_WIN_POS_CENTER);
-  gtk_window_set_default_size (GTK_WINDOW (gslapt), 640, 480);
   gslapt_icon_pixbuf = create_pixbuf ("gslapt.png");
   if (gslapt_icon_pixbuf)
     {

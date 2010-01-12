@@ -27,8 +27,10 @@
 #include "callbacks.h"
 #include "interface.h"
 #include "support.h"
+#include "settings.h"
 
 extern GtkWidget *gslapt;
+extern GslaptSettings *gslapt_settings;
 extern slapt_rc_config *global_config;
 extern struct slapt_pkg_list *all;
 extern struct slapt_pkg_list *installed;
@@ -96,11 +98,13 @@ static gint convert_slapt_priority_to_gslapt_priority(SLAPT_PRIORITY_T p);
 
 void on_gslapt_destroy (GtkObject *object, gpointer user_data) 
 {
-
   slapt_free_transaction(trans);
   slapt_free_pkg_list(all);
   slapt_free_pkg_list(installed);
   slapt_free_rc_config(global_config);
+
+  gslapt_write_rc(gslapt_settings);
+  gslapt_free_rc(gslapt_settings);
 
   gtk_main_quit();
   exit(0);

@@ -24,6 +24,7 @@
 #include "callbacks.h"
 #include "interface.h"
 #include "support.h"
+#include "settings.h"
 
 slapt_rc_config *global_config; /* our config struct */
 struct slapt_pkg_list *installed;
@@ -31,6 +32,16 @@ struct slapt_pkg_list *all;
 GtkWidget *gslapt;
 slapt_transaction_t *trans = NULL;
 char rc_location[1024];
+GslaptSettings *gslapt_settings = NULL;
+
+static gboolean gslapt_resized(GtkWindow *window, GdkEvent *event, gpointer data)
+{
+  gslapt_settings->x      = event->configure.x;
+  gslapt_settings->y      = event->configure.y;
+  gslapt_settings->width  = event->configure.width;
+  gslapt_settings->height = event->configure.height;
+  return FALSE;
+}
 
 int main (int argc, char *argv[]) {
   GtkStatusbar *bar;
@@ -174,7 +185,22 @@ int main (int argc, char *argv[]) {
   gtk_widget_set_sensitive(lookup_widget(gslapt,"execute1"),FALSE);
   gtk_widget_set_sensitive(lookup_widget(gslapt,"unmark_all1"),FALSE);
 
-  gtk_window_maximize(GTK_WINDOW(gslapt));
+  gtk_widget_add_events(gslapt, GDK_CONFIGURE);
+  g_signal_connect(G_OBJECT(gslapt), "configure-event",
+        G_CALLBACK(gslapt_resized), NULL);
+
+  /* restore previous rc settings */
+  gslapt_settings = gslapt_read_rc();
+  if (gslapt_settings == NULL) {
+    gslapt_settings = gslapt_new_rc();
+    gtk_window_set_default_size (GTK_WINDOW (gslapt), 640, 480);
+  } else {
+    gtk_window_set_default_size(GTK_WINDOW(gslapt),
+      gslapt_settings->width, gslapt_settings->height);
+    gtk_window_move(GTK_WINDOW(gslapt),
+      gslapt_settings->x, gslapt_settings->y);
+  }
+
   gtk_widget_show (gslapt);
 
   if (do_upgrade == 1) {
