@@ -540,6 +540,3 @@ msgstr "Προσαρμοσμένη"
 msgid "Files"
 msgstr "Αρχεία"
 
-#~ msgid "Installed Size"
-#~ msgstr "Μέγεθος εγκατάστασης"
-
