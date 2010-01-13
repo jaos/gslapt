@@ -545,7 +545,7 @@ void build_package_treeviewlist (GtkWidget *treeview)
       DESC_COLUMN,short_desc,
       SIZE_COLUMN,all->pkgs[i]->size_u,
       STATUS_COLUMN,status,
-      INST_COLUMN, FALSE,
+      INST_COLUMN, is_inst,
       VISIBLE_COLUMN,TRUE,
       MARKED_COLUMN, FALSE,
       UPGRADEABLE_COLUMN, is_an_upgrade,
@@ -558,6 +558,7 @@ void build_package_treeviewlist (GtkWidget *treeview)
   }
 
   for (i = 0; i < installed->pkg_count; ++i) {
+    /* do not duplicate those packages that are still available from the package sources */
     if (slapt_get_exact_pkg(all,installed->pkgs[i]->name,installed->pkgs[i]->version) == NULL) {
       /* we use this for sorting the status */
       /* a=installed,i=install,r=remove,u=upgrade,z=available */
