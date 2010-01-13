@@ -20,6 +20,7 @@ GslaptSettings *gslapt_new_rc (void)
   g->x      = g->y      = g->width      = g->height      = 0;
   g->cl_x   = g->cl_y   = g->cl_width   = g->cl_height   = 0;
   g->pref_x = g->pref_y = g->pref_width = g->pref_height = 0;
+  g->tran_x = g->tran_y = g->tran_width = g->tran_height = 0;
 
   return g;
 }
@@ -81,6 +82,11 @@ GslaptSettings *gslapt_read_rc (void)
     gslapt_settings->pref_width  = g_key_file_get_integer (keyfile, "preferences window", "width",  NULL);
     gslapt_settings->pref_height = g_key_file_get_integer (keyfile, "preferences window", "height", NULL);
 
+    gslapt_settings->tran_x      = g_key_file_get_integer (keyfile, "transaction window", "x",      NULL);
+    gslapt_settings->tran_y      = g_key_file_get_integer (keyfile, "transaction window", "y",      NULL);
+    gslapt_settings->tran_width  = g_key_file_get_integer (keyfile, "transaction window", "width",  NULL);
+    gslapt_settings->tran_height = g_key_file_get_integer (keyfile, "transaction window", "height", NULL);
+
     g_key_file_free(keyfile);
 
   }
@@ -126,6 +132,11 @@ int gslapt_write_rc(GslaptSettings *gslapt_settings)
     g_key_file_set_integer (keyfile, "preferences window", "y",      gslapt_settings->pref_y);
     g_key_file_set_integer (keyfile, "preferences window", "width",  gslapt_settings->pref_width);
     g_key_file_set_integer (keyfile, "preferences window", "height", gslapt_settings->pref_height);
+
+    g_key_file_set_integer (keyfile, "transaction window", "x",      gslapt_settings->tran_x);
+    g_key_file_set_integer (keyfile, "transaction window", "y",      gslapt_settings->tran_y);
+    g_key_file_set_integer (keyfile, "transaction window", "width",  gslapt_settings->tran_width);
+    g_key_file_set_integer (keyfile, "transaction window", "height", gslapt_settings->tran_height);
 
     rc_data = g_key_file_to_data(keyfile, &length, NULL);
     if (length != 0) {

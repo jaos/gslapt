@@ -1855,6 +1855,9 @@ create_transaction_window (void)
   g_signal_connect ((gpointer) transaction_window, "destroy_event",
                     G_CALLBACK (gtk_widget_destroy),
                     NULL);
+  g_signal_connect ((gpointer) transaction_window, "configure-event",
+                    G_CALLBACK (gslapt_window_resized),
+                    NULL);
   g_signal_connect_swapped ((gpointer) button2, "clicked",
                             G_CALLBACK (cancel_transaction),
                             GTK_OBJECT (transaction_window));

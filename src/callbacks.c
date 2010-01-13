@@ -121,6 +121,11 @@ gboolean gslapt_window_resized(GtkWindow *window, GdkEvent *event, gpointer data
     gslapt_settings->cl_y      = y;
     gslapt_settings->cl_width  = width;
     gslapt_settings->cl_height = height;
+  } else if (strcmp(widget_name,"transaction_window") == 0) {
+    gslapt_settings->tran_x      = x;
+    gslapt_settings->tran_y      = y;
+    gslapt_settings->tran_width  = width;
+    gslapt_settings->tran_height = height;
   } else {
     fprintf(stderr, "need to handle widget name: %s\n", widget_name);
   }
@@ -174,6 +179,14 @@ void execute_callback (GtkObject *object, gpointer user_data)
   ) return;
 
   trans_window = (GtkWidget *)create_transaction_window();
+
+  if ((gslapt_settings->tran_x == gslapt_settings->tran_y == gslapt_settings->tran_width == gslapt_settings->tran_height == 0)) {
+    gtk_window_set_default_size(GTK_WINDOW(trans_window),
+      gslapt_settings->tran_width, gslapt_settings->tran_height);
+    gtk_window_move(GTK_WINDOW(trans_window),
+      gslapt_settings->tran_x, gslapt_settings->tran_y);
+  }
+
   if ( populate_transaction_window(trans_window) == 0 ) {
     gtk_widget_show(trans_window);
   } else {

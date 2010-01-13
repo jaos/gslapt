@@ -10,6 +10,7 @@ typedef struct {
   gint x; gint y; gint width; gint height;
   gint cl_x; gint cl_y; gint cl_width; gint cl_height;
   gint pref_x; gint pref_y; gint pref_width; gint pref_height;
+  gint tran_x; gint tran_y; gint tran_width; gint tran_height;
 } GslaptSettings;
 
 char *gslapt_init_rc_dir (void);
