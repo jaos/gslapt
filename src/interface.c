@@ -421,6 +421,9 @@ create_window_preferences (void)
   g_signal_connect ((gpointer) button7, "clicked",
                     G_CALLBACK (clean_callback),
                     NULL);
+  g_signal_connect ((gpointer) window_preferences, "configure-event",
+                    G_CALLBACK (gslapt_window_resized),
+                    NULL);
   g_signal_connect_swapped ((gpointer) preferences_remove_exclude_button, "clicked",
                             G_CALLBACK (preferences_exclude_remove),
                             GTK_OBJECT (window_preferences));
@@ -1500,6 +1503,9 @@ create_gslapt (void)
 
   g_signal_connect ((gpointer) gslapt, "destroy",
                     G_CALLBACK (on_gslapt_destroy),
+                    NULL);
+  g_signal_connect ((gpointer) gslapt, "configure-event",
+                    G_CALLBACK (gslapt_window_resized),
                     NULL);
   g_signal_connect ((gpointer) update1, "activate",
                     G_CALLBACK (update_activate),
@@ -2902,6 +2908,9 @@ create_changelog_window (void)
 
   g_signal_connect ((gpointer) changelog_window, "destroy_event",
                     G_CALLBACK (gtk_widget_destroy),
+                    NULL);
+  g_signal_connect ((gpointer) changelog_window, "configure-event",
+                    G_CALLBACK (gslapt_window_resized),
                     NULL);
   g_signal_connect_swapped ((gpointer) button12, "clicked",
                             G_CALLBACK (gtk_widget_destroy),

@@ -17,7 +17,9 @@ char *gslapt_init_rc_dir (void)
 GslaptSettings *gslapt_new_rc (void)
 {
   GslaptSettings *g = g_slice_new(GslaptSettings);
-  g->x = g->y = g->width = g->height = 0;
+  g->x      = g->y      = g->width      = g->height      = 0;
+  g->cl_x   = g->cl_y   = g->cl_width   = g->cl_height   = 0;
+  g->pref_x = g->pref_y = g->pref_width = g->pref_height = 0;
 
   return g;
 }
@@ -64,10 +66,20 @@ GslaptSettings *gslapt_read_rc (void)
       goto GSLAPT_READ_CONFIG_END;
     }
 
-    gslapt_settings->x      = g_key_file_get_integer (keyfile, "window", "x",      NULL);
-    gslapt_settings->y      = g_key_file_get_integer (keyfile, "window", "y",      NULL);
-    gslapt_settings->width  = g_key_file_get_integer (keyfile, "window", "width",  NULL);
-    gslapt_settings->height = g_key_file_get_integer (keyfile, "window", "height", NULL);
+    gslapt_settings->x      = g_key_file_get_integer (keyfile, "main window", "x",      NULL);
+    gslapt_settings->y      = g_key_file_get_integer (keyfile, "main window", "y",      NULL);
+    gslapt_settings->width  = g_key_file_get_integer (keyfile, "main window", "width",  NULL);
+    gslapt_settings->height = g_key_file_get_integer (keyfile, "main window", "height", NULL);
+
+    gslapt_settings->cl_x      = g_key_file_get_integer (keyfile, "changelog window", "x",      NULL);
+    gslapt_settings->cl_y      = g_key_file_get_integer (keyfile, "changelog window", "y",      NULL);
+    gslapt_settings->cl_width  = g_key_file_get_integer (keyfile, "changelog window", "width",  NULL);
+    gslapt_settings->cl_height = g_key_file_get_integer (keyfile, "changelog window", "height", NULL);
+
+    gslapt_settings->pref_x      = g_key_file_get_integer (keyfile, "preferences window", "x",      NULL);
+    gslapt_settings->pref_y      = g_key_file_get_integer (keyfile, "preferences window", "y",      NULL);
+    gslapt_settings->pref_width  = g_key_file_get_integer (keyfile, "preferences window", "width",  NULL);
+    gslapt_settings->pref_height = g_key_file_get_integer (keyfile, "preferences window", "height", NULL);
 
     g_key_file_free(keyfile);
 
@@ -100,10 +112,20 @@ int gslapt_write_rc(GslaptSettings *gslapt_settings)
 
     keyfile = g_key_file_new();
 
-    g_key_file_set_integer (keyfile, "window", "x",      gslapt_settings->x);
-    g_key_file_set_integer (keyfile, "window", "y",      gslapt_settings->y);
-    g_key_file_set_integer (keyfile, "window", "width",  gslapt_settings->width);
-    g_key_file_set_integer (keyfile, "window", "height", gslapt_settings->height);
+    g_key_file_set_integer (keyfile, "main window", "x",      gslapt_settings->x);
+    g_key_file_set_integer (keyfile, "main window", "y",      gslapt_settings->y);
+    g_key_file_set_integer (keyfile, "main window", "width",  gslapt_settings->width);
+    g_key_file_set_integer (keyfile, "main window", "height", gslapt_settings->height);
+
+    g_key_file_set_integer (keyfile, "changelog window", "x",      gslapt_settings->cl_x);
+    g_key_file_set_integer (keyfile, "changelog window", "y",      gslapt_settings->cl_y);
+    g_key_file_set_integer (keyfile, "changelog window", "width",  gslapt_settings->cl_width);
+    g_key_file_set_integer (keyfile, "changelog window", "height", gslapt_settings->cl_height);
+
+    g_key_file_set_integer (keyfile, "preferences window", "x",      gslapt_settings->pref_x);
+    g_key_file_set_integer (keyfile, "preferences window", "y",      gslapt_settings->pref_y);
+    g_key_file_set_integer (keyfile, "preferences window", "width",  gslapt_settings->pref_width);
+    g_key_file_set_integer (keyfile, "preferences window", "height", gslapt_settings->pref_height);
 
     rc_data = g_key_file_to_data(keyfile, &length, NULL);
     if (length != 0) {

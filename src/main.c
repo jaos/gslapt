@@ -34,15 +34,6 @@ slapt_transaction_t *trans = NULL;
 char rc_location[1024];
 GslaptSettings *gslapt_settings = NULL;
 
-static gboolean gslapt_resized(GtkWindow *window, GdkEvent *event, gpointer data)
-{
-  gslapt_settings->x      = event->configure.x;
-  gslapt_settings->y      = event->configure.y;
-  gslapt_settings->width  = event->configure.width;
-  gslapt_settings->height = event->configure.height;
-  return FALSE;
-}
-
 int main (int argc, char *argv[]) {
   GtkStatusbar *bar;
   guint default_context_id;
@@ -184,10 +175,6 @@ int main (int argc, char *argv[]) {
                             "action_bar_execute_button"),FALSE);
   gtk_widget_set_sensitive(lookup_widget(gslapt,"execute1"),FALSE);
   gtk_widget_set_sensitive(lookup_widget(gslapt,"unmark_all1"),FALSE);
-
-  gtk_widget_add_events(gslapt, GDK_CONFIGURE);
-  g_signal_connect(G_OBJECT(gslapt), "configure-event",
-        G_CALLBACK(gslapt_resized), NULL);
 
   /* restore previous rc settings */
   gslapt_settings = gslapt_read_rc();

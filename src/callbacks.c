@@ -96,6 +96,38 @@ static void unset_busy_cursor (void);
 static SLAPT_PRIORITY_T convert_gslapt_priority_to_slapt_priority(gint p);
 static gint convert_slapt_priority_to_gslapt_priority(SLAPT_PRIORITY_T p);
 
+gboolean gslapt_window_resized(GtkWindow *window, GdkEvent *event, gpointer data)
+{
+  const char *widget_name = gtk_widget_get_name(GTK_WIDGET(window));
+  gint x, y, width, height;
+
+  x      = event->configure.x;
+  y      = event->configure.y;
+  width  = event->configure.width;
+  height = event->configure.height;
+
+  if (strcmp(widget_name,"gslapt") == 0) {
+    gslapt_settings->x      = x;
+    gslapt_settings->y      = y;
+    gslapt_settings->width  = width;
+    gslapt_settings->height = height;
+  } else if (strcmp(widget_name,"window_preferences") == 0) {
+    gslapt_settings->pref_x      = x;
+    gslapt_settings->pref_y      = y;
+    gslapt_settings->pref_width  = width;
+    gslapt_settings->pref_height = height;
+  } else if (strcmp(widget_name,"changelog_window") == 0) {
+    gslapt_settings->cl_x      = x;
+    gslapt_settings->cl_y      = y;
+    gslapt_settings->cl_width  = width;
+    gslapt_settings->cl_height = height;
+  } else {
+    fprintf(stderr, "need to handle widget name: %s\n", widget_name);
+  }
+
+  return FALSE;
+}
+
 void on_gslapt_destroy (GtkObject *object, gpointer user_data) 
 {
   slapt_free_transaction(trans);
@@ -159,6 +191,13 @@ void open_preferences (GtkMenuItem *menuitem, gpointer user_data)
   #endif
 
   preferences = (GtkWidget *)create_window_preferences();
+
+  if ((gslapt_settings->pref_x == gslapt_settings->pref_y == gslapt_settings->pref_width == gslapt_settings->pref_height == 0)) {
+    gtk_window_set_default_size(GTK_WINDOW(preferences),
+      gslapt_settings->pref_width, gslapt_settings->pref_height);
+    gtk_window_move(GTK_WINDOW(preferences),
+      gslapt_settings->pref_x, gslapt_settings->pref_y);
+  }
 
   working_dir = GTK_ENTRY(lookup_widget(preferences,"preferences_working_dir_entry"));
   gtk_entry_set_text(working_dir,global_config->working_dir);
@@ -3736,6 +3775,13 @@ void view_changelogs (GtkMenuItem *menuitem, gpointer user_data)
   int i, changelogs = 0;
   GtkWidget *changelog_window = create_changelog_window();
   GtkWidget *changelog_notebook = lookup_widget(changelog_window, "changelog_notebook");
+
+  if ((gslapt_settings->cl_x == gslapt_settings->cl_y == gslapt_settings->cl_width == gslapt_settings->cl_height == 0)) {
+    gtk_window_set_default_size(GTK_WINDOW(changelog_window),
+      gslapt_settings->cl_width, gslapt_settings->cl_height);
+    gtk_window_move(GTK_WINDOW(changelog_window),
+      gslapt_settings->cl_x, gslapt_settings->cl_y);
+  }
 
   for (i = 0; i < global_config->sources->count; ++i) {
     char *changelog_filename, *changelog_data;

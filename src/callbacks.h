@@ -35,6 +35,7 @@ enum {
   NUMBER_OF_COLUMNS
 };
 
+gboolean gslapt_window_resized(GtkWindow *window, GdkEvent *event, gpointer data);
 void on_gslapt_destroy (GtkObject *object, gpointer user_data);
 void update_callback (GtkObject *object, gpointer user_data);
 void upgrade_callback (GtkObject *object, gpointer user_data);
