@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.5.2\n"
+"Project-Id-Version: 0.5.2b\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-20 16:24-0500\n"
-"PO-Revision-Date: 2009-09-09 10:40+0500\n"
+"PO-Revision-Date: 2010-01-13 09:00+0500\n"
 "Last-Translator: Jason Woodward <woodwardj@jaos.org>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -96,6 +96,9 @@ msgstr "Install/Upgrade package"
 
 msgid "Installed Size:"
 msgstr "Installed Size:"
+
+msgid "Installed Size"
+msgstr "Installed Size"
 
 msgid "Installed"
 msgstr "Installed"

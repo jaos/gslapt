@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: gslapt\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: \n"
+"PO-Revision-Date: 2010-01-13 09:00+0500\n"
 "Last-Translator: George Vlahavas <vlahavas~at~gmail~dot~com>\n"
 "Language-Team: Greek\n"
 "MIME-Version: 1.0\n"
@@ -95,6 +95,9 @@ msgstr "Εγκατάσταση/Αναβάθμιση πακέτου"
 
 msgid "Installed Size:"
 msgstr "Μέγεθος εγκατάστασης:"
+
+msgid "Installed Size"
+msgstr "Μέγεθος εγκατάστασης"
 
 msgid "Installed"
 msgstr "Εγκατεστημένα"
