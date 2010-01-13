@@ -769,110 +769,117 @@ static void fillin_pkg_details (slapt_pkg_info_t *pkg)
   /* dependency information tab */
   store = gtk_tree_store_new(1,G_TYPE_STRING);
 
-  gtk_tree_store_append(store,&iter,NULL);
-  gtk_tree_store_set(store,&iter,0,_("<b>Required:</b>"),-1);
+  if (pkg->installed == SLAPT_FALSE) {
 
-  if (pkg->required != NULL && strlen(pkg->required) > 2) {
-    GtkTreeIter child_iter;
-    int position = 0, len = strlen(pkg->required);
+    gtk_tree_store_append(store,&iter,NULL);
+    gtk_tree_store_set(store,&iter,0,_("<b>Required:</b>"),-1);
 
-    while (position < len) {
-      char *ptr = pkg->required + position;
-      if (strstr(ptr,",") == NULL) {
-        gtk_tree_store_append(store,&child_iter,&iter);
-        gtk_tree_store_set(store,&child_iter,0,ptr,-1);
-        position += strlen(ptr);
-        break;
-      } else {
-        char *buffer = NULL,*token = NULL;
+    if (pkg->required != NULL && strlen(pkg->required) > 2) {
+      GtkTreeIter child_iter;
+      int position = 0, len = strlen(pkg->required);
 
-        if ((pkg->required[position] == ',') || (pkg->required[position] == ' ')) {
-          ++position;
-          continue;
-        }
-
-        token = strchr(ptr,',');
-        buffer = strndup(ptr,strlen(ptr) - strlen(token));
-
-        gtk_tree_store_append(store,&child_iter,&iter);
-        gtk_tree_store_set(store,&child_iter,0,buffer,-1);
-
-        position += strlen(ptr) - strlen(token);
-        free(buffer);
-      }
-      
-    }
-  }
-
-  gtk_tree_store_append(store, &iter,NULL);
-  gtk_tree_store_set(store,&iter,0,_("<b>Conflicts:</b>"), -1);
-
-  if (pkg->conflicts != NULL && strlen(pkg->conflicts) > 2) {
-    GtkTreeIter child_iter;
-    int position = 0, len = strlen(pkg->conflicts);
-
-    while (position < len) {
-      char *ptr = pkg->conflicts + position;
-      if (strstr(ptr,",") == NULL) {
-        gtk_tree_store_append(store,&child_iter,&iter);
-        gtk_tree_store_set(store,&child_iter,0,ptr,-1);
-        position += strlen(ptr);
-        break;
-      } else {
-        char *buffer = NULL,*token = NULL;
-
-        if ((pkg->conflicts[position] == ',') || (pkg->conflicts[position] == ' ')) {
-          ++position;
-          continue;
-        }
-
-        token = strchr(ptr,',');
-        buffer = strndup(ptr,strlen(ptr) - strlen(token));
-
-        gtk_tree_store_append(store,&child_iter,&iter);
-        gtk_tree_store_set(store,&child_iter,0,buffer,-1);
-
-        position += strlen(ptr) - strlen(token);
-        free(buffer);
-      }
-    }
-  }
-
-  gtk_tree_store_append(store, &iter,NULL);
-  gtk_tree_store_set(store,&iter,0,_("<b>Suggests:</b>"),-1);
-
-  if (pkg->suggests != NULL && strlen(pkg->suggests) > 2) {
-    GtkTreeIter child_iter;
-    int position = 0, len = strlen(pkg->suggests);
-
-    while (position < len) {
-      char *ptr = pkg->suggests + position;
-      if ((strstr(ptr,",") == NULL) && (strstr(ptr," ") == NULL)) {
-        gtk_tree_store_append(store,&child_iter,&iter);
-        gtk_tree_store_set(store,&child_iter,0,ptr,-1);
-        position += strlen(ptr);
-        break;
-      } else {
-        char *buffer = NULL,*token = NULL;
-
-        if ((pkg->suggests[position] == ',') || (pkg->suggests[position] == ' ')) {
-          ++position;
-          continue;
-        }
-
-        token = strpbrk(ptr,", ");
-        if (token == NULL)
+      while (position < len) {
+        char *ptr = pkg->required + position;
+        if (strstr(ptr,",") == NULL) {
+          gtk_tree_store_append(store,&child_iter,&iter);
+          gtk_tree_store_set(store,&child_iter,0,ptr,-1);
+          position += strlen(ptr);
           break;
+        } else {
+          char *buffer = NULL,*token = NULL;
 
-        buffer = strndup(ptr,strlen(ptr) - strlen(token));
+          if ((pkg->required[position] == ',') || (pkg->required[position] == ' ')) {
+            ++position;
+            continue;
+          }
 
-        gtk_tree_store_append(store,&child_iter,&iter);
-        gtk_tree_store_set(store,&child_iter,0,buffer,-1);
+          token = strchr(ptr,',');
+          buffer = strndup(ptr,strlen(ptr) - strlen(token));
 
-        position += strlen(ptr) - strlen(token);
-        free(buffer);
+          gtk_tree_store_append(store,&child_iter,&iter);
+          gtk_tree_store_set(store,&child_iter,0,buffer,-1);
+
+          position += strlen(ptr) - strlen(token);
+          free(buffer);
+        }
+        
       }
     }
+
+    gtk_tree_store_append(store, &iter,NULL);
+    gtk_tree_store_set(store,&iter,0,_("<b>Conflicts:</b>"), -1);
+
+    if (pkg->conflicts != NULL && strlen(pkg->conflicts) > 2) {
+      GtkTreeIter child_iter;
+      int position = 0, len = strlen(pkg->conflicts);
+
+      while (position < len) {
+        char *ptr = pkg->conflicts + position;
+        if (strstr(ptr,",") == NULL) {
+          gtk_tree_store_append(store,&child_iter,&iter);
+          gtk_tree_store_set(store,&child_iter,0,ptr,-1);
+          position += strlen(ptr);
+          break;
+        } else {
+          char *buffer = NULL,*token = NULL;
+
+          if ((pkg->conflicts[position] == ',') || (pkg->conflicts[position] == ' ')) {
+            ++position;
+            continue;
+          }
+
+          token = strchr(ptr,',');
+          buffer = strndup(ptr,strlen(ptr) - strlen(token));
+
+          gtk_tree_store_append(store,&child_iter,&iter);
+          gtk_tree_store_set(store,&child_iter,0,buffer,-1);
+
+          position += strlen(ptr) - strlen(token);
+          free(buffer);
+        }
+      }
+    }
+
+    gtk_tree_store_append(store, &iter,NULL);
+    gtk_tree_store_set(store,&iter,0,_("<b>Suggests:</b>"),-1);
+
+    if (pkg->suggests != NULL && strlen(pkg->suggests) > 2) {
+      GtkTreeIter child_iter;
+      int position = 0, len = strlen(pkg->suggests);
+
+      while (position < len) {
+        char *ptr = pkg->suggests + position;
+        if ((strstr(ptr,",") == NULL) && (strstr(ptr," ") == NULL)) {
+          gtk_tree_store_append(store,&child_iter,&iter);
+          gtk_tree_store_set(store,&child_iter,0,ptr,-1);
+          position += strlen(ptr);
+          break;
+        } else {
+          char *buffer = NULL,*token = NULL;
+
+          if ((pkg->suggests[position] == ',') || (pkg->suggests[position] == ' ')) {
+            ++position;
+            continue;
+          }
+
+          token = strpbrk(ptr,", ");
+          if (token == NULL)
+            break;
+
+          buffer = strndup(ptr,strlen(ptr) - strlen(token));
+
+          gtk_tree_store_append(store,&child_iter,&iter);
+          gtk_tree_store_set(store,&child_iter,0,buffer,-1);
+
+          position += strlen(ptr) - strlen(token);
+          free(buffer);
+        }
+      }
+    }
+
+  } else { /* installed */
+    gtk_tree_store_append(store,&iter,NULL);
+    gtk_tree_store_set(store,&iter,0,_("No dependency information available"),-1);
   }
 
   columns = gtk_tree_view_get_columns(GTK_TREE_VIEW(treeview));
@@ -914,7 +921,7 @@ static void fillin_pkg_details (slapt_pkg_info_t *pkg)
     gtk_text_buffer_set_text(pkg_changelog, changelog, -1);
     free(changelog);
   } else {
-    gtk_text_buffer_set_text(pkg_changelog, "", -1);
+    gtk_text_buffer_set_text(pkg_changelog, _("No changelog information available"), -1);
   }
 
   /* file list tab */
@@ -930,7 +937,7 @@ static void fillin_pkg_details (slapt_pkg_info_t *pkg)
     gtk_text_buffer_set_text(pkg_filelist, filelist, -1);
     free(filelist);
   } else {
-    gtk_text_buffer_set_text(pkg_filelist, "", -1);
+    gtk_text_buffer_set_text(pkg_filelist, _("The list of installed files is only available for installed packages"), -1);
   }
 
   /* set status */
