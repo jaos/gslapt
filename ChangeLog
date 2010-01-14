@@ -1,5 +1,6 @@
 
-0.5.2b Jan 13, 2010
+0.5.2b Jan 14, 2010
+ * updated greek translation from George Vlahavas
  * fixed display bug when viewing installed packages
  * Added default strings for the dependency, changelog, and files tabs
    in the event there is no data (thanks George)

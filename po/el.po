@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: gslapt\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2010-01-13 11:00+0500\n"
+"PO-Revision-Date: 2010-01-14 19:51+0200\n"
 "Last-Translator: George Vlahavas <vlahavas~at~gmail~dot~com>\n"
 "Language-Team: Greek\n"
 "MIME-Version: 1.0\n"
@@ -541,11 +541,11 @@ msgid "Files"
 msgstr "Αρχεία"
 
 msgid "The list of installed files is only available for installed packages"
-msgstr "The list of installed files is only available for installed packages"
+msgstr "Ο κατάλογος των εγκατεστημένων αρχείων είναι διαθέσιμος μόνο για εγκατεστημένα πακέτα"
 
 msgid "No dependency information available"
-msgstr "No dependency information available"
+msgstr "Δεν υπάρχουν πληροφορίες εξαρτήσεων"
 
 msgid "No changelog information available"
-msgstr "No changelog information available"
+msgstr "Δεν υπάρχει αρχείο αλλαγών"
 
