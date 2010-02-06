@@ -1,5 +1,6 @@
 
 0.5.3 Feb 06, 2010
+ * use column constants with the Gtk tree model
 
 0.5.2b Jan 14, 2010
  * updated greek translation from George Vlahavas

@@ -284,9 +284,9 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
     gchar *pkg_version;
     gchar *pkg_location;
 
-    gtk_tree_model_get(GTK_TREE_MODEL(package_model), &iter, 1, &pkg_name, -1);
-    gtk_tree_model_get(GTK_TREE_MODEL(package_model), &iter, 2, &pkg_version, -1);
-    gtk_tree_model_get(GTK_TREE_MODEL(package_model), &iter, 3, &pkg_location, -1);
+    gtk_tree_model_get(GTK_TREE_MODEL(package_model), &iter, NAME_COLUMN, &pkg_name, -1);
+    gtk_tree_model_get(GTK_TREE_MODEL(package_model), &iter, VERSION_COLUMN, &pkg_version, -1);
+    gtk_tree_model_get(GTK_TREE_MODEL(package_model), &iter, LOCATION_COLUMN, &pkg_location, -1);
 
     if ( pkg_name == NULL || pkg_version == NULL || pkg_location == NULL) {
       fprintf(stderr,"failed to get package name and version from selection\n");
@@ -451,9 +451,9 @@ void add_pkg_for_removal (GtkWidget *gslapt, gpointer user_data)
     gchar *pkg_location;
     slapt_pkg_info_t *pkg;
 
-    gtk_tree_model_get (GTK_TREE_MODEL(package_model), &iter, 1, &pkg_name, -1);
-    gtk_tree_model_get (GTK_TREE_MODEL(package_model), &iter, 2, &pkg_version, -1);
-    gtk_tree_model_get (GTK_TREE_MODEL(package_model), &iter, 3, &pkg_location, -1);
+    gtk_tree_model_get (GTK_TREE_MODEL(package_model), &iter, NAME_COLUMN, &pkg_name, -1);
+    gtk_tree_model_get (GTK_TREE_MODEL(package_model), &iter, VERSION_COLUMN, &pkg_version, -1);
+    gtk_tree_model_get (GTK_TREE_MODEL(package_model), &iter, LOCATION_COLUMN, &pkg_location, -1);
 
     if ( (pkg = slapt_get_exact_pkg(installed,pkg_name,pkg_version)) != NULL ) {
       guint c;
@@ -761,9 +761,9 @@ void show_pkg_details (GtkTreeSelection *selection, gpointer data)
     gchar *p_name,*p_version,*p_location;
     slapt_pkg_info_t *pkg;
 
-    gtk_tree_model_get(GTK_TREE_MODEL(package_model), &iter, 1, &p_name, -1);
-    gtk_tree_model_get(GTK_TREE_MODEL(package_model), &iter, 2, &p_version, -1);
-    gtk_tree_model_get(GTK_TREE_MODEL(package_model), &iter, 3, &p_location, -1);
+    gtk_tree_model_get(GTK_TREE_MODEL(package_model), &iter, NAME_COLUMN, &p_name, -1);
+    gtk_tree_model_get(GTK_TREE_MODEL(package_model), &iter, VERSION_COLUMN, &p_version, -1);
+    gtk_tree_model_get(GTK_TREE_MODEL(package_model), &iter, LOCATION_COLUMN, &p_location, -1);
 
     pkg = slapt_get_pkg_by_details(all,p_name,p_version,p_location);
     if (pkg != NULL) {
@@ -2607,9 +2607,9 @@ void unmark_package(GtkWidget *gslapt, gpointer user_data)
     GtkTreeModel *model;
     GtkTreeIter actual_iter, filter_iter;
 
-    gtk_tree_model_get(GTK_TREE_MODEL(package_model), &iter, 1, &pkg_name, -1);
-    gtk_tree_model_get(GTK_TREE_MODEL(package_model), &iter, 2, &pkg_version, -1);
-    gtk_tree_model_get(GTK_TREE_MODEL(package_model), &iter, 3, &pkg_location, -1);
+    gtk_tree_model_get(GTK_TREE_MODEL(package_model), &iter, NAME_COLUMN, &pkg_name, -1);
+    gtk_tree_model_get(GTK_TREE_MODEL(package_model), &iter, VERSION_COLUMN, &pkg_version, -1);
+    gtk_tree_model_get(GTK_TREE_MODEL(package_model), &iter, LOCATION_COLUMN, &pkg_location, -1);
 
     if (pkg_name == NULL || pkg_version == NULL || pkg_location == NULL) {
       fprintf(stderr,"failed to get package name and version from selection\n");
@@ -3067,9 +3067,9 @@ static void rebuild_package_action_menu (void)
     gchar *pkg_location;
     slapt_pkg_info_t *pkg = NULL;
 
-    gtk_tree_model_get(GTK_TREE_MODEL(package_model), &iter, 1, &pkg_name, -1);
-    gtk_tree_model_get(GTK_TREE_MODEL(package_model), &iter, 2, &pkg_version, -1);
-    gtk_tree_model_get(GTK_TREE_MODEL(package_model), &iter, 3, &pkg_location, -1);
+    gtk_tree_model_get(GTK_TREE_MODEL(package_model), &iter, NAME_COLUMN, &pkg_name, -1);
+    gtk_tree_model_get(GTK_TREE_MODEL(package_model), &iter, VERSION_COLUMN, &pkg_version, -1);
+    gtk_tree_model_get(GTK_TREE_MODEL(package_model), &iter, LOCATION_COLUMN, &pkg_location, -1);
 
     if (pkg_name == NULL || pkg_version == NULL || pkg_location == NULL) {
       if (pkg_name != NULL)
