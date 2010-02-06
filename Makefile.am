@@ -11,11 +11,13 @@ EXTRA_DIST = \
 
 install-data-local:
 	@$(NORMAL_INSTALL)
+	$(mkinstalldirs) $(DESTDIR)/$(pkgdatadir); \
 	$(mkinstalldirs) $(DESTDIR)/$(datadir)/applications; \
 	$(mkinstalldirs) $(DESTDIR)/$(datadir)/doc/@PACKAGE@ ; \
 	$(INSTALL_DATA) AUTHORS ChangeLog COPYING FAQ README $(DESTDIR)/$(datadir)/doc/@PACKAGE@ ; \
 	$(INSTALL_DATA) gslapt.desktop $(DESTDIR)/$(datadir)/applications/gslapt.desktop; \
 	$(INSTALL_DATA) gslapt-kde.desktop $(DESTDIR)/$(datadir)/applications/gslapt-kde.desktop; \
+	$(INSTALL_DATA) series_map.rc $(DESTDIR)/$(pkgdatadir)/; \
 	$(mkinstalldirs) $(DESTDIR)/$(datadir)/pixmaps; \
 	$(INSTALL_DATA) pixmaps/gslapt.png $(DESTDIR)/$(datadir)/pixmaps/; \
 	if test -d $(srcdir)/pixmaps; then \

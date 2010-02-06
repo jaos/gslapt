@@ -25,6 +25,7 @@
 #include "interface.h"
 #include "support.h"
 #include "settings.h"
+#include "series.h"
 
 slapt_rc_config *global_config; /* our config struct */
 struct slapt_pkg_list *installed;
@@ -33,6 +34,7 @@ GtkWidget *gslapt;
 slapt_transaction_t *trans = NULL;
 char rc_location[1024];
 GslaptSettings *gslapt_settings = NULL;
+GHashTable *gslapt_series_map = NULL;
 
 int main (int argc, char *argv[]) {
   GtkStatusbar *bar;
@@ -58,6 +60,10 @@ int main (int argc, char *argv[]) {
   gtk_init (&argc, &argv);
 
   trans = slapt_init_transaction();
+
+  /* series name mapping */
+  gslapt_series_map = gslapt_series_map_init();
+  gslapt_series_map_fill(gslapt_series_map);
 
   add_pixmap_directory (PACKAGE_DATA_DIR "/" PACKAGE "/pixmaps");
 

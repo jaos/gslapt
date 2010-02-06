@@ -1,5 +1,7 @@
 
 0.5.3 Feb 06, 2010
+ * added slackware location/series mapping that uses a friendlier label for the
+   slackware package series names
  * use column constants with the Gtk tree model
 
 0.5.2b Jan 14, 2010

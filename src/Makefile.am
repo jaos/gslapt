@@ -12,6 +12,7 @@ gslapt_SOURCES = \
 	support.c support.h \
 	interface.c interface.h \
 	callbacks.c callbacks.h \
+	series.c series.h \
 	settings.c settings.h
 
 gslapt_LDADD = @PACKAGE_LIBS@ $(INTLLIBS)

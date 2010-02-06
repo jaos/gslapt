@@ -28,9 +28,11 @@
 #include "interface.h"
 #include "support.h"
 #include "settings.h"
+#include "series.h"
 
 extern GtkWidget *gslapt;
 extern GslaptSettings *gslapt_settings;
+extern GHashTable *gslapt_series_map;
 extern slapt_rc_config *global_config;
 extern struct slapt_pkg_list *all;
 extern struct slapt_pkg_list *installed;
@@ -139,6 +141,7 @@ void on_gslapt_destroy (GtkObject *object, gpointer user_data)
   slapt_free_pkg_list(all);
   slapt_free_pkg_list(installed);
   slapt_free_rc_config(global_config);
+  gslapt_series_map_free(gslapt_series_map);
 
   gslapt_write_rc(gslapt_settings);
   gslapt_free_rc(gslapt_settings);
@@ -511,9 +514,18 @@ void build_package_treeviewlist (GtkWidget *treeview)
 
   base_model = GTK_TREE_MODEL(gtk_list_store_new (
     NUMBER_OF_COLUMNS,
-    GDK_TYPE_PIXBUF, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING,
-    G_TYPE_STRING, G_TYPE_UINT, G_TYPE_STRING, G_TYPE_BOOLEAN,
-    G_TYPE_BOOLEAN, G_TYPE_BOOLEAN, G_TYPE_BOOLEAN
+    GDK_TYPE_PIXBUF, /* status icon */
+    G_TYPE_STRING, /* name */
+    G_TYPE_STRING, /* version */
+    G_TYPE_STRING, /* location */
+    G_TYPE_STRING, /* series */
+    G_TYPE_STRING, /*desc */
+    G_TYPE_UINT, /* size */
+    G_TYPE_STRING, /* status */
+    G_TYPE_BOOLEAN, /* is installed */
+    G_TYPE_BOOLEAN, /* visible */
+    G_TYPE_BOOLEAN, /* marked */
+    G_TYPE_BOOLEAN /* is an upgrade */
   ));
 
   for (i = 0; i < all->pkg_count; i++ ) {
@@ -524,7 +536,7 @@ void build_package_treeviewlist (GtkWidget *treeview)
     GdkPixbuf *status_icon = NULL;
     gchar *short_desc = slapt_gen_short_pkg_description(all->pkgs[i]);
     slapt_pkg_info_t *installed_pkg = NULL, *newer_available_pkg = NULL;
-    gchar *location = NULL;
+    gchar *location = NULL, *series = NULL;
 
     installed_pkg = slapt_get_newest_pkg(installed,all->pkgs[i]->name);
     if (installed_pkg != NULL) {
@@ -588,12 +600,15 @@ void build_package_treeviewlist (GtkWidget *treeview)
       location = all->pkgs[i]->location;
     }
 
+    series = gslapt_series_map_lookup(gslapt_series_map, location);
+
     gtk_list_store_append(GTK_LIST_STORE(base_model), &iter);
     gtk_list_store_set(GTK_LIST_STORE(base_model), &iter,
       STATUS_ICON_COLUMN,status_icon,
       NAME_COLUMN,all->pkgs[i]->name,
       VERSION_COLUMN,all->pkgs[i]->version,
       LOCATION_COLUMN,location,
+      SERIES_COLUMN,series,
       DESC_COLUMN,short_desc,
       SIZE_COLUMN,all->pkgs[i]->size_u,
       STATUS_COLUMN,status,
@@ -638,6 +653,7 @@ void build_package_treeviewlist (GtkWidget *treeview)
         NAME_COLUMN,installed->pkgs[i]->name,
         VERSION_COLUMN,installed->pkgs[i]->version,
         LOCATION_COLUMN,installed->pkgs[i]->location,
+        SERIES_COLUMN,installed->pkgs[i]->location,
         DESC_COLUMN,short_desc,
         SIZE_COLUMN,installed->pkgs[i]->size_u,
         STATUS_COLUMN,status,
@@ -800,12 +816,11 @@ static void fillin_pkg_details (slapt_pkg_info_t *pkg)
   slapt_pkg_info_t *latest_pkg = slapt_get_newest_pkg(all,pkg->name);
   slapt_pkg_info_t *installed_pkg = slapt_get_newest_pkg(installed,pkg->name);
   slapt_pkg_upgrade_t *pkg_upgrade = NULL;
-  char *clean_desc = NULL, *changelog = NULL, *filelist = NULL;
+  char *clean_desc = NULL, *changelog = NULL, *filelist = NULL, *location = NULL;
   const char *priority_str = NULL;
 
   /* set package details */
   gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_name")),pkg->name);
-  gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_location")),pkg->location);
   gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_version")),pkg->version);
   gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_source")),pkg->mirror);
   short_desc = slapt_gen_short_pkg_description(pkg);
@@ -814,6 +829,13 @@ static void fillin_pkg_details (slapt_pkg_info_t *pkg)
     free(short_desc);
   } else {
     gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_description")),"");
+  }
+  location = gslapt_series_map_lookup(gslapt_series_map, pkg->location);
+  if (location != NULL) {
+    gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_location")),location);
+    free(location);
+  } else {
+    gtk_label_set_text(GTK_LABEL(lookup_widget(gslapt,"pkg_info_location")),pkg->location);
   }
 
   priority_str = slapt_priority_to_str(pkg->priority);
@@ -2863,11 +2885,11 @@ void build_treeview_columns (GtkWidget *treeview)
   gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
   gtk_tree_view_column_set_resizable(column, TRUE);
 
-  /* column for location */
+  /* column for series */
   renderer = gtk_cell_renderer_text_new();
   column = gtk_tree_view_column_new_with_attributes ((gchar *)_("Location"), renderer,
-    "text", LOCATION_COLUMN, NULL);
-  gtk_tree_view_column_set_sort_column_id (column, LOCATION_COLUMN);
+    "text", SERIES_COLUMN, NULL);
+  gtk_tree_view_column_set_sort_column_id (column, SERIES_COLUMN);
   gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
   gtk_tree_view_column_set_resizable(column, TRUE);
 
