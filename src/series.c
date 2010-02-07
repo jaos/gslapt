@@ -67,16 +67,24 @@ GSLAPT_SERIES_MAP_FILL_END:
 char *gslapt_series_map_lookup(GHashTable *map, const char *key)
 {
   char *value = NULL, *converted = NULL;
-  void *v     = g_hash_table_lookup (map, key);
+  void *v;
+
+  if (key == NULL)
+    return NULL;
+
+  v = g_hash_table_lookup (map, key);
   if (v != NULL) {
     value = (char *)v;
   } else {
-    value = g_path_get_basename(key);
+    if (strcmp(key,"") != 0)
+      value = g_path_get_basename(key);
   }
 
-  converted = g_convert(value, strlen(value), "UTF-8", "ISO-8859-1", NULL, NULL, NULL);
-  if (converted != NULL)
-    value = converted;
+  if (value != NULL) {
+    converted = g_convert(value, strlen(value), "UTF-8", "ISO-8859-1", NULL, NULL, NULL);
+    if (converted != NULL)
+      value = converted;
+  }
 
   return value;
 }

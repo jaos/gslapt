@@ -601,6 +601,8 @@ void build_package_treeviewlist (GtkWidget *treeview)
     }
 
     series = gslapt_series_map_lookup(gslapt_series_map, location);
+    if (series == NULL)
+      series = g_strdup(location);
 
     gtk_list_store_append(GTK_LIST_STORE(base_model), &iter);
     gtk_list_store_set(GTK_LIST_STORE(base_model), &iter,
@@ -622,6 +624,7 @@ void build_package_treeviewlist (GtkWidget *treeview)
     gdk_pixbuf_unref(status_icon);
     g_free(status);
     g_free(short_desc);
+    g_free(series);
   }
 
   for (i = 0; i < installed->pkg_count; ++i) {

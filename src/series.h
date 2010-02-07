@@ -2,6 +2,7 @@
 #define GSLAPT_SERIES_HEADER
 
 #include <stdlib.h>
+#include <string.h>
 #include <stdio.h>
 #include <glib.h>
 #include "config.h"
