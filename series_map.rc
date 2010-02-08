@@ -1,7 +1,7 @@
 [series mappings]
 ./slackware/a=Base
 ./slackware/a[bg]=Base
-./slackware/a[de]=Base
+./slackware/a[de]=Basis
 ./slackware/a[el]=Βάση
 ./slackware/a[es]=Base
 ./slackware/a[fr]=Base
@@ -22,7 +22,7 @@
 ./slackware/a[zh_CN]=Base
 ./slackware/ap=Applications
 ./slackware/ap[bg]=Applications
-./slackware/ap[de]=Applications
+./slackware/ap[de]=Anwendungen
 ./slackware/ap[el]=Εφαρμογές
 ./slackware/ap[es]=Applications
 ./slackware/ap[fr]=Applications
@@ -43,7 +43,7 @@
 ./slackware/ap[zh_CN]=Applications
 ./slackware/d=Development Tools
 ./slackware/d[bg]=Development Tools
-./slackware/d[de]=Development Tools
+./slackware/d[de]=Entwicklungs-Werkzeuge
 ./slackware/d[el]=Εργαλεία ανάπτυξης
 ./slackware/d[es]=Development Tools
 ./slackware/d[fr]=Development Tools
@@ -85,7 +85,7 @@
 ./slackware/e[zh_CN]=GNU Emacs
 ./slackware/f=Documentation
 ./slackware/f[bg]=Documentation
-./slackware/f[de]=Documentation
+./slackware/f[de]=Dokumentation
 ./slackware/f[el]=Τεκμηρίωση
 ./slackware/f[es]=Documentation
 ./slackware/f[fr]=Documentation
@@ -127,7 +127,7 @@
 ./slackware/gnome[zh_CN]=GNOME
 ./slackware/k=Linux kernel
 ./slackware/k[bg]=Linux kernel
-./slackware/k[de]=Linux kernel
+./slackware/k[de]=Linux Kernel
 ./slackware/k[el]=Πυρήνας Linux
 ./slackware/k[es]=Linux kernel
 ./slackware/k[fr]=Linux kernel
@@ -169,7 +169,7 @@
 ./slackware/kde[zh_CN]=KDE
 ./slackware/kdei=KDE Internationalization
 ./slackware/kdei[bg]=KDE Internationalization
-./slackware/kdei[de]=KDE Internationalization
+./slackware/kdei[de]=KDE Lokalisierungen
 ./slackware/kdei[el]=Διεθνοποίηση KDE
 ./slackware/kdei[es]=KDE Internationalization
 ./slackware/kdei[fr]=KDE Internationalization
@@ -190,7 +190,7 @@
 ./slackware/kdei[zh_CN]=KDE Internationalization
 ./slackware/l=Libraries
 ./slackware/l[bg]=Libraries
-./slackware/l[de]=Libraries
+./slackware/l[de]=Bibliotheken
 ./slackware/l[el]=Βιβλιοθηκες
 ./slackware/l[es]=Libraries
 ./slackware/l[fr]=Libraries
@@ -211,7 +211,7 @@
 ./slackware/l[zh_CN]=Libraries
 ./slackware/n=Networking
 ./slackware/n[bg]=Networking
-./slackware/n[de]=Networking
+./slackware/n[de]=Netzwerk
 ./slackware/n[el]=Δικτύωση
 ./slackware/n[es]=Networking
 ./slackware/n[fr]=Networking
@@ -295,7 +295,7 @@
 ./slackware/x[zh_CN]=X Window System
 ./slackware/xap=X Applications
 ./slackware/xap[bg]=X Applications
-./slackware/xap[de]=X Applications
+./slackware/xap[de]=X Anwendungen
 ./slackware/xap[el]=Εφαρμογές Γραφικού Περιβάλλοντος
 ./slackware/xap[es]=X Applications
 ./slackware/xap[fr]=X Applications
@@ -316,7 +316,7 @@
 ./slackware/xap[zh_CN]=X Applications
 ./slackware/y=BSD Console games
 ./slackware/y[bg]=BSD Console games
-./slackware/y[de]=BSD Console games
+./slackware/y[de]=BSD Konsolen-Spiele
 ./slackware/y[el]=Παιγνίδια Κονσόλας BSD
 ./slackware/y[es]=BSD Console games
 ./slackware/y[fr]=BSD Console games
@@ -337,7 +337,7 @@
 ./slackware/y[zh_CN]=BSD Console games
 ./patches/packages=Patches
 ./patches/packages[bg]=Patches
-./patches/packages[de]=Patches
+./patches/packages[de]=Patche
 ./patches/packages[el]=Διορθώσεις
 ./patches/packages[es]=Patches
 ./patches/packages[fr]=Patches
