@@ -5,9 +5,12 @@ SUBDIRS = src po
 PKGDIR = `pwd`/pkg
 
 EXTRA_DIST = \
-	autogen.sh \
-	gslapt.glade \
-	gslapt.gladep
+  FAQ \
+  gslapt.desktop \
+  gslapt-kde.desktop \
+  series_map.rc \
+  slack-desc \
+  slack-required
 
 install-data-local:
 	@$(NORMAL_INSTALL)
@@ -56,8 +59,4 @@ pkg: all
 	strip --strip-unneeded $(PKGDIR)/$(sbindir)/@PACKAGE@
 	( cd $(PKGDIR) && /sbin/makepkg -l y -c n ../@PACKAGE@-@VERSION@-@host_cpu@-1.tgz )
 
-pkgclean:
-	rm -rf $(PKGDIR)
-
-clean-generic: pkgclean
 
