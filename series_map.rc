@@ -356,6 +356,7 @@
 ./patches/packages[uk]=Patches
 ./patches/packages[vi]=Patches
 ./patches/packages[zh_CN]=Patches
+./gsb/a=GSB Base
 ./gsb/a[bg]=GSB Base
 ./gsb/a[de]=GSB Base
 ./gsb/a[el]=GSB Base
@@ -377,6 +378,7 @@
 ./gsb/a[uk]=GSB Base
 ./gsb/a[vi]=GSB Base
 ./gsb/a[zh_CN]=GSB Base
+./gsb/ac=GSB Accessibility
 ./gsb/ac[bg]=GSB Accessibility
 ./gsb/ac[de]=GSB Accessibility
 ./gsb/ac[el]=GSB Accessibility
@@ -398,6 +400,7 @@
 ./gsb/ac[uk]=GSB Accessibility
 ./gsb/ac[vi]=GSB Accessibility
 ./gsb/ac[zh_CN]=GSB Accessibility
+./gsb/ad=GSB Administration
 ./gsb/ad[bg]=GSB Administration
 ./gsb/ad[de]=GSB Administration
 ./gsb/ad[el]=GSB Administration
@@ -419,6 +422,7 @@
 ./gsb/ad[uk]=GSB Administration
 ./gsb/ad[vi]=GSB Administration
 ./gsb/ad[zh_CN]=GSB Administration
+./gsb/ap=GSB Applications
 ./gsb/ap[bg]=GSB Applications
 ./gsb/ap[de]=GSB Applications
 ./gsb/ap[el]=GSB Applications
@@ -440,6 +444,7 @@
 ./gsb/ap[uk]=GSB Applications
 ./gsb/ap[vi]=GSB Applications
 ./gsb/ap[zh_CN]=GSB Applications
+./gsb/c=GSB Compiz Fusion
 ./gsb/c[bg]=GSB Compiz Fusion
 ./gsb/c[de]=GSB Compiz Fusion
 ./gsb/c[el]=GSB Compiz Fusion
@@ -461,6 +466,7 @@
 ./gsb/c[uk]=GSB Compiz Fusion
 ./gsb/c[vi]=GSB Compiz Fusion
 ./gsb/c[zh_CN]=GSB Compiz Fusion
+./gsb/d=GSB Development
 ./gsb/d[bg]=GSB Development
 ./gsb/d[de]=GSB Development
 ./gsb/d[el]=GSB Development
@@ -482,6 +488,7 @@
 ./gsb/d[uk]=GSB Development
 ./gsb/d[vi]=GSB Development
 ./gsb/d[zh_CN]=GSB Development
+./gsb/go=GSB Office
 ./gsb/go[bg]=GSB Office
 ./gsb/go[de]=GSB Office
 ./gsb/go[el]=GSB Office
@@ -503,6 +510,7 @@
 ./gsb/go[uk]=GSB Office
 ./gsb/go[vi]=GSB Office
 ./gsb/go[zh_CN]=GSB Office
+./gsb/l=GSB Libraries
 ./gsb/l[bg]=GSB Libraries
 ./gsb/l[de]=GSB Libraries
 ./gsb/l[el]=GSB Libraries
@@ -524,6 +532,7 @@
 ./gsb/l[uk]=GSB Libraries
 ./gsb/l[vi]=GSB Libraries
 ./gsb/l[zh_CN]=GSB Libraries
+./gsb/m=GSB Mono
 ./gsb/m[bg]=GSB Mono
 ./gsb/m[de]=GSB Mono
 ./gsb/m[el]=GSB Mono
@@ -545,6 +554,7 @@
 ./gsb/m[uk]=GSB Mono
 ./gsb/m[vi]=GSB Mono
 ./gsb/m[zh_CN]=GSB Mono
+./gsb/n=GSB Networking
 ./gsb/n[bg]=GSB Networking
 ./gsb/n[de]=GSB Networking
 ./gsb/n[el]=GSB Networking
@@ -566,6 +576,7 @@
 ./gsb/n[uk]=GSB Networking
 ./gsb/n[vi]=GSB Networking
 ./gsb/n[zh_CN]=GSB Networking
+./gsb/ooo=GSB OpenOffice.org
 ./gsb/ooo[bg]=GSB OpenOffice.org
 ./gsb/ooo[de]=GSB OpenOffice.org
 ./gsb/ooo[el]=GSB OpenOffice.org
@@ -587,6 +598,7 @@
 ./gsb/ooo[uk]=GSB OpenOffice.org
 ./gsb/ooo[vi]=GSB OpenOffice.org
 ./gsb/ooo[zh_CN]=GSB OpenOffice.org
+./gsb/t=GSB Themes
 ./gsb/t[bg]=GSB Themes
 ./gsb/t[de]=GSB Themes
 ./gsb/t[el]=GSB Themes
