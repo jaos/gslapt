@@ -1,5 +1,6 @@
 
-0.5.3 Feb 06, 2010
+0.5.3 Mar 07, 2010
+ * let the search check the series mapped string
  * added slackware location/series mapping that uses a friendlier label for the
    slackware package series names
  * use column constants with the Gtk tree model

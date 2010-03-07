@@ -695,10 +695,13 @@ void build_searched_treeviewlist (GtkWidget *treeview, gchar *pattern)
   gboolean view_list_all = FALSE, view_list_installed = FALSE,
            view_list_available = FALSE, view_list_marked = FALSE,
            view_list_upgradeable = FALSE;
+  slapt_regex_t *series_regex = NULL;
 
   if (pattern == NULL || (strcmp(pattern,"") == 0)) {
     reset_search_list();
   }
+
+  series_regex = slapt_init_regex(pattern);
 
   package_model = GTK_TREE_MODEL_SORT(gtk_tree_view_get_model(GTK_TREE_VIEW(treeview)));
 
@@ -715,20 +718,29 @@ void build_searched_treeviewlist (GtkWidget *treeview, gchar *pattern)
   i_matches = slapt_search_pkg_list(installed,pattern);
   valid = gtk_tree_model_get_iter_first(base_model,&iter);
   while (valid) {
-    gchar *name = NULL,*version = NULL,*location = NULL;
+    gchar *name = NULL,*version = NULL,*location = NULL, *series = NULL;
     slapt_pkg_info_t *a_pkg = NULL, *i_pkg = NULL;
     gboolean marked       = FALSE;
     gboolean upgradeable  = FALSE;
+    gboolean series_match = FALSE;
 
     gtk_tree_model_get(base_model,&iter,
       NAME_COLUMN, &name,
       VERSION_COLUMN, &version,
       LOCATION_COLUMN, &location,
+      SERIES_COLUMN,&series,
       MARKED_COLUMN, &marked,
       UPGRADEABLE_COLUMN, &upgradeable,
       -1
     );
 
+    if (series_regex != NULL) {
+      slapt_execute_regex(series_regex, series);
+      if (series_regex->reg_return == 0) {
+        series_match = TRUE;
+      }
+    }
+  
     a_pkg = slapt_get_pkg_by_details(a_matches,name,version,location);
     i_pkg = slapt_get_pkg_by_details(i_matches,name,version,location);
 
@@ -742,6 +754,8 @@ void build_searched_treeviewlist (GtkWidget *treeview, gchar *pattern)
       gtk_list_store_set(GTK_LIST_STORE(base_model),&iter,VISIBLE_COLUMN,TRUE,-1);
     } else if (view_list_upgradeable && upgradeable && a_pkg != NULL) {
       gtk_list_store_set(GTK_LIST_STORE(base_model),&iter,VISIBLE_COLUMN,TRUE,-1);
+    } else if ( series_match == TRUE) {
+      gtk_list_store_set(GTK_LIST_STORE(base_model),&iter,VISIBLE_COLUMN,TRUE,-1);
     } else {
       gtk_list_store_set(GTK_LIST_STORE(base_model),&iter,VISIBLE_COLUMN,FALSE,-1);
     }
@@ -749,9 +763,11 @@ void build_searched_treeviewlist (GtkWidget *treeview, gchar *pattern)
     g_free(name);
     g_free(version);
     g_free(location);
+    g_free(series);
     valid = gtk_tree_model_iter_next(base_model,&iter);
   }
 
+  slapt_free_regex(series_regex);
   slapt_free_pkg_list(a_matches);
   slapt_free_pkg_list(i_matches);
 }
