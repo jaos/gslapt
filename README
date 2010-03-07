@@ -19,6 +19,5 @@ This is a GTK version of slapt-get.  It requires slapt-get.
 
 To build from source, you must have these packages installed:
  autoconf automake libtool m4 gettext gettext-tools pkgconfig
- glibc atk glib2 gtk+2 pango x11 zlib
- openssl curl slapt-get
+ intltool atk glib2 gtk+2 pango x11 zlib openssl curl slapt-get
 
