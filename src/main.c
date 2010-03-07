@@ -54,6 +54,10 @@ int main (int argc, char *argv[]) {
   textdomain (GETTEXT_PACKAGE);
 #endif
 
+#ifdef SLAPT_HAS_GPGME
+  gpgme_check_version (NULL);
+#endif
+
   /* gtk_set_locale (); */
   g_thread_init(NULL);
   gdk_threads_init();
