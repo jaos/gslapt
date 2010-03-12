@@ -1,4 +1,7 @@
 
+0.5.3a Mar 12, 2010
+ * series mapping [es] translation from Fernando Velo
+
 0.5.3 Mar 07, 2010
  * let the search check the series mapped string
  * added slackware location/series mapping that uses a friendlier label for the

@@ -24,7 +24,7 @@
 ./slackware/ap[bg]=Applications
 ./slackware/ap[de]=Anwendungen
 ./slackware/ap[el]=Εφαρμογές
-./slackware/ap[es]=Applications
+./slackware/ap[es]=Aplicaciones
 ./slackware/ap[fr]=Applications
 ./slackware/ap[gl_ES]=Applications
 ./slackware/ap[id]=Applications
@@ -45,7 +45,7 @@
 ./slackware/d[bg]=Development Tools
 ./slackware/d[de]=Entwicklungs-Werkzeuge
 ./slackware/d[el]=Εργαλεία ανάπτυξης
-./slackware/d[es]=Development Tools
+./slackware/d[es]=Herramientas de desarrollo
 ./slackware/d[fr]=Development Tools
 ./slackware/d[gl_ES]=Development Tools
 ./slackware/d[id]=Development Tools
@@ -87,7 +87,7 @@
 ./slackware/f[bg]=Documentation
 ./slackware/f[de]=Dokumentation
 ./slackware/f[el]=Τεκμηρίωση
-./slackware/f[es]=Documentation
+./slackware/f[es]=Documentación
 ./slackware/f[fr]=Documentation
 ./slackware/f[gl_ES]=Documentation
 ./slackware/f[id]=Documentation
@@ -129,7 +129,7 @@
 ./slackware/k[bg]=Linux kernel
 ./slackware/k[de]=Linux Kernel
 ./slackware/k[el]=Πυρήνας Linux
-./slackware/k[es]=Linux kernel
+./slackware/k[es]=Kernel de Linux
 ./slackware/k[fr]=Linux kernel
 ./slackware/k[gl_ES]=Linux kernel
 ./slackware/k[id]=Linux kernel
@@ -171,7 +171,7 @@
 ./slackware/kdei[bg]=KDE Internationalization
 ./slackware/kdei[de]=KDE Lokalisierungen
 ./slackware/kdei[el]=Διεθνοποίηση KDE
-./slackware/kdei[es]=KDE Internationalization
+./slackware/kdei[es]=Internacionalización de KDE
 ./slackware/kdei[fr]=KDE Internationalization
 ./slackware/kdei[gl_ES]=KDE Internationalization
 ./slackware/kdei[id]=KDE Internationalization
@@ -192,7 +192,7 @@
 ./slackware/l[bg]=Libraries
 ./slackware/l[de]=Bibliotheken
 ./slackware/l[el]=Βιβλιοθηκες
-./slackware/l[es]=Libraries
+./slackware/l[es]=Bibliotecas
 ./slackware/l[fr]=Libraries
 ./slackware/l[gl_ES]=Libraries
 ./slackware/l[id]=Libraries
@@ -213,7 +213,7 @@
 ./slackware/n[bg]=Networking
 ./slackware/n[de]=Netzwerk
 ./slackware/n[el]=Δικτύωση
-./slackware/n[es]=Networking
+./slackware/n[es]=Redes
 ./slackware/n[fr]=Networking
 ./slackware/n[gl_ES]=Networking
 ./slackware/n[id]=Networking
@@ -276,7 +276,7 @@
 ./slackware/x[bg]=X Window System
 ./slackware/x[de]=X Window System
 ./slackware/x[el]=Σύστημα Γραφικών X
-./slackware/x[es]=X Window System
+./slackware/x[es]=Sistema X Window
 ./slackware/x[fr]=X Window System
 ./slackware/x[gl_ES]=X Window System
 ./slackware/x[id]=X Window System
@@ -297,7 +297,7 @@
 ./slackware/xap[bg]=X Applications
 ./slackware/xap[de]=X Anwendungen
 ./slackware/xap[el]=Εφαρμογές Γραφικού Περιβάλλοντος
-./slackware/xap[es]=X Applications
+./slackware/xap[es]=Aplicaciones para X
 ./slackware/xap[fr]=X Applications
 ./slackware/xap[gl_ES]=X Applications
 ./slackware/xap[id]=X Applications
@@ -318,7 +318,7 @@
 ./slackware/y[bg]=BSD Console games
 ./slackware/y[de]=BSD Konsolen-Spiele
 ./slackware/y[el]=Παιγνίδια Κονσόλας BSD
-./slackware/y[es]=BSD Console games
+./slackware/y[es]=Juegos de consola BSD
 ./slackware/y[fr]=BSD Console games
 ./slackware/y[gl_ES]=BSD Console games
 ./slackware/y[id]=BSD Console games
@@ -339,7 +339,7 @@
 ./patches/packages[bg]=Patches
 ./patches/packages[de]=Patche
 ./patches/packages[el]=Διορθώσεις
-./patches/packages[es]=Patches
+./patches/packages[es]=Parches
 ./patches/packages[fr]=Patches
 ./patches/packages[gl_ES]=Patches
 ./patches/packages[id]=Patches
@@ -383,7 +383,7 @@
 ./gsb/ac[de]=GSB Accessibility
 ./gsb/ac[el]=GSB Accessibility
 ./gsb/ac[en]=GSB Accessibility
-./gsb/ac[es]=GSB Accessibility
+./gsb/ac[es]=Accesibilidad GSB
 ./gsb/ac[fr]=GSB Accessibility
 ./gsb/ac[gl_ES]=GSB Accessibility
 ./gsb/ac[id]=GSB Accessibility
@@ -405,7 +405,7 @@
 ./gsb/ad[de]=GSB Administration
 ./gsb/ad[el]=GSB Administration
 ./gsb/ad[en]=GSB Administration
-./gsb/ad[es]=GSB Administration
+./gsb/ad[es]=Administración GSB
 ./gsb/ad[fr]=GSB Administration
 ./gsb/ad[gl_ES]=GSB Administration
 ./gsb/ad[id]=GSB Administration
@@ -427,7 +427,7 @@
 ./gsb/ap[de]=GSB Applications
 ./gsb/ap[el]=GSB Applications
 ./gsb/ap[en]=GSB Applications
-./gsb/ap[es]=GSB Applications
+./gsb/ap[es]=Aplicaciones GSB
 ./gsb/ap[fr]=GSB Applications
 ./gsb/ap[gl_ES]=GSB Applications
 ./gsb/ap[id]=GSB Applications
@@ -449,7 +449,7 @@
 ./gsb/c[de]=GSB Compiz Fusion
 ./gsb/c[el]=GSB Compiz Fusion
 ./gsb/c[en]=GSB Compiz Fusion
-./gsb/c[es]=GSB Compiz Fusion
+./gsb/c[es]=Compiz Fusion GSB
 ./gsb/c[fr]=GSB Compiz Fusion
 ./gsb/c[gl_ES]=GSB Compiz Fusion
 ./gsb/c[id]=GSB Compiz Fusion
@@ -471,7 +471,7 @@
 ./gsb/d[de]=GSB Development
 ./gsb/d[el]=GSB Development
 ./gsb/d[en]=GSB Development
-./gsb/d[es]=GSB Development
+./gsb/d[es]=Desarrollo GSB
 ./gsb/d[fr]=GSB Development
 ./gsb/d[gl_ES]=GSB Development
 ./gsb/d[id]=GSB Development
@@ -493,7 +493,7 @@
 ./gsb/go[de]=GSB Office
 ./gsb/go[el]=GSB Office
 ./gsb/go[en]=GSB Office
-./gsb/go[es]=GSB Office
+./gsb/go[es]=Office GSB
 ./gsb/go[fr]=GSB Office
 ./gsb/go[gl_ES]=GSB Office
 ./gsb/go[id]=GSB Office
@@ -515,7 +515,7 @@
 ./gsb/l[de]=GSB Libraries
 ./gsb/l[el]=GSB Libraries
 ./gsb/l[en]=GSB Libraries
-./gsb/l[es]=GSB Libraries
+./gsb/l[es]=Bibliotecas GSB
 ./gsb/l[fr]=GSB Libraries
 ./gsb/l[gl_ES]=GSB Libraries
 ./gsb/l[id]=GSB Libraries
@@ -537,7 +537,7 @@
 ./gsb/m[de]=GSB Mono
 ./gsb/m[el]=GSB Mono
 ./gsb/m[en]=GSB Mono
-./gsb/m[es]=GSB Mono
+./gsb/m[es]=Mono GSB
 ./gsb/m[fr]=GSB Mono
 ./gsb/m[gl_ES]=GSB Mono
 ./gsb/m[id]=GSB Mono
@@ -559,7 +559,7 @@
 ./gsb/n[de]=GSB Networking
 ./gsb/n[el]=GSB Networking
 ./gsb/n[en]=GSB Networking
-./gsb/n[es]=GSB Networking
+./gsb/n[es]=Redes GSB
 ./gsb/n[fr]=GSB Networking
 ./gsb/n[gl_ES]=GSB Networking
 ./gsb/n[id]=GSB Networking
@@ -581,7 +581,7 @@
 ./gsb/ooo[de]=GSB OpenOffice.org
 ./gsb/ooo[el]=GSB OpenOffice.org
 ./gsb/ooo[en]=GSB OpenOffice.org
-./gsb/ooo[es]=GSB OpenOffice.org
+./gsb/ooo[es]=OpenOffice.org GSB
 ./gsb/ooo[fr]=GSB OpenOffice.org
 ./gsb/ooo[gl_ES]=GSB OpenOffice.org
 ./gsb/ooo[id]=GSB OpenOffice.org
@@ -603,7 +603,7 @@
 ./gsb/t[de]=GSB Themes
 ./gsb/t[el]=GSB Themes
 ./gsb/t[en]=GSB Themes
-./gsb/t[es]=GSB Themes
+./gsb/t[es]=Temas GSB
 ./gsb/t[fr]=GSB Themes
 ./gsb/t[gl_ES]=GSB Themes
 ./gsb/t[id]=GSB Themes
