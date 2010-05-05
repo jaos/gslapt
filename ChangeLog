@@ -1,5 +1,6 @@
 
-0.5.3a Mar 14, 2010
+0.5.3a May 04, 2010
+ * fixed g_convert call for series mappings
  * es.po updates from Fernando Velo
  * series mapping [es] translation from Fernando Velo
 
