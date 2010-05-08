@@ -44,7 +44,7 @@
 ./slackware/d=Development Tools
 ./slackware/d[bg]=Development Tools
 ./slackware/d[de]=Entwicklungs-Werkzeuge
-./slackware/d[el]=Εργαλεία ανάπτυξης
+./slackware/d[el]=Εργαλεία Ανάπτυξης
 ./slackware/d[es]=Herramientas de desarrollo
 ./slackware/d[fr]=Development Tools
 ./slackware/d[gl_ES]=Development Tools
@@ -191,7 +191,7 @@
 ./slackware/l=Libraries
 ./slackware/l[bg]=Libraries
 ./slackware/l[de]=Bibliotheken
-./slackware/l[el]=Βιβλιοθηκες
+./slackware/l[el]=Βιβλιοθήκες
 ./slackware/l[es]=Bibliotecas
 ./slackware/l[fr]=Libraries
 ./slackware/l[gl_ES]=Libraries
@@ -359,7 +359,7 @@
 ./gsb/a=GSB Base
 ./gsb/a[bg]=GSB Base
 ./gsb/a[de]=GSB Base
-./gsb/a[el]=GSB Base
+./gsb/a[el]=Βάση GSB
 ./gsb/a[en]=GSB Base
 ./gsb/a[es]=GSB Base
 ./gsb/a[fr]=GSB Base
@@ -381,7 +381,7 @@
 ./gsb/ac=GSB Accessibility
 ./gsb/ac[bg]=GSB Accessibility
 ./gsb/ac[de]=GSB Accessibility
-./gsb/ac[el]=GSB Accessibility
+./gsb/ac[el]=Προσβασιμότητα GSB
 ./gsb/ac[en]=GSB Accessibility
 ./gsb/ac[es]=Accesibilidad GSB
 ./gsb/ac[fr]=GSB Accessibility
@@ -403,7 +403,7 @@
 ./gsb/ad=GSB Administration
 ./gsb/ad[bg]=GSB Administration
 ./gsb/ad[de]=GSB Administration
-./gsb/ad[el]=GSB Administration
+./gsb/ad[el]=Διαχείρηση συστήματος GSB
 ./gsb/ad[en]=GSB Administration
 ./gsb/ad[es]=Administración GSB
 ./gsb/ad[fr]=GSB Administration
@@ -425,7 +425,7 @@
 ./gsb/ap=GSB Applications
 ./gsb/ap[bg]=GSB Applications
 ./gsb/ap[de]=GSB Applications
-./gsb/ap[el]=GSB Applications
+./gsb/ap[el]=Εφαρμογές GSB
 ./gsb/ap[en]=GSB Applications
 ./gsb/ap[es]=Aplicaciones GSB
 ./gsb/ap[fr]=GSB Applications
@@ -469,7 +469,7 @@
 ./gsb/d=GSB Development
 ./gsb/d[bg]=GSB Development
 ./gsb/d[de]=GSB Development
-./gsb/d[el]=GSB Development
+./gsb/d[el]=Ανάπτυξη GSB
 ./gsb/d[en]=GSB Development
 ./gsb/d[es]=Desarrollo GSB
 ./gsb/d[fr]=GSB Development
@@ -491,7 +491,7 @@
 ./gsb/go=GSB Office
 ./gsb/go[bg]=GSB Office
 ./gsb/go[de]=GSB Office
-./gsb/go[el]=GSB Office
+./gsb/go[el]=Γραφείο GSB
 ./gsb/go[en]=GSB Office
 ./gsb/go[es]=Office GSB
 ./gsb/go[fr]=GSB Office
@@ -513,7 +513,7 @@
 ./gsb/l=GSB Libraries
 ./gsb/l[bg]=GSB Libraries
 ./gsb/l[de]=GSB Libraries
-./gsb/l[el]=GSB Libraries
+./gsb/l[el]=Βιβλιοθήκες GSB
 ./gsb/l[en]=GSB Libraries
 ./gsb/l[es]=Bibliotecas GSB
 ./gsb/l[fr]=GSB Libraries
@@ -557,7 +557,7 @@
 ./gsb/n=GSB Networking
 ./gsb/n[bg]=GSB Networking
 ./gsb/n[de]=GSB Networking
-./gsb/n[el]=GSB Networking
+./gsb/n[el]=Δικτύωση GSB
 ./gsb/n[en]=GSB Networking
 ./gsb/n[es]=Redes GSB
 ./gsb/n[fr]=GSB Networking
@@ -601,7 +601,7 @@
 ./gsb/t=GSB Themes
 ./gsb/t[bg]=GSB Themes
 ./gsb/t[de]=GSB Themes
-./gsb/t[el]=GSB Themes
+./gsb/t[el]=Θέματα GSB
 ./gsb/t[en]=GSB Themes
 ./gsb/t[es]=Temas GSB
 ./gsb/t[fr]=GSB Themes
@@ -622,7 +622,7 @@
 ./gsb/t[zh_CN]=GSB Themes
 ./salix/a[bg]=Base
 ./salix/a[de]=Base
-./salix/a[el]=Base
+./salix/a[el]=Βάση
 ./salix/a[en]=Base
 ./salix/a[es]=Base
 ./salix/a[fr]=Base
@@ -643,7 +643,7 @@
 ./salix/a[zh_CN]=Base
 ./salix/ap[bg]=Applications
 ./salix/ap[de]=Applications
-./salix/ap[el]=Applications
+./salix/ap[el]=Εφαρμογές
 ./salix/ap[en]=Applications
 ./salix/ap[es]=Applications
 ./salix/ap[fr]=Applications
@@ -664,7 +664,7 @@
 ./salix/ap[zh_CN]=Applications
 ./salix/d[bg]=Development Tools
 ./salix/d[de]=Development Tools
-./salix/d[el]=Development Tools
+./salix/d[el]=Εργαλεία Ανάπτυξης
 ./salix/d[en]=Development Tools
 ./salix/d[es]=Development Tools
 ./salix/d[fr]=Development Tools
@@ -706,7 +706,7 @@
 ./salix/e[zh_CN]=GNU Emacs
 ./salix/f[bg]=Documentation
 ./salix/f[de]=Documentation
-./salix/f[el]=Documentation
+./salix/f[el]=Τεκμηρίωση
 ./salix/f[en]=Documentation
 ./salix/f[es]=Documentation
 ./salix/f[fr]=Documentation
@@ -727,7 +727,7 @@
 ./salix/f[zh_CN]=Documentation
 ./salix/games[bg]=Games
 ./salix/games[de]=Games
-./salix/games[el]=Games
+./salix/games[el]=Παιγνίδια
 ./salix/games[en]=Games
 ./salix/games[es]=Games
 ./salix/games[fr]=Games
@@ -769,7 +769,7 @@
 ./salix/gnome[zh_CN]=GNOME
 ./salix/k[bg]=Linux kernel
 ./salix/k[de]=Linux kernel
-./salix/k[el]=Linux kernel
+./salix/k[el]=Πυρήνας Linux
 ./salix/k[en]=Linux kernel
 ./salix/k[es]=Linux kernel
 ./salix/k[fr]=Linux kernel
@@ -811,7 +811,7 @@
 ./salix/kde[zh_CN]=KDE
 ./salix/kdei[bg]=KDE Internationalization
 ./salix/kdei[de]=KDE Internationalization
-./salix/kdei[el]=KDE Internationalization
+./salix/kdei[el]=Διεθνοποίηση KDE
 ./salix/kdei[en]=KDE Internationalization
 ./salix/kdei[es]=KDE Internationalization
 ./salix/kdei[fr]=KDE Internationalization
@@ -832,7 +832,7 @@
 ./salix/kdei[zh_CN]=KDE Internationalization
 ./salix/l[bg]=Libraries
 ./salix/l[de]=Libraries
-./salix/l[el]=Libraries
+./salix/l[el]=Βιβλιοθήκες
 ./salix/l[en]=Libraries
 ./salix/l[es]=Libraries
 ./salix/l[fr]=Libraries
@@ -853,7 +853,7 @@
 ./salix/l[zh_CN]=Libraries
 ./salix/n[bg]=Networking
 ./salix/n[de]=Networking
-./salix/n[el]=Networking
+./salix/n[el]=Δικτύωση
 ./salix/n[en]=Networking
 ./salix/n[es]=Networking
 ./salix/n[fr]=Networking
@@ -916,7 +916,7 @@
 ./salix/tcl[zh_CN]=TCL
 ./salix/x[bg]=X Window System
 ./salix/x[de]=X Window System
-./salix/x[el]=X Window System
+./salix/x[el]=Σύστημα Γραφικών X
 ./salix/x[en]=X Window System
 ./salix/x[es]=X Window System
 ./salix/x[fr]=X Window System
@@ -937,7 +937,7 @@
 ./salix/x[zh_CN]=X Window System
 ./salix/xap[bg]=X Applications
 ./salix/xap[de]=X Applications
-./salix/xap[el]=X Applications
+./salix/xap[el]=Εφαρμογές Γραφικού Περιβάλλοντος
 ./salix/xap[en]=X Applications
 ./salix/xap[es]=X Applications
 ./salix/xap[fr]=X Applications
@@ -1001,7 +1001,7 @@
 ./slackware64/d=Development Tools
 ./slackware64/d[bg]=Development Tools
 ./slackware64/d[de]=Entwicklungs-Werkzeuge
-./slackware64/d[el]=Εργαλεία ανάπτυξης
+./slackware64/d[el]=Εργαλεία Ανάπτυξης
 ./slackware64/d[es]=Herramientas de desarrollo
 ./slackware64/d[fr]=Development Tools
 ./slackware64/d[gl_ES]=Development Tools
@@ -1148,7 +1148,7 @@
 ./slackware64/l=Libraries
 ./slackware64/l[bg]=Libraries
 ./slackware64/l[de]=Bibliotheken
-./slackware64/l[el]=Βιβλιοθηκες
+./slackware64/l[el]=Βιβλιοθήκες
 ./slackware64/l[es]=Bibliotecas
 ./slackware64/l[fr]=Libraries
 ./slackware64/l[gl_ES]=Libraries

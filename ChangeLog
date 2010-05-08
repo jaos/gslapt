@@ -1,5 +1,6 @@
 
-0.5.3a May 04, 2010
+0.5.3a May 08, 2010
+ * series mapping [el] translation udpates from George Vlahavas
  * added series mappings for salix and slackware64
  * fixed g_convert call for series mappings
  * es.po updates from Fernando Velo
