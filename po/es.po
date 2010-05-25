@@ -5,7 +5,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.5.3a\n"
+"Project-Id-Version: 0.5.3b\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
 "PO-Revision-Date: 2010-03-13 00:04-0300\n"
@@ -551,3 +551,101 @@ msgstr "No hay información disponible de dependencias"
 msgid "No changelog information available"
 msgstr "Hay información disponible del registro de cambios"
 
+msgid "Gslapt Package Manager"
+msgstr "Gestor de Paquetes Gslapt"
+
+msgid "Install, remove and upgrade software packages"
+msgstr "Instalar, eliminar y actualizar los paquetes de software"
+
+msgid "Base"
+msgstr "Base"
+
+msgid "Applications"
+msgstr "Applications"
+
+msgid "Development Tools"
+msgstr "Development Tools"
+
+msgid "GNU Emacs"
+msgstr "GNU Emacs"
+
+msgid "Documentation"
+msgstr "Documentation"
+
+msgid "GNOME"
+msgstr "GNOME"
+
+msgid "Linux kernel"
+msgstr "Linux kernel"
+
+msgid "KDE"
+msgstr "KDE"
+
+msgid "KDE Internationalization"
+msgstr "KDE Internationalization"
+
+msgid "Libraries"
+msgstr "Libraries"
+
+msgid "Networking"
+msgstr "Networking"
+
+msgid "teTeX"
+msgstr "teTeX"
+
+msgid "TCL"
+msgstr "TCL"
+
+msgid "X Window System"
+msgstr "X Window System"
+
+msgid "X Applications"
+msgstr "X Applications"
+
+msgid "BSD Console games"
+msgstr "BSD Console games"
+
+msgid "Patches"
+msgstr "Patches"
+
+msgid "GSB Base"
+msgstr "GSB Base"
+
+msgid "GSB Accessibility"
+msgstr "GSB Accessibility"
+
+msgid "GSB Administration"
+msgstr "GSB Administration"
+
+msgid "GSB Applications"
+msgstr "GSB Applications"
+
+msgid "GSB Compiz Fusion"
+msgstr "GSB Compiz Fusion"
+
+msgid "GSB Development"
+msgstr "GSB Development"
+
+msgid "GSB Office"
+msgstr "GSB Office"
+
+msgid "GSB Libraries"
+msgstr "GSB Libraries"
+
+msgid "GSB Mono"
+msgstr "GSB Mono"
+
+msgid "GSB Networking"
+msgstr "GSB Networking"
+
+msgid "GSB OpenOffice.org"
+msgstr "GSB OpenOffice.org"
+
+msgid "GSB Themes"
+msgstr "GSB Themes"
+
+msgid "Games"
+msgstr "Games"
+
+msgid "Localization"
+msgstr "Localization"

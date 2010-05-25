@@ -3,410 +3,369 @@
 # This file is distributed under the same license as the gslapt package.
 # FIRST AUTHOR sin <digitalhunger@gmail.com>, 2005, 2006
 #
-
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.5.2b\n"
+"Project-Id-Version: 0.5.3b\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
-"POT-Creation-Date: 2005-09-08 00:54\n"
+"POT-Creation-Date: 2005-02-26 22:25-0500\n"
 "PO-Revision-Date: 2010-01-13 11:00+0500\n"
 "Last-Translator: sin <digitalhunger@gmail.com>\n"
 "Language-Team: DeepStyle team <deep@deepstyle.org.ua>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=koi8-r\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+msgid "<b>Exclude List</b>"
+msgstr "<b>п÷п╣я─п╣п╩Б∙∙п╨ п╡п╦п╨п╩я▌я┤п╣п╫я▄</b>"
+
+msgid "<b>Package Sources</b>"
+msgstr "<b>п■п╤п╣я─п╣п╩п╬ п©п╟п╨я┐п╫п╨Б∙∙п╡</b>"
+
+msgid "<b>Package and data storage</b>"
+msgstr "<b>п°Б∙∙я│я├п╣ п╥п╠п╣я─Б∙∙пЁп╟п╫п╫я▐ п©п╟п╨я┐п╫п╨Б∙∙п╡ я┌п╟ п╢п╟п╫п╦я┘</b>"
+
+msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+msgstr "<span weight=\"bold\" size=\"large\">п≈п╟я│я┌п╬я│я┐п╡п╟я┌п╦ п╫п╟я│я┌я┐п©п╫Б∙∙ п╥п╪Б∙∙п╫п╦?</span>"
+
+msgid "<span weight=\"bold\">Exclude Expression:</span>"
+msgstr "<span weight=\"bold\">п▓п╦я─п╟п╥ п╢п╩я▐ п╡п╦п╨п╩я▌я┤п╣п╫п╫я▐:</span>"
+
+msgid "<span weight=\"bold\">SOURCE=</span>"
+msgstr "<span weight=\"bold\">п■п╤п╣я─п╣п╩п╬=</span>"
+
+msgid "About gslapt"
+msgstr "п÷я─п╬ Gslapt "
+
+msgid "About"
+msgstr "п÷я─п╬ Gslapt"
+
+msgid "Checking for new package data..."
+msgstr "п÷п╬я┬я┐п╨ п╫п╬п╡п╦я┘ п╢п╟п╫п╦я┘ п©я─п╬ п©п╟п╨я┐п╫п╨п╦..."
+
+msgid "Clear search expression"
+msgstr "п·я┤п╦я│я┌п╦я┌п╦ п╡п╦я─п╟п╥ п╢п╩я▐ п©п╬я┬я┐п╨я┐"
+
+msgid "Clear"
+msgstr "п·я┤п╦я│я┌п╦я┌п╦"
+
+msgid "Conflicts"
+msgstr "п п╬п╫я└п╩Б∙∙п╨я┌:"
+
+#, c-format
+msgid "Couldn't find pixmap file: %s"
+msgstr "п²п╣ п╪п╬п╤я┐ п╥п╫п╟п╧я┌п╦ я└п╟п╧п╩ п╥п╬п╠я─п╟п╤п╣п╫п╫я▐: %s"
+
+msgid "Description"
+msgstr "п·п©п╦я│"
+
+msgid "Download packages only"
+msgstr "п╒Б∙∙п╩я▄п╨п╦ п╥п╟п╡п╟п╫я┌п╟п╤п╦я┌п╦ п©п╟п╨я┐п╫п╨п╦"
+
+msgid "Downloading packages..."
+msgstr "п≈п╟п╡п╟п╫я┌п╟п╤п╣п╫п╫я▐ п©п╟п╨я┐п╫п╨Б∙∙п╡..."
+
+msgid "Downloading..."
+msgstr "Downloading..."
+
+msgid "Exclude package"
+msgstr "п▓п╦п╨п╩я▌я┤п╦я┌п╦ п©п╟п╨я┐п╫п╬п╨"
+
+msgid "Exclude"
+msgstr "п▓п╦п╨п╩я▌я┤п╦я┌п╦"
+
+msgid "Excludes"
+msgstr "п▓п╦п╨п╩я▌я┤п╣п╫п╫я▐"
+
+msgid "Execute all scheduled actions in current transaction"
+msgstr "п▓п╦п╨п╬п╫п╟я┌п╦ п╡я│Б∙∙ п╥п╟п©п╩п╟п╫п╬п╡п╟п╫Б∙∙ п╥п╟п╡п╢п╟п╫п╫я▐ п╡ п©п╬я┌п╬я┤п╫Б∙∙п╧ я┌я─п╟п╫п╥п╟п╨я├Б∙∙Б∙√"
+
+msgid "Execute"
+msgstr "п▓п╦п╨п╬п╫п╟я┌п╦"
+
+msgid "Expression"
+msgstr "Expression"
+
+msgid "Gslapt"
+msgstr "Gslapt"
+
+msgid "Install"
+msgstr "п▓я│я┌п╟п╫п╬п╡п╦я┌п╦"
+
+msgid "Install/Upgrade package"
+msgstr "п▓я│я┌п╟п╫п╬п╡п╦я┌п╦/п©п╬п╫п╬п╡п╦я┌п╦ п©п╟п╨я┐п╫п╬п╨"
+
+msgid "Installed Size:"
+msgstr "п═п╬п╥п╪Б∙∙я─ п©Б∙∙я│п╩я▐ п╡я│я┌п╟п╫п╬п╡п╩п╣п╫п╫я▐:"
+
+msgid "Installed Size"
+msgstr "п═п╬п╥п╪Б∙∙я─ п©Б∙∙я│п╩я▐ п╡я│я┌п╟п╫п╬п╡п╩п╣п╫п╫я▐"
+
+msgid "Installed"
+msgstr "п▓я│я┌п╟п╫п╬п╡п╩п╣п╫п╬"
+
+msgid "Installing packages..."
+msgstr "п▓я│я┌п╟п╫п╬п╡п╩п╣п╫п╫я▐ п©п╟п╨я┐п╫п╨Б∙∙п╡..."
+
+msgid "Installing..."
+msgstr "Installing..."
+
+msgid "Location"
+msgstr "п═п╬п╥п╪Б∙∙я┴п╣п╫п╫я▐"
+
+msgid "Name"
+msgstr "Б∙╓п╪'я▐"
+
+msgid "No"
+msgstr "п²Б∙∙"
+
+msgid "Package Action"
+msgstr "п■Б∙∙Б∙√ п©п╟п╨я┐п╫п╨п╟"
+
+msgid "Package Information"
+msgstr "Б∙╓п╫я└п╬я─п╪п╟я├Б∙∙я▐ п©я─п╬ п©п╟п╨я┐п╫п╬п╨"
 
 msgid "Package"
 msgstr "Package"
 
 msgid "Packages excluded"
-msgstr "Пропущено пакунки"
+msgstr "п÷я─п╬п©я┐я┴п╣п╫п╬ п©п╟п╨я┐п╫п╨п╦"
 
 msgid "Packages to be installed"
-msgstr "Пакунки до встановлення"
-
-msgid "Packages to be upgraded"
-msgstr "Пакунки до поновлення"
+msgstr "п÷п╟п╨я┐п╫п╨п╦ п╢п╬ п╡я│я┌п╟п╫п╬п╡п╩п╣п╫п╫я▐"
 
 msgid "Packages to be removed"
-msgstr "Пакунки до видалення"
+msgstr "п÷п╟п╨я┐п╫п╨п╦ п╢п╬ п╡п╦п╢п╟п╩п╣п╫п╫я▐"
 
-msgid "Downloading packages..."
-msgstr "Завантаження пакунк╕в..."
-
-msgid "Downloading..."
-msgstr "Downloading..."
-
-msgid "Removing packages..."
-msgstr "Видалення пакунк╕в..."
-
-msgid "Installing packages..."
-msgstr "Встановлення пакунк╕в..."
-
-msgid "Installing..."
-msgstr "Installing..."
-
-msgid "Upgrading packages..."
-msgstr "Поновлення пакунк╕в..."
+msgid "Packages to be upgraded"
+msgstr "п÷п╟п╨я┐п╫п╨п╦ п╢п╬ п©п╬п╫п╬п╡п╩п╣п╫п╫я▐"
 
 msgid "Preferences"
-msgstr "Налаштування"
+msgstr "п²п╟п╩п╟я┬я┌я┐п╡п╟п╫п╫я▐"
 
-msgid "<b>Package and data storage</b>"
-msgstr "<b>М╕сце збер╕гання пакунк╕в та даних</b>"
-
-msgid "Working Directory"
-msgstr "Робочий каталог"
-
-msgid "<b>Package Sources</b>"
-msgstr "<b>Джерело пакунк╕в</b>"
-
-msgid "<span weight=\"bold\">SOURCE=</span>"
-msgstr "<span weight=\"bold\">Джерело=</span>"
-
-msgid "Sources"
-msgstr "Репозитор╕╖"
-
-msgid "<b>Exclude List</b>"
-msgstr "<b>Перел╕к виключень</b>"
-
-msgid "<span weight=\"bold\">Exclude Expression:</span>"
-msgstr "<span weight=\"bold\">Вираз для виключення:</span>"
-
-msgid "Excludes"
-msgstr "Виключення"
-
-msgid "Gslapt"
-msgstr "Gslapt"
-
-msgid "Up_grade"
-msgstr "Поновити"
-
-msgid "_Help"
-msgstr "Допомога"
-
-msgid ""
-"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
-"Slackware"
-msgstr ""
-"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
-"Slackware"
-
-msgid "About"
-msgstr "Про Gslapt"
-
-msgid "Update"
-msgstr "Обновить"
-
-msgid "Update local package cache"
-msgstr "Осв╕жити локальний кеш пакунк╕в"
-
-msgid "Execute"
-msgstr "Виконати"
-
-msgid "Expression"
-msgstr "Expression"
-
-msgid "Execute all scheduled actions in current transaction"
-msgstr "Виконати вс╕ запланован╕ завдання в поточн╕й транзакц╕╖"
+msgid "Progress"
+msgstr "п÷п╬я│я┌я┐п©"
 
 msgid "Quit"
-msgstr "Вих╕д"
+msgstr "п▓п╦я┘Б∙∙п╢"
+
+msgid "Remove package"
+msgstr "п▓п╦п╢п╟п╩п╦я┌п╦ п©п╟п╨я┐п╫п╬п╨"
+
+msgid "Remove"
+msgstr "п▓п╦п╢п╟п╩п╦я┌п╦"
+
+msgid "Removing packages..."
+msgstr "п▓п╦п╢п╟п╩п╣п╫п╫я▐ п©п╟п╨я┐п╫п╨Б∙∙п╡..."
+
+msgid "Required"
+msgstr "п²п╣п╬п╠я┘Б∙∙п╢п╫п╬:"
 
 msgid "Search"
 msgstr "Search"
 
+msgid "Size:"
+msgstr "п═п╬п╥п╪Б∙∙я─:"
+
 msgid "Source"
 msgstr "Source"
+
+msgid "Sources"
+msgstr "п═п╣п©п╬п╥п╦я┌п╬я─Б∙∙Б∙√"
+
+msgid "Suggests"
+msgstr "п▒п╟п╤п╟п╫п╬:"
+
+msgid "Summary"
+msgstr "п÷Б∙∙п╢я│я┐п╪п╬п╨"
+
+msgid "This is a summary of the changes about to be performed."
+msgstr "п▒я┐п╢п╣ п╡п╫п╣я│п╣п╫п╬ п╫п╟я│я┌я┐п©п╫Б∙∙ п╥п╪Б∙∙п╫п╦"
 
 msgid "Uninstalling..."
 msgstr "Uninstalling..."
 
+msgid "Up_grade"
+msgstr "п÷п╬п╫п╬п╡п╦я┌п╦"
+
+msgid "Update local package cache"
+msgstr "п·я│п╡Б∙∙п╤п╦я┌п╦ п╩п╬п╨п╟п╩я▄п╫п╦п╧ п╨п╣я┬ п©п╟п╨я┐п╫п╨Б∙∙п╡"
+
+msgid "Update"
+msgstr "п·п╠п╫п╬п╡п╦я┌я▄"
+
+msgid "Upgrade"
+msgstr "п÷п╬п╫п╬п╡п╦я┌п╦"
+
+msgid "Upgrading packages..."
+msgstr "п÷п╬п╫п╬п╡п╩п╣п╫п╫я▐ п©п╟п╨я┐п╫п╨Б∙∙п╡..."
+
 msgid "Upgrading..."
 msgstr "Upgrading..."
 
-msgid "Clear"
-msgstr "Очистити"
-
-msgid "Clear search expression"
-msgstr "Очистити вираз для пошуку"
-
-msgid "Name"
-msgstr "╤м'я"
-
-msgid "Location"
-msgstr "Розм╕щення"
-
 msgid "Version"
-msgstr "Верс╕я"
+msgstr "п▓п╣я─я│Б∙∙я▐"
 
-msgid "Size:"
-msgstr "Розм╕р:"
-
-msgid "Installed Size:"
-msgstr "Розм╕р п╕сля встановлення:"
-
-msgid "Installed Size"
-msgstr "Розм╕р п╕сля встановлення"
-
-msgid "Installed"
-msgstr "Встановлено"
-
-msgid "Conflicts"
-msgstr "Конфл╕кт:"
-
-msgid "Suggests"
-msgstr "Бажано:"
-
-msgid "Required"
-msgstr "Необх╕дно:"
-
-msgid "Description"
-msgstr "Опис"
-
-msgid "Package Information"
-msgstr "╤нформац╕я про пакунок"
-
-msgid "Install/Upgrade package"
-msgstr "Встановити/поновити пакунок"
-
-msgid "Install"
-msgstr "Встановити"
-
-msgid "Remove package"
-msgstr "Видалити пакунок"
-
-msgid "Remove"
-msgstr "Видалити"
-
-msgid "Exclude package"
-msgstr "Виключити пакунок"
-
-msgid "Exclude"
-msgstr "Виключити"
-
-msgid "Package Action"
-msgstr "Д╕╖ пакунка"
-
-msgid "Summary"
-msgstr "П╕дсумок"
-
-msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Застосувати наступн╕ зм╕ни?</span>"
-
-msgid "This is a summary of the changes about to be performed."
-msgstr "Буде внесено наступн╕ зм╕ни"
-
-msgid "Download packages only"
-msgstr "Т╕льки завантажити пакунки"
-
-msgid "working"
-msgstr "робота"
-
-msgid "total progress"
-msgstr "загальний поступ"
-
-msgid "About gslapt"
-msgstr "Про Gslapt "
-
-#, c-format
-msgid "Couldn't find pixmap file: %s"
-msgstr "Не можу знайти файл зображення: %s"
-
-msgid "Up to Date"
-msgstr "Не потребу╓ поновлення"
-
-msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
-msgstr  "<span weight=\"bold\" size=\"large\">Поновлення в╕дсутн╕</span>"
-
-msgid "%d upgraded, %d newly installed, %d to remove and %d not upgraded."
-msgstr "%d поновлено, %d встановлено, %d до видалення %d не поновлено."
-
-msgid "Need to get %.1d%s/%.1d%s of archives.\n"
-msgstr "До отримання: %.1d%s/%.1d%s з арх╕в╕в.\n"
-
-msgid "Need to get %.1d%s of archives."
-msgstr "До отримання: %.1d%s з арх╕в╕в."
-
-msgid "After unpacking %.1d%s disk space will be freed."
-msgstr "П╕сля розпакування буде зв╕льнено %.1d%s м╕сця на диску."
-
-msgid "After unpacking %.1d%s of additional disk space will be used."
-msgstr "П╕сля розпакування буде зайнято додатково %.1d%s на диску."
-
-msgid "Ready"
-msgstr "Готово"
+msgid "Working Directory"
+msgstr "п═п╬п╠п╬я┤п╦п╧ п╨п╟я┌п╟п╩п╬пЁ"
 
 msgid "Yes"
-msgstr "Так"
+msgstr "п╒п╟п╨"
 
-msgid "No"
-msgstr "Н╕"
+msgid "_Help"
+msgstr "п■п╬п©п╬п╪п╬пЁп╟"
 
-msgid "Progress"
-msgstr "Поступ"
+msgid "gslapt is a GTK+ frontend to slapt-get, an APT like package system for Slackware"
+msgstr "gslapt is a GTK+ frontend to slapt-get, an APT like package system for Slackware"
 
-msgid "Checking for new package data..."
-msgstr "Пошук нових даних про пакунки..."
+msgid "total progress"
+msgstr "п╥п╟пЁп╟п╩я▄п╫п╦п╧ п©п╬я│я┌я┐п©"
+
+msgid "working"
+msgstr "я─п╬п╠п╬я┌п╟"
+
+msgid "Up to Date"
+msgstr "п²п╣ п©п╬я┌я─п╣п╠я┐Б∙⌠ п©п╬п╫п╬п╡п╩п╣п╫п╫я▐"
+
+msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
+msgstr "<span weight=\"bold\" size=\"large\">п÷п╬п╫п╬п╡п╩п╣п╫п╫я▐ п╡Б∙∙п╢я│я┐я┌п╫Б∙∙</span>"
+
+msgid "%d upgraded, %d newly installed, %d to remove and %d not upgraded."
+msgstr "%d п©п╬п╫п╬п╡п╩п╣п╫п╬, %d п╡я│я┌п╟п╫п╬п╡п╩п╣п╫п╬, %d п╢п╬ п╡п╦п╢п╟п╩п╣п╫п╫я▐ %d п╫п╣ п©п╬п╫п╬п╡п╩п╣п╫п╬."
+
+msgid "Need to get %.1d%s/%.1d%s of archives.\n"
+msgstr "п■п╬ п╬я┌я─п╦п╪п╟п╫п╫я▐: %.1d%s/%.1d%s п╥ п╟я─я┘Б∙∙п╡Б∙∙п╡.\n"
+
+msgid "Need to get %.1d%s of archives."
+msgstr "п■п╬ п╬я┌я─п╦п╪п╟п╫п╫я▐: %.1d%s п╥ п╟я─я┘Б∙∙п╡Б∙∙п╡."
+
+msgid "After unpacking %.1d%s disk space will be freed."
+msgstr "п÷Б∙∙я│п╩я▐ я─п╬п╥п©п╟п╨я┐п╡п╟п╫п╫я▐ п╠я┐п╢п╣ п╥п╡Б∙∙п╩я▄п╫п╣п╫п╬ %.1d%s п╪Б∙∙я│я├я▐ п╫п╟ п╢п╦я│п╨я┐."
+
+msgid "After unpacking %.1d%s of additional disk space will be used."
+msgstr "п÷Б∙∙я│п╩я▐ я─п╬п╥п©п╟п╨я┐п╡п╟п╫п╫я▐ п╠я┐п╢п╣ п╥п╟п╧п╫я▐я┌п╬ п╢п╬п╢п╟я┌п╨п╬п╡п╬ %.1d%s п╫п╟ п╢п╦я│п╨я┐."
+
+msgid "Ready"
+msgstr "п⌠п╬я┌п╬п╡п╬"
 
 msgid "Re-Install"
-msgstr "Перевстановити"
+msgstr "п÷п╣я─п╣п╡я│я┌п╟п╫п╬п╡п╦я┌п╦"
 
 msgid "Downgrade"
-msgstr "Установить стар╕"
+msgstr "пёя│я┌п╟п╫п╬п╡п╦я┌я▄ я│я┌п╟я─Б∙∙"
 
 msgid "_File"
-msgstr "Файл"
-
-msgid "Upgrade"
-msgstr "Поновити"
+msgstr "п╓п╟п╧п╩"
 
 msgid "Pending changes. Click execute when ready."
-msgstr "Внесено зм╕ни. Натисн╕ть Виконати, коли будете готов╕"
+msgstr "п▓п╫п╣я│п╣п╫п╬ п╥п╪Б∙∙п╫п╦. п²п╟я┌п╦я│п╫Б∙∙я┌я▄ п▓п╦п╨п╬п╫п╟я┌п╦, п╨п╬п╩п╦ п╠я┐п╢п╣я┌п╣ пЁп╬я┌п╬п╡Б∙∙"
 
 msgid "Packages with unmet dependencies"
-msgstr "Пакунки з незадоволеними залежностями"
+msgstr "п÷п╟п╨я┐п╫п╨п╦ п╥ п╫п╣п╥п╟п╢п╬п╡п╬п╩п╣п╫п╦п╪п╦ п╥п╟п╩п╣п╤п╫п╬я│я┌я▐п╪п╦"
 
 msgid ": Depends: "
-msgstr ": Залежност╕: "
+msgstr ": п≈п╟п╩п╣п╤п╫п╬я│я┌Б∙∙: "
 
 msgid "Package conflicts"
-msgstr "Конфл╕кт пакунк╕в"
+msgstr "п п╬п╫я└п╩Б∙∙п╨я┌ п©п╟п╨я┐п╫п╨Б∙∙п╡"
 
 msgid ", which is required by "
-msgstr ", необх╕дний для "
+msgstr ", п╫п╣п╬п╠я┘Б∙∙п╢п╫п╦п╧ п╢п╩я▐ "
 
 msgid ", is excluded"
-msgstr ", пропущено"
+msgstr ", п©я─п╬п©я┐я┴п╣п╫п╬"
 
 msgid "<b>Conflicts:</b>"
-msgstr "<b>Конфл╕кти:</b>"
+msgstr "<b>п п╬п╫я└п╩Б∙∙п╨я┌п╦:</b>"
 
 msgid "<b>Description:</b>"
-msgstr "<b>Опис:</b>"
+msgstr "<b>п·п©п╦я│:</b>"
 
 msgid "<b>Location:</b>"
-msgstr "<b>Розм╕щення:</b>"
+msgstr "<b>п═п╬п╥п╪Б∙∙я┴п╣п╫п╫я▐:</b>"
 
 msgid "Source:"
-msgstr "Джерело:"
+msgstr "п■п╤п╣я─п╣п╩п╬:"
 
 msgid "<b>Name:</b>"
-msgstr "<b>╤м'я:</b>"
+msgstr "<b>Б∙╓п╪'я▐:</b>"
 
 msgid "<b>Required:</b>"
-msgstr "<b>Необх╕дно:</b>"
+msgstr "<b>п²п╣п╬п╠я┘Б∙∙п╢п╫п╬:</b>"
 
 msgid "<b>Size:</b>"
-msgstr "<b>Розм╕р:</b>"
+msgstr "<b>п═п╬п╥п╪Б∙∙я─:</b>"
 
 msgid "<b>Suggests:</b>"
-msgstr "<b>Бажано:</b>"
+msgstr "<b>п▒п╟п╤п╟п╫п╬:</b>"
 
 msgid "Version:"
-msgstr "Верс╕я:"
+msgstr "п▓п╣я─я│Б∙∙я▐:"
 
 msgid "<b>Version:</b>"
-msgstr "<b>Верс╕я:</b>"
+msgstr "<b>п▓п╣я─я│Б∙∙я▐:</b>"
 
 msgid "<b>Version</b>"
-msgstr "<b>Верс╕я</b>"
+msgstr "<b>п▓п╣я─я│Б∙∙я▐</b>"
 
 msgid "<b>Source:</b>"
 msgstr "<b>Source:</b>"
 
 msgid "Common"
-msgstr "Загалом"
+msgstr "п≈п╟пЁп╟п╩п╬п╪"
 
 msgid "Dependencies"
-msgstr "Залежност╕"
+msgstr "п≈п╟п╩п╣п╤п╫п╬я│я┌Б∙∙"
 
 msgid "No package is selected."
-msgstr "Не вибран╕ пакунки."
+msgstr "п²п╣ п╡п╦п╠я─п╟п╫Б∙∙ п©п╟п╨я┐п╫п╨п╦."
 
 msgid "Status"
-msgstr "Стан"
+msgstr "п║я┌п╟п╫"
 
 msgid "Source download failed"
-msgstr "Не можу завантажити з адреси"
+msgstr "п²п╣ п╪п╬п╤я┐ п╥п╟п╡п╟п╫я┌п╟п╤п╦я┌п╦ п╥ п╟п╢я─п╣я│п╦"
 
 msgid "pkgtools returned an error"
-msgstr "помилка pkgtools"
+msgstr "п©п╬п╪п╦п╩п╨п╟ pkgtools"
 
 msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Недостатньо в╕льного м╕сця</span>"
+msgstr "<span weight=\"bold\" size=\"large\">п²п╣п╢п╬я│я┌п╟я┌п╫я▄п╬ п╡Б∙∙п╩я▄п╫п╬пЁп╬ п╪Б∙∙я│я├я▐</span>"
 
 msgid "<b>Excluding %s due to dependency failure</b>"
-msgstr "<b>Пропуск %s внасл╕док незадоволених залежностей</b>"
+msgstr "<b>п÷я─п╬п©я┐я│п╨ %s п╡п╫п╟я│п╩Б∙∙п╢п╬п╨ п╫п╣п╥п╟п╢п╬п╡п╬п╩п╣п╫п╦я┘ п╥п╟п╩п╣п╤п╫п╬я│я┌п╣п╧</b>"
 
 msgid "Unmark"
-msgstr "Скасувати виб╕р"
+msgstr "п║п╨п╟я│я┐п╡п╟я┌п╦ п╡п╦п╠Б∙∙я─"
 
 msgid "<b>Status:</b>"
-msgstr "<b>Стан:</b>"
+msgstr "<b>п║я┌п╟п╫:</b>"
 
 msgid "Excluded"
-msgstr "Пропущено"
+msgstr "п÷я─п╬п©я┐я┴п╣п╫п╬"
 
 msgid "<b>The following icons are used to indicate the current status of a package:</b>"
-msgstr "<b>Наступн╕ значки вказують стан пакунка:</b>"
+msgstr "<b>п²п╟я│я┌я┐п©п╫Б∙∙ п╥п╫п╟я┤п╨п╦ п╡п╨п╟п╥я┐я▌я┌я▄ я│я┌п╟п╫ п©п╟п╨я┐п╫п╨п╟:</b>"
 
 msgid "Not Installed"
-msgstr "Не встановлено"
+msgstr "п²п╣ п╡я│я┌п╟п╫п╬п╡п╩п╣п╫п╬"
 
 msgid "To be Installed"
-msgstr "Буде встановлено"
+msgstr "п▒я┐п╢п╣ п╡я│я┌п╟п╫п╬п╡п╩п╣п╫п╬"
 
 msgid "To be Re-Installed"
-msgstr "Буде перевстановлено"
+msgstr "п▒я┐п╢п╣ п©п╣я─п╣п╡я│я┌п╟п╫п╬п╡п╩п╣п╫п╬"
 
 msgid "To be Upgraded"
-msgstr "Буде поновлено"
+msgstr "п▒я┐п╢п╣ п©п╬п╫п╬п╡п╩п╣п╫п╬"
 
 msgid "To be Removed"
-msgstr "Буде видалено"
+msgstr "п▒я┐п╢п╣ п╡п╦п╢п╟п╩п╣п╫п╬"
 
 msgid "To be Downgraded"
-msgstr "Встановити стару верс╕ю"
+msgstr "п▓я│я┌п╟п╫п╬п╡п╦я┌п╦ я│я┌п╟я─я┐ п╡п╣я─я│Б∙∙я▌"
 
 msgid "Icon Legend"
-msgstr "Опис значк╕в"
-
-msgid "Failed to commit preferences"
-msgstr "Не можу застосувати налаштування"
-
-msgid "Mark All Upgrades"
-msgstr "Позначити вс╕ поновлення"
-
-msgid "_Edit"
-msgstr "Редагувати"
-
-msgid "Unmark All"
-msgstr "Зняти вс╕ позначки"
-
-msgid "P_ackage"
-msgstr "Пакунок"
-
-msgid "You need to reload the package list from the sources you have listed.  Do you want to do this now?"
-msgstr "Необх╕дно перезавантажити перел╕к пакунк╕в ╕з вказаних джерел. Зробити це зараз?"
-
-msgid "Repositories changed"
-msgstr "Репозитор╕╖ зм╕нено"
-
-msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
-msgstr "<span size=\"large\" weight=\"bold\">Репозитор╕╖ зм╕нено</span>"
-
-msgid "Retrieving package data..."
-msgstr "Отримання даних про пакунки..."
-
-msgid "Retrieving patch list..."
-msgstr "Отримання перел╕ку патч╕в..."
-
-msgid "Retrieving checksum list..."
-msgstr "Отримання перел╕ку контрольних сум..."
-
-msgid "Reading Package Lists..."
-msgstr "Читання перел╕ку пакунк╕в..."
+msgstr "п·п©п╦я│ п╥п╫п╟я┤п╨Б∙∙п╡"
 
 msgid "Completed actions"
 msgstr "Completed actions"
@@ -415,88 +374,124 @@ msgid "Successfully executed all actions."
 msgstr "Successfully executed all actions."
 
 msgid "<b>Installed Version</b>"
-msgstr "<b>Встановлено верс╕ю</b>"
+msgstr "<b>п▓я│я┌п╟п╫п╬п╡п╩п╣п╫п╬ п╡п╣я─я│Б∙∙я▌</b>"
 
 msgid "<b>Latest Available Version</b>"
-msgstr "<b>Остання доступна верс╕я</b>"
+msgstr "<b>п·я│я┌п╟п╫п╫я▐ п╢п╬я│я┌я┐п©п╫п╟ п╡п╣я─я│Б∙∙я▐</b>"
+
+msgid "Failed to commit preferences"
+msgstr "п²п╣ п╪п╬п╤я┐ п╥п╟я│я┌п╬я│я┐п╡п╟я┌п╦ п╫п╟п╩п╟я┬я┌я┐п╡п╟п╫п╫я▐"
+
+msgid "Mark All Upgrades"
+msgstr "п÷п╬п╥п╫п╟я┤п╦я┌п╦ п╡я│Б∙∙ п©п╬п╫п╬п╡п╩п╣п╫п╫я▐"
+
+msgid "_Edit"
+msgstr "п═п╣п╢п╟пЁя┐п╡п╟я┌п╦"
+
+msgid "Unmark All"
+msgstr "п≈п╫я▐я┌п╦ п╡я│Б∙∙ п©п╬п╥п╫п╟я┤п╨п╦"
+
+msgid "P_ackage"
+msgstr "п÷п╟п╨я┐п╫п╬п╨"
+
+msgid "You need to reload the package list from the sources you have listed.  Do you want to do this now?"
+msgstr "п²п╣п╬п╠я┘Б∙∙п╢п╫п╬ п©п╣я─п╣п╥п╟п╡п╟п╫я┌п╟п╤п╦я┌п╦ п©п╣я─п╣п╩Б∙∙п╨ п©п╟п╨я┐п╫п╨Б∙∙п╡ Б∙∙п╥ п╡п╨п╟п╥п╟п╫п╦я┘ п╢п╤п╣я─п╣п╩. п≈я─п╬п╠п╦я┌п╦ я├п╣ п╥п╟я─п╟п╥?"
+
+msgid "Repositories changed"
+msgstr "п═п╣п©п╬п╥п╦я┌п╬я─Б∙∙Б∙√ п╥п╪Б∙∙п╫п╣п╫п╬"
+
+msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
+msgstr "<span size=\"large\" weight=\"bold\">п═п╣п©п╬п╥п╦я┌п╬я─Б∙∙Б∙√ п╥п╪Б∙∙п╫п╣п╫п╬</span>"
+
+msgid "Retrieving package data..."
+msgstr "п·я┌я─п╦п╪п╟п╫п╫я▐ п╢п╟п╫п╦я┘ п©я─п╬ п©п╟п╨я┐п╫п╨п╦..."
+
+msgid "Retrieving patch list..."
+msgstr "п·я┌я─п╦п╪п╟п╫п╫я▐ п©п╣я─п╣п╩Б∙∙п╨я┐ п©п╟я┌я┤Б∙∙п╡..."
+
+msgid "Retrieving checksum list..."
+msgstr "п·я┌я─п╦п╪п╟п╫п╫я▐ п©п╣я─п╣п╩Б∙∙п╨я┐ п╨п╬п╫я┌я─п╬п╩я▄п╫п╦я┘ я│я┐п╪..."
+
+msgid "Reading Package Lists..."
+msgstr "п╖п╦я┌п╟п╫п╫я▐ п©п╣я─п╣п╩Б∙∙п╨я┐ п©п╟п╨я┐п╫п╨Б∙∙п╡..."
 
 msgid "_Delete Cached Package Files"
-msgstr "Очистити кеш пакунк╕в"
+msgstr "п·я┤п╦я│я┌п╦я┌п╦ п╨п╣я┬ п©п╟п╨я┐п╫п╨Б∙∙п╡"
 
 msgid "Mark all possible upgrades"
 msgstr "Mark all possible upgrades"
 
 msgid "Enabled"
-msgstr "Вв╕мкнено"
+msgstr "п▓п╡Б∙∙п╪п╨п╫п╣п╫п╬"
 
 msgid "Missing dependencies may mean the software in this package will not function correctly.  Do you want to continue without the required packages?"
-msgstr "Незадоволен╕ залежност╕ можуть призвести до того, що ПЗ в цьому пакет╕ не зможе в╕рно функц╕онувати. Продовжити без пакунк╕в, що вимагаються?"
+msgstr "п²п╣п╥п╟п╢п╬п╡п╬п╩п╣п╫Б∙∙ п╥п╟п╩п╣п╤п╫п╬я│я┌Б∙∙ п╪п╬п╤я┐я┌я▄ п©я─п╦п╥п╡п╣я│я┌п╦ п╢п╬ я┌п╬пЁп╬, я┴п╬ п÷п≈ п╡ я├я▄п╬п╪я┐ п©п╟п╨п╣я┌Б∙∙ п╫п╣ п╥п╪п╬п╤п╣ п╡Б∙∙я─п╫п╬ я└я┐п╫п╨я├Б∙∙п╬п╫я┐п╡п╟я┌п╦. п÷я─п╬п╢п╬п╡п╤п╦я┌п╦ п╠п╣п╥ п©п╟п╨я┐п╫п╨Б∙∙п╡, я┴п╬ п╡п╦п╪п╟пЁп╟я▌я┌я▄я│я▐?"
 
 msgid "This package source failed or is not available. Do you want to disable this source and continue anyway?"
-msgstr "Репозитар╕й для цього пакунка не ╕сну╓ або не функц╕ону╓. Чи хочете ви в╕дключити використання цього репозитар╕ю та продовжити?"
+msgstr "п═п╣п©п╬п╥п╦я┌п╟я─Б∙∙п╧ п╢п╩я▐ я├я▄п╬пЁп╬ п©п╟п╨я┐п╫п╨п╟ п╫п╣ Б∙∙я│п╫я┐Б∙⌠ п╟п╠п╬ п╫п╣ я└я┐п╫п╨я├Б∙∙п╬п╫я┐Б∙⌠. п╖п╦ я┘п╬я┤п╣я┌п╣ п╡п╦ п╡Б∙∙п╢п╨п╩я▌я┤п╦я┌п╦ п╡п╦п╨п╬я─п╦я│я┌п╟п╫п╫я▐ я├я▄п╬пЁп╬ я─п╣п©п╬п╥п╦я┌п╟я─Б∙∙я▌ я┌п╟ п©я─п╬п╢п╬п╡п╤п╦я┌п╦?"
 
 msgid "Retrieving ChangeLog.txt..."
-msgstr "Отримання ChangeLog.txt..."
+msgstr "п·я┌я─п╦п╪п╟п╫п╫я▐ ChangeLog.txt..."
 
 msgid "Changelog"
-msgstr "Перел╕к зм╕н"
+msgstr "п÷п╣я─п╣п╩Б∙∙п╨ п╥п╪Б∙∙п╫"
 
 msgid "_View"
-msgstr "Перегляд"
+msgstr "п÷п╣я─п╣пЁп╩я▐п╢"
 
 msgid "All"
-msgstr "Ус╕"
+msgstr "пёя│Б∙∙"
 
 msgid "View all packages"
-msgstr "Перегляд ус╕х пакунк╕в"
+msgstr "п÷п╣я─п╣пЁп╩я▐п╢ я┐я│Б∙∙я┘ п©п╟п╨я┐п╫п╨Б∙∙п╡"
 
 msgid "Available"
-msgstr "Доступн╕"
+msgstr "п■п╬я│я┌я┐п©п╫Б∙∙"
 
 msgid "View available packages from current sources"
-msgstr "Перегляд ус╕х доступних пакунк╕в з обраних репозитор╕╖в"
+msgstr "п÷п╣я─п╣пЁп╩я▐п╢ я┐я│Б∙∙я┘ п╢п╬я│я┌я┐п©п╫п╦я┘ п©п╟п╨я┐п╫п╨Б∙∙п╡ п╥ п╬п╠я─п╟п╫п╦я┘ я─п╣п©п╬п╥п╦я┌п╬я─Б∙∙Б∙√п╡"
 
 msgid "View installed packages"
-msgstr "Перегляд встановлених пакунк╕в"
+msgstr "п÷п╣я─п╣пЁп╩я▐п╢ п╡я│я┌п╟п╫п╬п╡п╩п╣п╫п╦я┘ п©п╟п╨я┐п╫п╨Б∙∙п╡"
 
 msgid "Marked"
-msgstr "В╕дм╕чено"
+msgstr "п▓Б∙∙п╢п╪Б∙∙я┤п╣п╫п╬"
 
 msgid "View Marked Packages"
-msgstr "Перегляд в╕дм╕чених пакунк╕в"
+msgstr "п÷п╣я─п╣пЁп╩я▐п╢ п╡Б∙∙п╢п╪Б∙∙я┤п╣п╫п╦я┘ п©п╟п╨я┐п╫п╨Б∙∙п╡"
 
 msgid "Mark Obsolete"
-msgstr "В╕дм╕тити застар╕л╕"
+msgstr "п▓Б∙∙п╢п╪Б∙∙я┌п╦я┌п╦ п╥п╟я│я┌п╟я─Б∙∙п╩Б∙∙"
 
 msgid "Mark all obsolete packages"
-msgstr "В╕дм╕тити ус╕ застар╕л╕ пакунки"
+msgstr "п▓Б∙∙п╢п╪Б∙∙я┌п╦я┌п╦ я┐я│Б∙∙ п╥п╟я│я┌п╟я─Б∙∙п╩Б∙∙ п©п╟п╨я┐п╫п╨п╦"
 
 msgid "Download rate: %.0f%s/s"
-msgstr "Швидк╕сть завантаження: %.0f%s/s"
+msgstr "п╗п╡п╦п╢п╨Б∙∙я│я┌я▄ п╥п╟п╡п╟п╫я┌п╟п╤п╣п╫п╫я▐: %.0f%s/s"
 
 msgid "Failed to download %s: %s"
-msgstr "Не вдалося завантажити %s: %s"
+msgstr "п²п╣ п╡п╢п╟п╩п╬я│я▐ п╥п╟п╡п╟п╫я┌п╟п╤п╦я┌п╦ %s: %s"
 
 msgid "Import"
-msgstr "╤мпорт"
+msgstr "Б∙╓п╪п©п╬я─я┌"
 
 msgid "No key found."
-msgstr "Ключ не знайдено."
+msgstr "п п╩я▌я┤ п╫п╣ п╥п╫п╟п╧п╢п╣п╫п╬."
 
 msgid "<b>GPG Keys</b>"
-msgstr "<b>Ключ╕ GPG</b>"
+msgstr "<b>п п╩я▌я┤Б∙∙ GPG</b>"
 
 msgid "Verification"
-msgstr "Перев╕рка"
+msgstr "п÷п╣я─п╣п╡Б∙∙я─п╨п╟"
 
 msgid "Retrieving checksum signature..."
-msgstr "Отримання контрольно╖ суми..."
+msgstr "п·я┌я─п╦п╪п╟п╫п╫я▐ п╨п╬п╫я┌я─п╬п╩я▄п╫п╬Б∙√ я│я┐п╪п╦..."
 
 msgid "Verifying checksum signature..."
-msgstr "Перев╕рка контрольно╖ суми..."
+msgstr "п÷п╣я─п╣п╡Б∙∙я─п╨п╟ п╨п╬п╫я┌я─п╬п╩я▄п╫п╬Б∙√ я│я┐п╪п╦..."
 
 msgid "GPG Key verification failed"
-msgstr "Помилка перев╕рки ключа GPG"
+msgstr "п÷п╬п╪п╦п╩п╨п╟ п©п╣я─п╣п╡Б∙∙я─п╨п╦ п╨п╩я▌я┤п╟ GPG"
 
 msgid "Error"
 msgstr "Error"
@@ -515,6 +510,10 @@ msgstr "View ChangeLogs"
 
 msgid "ChangeLogs"
 msgstr "ChangeLogs"
+
+#, fuzzy
+msgid "No changelogs found."
+msgstr "п п╩я▌я┤ п╫п╣ п╥п╫п╟п╧п╢п╣п╫п╬."
 
 msgid "Priority"
 msgstr "Priority"
@@ -552,3 +551,101 @@ msgstr "No dependency information available"
 msgid "No changelog information available"
 msgstr "No changelog information available"
 
+msgid "Gslapt Package Manager"
+msgstr "п°п╣п╫п╣п╢п╤п╣я─ п©п╟п╨я┐п╫п╨iп╡ Gslapt"
+
+msgid "Install, remove and upgrade software packages"
+msgstr "Install, remove and upgrade software packages"
+
+msgid "Base"
+msgstr "Base"
+
+msgid "Applications"
+msgstr "Applications"
+
+msgid "Development Tools"
+msgstr "Development Tools"
+
+msgid "GNU Emacs"
+msgstr "GNU Emacs"
+
+msgid "Documentation"
+msgstr "Documentation"
+
+msgid "GNOME"
+msgstr "GNOME"
+
+msgid "Linux kernel"
+msgstr "Linux kernel"
+
+msgid "KDE"
+msgstr "KDE"
+
+msgid "KDE Internationalization"
+msgstr "KDE Internationalization"
+
+msgid "Libraries"
+msgstr "Libraries"
+
+msgid "Networking"
+msgstr "Networking"
+
+msgid "teTeX"
+msgstr "teTeX"
+
+msgid "TCL"
+msgstr "TCL"
+
+msgid "X Window System"
+msgstr "X Window System"
+
+msgid "X Applications"
+msgstr "X Applications"
+
+msgid "BSD Console games"
+msgstr "BSD Console games"
+
+msgid "Patches"
+msgstr "Patches"
+
+msgid "GSB Base"
+msgstr "GSB Base"
+
+msgid "GSB Accessibility"
+msgstr "GSB Accessibility"
+
+msgid "GSB Administration"
+msgstr "GSB Administration"
+
+msgid "GSB Applications"
+msgstr "GSB Applications"
+
+msgid "GSB Compiz Fusion"
+msgstr "GSB Compiz Fusion"
+
+msgid "GSB Development"
+msgstr "GSB Development"
+
+msgid "GSB Office"
+msgstr "GSB Office"
+
+msgid "GSB Libraries"
+msgstr "GSB Libraries"
+
+msgid "GSB Mono"
+msgstr "GSB Mono"
+
+msgid "GSB Networking"
+msgstr "GSB Networking"
+
+msgid "GSB OpenOffice.org"
+msgstr "GSB OpenOffice.org"
+
+msgid "GSB Themes"
+msgstr "GSB Themes"
+
+msgid "Games"
+msgstr "Games"
+
+msgid "Localization"
+msgstr "Localization"

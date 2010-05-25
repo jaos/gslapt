@@ -6,11 +6,26 @@ PKGDIR = `pwd`/pkg
 
 EXTRA_DIST = \
   FAQ \
-  gslapt.desktop \
-  gslapt-kde.desktop \
-  series_map.rc \
+  gslapt.desktop.in \
+  gslapt-kde.desktop.in \
+  series_map.rc.in \
   slack-desc \
   slack-required
+
+all-local:
+	@grep "=" series_map.rc.in | sed "s/_\(.*\)=\(.*\)/\1=\"\2\"/" > series_map.rc_quoted
+	@sed "s/\_//" series_map.rc.in > series_map.rc
+	@mkdir series_map
+	@cd series_map && \
+		intltool-merge --quoted-style -m -u ../po ../series_map.rc_quoted series_map.rc && \
+		for i in $$(find . -mindepth 1 -maxdepth 1 -type d -exec basename {} \;);do \
+			sed -i "s/\(.*\)=\(.*\)/\1[$$i]=\2/" $$i/series_map.rc && \
+			sed "s/\"//g" $$i/series_map.rc >> ../series_map.rc; \
+		done
+	@rm -rf series_map.rc_quoted series_map
+	@intltool-merge po/ -d -u gslapt.desktop.in gslapt.desktop
+	@intltool-merge po/ -d -u gslapt-kde.desktop.in gslapt-kde.desktop
+
 
 install-data-local:
 	@$(NORMAL_INSTALL)

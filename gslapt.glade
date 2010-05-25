@@ -2138,7 +2138,7 @@
 				  <child>
 				    <widget class="GtkLabel" id="label271">
 				      <property name="visible">True</property>
-				      <property name="label" translatable="yes">   </property>
+				      <property name="label">   </property>
 				      <property name="use_underline">False</property>
 				      <property name="use_markup">False</property>
 				      <property name="justify">GTK_JUSTIFY_LEFT</property>
@@ -2344,7 +2344,7 @@
 				  <child>
 				    <widget class="GtkLabel" id="label262">
 				      <property name="visible">True</property>
-				      <property name="label" translatable="yes">   </property>
+				      <property name="label">   </property>
 				      <property name="use_underline">False</property>
 				      <property name="use_markup">False</property>
 				      <property name="justify">GTK_JUSTIFY_LEFT</property>
@@ -3938,7 +3938,7 @@ http://software.jaos.org/#gslapt&lt;/span&gt;</property>
 	      <child>
 		<widget class="GtkLabel" id="label280">
 		  <property name="visible">True</property>
-		  <property name="label" translatable="yes">/</property>
+		  <property name="label">/</property>
 		  <property name="use_underline">False</property>
 		  <property name="use_markup">False</property>
 		  <property name="justify">GTK_JUSTIFY_LEFT</property>
@@ -4096,7 +4096,7 @@ http://software.jaos.org/#gslapt&lt;/span&gt;</property>
 	      <child>
 		<widget class="GtkLabel" id="label278">
 		  <property name="visible">True</property>
-		  <property name="label" translatable="yes">/</property>
+		  <property name="label">/</property>
 		  <property name="use_underline">False</property>
 		  <property name="use_markup">False</property>
 		  <property name="justify">GTK_JUSTIFY_LEFT</property>

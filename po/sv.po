@@ -5,33 +5,33 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.5.2b\n"
+"Project-Id-Version: 0.5.3b\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
 "PO-Revision-Date: 2010-01-13 11:00+0500\n"
 "Last-Translator: Hakan Lindqvist <tfy00hlt@cs.umu.se>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "<b>Exclude List</b>"
 msgstr "<b>Uteslutningslista</b>"
 
 msgid "<b>Package Sources</b>"
-msgstr "<b>Paket Källor</b>"
+msgstr "<b>Paket KÃ¤llor</b>"
 
 msgid "<b>Package and data storage</b>"
 msgstr "<b>Paket och datalagring</b>"
 
 msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Aktivera de följande ändringarna?</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Aktivera de fÃ¶ljande Ã¤ndringarna?</span>"
 
 msgid "<span weight=\"bold\">Exclude Expression:</span>"
 msgstr "<span weight=\"bold\">Uteslutningsuttryck:</span>"
 
 msgid "<span weight=\"bold\">SOURCE=</span>"
-msgstr "<span weight=\"bold\">KÄLLA=</span>"
+msgstr "<span weight=\"bold\">KÃ„LLA=</span>"
 
 msgid "About gslapt"
 msgstr "OM gslapt"
@@ -43,7 +43,7 @@ msgid "Checking for new package data..."
 msgstr "Letar efter ny paketdata..."
 
 msgid "Clear search expression"
-msgstr "Rensa sökuttryck"
+msgstr "Rensa sÃ¶kuttryck"
 
 msgid "Clear"
 msgstr "Rensa"
@@ -140,7 +140,7 @@ msgid "Packages to be upgraded"
 msgstr "Paket som skall uppdateras"
 
 msgid "Preferences"
-msgstr "Inställningar"
+msgstr "InstÃ¤llningar"
 
 msgid "Progress"
 msgstr "Utveckling"
@@ -161,25 +161,25 @@ msgid "Required"
 msgstr "Obligatorisk"
 
 msgid "Search"
-msgstr "Sök"
+msgstr "SÃ¶k"
 
 msgid "Size:"
 msgstr "Storlek:"
 
 msgid "Source"
-msgstr "Källa"
+msgstr "KÃ¤lla"
 
 msgid "Sources"
-msgstr "Källor"
+msgstr "KÃ¤llor"
 
 msgid "Suggests"
-msgstr "Föreslå"
+msgstr "FÃ¶reslÃ¥"
 
 msgid "Summary"
 msgstr "Sammanfattning"
 
 msgid "This is a summary of the changes about to be performed."
-msgstr "Detta är sammanfattningen av ändringarna som skall genomföras."
+msgstr "Detta Ã¤r sammanfattningen av Ã¤ndringarna som skall genomfÃ¶ras."
 
 msgid "Uninstalling..."
 msgstr "Avinstallerar..."
@@ -212,17 +212,13 @@ msgid "Yes"
 msgstr "Ja"
 
 msgid "_Help"
-msgstr "_Hjälp"
+msgstr "_HjÃ¤lp"
 
-msgid ""
-"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
-"Slackware"
-msgstr ""
-"gslapt är en GTK+ frontend till slapt-get, ett APT-liknande paket system för"
-"Slackware"
+msgid "gslapt is a GTK+ frontend to slapt-get, an APT like package system for Slackware"
+msgstr "gslapt Ã¤r en GTK+ frontend till slapt-get, ett APT-liknande paket system fÃ¶rSlackware"
 
 msgid "total progress"
-msgstr "fullständing utveckling"
+msgstr "fullstÃ¤nding utveckling"
 
 msgid "working"
 msgstr "arbetar"
@@ -231,22 +227,22 @@ msgid "Up to Date"
 msgstr "Aktuell"
 
 msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Inga uppdateringar tillgängliga</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Inga uppdateringar tillgÃ¤ngliga</span>"
 
 msgid "%d upgraded, %d newly installed, %d to remove and %d not upgraded."
 msgstr "%d uppgraderade, %d nyligen installerade, %d att ta bort och %d ej uppgraderade"
 
 msgid "Need to get %.1d%s/%.1d%s of archives.\n"
-msgstr "Behöver hämta %.1d%s/%.1d%s av arkiven.\n"
+msgstr "BehÃ¶ver hÃ¤mta %.1d%s/%.1d%s av arkiven.\n"
 
 msgid "Need to get %.1d%s of archives."
-msgstr "Behöver hämta %.1d%s av arkiven."
+msgstr "BehÃ¶ver hÃ¤mta %.1d%s av arkiven."
 
 msgid "After unpacking %.1d%s disk space will be freed."
-msgstr "Efter uppackning kommer %.1d%s av diskutrymmet att frigöras."
+msgstr "Efter uppackning kommer %.1d%s av diskutrymmet att frigÃ¶ras."
 
 msgid "After unpacking %.1d%s of additional disk space will be used."
-msgstr "Efter uppackning kommer ytterligare %.1d%s av diskutrymmet att användas."
+msgstr "Efter uppackning kommer ytterligare %.1d%s av diskutrymmet att anvÃ¤ndas."
 
 msgid "Ready"
 msgstr "redo"
@@ -261,7 +257,7 @@ msgid "_File"
 msgstr "_Arkiv"
 
 msgid "Pending changes. Click execute when ready."
-msgstr "Ogenomförda ändringar. Tryck exekvera när du är redo."
+msgstr "OgenomfÃ¶rda Ã¤ndringar. Tryck exekvera nÃ¤r du Ã¤r redo."
 
 msgid "Packages with unmet dependencies"
 msgstr "Paket med ej uppfyllda beroenden"
@@ -273,10 +269,10 @@ msgid "Package conflicts"
 msgstr "Paket konflikt"
 
 msgid ", which is required by "
-msgstr ", vilket behövs av"
+msgstr ", vilket behÃ¶vs av"
 
 msgid ", is excluded"
-msgstr ", är uteslutet"
+msgstr ", Ã¤r uteslutet"
 
 msgid "<b>Conflicts:</b>"
 msgstr "<b>Konflikter:</b>"
@@ -294,13 +290,13 @@ msgid "<b>Name:</b>"
 msgstr "<b>Namn:</b>"
 
 msgid "<b>Required:</b>"
-msgstr "<b>Krävs:</b>"
+msgstr "<b>KrÃ¤vs:</b>"
 
 msgid "<b>Size:</b>"
 msgstr "<b>Storlek:</b>"
 
 msgid "<b>Suggests:</b>"
-msgstr "<b>Föreslår:</b>"
+msgstr "<b>FÃ¶reslÃ¥r:</b>"
 
 msgid "Version:"
 msgstr "Version:"
@@ -321,7 +317,7 @@ msgid "Dependencies"
 msgstr "Beroenden"
 
 msgid "No package is selected."
-msgstr "Inga paket är valda."
+msgstr "Inga paket Ã¤r valda."
 
 msgid "Status"
 msgstr "Status"
@@ -515,6 +511,10 @@ msgstr "View ChangeLogs"
 msgid "ChangeLogs"
 msgstr "ChangeLogs"
 
+#, fuzzy
+msgid "No changelogs found."
+msgstr "No key found."
+
 msgid "Priority"
 msgstr "Priority"
 
@@ -551,3 +551,101 @@ msgstr "No dependency information available"
 msgid "No changelog information available"
 msgstr "No changelog information available"
 
+msgid "Gslapt Package Manager"
+msgstr "Gslapt Package Manager"
+
+msgid "Install, remove and upgrade software packages"
+msgstr "Install, remove and upgrade software packages"
+
+msgid "Base"
+msgstr "Base"
+
+msgid "Applications"
+msgstr "Applications"
+
+msgid "Development Tools"
+msgstr "Development Tools"
+
+msgid "GNU Emacs"
+msgstr "GNU Emacs"
+
+msgid "Documentation"
+msgstr "Documentation"
+
+msgid "GNOME"
+msgstr "GNOME"
+
+msgid "Linux kernel"
+msgstr "Linux kernel"
+
+msgid "KDE"
+msgstr "KDE"
+
+msgid "KDE Internationalization"
+msgstr "KDE Internationalization"
+
+msgid "Libraries"
+msgstr "Libraries"
+
+msgid "Networking"
+msgstr "Networking"
+
+msgid "teTeX"
+msgstr "teTeX"
+
+msgid "TCL"
+msgstr "TCL"
+
+msgid "X Window System"
+msgstr "X Window System"
+
+msgid "X Applications"
+msgstr "X Applications"
+
+msgid "BSD Console games"
+msgstr "BSD Console games"
+
+msgid "Patches"
+msgstr "Patches"
+
+msgid "GSB Base"
+msgstr "GSB Base"
+
+msgid "GSB Accessibility"
+msgstr "GSB Accessibility"
+
+msgid "GSB Administration"
+msgstr "GSB Administration"
+
+msgid "GSB Applications"
+msgstr "GSB Applications"
+
+msgid "GSB Compiz Fusion"
+msgstr "GSB Compiz Fusion"
+
+msgid "GSB Development"
+msgstr "GSB Development"
+
+msgid "GSB Office"
+msgstr "GSB Office"
+
+msgid "GSB Libraries"
+msgstr "GSB Libraries"
+
+msgid "GSB Mono"
+msgstr "GSB Mono"
+
+msgid "GSB Networking"
+msgstr "GSB Networking"
+
+msgid "GSB OpenOffice.org"
+msgstr "GSB OpenOffice.org"
+
+msgid "GSB Themes"
+msgstr "GSB Themes"
+
+msgid "Games"
+msgstr "Games"
+
+msgid "Localization"
+msgstr "Localization"

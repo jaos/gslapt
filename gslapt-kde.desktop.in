@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Exec=/usr/sbin/gslapt
+_Name=Gslapt Package Manager
+GenericName=Gslapt
+_Comment=Install, remove and upgrade software packages
+Icon=/usr/share/pixmaps/gslapt.png
+Terminal=false
+Categories=PackageManager;System;Application;
+StartupNotify=true
+Type=Application
+OnlyShowIn=KDE

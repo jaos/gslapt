@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: gslapt\n"
+"Project-Id-Version: 0.5.3b\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2010-01-14 19:51+0200\n"
+"PO-Revision-Date: 2010-05-24 15:14+0200\n"
 "Last-Translator: George Vlahavas <vlahavas~at~gmail~dot~com>\n"
 "Language-Team: Greek\n"
 "MIME-Version: 1.0\n"
@@ -549,3 +549,101 @@ msgstr "Δεν υπάρχουν πληροφορίες εξαρτήσεων"
 msgid "No changelog information available"
 msgstr "Δεν υπάρχει αρχείο αλλαγών"
 
+msgid "Gslapt Package Manager"
+msgstr "Διαχειριστής Πακέτων Gslapt"
+
+msgid "Install, remove and upgrade software packages"
+msgstr "Εγκαταστήστε, απεγκαταστήστε και αναβαθμίστε πακέτα λογισμικού"
+
+msgid "Base"
+msgstr "Βάση"
+
+msgid "Applications"
+msgstr "Εφαρμογές"
+
+msgid "Development Tools"
+msgstr "Εργαλεία Ανάπτυξης"
+
+msgid "GNU Emacs"
+msgstr "GNU Emacs"
+
+msgid "Documentation"
+msgstr "Τεκμηρίωση"
+
+msgid "GNOME"
+msgstr "GNOME"
+
+msgid "Linux kernel"
+msgstr "Πυρήνας Linux"
+
+msgid "KDE"
+msgstr "KDE"
+
+msgid "KDE Internationalization"
+msgstr "Διεθνοποίηση KDE"
+
+msgid "Libraries"
+msgstr "Βιβλιοθήκες"
+
+msgid "Networking"
+msgstr "Δικτύωση"
+
+msgid "teTeX"
+msgstr "teTeX"
+
+msgid "TCL"
+msgstr "TCL"
+
+msgid "X Window System"
+msgstr "Σύστημα Γραφικών X"
+
+msgid "X Applications"
+msgstr "Εφαρμογές Γραφικού Περιβάλλοντος"
+
+msgid "BSD Console games"
+msgstr "Παιγνίδια Κονσόλας BSD"
+
+msgid "Patches"
+msgstr "Διορθώσεις"
+
+msgid "GSB Base"
+msgstr "Βάση GSB"
+
+msgid "GSB Accessibility"
+msgstr "Προσβασιμότητα GSB"
+
+msgid "GSB Administration"
+msgstr "Διαχείρηση συστήματος GSB"
+
+msgid "GSB Applications"
+msgstr "Εφαρμογές GSB"
+
+msgid "GSB Compiz Fusion"
+msgstr "GSB Compiz Fusion"
+
+msgid "GSB Development"
+msgstr "Ανάπτυξη GSB"
+
+msgid "GSB Office"
+msgstr "Γραφείο GSB"
+
+msgid "GSB Libraries"
+msgstr "Βιβλιοθήκες GSB"
+
+msgid "GSB Mono"
+msgstr "GSB Mono"
+
+msgid "GSB Networking"
+msgstr "Δικτύωση GSB"
+
+msgid "GSB OpenOffice.org"
+msgstr "GSB OpenOffice.org"
+
+msgid "GSB Themes"
+msgstr "Θέματα GSB"
+
+msgid "Games"
+msgstr "Παιγνίδια"
+
+msgid "Localization"
+msgstr "Διεθνοποίηση"

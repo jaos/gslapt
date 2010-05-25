@@ -4,3 +4,6 @@ src/main.c
 src/interface.c
 src/callbacks.c
 src/support.c
+gslapt-kde.desktop.in
+gslapt.desktop.in
+series_map.rc.in

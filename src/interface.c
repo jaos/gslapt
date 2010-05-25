@@ -1251,7 +1251,7 @@ create_gslapt (void)
   gtk_widget_show (hbox106);
   gtk_box_pack_start (GTK_BOX (vbox67), hbox106, TRUE, TRUE, 0);
 
-  label271 = gtk_label_new (_("   "));
+  label271 = gtk_label_new ("   ");
   gtk_widget_set_name (label271, "label271");
   gtk_widget_show (label271);
   gtk_box_pack_start (GTK_BOX (hbox106), label271, FALSE, FALSE, 0);
@@ -1320,7 +1320,7 @@ create_gslapt (void)
   gtk_widget_show (hbox105);
   gtk_box_pack_start (GTK_BOX (vbox66), hbox105, TRUE, TRUE, 0);
 
-  label262 = gtk_label_new (_("   "));
+  label262 = gtk_label_new ("   ");
   gtk_widget_set_name (label262, "label262");
   gtk_widget_show (label262);
   gtk_box_pack_start (GTK_BOX (hbox105), label262, FALSE, TRUE, 0);
@@ -2277,7 +2277,7 @@ create_icon_legend (void)
   gtk_widget_show (label277);
   gtk_box_pack_start (GTK_BOX (hbox109), label277, FALSE, TRUE, 6);
 
-  label280 = gtk_label_new (_("/"));
+  label280 = gtk_label_new ("/");
   gtk_widget_set_name (label280, "label280");
   gtk_widget_show (label280);
   gtk_box_pack_start (GTK_BOX (hbox109), label280, FALSE, FALSE, 0);
@@ -2317,7 +2317,7 @@ create_icon_legend (void)
   gtk_widget_show (label276);
   gtk_box_pack_start (GTK_BOX (hbox108), label276, FALSE, TRUE, 6);
 
-  label278 = gtk_label_new (_("/"));
+  label278 = gtk_label_new ("/");
   gtk_widget_set_name (label278, "label278");
   gtk_widget_show (label278);
   gtk_box_pack_start (GTK_BOX (hbox108), label278, FALSE, TRUE, 0);

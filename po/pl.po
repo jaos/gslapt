@@ -5,172 +5,64 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.5.2b\n"
+"Project-Id-Version: 0.5.3b\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
-"POT-Creation-Date: 2005-02-17 14:52-0500\n"
+"POT-Creation-Date: 2005-02-26 22:25-0500\n"
 "PO-Revision-Date: 2010-01-13 11:00+0500\n"
 "Last-Translator: Piotr Simon <sajmon@tenboard.com>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-2\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Packages excluded"
-msgstr "Wykluczone pakiety"
+msgid "<b>Exclude List</b>"
+msgstr "<b>Lista wykluczeÅ„</b>"
 
-msgid "Packages to be installed"
-msgstr "Pakiety do instalcji"
-
-msgid "Packages to be upgraded"
-msgstr "Pakiety do aktualizacji"
-
-msgid "Packages to be removed"
-msgstr "Pakiety do usuniêcia"
-
-msgid "Downloading packages..."
-msgstr "Pobieranie pakietu..."
-
-msgid "Removing packages..."
-msgstr "Usuwanie pakietu..."
-
-msgid "Installing packages..."
-msgstr "Instalacja packages..."
-
-msgid "Installing..."
-msgstr "Installing..."
-
-msgid "Upgrading packages..."
-msgstr "Aktualizacja pakietu..."
-
-msgid "Upgrading..."
-msgstr "Upgrading..."
-
-msgid "Preferences"
-msgstr "Preferencje"
+msgid "<b>Package Sources</b>"
+msgstr "<b>Å»rÃ³dÅ‚a pakietÃ³w</b>"
 
 msgid "<b>Package and data storage</b>"
 msgstr "<b>Miejsce zapisu</b>"
 
-msgid "Working Directory"
-msgstr "Katalog"
+msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+msgstr "<span weight=\"bold\" size=\"large\">UÅ¼yÄ‡ nastÄ™pujÄ…cych zmian?</span>"
 
-msgid "<b>Package Sources</b>"
-msgstr "<b>¯ród³a pakietów</b>"
+msgid "<span weight=\"bold\">Exclude Expression:</span>"
+msgstr "<span weight=\"bold\">WyraÅ¼enie wykluczenia:</span>"
 
 msgid "<span weight=\"bold\">SOURCE=</span>"
 msgstr "<span weight=\"bold\">SOURCE=</span>"
 
-msgid "Sources"
-msgstr "Repozytoria"
-
-msgid "<b>Exclude List</b>"
-msgstr "<b>Lista wykluczeñ</b>"
-
-msgid "<span weight=\"bold\">Exclude Expression:</span>"
-msgstr "<span weight=\"bold\">Wyra¿enie wykluczenia:</span>"
-
-msgid "Excludes"
-msgstr "Wykluczenia"
-
-msgid "Gslapt"
-msgstr "Gslapt"
-
-msgid "Up_grade"
-msgstr "Up_grade"
-
-msgid "_Help"
-msgstr "_Pomoc"
-
-msgid ""
-"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
-"Slackware"
-msgstr ""
-"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
-"Slackware"
+msgid "About gslapt"
+msgstr "Gslapt "
 
 msgid "About"
 msgstr "o programie"
 
-msgid "Update"
-msgstr "Update"
-
-msgid "Update local package cache"
-msgstr "Aktualizuj lokalne cache"
-
-msgid "Execute"
-msgstr "Wykonaj"
-
-msgid "Expression"
-msgstr "Expression"
-
-msgid "Execute all scheduled actions in current transaction"
-msgstr "Wykonaj wszystkie zaplanowane akcje w bie¿±cej transakcji"
-
-msgid "Quit"
-msgstr "Opu¶æ"
-
-msgid "Clear"
-msgstr "Wyczy¶æ"
+msgid "Checking for new package data..."
+msgstr "Sprawdzanie nowych aktualizacji..."
 
 msgid "Clear search expression"
-msgstr "Wyczy¶æ wyra¿enia"
+msgstr "WyczyÅ›Ä‡ wyraÅ¼enia"
 
-msgid "Name"
-msgstr "Nazwa"
-
-msgid "Location"
-msgstr "Lokacja"
-
-msgid "Version"
-msgstr "Wersja"
-
-msgid "Search"
-msgstr "Search"
-
-msgid "Size:"
-msgstr "Rozmiar:"
-
-msgid "Source"
-msgstr "Source"
-
-msgid "Installed Size:"
-msgstr "Rozmiar po instalacji:"
-
-msgid "Installed Size"
-msgstr "Rozmiar po instalacji"
-
-msgid "Installed"
-msgstr "Zainstalowane"
+msgid "Clear"
+msgstr "WyczyÅ›Ä‡"
 
 msgid "Conflicts"
 msgstr "Konflikt"
 
-msgid "Suggests"
-msgstr "Sugerowane"
-
-msgid "Required"
-msgstr "Wymaga"
+#, c-format
+msgid "Couldn't find pixmap file: %s"
+msgstr "Nie mogÄ™ znaleÅ¼Ä‡ pixmap pliku: %s"
 
 msgid "Description"
 msgstr "Opis"
 
-msgid "Package Information"
-msgstr "Informacje pakietu"
+msgid "Download packages only"
+msgstr "Tylko pobierz"
 
-msgid "Package"
-msgstr "Package"
-
-msgid "Install/Upgrade package"
-msgstr "Instaluj/Re-instaluj/Aktualizuj pakiet"
-
-msgid "Install"
-msgstr "Instaluj"
-
-msgid "Remove package"
-msgstr "Usuñ pakiet"
-
-msgid "Remove"
-msgstr "Usuñ"
+msgid "Downloading packages..."
+msgstr "Pobieranie pakietu..."
 
 msgid "Downloading..."
 msgstr "Downloading..."
@@ -181,99 +73,203 @@ msgstr "Wyklucz pakiet"
 msgid "Exclude"
 msgstr "Wyklucz"
 
+msgid "Excludes"
+msgstr "Wykluczenia"
+
+msgid "Execute all scheduled actions in current transaction"
+msgstr "Wykonaj wszystkie zaplanowane akcje w bieÅ¼Ä…cej transakcji"
+
+msgid "Execute"
+msgstr "Wykonaj"
+
+msgid "Expression"
+msgstr "Expression"
+
+msgid "Gslapt"
+msgstr "Gslapt"
+
+msgid "Install"
+msgstr "Instaluj"
+
+msgid "Install/Upgrade package"
+msgstr "Instaluj/Re-instaluj/Aktualizuj pakiet"
+
+msgid "Installed Size:"
+msgstr "Rozmiar po instalacji:"
+
+msgid "Installed Size"
+msgstr "Rozmiar po instalacji"
+
+msgid "Installed"
+msgstr "Zainstalowane"
+
+msgid "Installing packages..."
+msgstr "Instalacja packages..."
+
+msgid "Installing..."
+msgstr "Installing..."
+
+msgid "Location"
+msgstr "Lokacja"
+
+msgid "Name"
+msgstr "Nazwa"
+
+msgid "No"
+msgstr "Nie"
+
 msgid "Package Action"
 msgstr "Akcja pakietu"
+
+msgid "Package Information"
+msgstr "Informacje pakietu"
+
+msgid "Package"
+msgstr "Package"
+
+msgid "Packages excluded"
+msgstr "Wykluczone pakiety"
+
+msgid "Packages to be installed"
+msgstr "Pakiety do instalcji"
+
+msgid "Packages to be removed"
+msgstr "Pakiety do usuniÄ™cia"
+
+msgid "Packages to be upgraded"
+msgstr "Pakiety do aktualizacji"
+
+msgid "Preferences"
+msgstr "Preferencje"
+
+msgid "Progress"
+msgstr "PostÄ™p"
+
+msgid "Quit"
+msgstr "OpuÅ›Ä‡"
+
+msgid "Remove package"
+msgstr "UsuÅ„ pakiet"
+
+msgid "Remove"
+msgstr "UsuÅ„"
+
+msgid "Removing packages..."
+msgstr "Usuwanie pakietu..."
+
+msgid "Required"
+msgstr "Wymaga"
+
+msgid "Search"
+msgstr "Search"
+
+msgid "Size:"
+msgstr "Rozmiar:"
+
+msgid "Source"
+msgstr "Source"
+
+msgid "Sources"
+msgstr "Repozytoria"
+
+msgid "Suggests"
+msgstr "Sugerowane"
 
 msgid "Summary"
 msgstr "Podsumowanie"
 
-msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
-msgstr "<span weight=\"bold\" size=\"large\">U¿yæ nastêpuj±cych zmian?</span>"
-
 msgid "This is a summary of the changes about to be performed."
-msgstr "To jest podsumowanie zmian, które maj± zostaæ przeprowadzone."
+msgstr "To jest podsumowanie zmian, ktÃ³re majÄ… zostaÄ‡ przeprowadzone."
 
 msgid "Uninstalling..."
 msgstr "Uninstalling..."
 
-msgid "Download packages only"
-msgstr "Tylko pobierz"
+msgid "Up_grade"
+msgstr "Up_grade"
+
+msgid "Update local package cache"
+msgstr "Aktualizuj lokalne cache"
+
+msgid "Update"
+msgstr "Update"
+
+msgid "Upgrade"
+msgstr "Aktualizuj"
+
+msgid "Upgrading packages..."
+msgstr "Aktualizacja pakietu..."
+
+msgid "Upgrading..."
+msgstr "Upgrading..."
+
+msgid "Version"
+msgstr "Wersja"
+
+msgid "Working Directory"
+msgstr "Katalog"
+
+msgid "Yes"
+msgstr "Tak"
+
+msgid "_Help"
+msgstr "_Pomoc"
+
+msgid "gslapt is a GTK+ frontend to slapt-get, an APT like package system for Slackware"
+msgstr "gslapt is a GTK+ frontend to slapt-get, an APT like package system for Slackware"
+
+msgid "total progress"
+msgstr "caÅ‚kowity postÄ™p"
 
 msgid "working"
 msgstr "working"
-
-msgid "total progress"
-msgstr "ca³kowity postêp"
-
-msgid "About gslapt"
-msgstr "Gslapt "
-
-#, c-format
-msgid "Couldn't find pixmap file: %s"
-msgstr "Nie mogê znale¿æ pixmap pliku: %s"
 
 msgid "Up to Date"
 msgstr "Aktualny"
 
 msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
-msgstr  "<span weight=\"bold\" size=\"large\">Brak dostêpnych aktualizacji</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Brak dostÄ™pnych aktualizacji</span>"
 
 msgid "%d upgraded, %d newly installed, %d to remove and %d not upgraded."
-msgstr "%d uaktualnione(ych), %d nowe zainstalowane, %d do usuniêcia i %d nieuaktualnione."
+msgstr "%d uaktualnione(ych), %d nowe zainstalowane, %d do usuniÄ™cia i %d nieuaktualnione."
 
 msgid "Need to get %.1d%s/%.1d%s of archives.\n"
-msgstr "Potrzeba ¶ci±gn±æ %.1d%s/%.1d%s danych.\n"
+msgstr "Potrzeba Å›ciÄ…gnÄ…Ä‡ %.1d%s/%.1d%s danych.\n"
 
 msgid "Need to get %.1d%s of archives."
-msgstr "Potrzeba ¶ci±gn±æ %.1d%s danych."
+msgstr "Potrzeba Å›ciÄ…gnÄ…Ä‡ %.1d%s danych."
 
 msgid "After unpacking %.1d%s disk space will be freed."
 msgstr "Po rozpakowaniu %.1d%s miejsca na dysku zostanie zwolnione."
 
 msgid "After unpacking %.1d%s of additional disk space will be used."
-msgstr "Po rozpakowaniu %.1d%s miejsca na dysku zostanie u¿yte."
+msgstr "Po rozpakowaniu %.1d%s miejsca na dysku zostanie uÅ¼yte."
 
 msgid "Ready"
 msgstr "Gotowe"
-
-msgid "Yes"
-msgstr "Tak"
-
-msgid "No"
-msgstr "Nie"
-
-msgid "Progress"
-msgstr "Postêp"
-
-msgid "Checking for new package data..."
-msgstr "Sprawdzanie nowych aktualizacji..."
 
 msgid "Re-Install"
 msgstr "Re-Instaluj"
 
 msgid "Downgrade"
-msgstr "Wgraj starsz± wersjê"
+msgstr "Wgraj starszÄ… wersjÄ™"
 
 msgid "_File"
 msgstr "Plik"
 
-msgid "Upgrade"
-msgstr "Aktualizuj"
-
 msgid "Pending changes. Click execute when ready."
-msgstr "W czasie zmian. Kliknij na Wykonaj je¶li gotowe."
+msgstr "W czasie zmian. Kliknij na Wykonaj jeÅ›li gotowe."
 
 msgid "Packages with unmet dependencies"
-msgstr "Pakiety z nieznanymi zale¿no¶ciami"
+msgstr "Pakiety z nieznanymi zaleÅ¼noÅ›ciami"
 
 msgid ": Depends: "
-msgstr ": Zale¿y: "
+msgstr ": ZaleÅ¼y: "
 
 msgid "Package conflicts"
 msgstr "Konflikt pakietu"
 
 msgid ", which is required by "
-msgstr ", który jest wymagany przez "
+msgstr ", ktÃ³ry jest wymagany przez "
 
 msgid ", is excluded"
 msgstr ", jest wykluczony"
@@ -315,28 +311,28 @@ msgid "<b>Source:</b>"
 msgstr "<b>Source:</b>"
 
 msgid "Common"
-msgstr "Ogólne"
+msgstr "OgÃ³lne"
 
 msgid "Dependencies"
-msgstr "Zale¿no¶ci"
+msgstr "ZaleÅ¼noÅ›ci"
 
 msgid "No package is selected."
-msgstr "¯aden pakiet nie wybrany."
+msgstr "Å»aden pakiet nie wybrany."
 
 msgid "Status"
 msgstr "Status"
 
 msgid "Source download failed"
-msgstr "Pobieranie ¼ród³a nie powiod³o siê"
+msgstr "Pobieranie ÅºrÃ³dÅ‚a nie powiodÅ‚o siÄ™"
 
 msgid "pkgtools returned an error"
-msgstr "pkgtools zwróci³ b³±d"
+msgstr "pkgtools zwrÃ³ciÅ‚ bÅ‚Ä…d"
 
 msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Nie masz wystarczaj±co wolnego miejsca</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Nie masz wystarczajÄ…co wolnego miejsca</span>"
 
 msgid "<b>Excluding %s due to dependency failure</b>"
-msgstr "<b>Wy³±czenie %s dziêki niepowodzeniu zale¿no¶ci</b>"
+msgstr "<b>WyÅ‚Ä…czenie %s dziÄ™ki niepowodzeniu zaleÅ¼noÅ›ci</b>"
 
 msgid "Unmark"
 msgstr "Odznacz"
@@ -345,10 +341,10 @@ msgid "<b>Status:</b>"
 msgstr "<b>Status:</b>"
 
 msgid "Excluded"
-msgstr "Wy³±czony"
+msgstr "WyÅ‚Ä…czony"
 
 msgid "<b>The following icons are used to indicate the current status of a package:</b>"
-msgstr "<b>Nastêpuj±ce ikony zostan± u¿yte aby wskazaæ aktualny status pakietu:</b>"
+msgstr "<b>NastÄ™pujÄ…ce ikony zostanÄ… uÅ¼yte aby wskazaÄ‡ aktualny status pakietu:</b>"
 
 msgid "Not Installed"
 msgstr "Jest nie zainstalowany"
@@ -363,13 +359,25 @@ msgid "To be Upgraded"
 msgstr "Do Aktualizacji"
 
 msgid "To be Removed"
-msgstr "Do Usuniêcia"
+msgstr "Do UsuniÄ™cia"
 
 msgid "To be Downgraded"
 msgstr "Do wgrania starszej wersji"
 
 msgid "Icon Legend"
 msgstr "Legenda ikon"
+
+msgid "Completed actions"
+msgstr "ZakoÅ„czone"
+
+msgid "Successfully executed all actions."
+msgstr "Wszystkie czynnoÅ›ci zakoÅ„czono pomyÅ›lnie."
+
+msgid "<b>Installed Version</b>"
+msgstr "<b>Wersja zainstalowana</b>"
+
+msgid "<b>Latest Available Version</b>"
+msgstr "<b>Ostatnio dostÄ™pna wersja</b>"
 
 msgid "Failed to commit preferences"
 msgstr "Failed to commit preferences"
@@ -387,7 +395,7 @@ msgid "P_ackage"
 msgstr "P_akiet"
 
 msgid "You need to reload the package list from the sources you have listed.  Do you want to do this now?"
-msgstr "Trzeba uaktualniæ Liste Pakietów zapisanych ¼róde³. Czy chcesz to zrobiæ teraz?"
+msgstr "Trzeba uaktualniÄ‡ Liste PakietÃ³w zapisanych ÅºrÃ³deÅ‚. Czy chcesz to zrobiÄ‡ teraz?"
 
 msgid "Repositories changed"
 msgstr "Zmienione Repozytorium"
@@ -399,40 +407,28 @@ msgid "Retrieving package data..."
 msgstr "Pobieram dane pakietu..."
 
 msgid "Retrieving patch list..."
-msgstr "Pobieram listê patchy..."
+msgstr "Pobieram listÄ™ patchy..."
 
 msgid "Retrieving checksum list..."
-msgstr "Pobieram listê sum kontrolnych..."
+msgstr "Pobieram listÄ™ sum kontrolnych..."
 
 msgid "Reading Package Lists..."
-msgstr "Wczytujê Listê Pakietów..."
-
-msgid "<b>Installed Version</b>"
-msgstr "<b>Wersja zainstalowana</b>"
-
-msgid "<b>Latest Available Version</b>"
-msgstr "<b>Ostatnio dostêpna wersja</b>"
+msgstr "WczytujÄ™ ListÄ™ PakietÃ³w..."
 
 msgid "_Delete Cached Package Files"
-msgstr "_Usuñ pakiety w cache"
+msgstr "_UsuÅ„ pakiety w cache"
 
 msgid "Mark all possible upgrades"
 msgstr "Mark all possible upgrades"
 
 msgid "Enabled"
-msgstr "Umo¿liwiony"
-
-msgid "Completed actions"
-msgstr "Zakoñczone"
-
-msgid "Successfully executed all actions."
-msgstr "Wszystkie czynno¶ci zakoñczono pomy¶lnie."
+msgstr "UmoÅ¼liwiony"
 
 msgid "Missing dependencies may mean the software in this package will not function correctly.  Do you want to continue without the required packages?"
-msgstr "Brakuj±ce zale¿no¶ci mog± oznaczaæ ¿e program w tym pakiecie mo¿e nieprawid³owo funkcjonowaæ. Chcesz kontynuowaæ dalej bez wymaganych pakietów?"
+msgstr "BrakujÄ…ce zaleÅ¼noÅ›ci mogÄ… oznaczaÄ‡ Å¼e program w tym pakiecie moÅ¼e nieprawidÅ‚owo funkcjonowaÄ‡. Chcesz kontynuowaÄ‡ dalej bez wymaganych pakietÃ³w?"
 
 msgid "This package source failed or is not available. Do you want to disable this source and continue anyway?"
-msgstr "Brak albo niedostêpne ¼ród³o pakietu. Pomin±æ i dalej kontynuowaæ?"
+msgstr "Brak albo niedostÄ™pne ÅºrÃ³dÅ‚o pakietu. PominÄ…Ä‡ i dalej kontynuowaÄ‡?"
 
 msgid "Retrieving ChangeLog.txt..."
 msgstr "Pobieram ChangeLog.txt..."
@@ -441,40 +437,40 @@ msgid "Changelog"
 msgstr "Changelog"
 
 msgid "_View"
-msgstr "_Poka¿"
+msgstr "_PokaÅ¼"
 
 msgid "All"
 msgstr "Wszystkie"
 
 msgid "View all packages"
-msgstr "Poka¿ wszystkie pakiety"
+msgstr "PokaÅ¼ wszystkie pakiety"
 
 msgid "Available"
-msgstr "Dostêpne"
+msgstr "DostÄ™pne"
 
 msgid "View available packages from current sources"
-msgstr "Poka¿ wszystkie dostêpne pakiety z aktualnego ¼ród³a"
+msgstr "PokaÅ¼ wszystkie dostÄ™pne pakiety z aktualnego ÅºrÃ³dÅ‚a"
 
 msgid "View installed packages"
-msgstr "Poka¿ zainstalowane pakiety"
+msgstr "PokaÅ¼ zainstalowane pakiety"
 
 msgid "Marked"
 msgstr "Zaznaczone"
 
 msgid "View Marked Packages"
-msgstr "Poka¿ zaznaczone pakiety"
+msgstr "PokaÅ¼ zaznaczone pakiety"
 
 msgid "Mark Obsolete"
-msgstr "Zaznacz przestarza³e"
+msgstr "Zaznacz przestarzaÅ‚e"
 
 msgid "Mark all obsolete packages"
-msgstr "Zaznacz wszyskie przestarza³e pakiety"
+msgstr "Zaznacz wszyskie przestarzaÅ‚e pakiety"
 
 msgid "Download rate: %.0f%s/s"
 msgstr "Download rate: %.0f%s/s"
 
 msgid "Failed to download %s: %s"
-msgstr "Pobieranie nie powiod³o siê %s: %s"
+msgstr "Pobieranie nie powiodÅ‚o siÄ™ %s: %s"
 
 msgid "Import"
 msgstr "Importuj"
@@ -489,16 +485,16 @@ msgid "Verification"
 msgstr "Sprawdzenie"
 
 msgid "Retrieving checksum signature..."
-msgstr "Pobieram sumê kontroln± podpisu..."
+msgstr "Pobieram sumÄ™ kontrolnÄ… podpisu..."
 
 msgid "Verifying checksum signature..."
-msgstr "Sprawdzam sumê kontroln± podpisu..."
+msgstr "Sprawdzam sumÄ™ kontrolnÄ… podpisu..."
 
 msgid "GPG Key verification failed"
-msgstr "Nie powiod³o siê sprawdzanie klucza GPG"
+msgstr "Nie powiodÅ‚o siÄ™ sprawdzanie klucza GPG"
 
 msgid "Error"
-msgstr "B³±d"
+msgstr "BÅ‚Ä…d"
 
 msgid "Visible"
 msgstr "Widoczny"
@@ -514,6 +510,10 @@ msgstr "View ChangeLogs"
 
 msgid "ChangeLogs"
 msgstr "ChangeLogs"
+
+#, fuzzy
+msgid "No changelogs found."
+msgstr "Klucz nie znaleziony."
 
 msgid "Priority"
 msgstr "Priority"
@@ -551,3 +551,101 @@ msgstr "No dependency information available"
 msgid "No changelog information available"
 msgstr "No changelog information available"
 
+msgid "Gslapt Package Manager"
+msgstr "Gslapt MenedÄ¹Åºer PakietÄ‚Å‚w"
+
+msgid "Install, remove and upgrade software packages"
+msgstr "Instalacja, usuwanie i aktualizacja pakietÄ‚Å‚w z oprogramowaniem"
+
+msgid "Base"
+msgstr "Base"
+
+msgid "Applications"
+msgstr "Applications"
+
+msgid "Development Tools"
+msgstr "Development Tools"
+
+msgid "GNU Emacs"
+msgstr "GNU Emacs"
+
+msgid "Documentation"
+msgstr "Documentation"
+
+msgid "GNOME"
+msgstr "GNOME"
+
+msgid "Linux kernel"
+msgstr "Linux kernel"
+
+msgid "KDE"
+msgstr "KDE"
+
+msgid "KDE Internationalization"
+msgstr "KDE Internationalization"
+
+msgid "Libraries"
+msgstr "Libraries"
+
+msgid "Networking"
+msgstr "Networking"
+
+msgid "teTeX"
+msgstr "teTeX"
+
+msgid "TCL"
+msgstr "TCL"
+
+msgid "X Window System"
+msgstr "X Window System"
+
+msgid "X Applications"
+msgstr "X Applications"
+
+msgid "BSD Console games"
+msgstr "BSD Console games"
+
+msgid "Patches"
+msgstr "Patches"
+
+msgid "GSB Base"
+msgstr "GSB Base"
+
+msgid "GSB Accessibility"
+msgstr "GSB Accessibility"
+
+msgid "GSB Administration"
+msgstr "GSB Administration"
+
+msgid "GSB Applications"
+msgstr "GSB Applications"
+
+msgid "GSB Compiz Fusion"
+msgstr "GSB Compiz Fusion"
+
+msgid "GSB Development"
+msgstr "GSB Development"
+
+msgid "GSB Office"
+msgstr "GSB Office"
+
+msgid "GSB Libraries"
+msgstr "GSB Libraries"
+
+msgid "GSB Mono"
+msgstr "GSB Mono"
+
+msgid "GSB Networking"
+msgstr "GSB Networking"
+
+msgid "GSB OpenOffice.org"
+msgstr "GSB OpenOffice.org"
+
+msgid "GSB Themes"
+msgstr "GSB Themes"
+
+msgid "Games"
+msgstr "Games"
+
+msgid "Localization"
+msgstr "Localization"

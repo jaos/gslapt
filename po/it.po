@@ -6,9 +6,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.5.2b\n"
+"Project-Id-Version: 0.5.3b\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
-"POT-Creation-Date: 2005-07-28 18:01+0000\n"
+"POT-Creation-Date: 2005-02-26 22:25-0500\n"
 "PO-Revision-Date: 2010-01-13 11:00+0500\n"
 "Last-Translator: Fabio Varesano <fvaresano@yahoo.it>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
@@ -171,9 +171,6 @@ msgstr "Dimensione:"
 msgid "Source"
 msgstr "Origine"
 
-msgid "Source:"
-msgstr "Origine:"
-
 msgid "Sources"
 msgstr "Origini"
 
@@ -210,9 +207,6 @@ msgstr "Aggiornamento..."
 msgid "Version"
 msgstr "Versione"
 
-msgid "Version:"
-msgstr "Versione:"
-
 msgid "Working Directory"
 msgstr "Directory di Lavoro"
 
@@ -222,9 +216,7 @@ msgstr "Si"
 msgid "_Help"
 msgstr "_Aiuto"
 
-msgid ""
-"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
-"Slackware"
+msgid "gslapt is a GTK+ frontend to slapt-get, an APT like package system for Slackware"
 msgstr "gslapt è un frontend in GTK a slapt-get, un sistema di gestione pacchetti tipo APT"
 
 msgid "total progress"
@@ -293,6 +285,9 @@ msgstr "<b>Descrizione:</b>"
 msgid "<b>Location:</b>"
 msgstr "<b>Percorso:</b>"
 
+msgid "Source:"
+msgstr "Origine:"
+
 msgid "<b>Name:</b>"
 msgstr "<b>Nome:</b>"
 
@@ -304,6 +299,9 @@ msgstr "<b>Dimensione:</b>"
 
 msgid "<b>Suggests:</b>"
 msgstr "<b>Suggerito:</b>"
+
+msgid "Version:"
+msgstr "Versione:"
 
 msgid "<b>Version:</b>"
 msgstr "<b>Versione:</b>"
@@ -515,6 +513,9 @@ msgstr "View ChangeLogs"
 msgid "ChangeLogs"
 msgstr "ChangeLogs"
 
+msgid "No changelogs found."
+msgstr "No changelogs found."
+
 msgid "Priority"
 msgstr "Priority"
 
@@ -551,3 +552,101 @@ msgstr "No dependency information available"
 msgid "No changelog information available"
 msgstr "No changelog information available"
 
+msgid "Gslapt Package Manager"
+msgstr "Gestore pacchetti Gslapt"
+
+msgid "Install, remove and upgrade software packages"
+msgstr "Installa, rimuove e aggiorna i pacchetti software"
+
+msgid "Base"
+msgstr "Base"
+
+msgid "Applications"
+msgstr "Applications"
+
+msgid "Development Tools"
+msgstr "Development Tools"
+
+msgid "GNU Emacs"
+msgstr "GNU Emacs"
+
+msgid "Documentation"
+msgstr "Documentation"
+
+msgid "GNOME"
+msgstr "GNOME"
+
+msgid "Linux kernel"
+msgstr "Linux kernel"
+
+msgid "KDE"
+msgstr "KDE"
+
+msgid "KDE Internationalization"
+msgstr "KDE Internationalization"
+
+msgid "Libraries"
+msgstr "Libraries"
+
+msgid "Networking"
+msgstr "Networking"
+
+msgid "teTeX"
+msgstr "teTeX"
+
+msgid "TCL"
+msgstr "TCL"
+
+msgid "X Window System"
+msgstr "X Window System"
+
+msgid "X Applications"
+msgstr "X Applications"
+
+msgid "BSD Console games"
+msgstr "BSD Console games"
+
+msgid "Patches"
+msgstr "Patches"
+
+msgid "GSB Base"
+msgstr "GSB Base"
+
+msgid "GSB Accessibility"
+msgstr "GSB Accessibility"
+
+msgid "GSB Administration"
+msgstr "GSB Administration"
+
+msgid "GSB Applications"
+msgstr "GSB Applications"
+
+msgid "GSB Compiz Fusion"
+msgstr "GSB Compiz Fusion"
+
+msgid "GSB Development"
+msgstr "GSB Development"
+
+msgid "GSB Office"
+msgstr "GSB Office"
+
+msgid "GSB Libraries"
+msgstr "GSB Libraries"
+
+msgid "GSB Mono"
+msgstr "GSB Mono"
+
+msgid "GSB Networking"
+msgstr "GSB Networking"
+
+msgid "GSB OpenOffice.org"
+msgstr "GSB OpenOffice.org"
+
+msgid "GSB Themes"
+msgstr "GSB Themes"
+
+msgid "Games"
+msgstr "Games"
+
+msgid "Localization"
+msgstr "Localization"
