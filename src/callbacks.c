@@ -1593,11 +1593,11 @@ static void lhandle_transaction (GtkWidget *w)
 
   gdk_threads_enter();
   lock_toolbar_buttons();
-  gdk_threads_leave();
 
   dl_only_checkbutton = GTK_CHECK_BUTTON(lookup_widget(w,"download_only_checkbutton"));
   dl_only = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(dl_only_checkbutton));
   gtk_widget_destroy(w);
+  gdk_threads_leave();
 
   /* download the pkgs */
   if ( trans->install_pkgs->pkg_count > 0 || trans->upgrade_pkgs->pkg_count > 0 ) {
@@ -2264,8 +2264,8 @@ static gboolean install_packages (void)
     if (slapt_remove_pkg(global_config,trans->remove_pkgs->pkgs[i]) == -1) {
       gdk_threads_enter();
       gslapt_clear_status(context_id);
-      gdk_threads_leave();
       gtk_widget_destroy(progress_window);
+      gdk_threads_leave();
       return FALSE;
     }
     gdk_threads_enter();
@@ -2304,8 +2304,8 @@ static gboolean install_packages (void)
       if (slapt_install_pkg(global_config,trans->queue->pkgs[i]->pkg.i) == -1) {
         gdk_threads_enter();
         gslapt_clear_status(context_id);
-        gdk_threads_leave();
         gtk_widget_destroy(progress_window);
+        gdk_threads_leave();
         return FALSE;
       }
     }else if ( trans->queue->pkgs[i]->type == UPGRADE ) {
@@ -2327,8 +2327,8 @@ static gboolean install_packages (void)
                             trans->queue->pkgs[i]->pkg.u->upgrade) == -1) {
         gdk_threads_enter();
         gslapt_clear_status(context_id);
-        gdk_threads_leave();
         gtk_widget_destroy(progress_window);
+        gdk_threads_leave();
         return FALSE;
       }
     }
