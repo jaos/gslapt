@@ -1,5 +1,6 @@
 
-0.5.3b May 24, 2010
+0.5.3b June 02, 2010
+ * fixed threading issue when destroying windows
  * translation overhaul with help from George Vlahavas
 
 0.5.3a May 08, 2010
