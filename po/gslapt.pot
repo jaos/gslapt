@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.5.3b\n"
+"Project-Id-Version: 0.5.3c\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2010-05-24 19:15+0500\n"
+"PO-Revision-Date: 2010-05-07 21:50+0500\n"
 "Last-Translator: Jason Woodward <woodwardj@jaos.org>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -214,9 +214,7 @@ msgstr ""
 msgid "_Help"
 msgstr ""
 
-msgid ""
-"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
-"Slackware"
+msgid "gslapt is a GTK+ frontend to slapt-get, an APT like package system for Slackware"
 msgstr ""
 
 msgid "total progress"
@@ -231,19 +229,24 @@ msgstr ""
 msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
 msgstr ""
 
-msgid "%d upgraded, %d newly installed, %d to remove and %d not upgraded."
+#, c-format
+msgid "%d upgraded, %d reinstalled, %d newly installed, %d to remove and %d not upgraded."
 msgstr ""
 
-msgid "Need to get %.1d%s/%.1d%s of archives.\n"
+#, c-format
+msgid "Need to get %.0f%s/%.0f%s of archives.\n"
 msgstr ""
 
-msgid "Need to get %.1d%s of archives."
+#, c-format
+msgid "Need to get %.0f%s of archives."
 msgstr ""
 
-msgid "After unpacking %.1d%s disk space will be freed."
+#, c-format
+msgid "After unpacking %.0f%s disk space will be freed."
 msgstr ""
 
-msgid "After unpacking %.1d%s of additional disk space will be used."
+#, c-format
+msgid "After unpacking %.0f%s of additional disk space will be used."
 msgstr ""
 
 msgid "Ready"
@@ -333,6 +336,7 @@ msgstr ""
 msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
 msgstr ""
 
+#, c-format
 msgid "<b>Excluding %s due to dependency failure</b>"
 msgstr ""
 
@@ -429,7 +433,7 @@ msgstr ""
 msgid "Missing dependencies may mean the software in this package will not function correctly.  Do you want to continue without the required packages?"
 msgstr ""
 
-msgid "This package source failed or is not available. Do you want to disable this source and continue anyway?"
+msgid "This package source failed or is not available.  Do you want to disable this source and continue anyway?"
 msgstr ""
 
 msgid "Retrieving ChangeLog.txt..."
@@ -468,16 +472,18 @@ msgstr ""
 msgid "Mark all obsolete packages"
 msgstr ""
 
+#, c-format
 msgid "Download rate: %.0f%s/s"
 msgstr ""
 
+#, c-format
 msgid "Failed to download %s: %s"
 msgstr ""
 
 msgid "Import"
 msgstr ""
 
-msgid "No key found."
+msgid "No key found"
 msgstr ""
 
 msgid "<b>GPG Keys</b>"
@@ -649,4 +655,10 @@ msgid "Games"
 msgstr ""
 
 msgid "Localization"
+msgstr ""
+
+msgid "Packages to be reinstalled"
+msgstr ""
+
+msgid "Source failed"
 msgstr ""

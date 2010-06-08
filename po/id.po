@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.5.3b\n"
+"Project-Id-Version: 0.5.3c\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2010-01-13 11:00+0500\n"
+"PO-Revision-Date: 2010-05-07 21:50+0500\n"
 "Last-Translator: Kemas Antonius <kyantonius@kyantonius.com>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -229,20 +229,25 @@ msgstr "Mutakhir"
 msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Tidak ditemukan paket baru</span>"
 
-msgid "%d upgraded, %d newly installed, %d to remove and %d not upgraded."
-msgstr "%d diperbaharui, %d baru diinstal, %d dihapus dan %d tidak diperbaharui."
+#, c-format
+msgid "%d upgraded, %d reinstalled, %d newly installed, %d to remove and %d not upgraded."
+msgstr "%d diperbaharui, %d reinstalled, %d baru diinstal, %d dihapus dan %d tidak diperbaharui."
 
-msgid "Need to get %.1d%s/%.1d%s of archives.\n"
-msgstr "Harus mendapatkan %.1d%s/%.1d%s dari arsip.\n"
+#, c-format
+msgid "Need to get %.0f%s/%.0f%s of archives.\n"
+msgstr "Harus mendapatkan %.0f%s/%.0f%s dari arsip.\n"
 
-msgid "Need to get %.1d%s of archives."
-msgstr "Harus mendapatkan %.1d%s dari arsip"
+#, c-format
+msgid "Need to get %.0f%s of archives."
+msgstr "Harus mendapatkan %.0f%s dari arsip"
 
-msgid "After unpacking %.1d%s disk space will be freed."
-msgstr "Setelah dibuka, %.1d%s ruang disket akan dibebaskan."
+#, c-format
+msgid "After unpacking %.0f%s disk space will be freed."
+msgstr "Setelah dibuka, %.0f%s ruang disket akan dibebaskan."
 
-msgid "After unpacking %.1d%s of additional disk space will be used."
-msgstr "Setelah dibuka, %.1d%s tambahan ruang disket akan digunakan."
+#, c-format
+msgid "After unpacking %.0f%s of additional disk space will be used."
+msgstr "Setelah dibuka, %.0f%s tambahan ruang disket akan digunakan."
 
 msgid "Ready"
 msgstr "Siap"
@@ -331,6 +336,7 @@ msgstr "pkgtools melaporkan sebuah kesalahan"
 msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Anda tidak memiliki ruang disket bebas yang cukup</span>"
 
+#, c-format
 msgid "<b>Excluding %s due to dependency failure</b>"
 msgstr "<b>Meniadakan %s karena kesalahan dependensi</b>"
 
@@ -427,8 +433,8 @@ msgstr "Diaktifkan"
 msgid "Missing dependencies may mean the software in this package will not function correctly.  Do you want to continue without the required packages?"
 msgstr "Tidak terpenuhinya dependensi dapat menyebabkan software dalam paket ini tidak akan bekerja dengan baik. Apakah anda ingin lanjut ke langkah berikutnya tanpa paket-paket yang dibutuhkan?"
 
-msgid "This package source failed or is not available. Do you want to disable this source and continue anyway?"
-msgstr "This package source failed or is not available. Do you want to disable this source and continue anyway?"
+msgid "This package source failed or is not available.  Do you want to disable this source and continue anyway?"
+msgstr "This package source failed or is not available.  Do you want to disable this source and continue anyway?"
 
 msgid "Retrieving ChangeLog.txt..."
 msgstr "Retrieving ChangeLog.txt..."
@@ -466,17 +472,19 @@ msgstr "Mark Obsolete"
 msgid "Mark all obsolete packages"
 msgstr "Mark all obsolete packages"
 
+#, c-format
 msgid "Download rate: %.0f%s/s"
 msgstr "Download rate: %.0f%s/s"
 
+#, c-format
 msgid "Failed to download %s: %s"
 msgstr "Failed to download %s: %s"
 
 msgid "Import"
 msgstr "Import"
 
-msgid "No key found."
-msgstr "No key found."
+msgid "No key found"
+msgstr "No key found"
 
 msgid "<b>GPG Keys</b>"
 msgstr "<b>GPG Keys</b>"
@@ -648,3 +656,9 @@ msgstr "Games"
 
 msgid "Localization"
 msgstr "Localization"
+
+msgid "Packages to be reinstalled"
+msgstr "Packages to be reinstalled"
+
+msgid "Source failed"
+msgstr "Source failed"

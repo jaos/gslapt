@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.5.3b\n"
+"Project-Id-Version: 0.5.3c\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2010-01-13 11:00+0500\n"
+"PO-Revision-Date: 2010-05-07 21:50+0500\n"
 "Last-Translator: Victor Keranov <victor_keranov@mail.bg>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -229,20 +229,25 @@ msgstr "Актуализация"
 msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Няма налични ъпдейти</span>"
 
-msgid "%d upgraded, %d newly installed, %d to remove and %d not upgraded."
-msgstr "%d обновени, %d инсталирани, %d за премахване и %d необновени."
+#, c-format
+msgid "%d upgraded, %d reinstalled, %d newly installed, %d to remove and %d not upgraded."
+msgstr "%d обновени, %d reinstalled, %d инсталирани, %d за премахване и %d необновени."
 
-msgid "Need to get %.1d%s/%.1d%s of archives.\n"
-msgstr "Необходимо е да се изтеглят %.1d%s/%.1d%s архиви.\n"
+#, c-format
+msgid "Need to get %.0f%s/%.0f%s of archives.\n"
+msgstr "Необходимо е да се изтеглят %.0f%s/%.0f%s архиви.\n"
 
-msgid "Need to get %.1d%s of archives."
-msgstr "Необходимо е да се изтеглят %.1d%s архиви."
+#, c-format
+msgid "Need to get %.0f%s of archives."
+msgstr "Необходимо е да се изтеглят %.0f%s архиви."
 
-msgid "After unpacking %.1d%s disk space will be freed."
-msgstr "След разархивиране %.1d%s дисково пространство ще бъде освободено."
+#, c-format
+msgid "After unpacking %.0f%s disk space will be freed."
+msgstr "След разархивиране %.0f%s дисково пространство ще бъде освободено."
 
-msgid "After unpacking %.1d%s of additional disk space will be used."
-msgstr "След разархивиране %.1d%s дисково пространство ще бъде използвано."
+#, c-format
+msgid "After unpacking %.0f%s of additional disk space will be used."
+msgstr "След разархивиране %.0f%s дисково пространство ще бъде използвано."
 
 msgid "Ready"
 msgstr "Готов"
@@ -331,6 +336,7 @@ msgstr "pkgtools съобщи за грешка"
 msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Нямате достатъчно свободно място</span>"
 
+#, c-format
 msgid "<b>Excluding %s due to dependency failure</b>"
 msgstr "<b>Изключване на %s поради грешка в зависимостите</b>"
 
@@ -427,7 +433,7 @@ msgstr "Позволено"
 msgid "Missing dependencies may mean the software in this package will not function correctly.  Do you want to continue without the required packages?"
 msgstr "Липсващи зависимости могат да означават, че дадения пакет няма да функционира правилно. Желаете ли да продължите без нужните пакети?"
 
-msgid "This package source failed or is not available. Do you want to disable this source and continue anyway?"
+msgid "This package source failed or is not available.  Do you want to disable this source and continue anyway?"
 msgstr "Това хранилище не работи или не е достъпно в момента. Желаете ли да го деактивирате и да продължите напред?"
 
 msgid "Retrieving ChangeLog.txt..."
@@ -466,17 +472,19 @@ msgstr "Mark Obsolete"
 msgid "Mark all obsolete packages"
 msgstr "Mark all obsolete packages"
 
+#, c-format
 msgid "Download rate: %.0f%s/s"
 msgstr "Download rate: %.0f%s/s"
 
+#, c-format
 msgid "Failed to download %s: %s"
 msgstr "Failed to download %s: %s"
 
 msgid "Import"
 msgstr "Import"
 
-msgid "No key found."
-msgstr "No key found."
+msgid "No key found"
+msgstr "No key found"
 
 msgid "<b>GPG Keys</b>"
 msgstr "<b>GPG Keys</b>"
@@ -648,3 +656,9 @@ msgstr "Games"
 
 msgid "Localization"
 msgstr "Localization"
+
+msgid "Packages to be reinstalled"
+msgstr "Packages to be reinstalled"
+
+msgid "Source failed"
+msgstr "Source failed"

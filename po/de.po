@@ -6,10 +6,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.5.3b\n"
+"Project-Id-Version: 0.5.3c\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2010-02-13 17:52+0100\n"
+"PO-Revision-Date: 2010-05-07 21:50+0500\n"
 "Last-Translator: Manfred Mueller <mmueller@live-modules.org>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -230,20 +230,25 @@ msgstr "Aktuell"
 msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Keine Aktualisierungen vorhanden</span>"
 
-msgid "%d upgraded, %d newly installed, %d to remove and %d not upgraded."
-msgstr "%d aktualisiert, %d neu installiert, %d zu entfernen %d nicht erneuert."
+#, c-format
+msgid "%d upgraded, %d reinstalled, %d newly installed, %d to remove and %d not upgraded."
+msgstr "%d aktualisiert, %d reinstalled, %d neu installiert, %d zu entfernen %d nicht erneuert."
 
-msgid "Need to get %.1d%s/%.1d%s of archives.\n"
-msgstr "Muss %.1d%s/%.1d%s an Archiven holen.\n"
+#, c-format
+msgid "Need to get %.0f%s/%.0f%s of archives.\n"
+msgstr "Muss %.0f%s/%.0f%s an Archiven holen.\n"
 
-msgid "Need to get %.1d%s of archives."
-msgstr "Muss %.1d%s an Archiven holen."
+#, c-format
+msgid "Need to get %.0f%s of archives."
+msgstr "Muss %.0f%s an Archiven holen."
 
-msgid "After unpacking %.1d%s disk space will be freed."
-msgstr "Nach dem Entpacken sind %.1d%s mehr Plattenplatz frei."
+#, c-format
+msgid "After unpacking %.0f%s disk space will be freed."
+msgstr "Nach dem Entpacken sind %.0f%s mehr Plattenplatz frei."
 
-msgid "After unpacking %.1d%s of additional disk space will be used."
-msgstr "Nach dem Entpacken werden %.1d%s mehr Plattenplatz benutzt."
+#, c-format
+msgid "After unpacking %.0f%s of additional disk space will be used."
+msgstr "Nach dem Entpacken werden %.0f%s mehr Plattenplatz benutzt."
 
 msgid "Ready"
 msgstr "Fertig"
@@ -332,6 +337,7 @@ msgstr "pkgtools meldete Fehler"
 msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Nicht genug Speicherplatz</span>"
 
+#, c-format
 msgid "<b>Excluding %s due to dependency failure</b>"
 msgstr "<b>Schliesse %s wegen Abhaengigkeits-Fehler aus</b>"
 
@@ -428,8 +434,8 @@ msgstr "Aktiviert"
 msgid "Missing dependencies may mean the software in this package will not function correctly.  Do you want to continue without the required packages?"
 msgstr "Fehlende Abhaengigkeiten koennen instabiles System-Verhalten bewirken. Moechten Sie ohne die erforderlichen Pakete weitermachen?"
 
-msgid "This package source failed or is not available. Do you want to disable this source and continue anyway?"
-msgstr "Diese Paket-Quelle ist defekt oder nicht verfuegbar. Moechten Sie diese Quelle daktivieren und dann weitermachen?"
+msgid "This package source failed or is not available.  Do you want to disable this source and continue anyway?"
+msgstr "Diese Paket-Quelle ist defekt oder nicht verfuegbar.  Moechten Sie diese Quelle daktivieren und dann weitermachen?"
 
 msgid "Retrieving ChangeLog.txt..."
 msgstr "Lade ChangeLog.txt..."
@@ -467,17 +473,19 @@ msgstr "Markiere veraltete Pakete"
 msgid "Mark all obsolete packages"
 msgstr "Markiere ALLE veralteten Pakete"
 
+#, c-format
 msgid "Download rate: %.0f%s/s"
 msgstr "Download-Rate: %.0f%s/S"
 
+#, c-format
 msgid "Failed to download %s: %s"
 msgstr "Download von %s: %s gescheitert"
 
 msgid "Import"
 msgstr "Import"
 
-msgid "No key found."
-msgstr "Kein Schluessel gefunden."
+msgid "No key found"
+msgstr "Kein Schluessel gefunden"
 
 msgid "<b>GPG Keys</b>"
 msgstr "<b>GPG Schluessel</b>"
@@ -649,3 +657,9 @@ msgstr "Games"
 
 msgid "Localization"
 msgstr "Localization"
+
+msgid "Packages to be reinstalled"
+msgstr "Packages to be reinstalled"
+
+msgid "Source failed"
+msgstr "Source failed"

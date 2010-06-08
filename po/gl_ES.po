@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.5.3b\n"
+"Project-Id-Version: 0.5.3c\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2010-01-13 11:00+0500\n"
+"PO-Revision-Date: 2010-05-07 21:50+0500\n"
 "Last-Translator: Manuel Barallobre (BARA) <bara666@gmail.com>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -229,20 +229,25 @@ msgstr "Actualizado"
 msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Actualizacions non dispoÃÂ±ibles</span>"
 
-msgid "%d upgraded, %d newly installed, %d to remove and %d not upgraded."
-msgstr "%d actualizados, %d instalados de novo, %d para borrar e %d sin actualizar."
+#, c-format
+msgid "%d upgraded, %d reinstalled, %d newly installed, %d to remove and %d not upgraded."
+msgstr "%d actualizados, %d reinstalled, %d instalados de novo, %d para borrar e %d sin actualizar."
 
-msgid "Need to get %.1d%s/%.1d%s of archives.\n"
-msgstr "Faltan %.1d%s/%.1d%s ficheiros.\n"
+#, c-format
+msgid "Need to get %.0f%s/%.0f%s of archives.\n"
+msgstr "Faltan %.0f%s/%.0f%s ficheiros.\n"
 
-msgid "Need to get %.1d%s of archives."
-msgstr "Faltan %.1d%s ficheiros"
+#, c-format
+msgid "Need to get %.0f%s of archives."
+msgstr "Faltan %.0f%s ficheiros"
 
-msgid "After unpacking %.1d%s disk space will be freed."
-msgstr "Despois de desmpaquetar %.1d%s de espacio do disco sera liberado"
+#, c-format
+msgid "After unpacking %.0f%s disk space will be freed."
+msgstr "Despois de desmpaquetar %.0f%s de espacio do disco sera liberado"
 
-msgid "After unpacking %.1d%s of additional disk space will be used."
-msgstr "Despois de desmpaquetar %.1d%s de espacio do disco adicional sera usado"
+#, c-format
+msgid "After unpacking %.0f%s of additional disk space will be used."
+msgstr "Despois de desmpaquetar %.0f%s de espacio do disco adicional sera usado"
 
 msgid "Ready"
 msgstr "Preparado"
@@ -331,6 +336,7 @@ msgstr "pkgtools devolveron un erro"
 msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Non ten suficiente espacio libre</span>"
 
+#, c-format
 msgid "<b>Excluding %s due to dependency failure</b>"
 msgstr "<b>Excluido %s devido a un fallo de dependencias</b>"
 
@@ -427,8 +433,8 @@ msgstr "Permitido"
 msgid "Missing dependencies may mean the software in this package will not function correctly.  Do you want to continue without the required packages?"
 msgstr "Dependencias non encontradas significa que o software do paquete non funcionara correctamente. ÃÂ¿Quere continuar sin os paquetes requeridos?"
 
-msgid "This package source failed or is not available. Do you want to disable this source and continue anyway?"
-msgstr "Esta fonte de paquetes fallou ou non esta dispoÃÂ±ible. ÃÂ¿Quere desactivala e continuar?"
+msgid "This package source failed or is not available.  Do you want to disable this source and continue anyway?"
+msgstr "Esta fonte de paquetes fallou ou non esta dispoÃÂ±ible.  ÃÂ¿Quere desactivala e continuar?"
 
 msgid "Retrieving ChangeLog.txt..."
 msgstr "Recuperando ChangeLog.txt..."
@@ -466,17 +472,19 @@ msgstr "Marcar obsoletos"
 msgid "Mark all obsolete packages"
 msgstr "Marcar todos os paquetes obsoletos"
 
+#, c-format
 msgid "Download rate: %.0f%s/s"
 msgstr "Velocidade de descarga: %.0f%s/s"
 
+#, c-format
 msgid "Failed to download %s: %s"
 msgstr "Descarga fallida %s: %s"
 
 msgid "Import"
 msgstr "Importar"
 
-msgid "No key found."
-msgstr "Clave non econtrada."
+msgid "No key found"
+msgstr "Clave non econtrada"
 
 msgid "<b>GPG Keys</b>"
 msgstr "<b>GPG Clave</b>"
@@ -648,3 +656,9 @@ msgstr "Games"
 
 msgid "Localization"
 msgstr "Localization"
+
+msgid "Packages to be reinstalled"
+msgstr "Packages to be reinstalled"
+
+msgid "Source failed"
+msgstr "Source failed"

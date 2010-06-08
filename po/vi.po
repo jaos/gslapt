@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.5.3b\n"
+"Project-Id-Version: 0.5.3c\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2010-01-13 11:00+0500\n"
+"PO-Revision-Date: 2010-05-07 21:50+0500\n"
 "Last-Translator: Nguyễn Văn Vũ <vncasper@yahoo.com>\n"
 "Language-Team: gnome-vi <gnomevi-list@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -229,20 +229,25 @@ msgstr "Cập nhật mới"
 msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Cập nhật không có sẵn</span>"
 
-msgid "%d upgraded, %d newly installed, %d to remove and %d not upgraded."
-msgstr "%d gói được nâng cấp, %d gói được cài đặt mới, %d gói bị gỡ bỏ và %d gói giữ nguyên"
+#, c-format
+msgid "%d upgraded, %d reinstalled, %d newly installed, %d to remove and %d not upgraded."
+msgstr "%d gói được nâng cấp, %d reinstalled, %d gói được cài đặt mới, %d gói bị gỡ bỏ và %d gói giữ nguyên"
 
-msgid "Need to get %.1d%s/%.1d%s of archives.\n"
-msgstr "Cần lấy %.1d%s/%.1d%s từ kho lưu trữ.\n"
+#, c-format
+msgid "Need to get %.0f%s/%.0f%s of archives.\n"
+msgstr "Cần lấy %.0f%s/%.0f%s từ kho lưu trữ.\n"
 
-msgid "Need to get %.1d%s of archives."
-msgstr "Cần lấy %.1d%s từ kho lưu trữ."
+#, c-format
+msgid "Need to get %.0f%s of archives."
+msgstr "Cần lấy %.0f%s từ kho lưu trữ."
 
-msgid "After unpacking %.1d%s disk space will be freed."
-msgstr "Sau khi giải nén %.1d%s không gian đĩa sẽ được giải phóng."
+#, c-format
+msgid "After unpacking %.0f%s disk space will be freed."
+msgstr "Sau khi giải nén %.0f%s không gian đĩa sẽ được giải phóng."
 
-msgid "After unpacking %.1d%s of additional disk space will be used."
-msgstr "Sau khi giải nén %.1d%s không gian đĩa sẽ được sử dụng"
+#, c-format
+msgid "After unpacking %.0f%s of additional disk space will be used."
+msgstr "Sau khi giải nén %.0f%s không gian đĩa sẽ được sử dụng"
 
 msgid "Ready"
 msgstr "Sẵn sàng"
@@ -331,6 +336,7 @@ msgstr "pkgtools trả về một lỗi"
 msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Bạn không có đủ không gian trống</span>"
 
+#, c-format
 msgid "<b>Excluding %s due to dependency failure</b>"
 msgstr "<b>Loại bỏ %s do lỗi phụ thuộc</b>"
 
@@ -427,8 +433,8 @@ msgstr "Enabled"
 msgid "Missing dependencies may mean the software in this package will not function correctly.  Do you want to continue without the required packages?"
 msgstr "Missing dependencies may mean the software in this package will not function correctly.  Do you want to continue without the required packages?"
 
-msgid "This package source failed or is not available. Do you want to disable this source and continue anyway?"
-msgstr "This package source failed or is not available. Do you want to disable this source and continue anyway?"
+msgid "This package source failed or is not available.  Do you want to disable this source and continue anyway?"
+msgstr "This package source failed or is not available.  Do you want to disable this source and continue anyway?"
 
 msgid "Retrieving ChangeLog.txt..."
 msgstr "Retrieving ChangeLog.txt..."
@@ -466,17 +472,19 @@ msgstr "Mark Obsolete"
 msgid "Mark all obsolete packages"
 msgstr "Mark all obsolete packages"
 
+#, c-format
 msgid "Download rate: %.0f%s/s"
 msgstr "Download rate: %.0f%s/s"
 
+#, c-format
 msgid "Failed to download %s: %s"
 msgstr "Failed to download %s: %s"
 
 msgid "Import"
 msgstr "Import"
 
-msgid "No key found."
-msgstr "No key found."
+msgid "No key found"
+msgstr "No key found"
 
 msgid "<b>GPG Keys</b>"
 msgstr "<b>GPG Keys</b>"
@@ -649,3 +657,9 @@ msgstr "Games"
 
 msgid "Localization"
 msgstr "Localization"
+
+msgid "Packages to be reinstalled"
+msgstr "Packages to be reinstalled"
+
+msgid "Source failed"
+msgstr "Source failed"
