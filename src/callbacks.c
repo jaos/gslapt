@@ -399,7 +399,12 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
             }
           }
         }else{
-          slapt_add_upgrade_to_transaction(trans,installed_pkg,pkg);
+
+          if (global_config->re_install == TRUE)
+            slapt_add_reinstall_to_transaction(trans,installed_pkg,pkg);
+          else
+            slapt_add_upgrade_to_transaction(trans,installed_pkg,pkg);
+
           if (global_config->re_install == TRUE) {
             if (ver_cmp == 0) {
               set_iter_for_reinstall(model,&actual_iter,pkg);
@@ -1900,7 +1905,7 @@ static int populate_transaction_window (GtkWidget *trans_window)
     }
   }
 
-  if ( trans->upgrade_pkgs->pkg_count > 0 ) {
+  if ( (trans->upgrade_pkgs->pkg_count - trans->upgrade_pkgs->reinstall_count) > 0 ) {
     gtk_tree_store_append (store, &iter,NULL);
     gtk_tree_store_set(store,&iter,0,_("Packages to be upgraded"),-1);
 
@@ -1910,6 +1915,37 @@ static int populate_transaction_window (GtkWidget *trans_window)
         trans->upgrade_pkgs->pkgs[i]->installed->version,
         trans->upgrade_pkgs->pkgs[i]->upgrade->version
       );
+
+      if (trans->upgrade_pkgs->pkgs[i]->reinstall == SLAPT_TRUE) {
+        g_free(detail);
+        continue;
+      }
+
+      gtk_tree_store_append (store, &child_iter, &iter);
+      gtk_tree_store_set(store, &child_iter, 0, detail, -1);
+
+      dl_size += trans->upgrade_pkgs->pkgs[i]->upgrade->size_c;
+      already_dl_size += slapt_get_pkg_file_size(global_config,trans->upgrade_pkgs->pkgs[i]->upgrade)/1024;
+      free_space += trans->upgrade_pkgs->pkgs[i]->upgrade->size_u;
+      free_space -= trans->upgrade_pkgs->pkgs[i]->installed->size_u;
+
+      g_free(detail);
+    }
+  }
+
+  if ( trans->upgrade_pkgs->reinstall_count > 0 ) {
+    gtk_tree_store_append (store, &iter,NULL);
+    gtk_tree_store_set(store,&iter,0,_("Packages to be reinstalled"),-1);
+    for (i = 0; i < trans->upgrade_pkgs->pkg_count;++i) {
+      gchar *detail = g_strdup_printf("%s %s",
+        trans->upgrade_pkgs->pkgs[i]->upgrade->name,
+        trans->upgrade_pkgs->pkgs[i]->upgrade->version
+      );
+
+      if (trans->upgrade_pkgs->pkgs[i]->reinstall == SLAPT_FALSE) {
+        g_free(detail);
+        continue;
+      }
 
       gtk_tree_store_append (store, &child_iter, &iter);
       gtk_tree_store_set(store, &child_iter, 0, detail, -1);
@@ -1949,8 +1985,9 @@ static int populate_transaction_window (GtkWidget *trans_window)
   gtk_tree_view_column_set_sort_column_id (column, 0);
   gtk_tree_view_append_column (GTK_TREE_VIEW(summary_treeview), column);
 
-  snprintf(buf,512,(gchar *)_("%d upgraded, %d newly installed, %d to remove and %d not upgraded."),
-    trans->upgrade_pkgs->pkg_count,
+  snprintf(buf,512,(gchar *)_("%d upgraded, %d reinstalled, %d newly installed, %d to remove and %d not upgraded."),
+    trans->upgrade_pkgs->pkg_count - trans->upgrade_pkgs->reinstall_count,
+    trans->upgrade_pkgs->reinstall_count,
     trans->install_pkgs->pkg_count,
     trans->remove_pkgs->pkg_count,
     trans->exclude_pkgs->pkg_count
@@ -2059,7 +2096,12 @@ static void mark_upgrade_packages (void)
             (ladd_deps_to_trans(trans,all,installed,update_pkg) == 0)
             && (conflicts->pkg_count == 0)
           ) {
-            slapt_add_upgrade_to_transaction(trans,installed->pkgs[i],update_pkg);
+
+            if (global_config->re_install == TRUE)
+              slapt_add_reinstall_to_transaction(trans,installed->pkgs[i],update_pkg);
+            else
+              slapt_add_upgrade_to_transaction(trans,installed->pkgs[i],update_pkg);
+
             if (set_iter_to_pkg(base_model,&iter,update_pkg)) {
               set_iter_for_upgrade(base_model, &iter, update_pkg);
             }
