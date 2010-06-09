@@ -875,34 +875,16 @@ static void fillin_pkg_details (slapt_pkg_info_t *pkg)
 
     if (pkg->required != NULL && strlen(pkg->required) > 2) {
       GtkTreeIter child_iter;
-      int position = 0, len = strlen(pkg->required);
+      slapt_list_t *dependencies = slapt_parse_delimited_list(pkg->required,',');
+      unsigned int i = 0;
 
-      while (position < len) {
-        char *ptr = pkg->required + position;
-        if (strstr(ptr,",") == NULL) {
-          gtk_tree_store_append(store,&child_iter,&iter);
-          gtk_tree_store_set(store,&child_iter,0,ptr,-1);
-          position += strlen(ptr);
-          break;
-        } else {
-          char *buffer = NULL,*token = NULL;
-
-          if ((pkg->required[position] == ',') || (pkg->required[position] == ' ')) {
-            ++position;
-            continue;
-          }
-
-          token = strchr(ptr,',');
-          buffer = strndup(ptr,strlen(ptr) - strlen(token));
-
-          gtk_tree_store_append(store,&child_iter,&iter);
-          gtk_tree_store_set(store,&child_iter,0,buffer,-1);
-
-          position += strlen(ptr) - strlen(token);
-          free(buffer);
-        }
-        
+      for (i = 0; i < dependencies->count; i++) {
+        char *buffer = strdup(dependencies->items[i]);
+        gtk_tree_store_append(store,&child_iter,&iter);
+        gtk_tree_store_set(store,&child_iter,0,buffer,-1);
+        free(buffer);
       }
+      slapt_free_list(dependencies);
     }
 
     gtk_tree_store_append(store, &iter,NULL);
@@ -910,33 +892,16 @@ static void fillin_pkg_details (slapt_pkg_info_t *pkg)
 
     if (pkg->conflicts != NULL && strlen(pkg->conflicts) > 2) {
       GtkTreeIter child_iter;
-      int position = 0, len = strlen(pkg->conflicts);
+      slapt_list_t *conflicts = slapt_parse_delimited_list(pkg->conflicts,',');
+      unsigned int i = 0;
 
-      while (position < len) {
-        char *ptr = pkg->conflicts + position;
-        if (strstr(ptr,",") == NULL) {
-          gtk_tree_store_append(store,&child_iter,&iter);
-          gtk_tree_store_set(store,&child_iter,0,ptr,-1);
-          position += strlen(ptr);
-          break;
-        } else {
-          char *buffer = NULL,*token = NULL;
-
-          if ((pkg->conflicts[position] == ',') || (pkg->conflicts[position] == ' ')) {
-            ++position;
-            continue;
-          }
-
-          token = strchr(ptr,',');
-          buffer = strndup(ptr,strlen(ptr) - strlen(token));
-
-          gtk_tree_store_append(store,&child_iter,&iter);
-          gtk_tree_store_set(store,&child_iter,0,buffer,-1);
-
-          position += strlen(ptr) - strlen(token);
-          free(buffer);
-        }
+      for (i = 0; i < conflicts->count; i++) {
+        char *buffer = strdup(conflicts->items[i]);
+        gtk_tree_store_append(store,&child_iter,&iter);
+        gtk_tree_store_set(store,&child_iter,0,buffer,-1);
+        free(buffer); 
       }
+      slapt_free_list(conflicts);
     }
 
     gtk_tree_store_append(store, &iter,NULL);
@@ -944,36 +909,17 @@ static void fillin_pkg_details (slapt_pkg_info_t *pkg)
 
     if (pkg->suggests != NULL && strlen(pkg->suggests) > 2) {
       GtkTreeIter child_iter;
-      int position = 0, len = strlen(pkg->suggests);
+      unsigned int i = 0;
+      slapt_list_t *suggestions = slapt_parse_delimited_list(pkg->suggests,',');
 
-      while (position < len) {
-        char *ptr = pkg->suggests + position;
-        if ((strstr(ptr,",") == NULL) && (strstr(ptr," ") == NULL)) {
-          gtk_tree_store_append(store,&child_iter,&iter);
-          gtk_tree_store_set(store,&child_iter,0,ptr,-1);
-          position += strlen(ptr);
-          break;
-        } else {
-          char *buffer = NULL,*token = NULL;
-
-          if ((pkg->suggests[position] == ',') || (pkg->suggests[position] == ' ')) {
-            ++position;
-            continue;
-          }
-
-          token = strpbrk(ptr,", ");
-          if (token == NULL)
-            break;
-
-          buffer = strndup(ptr,strlen(ptr) - strlen(token));
-
-          gtk_tree_store_append(store,&child_iter,&iter);
-          gtk_tree_store_set(store,&child_iter,0,buffer,-1);
-
-          position += strlen(ptr) - strlen(token);
-          free(buffer);
-        }
+      for (i = 0; i < suggestions->count; i++) {
+        char *buffer = strdup(suggestions->items[i]);
+        gtk_tree_store_append(store,&child_iter,&iter);
+        gtk_tree_store_set(store,&child_iter,0,buffer,-1);
+        free(buffer);
       }
+      slapt_free_list(suggestions);
+
     }
 
   } else { /* installed */
@@ -1795,11 +1741,11 @@ static void build_exclude_treeviewlist(GtkWidget *treeview)
 
   for (i = 0; i < global_config->exclude_list->count; i++ ) {
 
-    if ( global_config->exclude_list->excludes[i] == NULL )
+    if ( global_config->exclude_list->items[i] == NULL )
       continue;
 
     gtk_list_store_append (store, &iter);
-    gtk_list_store_set(store,&iter,0,global_config->exclude_list->excludes[i],-1);
+    gtk_list_store_set(store,&iter,0,global_config->exclude_list->items[i],-1);
   }
 
   /* column for url */
@@ -2466,10 +2412,10 @@ void preferences_on_ok_clicked (GtkWidget *w, gpointer user_data)
     strlen(working_dir)
   ] = '\0';
 
-  slapt_free_exclude_list(global_config->exclude_list);
+  slapt_free_list(global_config->exclude_list);
   slapt_free_source_list(global_config->sources);
 
-  global_config->exclude_list = slapt_init_exclude_list();
+  global_config->exclude_list = slapt_init_list();
   global_config->sources      = slapt_init_source_list();
 
   tree  = GTK_TREE_VIEW(lookup_widget(w,"preferences_sources_treeview"));
@@ -2509,7 +2455,7 @@ void preferences_on_ok_clicked (GtkWidget *w, gpointer user_data)
     gchar *exclude = NULL;
     gtk_tree_model_get(model, &iter, 0, &exclude, -1);
 
-    slapt_add_exclude(global_config->exclude_list, exclude);
+    slapt_add_list_item(global_config->exclude_list, exclude);
     g_free(exclude);
 
     valid = gtk_tree_model_iter_next(model, &iter);
