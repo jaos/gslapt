@@ -477,7 +477,7 @@ void add_pkg_for_removal (GtkWidget *gslapt, gpointer user_data)
       gtk_tree_model_filter_convert_iter_to_child_iter(GTK_TREE_MODEL_FILTER(filter_model),&actual_iter,&filter_iter);
       model = GTK_TREE_MODEL(gtk_tree_model_filter_get_model(GTK_TREE_MODEL_FILTER(filter_model)));
 
-      deps = slapt_is_required_by(global_config, all, pkg);
+      deps = slapt_is_required_by(global_config, all, installed, trans->install_pkgs, trans->remove_pkgs, pkg);
 
       slapt_add_remove_to_transaction(trans,pkg);
       set_iter_for_remove(model, &actual_iter, pkg);
