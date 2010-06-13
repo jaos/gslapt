@@ -704,9 +704,9 @@ void build_searched_treeviewlist (GtkWidget *treeview, gchar *pattern)
 
   if (pattern == NULL || (strcmp(pattern,"") == 0)) {
     reset_search_list();
+  } else {
+    series_regex = slapt_init_regex(pattern);
   }
-
-  series_regex = slapt_init_regex(pattern);
 
   package_model = GTK_TREE_MODEL_SORT(gtk_tree_view_get_model(GTK_TREE_VIEW(treeview)));
 
@@ -772,7 +772,9 @@ void build_searched_treeviewlist (GtkWidget *treeview, gchar *pattern)
     valid = gtk_tree_model_iter_next(base_model,&iter);
   }
 
-  slapt_free_regex(series_regex);
+  if (series_regex != NULL)
+    slapt_free_regex(series_regex);
+
   slapt_free_pkg_list(a_matches);
   slapt_free_pkg_list(i_matches);
 }
