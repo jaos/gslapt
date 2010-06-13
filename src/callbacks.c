@@ -546,7 +546,7 @@ void build_package_treeviewlist (GtkWidget *treeview)
     installed_pkg = slapt_get_newest_pkg(installed,all->pkgs[i]->name);
     if (installed_pkg != NULL) {
       int cmp = slapt_cmp_pkgs(all->pkgs[i], installed_pkg);
-      if (cmp == 0) {
+      if (strcmp(all->pkgs[i]->version,installed_pkg->version) == 0) {
         is_inst = TRUE;
       } else if (cmp > 0) {
         is_an_upgrade = TRUE;
