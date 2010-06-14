@@ -1,4 +1,3 @@
-# gslapt german translation
 # Copyright (C) 2005 Sebastian Jauch, Manfred Mueller
 # This file is distributed under the same license as the gslapt package.
 # Sebastian Jauch <stellarboy653-minislack@yahoo.de>, 2005
@@ -9,7 +8,7 @@ msgstr ""
 "Project-Id-Version: 0.5.3c\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2010-05-07 21:50+0500\n"
+"PO-Revision-Date: 2010-06-14 19:01+0100\n"
 "Last-Translator: Manfred Mueller <mmueller@live-modules.org>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
@@ -254,10 +253,10 @@ msgid "Ready"
 msgstr "Fertig"
 
 msgid "Re-Install"
-msgstr "Re-Install"
+msgstr "Erneut installieren"
 
 msgid "Downgrade"
-msgstr "Downgrade"
+msgstr "Herabsetzen"
 
 msgid "_File"
 msgstr "_Datei"
@@ -617,49 +616,50 @@ msgid "Patches"
 msgstr "Patche"
 
 msgid "GSB Base"
-msgstr "GSB Base"
+msgstr "GSB Basis"
 
 msgid "GSB Accessibility"
-msgstr "GSB Accessibility"
+msgstr "GSB Zugangs-Hilfen"
 
 msgid "GSB Administration"
 msgstr "GSB Administration"
 
 msgid "GSB Applications"
-msgstr "GSB Applications"
+msgstr "GSB Anwendungen"
 
 msgid "GSB Compiz Fusion"
 msgstr "GSB Compiz Fusion"
 
 msgid "GSB Development"
-msgstr "GSB Development"
+msgstr "GSB Entwicklung"
 
 msgid "GSB Office"
-msgstr "GSB Office"
+msgstr "GSB Büro-Anwendungen"
 
 msgid "GSB Libraries"
-msgstr "GSB Libraries"
+msgstr "GSB Bibliotheken"
 
 msgid "GSB Mono"
 msgstr "GSB Mono"
 
 msgid "GSB Networking"
-msgstr "GSB Networking"
+msgstr "GSB Netzwerk"
 
 msgid "GSB OpenOffice.org"
 msgstr "GSB OpenOffice.org"
 
 msgid "GSB Themes"
-msgstr "GSB Themes"
+msgstr "GSB Themen"
 
 msgid "Games"
-msgstr "Games"
+msgstr "Spiele"
 
 msgid "Localization"
-msgstr "Localization"
+msgstr "Localisierung"
 
 msgid "Packages to be reinstalled"
-msgstr "Packages to be reinstalled"
+msgstr "Erneut zu installierende Packages"
 
 msgid "Source failed"
-msgstr "Source failed"
+msgstr "Zugriff auf Quelle(n) fehlgeschlagen"
+
