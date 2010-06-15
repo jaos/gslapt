@@ -2,7 +2,7 @@
 # Copyright (C) 2005 Frederico Henrique Gonçalves Lima
 # This file is distributed under the same license as the gslapt package.
 # FIRST AUTHOR Frederico Henrique Gonçalves Lima <fredhgl@yahoo.com.br>, 2005, 2006
-# Sérgio Surkamp <surkamp@gmail.com>, 2008
+# Sérgio Surkamp <surkamp@gmail.com>, 2008, 2010
 #
 msgid ""
 msgstr ""
@@ -35,7 +35,7 @@ msgid "<span weight=\"bold\">SOURCE=</span>"
 msgstr "<span weight=\"bold\">ORIGEM=</span>"
 
 msgid "About gslapt"
-msgstr "Sobre gslapt"
+msgstr "Sobre o gslapt"
 
 msgid "About"
 msgstr "Sobre"
@@ -232,15 +232,15 @@ msgstr "<span weight=\"bold\" size=\"large\">Nenhuma atualização disponível</
 
 #, c-format
 msgid "%d upgraded, %d reinstalled, %d newly installed, %d to remove and %d not upgraded."
-msgstr "%d atualizados, %d reinstalled, %d novos instalados, %d para ser removidos e %d não atualizados."
+msgstr "%d atualizados, %d reinstalados, %d novos instalados, %d para ser removidos e %d não atualizados."
 
 #, c-format
 msgid "Need to get %.0f%s/%.0f%s of archives.\n"
-msgstr "Necessário baixar %.0f%s/%.0f%s de arquivos.\n"
+msgstr "Necessário descarregar %.0f%s/%.0f%s de arquivos.\n"
 
 #, c-format
 msgid "Need to get %.0f%s of archives."
-msgstr "Necessário baixar %.0f%s de arquivos."
+msgstr "Necessário descarregar %.0f%s de arquivos."
 
 #, c-format
 msgid "After unpacking %.0f%s disk space will be freed."
@@ -257,7 +257,7 @@ msgid "Re-Install"
 msgstr "Re-Instalar"
 
 msgid "Downgrade"
-msgstr "Desatualizar"
+msgstr "Reverter"
 
 msgid "_File"
 msgstr "_Arquivo"
@@ -314,7 +314,7 @@ msgid "<b>Version</b>"
 msgstr "<b>Versão</b>"
 
 msgid "<b>Source:</b>"
-msgstr "<b>Source:</b>"
+msgstr "<b>Origem:</b>"
 
 msgid "Common"
 msgstr "Geral"
@@ -369,13 +369,13 @@ msgid "To be Removed"
 msgstr "A ser Removido"
 
 msgid "To be Downgraded"
-msgstr "A ser Desatualizado"
+msgstr "A ser Revertido"
 
 msgid "Icon Legend"
 msgstr "Legenda de ícones"
 
 msgid "Completed actions"
-msgstr "Ações completadas"
+msgstr "Ações concluídas"
 
 msgid "Successfully executed all actions."
 msgstr "Todas as ações executadas com sucesso."
@@ -520,9 +520,8 @@ msgstr "Visualizar ChangeLogs"
 msgid "ChangeLogs"
 msgstr "ChangeLogs"
 
-#, fuzzy
 msgid "No changelogs found."
-msgstr "Chave não encontrada."
+msgstr "ChangeLogs não encontrados."
 
 msgid "Priority"
 msgstr "Prioridade"
@@ -549,16 +548,16 @@ msgid "Custom"
 msgstr "Personalizado"
 
 msgid "Files"
-msgstr "Files"
+msgstr "Arquivos"
 
 msgid "The list of installed files is only available for installed packages"
-msgstr "The list of installed files is only available for installed packages"
+msgstr "A lista de arquivos instalados apenas está disponível para pacotes instalados"
 
 msgid "No dependency information available"
-msgstr "No dependency information available"
+msgstr "Informações sobre dependência indisponíveis"
 
 msgid "No changelog information available"
-msgstr "No changelog information available"
+msgstr "Informações sobre changelog indisponíveis"
 
 msgid "Gslapt Package Manager"
 msgstr "Gerenciador de Pacotes Gslapt"
@@ -570,34 +569,34 @@ msgid "Base"
 msgstr "Base"
 
 msgid "Applications"
-msgstr "Applications"
+msgstr "Aplicativos"
 
 msgid "Development Tools"
-msgstr "Development Tools"
+msgstr "Ferramentas de Desenvolvimento"
 
 msgid "GNU Emacs"
 msgstr "GNU Emacs"
 
 msgid "Documentation"
-msgstr "Documentation"
+msgstr "Documentação"
 
 msgid "GNOME"
 msgstr "GNOME"
 
 msgid "Linux kernel"
-msgstr "Linux kernel"
+msgstr "Núcleo Linux"
 
 msgid "KDE"
 msgstr "KDE"
 
 msgid "KDE Internationalization"
-msgstr "KDE Internationalization"
+msgstr "Internacionalização do KDE"
 
 msgid "Libraries"
-msgstr "Libraries"
+msgstr "Bibliotecas"
 
 msgid "Networking"
-msgstr "Networking"
+msgstr "Rede"
 
 msgid "teTeX"
 msgstr "teTeX"
@@ -606,61 +605,61 @@ msgid "TCL"
 msgstr "TCL"
 
 msgid "X Window System"
-msgstr "X Window System"
+msgstr "Sistema X Window"
 
 msgid "X Applications"
-msgstr "X Applications"
+msgstr "Aplicativos para o X"
 
 msgid "BSD Console games"
-msgstr "BSD Console games"
+msgstr "Jogos para Console BSD"
 
 msgid "Patches"
-msgstr "Patches"
+msgstr "Correções"
 
 msgid "GSB Base"
 msgstr "GSB Base"
 
 msgid "GSB Accessibility"
-msgstr "GSB Accessibility"
+msgstr "GSB Acessibilidade"
 
 msgid "GSB Administration"
-msgstr "GSB Administration"
+msgstr "GSB Administração"
 
 msgid "GSB Applications"
-msgstr "GSB Applications"
+msgstr "GSB Aplicativos"
 
 msgid "GSB Compiz Fusion"
 msgstr "GSB Compiz Fusion"
 
 msgid "GSB Development"
-msgstr "GSB Development"
+msgstr "GSB Desenvolvimento"
 
 msgid "GSB Office"
-msgstr "GSB Office"
+msgstr "GSB Escritório"
 
 msgid "GSB Libraries"
-msgstr "GSB Libraries"
+msgstr "GSB Bibliotecas"
 
 msgid "GSB Mono"
 msgstr "GSB Mono"
 
 msgid "GSB Networking"
-msgstr "GSB Networking"
+msgstr "GSB Rede"
 
 msgid "GSB OpenOffice.org"
 msgstr "GSB OpenOffice.org"
 
 msgid "GSB Themes"
-msgstr "GSB Themes"
+msgstr "GSB Temas"
 
 msgid "Games"
-msgstr "Games"
+msgstr "Jogos"
 
 msgid "Localization"
-msgstr "Localization"
+msgstr "Localização"
 
 msgid "Packages to be reinstalled"
-msgstr "Packages to be reinstalled"
+msgstr "Pacotes a serem reinstalados"
 
 msgid "Source failed"
-msgstr "Source failed"
+msgstr "Origem falhou"
