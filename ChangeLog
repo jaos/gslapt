@@ -1,5 +1,6 @@
 
-0.5.3c June 14, 2010
+0.5.3c June 15, 2010
+ * updated el translation from George Vlahavas
  * updated de translation from Manfred Mueller
  * account for updated slapt_is_required_by
  * updated for slapt_list_t api update

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 0.5.3c\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2010-05-07 21:50+0500\n"
+"PO-Revision-Date: 2010-06-15 10:58+0200\n"
 "Last-Translator: George Vlahavas <vlahavas~at~gmail~dot~com>\n"
 "Language-Team: Greek\n"
 "MIME-Version: 1.0\n"
@@ -230,7 +230,7 @@ msgstr "<span weight=\"bold\" size=\"large\">Δεν βρέθηκαν ανανε�
 
 #, c-format
 msgid "%d upgraded, %d reinstalled, %d newly installed, %d to remove and %d not upgraded."
-msgstr "%d προς αναβάθμιση, %d reinstalled, %d προς εγκατάσταση, %d προς απεγκατάσταση και %d δεν θα αναβαθμιστούν."
+msgstr "%d προς αναβάθμιση, %d προς επανεγκατάσταση, %d προς εγκατάσταση, %d προς απεγκατάσταση και %d δεν θα αναβαθμιστούν."
 
 #, c-format
 msgid "Need to get %.0f%s/%.0f%s of archives.\n"
@@ -367,7 +367,7 @@ msgid "To be Removed"
 msgstr "Προς απεγκατάσταση"
 
 msgid "To be Downgraded"
-msgstr "Προς εγκατάστασης προηγούμενης έκδοσης"
+msgstr "Προς εγκατάσταση προηγούμενης έκδοσης"
 
 msgid "Icon Legend"
 msgstr "Λεζάντα εικονιδίων"
@@ -657,7 +657,8 @@ msgid "Localization"
 msgstr "Διεθνοποίηση"
 
 msgid "Packages to be reinstalled"
-msgstr "Packages to be reinstalled"
+msgstr "Πακέτα προς επανεγκατάσταση"
 
 msgid "Source failed"
-msgstr "Source failed"
+msgstr "Η πηγή απέτυχε"
+
