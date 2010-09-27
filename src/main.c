@@ -28,8 +28,8 @@
 #include "series.h"
 
 slapt_rc_config *global_config; /* our config struct */
-struct slapt_pkg_list *installed;
-struct slapt_pkg_list *all;
+slapt_pkg_list_t *installed;
+slapt_pkg_list_t *all;
 GtkWidget *gslapt;
 slapt_transaction_t *trans = NULL;
 char rc_location[1024];
@@ -220,7 +220,7 @@ int main (int argc, char *argv[]) {
           }
         } else {
           if (slapt_add_deps_to_trans(global_config,trans,all,installed,p) == 0) {
-            struct slapt_pkg_list *conflicts;
+            slapt_pkg_list_t *conflicts;
             slapt_add_install_to_transaction(trans,p);
             if ( conflicts->pkg_count > 0) {
               unsigned int cindex = 0;

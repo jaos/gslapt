@@ -34,8 +34,8 @@ extern GtkWidget *gslapt;
 extern GslaptSettings *gslapt_settings;
 extern GHashTable *gslapt_series_map;
 extern slapt_rc_config *global_config;
-extern struct slapt_pkg_list *all;
-extern struct slapt_pkg_list *installed;
+extern slapt_pkg_list_t *all;
+extern slapt_pkg_list_t *installed;
 extern slapt_transaction_t *trans;
 extern char rc_location[];
 
@@ -74,8 +74,8 @@ static void set_execute_active (void);
 static void clear_execute_active (void);
 static void notify (const char *title,const char *message);
 static void reset_search_list (void);
-static int ladd_deps_to_trans (slapt_transaction_t *tran, struct slapt_pkg_list *avail_pkgs,
-                               struct slapt_pkg_list *installed_pkgs, slapt_pkg_info_t *pkg);
+static int ladd_deps_to_trans (slapt_transaction_t *tran, slapt_pkg_list_t *avail_pkgs,
+                               slapt_pkg_list_t *installed_pkgs, slapt_pkg_info_t *pkg);
 static gboolean toggle_source_status (GtkTreeView *treeview, gpointer data);
 static void display_dep_error_dialog (slapt_pkg_info_t *pkg,guint m, guint c);
 static void exclude_dep_error_callback (GtkObject *object, gpointer user_data);
@@ -350,7 +350,7 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
           conflict_count = trans->conflict_err->err_count;
 
     if ( ladd_deps_to_trans(trans,all,installed,pkg) == 0 ) {
-      struct slapt_pkg_list *conflicts = slapt_is_conflicted(trans,all,installed,pkg);
+      slapt_pkg_list_t *conflicts = slapt_is_conflicted(trans,all,installed,pkg);
 
       slapt_add_install_to_transaction(trans,pkg);
       set_iter_for_install(model, &actual_iter, pkg);
@@ -385,7 +385,7 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
           conflict_count = trans->conflict_err->err_count;
 
       if ( ladd_deps_to_trans(trans,all,installed,pkg) == 0 ) {
-        struct slapt_pkg_list *conflicts = slapt_is_conflicted(trans,all,installed,pkg);
+        slapt_pkg_list_t *conflicts = slapt_is_conflicted(trans,all,installed,pkg);
 
         if (conflicts->pkg_count > 0) {
           unsigned int cindex = 0;
@@ -465,7 +465,7 @@ void add_pkg_for_removal (GtkWidget *gslapt, gpointer user_data)
 
     if ( (pkg = slapt_get_exact_pkg(installed,pkg_name,pkg_version)) != NULL ) {
       guint c;
-      struct slapt_pkg_list *deps;
+      slapt_pkg_list_t *deps;
       GtkTreeModel *model;
       GtkTreeIter filter_iter,actual_iter;
       GtkTreeModelFilter *filter_model;
@@ -695,7 +695,7 @@ void build_searched_treeviewlist (GtkWidget *treeview, gchar *pattern)
   GtkTreeIter iter;
   GtkTreeModelFilter *filter_model;
   GtkTreeModel *base_model;
-  struct slapt_pkg_list *a_matches = NULL,*i_matches = NULL;
+  slapt_pkg_list_t *a_matches = NULL,*i_matches = NULL;
   GtkTreeModelSort *package_model;
   gboolean view_list_all = FALSE, view_list_installed = FALSE,
            view_list_available = FALSE, view_list_marked = FALSE,
@@ -1055,7 +1055,7 @@ static void get_package_data (void)
   ssize_t bytes_read;
   size_t getline_len = 0;
   FILE *pkg_list_fh;
-  struct slapt_pkg_list *new_pkgs = slapt_init_pkg_list();
+  slapt_pkg_list_t *new_pkgs = slapt_init_pkg_list();
   new_pkgs->free_pkgs = TRUE;
 
   progress_window = create_dl_progress_window();
@@ -1091,8 +1091,8 @@ static void get_package_data (void)
 
   /* go through each package source and download the meta data */
   for (i = 0; i < global_config->sources->count; i++) {
-    struct slapt_pkg_list *available_pkgs = NULL;
-    struct slapt_pkg_list *patch_pkgs = NULL;
+    slapt_pkg_list_t *available_pkgs = NULL;
+    slapt_pkg_list_t *patch_pkgs = NULL;
     FILE *tmp_checksum_f = NULL;
     #ifdef SLAPT_HAS_GPGME
     FILE *tmp_signature_f = NULL;
@@ -1459,7 +1459,7 @@ static void rebuild_treeviews (GtkWidget *current_window,gboolean reload)
   set_busy_cursor();
 
   if (reload == TRUE) {
-    struct slapt_pkg_list *all_ptr,*installed_ptr;
+    slapt_pkg_list_t *all_ptr,*installed_ptr;
 
     installed_ptr = installed;
     all_ptr = all;
@@ -1542,7 +1542,7 @@ static void lhandle_transaction (GtkWidget *w)
 {
   GtkCheckButton *dl_only_checkbutton;
   gboolean dl_only = FALSE;
-  struct slapt_pkg_list *installed_ptr;
+  slapt_pkg_list_t *installed_ptr;
 
   gdk_threads_enter();
   lock_toolbar_buttons();
@@ -2037,7 +2037,7 @@ static void mark_upgrade_packages (void)
         ) {
           slapt_add_exclude_to_transaction(trans,update_pkg);
         }else{
-          struct slapt_pkg_list *conflicts = slapt_is_conflicted(trans,all,installed,update_pkg);
+          slapt_pkg_list_t *conflicts = slapt_is_conflicted(trans,all,installed,update_pkg);
 
           /* if all deps are added and there is no conflicts, add on */
           if (
@@ -2741,12 +2741,12 @@ void unmark_package(GtkWidget *gslapt, gpointer user_data)
 
 /* parse the dependencies for a package, and add them to the transaction as */
 /* needed check to see if a package is conflicted */
-static int ladd_deps_to_trans (slapt_transaction_t *tran, struct slapt_pkg_list *avail_pkgs,
-                               struct slapt_pkg_list *installed_pkgs, slapt_pkg_info_t *pkg)
+static int ladd_deps_to_trans (slapt_transaction_t *tran, slapt_pkg_list_t *avail_pkgs,
+                               slapt_pkg_list_t *installed_pkgs, slapt_pkg_info_t *pkg)
 {
   unsigned int c;
   int dep_return = -1;
-  struct slapt_pkg_list *deps = NULL;
+  slapt_pkg_list_t *deps = NULL;
   GtkTreeIter iter;
   GtkTreeModelFilter *filter_model;
   GtkTreeModel *base_model;
@@ -2785,7 +2785,7 @@ static int ladd_deps_to_trans (slapt_transaction_t *tran, struct slapt_pkg_list 
   /* loop through the deps */
   for (c = 0; c < deps->pkg_count;c++) {
     slapt_pkg_info_t *dep_installed;
-    struct slapt_pkg_list *conflicts = slapt_is_conflicted(tran,avail_pkgs,
+    slapt_pkg_list_t *conflicts = slapt_is_conflicted(tran,avail_pkgs,
                                         installed_pkgs,deps->pkgs[c]);
 
     /*
@@ -3222,13 +3222,13 @@ void execute_activate (GtkMenuItem *menuitem, gpointer user_data)
   return execute_callback(NULL,NULL);
 }
 
-struct slapt_source_list *parse_disabled_package_sources (const char *file_name)
+slapt_source_list_t *parse_disabled_package_sources (const char *file_name)
 {
   FILE *rc = NULL;
   char *getline_buffer = NULL;
   size_t gb_length = 0;
   ssize_t g_size;
-  struct slapt_source_list *list = slapt_init_source_list();
+  slapt_source_list_t *list = slapt_init_source_list();
 
   rc = slapt_open_file(file_name,"r");
   if (rc == NULL)
@@ -3620,7 +3620,7 @@ void mark_obsolete_packages (GtkMenuItem *menuitem, gpointer user_data)
 
   set_busy_cursor();
 
-  struct slapt_pkg_list *obsolete = slapt_get_obsolete_pkgs(
+  slapt_pkg_list_t *obsolete = slapt_get_obsolete_pkgs(
     global_config, all, installed);
   guint i;
 
