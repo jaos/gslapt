@@ -1,583 +1,585 @@
 # hungarian translation for gslapt
-# Copyright (C) 2005-2010 Jason Woodward
+# Copyright (C) 2010 Peter Polonkai
 # This file is distributed under the same license as the gslapt package.
-# FIRST AUTHOR Jason Woodward <woodwardj@jaos.org>, 2010
+# FIRST AUTHOR Peter Polonkai <polesz at nedudu dot hu>
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.5.3c\n"
+"Project-Id-Version: 0.5.3d\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2010-05-07 21:50+0500\n"
-"Last-Translator: Jason Woodward <woodwardj@jaos.org>\n"
-"Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
+"PO-Revision-Date: 2010-11-09 20:47+0100\n"
+"Last-Translator: Peter Polonkai <polesz@nedudu.hu>\n"
+"Language-Team: Nedudu Team <polesz@nedudu.hu>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Hungarian\n"
+"X-Poedit-Country: HUNGARY\n"
 
 msgid "<b>Exclude List</b>"
-msgstr "<b>Exclude List</b>"
+msgstr "<b>KizÃ¡rÃ¡s lista</b>"
 
 msgid "<b>Package Sources</b>"
-msgstr "<b>Package Sources</b>"
+msgstr "<b>Csomag forrÃ¡sok</b>"
 
 msgid "<b>Package and data storage</b>"
-msgstr "<b>Package and data storage</b>"
+msgstr "<b>Csomag Ã©s adat tÃ¡rolÃ³</b>"
 
 msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Alkalmazza a vÃ¡ltozÃ¡sokat?</span>"
 
 msgid "<span weight=\"bold\">Exclude Expression:</span>"
-msgstr "<span weight=\"bold\">Exclude Expression:</span>"
+msgstr "<span weight=\"bold\">KizÃ¡rÃ¡si kifejezÃ©s:</span>"
 
 msgid "<span weight=\"bold\">SOURCE=</span>"
-msgstr "<span weight=\"bold\">SOURCE=</span>"
+msgstr "<span weight=\"bold\">FORRÃS=</span>"
 
 msgid "About gslapt"
-msgstr "About gslapt"
+msgstr "Gslapt nÃ©vjegye"
 
 msgid "About"
-msgstr "About"
+msgstr "NÃ©vjegy"
 
 msgid "Checking for new package data..."
-msgstr "Checking for new package data..."
+msgstr "Ãj csomag adatok ellenÅrzÃ©se..."
 
 msgid "Clear search expression"
-msgstr "Clear search expression"
+msgstr "KeresÅ kifejezÃ©s tÃ¶rlÃ©se"
 
 msgid "Clear"
-msgstr "Clear"
+msgstr "TÃ¶rlÃ©s"
 
 msgid "Conflicts"
-msgstr "Conflicts"
+msgstr "ÃtkÃ¶zÃ©sek"
 
 #, c-format
 msgid "Couldn't find pixmap file: %s"
-msgstr "Couldn't find pixmap file: %s"
+msgstr "Nem talÃ¡lhatÃ³ a  pixmap fÃ¡jl: %s"
 
 msgid "Description"
-msgstr "Description"
+msgstr "LeÃ­rÃ¡s"
 
 msgid "Download packages only"
-msgstr "Download packages only"
+msgstr "Csak a csomagok letÃ¶ltÃ©se"
 
 msgid "Downloading packages..."
-msgstr "Downloading packages..."
+msgstr "Csomagok letÃ¶ltÃ©se..."
 
 msgid "Downloading..."
-msgstr "Downloading..."
+msgstr "LetÃ¶ltÃ©s..."
 
 msgid "Exclude package"
-msgstr "Exclude package"
+msgstr "KizÃ¡rt csomagok"
 
 msgid "Exclude"
-msgstr "Exclude"
+msgstr "KizÃ¡rÃ¡s"
 
 msgid "Excludes"
-msgstr "Excludes"
+msgstr "KizÃ¡rÃ¡sok"
 
 msgid "Execute all scheduled actions in current transaction"
-msgstr "Execute all scheduled actions in current transaction"
+msgstr "Minden kijelÃ¶lt vÃ¡ltoztatÃ¡s vÃ©grehajtÃ¡sa az aktuÃ¡lis mÅ±veletben"
 
 msgid "Execute"
-msgstr "Execute"
+msgstr "Alkalmaz"
 
 msgid "Expression"
-msgstr "Expression"
+msgstr "KifejezÃ©s"
 
 msgid "Gslapt"
 msgstr "Gslapt"
 
 msgid "Install"
-msgstr "Install"
+msgstr "TelepÃ­tÃ©s"
 
 msgid "Install/Upgrade package"
-msgstr "Install/Upgrade package"
+msgstr "Csomag telepÃ­tÃ©s/frissÃ­tÃ©s"
 
 msgid "Installed Size:"
-msgstr "Installed Size:"
+msgstr "TelepÃ­tett mÃ©ret:"
 
 msgid "Installed Size"
-msgstr "Installed Size"
+msgstr "TelepÃ­tett mÃ©ret"
 
 msgid "Installed"
-msgstr "Installed"
+msgstr "TelepÃ­tett"
 
 msgid "Installing packages..."
-msgstr "Installing packages..."
+msgstr "Csomagok telepÃ­tÃ©se..."
 
 msgid "Installing..."
-msgstr "Installing..."
+msgstr "TelepÃ­tÃ©s..."
 
 msgid "Location"
-msgstr "Location"
+msgstr "Hely"
 
 msgid "Name"
-msgstr "Name"
+msgstr "NÃ©v"
 
 msgid "No"
-msgstr "No"
+msgstr "Nem"
 
 msgid "Package Action"
-msgstr "Package Action"
+msgstr "Csomag mÅ±velet"
 
 msgid "Package Information"
-msgstr "Package Information"
+msgstr "Csomag informÃ¡ciÃ³"
 
 msgid "Package"
-msgstr "Package"
+msgstr "Csomag"
 
 msgid "Packages excluded"
-msgstr "Packages excluded"
+msgstr "KizÃ¡rt csomagok"
 
 msgid "Packages to be installed"
-msgstr "Packages to be installed"
+msgstr "TelepÃ­tendÅ csomagok"
 
 msgid "Packages to be removed"
-msgstr "Packages to be removed"
+msgstr "EltÃ¡volÃ­tandÃ³ csomagok"
 
 msgid "Packages to be upgraded"
-msgstr "Packages to be upgraded"
+msgstr "FrissÃ­tendÅ csomagok"
 
 msgid "Preferences"
-msgstr "Preferences"
+msgstr "BeÃ¡llÃ­tÃ¡sok"
 
 msgid "Progress"
-msgstr "Progress"
+msgstr "Folyamat"
 
 msgid "Quit"
-msgstr "Quit"
+msgstr "KilÃ©pÃ©s"
 
 msgid "Remove package"
-msgstr "Remove package"
+msgstr "Csomagok tÃ¶rlÃ©se"
 
 msgid "Remove"
-msgstr "Remove"
+msgstr "TÃ¶rlÃ©s"
 
 msgid "Removing packages..."
-msgstr "Removing packages..."
+msgstr "Csomagok tÃ¶rlÃ©se..."
 
 msgid "Required"
-msgstr "Required"
+msgstr "SzÃ¼ksÃ©ges"
 
 msgid "Search"
-msgstr "Search"
+msgstr "KeresÃ©s"
 
 msgid "Size:"
-msgstr "Size:"
+msgstr "MÃ©ret:"
 
 msgid "Source"
-msgstr "Source"
+msgstr "ForrÃ¡s"
 
 msgid "Sources"
-msgstr "Sources"
+msgstr "ForrÃ¡sok"
 
 msgid "Suggests"
-msgstr "Suggests"
+msgstr "Javaslatok"
 
 msgid "Summary"
-msgstr "Summary"
+msgstr "ÃsszegzÃ©s"
 
 msgid "This is a summary of the changes about to be performed."
-msgstr "This is a summary of the changes about to be performed."
+msgstr "Ez egy Ã¶sszefoglalÃ³ a vÃ¡ltozÃ¡sokrÃ³l amiket el kell vÃ©gezni."
 
 msgid "Uninstalling..."
-msgstr "Uninstalling..."
+msgstr "EltÃ¡volÃ­tÃ¡s..."
 
 msgid "Up_grade"
-msgstr "Up_grade"
+msgstr "F_rissÃ­tÃ©s"
 
 msgid "Update local package cache"
-msgstr "Update local package cache"
+msgstr "Helyi csomagtÃ¡rolÃ³ informÃ¡ciÃ³k frissÃ­tÃ©se"
 
 msgid "Update"
-msgstr "Update"
+msgstr "FrissÃ­tÃ©s"
 
 msgid "Upgrade"
-msgstr "Upgrade"
+msgstr "FrissÃ­tÃ©s"
 
 msgid "Upgrading packages..."
-msgstr "Upgrading packages..."
+msgstr "Csomagok frissÃ­tÃ©se..."
 
 msgid "Upgrading..."
-msgstr "Upgrading..."
+msgstr "FrissÃ­tÃ©s..."
 
 msgid "Version"
-msgstr "Version"
+msgstr "VerziÃ³"
 
 msgid "Working Directory"
-msgstr "Working Directory"
+msgstr "MunkakÃ¶nyvtÃ¡r"
 
 msgid "Yes"
-msgstr "Yes"
+msgstr "Igen"
 
 msgid "_Help"
-msgstr "_Help"
+msgstr "_SÃºgÃ³"
 
 msgid "gslapt is a GTK+ frontend to slapt-get, an APT like package system for Slackware"
-msgstr "gslapt is a GTK+ frontend to slapt-get, an APT like package system for Slackware"
+msgstr "Gslapt egy GTK+ felÃ¼let a slapt-get  programhoz, ami egy APT stÃ­lusÃº csomagkezelÅ rendszer a Slackware Linuxhoz"
 
 msgid "total progress"
-msgstr "Total Progress"
+msgstr "teljes folyamat"
 
 msgid "working"
-msgstr "Working"
+msgstr "dolgozom"
 
 msgid "Up to Date"
-msgstr "Up to Date"
+msgstr "NaprakÃ©sz"
 
 msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
-msgstr "<span weight=\"bold\" size=\"large\">No updates available</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Nincs elÃ©rhetÅ frissÃ­tÃ©s</span>"
 
 #, c-format
 msgid "%d upgraded, %d reinstalled, %d newly installed, %d to remove and %d not upgraded."
-msgstr "%d upgraded, %d reinstalled, %d newly installed, %d to remove and %d not upgraded."
+msgstr "%d frissÃ­tett, %d ÃºjratelepÃ­tett, %d Ãºjonnan telepÃ­tett, %d eltÃ¡volÃ­tandÃ³ Ã©s %d nem frissÃ­tett."
 
 #, c-format
 msgid "Need to get %.0f%s/%.0f%s of archives.\n"
-msgstr "Need to get %.0f%s/%.0f%s of archives.\n"
+msgstr "LetÃ¶lteni szÃ¼ksÃ©ges %.0f%s/%.0f%s az archivumokbÃ³l.\n"
 
 #, c-format
 msgid "Need to get %.0f%s of archives."
-msgstr "Need to get %.0f%s of archives."
+msgstr "LetÃ¶lteni szÃ¼ksÃ©ges %.0f%s az archivumokbÃ³l."
 
 #, c-format
 msgid "After unpacking %.0f%s disk space will be freed."
-msgstr "After unpacking %.0f%s disk space will be freed."
+msgstr "KicsomagolÃ¡s utÃ¡n %.0f%s lemez terÃ¼let szabadul fel."
 
 #, c-format
 msgid "After unpacking %.0f%s of additional disk space will be used."
-msgstr "After unpacking %.0f%s of additional disk space will be used."
+msgstr "KicsomagolÃ¡s utÃ¡n %.0f%s lemez terÃ¼letet fogok hasznÃ¡lni."
 
 msgid "Ready"
-msgstr "Ready"
+msgstr "KÃ©sz"
 
 msgid "Re-Install"
-msgstr "Re-Install"
+msgstr "ÃjratelepÃ­tÃ©s"
 
 msgid "Downgrade"
-msgstr "Downgrade"
+msgstr "RÃ©gebbit telepÃ­t"
 
 msgid "_File"
-msgstr "_File"
+msgstr "_FÃ¡jl"
 
 msgid "Pending changes. Click execute when ready."
-msgstr "Pending changes. Click execute when ready."
+msgstr "FÃ¼ggÅben lÃ©vÅ vÃ¡ltozÃ¡sok. Kattintson a vÃ©grehajtÃ¡sra ha kÃ©sz."
 
 msgid "Packages with unmet dependencies"
-msgstr "Packages with unmet dependencies"
+msgstr "Csomagok fÃ¼ggÅsÃ©gei"
 
 msgid ": Depends: "
-msgstr ": Depends: "
+msgstr ": FÃ¼ggÅsÃ©gek : "
 
 msgid "Package conflicts"
-msgstr "Package conflicts"
+msgstr "Csomag Ã¼tkÃ¶zÃ©sek"
 
 msgid ", which is required by "
-msgstr ", which is required by "
+msgstr ", igÃ©nyelt"
 
 msgid ", is excluded"
-msgstr ", is excluded"
+msgstr ", kizÃ¡rt"
 
 msgid "<b>Conflicts:</b>"
-msgstr "<b>Conflicts:</b>"
+msgstr "<b>ÃtkÃ¶zÃ©sek:</b>"
 
 msgid "<b>Description:</b>"
-msgstr "<b>Description:</b>"
+msgstr "<b>LeÃ­rÃ¡s:</b>"
 
 msgid "<b>Location:</b>"
-msgstr "<b>Location:</b>"
+msgstr "<b>Hely:</b>"
 
 msgid "Source:"
-msgstr "Source:"
+msgstr "ForrÃ¡s:"
 
 msgid "<b>Name:</b>"
-msgstr "<b>Name:</b>"
+msgstr "<b>NÃ©v:</b>"
 
 msgid "<b>Required:</b>"
-msgstr "<b>Required:</b>"
+msgstr "<b>SzÃ¼ksÃ©ges:</b>"
 
 msgid "<b>Size:</b>"
-msgstr "<b>Size:</b>"
+msgstr "<b>MÃ©ret:</b>"
 
 msgid "<b>Suggests:</b>"
-msgstr "<b>Suggests:</b>"
+msgstr "<b>Javaslatok:</b>"
 
 msgid "Version:"
-msgstr "Version:"
+msgstr "VerziÃ³:"
 
 msgid "<b>Version:</b>"
-msgstr "<b>Version:</b>"
+msgstr "<b>VerziÃ³:</b>"
 
 msgid "<b>Version</b>"
-msgstr "<b>Version</b>"
+msgstr "<b>VerziÃ³</b>"
 
 msgid "<b>Source:</b>"
-msgstr "<b>Source:</b>"
+msgstr "<b>ForrÃ¡s:</b>"
 
 msgid "Common"
-msgstr "Common"
+msgstr "KÃ¶zÃ¶s"
 
 msgid "Dependencies"
-msgstr "Dependencies"
+msgstr "FÃ¼ggÅsÃ©gek"
 
 msgid "No package is selected."
-msgstr "No package is selected."
+msgstr "Nincs kivÃ¡lasztva egyetlen csomag sem."
 
 msgid "Status"
-msgstr "Status"
+msgstr "Ãllapot"
 
 msgid "Source download failed"
-msgstr "Source download failed"
+msgstr "ForrÃ¡s letÃ¶ltÃ©se sikertelen"
 
 msgid "pkgtools returned an error"
-msgstr "pkgtools returned an error"
+msgstr "pkgtools hibÃ¡val tÃ©rt vissza"
 
 msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
-msgstr "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Nincs elÃ©g szabad hely</span>"
 
 #, c-format
 msgid "<b>Excluding %s due to dependency failure</b>"
-msgstr "<b>Excluding %s due to dependency failure</b>"
+msgstr "<b>%s kizÃ¡rÃ¡sa miatt fÃ¼ggÅsÃ©gi hiba lÃ©pett fel</b>"
 
 msgid "Unmark"
-msgstr "Unmark"
+msgstr "KijelÃ¶lÃ©s visszavonÃ¡s"
 
 msgid "<b>Status:</b>"
-msgstr "<b>Status:</b>"
+msgstr "<b>Ãlllapot:</b>"
 
 msgid "Excluded"
-msgstr "Excluded"
+msgstr "KizÃ¡rt"
 
 msgid "<b>The following icons are used to indicate the current status of a package:</b>"
-msgstr "<b>The following icons are used to indicate the current status of a package:</b>"
+msgstr "<b>A kÃ¶vetkezÅ ikonok jelÃ¶lik a csomag jelenlegi Ã¡llapotÃ¡t:</b>"
 
 msgid "Not Installed"
-msgstr "Not Installed"
+msgstr "Nem telepÃ­tett"
 
 msgid "To be Installed"
-msgstr "To be Installed"
+msgstr "TelepÃ­tendÅ"
 
 msgid "To be Re-Installed"
-msgstr "To be Re-Installed"
+msgstr "Ãjra telepÃ­tendÅ"
 
 msgid "To be Upgraded"
-msgstr "To be Upgraded"
+msgstr "FrissÃ­tendÅ"
 
 msgid "To be Removed"
-msgstr "To be Removed"
+msgstr "EltÃ¡volÃ­tandÃ³"
 
 msgid "To be Downgraded"
-msgstr "To be Downgraded"
+msgstr "RÃ©gebbit visszaÃ¡llÃ­t"
 
 msgid "Icon Legend"
-msgstr "Icon Legend"
+msgstr "JelmagyarÃ¡zat"
 
 msgid "Completed actions"
-msgstr "Completed actions"
+msgstr "ElvÃ©gzett mÅ±veletek"
 
 msgid "Successfully executed all actions."
-msgstr "Successfully executed all actions."
+msgstr "Minden mÅ±velet sikeresen befejezÅdÃ¶tt."
 
 msgid "<b>Installed Version</b>"
-msgstr "<b>Installed Version</b>"
+msgstr "<b>TelepÃ­tett verziÃ³</b>"
 
 msgid "<b>Latest Available Version</b>"
-msgstr "<b>Latest Available Version</b>"
+msgstr "<b>LegÃºjabb elÃ©rhetÅ verziÃ³</b>"
 
 msgid "Failed to commit preferences"
-msgstr "Failed to commit preferences"
+msgstr "Sikertelen a beÃ¡llÃ­tÃ¡sok vÃ©glegesÃ­tÃ©se"
 
 msgid "Mark All Upgrades"
-msgstr "Mark All Upgrades"
+msgstr "Minden frissÃ­thetÅ csomag kijelÃ¶lÃ©se"
 
 msgid "_Edit"
-msgstr "_Edit"
+msgstr "Sz_erkesztÃ©s"
 
 msgid "Unmark All"
-msgstr "Unmark All"
+msgstr "Minden kijelÃ¶lÃ©st visszavon"
 
 msgid "P_ackage"
-msgstr "P_ackage"
+msgstr "Csom_ag"
 
 msgid "You need to reload the package list from the sources you have listed.  Do you want to do this now?"
-msgstr "You need to reload the package list from the sources you have listed.  Do you want to do this now?"
+msgstr "Ãjra kell olvasni a csomagok listÃ¡jÃ¡t a forrÃ¡sokbÃ³l. SzeretnÃ© ezt most megtenni?"
 
 msgid "Repositories changed"
-msgstr "Repositories changed"
+msgstr "CsomagtÃ¡rolÃ³k vÃ¡ltoztatva"
 
 msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
-msgstr "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
+msgstr "<span size=\"large\" weight=\"bold\">CsomagtÃ¡rolÃ³k vÃ¡ltoztatva</span>"
 
 msgid "Retrieving package data..."
-msgstr "Retrieving package data..."
+msgstr "Csomag adatok keresÃ©se..."
 
 msgid "Retrieving patch list..."
-msgstr "Retrieving patch list..."
+msgstr "JavÃ­tÃ¡si lista keresÃ©se..."
 
 msgid "Retrieving checksum list..."
-msgstr "Retrieving checksum list..."
+msgstr "EllenÅrzÅ Ã¶sszeg lista keresÃ©se..."
 
 msgid "Reading Package Lists..."
-msgstr "Reading Package Lists..."
+msgstr "Csomag listÃ¡k olvasÃ¡sa..."
 
 msgid "_Delete Cached Package Files"
-msgstr "_Delete Cached Package Files"
+msgstr "_TÃ¡rolt csomag fÃ¡jlok tÃ¶rlÃ©se"
 
 msgid "Mark all possible upgrades"
-msgstr "Mark all possible upgrades"
+msgstr "Minden lehetsÃ©ges frissÃ­tÃ©s kijelÃ¶lÃ©se"
 
 msgid "Enabled"
-msgstr "Enabled"
+msgstr "EngedÃ©lyezve"
 
 msgid "Missing dependencies may mean the software in this package will not function correctly.  Do you want to continue without the required packages?"
-msgstr "Missing dependencies may mean the software in this package will not function correctly.  Do you want to continue without the required packages?"
+msgstr "A hiÃ¡nyzÃ³ fÃ¼ggÅsÃ©gek nÃ©lkÃ¼l ez a csomag nem biztos, hogy megfelelÅen fog mÅ±kÃ¶dni. SzeretnÃ© folytatni a szÃ¼ksÃ©ges csomagok nÃ©lkÃ¼l?"
 
 msgid "This package source failed or is not available.  Do you want to disable this source and continue anyway?"
-msgstr "This package source failed or is not available.  Do you want to disable this source and continue anyway?"
+msgstr "A csomag forrÃ¡sa hiÃ¡nyzik vagy nem elÃ©rhetÅ. SzeretnÃ© ezt a forrÃ¡st letiltani Ã©s folytatni tovÃ¡bb?"
 
 msgid "Retrieving ChangeLog.txt..."
-msgstr "Retrieving ChangeLog.txt..."
+msgstr "ChangeLog.txt keresÃ©se..."
 
 msgid "Changelog"
-msgstr "Changelog"
+msgstr "VÃ¡ltozÃ¡snaplÃ³"
 
 msgid "_View"
-msgstr "_View"
+msgstr "_NÃ©zet"
 
 msgid "All"
-msgstr "All"
+msgstr "Mind"
 
 msgid "View all packages"
-msgstr "View all packages"
+msgstr "Minden csomag mutatÃ¡sa"
 
 msgid "Available"
-msgstr "Available"
+msgstr "ElÃ©rhetÅ"
 
 msgid "View available packages from current sources"
-msgstr "View available packages from current sources"
+msgstr "Minden csomag megjelenÃ­tÃ©se az aktuÃ¡lis forrÃ¡sokbÃ³l"
 
 msgid "View installed packages"
-msgstr "View installed packages"
+msgstr "TelepÃ­tett csomagok mutatÃ¡sa"
 
 msgid "Marked"
-msgstr "Marked"
+msgstr "JelÃ¶lt"
 
 msgid "View Marked Packages"
-msgstr "View Marked Packages"
+msgstr "JelÃ¶lt csomagok mutatÃ¡sa"
 
 msgid "Mark Obsolete"
-msgstr "Mark Obsolete"
+msgstr "Elavultak kijelÃ¶lÃ©se"
 
 msgid "Mark all obsolete packages"
-msgstr "Mark all obsolete packages"
+msgstr "Minden elavult csomag kijelÃ¶lÃ©se"
 
 #, c-format
 msgid "Download rate: %.0f%s/s"
-msgstr "Download rate: %.0f%s/s"
+msgstr "LetÃ¶ltÃ©si arÃ¡ny: %.0f%s/s"
 
 #, c-format
 msgid "Failed to download %s: %s"
-msgstr "Failed to download %s: %s"
+msgstr "Sikertelen letÃ¶ltÃ©s %s: %s"
 
 msgid "Import"
-msgstr "Import"
+msgstr "ImportÃ¡lÃ¡s"
 
 msgid "No key found"
-msgstr "No key found"
+msgstr "Kulcs nem talÃ¡lhatÃ³"
 
 msgid "<b>GPG Keys</b>"
-msgstr "<b>GPG Keys</b>"
+msgstr "<b>GPG kulcsok</b>"
 
 msgid "Verification"
-msgstr "Verification"
+msgstr "EllenÅrzÃ©s"
 
 msgid "Retrieving checksum signature..."
-msgstr "Retrieving checksum signature..."
+msgstr "EllenÃ¶rzÅ Ã¶sszeg alÃ¡Ã­rÃ¡s keresÃ©se..."
 
 msgid "Verifying checksum signature..."
-msgstr "Verifying checksum signature..."
+msgstr "EllenÃ¶rzÅ Ã¶sszeg alÃ¡Ã­rÃ¡s ellenÅrzÃ©se..."
 
 msgid "GPG Key verification failed"
-msgstr "GPG Key verification failed"
+msgstr "GPG kulcs ellenÅrzÃ©s sikertelen"
 
 msgid "Error"
-msgstr "Error"
+msgstr "Hiba"
 
 msgid "Visible"
-msgstr "Visible"
+msgstr "LÃ¡thatÃ³"
 
 msgid "Upgradeable"
-msgstr "Upgradeable"
+msgstr "FrissÃ­thetÅ"
 
 msgid "View Upgradeable Packages"
-msgstr "View Upgradeable Packages"
+msgstr "FrissÃ­thetÅ csomagok mutatÃ¡sa"
 
 msgid "View ChangeLogs"
-msgstr "View ChangeLogs"
+msgstr "VÃ¡ltozÃ¡s naplÃ³ mutatÃ¡sa"
 
 msgid "ChangeLogs"
-msgstr "ChangeLogs"
+msgstr "VÃ¡ltozÃ¡s naplÃ³k"
 
 msgid "No changelogs found."
-msgstr "No changelogs found."
+msgstr "Nem talÃ¡lhatÃ³ vÃ¡ltozÃ¡snaplÃ³."
 
 msgid "Priority"
-msgstr "Priority"
+msgstr "PrioritÃ¡s"
 
 msgid "Package Source"
-msgstr "Package Source"
+msgstr "Csomag forrÃ¡s"
 
 msgid "<b>Priority:</b>"
-msgstr "<b>Priority:</b>"
+msgstr "<b>PrioritÃ¡s:</b>"
 
 msgid "<b>Source</b>"
-msgstr "<b>Source</b>"
+msgstr "<b>ForrÃ¡s</b>"
 
 msgid "Default"
-msgstr "Default"
+msgstr "AlapÃ©rtelmezett"
 
 msgid "Preferred"
-msgstr "Preferred"
+msgstr "Kedvelt"
 
 msgid "Official"
-msgstr "Official"
+msgstr "Hivatalos"
 
 msgid "Custom"
-msgstr "Custom"
+msgstr "EgyÃ©b"
 
 msgid "Files"
-msgstr "Files"
+msgstr "FÃ¡jlok"
 
 msgid "The list of installed files is only available for installed packages"
-msgstr "The list of installed files is only available for installed packages"
+msgstr "Ez a lista csak a telepÃ­tett csomagokat mutatja"
 
 msgid "No dependency information available"
-msgstr "No dependency information available"
+msgstr "Nincs rendelkezÃ©sre Ã¡llÃ³ fÃ¼ggÅsÃ©g informÃ¡ciÃ³"
 
 msgid "No changelog information available"
-msgstr "No changelog information available"
+msgstr "Nincs rendelkezÃ©sre Ã¡llÃ³ vÃ¡ltozÃ¡snaplÃ³"
 
 msgid "Gslapt Package Manager"
-msgstr "Gslapt csomagkezelő"
+msgstr "Gslapt csomagkezelÅ"
 
 msgid "Install, remove and upgrade software packages"
-msgstr "Programok telepítése, eltávolítása, frissítése"
+msgstr "Programok telepÃ­tÃ©se, eltÃ¡volÃ­tÃ¡sa, frissÃ­tÃ©se"
 
 msgid "Base"
-msgstr "Base"
+msgstr "Alap"
 
 msgid "Applications"
-msgstr "Applications"
+msgstr "AlkalmazÃ¡sok"
 
 msgid "Development Tools"
-msgstr "Development Tools"
+msgstr "FejlesztÅ eszkÃ¶zÃ¶k"
 
 msgid "GNU Emacs"
 msgstr "GNU Emacs"
 
 msgid "Documentation"
-msgstr "Documentation"
+msgstr "DokumentÃ¡ciÃ³"
 
 msgid "GNOME"
 msgstr "GNOME"
@@ -589,13 +591,13 @@ msgid "KDE"
 msgstr "KDE"
 
 msgid "KDE Internationalization"
-msgstr "KDE Internationalization"
+msgstr "KDE nemzetkÃ¶zi"
 
 msgid "Libraries"
-msgstr "Libraries"
+msgstr "KÃ¶nyvtÃ¡rak"
 
 msgid "Networking"
-msgstr "Networking"
+msgstr "HÃ¡lÃ³zat"
 
 msgid "teTeX"
 msgstr "teTeX"
@@ -604,61 +606,62 @@ msgid "TCL"
 msgstr "TCL"
 
 msgid "X Window System"
-msgstr "X Window System"
+msgstr "X Window rendszer"
 
 msgid "X Applications"
-msgstr "X Applications"
+msgstr "X alkalmazÃ¡sok"
 
 msgid "BSD Console games"
-msgstr "BSD Console games"
+msgstr "BSD konzol jÃ¡tÃ©kok"
 
 msgid "Patches"
-msgstr "Patches"
+msgstr "JavÃ­tÃ¡sok"
 
 msgid "GSB Base"
-msgstr "GSB Base"
+msgstr "GSB Alap"
 
 msgid "GSB Accessibility"
-msgstr "GSB Accessibility"
+msgstr "GSB KisegÃ­tÅ lehetÅsÃ©gek"
 
 msgid "GSB Administration"
-msgstr "GSB Administration"
+msgstr "GSB AdminisztrÃ¡ciÃ³"
 
 msgid "GSB Applications"
-msgstr "GSB Applications"
+msgstr "GSB AlkalmazÃ¡sok"
 
 msgid "GSB Compiz Fusion"
 msgstr "GSB Compiz Fusion"
 
 msgid "GSB Development"
-msgstr "GSB Development"
+msgstr "GSB FejlesztÃ©s"
 
 msgid "GSB Office"
-msgstr "GSB Office"
+msgstr "GSB Iroda"
 
 msgid "GSB Libraries"
-msgstr "GSB Libraries"
+msgstr "GSB KÃ¶nyvtÃ¡rak"
 
 msgid "GSB Mono"
 msgstr "GSB Mono"
 
 msgid "GSB Networking"
-msgstr "GSB Networking"
+msgstr "GSB HÃ¡lÃ³zat"
 
 msgid "GSB OpenOffice.org"
 msgstr "GSB OpenOffice.org"
 
 msgid "GSB Themes"
-msgstr "GSB Themes"
+msgstr "GSB TÃ©mÃ¡k"
 
 msgid "Games"
-msgstr "Games"
+msgstr "JÃ¡tÃ©kok"
 
 msgid "Localization"
-msgstr "Localization"
+msgstr "LokalizÃ¡ciÃ³"
 
 msgid "Packages to be reinstalled"
-msgstr "Packages to be reinstalled"
+msgstr "ÃjratelepÃ­tendÅ csomagok"
 
 msgid "Source failed"
-msgstr "Source failed"
+msgstr "ForrÃ¡s hiÃ¡nyzik"
+
