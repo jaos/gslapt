@@ -14,7 +14,7 @@ gslapt:  * See /usr/doc/gslapt/ for complete documentation.
 gslapt:  * Support:
 gslapt:    http://software.jaos.org/cgi-bin/mailman/listinfo/slapt-get-user
 gslapt:  * Please translate
-gslapt:    http://software.jaos.org/BUILD/gslapt/po/gslapt.pot
+gslapt:    http://software.jaos.org/git/gslapt/plain/po/gslapt.pot
 gslapt:    then send to slapt-get-devel@software.jaos.org
 gslapt: 
 gslapt: 
