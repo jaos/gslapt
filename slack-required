@@ -4,6 +4,7 @@ fontconfig
 freetype
 glib2
 gtk+2
+gdk-pixbuf2
 libX11
 libXau
 libXcomposite

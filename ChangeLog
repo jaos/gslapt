@@ -1,4 +1,7 @@
 
+0.5.3f Feb  20, 2011
+ * gdk-pixbuf2 is now required in current (upcoming 13.2)
+
 0.5.3e Nov  09, 2010
  * hungarian translation by Peter Polonkai
 
