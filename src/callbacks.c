@@ -1554,7 +1554,7 @@ static void lhandle_transaction (GtkWidget *w)
 
   /* download the pkgs */
   if ( trans->install_pkgs->pkg_count > 0 || trans->upgrade_pkgs->pkg_count > 0 ) {
-    char *err = download_packages();
+    const char *err = download_packages();
     if ( err != NULL || _cancelled == 1) {
 
       gdk_threads_enter();
@@ -1569,12 +1569,9 @@ static void lhandle_transaction (GtkWidget *w)
         _cancelled = 0;
         G_UNLOCK(_cancelled);
       }
-      if (err != NULL) {
-        free(err);
-      }
-
       return;
     }
+
   }
 
   /* return early if download_only is set */
