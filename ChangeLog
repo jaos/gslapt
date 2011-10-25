@@ -1,4 +1,7 @@
 
+0.5.3g Oct  25, 2011
+ * fix --install command line handing (thanks George Vlahavas)
+
 0.5.3f Feb  20, 2011
  * gdk-pixbuf2 is now required in current (upcoming 13.2)
 

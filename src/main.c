@@ -212,7 +212,9 @@ int main (int argc, char *argv[]) {
         if (p == NULL)
           continue;
 
-        if ( inst_p != NULL && slapt_cmp_pkgs(inst_p,p) < 0) {
+        if ( inst_p != NULL && slapt_cmp_pkgs(inst_p,p) == 0) {
+          continue;
+        } else if ( inst_p != NULL && slapt_cmp_pkgs(inst_p,p) < 0) {
           if (slapt_add_deps_to_trans(global_config,trans,all,installed,p) == 0) {
             slapt_add_upgrade_to_transaction(trans,inst_p,p);
           } else {
@@ -220,7 +222,7 @@ int main (int argc, char *argv[]) {
           }
         } else {
           if (slapt_add_deps_to_trans(global_config,trans,all,installed,p) == 0) {
-            slapt_pkg_list_t *conflicts;
+            slapt_pkg_list_t *conflicts = slapt_is_conflicted(trans,all,installed,p);
             slapt_add_install_to_transaction(trans,p);
             if ( conflicts->pkg_count > 0) {
               unsigned int cindex = 0;
