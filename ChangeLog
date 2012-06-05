@@ -1,5 +1,6 @@
 
-0.5.3g Oct  25, 2011
+0.5.3g Jun  04, 2012
+ * added Hebrew translation from genghiskhan
  * fix --install command line handing (thanks George Vlahavas)
 
 0.5.3f Feb  20, 2011
