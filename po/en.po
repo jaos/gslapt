@@ -235,7 +235,7 @@ msgstr "%d upgraded, %d reinstalled, %d newly installed, %d to remove and %d not
 
 #, c-format
 msgid "Need to get %.0f%s/%.0f%s of archives.\n"
-msgstr ""
+msgstr "Need to get %.0f%s/%.0f%s of archives.\n"
 
 #, c-format
 msgid "Need to get %.0f%s of archives."
