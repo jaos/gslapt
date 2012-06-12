@@ -1,15 +1,16 @@
-# Hebre w translation for gslapt
+# Hebrew translation for gslapt.
+# Copyright (c) 2005-2011 Jason Woodward
 # This file is distributed under the same license as the gslapt package.
-# Copyright (C) 2012 Isratine Citizen <genghiskhan@gmx.ca>, 2012
+# Isratine Citizen <genghiskhan@gmx.ca>, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gslapt 0.5.3f\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2012-05-19 15:06+0200\n"
-"PO-Revision-Date: 2012-05-31 20:21+0200\n"
+"PO-Revision-Date: 2012-06-10 15:13+0200\n"
 "Last-Translator: Isratine Citizen <genghiskhan@gmx.ca>\n"
-"Language-Team: Rahut\n"
+"Language-Team: Rahut <genghiskhan@gmx.ca>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -17,10 +18,11 @@ msgstr ""
 "X-Poedit-Language: Hebrew\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-# של ביטויים להוציא
+# של ביטויים להוציא/שלא ימנו
 # Translated to: List of exluded expressions
+# רשימה של ביטויים שלא לכלול
 msgid "<b>Exclude List</b>"
-msgstr "<b>רשימה של ביטויים שלא לכלול</b>"
+msgstr "<b>רשימה של ביטויים שהוצאו</b>"
 
 msgid "<b>Package Sources</b>"
 msgstr "<b>מקורות חבילה</b>"
@@ -33,10 +35,13 @@ msgstr "<b>אחסון חבילות ונתונים</b>"
 msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
 msgstr "<span weight=\"bold\" size=\"large\">האם להחיל את השינויים הבאים?</span>"
 
+# Translated to: Expression to exclude
+# הוצאת ביטוי
+# ביטוי להוצאה
 # ביטוי שלא יוכלל
 # אי הכללת ביטוי
 msgid "<span weight=\"bold\">Exclude Expression:</span>"
-msgstr "<span weight=\"bold\">הוצאת ביטוי:</span>"
+msgstr "<span weight=\"bold\">ביטוי להוצאה:</span>"
 
 msgid "<span weight=\"bold\">SOURCE=</span>"
 msgstr "<span weight=\"bold\">מקור=</span>"
@@ -45,16 +50,19 @@ msgid "About gslapt"
 msgstr "אודות gslapt"
 
 msgid "About"
-msgstr "אודות"
+msgstr "_אודות"
 
 msgid "Checking for new package data..."
 msgstr "מתבצעת בדיקה עבור נתוני חבילה חדשים..."
 
+# ביטוי
+# Please do not let to illiterate Israelis to change this
 msgid "Clear search expression"
-msgstr ""
+msgstr "מחיקת מילות חיפוש"
 
+# ניקוי
 msgid "Clear"
-msgstr "ניקוי"
+msgstr "מחיקה"
 
 # התנגשויות, ניגודים
 msgid "Conflicts"
@@ -80,17 +88,16 @@ msgstr "מוריד חבילות כעת..."
 msgid "Downloading..."
 msgstr "מוריד כעת..."
 
-#, fuzzy
+# check
+# אי־הכללת חבילה
 msgid "Exclude package"
-msgstr "אי־הכללת חבילה"
+msgstr "הוצאת חבילה"
 
-# זולת
-# מלבד
-# פרט ל
-# חוץ מ
+# זולת/מלבד/פרט ל/חוץ מ/להוציא
 msgid "Exclude"
 msgstr "לא לכלול"
 
+# לא נמנים
 msgid "Excludes"
 msgstr "לא כלולים"
 
@@ -108,7 +115,7 @@ msgid "Gslapt"
 msgstr "Gslapt"
 
 msgid "Install"
-msgstr "התקנה"
+msgstr "ה_תקנה"
 
 msgid "Install/Upgrade package"
 msgstr "התקנת/שדרוג חבילה"
@@ -119,6 +126,9 @@ msgstr "גודל התקנה:"
 msgid "Installed Size"
 msgstr "גודל התקנה"
 
+# I need another entry for the word Installed in the Icon Legend to be writen in a singular form.
+# For View > Installed: חבילות מותקנות (plural)
+# For About > Icon Legend: מותקנת (singular)
 msgid "Installed"
 msgstr "חבילות מותקנות"
 
@@ -138,16 +148,14 @@ msgstr "מיקום"
 msgid "Name"
 msgstr "שם"
 
-# No or Number?
-#, fuzzy
+# I'm not sure that is even used anymore.  You can ignore "No".
 msgid "No"
-msgstr "N°"
+msgstr "לא"
 
-#, fuzzy
+# Doesn't sound good to me
 msgid "Package Action"
 msgstr "פעולת חבילה"
 
-#, fuzzy
 msgid "Package Information"
 msgstr "מידע חבילה"
 
@@ -186,7 +194,7 @@ msgid "Remove package"
 msgstr "הסרת חבילה"
 
 msgid "Remove"
-msgstr "הסרה"
+msgstr "_הסרה"
 
 # Translated to: Packages are being removed...
 # חבילות מוסרות כעת
@@ -236,7 +244,7 @@ msgid "Update"
 msgstr "עדכון"
 
 msgid "Upgrade"
-msgstr "שדרוג"
+msgstr "_שדרוג"
 
 # Translated to: Packages are being upgraded...
 # חבילות משתדרגות כעת
@@ -248,8 +256,9 @@ msgstr "משדרג חבילות כעת..."
 msgid "Upgrading..."
 msgstr "משדרג כעת..."
 
+# גירסא
 msgid "Version"
-msgstr "גירסא"
+msgstr "גרסה"
 
 msgid "Working Directory"
 msgstr "מדור עבודה"
@@ -264,17 +273,16 @@ msgstr "_עזרה"
 msgid "gslapt is a GTK+ frontend to slapt-get, an APT like package system for Slackware"
 msgstr "‏gslapt הינו מגשר־חזיתי לתוכנית slapt-get, מערכת ניהול חבילות עבור Slackware הדומה למערכת ניהול החבילות APT."
 
+# כוללת
 msgid "total progress"
 msgstr "התקדמות סך הכל"
 
-# עובד
 msgid "working"
-msgstr ""
+msgstr "עובד כעת"
 
-# עדכנית
-#, fuzzy
+# The system's currently installed packages are up to date.
 msgid "Up to Date"
-msgstr "מעודכנת"
+msgstr "המערכת מעודכנת"
 
 msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
 msgstr "<span weight=\"bold\" size=\"large\">אין שדרוגים זמינים</span>"
@@ -287,7 +295,7 @@ msgstr "<span weight=\"bold\" size=\"large\">אין שדרוגים זמינים<
 # יותקנו מחדש
 #, c-format
 msgid "%d upgraded, %d reinstalled, %d newly installed, %d to remove and %d not upgraded."
-msgstr "%d לשדרוג, %d להתקנה חוזרת, %d התקנות חדשות, %d להסרה %d לא ישודרגו."
+msgstr "%d לשדרוג, %d להתקנה חוזרת, %d התקנות חדשות, %d להסרה, %d לא ישודרגו."
 
 # יש צורך
 #, c-format
@@ -310,10 +318,10 @@ msgid "Ready"
 msgstr "מוכן"
 
 msgid "Re-Install"
-msgstr "התקנה חוזרת"
+msgstr "התקנה _חוזרת"
 
 msgid "Downgrade"
-msgstr "הנמכה"
+msgstr "ה_נמכה"
 
 msgid "_File"
 msgstr "_קובץ"
@@ -330,7 +338,7 @@ msgstr "אותרו שינויים. יש ללחוץ על הכפתור ביצוע 
 msgid "Packages with unmet dependencies"
 msgstr "חבילות עם תלויות לא מספקות"
 
-#, fuzzy
+# check
 msgid ": Depends: "
 msgstr ": תלויה: "
 
@@ -341,10 +349,10 @@ msgstr "התנגשויות חבילה"
 msgid ", which is required by "
 msgstr ", שנדרשת על־ידי "
 
-# לא/אינה מוכללת
-#, fuzzy
+# check
+# לא/אינה מוכללת/כלולה מוכללות/כלולות
 msgid ", is excluded"
-msgstr ", אינה כלולה"
+msgstr ", לא כלולה"
 
 # התנגשויות
 msgid "<b>Conflicts:</b>"
@@ -374,13 +382,13 @@ msgid "<b>Suggests:</b>"
 msgstr "<b>חבילות מוצעות:</b>"
 
 msgid "Version:"
-msgstr "גירסא:"
+msgstr "גרסה:"
 
 msgid "<b>Version:</b>"
-msgstr "<b>גירסא:</b>"
+msgstr "<b>גרסה:</b>"
 
 msgid "<b>Version</b>"
-msgstr "<b>גירסא</b>"
+msgstr "<b>גרסה</b>"
 
 msgid "<b>Source:</b>"
 msgstr "<b>מקור:</b>"
@@ -403,14 +411,17 @@ msgstr "כשל בהורדת מקור"
 msgid "pkgtools returned an error"
 msgstr "‏pkgtools החזיר שגיאה"
 
-# לא עומד לרשותך מספיק מרחב חופשי
+# אין ברשותך
+# לא עומד לרשותך מספיק נפח חופשי
 # תפוסה
-# משטח הכונן
+# משטח־כונן
+# נפח־כונן
 msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
-msgstr ""
+msgstr "<span weight=\"bold\" size=\"large\">אין ברשותך מספיק נפח בכונן</span>"
 
 # החבילה לא תוכלל בשל/מפאת/משום
 # החבילה מוצאת
+# לא תימנה
 #, c-format
 msgid "<b>Excluding %s due to dependency failure</b>"
 msgstr "<b>החבילה %s לא תיכלל עקב כשל תלות</b>"
@@ -418,17 +429,24 @@ msgstr "<b>החבילה %s לא תיכלל עקב כשל תלות</b>"
 # לא לסמן
 # ביטול סימון Cancel mark
 msgid "Unmark"
-msgstr "אי־סימון"
+msgstr "_אי־סימון"
 
 msgid "<b>Status:</b>"
 msgstr "<b>מצב:</b>"
 
+# מוּצאת (שלא תוכלל)
+# מוּצאת (שלא תיכלל)
+# מוּצאת (שלא תימנה)
+# מוּצאת (לא תוכלל)
+# לא כלולה
 msgid "Excluded"
-msgstr "לא כלולה"
+msgstr "מוּצאת"
 
 # משמשות להצבעה על מצב נוכחי
 msgid "<b>The following icons are used to indicate the current status of a package:</b>"
-msgstr "<b>הצלמיות הבאות משמשות להכוונה על המצב הנתון של חבילה:</b>"
+msgstr ""
+"<b>הצלמיות הבאות משמשות להכוונה\n"
+"על המצב הנתון של חבילה:</b>"
 
 msgid "Not Installed"
 msgstr "לא מותקנת"
@@ -456,31 +474,35 @@ msgstr "להנמכה"
 msgid "Icon Legend"
 msgstr "מקרא־צלמית"
 
-# Translated to: The actions have been completed
+# The actions have been completed
+# הפעולות הושלמו
 msgid "Completed actions"
-msgstr "הפעולות הושלמו"
+msgstr "פעולות שהושלמו"
 
 msgid "Successfully executed all actions."
 msgstr "כל הפעולות בוצעו בהצלחה."
 
 msgid "<b>Installed Version</b>"
-msgstr "<b>גירסא מותקנת</b>"
+msgstr "<b>גרסה מותקנת</b>"
 
+# גרסה זמינה אחרונה
 msgid "<b>Latest Available Version</b>"
-msgstr "<b>הגירסא הזמינה אחרונה</b>"
+msgstr "<b>גרסה נוכחית זמינה</b>"
 
-#, fuzzy
+# Failed to write or commit changes to disk.  In the case of the preferences
+# we write the configuration back out to the configuration file.
 msgid "Failed to commit preferences"
-msgstr "כשל בcommit העדפות"
+msgstr "כשל בביצוע העדפות"
 
 msgid "Mark All Upgrades"
 msgstr "סימון כל השדרוגים"
 
 msgid "_Edit"
-msgstr "_עריכה"
+msgstr "ע_ריכה"
 
+# מוחלט
 msgid "Unmark All"
-msgstr "אי־סימון הכל"
+msgstr "_אי־סימון הכל"
 
 msgid "P_ackage"
 msgstr "_חבילה"
@@ -490,6 +512,8 @@ msgstr "_חבילה"
 msgid "You need to reload the package list from the sources you have listed.  Do you want to do this now?"
 msgstr "יש צורך להטעין מחדש את רשימת החבילות מהמקורות שציינת.  האם ברצונך לעשות זאת כעת?"
 
+# המאגרים שונו
+# המאגרים נשתנו
 msgid "Repositories changed"
 msgstr "המאגרים השתנו"
 
@@ -511,6 +535,7 @@ msgstr "רשימת סיכום ביקורת מאוחזרת כעת..."
 msgid "Reading Package Lists..."
 msgstr "רשימות חבילה נקראות כעת..."
 
+# הסרת
 msgid "_Delete Cached Package Files"
 msgstr "_מחיקת קבצי חבילה מוטמנים"
 
@@ -527,13 +552,15 @@ msgstr "מאופשר"
 msgid "Missing dependencies may mean the software in this package will not function correctly.  Do you want to continue without the required packages?"
 msgstr "חסר בתלויות עשוי להתבטא בכך שהתוכנה שבחבילה זו לא תתפקד כראוי.  האם ברצונך להמשיך ללא החבילות הדרושות?"
 
+# ולהמשיך בכל אופן
 msgid "This package source failed or is not available.  Do you want to disable this source and continue anyway?"
-msgstr "קיים כשל במקור חבילה זה או שמקור זה אינו קיים.  האם ברצונך לנטרל את מקור זה ולהמשיך בכל אופן?"
+msgstr "קיים כשל במקור חבילה זה או שמקור זה אינו קיים.  האם ברצונך לנטרל את מקור זה ועדיין להמשיך?"
 
+# אחזור ChangeLog.txt...
 # מאחזר את ChangeLog.txt...
 # Please do not let to illiterate Israelis to change this
 msgid "Retrieving ChangeLog.txt..."
-msgstr "אחזור ChangeLog.txt..."
+msgstr "מאחזר את ChangeLog.txt כעת..."
 
 msgid "Changelog"
 msgstr "רשומת שינויים"
@@ -542,28 +569,31 @@ msgid "_View"
 msgstr "_תצוגה"
 
 msgid "All"
-msgstr "כל החבילות"
+msgstr "_כל החבילות"
 
 msgid "View all packages"
 msgstr "הצגה של כל החבילות"
 
 msgid "Available"
-msgstr "חבילות זמינות"
+msgstr "חבילות _זמינות"
 
+# Translated to: View packages that are available from current sources
+# הצגה של חבילות שזמינות מן המקורות הנוכחיים
+# הצגה של חבילות שזמינות ממקורות נוכחיים
 msgid "View available packages from current sources"
-msgstr "הצגה של חבילות זמינות מהמקורות הנוכחיים"
+msgstr "הצגה של חבילות זמינות ממקורות נוכחיים"
 
 msgid "View installed packages"
 msgstr "הצגה של חבילות מותקנות"
 
 msgid "Marked"
-msgstr "חבילות מסומנות"
+msgstr "חבילות מ_סומנות"
 
 msgid "View Marked Packages"
 msgstr "הצגה של חבילות מסומנות"
 
 msgid "Mark Obsolete"
-msgstr "סימון חבילות מיושנות"
+msgstr "סימון חבילות _מיושנות"
 
 msgid "Mark all obsolete packages"
 msgstr "סימון כל החבילות המיושנות"
@@ -588,6 +618,12 @@ msgstr "לא נמצא מפתח"
 msgid "<b>GPG Keys</b>"
 msgstr "<b>מפתחות GPG</b>"
 
+msgid "GPG key already present"
+msgstr "כבר קיים מפתח GPG"
+
+msgid "GPG key successfully imported"
+msgstr "‏מפתח GPG יובא בהצלחה"
+
 msgid "Verification"
 msgstr "אימות"
 
@@ -604,11 +640,13 @@ msgstr "כשל באימות מפתח GPG"
 msgid "Error"
 msgstr "שגיאה"
 
+# check
+# נראית
 msgid "Visible"
-msgstr ""
+msgstr "נראות"
 
 msgid "Upgradeable"
-msgstr "חבילות ברות שדרוג"
+msgstr "חבילות _ברות שדרוג"
 
 # הצגת חבילות ברות שדרוג
 msgid "View Upgradeable Packages"
@@ -636,6 +674,7 @@ msgstr "<b>עדיפות:</b>"
 msgid "<b>Source</b>"
 msgstr "<b>מקור</b>"
 
+# מחדלית
 # ברירת־מחדל
 msgid "Default"
 msgstr "משתמטת"
@@ -774,4 +813,7 @@ msgstr "חבילות להתקנה חוזרת"
 # המקור נכשל
 msgid "Source failed"
 msgstr "כשל במקור"
+
+msgid "aspell-word-lists"
+msgstr "רשימות מילים aspell"
 
