@@ -1,5 +1,6 @@
 
-0.5.3g Jun  04, 2012
+0.5.3g Jul  17, 2012
+ * Updated french translation from JRD
  * added Hebrew translation from genghiskhan
  * fix --install command line handing (thanks George Vlahavas)
 
