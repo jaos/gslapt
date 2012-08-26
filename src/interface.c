@@ -97,7 +97,7 @@ create_window_preferences (void)
   if (window_preferences_icon_pixbuf)
     {
       gtk_window_set_icon (GTK_WINDOW (window_preferences), window_preferences_icon_pixbuf);
-      gdk_pixbuf_unref (window_preferences_icon_pixbuf);
+      g_object_unref (window_preferences_icon_pixbuf);
     }
   gtk_window_set_gravity (GTK_WINDOW (window_preferences), GDK_GRAVITY_CENTER);
 
@@ -660,7 +660,7 @@ create_gslapt (void)
   if (gslapt_icon_pixbuf)
     {
       gtk_window_set_icon (GTK_WINDOW (gslapt), gslapt_icon_pixbuf);
-      gdk_pixbuf_unref (gslapt_icon_pixbuf);
+      g_object_unref (gslapt_icon_pixbuf);
     }
   gtk_window_set_gravity (GTK_WINDOW (gslapt), GDK_GRAVITY_CENTER);
 
@@ -1735,7 +1735,7 @@ create_transaction_window (void)
   if (transaction_window_icon_pixbuf)
     {
       gtk_window_set_icon (GTK_WINDOW (transaction_window), transaction_window_icon_pixbuf);
-      gdk_pixbuf_unref (transaction_window_icon_pixbuf);
+      g_object_unref (transaction_window_icon_pixbuf);
     }
   gtk_window_set_gravity (GTK_WINDOW (transaction_window), GDK_GRAVITY_CENTER);
 
@@ -1913,7 +1913,7 @@ create_dl_progress_window (void)
   if (dl_progress_window_icon_pixbuf)
     {
       gtk_window_set_icon (GTK_WINDOW (dl_progress_window), dl_progress_window_icon_pixbuf);
-      gdk_pixbuf_unref (dl_progress_window_icon_pixbuf);
+      g_object_unref (dl_progress_window_icon_pixbuf);
     }
   gtk_window_set_gravity (GTK_WINDOW (dl_progress_window), GDK_GRAVITY_CENTER);
 
@@ -2013,7 +2013,7 @@ create_about (void)
   if (about_icon_pixbuf)
     {
       gtk_window_set_icon (GTK_WINDOW (about), about_icon_pixbuf);
-      gdk_pixbuf_unref (about_icon_pixbuf);
+      g_object_unref (about_icon_pixbuf);
     }
   gtk_window_set_type_hint (GTK_WINDOW (about), GDK_WINDOW_TYPE_HINT_DIALOG);
   gtk_window_set_gravity (GTK_WINDOW (about), GDK_GRAVITY_CENTER);
@@ -2115,7 +2115,7 @@ create_notification (void)
   if (notification_icon_pixbuf)
     {
       gtk_window_set_icon (GTK_WINDOW (notification), notification_icon_pixbuf);
-      gdk_pixbuf_unref (notification_icon_pixbuf);
+      g_object_unref (notification_icon_pixbuf);
     }
   gtk_window_set_type_hint (GTK_WINDOW (notification), GDK_WINDOW_TYPE_HINT_DIALOG);
   gtk_window_set_gravity (GTK_WINDOW (notification), GDK_GRAVITY_CENTER);
@@ -2220,7 +2220,7 @@ create_icon_legend (void)
   if (icon_legend_icon_pixbuf)
     {
       gtk_window_set_icon (GTK_WINDOW (icon_legend), icon_legend_icon_pixbuf);
-      gdk_pixbuf_unref (icon_legend_icon_pixbuf);
+      g_object_unref (icon_legend_icon_pixbuf);
     }
   gtk_window_set_type_hint (GTK_WINDOW (icon_legend), GDK_WINDOW_TYPE_HINT_DIALOG);
   gtk_window_set_gravity (GTK_WINDOW (icon_legend), GDK_GRAVITY_CENTER);
@@ -2481,7 +2481,7 @@ create_pkgtools_progress_window (void)
   if (pkgtools_progress_window_icon_pixbuf)
     {
       gtk_window_set_icon (GTK_WINDOW (pkgtools_progress_window), pkgtools_progress_window_icon_pixbuf);
-      gdk_pixbuf_unref (pkgtools_progress_window_icon_pixbuf);
+      g_object_unref (pkgtools_progress_window_icon_pixbuf);
     }
   gtk_window_set_gravity (GTK_WINDOW (pkgtools_progress_window), GDK_GRAVITY_CENTER);
 
@@ -2551,7 +2551,7 @@ create_repositories_changed (void)
   if (repositories_changed_icon_pixbuf)
     {
       gtk_window_set_icon (GTK_WINDOW (repositories_changed), repositories_changed_icon_pixbuf);
-      gdk_pixbuf_unref (repositories_changed_icon_pixbuf);
+      g_object_unref (repositories_changed_icon_pixbuf);
     }
   gtk_window_set_type_hint (GTK_WINDOW (repositories_changed), GDK_WINDOW_TYPE_HINT_DIALOG);
 
@@ -2660,7 +2660,7 @@ create_dep_error_dialog (void)
   if (dep_error_dialog_icon_pixbuf)
     {
       gtk_window_set_icon (GTK_WINDOW (dep_error_dialog), dep_error_dialog_icon_pixbuf);
-      gdk_pixbuf_unref (dep_error_dialog_icon_pixbuf);
+      g_object_unref (dep_error_dialog_icon_pixbuf);
     }
   gtk_window_set_type_hint (GTK_WINDOW (dep_error_dialog), GDK_WINDOW_TYPE_HINT_DIALOG);
   gtk_window_set_gravity (GTK_WINDOW (dep_error_dialog), GDK_GRAVITY_CENTER);
@@ -2793,7 +2793,7 @@ create_source_failed_dialog (void)
   if (source_failed_dialog_icon_pixbuf)
     {
       gtk_window_set_icon (GTK_WINDOW (source_failed_dialog), source_failed_dialog_icon_pixbuf);
-      gdk_pixbuf_unref (source_failed_dialog_icon_pixbuf);
+      g_object_unref (source_failed_dialog_icon_pixbuf);
     }
   gtk_window_set_type_hint (GTK_WINDOW (source_failed_dialog), GDK_WINDOW_TYPE_HINT_DIALOG);
 
@@ -2884,7 +2884,7 @@ create_changelog_window (void)
   if (changelog_window_icon_pixbuf)
     {
       gtk_window_set_icon (GTK_WINDOW (changelog_window), changelog_window_icon_pixbuf);
-      gdk_pixbuf_unref (changelog_window_icon_pixbuf);
+      g_object_unref (changelog_window_icon_pixbuf);
     }
 
   vbox78 = gtk_vbox_new (FALSE, 0);
@@ -2954,7 +2954,7 @@ create_source_window (void)
   if (source_window_icon_pixbuf)
     {
       gtk_window_set_icon (GTK_WINDOW (source_window), source_window_icon_pixbuf);
-      gdk_pixbuf_unref (source_window_icon_pixbuf);
+      g_object_unref (source_window_icon_pixbuf);
     }
 
   vbox79 = gtk_vbox_new (FALSE, 0);

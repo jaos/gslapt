@@ -626,7 +626,7 @@ void build_package_treeviewlist (GtkWidget *treeview)
       -1
     );
 
-    gdk_pixbuf_unref(status_icon);
+    g_object_unref(status_icon);
     g_free(status);
     g_free(short_desc);
     g_free(series);
@@ -672,7 +672,7 @@ void build_package_treeviewlist (GtkWidget *treeview)
         -1
       );
 
-      gdk_pixbuf_unref(status_icon);
+      g_object_unref(status_icon);
       g_free(status);
       g_free(short_desc);
     }
@@ -1686,8 +1686,8 @@ static void build_sources_treeviewlist(GtkWidget *treeview)
 
   }
 
-  gdk_pixbuf_unref(enabled_status_icon);
-  gdk_pixbuf_unref(disabled_status_icon);
+  g_object_unref(enabled_status_icon);
+  g_object_unref(disabled_status_icon);
 
   /* column for enabled status */
   renderer = gtk_cell_renderer_pixbuf_new();
@@ -2683,12 +2683,12 @@ void unmark_package(GtkWidget *gslapt, gpointer user_data)
       GdkPixbuf *status_icon = create_pixbuf("pkg_action_installed.png");
       gtk_list_store_set(GTK_LIST_STORE(model),&actual_iter,STATUS_ICON_COLUMN,status_icon,-1);
       status = g_strdup_printf("a%s",pkg->name);
-      gdk_pixbuf_unref(status_icon);
+      g_object_unref(status_icon);
     } else {
       GdkPixbuf *status_icon = create_pixbuf("pkg_action_available.png");
       gtk_list_store_set(GTK_LIST_STORE(model),&actual_iter,STATUS_ICON_COLUMN,status_icon,-1);
       status = g_strdup_printf("z%s",pkg->name);
-      gdk_pixbuf_unref(status_icon);
+      g_object_unref(status_icon);
     }
     gtk_list_store_set(GTK_LIST_STORE(model),&actual_iter,STATUS_COLUMN,status,-1);
     g_free(status);
@@ -2711,7 +2711,7 @@ void unmark_package(GtkWidget *gslapt, gpointer user_data)
           gtk_list_store_set(GTK_LIST_STORE(model),&actual_iter,STATUS_COLUMN,istatus,-1);
           gtk_list_store_set(GTK_LIST_STORE(model),&actual_iter,MARKED_COLUMN,FALSE,-1);
           g_free(istatus);
-          gdk_pixbuf_unref(status_icon);
+          g_object_unref(status_icon);
         } else {
           fprintf(stderr,"failed to find iter for installed package %s-%s to unmark\n",trans->upgrade_pkgs->pkgs[i]->installed->name,trans->upgrade_pkgs->pkgs[i]->installed->version);
         }
@@ -3286,14 +3286,14 @@ static gboolean toggle_source_status (GtkTreeView *treeview, gpointer data)
                          0,status_icon,
                          2,FALSE,
                          -1);
-      gdk_pixbuf_unref(status_icon);
+      g_object_unref(status_icon);
     } else { /* is not active */
       GdkPixbuf *status_icon = create_pixbuf("pkg_action_installed.png");
       gtk_list_store_set(GTK_LIST_STORE(model),&iter,
                          0,status_icon,
                          2,TRUE,
                          -1);
-      gdk_pixbuf_unref(status_icon);
+      g_object_unref(status_icon);
     }
 
     sources_modified = TRUE;
@@ -3555,7 +3555,7 @@ static int set_iter_for_install(GtkTreeModel *model, GtkTreeIter *iter,
   gtk_list_store_set(GTK_LIST_STORE(model),iter,STATUS_COLUMN,status,-1);
   gtk_list_store_set(GTK_LIST_STORE(model),iter,MARKED_COLUMN,TRUE,-1);
   g_free(status);
-  gdk_pixbuf_unref(status_icon);
+  g_object_unref(status_icon);
 }
 
 static int set_iter_for_reinstall(GtkTreeModel *model, GtkTreeIter *iter,
@@ -3567,7 +3567,7 @@ static int set_iter_for_reinstall(GtkTreeModel *model, GtkTreeIter *iter,
   gtk_list_store_set(GTK_LIST_STORE(model),iter,STATUS_COLUMN,status,-1);
   gtk_list_store_set(GTK_LIST_STORE(model),iter,MARKED_COLUMN,TRUE,-1);
   g_free(status);
-  gdk_pixbuf_unref(status_icon);
+  g_object_unref(status_icon);
 }
 
 static int set_iter_for_downgrade(GtkTreeModel *model, GtkTreeIter *iter,
@@ -3579,7 +3579,7 @@ static int set_iter_for_downgrade(GtkTreeModel *model, GtkTreeIter *iter,
   gtk_list_store_set(GTK_LIST_STORE(model),iter,STATUS_COLUMN,status,-1);
   gtk_list_store_set(GTK_LIST_STORE(model),iter,MARKED_COLUMN,TRUE,-1);
   g_free(status);
-  gdk_pixbuf_unref(status_icon);
+  g_object_unref(status_icon);
 }
 
 static int set_iter_for_upgrade(GtkTreeModel *model, GtkTreeIter *iter,
@@ -3591,7 +3591,7 @@ static int set_iter_for_upgrade(GtkTreeModel *model, GtkTreeIter *iter,
   gtk_list_store_set(GTK_LIST_STORE(model),iter,STATUS_COLUMN,status,-1);
   gtk_list_store_set(GTK_LIST_STORE(model),iter,MARKED_COLUMN,TRUE,-1);
   g_free(status);
-  gdk_pixbuf_unref(status_icon);
+  g_object_unref(status_icon);
 }
 
 static int set_iter_for_remove(GtkTreeModel *model, GtkTreeIter *iter,
@@ -3603,7 +3603,7 @@ static int set_iter_for_remove(GtkTreeModel *model, GtkTreeIter *iter,
   gtk_list_store_set(GTK_LIST_STORE(model),iter,STATUS_COLUMN,status,-1);
   gtk_list_store_set(GTK_LIST_STORE(model),iter,MARKED_COLUMN,TRUE,-1);
   g_free(status);
-  gdk_pixbuf_unref(status_icon);
+  g_object_unref(status_icon);
 }
 
 
@@ -3973,7 +3973,7 @@ void source_edit_ok (GtkWidget *w, gpointer user_data)
       3, priority_str,
       4, priority,
       -1);
-    gdk_pixbuf_unref(status_icon);
+    g_object_unref(status_icon);
   }
 
   sources_modified = TRUE;
