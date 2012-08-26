@@ -1,31 +1,35 @@
 # uk gslapt translation.
-# Copyright (C) 2005 sin
+# Copyright (C) 2005 sin, 2012 Yarema aka Knedlyk
 # This file is distributed under the same license as the gslapt package.
-# FIRST AUTHOR sin <digitalhunger@gmail.com>, 2005, 2006
-#
+# 
+# Translators:
+# sin <digitalhunger@gmail.com>, 2005, 2006
+# Yarema aka Knedlyk <yupadmin@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.5.3c\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2010-05-07 21:50+0500\n"
-"Last-Translator: sin <digitalhunger@gmail.com>\n"
-"Language-Team: DeepStyle team <deep@deepstyle.org.ua>\n"
+"PO-Revision-Date: 2012-01-07 12:46+0000\n"
+"Last-Translator: Yarema aka Knedlyk <yupadmin@gmail.com>\n"
+"Language-Team: Ukrainian (http://www.transifex.com/projects/p/gslapt/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: uk\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
 msgid "<b>Exclude List</b>"
-msgstr "<b>Перел╕к виключень</b>"
+msgstr "<b>Список виключень</b>"
 
 msgid "<b>Package Sources</b>"
-msgstr "<b>Джерело пакунк╕в</b>"
+msgstr "<b>Джерела пакунків</b>"
 
 msgid "<b>Package and data storage</b>"
-msgstr "<b>М╕сце збер╕гання пакунк╕в та даних</b>"
+msgstr "<b>Місце зберігання пакунків та даних</b>"
 
 msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Застосувати наступн╕ зм╕ни?</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Застосувати наступні зміни?</span>"
 
 msgid "<span weight=\"bold\">Exclude Expression:</span>"
 msgstr "<span weight=\"bold\">Вираз для виключення:</span>"
@@ -49,7 +53,7 @@ msgid "Clear"
 msgstr "Очистити"
 
 msgid "Conflicts"
-msgstr "Конфл╕кт:"
+msgstr "Конфлікти"
 
 #, c-format
 msgid "Couldn't find pixmap file: %s"
@@ -59,13 +63,13 @@ msgid "Description"
 msgstr "Опис"
 
 msgid "Download packages only"
-msgstr "Т╕льки завантажити пакунки"
+msgstr "Тільки завантажити пакунки"
 
 msgid "Downloading packages..."
-msgstr "Завантаження пакунк╕в..."
+msgstr "Завантаження пакунків..."
 
 msgid "Downloading..."
-msgstr "Downloading..."
+msgstr "Завантаження ..."
 
 msgid "Exclude package"
 msgstr "Виключити пакунок"
@@ -77,13 +81,13 @@ msgid "Excludes"
 msgstr "Виключення"
 
 msgid "Execute all scheduled actions in current transaction"
-msgstr "Виконати вс╕ запланован╕ завдання в поточн╕й транзакц╕╖"
+msgstr "Виконати всі заплановані завдання в поточній дії"
 
 msgid "Execute"
 msgstr "Виконати"
 
 msgid "Expression"
-msgstr "Expression"
+msgstr "Вираз"
 
 msgid "Gslapt"
 msgstr "Gslapt"
@@ -95,37 +99,37 @@ msgid "Install/Upgrade package"
 msgstr "Встановити/поновити пакунок"
 
 msgid "Installed Size:"
-msgstr "Розм╕р п╕сля встановлення:"
+msgstr "Розмір після встановлення:"
 
 msgid "Installed Size"
-msgstr "Розм╕р п╕сля встановлення"
+msgstr "Розмір після встановлення"
 
 msgid "Installed"
 msgstr "Встановлено"
 
 msgid "Installing packages..."
-msgstr "Встановлення пакунк╕в..."
+msgstr "Встановлення пакунків..."
 
 msgid "Installing..."
-msgstr "Installing..."
+msgstr "Встановлення ..."
 
 msgid "Location"
-msgstr "Розм╕щення"
+msgstr "Розміщення"
 
 msgid "Name"
-msgstr "╤м'я"
+msgstr "Назва"
 
 msgid "No"
-msgstr "Н╕"
+msgstr "Ні"
 
 msgid "Package Action"
-msgstr "Д╕╖ пакунка"
+msgstr "Дії пакунка"
 
 msgid "Package Information"
-msgstr "╤нформац╕я про пакунок"
+msgstr "Інформація про пакунок"
 
 msgid "Package"
-msgstr "Package"
+msgstr "Пакунок"
 
 msgid "Packages excluded"
 msgstr "Пропущено пакунки"
@@ -146,76 +150,78 @@ msgid "Progress"
 msgstr "Поступ"
 
 msgid "Quit"
-msgstr "Вих╕д"
+msgstr "Вихід"
 
 msgid "Remove package"
-msgstr "Видалити пакунок"
+msgstr "Вилучити пакунок"
 
 msgid "Remove"
-msgstr "Видалити"
+msgstr "Вилучити"
 
 msgid "Removing packages..."
-msgstr "Видалення пакунк╕в..."
+msgstr "Вилучення пакунків..."
 
 msgid "Required"
-msgstr "Необх╕дно:"
+msgstr "Необхідно"
 
 msgid "Search"
-msgstr "Search"
+msgstr "Пошук"
 
 msgid "Size:"
-msgstr "Розм╕р:"
+msgstr "Розмір:"
 
 msgid "Source"
-msgstr "Source"
+msgstr "Джерело"
 
 msgid "Sources"
-msgstr "Репозитор╕╖"
+msgstr "Джерела"
 
 msgid "Suggests"
-msgstr "Бажано:"
+msgstr "Пропозиції"
 
 msgid "Summary"
-msgstr "П╕дсумок"
+msgstr "Підсумок"
 
 msgid "This is a summary of the changes about to be performed."
-msgstr "Буде внесено наступн╕ зм╕ни"
+msgstr "Буде внесено наступні зміни"
 
 msgid "Uninstalling..."
-msgstr "Uninstalling..."
+msgstr "Вилучення ..."
 
 msgid "Up_grade"
-msgstr "Поновити"
+msgstr "_Поновити"
 
 msgid "Update local package cache"
-msgstr "Осв╕жити локальний кеш пакунк╕в"
+msgstr "Освіжити локальний кеш пакунків"
 
 msgid "Update"
-msgstr "Обновить"
+msgstr "Оновити"
 
 msgid "Upgrade"
 msgstr "Поновити"
 
 msgid "Upgrading packages..."
-msgstr "Поновлення пакунк╕в..."
+msgstr "Поновлення пакунків..."
 
 msgid "Upgrading..."
-msgstr "Upgrading..."
+msgstr "Поновлення..."
 
 msgid "Version"
-msgstr "Верс╕я"
+msgstr "Версія"
 
 msgid "Working Directory"
-msgstr "Робочий каталог"
+msgstr "Робоча тека"
 
 msgid "Yes"
 msgstr "Так"
 
 msgid "_Help"
-msgstr "Допомога"
+msgstr "_Допомога"
 
-msgid "gslapt is a GTK+ frontend to slapt-get, an APT like package system for Slackware"
-msgstr "gslapt is a GTK+ frontend to slapt-get, an APT like package system for Slackware"
+msgid ""
+"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
+"Slackware"
+msgstr "gslapt є графічною накладкою до slapt-get, менеджера пакунків для Slackware"
 
 msgid "total progress"
 msgstr "загальний поступ"
@@ -224,30 +230,32 @@ msgid "working"
 msgstr "робота"
 
 msgid "Up to Date"
-msgstr "Не потребу╓ поновлення"
+msgstr "Не потребує поновлення"
 
 msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Поновлення в╕дсутн╕</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Поновлення відсутні</span>"
 
 #, c-format
-msgid "%d upgraded, %d reinstalled, %d newly installed, %d to remove and %d not upgraded."
-msgstr "%d поновлено, %d reinstalled, %d встановлено, %d до видалення %d не поновлено."
+msgid ""
+"%d upgraded, %d reinstalled, %d newly installed, %d to remove and %d not "
+"upgraded."
+msgstr "%d поновлено, %d перевстановлено, %d встановлено, %d до вилучення %d не поновлено."
 
 #, c-format
 msgid "Need to get %.0f%s/%.0f%s of archives.\n"
-msgstr "До отримання: %.0f%s/%.0f%s з арх╕в╕в.\n"
+msgstr "До отримання: %.0f%s/%.0f%s з архівів.\n"
 
 #, c-format
 msgid "Need to get %.0f%s of archives."
-msgstr "До отримання: %.0f%s з арх╕в╕в."
+msgstr "До отримання: %.0f%s з архівів."
 
 #, c-format
 msgid "After unpacking %.0f%s disk space will be freed."
-msgstr "П╕сля розпакування буде зв╕льнено %.0f%s м╕сця на диску."
+msgstr "Після розпакування буде звільнено %.0f%s місця на диску."
 
 #, c-format
 msgid "After unpacking %.0f%s of additional disk space will be used."
-msgstr "П╕сля розпакування буде зайнято додатково %.0f%s на диску."
+msgstr "Після розпакування буде зайнято додатково %.0f%s на диску."
 
 msgid "Ready"
 msgstr "Готово"
@@ -256,73 +264,73 @@ msgid "Re-Install"
 msgstr "Перевстановити"
 
 msgid "Downgrade"
-msgstr "Установить стар╕"
+msgstr "Встановити старі"
 
 msgid "_File"
-msgstr "Файл"
+msgstr "_Файл"
 
 msgid "Pending changes. Click execute when ready."
-msgstr "Внесено зм╕ни. Натисн╕ть Виконати, коли будете готов╕"
+msgstr "Внесено зміни. Натисніть Виконати, коли будете готові"
 
 msgid "Packages with unmet dependencies"
 msgstr "Пакунки з незадоволеними залежностями"
 
 msgid ": Depends: "
-msgstr ": Залежност╕: "
+msgstr ": Залежності: "
 
 msgid "Package conflicts"
-msgstr "Конфл╕кт пакунк╕в"
+msgstr "Конфлікт пакунків"
 
 msgid ", which is required by "
-msgstr ", необх╕дний для "
+msgstr ", необхідний для "
 
 msgid ", is excluded"
 msgstr ", пропущено"
 
 msgid "<b>Conflicts:</b>"
-msgstr "<b>Конфл╕кти:</b>"
+msgstr "<b>Конфлікти:</b>"
 
 msgid "<b>Description:</b>"
 msgstr "<b>Опис:</b>"
 
 msgid "<b>Location:</b>"
-msgstr "<b>Розм╕щення:</b>"
+msgstr "<b>Розміщення:</b>"
 
 msgid "Source:"
 msgstr "Джерело:"
 
 msgid "<b>Name:</b>"
-msgstr "<b>╤м'я:</b>"
+msgstr "<b>Назва:</b>"
 
 msgid "<b>Required:</b>"
-msgstr "<b>Необх╕дно:</b>"
+msgstr "<b>Необхідно:</b>"
 
 msgid "<b>Size:</b>"
-msgstr "<b>Розм╕р:</b>"
+msgstr "<b>Розмір:</b>"
 
 msgid "<b>Suggests:</b>"
-msgstr "<b>Бажано:</b>"
+msgstr "<b>Пропозиції:</b>"
 
 msgid "Version:"
-msgstr "Верс╕я:"
+msgstr "Версія:"
 
 msgid "<b>Version:</b>"
-msgstr "<b>Верс╕я:</b>"
+msgstr "<b>Версія:</b>"
 
 msgid "<b>Version</b>"
-msgstr "<b>Верс╕я</b>"
+msgstr "<b>Версія</b>"
 
 msgid "<b>Source:</b>"
-msgstr "<b>Source:</b>"
+msgstr "<b>Джерело:</b>"
 
 msgid "Common"
 msgstr "Загалом"
 
 msgid "Dependencies"
-msgstr "Залежност╕"
+msgstr "Залежності"
 
 msgid "No package is selected."
-msgstr "Не вибран╕ пакунки."
+msgstr "Не вибрані пакунки."
 
 msgid "Status"
 msgstr "Стан"
@@ -334,14 +342,14 @@ msgid "pkgtools returned an error"
 msgstr "помилка pkgtools"
 
 msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Недостатньо в╕льного м╕сця</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Недостатньо вільного місця</span>"
 
 #, c-format
 msgid "<b>Excluding %s due to dependency failure</b>"
-msgstr "<b>Пропуск %s внасл╕док незадоволених залежностей</b>"
+msgstr "<b>Пропуск %s внаслідок незадоволених залежностей</b>"
 
 msgid "Unmark"
-msgstr "Скасувати виб╕р"
+msgstr "Скасувати вибір"
 
 msgid "<b>Status:</b>"
 msgstr "<b>Стан:</b>"
@@ -349,8 +357,10 @@ msgstr "<b>Стан:</b>"
 msgid "Excluded"
 msgstr "Пропущено"
 
-msgid "<b>The following icons are used to indicate the current status of a package:</b>"
-msgstr "<b>Наступн╕ значки вказують стан пакунка:</b>"
+msgid ""
+"<b>The following icons are used to indicate the current status of a "
+"package:</b>"
+msgstr "<b>Наступні значки вказують стан пакунка:</b>"
 
 msgid "Not Installed"
 msgstr "Не встановлено"
@@ -365,13 +375,13 @@ msgid "To be Upgraded"
 msgstr "Буде поновлено"
 
 msgid "To be Removed"
-msgstr "Буде видалено"
+msgstr "Буде вилучено"
 
 msgid "To be Downgraded"
-msgstr "Встановити стару верс╕ю"
+msgstr "Встановити стару версію"
 
 msgid "Icon Legend"
-msgstr "Опис значк╕в"
+msgstr "Опис значків"
 
 msgid "Completed actions"
 msgstr "Completed actions"
@@ -380,211 +390,216 @@ msgid "Successfully executed all actions."
 msgstr "Successfully executed all actions."
 
 msgid "<b>Installed Version</b>"
-msgstr "<b>Встановлено верс╕ю</b>"
+msgstr "<b>Встановлено версію</b>"
 
 msgid "<b>Latest Available Version</b>"
-msgstr "<b>Остання доступна верс╕я</b>"
+msgstr "<b>Остання доступна версія</b>"
 
 msgid "Failed to commit preferences"
 msgstr "Не можу застосувати налаштування"
 
 msgid "Mark All Upgrades"
-msgstr "Позначити вс╕ поновлення"
+msgstr "Позначити всі поновлення"
 
 msgid "_Edit"
-msgstr "Редагувати"
+msgstr "_Редагувати"
 
 msgid "Unmark All"
-msgstr "Зняти вс╕ позначки"
+msgstr "Зняти всі позначки"
 
 msgid "P_ackage"
 msgstr "Пакунок"
 
-msgid "You need to reload the package list from the sources you have listed.  Do you want to do this now?"
-msgstr "Необх╕дно перезавантажити перел╕к пакунк╕в ╕з вказаних джерел. Зробити це зараз?"
+msgid ""
+"You need to reload the package list from the sources you have listed.  Do "
+"you want to do this now?"
+msgstr "Необхідно перезавантажити перелік пакунків із вказаних джерел. Зробити це зараз?"
 
 msgid "Repositories changed"
-msgstr "Репозитор╕╖ зм╕нено"
+msgstr "Сховища змінено"
 
 msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
-msgstr "<span size=\"large\" weight=\"bold\">Репозитор╕╖ зм╕нено</span>"
+msgstr "<span size=\"large\" weight=\"bold\">Сховища змінено</span>"
 
 msgid "Retrieving package data..."
 msgstr "Отримання даних про пакунки..."
 
 msgid "Retrieving patch list..."
-msgstr "Отримання перел╕ку патч╕в..."
+msgstr "Отримання переліку латок..."
 
 msgid "Retrieving checksum list..."
-msgstr "Отримання перел╕ку контрольних сум..."
+msgstr "Отримання переліку контрольних сум..."
 
 msgid "Reading Package Lists..."
-msgstr "Читання перел╕ку пакунк╕в..."
+msgstr "Читання переліку пакунків..."
 
 msgid "_Delete Cached Package Files"
-msgstr "Очистити кеш пакунк╕в"
+msgstr "Очистити кеш пакунків"
 
 msgid "Mark all possible upgrades"
-msgstr "Mark all possible upgrades"
+msgstr "Позначити всі можливі поновлення"
 
 msgid "Enabled"
-msgstr "Вв╕мкнено"
+msgstr "Ввімкнено"
 
-msgid "Missing dependencies may mean the software in this package will not function correctly.  Do you want to continue without the required packages?"
-msgstr "Незадоволен╕ залежност╕ можуть призвести до того, що ПЗ в цьому пакет╕ не зможе в╕рно функц╕онувати. Продовжити без пакунк╕в, що вимагаються?"
+msgid ""
+"Missing dependencies may mean the software in this package will not function"
+" correctly.  Do you want to continue without the required packages?"
+msgstr "Незадоволені залежності можуть призвести до того, що ПЗ в цьому пакеті не зможе вірно функціонувати. Продовжити без пакунків, що вимагаються?"
 
-msgid "This package source failed or is not available.  Do you want to disable this source and continue anyway?"
-msgstr "Репозитар╕й для цього пакунка не ╕сну╓ або не функц╕ону╓.  Чи хочете ви в╕дключити використання цього репозитар╕ю та продовжити?"
+msgid ""
+"This package source failed or is not available.  Do you want to disable this"
+" source and continue anyway?"
+msgstr "Сховище для цього пакунка не існує або не функціонує.  Бажаєте відключити використання цього сховища та продовжити?"
 
 msgid "Retrieving ChangeLog.txt..."
 msgstr "Отримання ChangeLog.txt..."
 
 msgid "Changelog"
-msgstr "Перел╕к зм╕н"
+msgstr "Перелік змін"
 
 msgid "_View"
 msgstr "Перегляд"
 
 msgid "All"
-msgstr "Ус╕"
+msgstr "Усі"
 
 msgid "View all packages"
-msgstr "Перегляд ус╕х пакунк╕в"
+msgstr "Перегляд усіх пакунків"
 
 msgid "Available"
-msgstr "Доступн╕"
+msgstr "Доступні"
 
 msgid "View available packages from current sources"
-msgstr "Перегляд ус╕х доступних пакунк╕в з обраних репозитор╕╖в"
+msgstr "Перегляд усіх доступних пакунків з обраних сховищ"
 
 msgid "View installed packages"
-msgstr "Перегляд встановлених пакунк╕в"
+msgstr "Перегляд встановлених пакунків"
 
 msgid "Marked"
-msgstr "В╕дм╕чено"
+msgstr "Відмічено"
 
 msgid "View Marked Packages"
-msgstr "Перегляд в╕дм╕чених пакунк╕в"
+msgstr "Перегляд відмічених пакунків"
 
 msgid "Mark Obsolete"
-msgstr "В╕дм╕тити застар╕л╕"
+msgstr "Відмітити застарілі"
 
 msgid "Mark all obsolete packages"
-msgstr "В╕дм╕тити ус╕ застар╕л╕ пакунки"
+msgstr "Відмітити усі застарілі пакунки"
 
 #, c-format
 msgid "Download rate: %.0f%s/s"
-msgstr "Швидк╕сть завантаження: %.0f%s/s"
+msgstr "Швидкість завантаження: %.0f%s/s"
 
 #, c-format
 msgid "Failed to download %s: %s"
 msgstr "Не вдалося завантажити %s: %s"
 
 msgid "Import"
-msgstr "╤мпорт"
+msgstr "Імпорт"
 
 msgid "No key found"
 msgstr "Ключ не знайдено"
 
 msgid "<b>GPG Keys</b>"
-msgstr "<b>Ключ╕ GPG</b>"
+msgstr "<b>Ключі GPG</b>"
 
 msgid "Verification"
-msgstr "Перев╕рка"
+msgstr "Перевірка"
 
 msgid "Retrieving checksum signature..."
-msgstr "Отримання контрольно╖ суми..."
+msgstr "Отримання контрольної суми..."
 
 msgid "Verifying checksum signature..."
-msgstr "Перев╕рка контрольно╖ суми..."
+msgstr "Перевірка контрольної суми..."
 
 msgid "GPG Key verification failed"
-msgstr "Помилка перев╕рки ключа GPG"
+msgstr "Помилка перевірки ключа GPG"
 
 msgid "Error"
-msgstr "Error"
+msgstr "Помилка"
 
 msgid "Visible"
-msgstr "Visible"
+msgstr "Видимий"
 
 msgid "Upgradeable"
-msgstr "Upgradeable"
+msgstr "Можливість поновлення"
 
 msgid "View Upgradeable Packages"
-msgstr "View Upgradeable Packages"
+msgstr "Перегляд оновлюваних пакунків"
 
 msgid "View ChangeLogs"
-msgstr "View ChangeLogs"
+msgstr "Перегляд списку змін"
 
 msgid "ChangeLogs"
-msgstr "ChangeLogs"
+msgstr "Список змін"
 
-#, fuzzy
 msgid "No changelogs found."
-msgstr "Ключ не знайдено."
+msgstr "Не знайдено змін."
 
 msgid "Priority"
-msgstr "Priority"
+msgstr "Пріоритет"
 
 msgid "Package Source"
-msgstr "Package Source"
+msgstr "Джерело пакунку"
 
 msgid "<b>Priority:</b>"
-msgstr "<b>Priority:</b>"
+msgstr "<b>Пріоритет:</b>"
 
 msgid "<b>Source</b>"
-msgstr "<b>Source</b>"
+msgstr "<b>Джерело</b>"
 
 msgid "Default"
-msgstr "Default"
+msgstr "Типово"
 
 msgid "Preferred"
-msgstr "Preferred"
+msgstr "Привілей"
 
 msgid "Official"
-msgstr "Official"
+msgstr "Офіційно"
 
 msgid "Custom"
-msgstr "Custom"
+msgstr "Користувача"
 
 msgid "Files"
-msgstr "Files"
+msgstr "Файли"
 
 msgid "The list of installed files is only available for installed packages"
-msgstr "The list of installed files is only available for installed packages"
+msgstr "Список встановлених файлів доступний тільки для встановлених пакунків"
 
 msgid "No dependency information available"
-msgstr "No dependency information available"
+msgstr "Немає відомостей про залежності"
 
 msgid "No changelog information available"
-msgstr "No changelog information available"
+msgstr "Немає інформації про зміни"
 
 msgid "Gslapt Package Manager"
 msgstr "Менеджер пакункiв Gslapt"
 
 msgid "Install, remove and upgrade software packages"
-msgstr "Install, remove and upgrade software packages"
+msgstr "Установка, вилучення і оновлення програмних пакунків"
 
 msgid "Base"
-msgstr "Base"
+msgstr "Основні"
 
 msgid "Applications"
-msgstr "Applications"
+msgstr "Програми"
 
 msgid "Development Tools"
-msgstr "Development Tools"
+msgstr "Інструменти розробника"
 
 msgid "GNU Emacs"
 msgstr "GNU Emacs"
 
 msgid "Documentation"
-msgstr "Documentation"
+msgstr "Документація"
 
 msgid "GNOME"
 msgstr "GNOME"
 
 msgid "Linux kernel"
-msgstr "Linux kernel"
+msgstr "Ядро Linux"
 
 msgid "KDE"
 msgstr "KDE"
@@ -593,10 +608,10 @@ msgid "KDE Internationalization"
 msgstr "KDE Internationalization"
 
 msgid "Libraries"
-msgstr "Libraries"
+msgstr "Бібліотеки"
 
 msgid "Networking"
-msgstr "Networking"
+msgstr "Мережеві"
 
 msgid "teTeX"
 msgstr "teTeX"
@@ -611,10 +626,10 @@ msgid "X Applications"
 msgstr "X Applications"
 
 msgid "BSD Console games"
-msgstr "BSD Console games"
+msgstr "BSD консольні ігри"
 
 msgid "Patches"
-msgstr "Patches"
+msgstr "Латки"
 
 msgid "GSB Base"
 msgstr "GSB Base"
@@ -653,13 +668,13 @@ msgid "GSB Themes"
 msgstr "GSB Themes"
 
 msgid "Games"
-msgstr "Games"
+msgstr "Ігри"
 
 msgid "Localization"
-msgstr "Localization"
+msgstr "Переклади"
 
 msgid "Packages to be reinstalled"
-msgstr "Packages to be reinstalled"
+msgstr "Пакунки для перевстановлення"
 
 msgid "Source failed"
-msgstr "Source failed"
+msgstr "Сховище не доступне"
