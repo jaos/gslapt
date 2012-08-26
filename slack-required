@@ -25,3 +25,4 @@ pango
 pixman
 slapt-get
 zlib
+libffi
