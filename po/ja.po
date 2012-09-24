@@ -1,21 +1,23 @@
-# Japanese translation for gslapt
-# Copyright (C) 2006 S_A
+# gslapt translation template
+# Copyright (C) 2005-2010 Jason Woodward
 # This file is distributed under the same license as the gslapt package.
-#
-# S_A <shin1.abe@nifty.com>, 2006.
+# 
+# Translators:
 # JW <J_W@somewhere.c0.jp>, 2006.
+# S_A <shin1.abe@nifty.com>, 2006.
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.5.3c\n"
+"Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2010-05-07 21:50+0500\n"
-"Last-Translator: JW <J_W@somewhere.c0.jp>\n"
+"PO-Revision-Date: 2012-09-17 22:06+0000\n"
+"Last-Translator: gapan <vlahavas@gmail.com>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.2\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "<b>Exclude List</b>"
 msgstr "<b>除外するリスト</b>"
@@ -216,7 +218,9 @@ msgstr "はい"
 msgid "_Help"
 msgstr "ヘルプ(_Help)"
 
-msgid "gslapt is a GTK+ frontend to slapt-get, an APT like package system for Slackware"
+msgid ""
+"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
+"Slackware"
 msgstr "gslapt は APTライクな Slackware用パッケージ・システムのGTK+フロントエンドです"
 
 msgid "total progress"
@@ -232,7 +236,9 @@ msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
 msgstr "<span weight=\"bold\" size=\"large\">更新対象ファイルはありません</span>"
 
 #, c-format
-msgid "%d upgraded, %d reinstalled, %d newly installed, %d to remove and %d not upgraded."
+msgid ""
+"%d upgraded, %d reinstalled, %d newly installed, %d to remove and %d not "
+"upgraded."
 msgstr "%d アップグレード, %d reinstalled, %d 新規インストール, %d 削除 そして %d 非アップグレード"
 
 #, c-format
@@ -351,7 +357,9 @@ msgstr "<b>状況:</b>"
 msgid "Excluded"
 msgstr "除外"
 
-msgid "<b>The following icons are used to indicate the current status of a package:</b>"
+msgid ""
+"<b>The following icons are used to indicate the current status of a "
+"package:</b>"
 msgstr "<b>以下のアイコンは現在のパッケージの状態を表しています:</b>"
 
 msgid "Not Installed"
@@ -402,7 +410,9 @@ msgstr "全てのマークを外す"
 msgid "P_ackage"
 msgstr "パッケージ(P_ackage)"
 
-msgid "You need to reload the package list from the sources you have listed.  Do you want to do this now?"
+msgid ""
+"You need to reload the package list from the sources you have listed.  Do "
+"you want to do this now?"
 msgstr "ソース・リストからパッケージ・リストを再取得する必要があります。 今すぐ実行しますか？"
 
 msgid "Repositories changed"
@@ -432,10 +442,14 @@ msgstr "Mark all possible upgrades"
 msgid "Enabled"
 msgstr "有効"
 
-msgid "Missing dependencies may mean the software in this package will not function correctly.  Do you want to continue without the required packages?"
+msgid ""
+"Missing dependencies may mean the software in this package will not function"
+" correctly.  Do you want to continue without the required packages?"
 msgstr "依存性の欠如。このパッケージに含まれるソフトウェアが正しく動作しない可能性があります。 依存性を解決せずに、このまま作業を進めますか？"
 
-msgid "This package source failed or is not available.  Do you want to disable this source and continue anyway?"
+msgid ""
+"This package source failed or is not available.  Do you want to disable this"
+" source and continue anyway?"
 msgstr "パッケージ・ソースが存在しない、もしくはソースに誤りがあります。 このソースを無効にして作業を続けますか？"
 
 msgid "Retrieving ChangeLog.txt..."

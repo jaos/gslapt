@@ -1,19 +1,21 @@
-# gslapt swedish translation
-# Copyright (C) 2005 Hakan Lindqvist
+# gslapt translation template
+# Copyright (C) 2005-2010 Jason Woodward
 # This file is distributed under the same license as the gslapt package.
-# Hakan Lindqvist <tfy00hlt@cs.umu.se>
-#
+# 
+# Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.5.3c\n"
+"Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2010-05-07 21:50+0500\n"
-"Last-Translator: Hakan Lindqvist <tfy00hlt@cs.umu.se>\n"
+"PO-Revision-Date: 2012-09-17 22:06+0000\n"
+"Last-Translator: gapan <vlahavas@gmail.com>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: sv\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "<b>Exclude List</b>"
 msgstr "<b>Uteslutningslista</b>"
@@ -214,7 +216,9 @@ msgstr "Ja"
 msgid "_Help"
 msgstr "_Hjälp"
 
-msgid "gslapt is a GTK+ frontend to slapt-get, an APT like package system for Slackware"
+msgid ""
+"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
+"Slackware"
 msgstr "gslapt är en GTK+ frontend till slapt-get, ett APT-liknande paket system förSlackware"
 
 msgid "total progress"
@@ -230,7 +234,9 @@ msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Inga uppdateringar tillgängliga</span>"
 
 #, c-format
-msgid "%d upgraded, %d reinstalled, %d newly installed, %d to remove and %d not upgraded."
+msgid ""
+"%d upgraded, %d reinstalled, %d newly installed, %d to remove and %d not "
+"upgraded."
 msgstr "%d uppgraderade, %d reinstalled, %d nyligen installerade, %d att ta bort och %d ej uppgraderade"
 
 #, c-format
@@ -349,7 +355,9 @@ msgstr "<b>Status:</b>"
 msgid "Excluded"
 msgstr "Excluded"
 
-msgid "<b>The following icons are used to indicate the current status of a package:</b>"
+msgid ""
+"<b>The following icons are used to indicate the current status of a "
+"package:</b>"
 msgstr "<b>The following icons are used to indicate the current status of a package:</b>"
 
 msgid "Not Installed"
@@ -400,7 +408,9 @@ msgstr "Unmark All"
 msgid "P_ackage"
 msgstr "P_ackage"
 
-msgid "You need to reload the package list from the sources you have listed.  Do you want to do this now?"
+msgid ""
+"You need to reload the package list from the sources you have listed.  Do "
+"you want to do this now?"
 msgstr "You need to reload the package list from the sources you have listed.  Do you want to do this now?"
 
 msgid "Repositories changed"
@@ -430,10 +440,14 @@ msgstr "Mark all possible upgrades"
 msgid "Enabled"
 msgstr "Enabled"
 
-msgid "Missing dependencies may mean the software in this package will not function correctly.  Do you want to continue without the required packages?"
+msgid ""
+"Missing dependencies may mean the software in this package will not function"
+" correctly.  Do you want to continue without the required packages?"
 msgstr "Missing dependencies may mean the software in this package will not function correctly.  Do you want to continue without the required packages?"
 
-msgid "This package source failed or is not available.  Do you want to disable this source and continue anyway?"
+msgid ""
+"This package source failed or is not available.  Do you want to disable this"
+" source and continue anyway?"
 msgstr "This package source failed or is not available.  Do you want to disable this source and continue anyway?"
 
 msgid "Retrieving ChangeLog.txt..."
@@ -519,9 +533,8 @@ msgstr "View ChangeLogs"
 msgid "ChangeLogs"
 msgstr "ChangeLogs"
 
-#, fuzzy
 msgid "No changelogs found."
-msgstr "No key found."
+msgstr ""
 
 msgid "Priority"
 msgstr "Priority"

@@ -1,20 +1,22 @@
-# Plantilla de traduccion Gslapt
+# gslapt translation template
 # Copyright (C) 2005-2010 Jason Woodward
 # This file is distributed under the same license as the gslapt package.
-# PRIMER AUTOR Manuel Barallobre (BARA) <bara666@gmail.com>, 2005, 2006, 2007, 2008
-#
+# 
+# Translators:
+# PRIMER AUTOR Manuel Barallobre (BARA) <bara666@gmail.com>, 2005-2008.
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.5.3c\n"
+"Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2010-06-15 22:41-0300\n"
-"Last-Translator: Fernando Velo <seacat.lang@gmail.com>\n"
+"PO-Revision-Date: 2012-09-17 22:06+0000\n"
+"Last-Translator: gapan <vlahavas@gmail.com>\n"
 "Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Spanish\n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "<b>Exclude List</b>"
 msgstr "<b>Lista de excluidos</b>"
@@ -215,7 +217,9 @@ msgstr "Sí"
 msgid "_Help"
 msgstr "_Ayuda"
 
-msgid "gslapt is a GTK+ frontend to slapt-get, an APT like package system for Slackware"
+msgid ""
+"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
+"Slackware"
 msgstr "gslapt es un frontend GTK+ para slapt-get, un sistema de paquetes para Slackware como APT"
 
 msgid "total progress"
@@ -231,7 +235,9 @@ msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
 msgstr "<span weight=\"bold\" size=\"large\">No hay actualizaciones disponibles</span>"
 
 #, c-format
-msgid "%d upgraded, %d reinstalled, %d newly installed, %d to remove and %d not upgraded."
+msgid ""
+"%d upgraded, %d reinstalled, %d newly installed, %d to remove and %d not "
+"upgraded."
 msgstr "%d actualizado, %d reinstalled, %d recién instalado, %d para desinstalar y %d no actualizado."
 
 #, c-format
@@ -350,7 +356,9 @@ msgstr "<b>Estado:</b>"
 msgid "Excluded"
 msgstr "Excluido"
 
-msgid "<b>The following icons are used to indicate the current status of a package:</b>"
+msgid ""
+"<b>The following icons are used to indicate the current status of a "
+"package:</b>"
 msgstr "<b>Los siguientes iconos se usan para indicar el estado actual de un paquete:</b>"
 
 msgid "Not Installed"
@@ -401,7 +409,9 @@ msgstr "Desmarcar todo"
 msgid "P_ackage"
 msgstr "P_aquete"
 
-msgid "You need to reload the package list from the sources you have listed.  Do you want to do this now?"
+msgid ""
+"You need to reload the package list from the sources you have listed.  Do "
+"you want to do this now?"
 msgstr "Se necesita recargar la lista de paquetes desde las fuentes que tiene listadas. ¿Quiere hacerlo ahora?"
 
 msgid "Repositories changed"
@@ -431,10 +441,14 @@ msgstr "Marcas todas las posibles actualizaciones"
 msgid "Enabled"
 msgstr "Habilitado"
 
-msgid "Missing dependencies may mean the software in this package will not function correctly.  Do you want to continue without the required packages?"
+msgid ""
+"Missing dependencies may mean the software in this package will not function"
+" correctly.  Do you want to continue without the required packages?"
 msgstr "Las dependencias faltantes pueden implicar que el software en el paquete no funcione correctamente. ¿Quiere continuar sin los paquetes requeridos?"
 
-msgid "This package source failed or is not available.  Do you want to disable this source and continue anyway?"
+msgid ""
+"This package source failed or is not available.  Do you want to disable this"
+" source and continue anyway?"
 msgstr "La fuente del paquete falló o no está disponible.  ¿Desea deshabilitar esta fuente y continuar de todos modos?"
 
 msgid "Retrieving ChangeLog.txt..."
@@ -663,5 +677,3 @@ msgstr "Paquetes a reinstalarse"
 
 msgid "Source failed"
 msgstr "Falló la fuente"
-
-

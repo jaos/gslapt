@@ -1,19 +1,22 @@
-# vi gslapt translation
-# Copyright (C) 2005 Vu Nguyen
+# gslapt translation template
+# Copyright (C) 2005-2010 Jason Woodward
 # This file is distributed under the same license as the gslapt package.
-# FIRST AUTHOR Vu Nguyen <vncasper@yahoo.com>, 2005, 2006
-#
+# 
+# Translators:
+# FIRST AUTHOR Vu Nguyen <vncasper@yahoo.com>, 2005-2006.
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.5.3c\n"
+"Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2010-05-07 21:50+0500\n"
-"Last-Translator: Nguyễn Văn Vũ <vncasper@yahoo.com>\n"
-"Language-Team: gnome-vi <gnomevi-list@lists.sourceforge.net>\n"
+"PO-Revision-Date: 2012-09-17 22:06+0000\n"
+"Last-Translator: gapan <vlahavas@gmail.com>\n"
+"Language-Team: slapt-get-devel <slapt-get-devel@software.jaos.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: vi\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "<b>Exclude List</b>"
 msgstr "<b>Danh sách loại trừ</b>"
@@ -214,7 +217,9 @@ msgstr "Đồng ý"
 msgid "_Help"
 msgstr "_Giúp đỡ"
 
-msgid "gslapt is a GTK+ frontend to slapt-get, an APT like package system for Slackware"
+msgid ""
+"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
+"Slackware"
 msgstr "gslapt là giao diện GTK+ cho slapt-get, một hệ thống quản lý gói giống APT Slackware"
 
 msgid "total progress"
@@ -230,7 +235,9 @@ msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Cập nhật không có sẵn</span>"
 
 #, c-format
-msgid "%d upgraded, %d reinstalled, %d newly installed, %d to remove and %d not upgraded."
+msgid ""
+"%d upgraded, %d reinstalled, %d newly installed, %d to remove and %d not "
+"upgraded."
 msgstr "%d gói được nâng cấp, %d reinstalled, %d gói được cài đặt mới, %d gói bị gỡ bỏ và %d gói giữ nguyên"
 
 #, c-format
@@ -349,7 +356,9 @@ msgstr "<b>Trạng thái:</b>"
 msgid "Excluded"
 msgstr "Loại bỏ"
 
-msgid "<b>The following icons are used to indicate the current status of a package:</b>"
+msgid ""
+"<b>The following icons are used to indicate the current status of a "
+"package:</b>"
 msgstr "<b>Các biểu tượng sau được sử dụng để nhận biết trạng thái hiện tại của một gói dữ liệu:</b>"
 
 msgid "Not Installed"
@@ -400,7 +409,9 @@ msgstr "Không đánh dấu tất cả"
 msgid "P_ackage"
 msgstr "G_ói phần mềm"
 
-msgid "You need to reload the package list from the sources you have listed.  Do you want to do this now?"
+msgid ""
+"You need to reload the package list from the sources you have listed.  Do "
+"you want to do this now?"
 msgstr "You need to reload the package list from the sources you have listed.  Do you want to do this now?"
 
 msgid "Repositories changed"
@@ -430,10 +441,14 @@ msgstr "Mark all possible upgrades"
 msgid "Enabled"
 msgstr "Enabled"
 
-msgid "Missing dependencies may mean the software in this package will not function correctly.  Do you want to continue without the required packages?"
+msgid ""
+"Missing dependencies may mean the software in this package will not function"
+" correctly.  Do you want to continue without the required packages?"
 msgstr "Missing dependencies may mean the software in this package will not function correctly.  Do you want to continue without the required packages?"
 
-msgid "This package source failed or is not available.  Do you want to disable this source and continue anyway?"
+msgid ""
+"This package source failed or is not available.  Do you want to disable this"
+" source and continue anyway?"
 msgstr "This package source failed or is not available.  Do you want to disable this source and continue anyway?"
 
 msgid "Retrieving ChangeLog.txt..."
@@ -519,9 +534,8 @@ msgstr "View ChangeLogs"
 msgid "ChangeLogs"
 msgstr "ChangeLogs"
 
-#, fuzzy
 msgid "No changelogs found."
-msgstr "No key found."
+msgstr ""
 
 msgid "Priority"
 msgstr "Priority"
