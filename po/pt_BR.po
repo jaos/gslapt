@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the gslapt package.
 # 
 # Translators:
-# FIRST AUTHOR Frederico Henrique Gonçalves Lima <fredhgl@yahoo.com.br>, 2005-2006.
-# Sérgio Surkamp <surkamp@gmail.com>, 2008,2010.
+# FIRST AUTHOR Frederico Henrique Gonçalves Lima <fredhgl@yahoo.com.br>, 2005-2006
+# Sérgio Surkamp <surkamp@gmail.com>, 2008,2010
 msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2012-09-17 22:06+0000\n"
-"Last-Translator: gapan <vlahavas@gmail.com>\n"
+"PO-Revision-Date: 2013-04-29 10:10+0000\n"
+"Last-Translator: Jason Woodward <woodwardj@jaos.org>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/slapt-get/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
