@@ -1052,8 +1052,6 @@ static void get_package_data (void)
   guint i,context_id;
   gfloat dl_files = 0.0,
          dl_count = 0.0;
-  ssize_t bytes_read;
-  size_t getline_len = 0;
   FILE *pkg_list_fh;
   slapt_pkg_list_t *new_pkgs = slapt_init_pkg_list();
   new_pkgs->free_pkgs = TRUE;
@@ -2380,7 +2378,7 @@ void preferences_sources_edit (GtkWidget *w, gpointer user_data)
   GtkTreeSelection *select = gtk_tree_view_get_selection (GTK_TREE_VIEW (source_tree));
 
   if ( gtk_tree_selection_get_selected(select,&model,&iter)) {
-    guint i = 0, priority;
+    guint priority;
     gchar *source;
 
     gtk_tree_model_get(model,&iter,1,&source,4,&priority,-1);
@@ -3187,10 +3185,8 @@ static void reset_search_list (void)
 
 GtkEntryCompletion *build_search_completions (void)
 {
-  GtkTreeIter iter;
   GtkTreeModel *completions;
   GtkEntryCompletion *completion;
-  guint i;
 
   completions = GTK_TREE_MODEL(gtk_list_store_new(1,G_TYPE_STRING));
 
@@ -3262,7 +3258,6 @@ slapt_source_list_t *parse_disabled_package_sources (const char *file_name)
 
 static gboolean toggle_source_status (GtkTreeView *treeview, gpointer data)
 {
-  GtkMenu *menu;
   GdkEventButton *event = (GdkEventButton *)gtk_get_current_event();
   GtkTreeViewColumn *column;
   GtkTreeSelection *selection = gtk_tree_view_get_selection(treeview);
