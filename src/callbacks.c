@@ -1930,7 +1930,14 @@ static int populate_transaction_window (GtkWidget *trans_window)
   gtk_tree_view_column_set_sort_column_id (column, 0);
   gtk_tree_view_append_column (GTK_TREE_VIEW(summary_treeview), column);
 
-  snprintf(buf,512,(gchar *)_("%d upgraded, %d reinstalled, %d newly installed, %d to remove and %d not upgraded."),
+  char fmt[512];
+  snprintf(fmt, 512, "%s%s%s%s%s",
+           P_("%d upgraded, ", "%d upgraded, ", trans->upgrade_pkgs->pkg_count - trans->upgrade_pkgs->reinstall_count),
+           P_("%d reinstalled, ", "%d reinstalled, ", trans->upgrade_pkgs->reinstall_count),
+           P_("%d newly installed, ", "%d newly installed, ", trans->install_pkgs->pkg_count),
+           P_("%d to remove ", "%d to remove ", trans->remove_pkgs->pkg_count),
+           P_("and %d not upgraded.", "and %d not upgraded.", trans->exclude_pkgs->pkg_count));
+  snprintf(buf,512,fmt,
     trans->upgrade_pkgs->pkg_count - trans->upgrade_pkgs->reinstall_count,
     trans->upgrade_pkgs->reinstall_count,
     trans->install_pkgs->pkg_count,
@@ -2197,7 +2204,7 @@ char *download_packages (void)
       gtk_widget_destroy(progress_window);
       gslapt_clear_status(context_id);
       gdk_threads_leave();
-      return g_strdup_printf("Failed to download %s: %s",
+      return g_strdup_printf(_("Failed to download %s: %s"),
                         trans->upgrade_pkgs->pkgs[i]->upgrade->name, err);
     }
     ++count;
@@ -3346,11 +3353,9 @@ static void display_dep_error_dialog (slapt_pkg_info_t *pkg,guint m, guint c)
                               strlen(trans->conflict_err->errs[i]->pkg) +
                               strlen((gchar *)_(", is excluded")) + 2;
     char *err = slapt_malloc(sizeof *err * len);
-    snprintf(err,len,"%s%s%s%s\n",
+    snprintf(err,len,"%s, which is required by %s, is excluded\n",
              trans->conflict_err->errs[i]->error,
-             (gchar *)_(", which is required by "),
-             trans->conflict_err->errs[i]->pkg,
-             (gchar *)_(", is excluded"));
+             trans->conflict_err->errs[i]->pkg);
     gtk_text_buffer_insert_at_cursor(error_buf,err,-1);
     free(err);
   }

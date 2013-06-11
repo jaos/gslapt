@@ -15,7 +15,7 @@
 #  include <libintl.h>
 #  undef _
 #  define _(String) dgettext (PACKAGE, String)
-#  define Q_(String) g_strip_context ((String), gettext (String))
+#  define P_(String, String_p, n) ngettext(String, String_p, n)
 #  ifdef gettext_noop
 #    define N_(String) gettext_noop (String)
 #  else
@@ -28,7 +28,7 @@
 #  define dcgettext(Domain,Message,Type) (Message)
 #  define bindtextdomain(Domain,Directory) (Domain)
 #  define _(String) (String)
-#  define Q_(String) g_strip_context ((String), (String))
+#  define P_(String, String_p, n) (String_p)
 #  define N_(String) (String)
 #endif
 
