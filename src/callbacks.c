@@ -3556,6 +3556,7 @@ static int set_iter_for_install(GtkTreeModel *model, GtkTreeIter *iter,
   gtk_list_store_set(GTK_LIST_STORE(model),iter,MARKED_COLUMN,TRUE,-1);
   g_free(status);
   g_object_unref(status_icon);
+  return 0;
 }
 
 static int set_iter_for_reinstall(GtkTreeModel *model, GtkTreeIter *iter,
@@ -3568,6 +3569,7 @@ static int set_iter_for_reinstall(GtkTreeModel *model, GtkTreeIter *iter,
   gtk_list_store_set(GTK_LIST_STORE(model),iter,MARKED_COLUMN,TRUE,-1);
   g_free(status);
   g_object_unref(status_icon);
+  return 0;
 }
 
 static int set_iter_for_downgrade(GtkTreeModel *model, GtkTreeIter *iter,
@@ -3580,6 +3582,7 @@ static int set_iter_for_downgrade(GtkTreeModel *model, GtkTreeIter *iter,
   gtk_list_store_set(GTK_LIST_STORE(model),iter,MARKED_COLUMN,TRUE,-1);
   g_free(status);
   g_object_unref(status_icon);
+  return 0;
 }
 
 static int set_iter_for_upgrade(GtkTreeModel *model, GtkTreeIter *iter,
@@ -3592,6 +3595,7 @@ static int set_iter_for_upgrade(GtkTreeModel *model, GtkTreeIter *iter,
   gtk_list_store_set(GTK_LIST_STORE(model),iter,MARKED_COLUMN,TRUE,-1);
   g_free(status);
   g_object_unref(status_icon);
+  return 0;
 }
 
 static int set_iter_for_remove(GtkTreeModel *model, GtkTreeIter *iter,
@@ -3604,6 +3608,7 @@ static int set_iter_for_remove(GtkTreeModel *model, GtkTreeIter *iter,
   gtk_list_store_set(GTK_LIST_STORE(model),iter,MARKED_COLUMN,TRUE,-1);
   g_free(status);
   g_object_unref(status_icon);
+  return 0;
 }
 
 
