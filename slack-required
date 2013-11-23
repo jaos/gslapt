@@ -26,3 +26,5 @@ pixman
 slapt-get
 zlib
 libffi
+harfbuzz
+icu4c
