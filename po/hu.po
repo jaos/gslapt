@@ -4,12 +4,13 @@
 # 
 # Translators:
 # Jason Woodward <woodwardj@jaos.org>, 2010
+# Jason Woodward <woodwardj@jaos.org>, 2010
 msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2013-04-29 10:10+0000\n"
+"PO-Revision-Date: 2013-11-20 12:47+0000\n"
 "Last-Translator: Jason Woodward <woodwardj@jaos.org>\n"
 "Language-Team: Hungarian (http://www.transifex.com/projects/p/slapt-get/language/hu/)\n"
 "MIME-Version: 1.0\n"
