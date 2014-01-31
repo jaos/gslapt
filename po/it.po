@@ -131,7 +131,7 @@ msgid "Package"
 msgstr "Pacchetto"
 
 msgid "Packages excluded"
-msgstr "Pacchetti esclussi"
+msgstr "Pacchetti esclusi"
 
 msgid "Packages to be installed"
 msgstr "Pacchetti da installare"
