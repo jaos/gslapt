@@ -1,5 +1,6 @@
 
-0.5.3j Nov  23, 2013
+0.5.3j Apr  03, 2014
+ * glib 2.32 compat
  * updated dependencies for Slack 14.1
  * updated copyright date
 

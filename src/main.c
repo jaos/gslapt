@@ -59,7 +59,9 @@ int main (int argc, char *argv[]) {
 #endif
 
   /* gtk_set_locale (); */
+#if !GLIB_CHECK_VERSION (2, 31, 0)
   g_thread_init(NULL);
+#endif
   gdk_threads_init();
   gtk_init (&argc, &argv);
 

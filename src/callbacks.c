@@ -156,7 +156,11 @@ void update_callback (GtkObject *object, gpointer user_data)
 
   clear_execute_active();
 
+#if !GLIB_CHECK_VERSION (2, 31, 0)
   gpd = g_thread_create((GThreadFunc)get_package_data,NULL,FALSE,NULL);
+#else
+  gpd = g_thread_new("GslaptUpdateCallback", (GThreadFunc)get_package_data,NULL);
+#endif
 
   return;
 }
@@ -1633,7 +1637,11 @@ void transaction_okbutton_clicked (GtkWidget *w, gpointer user_data)
 {
   GThread *gdp;
 
+#if !GLIB_CHECK_VERSION (2, 31, 0)
   gdp = g_thread_create((GThreadFunc)lhandle_transaction,w,FALSE,NULL);
+#else
+  gdp = g_thread_new("GslaptTransactionStart", (GThreadFunc)lhandle_transaction,w);
+#endif
 
   return;
 
@@ -2342,7 +2350,11 @@ void clean_callback (GtkWidget *widget, gpointer user_data)
 {
   GThread *gpd;
 
+#if !GLIB_CHECK_VERSION (2, 31, 0)
   gpd = g_thread_create((GThreadFunc)slapt_clean_pkg_dir,global_config->working_dir,FALSE,NULL);
+#else
+  gpd = g_thread_new("GslaptCleanCallback", (GThreadFunc)slapt_clean_pkg_dir,global_config->working_dir);
+#endif
 
 }
 
@@ -3772,7 +3784,12 @@ static void get_gpg_key(GtkWidget *w)
 void preferences_sources_add_key (GtkWidget *w, gpointer user_data)
 {
   GThread *gdp;
+
+#if !GLIB_CHECK_VERSION (2, 31, 0)
   gdp = g_thread_create((GThreadFunc)get_gpg_key,w,FALSE,NULL);
+#else
+  gdp = g_thread_new("GslaptPrefAddSource", (GThreadFunc)get_gpg_key,w);
+#endif
 
   return;
 }
