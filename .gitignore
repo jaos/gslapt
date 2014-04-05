@@ -1,4 +1,5 @@
 .gitignore
+.tx
 
 src/gslapt
 src/*.o
