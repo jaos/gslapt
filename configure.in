@@ -46,7 +46,7 @@ AC_CHECK_MEMBER([slapt_pkg_list_t.pkgs], [LIBS="$LIBS -lslapt"], [AC_MSG_ERROR([
 dnl AC_CHECK_LIB(slapt,slapt_disk_space_check, [], [AC_MSG_ERROR(libslapt 0.10.2b or greater is required)])
 
 
-glib_modules="glib-2.0 gthread-2.0"
+glib_modules="glib-2.0 gthread-2.0 gmodule-2.0 gmodule-export-2.0"
 PKG_CHECK_MODULES(GLIB, [$glib_modules])
 AC_SUBST(GLIB_CFLAGS)
 AC_SUBST(GLIB_LIBS)
@@ -64,6 +64,7 @@ AC_CONFIG_FILES([
 Makefile
 src/Makefile
 po/Makefile.in
+ui/Makefile
 ])
 AC_OUTPUT
 

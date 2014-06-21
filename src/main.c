@@ -31,6 +31,7 @@ slapt_rc_config *global_config; /* our config struct */
 slapt_pkg_list_t *installed;
 slapt_pkg_list_t *all;
 GtkWidget *gslapt;
+GtkBuilder *gslapt_builder;
 slapt_transaction_t *trans = NULL;
 char rc_location[1024];
 GslaptSettings *gslapt_settings = NULL;
@@ -70,8 +71,6 @@ int main (int argc, char *argv[]) {
   /* series name mapping */
   gslapt_series_map = gslapt_series_map_init();
   gslapt_series_map_fill(gslapt_series_map);
-
-  add_pixmap_directory (PACKAGE_DATA_DIR "/" PACKAGE "/pixmaps");
 
   for (option_index = 1; option_index < argc; ++option_index) {
 
@@ -165,28 +164,34 @@ int main (int argc, char *argv[]) {
   installed = slapt_get_installed_pkgs();
   all = slapt_get_available_pkgs();
 
-  gslapt = (GtkWidget *)create_gslapt();
+  gslapt_builder = gtk_builder_new ();
+  gtk_builder_set_translation_domain (gslapt_builder, GETTEXT_PACKAGE);
+  gslapt_load_ui (gslapt_builder, "gslapt.ui");
+
+  gslapt = GTK_WIDGET (gtk_builder_get_object (gslapt_builder, "gslapt"));
+  gtk_builder_connect_signals (gslapt_builder, NULL);
+  // g_object_unref (G_OBJECT (gslapt_builder)); 
 
   completions = build_search_completions();
-  gtk_entry_set_completion(GTK_ENTRY(lookup_widget(gslapt,"search_entry")),completions);
+  gtk_entry_set_completion(GTK_ENTRY(gtk_builder_get_object (gslapt_builder,"search_entry")),completions);
 
   build_treeview_columns(
-     (GtkWidget *)lookup_widget(gslapt,"pkg_listing_treeview"));
+     GTK_WIDGET(gtk_builder_get_object (gslapt_builder,"pkg_listing_treeview")));
   /*
     this sometimes screws up resizing of the window (why?)
   g_thread_create((GThreadFunc)build_package_treeviewlist,
-     (GtkWidget *)lookup_widget(gslapt,"pkg_listing_treeview"),FALSE,NULL);
+     GTK_WIDGET(gtk_builder_get_object (gslapt_builder,"pkg_listing_treeview")),FALSE,NULL);
   */
-  build_package_treeviewlist((GtkWidget *)lookup_widget(gslapt,"pkg_listing_treeview"));
+  build_package_treeviewlist(GTK_WIDGET(gtk_builder_get_object (gslapt_builder,"pkg_listing_treeview")));
 
-  bar = GTK_STATUSBAR(lookup_widget(gslapt,"bottom_statusbar"));
+  bar = GTK_STATUSBAR(gtk_builder_get_object (gslapt_builder,"bottom_statusbar"));
   default_context_id = gtk_statusbar_get_context_id(bar,"default");
   gtk_statusbar_push(bar,default_context_id,(gchar *)_("Ready"));
 
-  gtk_widget_set_sensitive(lookup_widget(gslapt,
-                            "action_bar_execute_button"),FALSE);
-  gtk_widget_set_sensitive(lookup_widget(gslapt,"execute1"),FALSE);
-  gtk_widget_set_sensitive(lookup_widget(gslapt,"unmark_all1"),FALSE);
+  gtk_widget_set_sensitive(GTK_WIDGET(gtk_builder_get_object (gslapt_builder,
+                            "action_bar_execute_button")),FALSE);
+  gtk_widget_set_sensitive(GTK_WIDGET(gtk_builder_get_object (gslapt_builder,"execute1")),FALSE);
+  gtk_widget_set_sensitive(GTK_WIDGET(gtk_builder_get_object (gslapt_builder,"unmark_all1")),FALSE);
 
   /* restore previous rc settings */
   gslapt_settings = gslapt_read_rc();
@@ -200,10 +205,10 @@ int main (int argc, char *argv[]) {
       gslapt_settings->x, gslapt_settings->y);
   }
 
-  gtk_widget_show (gslapt);
+  gtk_widget_show_all (gslapt);
 
   if (do_upgrade == 1) {
-    g_signal_emit_by_name(lookup_widget(gslapt,"action_bar_upgrade_button"),"clicked");
+    g_signal_emit_by_name(gtk_builder_get_object (gslapt_builder,"action_bar_upgrade_button"),"clicked");
   } else {
     if (pkg_inst_args_count > 0){
       int i;
@@ -260,7 +265,7 @@ int main (int argc, char *argv[]) {
   g_free(pkg_rem_args);
 
   if ( trans->remove_pkgs->pkg_count > 0 || trans->install_pkgs->pkg_count > 0 || trans->upgrade_pkgs->pkg_count > 0) {
-    g_signal_emit_by_name(lookup_widget(gslapt,"action_bar_execute_button"),"clicked");
+    g_signal_emit_by_name(gtk_builder_get_object (gslapt_builder,"action_bar_execute_button"),"clicked");
   }
 
   gdk_threads_enter();

@@ -1,6 +1,6 @@
 ## Process this file with automake to produce Makefile.in
 
-SUBDIRS = src po
+SUBDIRS = src po ui
 
 PKGDIR = `pwd`/pkg
 
@@ -39,10 +39,10 @@ install-data-local:
 	$(mkinstalldirs) $(DESTDIR)/$(datadir)/pixmaps; \
 	$(INSTALL_DATA) pixmaps/gslapt.png $(DESTDIR)/$(datadir)/pixmaps/; \
 	if test -d $(srcdir)/pixmaps; then \
-	  $(mkinstalldirs) $(DESTDIR)$(pkgdatadir)/pixmaps; \
+	  $(mkinstalldirs) $(DESTDIR)$(pkgdatadir)/ui; \
 	  for pixmap in $(srcdir)/pixmaps/*; do \
 	    if test -f $$pixmap; then \
-	      $(INSTALL_DATA) $$pixmap $(DESTDIR)$(pkgdatadir)/pixmaps; \
+	      $(INSTALL_DATA) $$pixmap $(DESTDIR)$(pkgdatadir)/ui; \
 	    fi \
 	  done \
 	fi

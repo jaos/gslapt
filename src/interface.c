@@ -2064,7 +2064,7 @@ create_about (void)
   gtk_label_set_justify (GTK_LABEL (label149), GTK_JUSTIFY_CENTER);
   gtk_label_set_selectable (GTK_LABEL (label149), TRUE);
 
-  dialog_action_area1 = GTK_DIALOG (about)->action_area;
+  dialog_action_area1 = gtk_dialog_get_action_area (about);
   gtk_widget_set_name (dialog_action_area1, "dialog_action_area1");
   gtk_widget_show (dialog_action_area1);
   gtk_button_box_set_layout (GTK_BUTTON_BOX (dialog_action_area1), GTK_BUTTONBOX_END);
@@ -2141,7 +2141,7 @@ create_notification (void)
   gtk_box_pack_start (GTK_BOX (hbox112), notification_label, TRUE, TRUE, 6);
   gtk_label_set_use_markup (GTK_LABEL (notification_label), TRUE);
 
-  dialog_action_area3 = GTK_DIALOG (notification)->action_area;
+  dialog_action_area3 = gtk_dialog_get_action_area (notification);
   gtk_widget_set_name (dialog_action_area3, "dialog_action_area3");
   gtk_widget_show (dialog_action_area3);
   gtk_button_box_set_layout (GTK_BUTTON_BOX (dialog_action_area3), GTK_BUTTONBOX_END);
@@ -2402,7 +2402,7 @@ create_icon_legend (void)
   gtk_widget_show (label259);
   gtk_box_pack_start (GTK_BOX (hbox104), label259, FALSE, TRUE, 6);
 
-  dialog_action_area4 = GTK_DIALOG (icon_legend)->action_area;
+  dialog_action_area4 = gtk_dialog_get_action_area (icon_legend);
   gtk_widget_set_name (dialog_action_area4, "dialog_action_area4");
   gtk_widget_show (dialog_action_area4);
   gtk_button_box_set_layout (GTK_BUTTON_BOX (dialog_action_area4), GTK_BUTTONBOX_END);
@@ -2592,7 +2592,7 @@ create_repositories_changed (void)
   gtk_label_set_line_wrap (GTK_LABEL (label288), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label288), 0, 0);
 
-  dialog_action_area5 = GTK_DIALOG (repositories_changed)->action_area;
+  dialog_action_area5 = gtk_dialog_get_action_area (repositories_changed);
   gtk_widget_set_name (dialog_action_area5, "dialog_action_area5");
   gtk_widget_show (dialog_action_area5);
   gtk_button_box_set_layout (GTK_BUTTON_BOX (dialog_action_area5), GTK_BUTTONBOX_END);
@@ -2732,7 +2732,7 @@ create_dep_error_dialog (void)
   gtk_box_pack_start (GTK_BOX (vbox72), label284, FALSE, FALSE, 0);
   gtk_misc_set_alignment (GTK_MISC (label284), 0, 0);
 
-  dialog_action_area6 = GTK_DIALOG (dep_error_dialog)->action_area;
+  dialog_action_area6 = gtk_dialog_get_action_area (dep_error_dialog);
   gtk_widget_set_name (dialog_action_area6, "dialog_action_area6");
   gtk_widget_show (dialog_action_area6);
   gtk_button_box_set_layout (GTK_BUTTON_BOX (dialog_action_area6), GTK_BUTTONBOX_END);
@@ -2834,7 +2834,7 @@ create_source_failed_dialog (void)
   gtk_label_set_line_wrap (GTK_LABEL (label290), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label290), 0, 0);
 
-  dialog_action_area7 = GTK_DIALOG (source_failed_dialog)->action_area;
+  dialog_action_area7 = gtk_dialog_get_action_area (source_failed_dialog);
   gtk_widget_set_name (dialog_action_area7, "dialog_action_area7");
   gtk_widget_show (dialog_action_area7);
   gtk_button_box_set_layout (GTK_BUTTON_BOX (dialog_action_area7), GTK_BUTTONBOX_END);
