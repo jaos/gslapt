@@ -3668,14 +3668,14 @@ void mark_obsolete_packages (GtkMenuItem *menuitem, gpointer *user_data)
 static void set_busy_cursor (void)
 {
   GdkCursor *c = gdk_cursor_new(GDK_WATCH);
-  gdk_window_set_cursor(gslapt->window,c);
+  gdk_window_set_cursor(gtk_widget_get_window(gslapt),c);
   gdk_cursor_unref(c);
   gdk_flush();
 }
 
 static void unset_busy_cursor (void)
 {
-  gdk_window_set_cursor(gslapt->window,NULL);
+  gdk_window_set_cursor(gtk_widget_get_window(gslapt),NULL);
   gdk_flush();
 }
 
