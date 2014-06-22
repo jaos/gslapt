@@ -78,8 +78,8 @@ static int ladd_deps_to_trans (slapt_transaction_t *tran, slapt_pkg_list_t *avai
                                slapt_pkg_list_t *installed_pkgs, slapt_pkg_info_t *pkg);
 static gboolean toggle_source_status (GtkTreeView *treeview, gpointer data);
 static void display_dep_error_dialog (slapt_pkg_info_t *pkg,guint m, guint c);
-static void exclude_dep_error_callback (GtkObject *object, gpointer user_data);
-static void install_dep_error_callback (GtkObject *object, gpointer user_data);
+static void exclude_dep_error_callback (GtkObject *object, gpointer *user_data);
+static void install_dep_error_callback (GtkObject *object, gpointer *user_data);
 static void view_installed_or_available_packages (gboolean show_installed, gboolean show_available);
 
 static int set_iter_for_install(GtkTreeModel *model, GtkTreeIter *iter,
@@ -135,7 +135,7 @@ gboolean gslapt_window_resized(GtkWindow *window, GdkEvent *event, gpointer data
   return FALSE;
 }
 
-void on_gslapt_destroy (GtkObject *object, gpointer user_data) 
+void on_gslapt_destroy (GtkObject *object, gpointer *user_data) 
 {
   slapt_free_transaction(trans);
   slapt_free_pkg_list(all);
@@ -150,7 +150,7 @@ void on_gslapt_destroy (GtkObject *object, gpointer user_data)
   exit(0);
 }
 
-void update_callback (GtkObject *object, gpointer user_data) 
+void update_callback (GtkObject *object, gpointer *user_data) 
 {
   GThread *gpd;
 
@@ -165,7 +165,7 @@ void update_callback (GtkObject *object, gpointer user_data)
   return;
 }
 
-void upgrade_callback (GtkObject *object, gpointer user_data) 
+void upgrade_callback (GtkObject *object, gpointer *user_data) 
 {
   set_busy_cursor();
   mark_upgrade_packages();
@@ -175,7 +175,7 @@ void upgrade_callback (GtkObject *object, gpointer user_data)
   unset_busy_cursor();
 }
 
-void execute_callback (GtkObject *object, gpointer user_data) 
+void execute_callback (GtkObject *object, gpointer *user_data) 
 {
   GtkWidget *trans_window;
 
@@ -201,7 +201,7 @@ void execute_callback (GtkObject *object, gpointer user_data)
   }
 }
 
-void open_preferences (GtkMenuItem *menuitem, gpointer user_data) 
+void open_preferences (GtkMenuItem *menuitem, gpointer *user_data) 
 {
   GtkWidget *preferences;
   GtkEntry *working_dir;
@@ -237,7 +237,7 @@ void open_preferences (GtkMenuItem *menuitem, gpointer user_data)
   preferences_window = preferences;
 }
 
-void search_activated (GtkWidget *gslapt, gpointer user_data) 
+void search_activated (GtkWidget *gslapt, gpointer *user_data) 
 {
   gboolean valid = FALSE, exists = FALSE;
   GtkTreeIter iter;
@@ -268,7 +268,7 @@ void search_activated (GtkWidget *gslapt, gpointer user_data)
 
 }
 
-void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data) 
+void add_pkg_for_install (GtkWidget *gslapt, gpointer *user_data) 
 {
   slapt_pkg_info_t *pkg = NULL,
                    *installed_pkg = NULL;
@@ -446,7 +446,7 @@ void add_pkg_for_install (GtkWidget *gslapt, gpointer user_data)
   rebuild_package_action_menu();
 }
 
-void add_pkg_for_removal (GtkWidget *gslapt, gpointer user_data) 
+void add_pkg_for_removal (GtkWidget *gslapt, gpointer *user_data) 
 {
   GtkTreeView *treeview;
   GtkTreeIter iter;
@@ -784,7 +784,7 @@ void build_searched_treeviewlist (GtkWidget *treeview, gchar *pattern)
 }
 
 
-void open_about (GtkObject *object, gpointer user_data) 
+void open_about (GtkObject *object, gpointer *user_data) 
 {
   GtkWidget *about;
   about = (GtkWidget *)create_about();
@@ -1633,7 +1633,7 @@ static void lhandle_transaction (GtkWidget *w)
 
 }
 
-void transaction_okbutton_clicked (GtkWidget *w, gpointer user_data)
+void transaction_okbutton_clicked (GtkWidget *w, gpointer *user_data)
 {
   GThread *gdp;
 
@@ -2346,7 +2346,7 @@ static gboolean install_packages (void)
 }
 
 
-void clean_callback (GtkWidget *widget, gpointer user_data)
+void clean_callback (GtkWidget *widget, gpointer *user_data)
 {
   GThread *gpd;
 
@@ -2359,7 +2359,7 @@ void clean_callback (GtkWidget *widget, gpointer user_data)
 }
 
 
-void preferences_sources_add (GtkWidget *w, gpointer user_data)
+void preferences_sources_add (GtkWidget *w, gpointer *user_data)
 {
   GtkWidget *source_window      = create_source_window();
   GtkComboBox *source_priority  = GTK_COMBO_BOX(lookup_widget(source_window,"source_priority"));
@@ -2367,7 +2367,7 @@ void preferences_sources_add (GtkWidget *w, gpointer user_data)
   gtk_widget_show(source_window);
 }
 
-void preferences_sources_remove (GtkWidget *w, gpointer user_data)
+void preferences_sources_remove (GtkWidget *w, gpointer *user_data)
 {
   GtkTreeIter iter;
   GtkTreeModel *model;
@@ -2382,7 +2382,7 @@ void preferences_sources_remove (GtkWidget *w, gpointer user_data)
 
 }
 
-void preferences_sources_edit (GtkWidget *w, gpointer user_data)
+void preferences_sources_edit (GtkWidget *w, gpointer *user_data)
 {
   GtkTreeIter iter;
   GtkTreeModel *model;
@@ -2410,7 +2410,7 @@ void preferences_sources_edit (GtkWidget *w, gpointer user_data)
 
 }
 
-void preferences_on_ok_clicked (GtkWidget *w, gpointer user_data)
+void preferences_on_ok_clicked (GtkWidget *w, gpointer *user_data)
 {
   GtkEntry *preferences_working_dir_entry = GTK_ENTRY(lookup_widget(w,"preferences_working_dir_entry"));
   const gchar *working_dir = gtk_entry_get_text(preferences_working_dir_entry);
@@ -2502,7 +2502,7 @@ void preferences_on_ok_clicked (GtkWidget *w, gpointer user_data)
 }
 
 
-void preferences_exclude_add(GtkWidget *w, gpointer user_data) 
+void preferences_exclude_add(GtkWidget *w, gpointer *user_data) 
 {
   GtkEntry *new_exclude_entry = GTK_ENTRY(lookup_widget(w,"new_exclude_entry"));
   const gchar *new_exclude = gtk_entry_get_text(new_exclude_entry);
@@ -2521,7 +2521,7 @@ void preferences_exclude_add(GtkWidget *w, gpointer user_data)
 }
 
 
-void preferences_exclude_remove(GtkWidget *w, gpointer user_data) 
+void preferences_exclude_remove(GtkWidget *w, gpointer *user_data) 
 {
   GtkTreeIter iter;
   GtkTreeModel *model;
@@ -2536,19 +2536,19 @@ void preferences_exclude_remove(GtkWidget *w, gpointer user_data)
 }
 
 
-void cancel_preferences (GtkWidget *w, gpointer user_data)
+void cancel_preferences (GtkWidget *w, gpointer *user_data)
 {
   preferences_window = NULL;
   gtk_widget_destroy(w);
 }
 
 
-void cancel_transaction (GtkWidget *w, gpointer user_data)
+void cancel_transaction (GtkWidget *w, gpointer *user_data)
 {
   gtk_widget_destroy(w);
 }
 
-void add_pkg_for_reinstall (GtkWidget *gslapt, gpointer user_data)
+void add_pkg_for_reinstall (GtkWidget *gslapt, gpointer *user_data)
 {
 
   global_config->re_install = TRUE;
@@ -2630,7 +2630,7 @@ static gboolean pkg_action_popup_menu (GtkTreeView *treeview, gpointer data)
   return TRUE;
 }
 
-void unmark_package(GtkWidget *gslapt, gpointer user_data) 
+void unmark_package(GtkWidget *gslapt, gpointer *user_data) 
 {
   GtkTreeView *treeview;
   GtkTreeIter iter;
@@ -2977,14 +2977,14 @@ static slapt_pkg_upgrade_t *lsearch_upgrade_transaction (slapt_transaction_t *tr
   return NULL;
 }
 
-void open_icon_legend (GtkObject *object, gpointer user_data)
+void open_icon_legend (GtkObject *object, gpointer *user_data)
 {
   GtkWidget *icon_legend = create_icon_legend();
   gtk_widget_show(icon_legend);
 }
 
 
-void on_button_cancel_clicked (GtkButton *button, gpointer user_data)
+void on_button_cancel_clicked (GtkButton *button, gpointer *user_data)
 {
   G_LOCK(_cancelled);
   _cancelled = 1;
@@ -3153,7 +3153,7 @@ static void rebuild_package_action_menu (void)
 }
 
 
-void unmark_all_activate (GtkMenuItem *menuitem, gpointer user_data)
+void unmark_all_activate (GtkMenuItem *menuitem, gpointer *user_data)
 {
 
   lock_toolbar_buttons();
@@ -3211,7 +3211,7 @@ GtkEntryCompletion *build_search_completions (void)
 
 
 void repositories_changed_callback (GtkWidget *repositories_changed,
-                                    gpointer user_data)
+                                    gpointer *user_data)
 {
   gtk_widget_destroy(GTK_WIDGET(repositories_changed));
   g_signal_emit_by_name(lookup_widget(gslapt,"action_bar_update_button"),
@@ -3219,17 +3219,17 @@ void repositories_changed_callback (GtkWidget *repositories_changed,
 }
 
 
-void update_activate (GtkMenuItem *menuitem, gpointer user_data)
+void update_activate (GtkMenuItem *menuitem, gpointer *user_data)
 {
   return update_callback(NULL,NULL);
 }
 
-void mark_all_upgrades_activate (GtkMenuItem *menuitem, gpointer user_data)
+void mark_all_upgrades_activate (GtkMenuItem *menuitem, gpointer *user_data)
 {
   return upgrade_callback(NULL,NULL);
 }
 
-void execute_activate (GtkMenuItem *menuitem, gpointer user_data)
+void execute_activate (GtkMenuItem *menuitem, gpointer *user_data)
 {
   return execute_callback(NULL,NULL);
 }
@@ -3375,7 +3375,7 @@ static void display_dep_error_dialog (slapt_pkg_info_t *pkg,guint m, guint c)
   gtk_widget_show(w);
 }
 
-static void exclude_dep_error_callback (GtkObject *object, gpointer user_data)
+static void exclude_dep_error_callback (GtkObject *object, gpointer *user_data)
 {
   GtkWidget *dep_error_dialog = lookup_widget(GTK_WIDGET(object),"dep_error_dialog");
   slapt_pkg_info_t *pkg = (slapt_pkg_info_t *)user_data;
@@ -3385,7 +3385,7 @@ static void exclude_dep_error_callback (GtkObject *object, gpointer user_data)
   gtk_widget_destroy(dep_error_dialog);
 }
 
-static void install_dep_error_callback (GtkObject *object, gpointer user_data)
+static void install_dep_error_callback (GtkObject *object, gpointer *user_data)
 {
   GtkTreeView *treeview;
   GtkTreeIter iter;
@@ -3431,7 +3431,7 @@ static void install_dep_error_callback (GtkObject *object, gpointer user_data)
   gtk_widget_destroy(dep_error_dialog);
 }
 
-void view_all_packages (GtkMenuItem *menuitem, gpointer user_data)
+void view_all_packages (GtkMenuItem *menuitem, gpointer *user_data)
 {
   gchar *pattern = (gchar *)gtk_entry_get_text(GTK_ENTRY(lookup_widget(gslapt,"search_entry")));
   GtkTreeView *treeview = GTK_TREE_VIEW(lookup_widget(gslapt,"pkg_listing_treeview"));
@@ -3458,7 +3458,7 @@ void view_all_packages (GtkMenuItem *menuitem, gpointer user_data)
 
 }
 
-void view_available_packages (GtkMenuItem *menuitem, gpointer user_data)
+void view_available_packages (GtkMenuItem *menuitem, gpointer *user_data)
 {
   gboolean show_installed = FALSE, show_available = TRUE;
   gchar *pattern = (gchar *)gtk_entry_get_text(GTK_ENTRY(lookup_widget(gslapt,"search_entry")));
@@ -3470,7 +3470,7 @@ void view_available_packages (GtkMenuItem *menuitem, gpointer user_data)
     build_searched_treeviewlist(GTK_WIDGET(treeview), pattern);
 }
 
-void view_installed_packages (GtkMenuItem *menuitem, gpointer user_data)
+void view_installed_packages (GtkMenuItem *menuitem, gpointer *user_data)
 {
   gboolean show_installed = TRUE, show_available = FALSE;
   gchar *pattern = (gchar *)gtk_entry_get_text(GTK_ENTRY(lookup_widget(gslapt,"search_entry")));
@@ -3520,7 +3520,7 @@ void view_installed_or_available_packages (gboolean show_installed, gboolean sho
 }
 
 
-void view_marked_packages (GtkMenuItem *menuitem, gpointer user_data)
+void view_marked_packages (GtkMenuItem *menuitem, gpointer *user_data)
 {
   gboolean valid;
   GtkTreeIter iter;
@@ -3624,7 +3624,7 @@ static int set_iter_for_remove(GtkTreeModel *model, GtkTreeIter *iter,
 }
 
 
-void mark_obsolete_packages (GtkMenuItem *menuitem, gpointer user_data)
+void mark_obsolete_packages (GtkMenuItem *menuitem, gpointer *user_data)
 {
   GtkTreeIter iter;
   GtkTreeModelFilter *filter_model;
@@ -3669,7 +3669,7 @@ static void set_busy_cursor (void)
 {
   GdkCursor *c = gdk_cursor_new(GDK_WATCH);
   gdk_window_set_cursor(gslapt->window,c);
-  gdk_cursor_destroy(c);
+  gdk_cursor_unref(c);
   gdk_flush();
 }
 
@@ -3781,7 +3781,7 @@ static void get_gpg_key(GtkWidget *w)
 
 }
 
-void preferences_sources_add_key (GtkWidget *w, gpointer user_data)
+void preferences_sources_add_key (GtkWidget *w, gpointer *user_data)
 {
   GThread *gdp;
 
@@ -3795,7 +3795,7 @@ void preferences_sources_add_key (GtkWidget *w, gpointer user_data)
 }
 #endif
 
-void view_upgradeable_packages (GtkMenuItem *menuitem, gpointer user_data)
+void view_upgradeable_packages (GtkMenuItem *menuitem, gpointer *user_data)
 {
   gboolean valid;
   GtkTreeIter iter;
@@ -3833,7 +3833,7 @@ void view_upgradeable_packages (GtkMenuItem *menuitem, gpointer user_data)
     build_searched_treeviewlist(GTK_WIDGET(treeview), pattern);
 }
 
-void view_changelogs (GtkMenuItem *menuitem, gpointer user_data)
+void view_changelogs (GtkMenuItem *menuitem, gpointer *user_data)
 {
   int i, changelogs = 0;
   GtkWidget *changelog_window = create_changelog_window();
@@ -3953,12 +3953,12 @@ void view_changelogs (GtkMenuItem *menuitem, gpointer user_data)
   }
 }
 
-void cancel_source_edit (GtkWidget *w, gpointer user_data)
+void cancel_source_edit (GtkWidget *w, gpointer *user_data)
 {
   gtk_widget_destroy(w);
 }
 
-void source_edit_ok (GtkWidget *w, gpointer user_data)
+void source_edit_ok (GtkWidget *w, gpointer *user_data)
 {
   SLAPT_PRIORITY_T priority;
   const char *original_url      = NULL;
