@@ -13,7 +13,19 @@ gslapt_ui_FILES = \
   transaction_window.ui \
   window_preferences.ui
 
-EXTRA_DIST = $(gslapt_ui_FILES)
+gslapt_image_FILES = \
+  gslapt.png \
+  pkg_action_available_excluded.png \
+  pkg_action_available.png \
+  pkg_action_downgrade.png \
+  pkg_action_installed_excluded.png \
+  pkg_action_installed.png \
+  pkg_action_install.png \
+  pkg_action_reinstall.png \
+  pkg_action_remove.png \
+  pkg_action_upgrade.png
 
-# gslapt_uidir = $(pkgdatadir)/ui
-# gslapt_ui_DATA = $(gslapt_ui_FILES)
+EXTRA_DIST = $(gslapt_ui_FILES) $(gslapt_image_FILES)
+
+gslapt_uidir = $(pkgdatadir)/ui
+gslapt_ui_DATA = $(gslapt_ui_FILES) $(gslapt_image_FILES)

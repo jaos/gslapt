@@ -37,15 +37,7 @@ install-data-local:
 	$(INSTALL_DATA) gslapt-kde.desktop $(DESTDIR)/$(datadir)/applications/gslapt-kde.desktop; \
 	$(INSTALL_DATA) series_map.rc $(DESTDIR)/$(pkgdatadir)/; \
 	$(mkinstalldirs) $(DESTDIR)/$(datadir)/pixmaps; \
-	$(INSTALL_DATA) pixmaps/gslapt.png $(DESTDIR)/$(datadir)/pixmaps/; \
-	if test -d $(srcdir)/pixmaps; then \
-	  $(mkinstalldirs) $(DESTDIR)$(pkgdatadir)/ui; \
-	  for pixmap in $(srcdir)/pixmaps/*; do \
-	    if test -f $$pixmap; then \
-	      $(INSTALL_DATA) $$pixmap $(DESTDIR)$(pkgdatadir)/ui; \
-	    fi \
-	  done \
-	fi
+	$(INSTALL_DATA) ui/gslapt.png $(DESTDIR)/$(datadir)/pixmaps/
 
 dist-hook:
 	if test -d pixmaps; then \

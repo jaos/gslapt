@@ -22,8 +22,6 @@
 
 #include <gtk/gtk.h>
 #include "callbacks.h"
-#include "interface.h"
-#include "support.h"
 #include "settings.h"
 #include "series.h"
 

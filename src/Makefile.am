@@ -4,7 +4,6 @@ sbin_PROGRAMS = gslapt
 
 gslapt_SOURCES = \
 	main.c \
-	support.c support.h \
 	callbacks.c callbacks.h \
 	series.c series.h \
 	settings.c settings.h
