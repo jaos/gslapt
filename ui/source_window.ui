@@ -156,12 +156,4 @@
       </object>
     </child>
   </object>
-  <object class="GtkListStore" id="source_priorities">
-    <columns>
-      <!-- column-name Priority -->
-      <column type="gchararray"/>
-    </columns>
-    <data>
-    </data>
-  </object>
 </interface>
