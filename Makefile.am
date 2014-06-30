@@ -39,16 +39,6 @@ install-data-local:
 	$(mkinstalldirs) $(DESTDIR)/$(datadir)/pixmaps; \
 	$(INSTALL_DATA) ui/gslapt.png $(DESTDIR)/$(datadir)/pixmaps/
 
-dist-hook:
-	if test -d pixmaps; then \
-	  mkdir $(distdir)/pixmaps; \
-	  for pixmap in pixmaps/*; do \
-	    if test -f $$pixmap; then \
-	      cp -p $$pixmap $(distdir)/pixmaps; \
-	    fi \
-	  done \
-	fi
-
 pkg: all
 	@make install DESTDIR=$(PKGDIR)
 	$(mkinstalldirs) $(PKGDIR)/install
