@@ -196,6 +196,8 @@
                         <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">False</property>
+                        <property name="always_show_image">True</property>
+                        <property name="image">image865</property>
                         <accelerator key="n" signal="activate" modifiers="GDK_CONTROL_MASK"/>
                       </object>
                     </child>
@@ -206,6 +208,8 @@
                         <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">False</property>
+                        <property name="always_show_image">True</property>
+                        <property name="image">image867</property>
                         <accelerator key="i" signal="activate" modifiers="GDK_CONTROL_MASK"/>
                       </object>
                     </child>
@@ -216,6 +220,8 @@
                         <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">False</property>
+                        <property name="always_show_image">True</property>
+                        <property name="image">image868</property>
                         <accelerator key="e" signal="activate" modifiers="GDK_CONTROL_MASK"/>
                       </object>
                     </child>
@@ -226,6 +232,8 @@
                         <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">False</property>
+                        <property name="always_show_image">True</property>
+                        <property name="image">image869</property>
                         <accelerator key="u" signal="activate" modifiers="GDK_CONTROL_MASK"/>
                       </object>
                     </child>
@@ -236,6 +244,8 @@
                         <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">False</property>
+                        <property name="always_show_image">True</property>
+                        <property name="image">image871</property>
                         <accelerator key="d" signal="activate" modifiers="GDK_CONTROL_MASK"/>
                       </object>
                     </child>
@@ -246,6 +256,8 @@
                         <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">False</property>
+                        <property name="always_show_image">True</property>
+                        <property name="image">image870</property>
                         <accelerator key="r" signal="activate" modifiers="GDK_CONTROL_MASK"/>
                       </object>
                     </child>
@@ -1126,5 +1138,41 @@
         </child>
       </object>
     </child>
+  </object>
+  <object class="GtkImage" id="image865">
+    <property name="can_focus">False</property>
+    <property name="pixbuf">pkg_action_available.png</property>
+  </object>
+  <object class="GtkImage" id="image1257">
+    <property name="can_focus">False</property>
+    <property name="pixbuf">pkg_action_available_excluded.png</property>
+  </object>
+  <object class="GtkImage" id="image866">
+    <property name="can_focus">False</property>
+    <property name="pixbuf">pkg_action_installed.png</property>
+  </object>
+  <object class="GtkImage" id="image1256">
+    <property name="can_focus">False</property>
+    <property name="pixbuf">pkg_action_installed_excluded.png</property>
+  </object>
+  <object class="GtkImage" id="image867">
+    <property name="can_focus">False</property>
+    <property name="pixbuf">pkg_action_install.png</property>
+  </object>
+  <object class="GtkImage" id="image868">
+    <property name="can_focus">False</property>
+    <property name="pixbuf">pkg_action_reinstall.png</property>
+  </object>
+  <object class="GtkImage" id="image869">
+    <property name="can_focus">False</property>
+    <property name="pixbuf">pkg_action_upgrade.png</property>
+  </object>
+  <object class="GtkImage" id="image870">
+    <property name="can_focus">False</property>
+    <property name="pixbuf">pkg_action_remove.png</property>
+  </object>
+  <object class="GtkImage" id="image871">
+    <property name="can_focus">False</property>
+    <property name="pixbuf">pkg_action_downgrade.png</property>
   </object>
 </interface>
