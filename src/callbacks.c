@@ -191,6 +191,7 @@ void execute_callback (GObject *object, gpointer *user_data)
   gslapt_load_ui (builder, "transaction_window.ui");
   trans_window = GTK_WIDGET (gtk_builder_get_object (builder, "transaction_window"));
   gtk_builder_connect_signals (builder, builder);
+  gtk_window_set_transient_for (GTK_WINDOW(trans_window), GTK_WINDOW(gslapt));
 
 
   if ((gslapt_settings->tran_x == gslapt_settings->tran_y == gslapt_settings->tran_width == gslapt_settings->tran_height == 0)) {
@@ -222,6 +223,7 @@ void open_preferences (GtkMenuItem *menuitem, gpointer *user_data)
   gslapt_load_ui (preferences_window_builder, "window_preferences.ui");
   preferences = GTK_WIDGET (gtk_builder_get_object (preferences_window_builder, "window_preferences"));
   gtk_builder_connect_signals (preferences_window_builder, preferences_window_builder);
+  gtk_window_set_transient_for (GTK_WINDOW(preferences), GTK_WINDOW(gslapt));
 
 
   if ((gslapt_settings->pref_x == gslapt_settings->pref_y == gslapt_settings->pref_width == gslapt_settings->pref_height == 0)) {
@@ -805,6 +807,7 @@ void open_about (GObject *object, gpointer *user_data)
   gslapt_load_ui (builder, "about.ui");
   about = GTK_WIDGET (gtk_builder_get_object (builder, "about"));
   gtk_builder_connect_signals (builder, NULL);
+  gtk_window_set_transient_for (GTK_WINDOW(about), GTK_WINDOW(gslapt));
 
   gtk_label_set_text(GTK_LABEL(gtk_builder_get_object(builder,"label146")),
     "<span weight=\"bold\" size=\"xx-large\">" PACKAGE " " VERSION "</span>");
@@ -1085,6 +1088,7 @@ static void get_package_data (void)
   gslapt_load_ui (progress_window_builder, "dl_progress_window.ui");
   progress_window = GTK_WIDGET (gtk_builder_get_object (progress_window_builder, "dl_progress_window"));
   gtk_builder_connect_signals (progress_window_builder, NULL);
+  gtk_window_set_transient_for (GTK_WINDOW(progress_window), GTK_WINDOW(gslapt));
 
   gtk_window_set_title(GTK_WINDOW(progress_window),(gchar *)_("Progress"));
   p_bar = GTK_PROGRESS_BAR(gtk_builder_get_object (progress_window_builder,"dl_progress_progressbar"));
@@ -2138,6 +2142,7 @@ char *download_packages (void)
   gslapt_load_ui (progress_window_builder, "dl_progress_window.ui");
   progress_window = GTK_WIDGET (gtk_builder_get_object (progress_window_builder, "dl_progress_window"));
   gtk_builder_connect_signals (progress_window_builder, NULL);
+  gtk_window_set_transient_for (GTK_WINDOW(progress_window), GTK_WINDOW(gslapt));
 
   gtk_window_set_title(GTK_WINDOW(progress_window),(gchar *)_("Progress"));
 
@@ -2284,6 +2289,7 @@ static gboolean install_packages (void)
   gslapt_load_ui (builder, "pkgtools_progress_window.ui");
   progress_window = GTK_WIDGET (gtk_builder_get_object (builder, "pkgtools_progress_window"));
   gtk_builder_connect_signals (builder, NULL);
+  gtk_window_set_transient_for (GTK_WINDOW(progress_window), GTK_WINDOW(gslapt));
 
   gtk_window_set_title(GTK_WINDOW(progress_window),(gchar *)_("Progress"));
 
@@ -3870,6 +3876,7 @@ static void get_gpg_key(GtkBuilder *b)
     gslapt_load_ui (builder, "dl_progress_window.ui");
     progress_window = GTK_WIDGET (gtk_builder_get_object (builder, "dl_progress_window"));
     gtk_builder_connect_signals (builder, NULL);
+    gtk_window_set_transient_for (GTK_WINDOW(progress_window), GTK_WINDOW(gslapt));
 
     gtk_window_set_title(GTK_WINDOW(progress_window),(gchar *)_("Progress"));
     p_bar = GTK_PROGRESS_BAR(gtk_builder_get_object(builder,"dl_progress_progressbar"));
@@ -3982,6 +3989,7 @@ void view_changelogs (GtkMenuItem *menuitem, gpointer *user_data)
   gslapt_load_ui (builder, "changelog_window.ui");
   changelog_window = GTK_WIDGET (gtk_builder_get_object (builder, "changelog_window"));
   gtk_builder_connect_signals (builder, NULL);
+  gtk_window_set_transient_for (GTK_WINDOW(changelog_window), GTK_WINDOW(gslapt));
 
   changelog_notebook = GTK_WIDGET(gtk_builder_get_object(builder, "changelog_notebook"));
 
