@@ -1,6 +1,6 @@
 ## Process this file with automake to produce Makefile.in
 
-SUBDIRS = src po
+SUBDIRS = src po ui
 
 PKGDIR = `pwd`/pkg
 
@@ -37,25 +37,7 @@ install-data-local:
 	$(INSTALL_DATA) gslapt-kde.desktop $(DESTDIR)/$(datadir)/applications/gslapt-kde.desktop; \
 	$(INSTALL_DATA) series_map.rc $(DESTDIR)/$(pkgdatadir)/; \
 	$(mkinstalldirs) $(DESTDIR)/$(datadir)/pixmaps; \
-	$(INSTALL_DATA) pixmaps/gslapt.png $(DESTDIR)/$(datadir)/pixmaps/; \
-	if test -d $(srcdir)/pixmaps; then \
-	  $(mkinstalldirs) $(DESTDIR)$(pkgdatadir)/pixmaps; \
-	  for pixmap in $(srcdir)/pixmaps/*; do \
-	    if test -f $$pixmap; then \
-	      $(INSTALL_DATA) $$pixmap $(DESTDIR)$(pkgdatadir)/pixmaps; \
-	    fi \
-	  done \
-	fi
-
-dist-hook:
-	if test -d pixmaps; then \
-	  mkdir $(distdir)/pixmaps; \
-	  for pixmap in pixmaps/*; do \
-	    if test -f $$pixmap; then \
-	      cp -p $$pixmap $(distdir)/pixmaps; \
-	    fi \
-	  done \
-	fi
+	$(INSTALL_DATA) ui/gslapt.png $(DESTDIR)/$(datadir)/pixmaps/
 
 pkg: all
 	@make install DESTDIR=$(PKGDIR)

@@ -1,4 +1,9 @@
 
+0.5.4a Jun  23, 2014
+ * switch to gtkbuilder
+ * fix gtk3.0 compatibility issues
+ * --enable-gtk3 configure option
+
 0.5.3j Apr  05, 2014
  * translation updates
  * glib 2.32 compat
