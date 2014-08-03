@@ -809,11 +809,10 @@ void open_about (GObject *object, gpointer *user_data)
   gtk_builder_connect_signals (builder, NULL);
   gtk_window_set_transient_for (GTK_WINDOW(about), GTK_WINDOW(gslapt));
 
-  gtk_label_set_text(GTK_LABEL(gtk_builder_get_object(builder,"label146")),
-    "<span weight=\"bold\" size=\"xx-large\">" PACKAGE " " VERSION "</span>");
-  gtk_label_set_use_markup(GTK_LABEL(gtk_builder_get_object (builder,"label146")),TRUE);
+  gtk_about_dialog_set_version (GTK_ABOUT_DIALOG(about), VERSION);
   g_object_unref (G_OBJECT (builder));
-  gtk_widget_show_all (about);
+  gtk_dialog_run (GTK_DIALOG(about));
+  gtk_widget_destroy (about);
 }
 
 void show_pkg_details (GtkTreeSelection *selection, gpointer data) 
