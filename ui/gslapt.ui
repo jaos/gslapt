@@ -25,6 +25,7 @@
                     <property name="can_focus">False</property>
                     <child>
                       <object class="GtkImageMenuItem" id="update1">
+		                    <property name="tooltip_text" translatable="yes">Update local package cache</property>
                         <property name="label" translatable="yes">Update</property>
                         <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
@@ -35,6 +36,7 @@
                     </child>
                     <child>
                       <object class="GtkImageMenuItem" id="mark_all_upgrades2">
+		                    <property name="tooltip_text" translatable="yes">Mark all possible upgrades</property>
                         <property name="label" translatable="yes">Mark All Upgrades</property>
                         <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
@@ -45,6 +47,7 @@
                     </child>
                     <child>
                       <object class="GtkImageMenuItem" id="mark_obsolete1">
+		                    <property name="tooltip_text" translatable="yes">Mark all obsolete packages</property>
                         <property name="label" translatable="yes">Mark Obsolete</property>
                         <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
@@ -55,6 +58,7 @@
                     </child>
                     <child>
                       <object class="GtkImageMenuItem" id="execute1">
+		                    <property name="tooltip_text" translatable="yes">Execute all scheduled actions in current transaction</property>
                         <property name="label" translatable="yes">Execute</property>
                         <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
@@ -130,6 +134,7 @@
                     <child>
                       <object class="GtkRadioMenuItem" id="view_all_packages_menu">
                         <property name="can_focus">False</property>
+		                    <property name="tooltip_text" translatable="yes">View all packages</property>
                         <property name="label" translatable="yes">All</property>
                         <property name="use_underline">True</property>
                         <property name="active">True</property>
@@ -140,6 +145,7 @@
                     <child>
                       <object class="GtkRadioMenuItem" id="view_available_packages_menu">
                         <property name="can_focus">False</property>
+		                    <property name="tooltip_text" translatable="yes">View available packages from current sources</property>
                         <property name="label" translatable="yes">Available</property>
                         <property name="use_underline">True</property>
                         <property name="group">view_all_packages_menu</property>
@@ -150,6 +156,7 @@
                     <child>
                       <object class="GtkRadioMenuItem" id="view_installed_packages_menu">
                         <property name="can_focus">False</property>
+		                    <property name="tooltip_text" translatable="yes">View installed packages</property>
                         <property name="label" translatable="yes">Installed</property>
                         <property name="use_underline">True</property>
                         <property name="group">view_all_packages_menu</property>
@@ -160,6 +167,7 @@
                     <child>
                       <object class="GtkRadioMenuItem" id="view_marked_packages_menu">
                         <property name="can_focus">False</property>
+		                    <property name="tooltip_text" translatable="yes">View Marked Packages</property>
                         <property name="label" translatable="yes">Marked</property>
                         <property name="use_underline">True</property>
                         <property name="group">view_all_packages_menu</property>
@@ -170,6 +178,7 @@
                     <child>
                       <object class="GtkRadioMenuItem" id="view_upgradeable_packages_menu">
                         <property name="can_focus">False</property>
+		                    <property name="tooltip_text" translatable="yes">View Upgradeable Packages</property>
                         <property name="label" translatable="yes">Upgradeable</property>
                         <property name="use_underline">True</property>
                         <property name="group">view_all_packages_menu</property>
@@ -286,6 +295,7 @@
                       <object class="GtkImageMenuItem" id="changelogs_menu">
                         <property name="label" translatable="yes">ChangeLogs</property>
                         <property name="can_focus">False</property>
+                        <property name="tooltip_text" translatable="yes">View ChangeLogs</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">False</property>
                         <signal name="activate" handler="view_changelogs" swapped="no"/>
@@ -318,6 +328,7 @@
             <child>
               <object class="GtkToolButton" id="action_bar_update_button">
                 <property name="can_focus">False</property>
+	              <property name="tooltip_text" translatable="yes">Update local package cache</property>
                 <property name="label" translatable="yes">Update</property>
                 <property name="use_underline">True</property>
                 <property name="stock_id">gtk-refresh</property>
@@ -331,6 +342,7 @@
             <child>
               <object class="GtkToolButton" id="action_bar_upgrade_button">
                 <property name="can_focus">False</property>
+	              <property name="tooltip_text" translatable="yes">Mark all possible upgrades</property>
                 <property name="label" translatable="yes">Mark All Upgrades</property>
                 <property name="use_underline">True</property>
                 <property name="stock_id">gtk-go-up</property>
@@ -352,6 +364,7 @@
             <child>
               <object class="GtkToolButton" id="action_bar_execute_button">
                 <property name="can_focus">False</property>
+	              <property name="tooltip_text" translatable="yes">Execute all scheduled actions in current transaction</property>
                 <property name="label" translatable="yes">Execute</property>
                 <property name="use_underline">True</property>
                 <property name="stock_id">gtk-apply</property>
