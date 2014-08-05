@@ -1,7 +1,7 @@
 # gslapt translation template
 # Copyright (C) 2005-2010 Jason Woodward
 # This file is distributed under the same license as the gslapt package.
-# 
+#
 # Translators:
 # Jason Woodward <woodwardj@jaos.org>, 2005
 # Jason Woodward <woodwardj@jaos.org>, 2005
@@ -10,127 +10,143 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
-"POT-Creation-Date: 2005-02-26 22:25-0500\n"
+"POT-Creation-Date: 2014-08-04 22:05-0400\n"
 "PO-Revision-Date: 2013-11-20 12:47+0000\n"
 "Last-Translator: Jason Woodward <woodwardj@jaos.org>\n"
-"Language-Team: Dutch (http://www.transifex.com/projects/p/slapt-get/language/nl/)\n"
+"Language-Team: Dutch (http://www.transifex.com/projects/p/slapt-get/language/"
+"nl/)\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "<b>Exclude List</b>"
-msgstr "<b>Lijst uitgesloten pakketten</b>"
+msgid "Ready"
+msgstr "Klaar"
 
-msgid "<b>Package Sources</b>"
-msgstr "<b>Pakketbronnen</b>"
+msgid "Upgrade"
+msgstr "Waardeer op"
 
-msgid "<b>Package and data storage</b>"
-msgstr "<b>Pakket- en gegevensopslag</b>"
+msgid "Re-Install"
+msgstr "Installeer opnieuw"
 
-msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
-msgstr "<span weight=\"bold\" size=\"large\">De volgende veranderingen aanbrengen?</span>"
+msgid "<b>Required:</b>"
+msgstr "<b>Vereist:</b>"
 
-msgid "<span weight=\"bold\">Exclude Expression:</span>"
-msgstr "<span weight=\"bold\">Uitdrukking voor uitsluiten:</span>"
+msgid "<b>Conflicts:</b>"
+msgstr "<b>Conflicten:</b>"
 
-msgid "<span weight=\"bold\">SOURCE=</span>"
-msgstr "<span weight=\"bold\">BRON=</span>"
+msgid "<b>Suggests:</b>"
+msgstr "<b>Stelt voor:</b>"
 
-msgid "About gslapt"
-msgstr "Over gslapt"
+msgid "No dependency information available"
+msgstr "No dependency information available"
 
-msgid "About"
-msgstr "Over"
+msgid "Source"
+msgstr "Bron"
 
-msgid "Checking for new package data..."
-msgstr "Kijkt of er nieuwe pakketgegevens zijn..."
+msgid "No changelog information available"
+msgstr "No changelog information available"
 
-msgid "Clear search expression"
-msgstr "Wis zoekuitdrukking"
+msgid "The list of installed files is only available for installed packages"
+msgstr "The list of installed files is only available for installed packages"
 
-msgid "Clear"
-msgstr "Wis"
+msgid "Excluded"
+msgstr "Uitgesloten"
 
-msgid "Conflicts"
-msgstr "Conflicten"
+msgid "To be Removed"
+msgstr "Te verwijderen"
 
-#, c-format
-msgid "Couldn't find pixmap file: %s"
-msgstr "Kon pixmapbestand %s niet vinden"
+msgid "To be Installed"
+msgstr "Te installeren"
 
-msgid "Description"
-msgstr "Beschrijving"
+msgid "To be Re-Installed"
+msgstr "Opnieuw te installeren"
 
-msgid "Download packages only"
-msgstr "De pakketten alleen binnenhalen"
+msgid "To be Downgraded"
+msgstr "Neer te waarderen"
 
-msgid "Downloading packages..."
-msgstr "Binnenhalen pakketten..."
-
-msgid "Downloading..."
-msgstr "Binnenhalen..."
-
-msgid "Exclude package"
-msgstr "Sluit pakket uit"
-
-msgid "Exclude"
-msgstr "Sluit uit"
-
-msgid "Excludes"
-msgstr "Uitsluitingen"
-
-msgid "Execute all scheduled actions in current transaction"
-msgstr "Voer alle geplande opdrachten in huidige transactie uit"
-
-msgid "Execute"
-msgstr "Voer uit"
-
-msgid "Expression"
-msgstr "Uitdrukking"
-
-msgid "Gslapt"
-msgstr "Gslapt"
-
-msgid "Install"
-msgstr "Installeer"
-
-msgid "Install/Upgrade package"
-msgstr "Installeer/Waardeer op"
-
-msgid "Installed Size:"
-msgstr "Grootte geinstalleerd:"
-
-msgid "Installed Size"
-msgstr "Grootte geinstalleerd"
+msgid "To be Upgraded"
+msgstr "Op te waarderen"
 
 msgid "Installed"
 msgstr "Geinstalleerd"
 
-msgid "Installing packages..."
-msgstr "Installeren pakketten..."
+msgid "Not Installed"
+msgstr "Niet geinstalleerd"
 
-msgid "Installing..."
-msgstr "Installeren..."
+msgid "Progress"
+msgstr "Voortgang"
 
-msgid "Location"
-msgstr "Plaats"
+msgid "Checking for new package data..."
+msgstr "Kijkt of er nieuwe pakketgegevens zijn..."
 
-msgid "Name"
-msgstr "Naam"
+msgid "Retrieving package data..."
+msgstr "Ophalen pakketgegevens..."
 
-msgid "No"
-msgstr "Nr"
+msgid "Retrieving patch list..."
+msgstr "Ophalen lijst bijwerkingen..."
 
-msgid "Package Action"
-msgstr "Pakketopdracht"
+msgid "Retrieving checksum list..."
+msgstr "Ophalen lijst controlegetallen..."
 
-msgid "Package Information"
-msgstr "Pakketinformatie"
+msgid "Source download failed"
+msgstr "Binnenhalen bron mislukt"
 
-msgid "Package"
-msgstr "Pakket"
+msgid "Retrieving checksum signature..."
+msgstr "Retrieving checksum signature..."
+
+msgid "Verifying checksum signature..."
+msgstr "Verifying checksum signature..."
+
+msgid "GPG Key verification failed"
+msgstr "GPG Key verification failed"
+
+msgid "Retrieving ChangeLog.txt..."
+msgstr "Retrieving ChangeLog.txt..."
+
+msgid "Reading Package Lists..."
+msgstr "Lezen lijst pakketten..."
+
+#, c-format
+msgid "Download rate: %.0f%s/s"
+msgstr "Download rate: %.0f%s/s"
+
+msgid "Error"
+msgstr "Error"
+
+msgid "pkgtools returned an error"
+msgstr "pkgtools gaf een foutmelding"
+
+msgid "Completed actions"
+msgstr "Voltooide opdrachten"
+
+msgid "Successfully executed all actions."
+msgstr "Alle opdrachten met succes uitgevoerd."
+
+msgid "Enabled"
+msgstr "Toegelaten"
+
+msgid "Visible"
+msgstr "Visible"
+
+msgid "Priority"
+msgstr "Priority"
+
+msgid "Expression"
+msgstr "Uitdrukking"
+
+msgid "Packages with unmet dependencies"
+msgstr "Pakketten met onvervulde afhankelijkheden"
+
+msgid "Package conflicts"
+msgstr "Pakketconficten"
+
+msgid ", which is required by "
+msgstr ", dat vereist wordt door "
+
+msgid ", is excluded"
+msgstr ", wordt uitgesloten"
 
 msgid "Packages excluded"
 msgstr "Uitgesloten pakketten"
@@ -138,109 +154,52 @@ msgstr "Uitgesloten pakketten"
 msgid "Packages to be installed"
 msgstr "Te installeren pakketten"
 
-msgid "Packages to be removed"
-msgstr "Te verwijderen pakketten"
-
 msgid "Packages to be upgraded"
 msgstr "Op te waarderen pakketten"
 
-msgid "Preferences"
-msgstr "Voorkeuren"
+msgid "Packages to be reinstalled"
+msgstr "Packages to be reinstalled"
 
-msgid "Progress"
-msgstr "Voortgang"
+msgid "Packages to be removed"
+msgstr "Te verwijderen pakketten"
 
-msgid "Quit"
-msgstr "Stop"
+msgid "Package"
+msgstr "Pakket"
 
-msgid "Remove package"
-msgstr "Verwijder pakket"
+#, fuzzy, c-format
+msgid "%d upgraded, "
+msgid_plural "%d upgraded, "
+msgstr[0] "Waardeer op"
+msgstr[1] "Waardeer op"
 
-msgid "Remove"
-msgstr "Verwijder"
+#, fuzzy, c-format
+msgid "%d reinstalled, "
+msgid_plural "%d reinstalled, "
+msgstr[0] "Te installeren"
+msgstr[1] "Te installeren"
 
-msgid "Removing packages..."
-msgstr "Verwijderen pakketten..."
-
-msgid "Required"
-msgstr "Vereist"
-
-msgid "Search"
-msgstr "Zoek"
-
-msgid "Size:"
-msgstr "Grootte:"
-
-msgid "Source"
-msgstr "Bron"
-
-msgid "Sources"
-msgstr "Bronnen"
-
-msgid "Suggests"
-msgstr "Stelt voor"
-
-msgid "Summary"
-msgstr "Samenvatting"
-
-msgid "This is a summary of the changes about to be performed."
-msgstr "Dit is een samenvatting van de aan te brengen veranderingen."
-
-msgid "Uninstalling..."
-msgstr "Verwijderen..."
-
-msgid "Up_grade"
-msgstr "Waardeer _op"
-
-msgid "Update local package cache"
-msgstr "Werk lokale pakkettencache bij"
-
-msgid "Update"
-msgstr "Werk bij"
-
-msgid "Upgrade"
-msgstr "Waardeer op"
-
-msgid "Upgrading packages..."
-msgstr "Opwaarderen pakketten..."
-
-msgid "Upgrading..."
-msgstr "Opwaarderen..."
-
-msgid "Version"
-msgstr "Versie"
-
-msgid "Working Directory"
-msgstr "Werkmap"
-
-msgid "Yes"
-msgstr "Ja"
-
-msgid "_Help"
-msgstr "_Help"
-
-msgid ""
-"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
-"Slackware"
-msgstr "gslapt is een op GTK+ gebaseerd bedieningspaneel voor slapt-get, een op APT lijkend pakketsysteem voor Slackware"
-
-msgid "total progress"
-msgstr "totaalvoortgang"
-
-msgid "working"
-msgstr "werken"
-
-msgid "Up to Date"
-msgstr "Bij de tijd"
-
-msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Niets bij te werken</span>"
+#, fuzzy, c-format
+msgid "%d newly installed, "
+msgid_plural "%d newly installed, "
+msgstr[0] "Te installeren"
+msgstr[1] "Te installeren"
 
 #, c-format
+msgid "%d to remove "
+msgid_plural "%d to remove "
+msgstr[0] ""
+msgstr[1] ""
+
+#, c-format
+msgid "and %d not upgraded."
+msgid_plural "and %d not upgraded."
+msgstr[0] ""
+msgstr[1] ""
+
 msgid ""
-"%d upgraded, %d reinstalled, %d newly installed, %d to remove and %d not "
-"upgraded."
-msgstr "%d opgewaardeerd, %d reinstalled, %d nieuw geinstalleerd, %d te verwijderen en %d niet opgewaardeerd."
+"<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgstr ""
+"<span weight=\"bold\" size=\"large\">U hebt niet genoeg vrije ruimte</span>"
 
 #, c-format
 msgid "Need to get %.0f%s/%.0f%s of archives.\n"
@@ -256,246 +215,77 @@ msgstr "Na het uitpakken wordt %.0f%s aan schijfruimte vrijgemaakt."
 
 #, c-format
 msgid "After unpacking %.0f%s of additional disk space will be used."
-msgstr "Na het uitpakken wordt %.0f%s aan extra schijfruimte in beslag genomen."
+msgstr ""
+"Na het uitpakken wordt %.0f%s aan extra schijfruimte in beslag genomen."
 
-msgid "Ready"
-msgstr "Klaar"
+msgid "Up to Date"
+msgstr "Bij de tijd"
 
-msgid "Re-Install"
-msgstr "Installeer opnieuw"
+msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Niets bij te werken</span>"
 
-msgid "Downgrade"
-msgstr "Terug naar oudere versie"
+msgid "Downloading packages..."
+msgstr "Binnenhalen pakketten..."
 
-msgid "_File"
-msgstr "_Bestand"
+msgid "Downloading..."
+msgstr "Binnenhalen..."
+
+#, c-format
+msgid "Failed to download %s: %s"
+msgstr "Failed to download %s: %s"
+
+msgid "Removing packages..."
+msgstr "Verwijderen pakketten..."
+
+msgid "Uninstalling..."
+msgstr "Verwijderen..."
+
+msgid "Installing packages..."
+msgstr "Installeren pakketten..."
+
+msgid "Installing..."
+msgstr "Installeren..."
+
+msgid "Upgrading..."
+msgstr "Opwaarderen..."
+
+msgid "Failed to commit preferences"
+msgstr "Kon voorkeuren niet opslaan"
 
 msgid "Pending changes. Click execute when ready."
 msgstr "Er zijn geplande veranderingen. Klik Voer uit als u klaar bent."
 
-msgid "Packages with unmet dependencies"
-msgstr "Pakketten met onvervulde afhankelijkheden"
-
-msgid ": Depends: "
-msgstr ": Hangt af van: "
-
-msgid "Package conflicts"
-msgstr "Pakketconficten"
-
-msgid ", which is required by "
-msgstr ", dat vereist wordt door "
-
-msgid ", is excluded"
-msgstr ", wordt uitgesloten"
-
-msgid "<b>Conflicts:</b>"
-msgstr "<b>Conflicten:</b>"
-
-msgid "<b>Description:</b>"
-msgstr "<b>Beschrijving:</b>"
-
-msgid "<b>Location:</b>"
-msgstr "<b>Plaats:</b>"
-
-msgid "Source:"
-msgstr "Bron:"
-
-msgid "<b>Name:</b>"
-msgstr "<b>Naam:</b>"
-
-msgid "<b>Required:</b>"
-msgstr "<b>Vereist:</b>"
-
-msgid "<b>Size:</b>"
-msgstr "<b>Grootte:</b>"
-
-msgid "<b>Suggests:</b>"
-msgstr "<b>Stelt voor:</b>"
-
-msgid "Version:"
-msgstr "Versie:"
-
-msgid "<b>Version:</b>"
-msgstr "<b>Versie:</b>"
-
-msgid "<b>Version</b>"
-msgstr "<b>Versie</b>"
-
-msgid "<b>Source:</b>"
-msgstr "<b>Source:</b>"
-
-msgid "Common"
-msgstr "Gemeenschappelijk"
-
-msgid "Dependencies"
-msgstr "Afhankelijkheden"
-
-msgid "No package is selected."
-msgstr "Er is geen pakket gekozen."
-
 msgid "Status"
 msgstr "Status"
 
-msgid "Source download failed"
-msgstr "Binnenhalen bron mislukt"
+msgid "Name"
+msgstr "Naam"
 
-msgid "pkgtools returned an error"
-msgstr "pkgtools gaf een foutmelding"
+msgid "Version"
+msgstr "Versie"
 
-msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
-msgstr "<span weight=\"bold\" size=\"large\">U hebt niet genoeg vrije ruimte</span>"
+msgid "Location"
+msgstr "Plaats"
+
+msgid "Description"
+msgstr "Beschrijving"
+
+msgid "Installed Size"
+msgstr "Grootte geinstalleerd"
 
 #, c-format
 msgid "<b>Excluding %s due to dependency failure</b>"
 msgstr "<b>%s wordt wegens onvervulde afhankelijkheid uitgesloten</b>"
 
-msgid "Unmark"
-msgstr "Wis markering"
-
-msgid "<b>Status:</b>"
-msgstr "<b>Status:</b>"
-
-msgid "Excluded"
-msgstr "Uitgesloten"
-
 msgid ""
-"<b>The following icons are used to indicate the current status of a "
-"package:</b>"
-msgstr "<b>De volgende pictogrammen geven de huidige status van een pakket aan:</b>"
+"Missing dependencies may mean the software in this package will not function "
+"correctly.  Do you want to continue without the required packages?"
+msgstr ""
+"Missing dependencies may mean the software in this package will not function "
+"correctly.  Do you want to continue without the required packages?"
 
-msgid "Not Installed"
-msgstr "Niet geinstalleerd"
-
-msgid "To be Installed"
-msgstr "Te installeren"
-
-msgid "To be Re-Installed"
-msgstr "Opnieuw te installeren"
-
-msgid "To be Upgraded"
-msgstr "Op te waarderen"
-
-msgid "To be Removed"
-msgstr "Te verwijderen"
-
-msgid "To be Downgraded"
-msgstr "Neer te waarderen"
-
-msgid "Icon Legend"
-msgstr "Legende pictogrammen"
-
-msgid "Completed actions"
-msgstr "Voltooide opdrachten"
-
-msgid "Successfully executed all actions."
-msgstr "Alle opdrachten met succes uitgevoerd."
-
-msgid "<b>Installed Version</b>"
-msgstr "<b>Geinstalleerde versie</b>"
-
-msgid "<b>Latest Available Version</b>"
-msgstr "<b>Laatst beschikbare versie</b>"
-
-msgid "Failed to commit preferences"
-msgstr "Kon voorkeuren niet opslaan"
-
-msgid "Mark All Upgrades"
-msgstr "Markeer alle opwaarderingen"
-
-msgid "_Edit"
-msgstr "_Bewerk"
-
-msgid "Unmark All"
-msgstr "Wis alle markeringen"
-
-msgid "P_ackage"
-msgstr "P_akket"
-
-msgid ""
-"You need to reload the package list from the sources you have listed.  Do "
-"you want to do this now?"
-msgstr "U moet de pakketlijst opnieuw binnenhalen vanaf de door u aangegeven bronnen. Wilt u dit nu doen?"
-
-msgid "Repositories changed"
-msgstr "Magazijnen veranderd"
-
-msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
-msgstr "<span size=\"large\" weight=\"bold\">Magazijnen veranderd</span>"
-
-msgid "Retrieving package data..."
-msgstr "Ophalen pakketgegevens..."
-
-msgid "Retrieving patch list..."
-msgstr "Ophalen lijst bijwerkingen..."
-
-msgid "Retrieving checksum list..."
-msgstr "Ophalen lijst controlegetallen..."
-
-msgid "Reading Package Lists..."
-msgstr "Lezen lijst pakketten..."
-
-msgid "_Delete Cached Package Files"
-msgstr "_Wis cache pakketbestanden"
-
-msgid "Mark all possible upgrades"
-msgstr "Markeer alle mogelijke opwaarderingen"
-
-msgid "Enabled"
-msgstr "Toegelaten"
-
-msgid ""
-"Missing dependencies may mean the software in this package will not function"
-" correctly.  Do you want to continue without the required packages?"
-msgstr "Missing dependencies may mean the software in this package will not function correctly.  Do you want to continue without the required packages?"
-
-msgid ""
-"This package source failed or is not available.  Do you want to disable this"
-" source and continue anyway?"
-msgstr "This package source failed or is not available.  Do you want to disable this source and continue anyway?"
-
-msgid "Retrieving ChangeLog.txt..."
-msgstr "Retrieving ChangeLog.txt..."
-
-msgid "Changelog"
-msgstr "Changelog"
-
-msgid "_View"
-msgstr "_View"
-
-msgid "All"
-msgstr "All"
-
-msgid "View all packages"
-msgstr "View all packages"
-
-msgid "Available"
-msgstr "Available"
-
-msgid "View available packages from current sources"
-msgstr "View available packages from current sources"
-
-msgid "View installed packages"
-msgstr "View installed packages"
-
-msgid "Marked"
-msgstr "Marked"
-
-msgid "View Marked Packages"
-msgstr "View Marked Packages"
-
-msgid "Mark Obsolete"
-msgstr "Mark Obsolete"
-
-msgid "Mark all obsolete packages"
-msgstr "Mark all obsolete packages"
-
-#, c-format
-msgid "Download rate: %.0f%s/s"
-msgstr "Download rate: %.0f%s/s"
-
-#, c-format
-msgid "Failed to download %s: %s"
-msgstr "Failed to download %s: %s"
+msgid ": Depends: "
+msgstr ": Hangt af van: "
 
 msgid "Import"
 msgstr "Import"
@@ -503,77 +293,11 @@ msgstr "Import"
 msgid "No key found"
 msgstr "No key found"
 
-msgid "<b>GPG Keys</b>"
-msgstr "<b>GPG Keys</b>"
-
-msgid "Verification"
-msgstr "Verification"
-
-msgid "Retrieving checksum signature..."
-msgstr "Retrieving checksum signature..."
-
-msgid "Verifying checksum signature..."
-msgstr "Verifying checksum signature..."
-
-msgid "GPG Key verification failed"
-msgstr "GPG Key verification failed"
-
-msgid "Error"
-msgstr "Error"
-
-msgid "Visible"
-msgstr "Visible"
-
-msgid "Upgradeable"
-msgstr "Upgradeable"
-
-msgid "View Upgradeable Packages"
-msgstr "View Upgradeable Packages"
-
-msgid "View ChangeLogs"
-msgstr "View ChangeLogs"
-
 msgid "ChangeLogs"
 msgstr "ChangeLogs"
 
 msgid "No changelogs found."
 msgstr "No changelogs found."
-
-msgid "Priority"
-msgstr "Priority"
-
-msgid "Package Source"
-msgstr "Package Source"
-
-msgid "<b>Priority:</b>"
-msgstr "<b>Priority:</b>"
-
-msgid "<b>Source</b>"
-msgstr "<b>Source</b>"
-
-msgid "Default"
-msgstr "Default"
-
-msgid "Preferred"
-msgstr "Preferred"
-
-msgid "Official"
-msgstr "Official"
-
-msgid "Custom"
-msgstr "Custom"
-
-msgid "Files"
-msgstr "Files"
-
-msgid "The list of installed files is only available for installed packages"
-msgstr "The list of installed files is only available for installed packages"
-
-msgid "No dependency information available"
-msgstr "No dependency information available"
-
-msgid "No changelog information available"
-msgstr "No changelog information available"
 
 msgid "Gslapt Package Manager"
 msgstr "Gslapt pakketbeheer"
@@ -674,8 +398,330 @@ msgstr "Games"
 msgid "Localization"
 msgstr "Localization"
 
-msgid "Packages to be reinstalled"
-msgstr "Packages to be reinstalled"
+msgid ""
+"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
+"Slackware"
+msgstr ""
+"gslapt is een op GTK+ gebaseerd bedieningspaneel voor slapt-get, een op APT "
+"lijkend pakketsysteem voor Slackware"
+
+msgid "working"
+msgstr "werken"
+
+msgid "total progress"
+msgstr "totaalvoortgang"
+
+msgid "Gslapt"
+msgstr "Gslapt"
+
+msgid "_File"
+msgstr "_Bestand"
+
+msgid "Update local package cache"
+msgstr "Werk lokale pakkettencache bij"
+
+msgid "Update"
+msgstr "Werk bij"
+
+msgid "Mark all possible upgrades"
+msgstr "Markeer alle mogelijke opwaarderingen"
+
+msgid "Mark All Upgrades"
+msgstr "Markeer alle opwaarderingen"
+
+msgid "Mark all obsolete packages"
+msgstr "Mark all obsolete packages"
+
+msgid "Mark Obsolete"
+msgstr "Mark Obsolete"
+
+msgid "Execute all scheduled actions in current transaction"
+msgstr "Voer alle geplande opdrachten in huidige transactie uit"
+
+msgid "Execute"
+msgstr "Voer uit"
+
+msgid "_Edit"
+msgstr "_Bewerk"
+
+msgid "Unmark All"
+msgstr "Wis alle markeringen"
+
+msgid "Preferences"
+msgstr "Voorkeuren"
+
+msgid "_View"
+msgstr "_View"
+
+msgid "View all packages"
+msgstr "View all packages"
+
+msgid "All"
+msgstr "All"
+
+msgid "View available packages from current sources"
+msgstr "View available packages from current sources"
+
+msgid "Available"
+msgstr "Available"
+
+msgid "View installed packages"
+msgstr "View installed packages"
+
+msgid "View Marked Packages"
+msgstr "View Marked Packages"
+
+msgid "Marked"
+msgstr "Marked"
+
+msgid "View Upgradeable Packages"
+msgstr "View Upgradeable Packages"
+
+msgid "Upgradeable"
+msgstr "Upgradeable"
+
+msgid "P_ackage"
+msgstr "P_akket"
+
+msgid "Unmark"
+msgstr "Wis markering"
+
+msgid "Install"
+msgstr "Installeer"
+
+msgid "Downgrade"
+msgstr "Terug naar oudere versie"
+
+msgid "Remove"
+msgstr "Verwijder"
+
+msgid "_Help"
+msgstr "_Help"
+
+msgid "Icon Legend"
+msgstr "Legende pictogrammen"
+
+msgid "View ChangeLogs"
+msgstr "View ChangeLogs"
+
+msgid "About"
+msgstr "Over"
+
+msgid "Search"
+msgstr "Zoek"
+
+msgid "<b>Name:</b>"
+msgstr "<b>Naam:</b>"
+
+msgid "No package is selected."
+msgstr "Er is geen pakket gekozen."
+
+msgid "<b>Status:</b>"
+msgstr "<b>Status:</b>"
+
+msgid "<b>Description:</b>"
+msgstr "<b>Beschrijving:</b>"
+
+msgid "<b>Version:</b>"
+msgstr "<b>Versie:</b>"
+
+msgid "<b>Source:</b>"
+msgstr "<b>Source:</b>"
+
+msgid "<b>Priority:</b>"
+msgstr "<b>Priority:</b>"
+
+msgid "<b>Location:</b>"
+msgstr "<b>Plaats:</b>"
+
+msgid "<b>Installed Version</b>"
+msgstr "<b>Geinstalleerde versie</b>"
+
+msgid "Version:"
+msgstr "Versie:"
+
+msgid "Installed Size:"
+msgstr "Grootte geinstalleerd:"
+
+msgid "<b>Latest Available Version</b>"
+msgstr "<b>Laatst beschikbare versie</b>"
+
+msgid "Size:"
+msgstr "Grootte:"
+
+msgid "Source:"
+msgstr "Bron:"
+
+msgid "Common"
+msgstr "Gemeenschappelijk"
+
+msgid "Dependencies"
+msgstr "Afhankelijkheden"
+
+msgid "Changelog"
+msgstr "Changelog"
+
+msgid "Files"
+msgstr "Files"
+
+msgid ""
+"<b>The following icons are used to indicate the current status of a package:"
+"</b>"
+msgstr ""
+"<b>De volgende pictogrammen geven de huidige status van een pakket aan:</b>"
+
+msgid "Repositories changed"
+msgstr "Magazijnen veranderd"
+
+msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
+msgstr "<span size=\"large\" weight=\"bold\">Magazijnen veranderd</span>"
+
+msgid ""
+"You need to reload the package list from the sources you have listed.  Do "
+"you want to do this now?"
+msgstr ""
+"U moet de pakketlijst opnieuw binnenhalen vanaf de door u aangegeven "
+"bronnen. Wilt u dit nu doen?"
 
 msgid "Source failed"
 msgstr "Source failed"
+
+msgid ""
+"This package source failed or is not available.  Do you want to disable this "
+"source and continue anyway?"
+msgstr ""
+"This package source failed or is not available.  Do you want to disable this "
+"source and continue anyway?"
+
+msgid "Default"
+msgstr "Default"
+
+msgid "Official"
+msgstr "Official"
+
+msgid "Preferred"
+msgstr "Preferred"
+
+msgid "Custom"
+msgstr "Custom"
+
+msgid "Package Source"
+msgstr "Package Source"
+
+msgid "Summary"
+msgstr "Samenvatting"
+
+msgid ""
+"<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+msgstr ""
+"<span weight=\"bold\" size=\"large\">De volgende veranderingen aanbrengen?</"
+"span>"
+
+msgid "This is a summary of the changes about to be performed."
+msgstr "Dit is een samenvatting van de aan te brengen veranderingen."
+
+msgid "Download packages only"
+msgstr "De pakketten alleen binnenhalen"
+
+msgid "<b>Package and data storage</b>"
+msgstr "<b>Pakket- en gegevensopslag</b>"
+
+msgid "_Delete Cached Package Files"
+msgstr "_Wis cache pakketbestanden"
+
+msgid "Working Directory"
+msgstr "Werkmap"
+
+msgid "<b>Exclude List</b>"
+msgstr "<b>Lijst uitgesloten pakketten</b>"
+
+msgid "<span weight=\"bold\">Exclude Expression:</span>"
+msgstr "<span weight=\"bold\">Uitdrukking voor uitsluiten:</span>"
+
+msgid "Excludes"
+msgstr "Uitsluitingen"
+
+msgid "<b>Package Sources</b>"
+msgstr "<b>Pakketbronnen</b>"
+
+msgid "Sources"
+msgstr "Bronnen"
+
+msgid "<b>GPG Keys</b>"
+msgstr "<b>GPG Keys</b>"
+
+msgid "Verification"
+msgstr "Verification"
+
+#~ msgid "<span weight=\"bold\">SOURCE=</span>"
+#~ msgstr "<span weight=\"bold\">BRON=</span>"
+
+#~ msgid "About gslapt"
+#~ msgstr "Over gslapt"
+
+#~ msgid "Clear search expression"
+#~ msgstr "Wis zoekuitdrukking"
+
+#~ msgid "Clear"
+#~ msgstr "Wis"
+
+#~ msgid "Conflicts"
+#~ msgstr "Conflicten"
+
+#~ msgid "Couldn't find pixmap file: %s"
+#~ msgstr "Kon pixmapbestand %s niet vinden"
+
+#~ msgid "Exclude package"
+#~ msgstr "Sluit pakket uit"
+
+#~ msgid "Exclude"
+#~ msgstr "Sluit uit"
+
+#~ msgid "Install/Upgrade package"
+#~ msgstr "Installeer/Waardeer op"
+
+#~ msgid "No"
+#~ msgstr "Nr"
+
+#~ msgid "Package Action"
+#~ msgstr "Pakketopdracht"
+
+#~ msgid "Package Information"
+#~ msgstr "Pakketinformatie"
+
+#~ msgid "Quit"
+#~ msgstr "Stop"
+
+#~ msgid "Remove package"
+#~ msgstr "Verwijder pakket"
+
+#~ msgid "Required"
+#~ msgstr "Vereist"
+
+#~ msgid "Suggests"
+#~ msgstr "Stelt voor"
+
+#~ msgid "Up_grade"
+#~ msgstr "Waardeer _op"
+
+#~ msgid "Upgrading packages..."
+#~ msgstr "Opwaarderen pakketten..."
+
+#~ msgid "Yes"
+#~ msgstr "Ja"
+
+#~ msgid ""
+#~ "%d upgraded, %d reinstalled, %d newly installed, %d to remove and %d not "
+#~ "upgraded."
+#~ msgstr ""
+#~ "%d opgewaardeerd, %d reinstalled, %d nieuw geinstalleerd, %d te "
+#~ "verwijderen en %d niet opgewaardeerd."
+
+#~ msgid "<b>Size:</b>"
+#~ msgstr "<b>Grootte:</b>"
+
+#~ msgid "<b>Version</b>"
+#~ msgstr "<b>Versie</b>"
+
+#~ msgid "<b>Source</b>"
+#~ msgstr "<b>Source</b>"

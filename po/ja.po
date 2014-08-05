@@ -1,7 +1,7 @@
 # gslapt translation template
 # Copyright (C) 2005-2010 Jason Woodward
 # This file is distributed under the same license as the gslapt package.
-# 
+#
 # Translators:
 # JW <J_W@somewhere.c0.jp>, 2006
 # S_A <shin1.abe@nifty.com>, 2006
@@ -9,127 +9,143 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
-"POT-Creation-Date: 2005-02-26 22:25-0500\n"
+"POT-Creation-Date: 2014-08-04 22:05-0400\n"
 "PO-Revision-Date: 2013-11-20 12:47+0000\n"
 "Last-Translator: Jason Woodward <woodwardj@jaos.org>\n"
-"Language-Team: Japanese (http://www.transifex.com/projects/p/slapt-get/language/ja/)\n"
+"Language-Team: Japanese (http://www.transifex.com/projects/p/slapt-get/"
+"language/ja/)\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-msgid "<b>Exclude List</b>"
-msgstr "<b>除外するリスト</b>"
+msgid "Ready"
+msgstr "Ready"
 
-msgid "<b>Package Sources</b>"
-msgstr "<b>パッケージのソース</b>"
+msgid "Upgrade"
+msgstr "アップグレード"
 
-msgid "<b>Package and data storage</b>"
-msgstr "<b>パッケージとデータ保存</b>"
+msgid "Re-Install"
+msgstr "再インストール"
 
-msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
-msgstr "<span weight=\"bold\" size=\"large\">以下の変更を適用しますか？</span>"
+msgid "<b>Required:</b>"
+msgstr "<b>要求:</b>"
 
-msgid "<span weight=\"bold\">Exclude Expression:</span>"
-msgstr "<span weight=\"bold\">Exclude Expression:</span>"
+msgid "<b>Conflicts:</b>"
+msgstr "<b>衝突:</b>"
 
-msgid "<span weight=\"bold\">SOURCE=</span>"
-msgstr "<span weight=\"bold\">SOURCE=</span>"
+msgid "<b>Suggests:</b>"
+msgstr "<b>推奨:</b>"
 
-msgid "About gslapt"
-msgstr "gslaptについて"
+msgid "No dependency information available"
+msgstr "No dependency information available"
 
-msgid "About"
-msgstr "About"
+msgid "Source"
+msgstr "ソース"
 
-msgid "Checking for new package data..."
-msgstr "新規パッケージの検査..."
+msgid "No changelog information available"
+msgstr "No changelog information available"
 
-msgid "Clear search expression"
-msgstr "検索条件をクリア"
+msgid "The list of installed files is only available for installed packages"
+msgstr "The list of installed files is only available for installed packages"
 
-msgid "Clear"
-msgstr "クリア"
-
-msgid "Conflicts"
-msgstr "衝突"
-
-#, c-format
-msgid "Couldn't find pixmap file: %s"
-msgstr "pixmap が見つかりません : %s"
-
-msgid "Description"
-msgstr "説明"
-
-msgid "Download packages only"
-msgstr "パッケージのダウンロードのみ"
-
-msgid "Downloading packages..."
-msgstr "パッケージのダウンロード..."
-
-msgid "Downloading..."
-msgstr "ダウンロード中..."
-
-msgid "Exclude package"
-msgstr "パッケージの除外"
-
-msgid "Exclude"
+msgid "Excluded"
 msgstr "除外"
 
-msgid "Excludes"
-msgstr "除外"
+msgid "To be Removed"
+msgstr "削除されます"
 
-msgid "Execute all scheduled actions in current transaction"
-msgstr "予約されている全ての動作を実行"
+msgid "To be Installed"
+msgstr "インストールされます"
 
-msgid "Execute"
-msgstr "実行"
+msgid "To be Re-Installed"
+msgstr "再インストールされます"
 
-msgid "Expression"
-msgstr "除外ルール"
+msgid "To be Downgraded"
+msgstr "ダウングレードされます"
 
-msgid "Gslapt"
-msgstr "Gslapt"
-
-msgid "Install"
-msgstr "インストール"
-
-msgid "Install/Upgrade package"
-msgstr "インストール/アップグレード パッケージ"
-
-msgid "Installed Size:"
-msgstr "インストールサイズ:"
-
-msgid "Installed Size"
-msgstr "インストールサイズ"
+msgid "To be Upgraded"
+msgstr "アップグレードされます"
 
 msgid "Installed"
 msgstr "インストール済み"
 
-msgid "Installing packages..."
-msgstr "パッケージのインストール..."
+msgid "Not Installed"
+msgstr "インストールされていません"
 
-msgid "Installing..."
-msgstr "インストール中..."
+msgid "Progress"
+msgstr "進捗"
 
-msgid "Location"
-msgstr "場所"
+msgid "Checking for new package data..."
+msgstr "新規パッケージの検査..."
 
-msgid "Name"
-msgstr "名称"
+msgid "Retrieving package data..."
+msgstr "パッケージデータを取得中..."
 
-msgid "No"
-msgstr "いいえ"
+msgid "Retrieving patch list..."
+msgstr "patchリストを取得中..."
 
-msgid "Package Action"
-msgstr "パッケージの動作"
+msgid "Retrieving checksum list..."
+msgstr "checksumリストを取得中..."
 
-msgid "Package Information"
-msgstr "パッケージ情報"
+msgid "Source download failed"
+msgstr "ソースのダウンロードに失敗しました"
 
-msgid "Package"
-msgstr "パッケージ"
+msgid "Retrieving checksum signature..."
+msgstr "Retrieving checksum signature..."
+
+msgid "Verifying checksum signature..."
+msgstr "Verifying checksum signature..."
+
+msgid "GPG Key verification failed"
+msgstr "GPG Key verification failed"
+
+msgid "Retrieving ChangeLog.txt..."
+msgstr "ChangeLog.txt を取得中..."
+
+msgid "Reading Package Lists..."
+msgstr "パッケージリストを読み込み中..."
+
+#, c-format
+msgid "Download rate: %.0f%s/s"
+msgstr "Download rate: %.0f%s/s"
+
+msgid "Error"
+msgstr "Error"
+
+msgid "pkgtools returned an error"
+msgstr "pkgtools がエラーを返しました"
+
+msgid "Completed actions"
+msgstr "処理済み"
+
+msgid "Successfully executed all actions."
+msgstr "全ての操作の実行に成功しました"
+
+msgid "Enabled"
+msgstr "有効"
+
+msgid "Visible"
+msgstr "Visible"
+
+msgid "Priority"
+msgstr "Priority"
+
+msgid "Expression"
+msgstr "除外ルール"
+
+msgid "Packages with unmet dependencies"
+msgstr "依存関係を満たさないパッケージ"
+
+msgid "Package conflicts"
+msgstr "パッケージの衝突"
+
+msgid ", which is required by "
+msgstr ", which is required by "
+
+msgid ", is excluded"
+msgstr ", is excluded"
 
 msgid "Packages excluded"
 msgstr "除外されたパッケージ"
@@ -137,109 +153,47 @@ msgstr "除外されたパッケージ"
 msgid "Packages to be installed"
 msgstr "インストールされるパッケージ"
 
-msgid "Packages to be removed"
-msgstr "削除されるパッケージ"
-
 msgid "Packages to be upgraded"
 msgstr "アップグレードされるパッケージ"
 
-msgid "Preferences"
-msgstr "Preferences"
+msgid "Packages to be reinstalled"
+msgstr "Packages to be reinstalled"
 
-msgid "Progress"
-msgstr "進捗"
+msgid "Packages to be removed"
+msgstr "削除されるパッケージ"
 
-msgid "Quit"
-msgstr "中止"
+msgid "Package"
+msgstr "パッケージ"
 
-msgid "Remove package"
-msgstr "パッケージの削除"
+#, fuzzy, c-format
+msgid "%d upgraded, "
+msgid_plural "%d upgraded, "
+msgstr[0] "アップグレード"
 
-msgid "Remove"
-msgstr "削除"
+#, fuzzy, c-format
+msgid "%d reinstalled, "
+msgid_plural "%d reinstalled, "
+msgstr[0] "インストールされます"
 
-msgid "Removing packages..."
-msgstr "パッケージの削除中..."
-
-msgid "Required"
-msgstr "要求(Required)"
-
-msgid "Search"
-msgstr "検索"
-
-msgid "Size:"
-msgstr "サイズ:"
-
-msgid "Source"
-msgstr "ソース"
-
-msgid "Sources"
-msgstr "ソース"
-
-msgid "Suggests"
-msgstr "推奨"
-
-msgid "Summary"
-msgstr "要約"
-
-msgid "This is a summary of the changes about to be performed."
-msgstr "これは実行されようとしている変更の概要です"
-
-msgid "Uninstalling..."
-msgstr "削除中..."
-
-msgid "Up_grade"
-msgstr "アップグレード"
-
-msgid "Update local package cache"
-msgstr "ローカル・パッケージ・キャッシュの更新"
-
-msgid "Update"
-msgstr "更新"
-
-msgid "Upgrade"
-msgstr "アップグレード"
-
-msgid "Upgrading packages..."
-msgstr "パッケージのアップグレード中..."
-
-msgid "Upgrading..."
-msgstr "アップグレード中..."
-
-msgid "Version"
-msgstr "バージョン"
-
-msgid "Working Directory"
-msgstr "作業ディレクトリ"
-
-msgid "Yes"
-msgstr "はい"
-
-msgid "_Help"
-msgstr "ヘルプ(_Help)"
-
-msgid ""
-"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
-"Slackware"
-msgstr "gslapt は APTライクな Slackware用パッケージ・システムのGTK+フロントエンドです"
-
-msgid "total progress"
-msgstr "全体の進捗"
-
-msgid "working"
-msgstr "作業中"
-
-msgid "Up to Date"
-msgstr "最新の状態に更新"
-
-msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
-msgstr "<span weight=\"bold\" size=\"large\">更新対象ファイルはありません</span>"
+#, fuzzy, c-format
+msgid "%d newly installed, "
+msgid_plural "%d newly installed, "
+msgstr[0] "インストールされます"
 
 #, c-format
+msgid "%d to remove "
+msgid_plural "%d to remove "
+msgstr[0] ""
+
+#, c-format
+msgid "and %d not upgraded."
+msgid_plural "and %d not upgraded."
+msgstr[0] ""
+
 msgid ""
-"%d upgraded, %d reinstalled, %d newly installed, %d to remove and %d not "
-"upgraded."
-msgstr "%d アップグレード, %d reinstalled, %d 新規インストール, %d 削除 そして %d 非アップグレード"
+"<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgstr ""
+"<span weight=\"bold\" size=\"large\">十分な空きスペースがありません</span>"
 
 #, c-format
 msgid "Need to get %.0f%s/%.0f%s of archives.\n"
@@ -257,244 +211,75 @@ msgstr "展開後 %.0f%s のディスクスペースが開放されます"
 msgid "After unpacking %.0f%s of additional disk space will be used."
 msgstr "展開後 %.0f%s のディスクスペースが使用されます"
 
-msgid "Ready"
-msgstr "Ready"
+msgid "Up to Date"
+msgstr "最新の状態に更新"
 
-msgid "Re-Install"
-msgstr "再インストール"
+msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
+msgstr ""
+"<span weight=\"bold\" size=\"large\">更新対象ファイルはありません</span>"
 
-msgid "Downgrade"
-msgstr "ダウングレード"
+msgid "Downloading packages..."
+msgstr "パッケージのダウンロード..."
 
-msgid "_File"
-msgstr "ファイル(_F)"
+msgid "Downloading..."
+msgstr "ダウンロード中..."
+
+#, c-format
+msgid "Failed to download %s: %s"
+msgstr "Failed to download %s: %s"
+
+msgid "Removing packages..."
+msgstr "パッケージの削除中..."
+
+msgid "Uninstalling..."
+msgstr "削除中..."
+
+msgid "Installing packages..."
+msgstr "パッケージのインストール..."
+
+msgid "Installing..."
+msgstr "インストール中..."
+
+msgid "Upgrading..."
+msgstr "アップグレード中..."
+
+msgid "Failed to commit preferences"
+msgstr "Failed to commit preferences"
 
 msgid "Pending changes. Click execute when ready."
 msgstr "変更を保留。準備が出来たら'実行'をクリック"
 
-msgid "Packages with unmet dependencies"
-msgstr "依存関係を満たさないパッケージ"
-
-msgid ": Depends: "
-msgstr ": 依存: "
-
-msgid "Package conflicts"
-msgstr "パッケージの衝突"
-
-msgid ", which is required by "
-msgstr ", which is required by "
-
-msgid ", is excluded"
-msgstr ", is excluded"
-
-msgid "<b>Conflicts:</b>"
-msgstr "<b>衝突:</b>"
-
-msgid "<b>Description:</b>"
-msgstr "<b>説明:</b>"
-
-msgid "<b>Location:</b>"
-msgstr "<b>場所:</b>"
-
-msgid "Source:"
-msgstr "ソース:"
-
-msgid "<b>Name:</b>"
-msgstr "<b>名称:</b>"
-
-msgid "<b>Required:</b>"
-msgstr "<b>要求:</b>"
-
-msgid "<b>Size:</b>"
-msgstr "<b>サイズ:</b>"
-
-msgid "<b>Suggests:</b>"
-msgstr "<b>推奨:</b>"
-
-msgid "Version:"
-msgstr "バージョン:"
-
-msgid "<b>Version:</b>"
-msgstr "<b>バージョン:</b>"
-
-msgid "<b>Version</b>"
-msgstr "<b>バージョン</b>"
-
-msgid "<b>Source:</b>"
-msgstr "<b>Source:</b>"
-
-msgid "Common"
-msgstr "一般情報"
-
-msgid "Dependencies"
-msgstr "依存関係"
-
-msgid "No package is selected."
-msgstr "パッケージが選択されていません"
-
 msgid "Status"
 msgstr "状態"
 
-msgid "Source download failed"
-msgstr "ソースのダウンロードに失敗しました"
+msgid "Name"
+msgstr "名称"
 
-msgid "pkgtools returned an error"
-msgstr "pkgtools がエラーを返しました"
+msgid "Version"
+msgstr "バージョン"
 
-msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
-msgstr "<span weight=\"bold\" size=\"large\">十分な空きスペースがありません</span>"
+msgid "Location"
+msgstr "場所"
+
+msgid "Description"
+msgstr "説明"
+
+msgid "Installed Size"
+msgstr "インストールサイズ"
 
 #, c-format
 msgid "<b>Excluding %s due to dependency failure</b>"
 msgstr "<b>依存性の解決に失敗したため %s を除外中</b>"
 
-msgid "Unmark"
-msgstr "マークを外す"
-
-msgid "<b>Status:</b>"
-msgstr "<b>状況:</b>"
-
-msgid "Excluded"
-msgstr "除外"
-
 msgid ""
-"<b>The following icons are used to indicate the current status of a "
-"package:</b>"
-msgstr "<b>以下のアイコンは現在のパッケージの状態を表しています:</b>"
+"Missing dependencies may mean the software in this package will not function "
+"correctly.  Do you want to continue without the required packages?"
+msgstr ""
+"依存性の欠如。このパッケージに含まれるソフトウェアが正しく動作しない可能性が"
+"あります。 依存性を解決せずに、このまま作業を進めますか？"
 
-msgid "Not Installed"
-msgstr "インストールされていません"
-
-msgid "To be Installed"
-msgstr "インストールされます"
-
-msgid "To be Re-Installed"
-msgstr "再インストールされます"
-
-msgid "To be Upgraded"
-msgstr "アップグレードされます"
-
-msgid "To be Removed"
-msgstr "削除されます"
-
-msgid "To be Downgraded"
-msgstr "ダウングレードされます"
-
-msgid "Icon Legend"
-msgstr "Icon Legend"
-
-msgid "Completed actions"
-msgstr "処理済み"
-
-msgid "Successfully executed all actions."
-msgstr "全ての操作の実行に成功しました"
-
-msgid "<b>Installed Version</b>"
-msgstr "<b>インストール済みのバージョン</b>"
-
-msgid "<b>Latest Available Version</b>"
-msgstr "<b>最新の利用可能なバージョン</b>"
-
-msgid "Failed to commit preferences"
-msgstr "Failed to commit preferences"
-
-msgid "Mark All Upgrades"
-msgstr "全てをアップグレード"
-
-msgid "_Edit"
-msgstr "編集(_E)"
-
-msgid "Unmark All"
-msgstr "全てのマークを外す"
-
-msgid "P_ackage"
-msgstr "パッケージ(P_ackage)"
-
-msgid ""
-"You need to reload the package list from the sources you have listed.  Do "
-"you want to do this now?"
-msgstr "ソース・リストからパッケージ・リストを再取得する必要があります。 今すぐ実行しますか？"
-
-msgid "Repositories changed"
-msgstr "レポジトリが変更されました"
-
-msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
-msgstr "<span size=\"large\" weight=\"bold\">レポジトリが変更されました</span>"
-
-msgid "Retrieving package data..."
-msgstr "パッケージデータを取得中..."
-
-msgid "Retrieving patch list..."
-msgstr "patchリストを取得中..."
-
-msgid "Retrieving checksum list..."
-msgstr "checksumリストを取得中..."
-
-msgid "Reading Package Lists..."
-msgstr "パッケージリストを読み込み中..."
-
-msgid "_Delete Cached Package Files"
-msgstr "キャッシュされたパッケージを削除(_D)"
-
-msgid "Mark all possible upgrades"
-msgstr "Mark all possible upgrades"
-
-msgid "Enabled"
-msgstr "有効"
-
-msgid ""
-"Missing dependencies may mean the software in this package will not function"
-" correctly.  Do you want to continue without the required packages?"
-msgstr "依存性の欠如。このパッケージに含まれるソフトウェアが正しく動作しない可能性があります。 依存性を解決せずに、このまま作業を進めますか？"
-
-msgid ""
-"This package source failed or is not available.  Do you want to disable this"
-" source and continue anyway?"
-msgstr "パッケージ・ソースが存在しない、もしくはソースに誤りがあります。 このソースを無効にして作業を続けますか？"
-
-msgid "Retrieving ChangeLog.txt..."
-msgstr "ChangeLog.txt を取得中..."
-
-msgid "Changelog"
-msgstr "更新履歴 (Changelog)"
-
-msgid "_View"
-msgstr "一覧(_V)"
-
-msgid "All"
-msgstr "全て"
-
-msgid "View all packages"
-msgstr "全てのパッケージを一覧"
-
-msgid "Available"
-msgstr "利用可能"
-
-msgid "View available packages from current sources"
-msgstr "current sources から利用可能なパッケージの一覧"
-
-msgid "View installed packages"
-msgstr "インストール済みパッケージの一覧"
-
-msgid "Marked"
-msgstr "Marked"
-
-msgid "View Marked Packages"
-msgstr "View Marked Packages"
-
-msgid "Mark Obsolete"
-msgstr "Mark Obsolete"
-
-msgid "Mark all obsolete packages"
-msgstr "Mark all obsolete packages"
-
-#, c-format
-msgid "Download rate: %.0f%s/s"
-msgstr "Download rate: %.0f%s/s"
-
-#, c-format
-msgid "Failed to download %s: %s"
-msgstr "Failed to download %s: %s"
+msgid ": Depends: "
+msgstr ": 依存: "
 
 msgid "Import"
 msgstr "Import"
@@ -502,77 +287,11 @@ msgstr "Import"
 msgid "No key found"
 msgstr "No key found"
 
-msgid "<b>GPG Keys</b>"
-msgstr "<b>GPG Keys</b>"
-
-msgid "Verification"
-msgstr "Verification"
-
-msgid "Retrieving checksum signature..."
-msgstr "Retrieving checksum signature..."
-
-msgid "Verifying checksum signature..."
-msgstr "Verifying checksum signature..."
-
-msgid "GPG Key verification failed"
-msgstr "GPG Key verification failed"
-
-msgid "Error"
-msgstr "Error"
-
-msgid "Visible"
-msgstr "Visible"
-
-msgid "Upgradeable"
-msgstr "Upgradeable"
-
-msgid "View Upgradeable Packages"
-msgstr "View Upgradeable Packages"
-
-msgid "View ChangeLogs"
-msgstr "View ChangeLogs"
-
 msgid "ChangeLogs"
 msgstr "ChangeLogs"
 
 msgid "No changelogs found."
 msgstr "No changelogs found."
-
-msgid "Priority"
-msgstr "Priority"
-
-msgid "Package Source"
-msgstr "Package Source"
-
-msgid "<b>Priority:</b>"
-msgstr "<b>Priority:</b>"
-
-msgid "<b>Source</b>"
-msgstr "<b>Source</b>"
-
-msgid "Default"
-msgstr "Default"
-
-msgid "Preferred"
-msgstr "Preferred"
-
-msgid "Official"
-msgstr "Official"
-
-msgid "Custom"
-msgstr "Custom"
-
-msgid "Files"
-msgstr "Files"
-
-msgid "The list of installed files is only available for installed packages"
-msgstr "The list of installed files is only available for installed packages"
-
-msgid "No dependency information available"
-msgstr "No dependency information available"
-
-msgid "No changelog information available"
-msgstr "No changelog information available"
 
 msgid "Gslapt Package Manager"
 msgstr "Gslapt Package Manager"
@@ -673,8 +392,326 @@ msgstr "Games"
 msgid "Localization"
 msgstr "Localization"
 
-msgid "Packages to be reinstalled"
-msgstr "Packages to be reinstalled"
+msgid ""
+"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
+"Slackware"
+msgstr ""
+"gslapt は APTライクな Slackware用パッケージ・システムのGTK+フロントエンドです"
+
+msgid "working"
+msgstr "作業中"
+
+msgid "total progress"
+msgstr "全体の進捗"
+
+msgid "Gslapt"
+msgstr "Gslapt"
+
+msgid "_File"
+msgstr "ファイル(_F)"
+
+msgid "Update local package cache"
+msgstr "ローカル・パッケージ・キャッシュの更新"
+
+msgid "Update"
+msgstr "更新"
+
+msgid "Mark all possible upgrades"
+msgstr "Mark all possible upgrades"
+
+msgid "Mark All Upgrades"
+msgstr "全てをアップグレード"
+
+msgid "Mark all obsolete packages"
+msgstr "Mark all obsolete packages"
+
+msgid "Mark Obsolete"
+msgstr "Mark Obsolete"
+
+msgid "Execute all scheduled actions in current transaction"
+msgstr "予約されている全ての動作を実行"
+
+msgid "Execute"
+msgstr "実行"
+
+msgid "_Edit"
+msgstr "編集(_E)"
+
+msgid "Unmark All"
+msgstr "全てのマークを外す"
+
+msgid "Preferences"
+msgstr "Preferences"
+
+msgid "_View"
+msgstr "一覧(_V)"
+
+msgid "View all packages"
+msgstr "全てのパッケージを一覧"
+
+msgid "All"
+msgstr "全て"
+
+msgid "View available packages from current sources"
+msgstr "current sources から利用可能なパッケージの一覧"
+
+msgid "Available"
+msgstr "利用可能"
+
+msgid "View installed packages"
+msgstr "インストール済みパッケージの一覧"
+
+msgid "View Marked Packages"
+msgstr "View Marked Packages"
+
+msgid "Marked"
+msgstr "Marked"
+
+msgid "View Upgradeable Packages"
+msgstr "View Upgradeable Packages"
+
+msgid "Upgradeable"
+msgstr "Upgradeable"
+
+msgid "P_ackage"
+msgstr "パッケージ(P_ackage)"
+
+msgid "Unmark"
+msgstr "マークを外す"
+
+msgid "Install"
+msgstr "インストール"
+
+msgid "Downgrade"
+msgstr "ダウングレード"
+
+msgid "Remove"
+msgstr "削除"
+
+msgid "_Help"
+msgstr "ヘルプ(_Help)"
+
+msgid "Icon Legend"
+msgstr "Icon Legend"
+
+msgid "View ChangeLogs"
+msgstr "View ChangeLogs"
+
+msgid "About"
+msgstr "About"
+
+msgid "Search"
+msgstr "検索"
+
+msgid "<b>Name:</b>"
+msgstr "<b>名称:</b>"
+
+msgid "No package is selected."
+msgstr "パッケージが選択されていません"
+
+msgid "<b>Status:</b>"
+msgstr "<b>状況:</b>"
+
+msgid "<b>Description:</b>"
+msgstr "<b>説明:</b>"
+
+msgid "<b>Version:</b>"
+msgstr "<b>バージョン:</b>"
+
+msgid "<b>Source:</b>"
+msgstr "<b>Source:</b>"
+
+msgid "<b>Priority:</b>"
+msgstr "<b>Priority:</b>"
+
+msgid "<b>Location:</b>"
+msgstr "<b>場所:</b>"
+
+msgid "<b>Installed Version</b>"
+msgstr "<b>インストール済みのバージョン</b>"
+
+msgid "Version:"
+msgstr "バージョン:"
+
+msgid "Installed Size:"
+msgstr "インストールサイズ:"
+
+msgid "<b>Latest Available Version</b>"
+msgstr "<b>最新の利用可能なバージョン</b>"
+
+msgid "Size:"
+msgstr "サイズ:"
+
+msgid "Source:"
+msgstr "ソース:"
+
+msgid "Common"
+msgstr "一般情報"
+
+msgid "Dependencies"
+msgstr "依存関係"
+
+msgid "Changelog"
+msgstr "更新履歴 (Changelog)"
+
+msgid "Files"
+msgstr "Files"
+
+msgid ""
+"<b>The following icons are used to indicate the current status of a package:"
+"</b>"
+msgstr "<b>以下のアイコンは現在のパッケージの状態を表しています:</b>"
+
+msgid "Repositories changed"
+msgstr "レポジトリが変更されました"
+
+msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
+msgstr "<span size=\"large\" weight=\"bold\">レポジトリが変更されました</span>"
+
+msgid ""
+"You need to reload the package list from the sources you have listed.  Do "
+"you want to do this now?"
+msgstr ""
+"ソース・リストからパッケージ・リストを再取得する必要があります。 今すぐ実行し"
+"ますか？"
 
 msgid "Source failed"
 msgstr "Source failed"
+
+msgid ""
+"This package source failed or is not available.  Do you want to disable this "
+"source and continue anyway?"
+msgstr ""
+"パッケージ・ソースが存在しない、もしくはソースに誤りがあります。 このソースを"
+"無効にして作業を続けますか？"
+
+msgid "Default"
+msgstr "Default"
+
+msgid "Official"
+msgstr "Official"
+
+msgid "Preferred"
+msgstr "Preferred"
+
+msgid "Custom"
+msgstr "Custom"
+
+msgid "Package Source"
+msgstr "Package Source"
+
+msgid "Summary"
+msgstr "要約"
+
+msgid ""
+"<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+msgstr "<span weight=\"bold\" size=\"large\">以下の変更を適用しますか？</span>"
+
+msgid "This is a summary of the changes about to be performed."
+msgstr "これは実行されようとしている変更の概要です"
+
+msgid "Download packages only"
+msgstr "パッケージのダウンロードのみ"
+
+msgid "<b>Package and data storage</b>"
+msgstr "<b>パッケージとデータ保存</b>"
+
+msgid "_Delete Cached Package Files"
+msgstr "キャッシュされたパッケージを削除(_D)"
+
+msgid "Working Directory"
+msgstr "作業ディレクトリ"
+
+msgid "<b>Exclude List</b>"
+msgstr "<b>除外するリスト</b>"
+
+msgid "<span weight=\"bold\">Exclude Expression:</span>"
+msgstr "<span weight=\"bold\">Exclude Expression:</span>"
+
+msgid "Excludes"
+msgstr "除外"
+
+msgid "<b>Package Sources</b>"
+msgstr "<b>パッケージのソース</b>"
+
+msgid "Sources"
+msgstr "ソース"
+
+msgid "<b>GPG Keys</b>"
+msgstr "<b>GPG Keys</b>"
+
+msgid "Verification"
+msgstr "Verification"
+
+#~ msgid "<span weight=\"bold\">SOURCE=</span>"
+#~ msgstr "<span weight=\"bold\">SOURCE=</span>"
+
+#~ msgid "About gslapt"
+#~ msgstr "gslaptについて"
+
+#~ msgid "Clear search expression"
+#~ msgstr "検索条件をクリア"
+
+#~ msgid "Clear"
+#~ msgstr "クリア"
+
+#~ msgid "Conflicts"
+#~ msgstr "衝突"
+
+#~ msgid "Couldn't find pixmap file: %s"
+#~ msgstr "pixmap が見つかりません : %s"
+
+#~ msgid "Exclude package"
+#~ msgstr "パッケージの除外"
+
+#~ msgid "Exclude"
+#~ msgstr "除外"
+
+#~ msgid "Install/Upgrade package"
+#~ msgstr "インストール/アップグレード パッケージ"
+
+#~ msgid "No"
+#~ msgstr "いいえ"
+
+#~ msgid "Package Action"
+#~ msgstr "パッケージの動作"
+
+#~ msgid "Package Information"
+#~ msgstr "パッケージ情報"
+
+#~ msgid "Quit"
+#~ msgstr "中止"
+
+#~ msgid "Remove package"
+#~ msgstr "パッケージの削除"
+
+#~ msgid "Required"
+#~ msgstr "要求(Required)"
+
+#~ msgid "Suggests"
+#~ msgstr "推奨"
+
+#~ msgid "Up_grade"
+#~ msgstr "アップグレード"
+
+#~ msgid "Upgrading packages..."
+#~ msgstr "パッケージのアップグレード中..."
+
+#~ msgid "Yes"
+#~ msgstr "はい"
+
+#~ msgid ""
+#~ "%d upgraded, %d reinstalled, %d newly installed, %d to remove and %d not "
+#~ "upgraded."
+#~ msgstr ""
+#~ "%d アップグレード, %d reinstalled, %d 新規インストール, %d 削除 そして %d "
+#~ "非アップグレード"
+
+#~ msgid "<b>Size:</b>"
+#~ msgstr "<b>サイズ:</b>"
+
+#~ msgid "<b>Version</b>"
+#~ msgstr "<b>バージョン</b>"
+
+#~ msgid "<b>Source</b>"
+#~ msgstr "<b>Source</b>"

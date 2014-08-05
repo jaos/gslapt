@@ -1,134 +1,150 @@
 # gslapt translation template
 # Copyright (C) 2005-2010 Jason Woodward
 # This file is distributed under the same license as the gslapt package.
-# 
+#
 # Translators:
 # Bekir SONAT <bekirsonat@kde.org.tr>, 2006
 msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
-"POT-Creation-Date: 2005-02-26 22:25-0500\n"
+"POT-Creation-Date: 2014-08-04 22:05-0400\n"
 "PO-Revision-Date: 2013-11-20 12:47+0000\n"
 "Last-Translator: Jason Woodward <woodwardj@jaos.org>\n"
-"Language-Team: Turkish (http://www.transifex.com/projects/p/slapt-get/language/tr/)\n"
+"Language-Team: Turkish (http://www.transifex.com/projects/p/slapt-get/"
+"language/tr/)\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-msgid "<b>Exclude List</b>"
-msgstr "<b>Dışlanan Liste</b>"
+msgid "Ready"
+msgstr "Hazır"
 
-msgid "<b>Package Sources</b>"
-msgstr "<b>Paket Kaynakları</b>"
+msgid "Upgrade"
+msgstr "Yükselt"
 
-msgid "<b>Package and data storage</b>"
-msgstr "<b>Paket ve veri deposu</b>"
+msgid "Re-Install"
+msgstr "Yeniden-Kur"
 
-msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Değişiklikler uygulansın mı?</span>"
+msgid "<b>Required:</b>"
+msgstr "<b>Gereksinim:</b>"
 
-msgid "<span weight=\"bold\">Exclude Expression:</span>"
-msgstr "<span weight=\"bold\">Dışlanan İfade:</span>"
+msgid "<b>Conflicts:</b>"
+msgstr "<b>Çakışmalar:</b>"
 
-msgid "<span weight=\"bold\">SOURCE=</span>"
-msgstr "<span weight=\"bold\">SOURCE=</span>"
+msgid "<b>Suggests:</b>"
+msgstr "<b>Öneriler:</b>"
 
-msgid "About gslapt"
-msgstr "gslapt Hakkında"
+msgid "No dependency information available"
+msgstr "No dependency information available"
 
-msgid "About"
-msgstr "Hakkında"
+msgid "Source"
+msgstr "Kaynak"
 
-msgid "Checking for new package data..."
-msgstr "Yeni paket verisi denetleniyor.."
+msgid "No changelog information available"
+msgstr "No changelog information available"
 
-msgid "Clear search expression"
-msgstr "Aranan ifadeyi temizle"
+msgid "The list of installed files is only available for installed packages"
+msgstr "The list of installed files is only available for installed packages"
 
-msgid "Clear"
-msgstr "Temizle"
+msgid "Excluded"
+msgstr "Dışlandı"
 
-msgid "Conflicts"
-msgstr "Çakışmalar"
+msgid "To be Removed"
+msgstr "Kaldırılacak"
 
-#, c-format
-msgid "Couldn't find pixmap file: %s"
-msgstr "Bulunamayan pixmap dosyası: %s"
+msgid "To be Installed"
+msgstr "Kurulacak"
 
-msgid "Description"
-msgstr "Açıklama"
+msgid "To be Re-Installed"
+msgstr "Yeniden-kurulacak"
 
-msgid "Download packages only"
-msgstr "Paketleri sadece indir"
+msgid "To be Downgraded"
+msgstr "Alçaltılacak"
 
-msgid "Downloading packages..."
-msgstr "Paketler indiriliyor..."
-
-msgid "Downloading..."
-msgstr "İndiriliyor..."
-
-msgid "Exclude package"
-msgstr "Dışlanan paket"
-
-msgid "Exclude"
-msgstr "Dışla"
-
-msgid "Excludes"
-msgstr "Dışlananlar"
-
-msgid "Execute all scheduled actions in current transaction"
-msgstr "Şimdiki işlemde tüm planlanan eylemleri uygular"
-
-msgid "Execute"
-msgstr "Uygula"
-
-msgid "Expression"
-msgstr "İfade"
-
-msgid "Gslapt"
-msgstr "Gslapt"
-
-msgid "Install"
-msgstr "Kur"
-
-msgid "Install/Upgrade package"
-msgstr "Paket Kur/Güncelle"
-
-msgid "Installed Size:"
-msgstr "Kurulum Büyüklüğü:"
-
-msgid "Installed Size"
-msgstr "Kurulum Büyüklüğü"
+msgid "To be Upgraded"
+msgstr "Yükseltilecek"
 
 msgid "Installed"
 msgstr "Kuruldu"
 
-msgid "Installing packages..."
-msgstr "Paketleri kuruyor..."
+msgid "Not Installed"
+msgstr "Kurulmadı"
 
-msgid "Installing..."
-msgstr "Kuruyor..."
+msgid "Progress"
+msgstr "Durum"
 
-msgid "Location"
-msgstr "Konum"
+msgid "Checking for new package data..."
+msgstr "Yeni paket verisi denetleniyor.."
 
-msgid "Name"
-msgstr "Ad"
+msgid "Retrieving package data..."
+msgstr "Paket verileri alınıyor..."
 
-msgid "No"
-msgstr "No"
+msgid "Retrieving patch list..."
+msgstr "Yama listesi alınıyor..."
 
-msgid "Package Action"
-msgstr "Paket Eylemi"
+msgid "Retrieving checksum list..."
+msgstr "Sağlama bilgileri alınıyor..."
 
-msgid "Package Information"
-msgstr "Paket Bilgisi"
+msgid "Source download failed"
+msgstr "Kaynak indirme başarısız"
 
-msgid "Package"
-msgstr "Paket"
+msgid "Retrieving checksum signature..."
+msgstr "Retrieving checksum signature..."
+
+msgid "Verifying checksum signature..."
+msgstr "Verifying checksum signature..."
+
+msgid "GPG Key verification failed"
+msgstr "GPG Key verification failed"
+
+msgid "Retrieving ChangeLog.txt..."
+msgstr "ChangeLog.txt dosyası alınıyor..."
+
+msgid "Reading Package Lists..."
+msgstr "Paket Listeleri okunuyor..."
+
+#, c-format
+msgid "Download rate: %.0f%s/s"
+msgstr "İndirme hızı: %.0f%s/s"
+
+msgid "Error"
+msgstr "Error"
+
+msgid "pkgtools returned an error"
+msgstr "pkgtools hata bildiriyor"
+
+msgid "Completed actions"
+msgstr "Tamamlanan eylemler"
+
+msgid "Successfully executed all actions."
+msgstr "Tüm eylemler başarıyla yürütüldü."
+
+msgid "Enabled"
+msgstr "Etkinleştirildi"
+
+msgid "Visible"
+msgstr "Visible"
+
+msgid "Priority"
+msgstr "Priority"
+
+msgid "Expression"
+msgstr "İfade"
+
+msgid "Packages with unmet dependencies"
+msgstr "Karşılanmamış bağımlılıkları olan paketler"
+
+msgid "Package conflicts"
+msgstr "Paket çakışmaları"
+
+msgid ", which is required by "
+msgstr ", gereksinim duyan"
+
+msgid ", is excluded"
+msgstr ", dışlandı"
 
 msgid "Packages excluded"
 msgstr "Dışlanan paketler"
@@ -136,109 +152,51 @@ msgstr "Dışlanan paketler"
 msgid "Packages to be installed"
 msgstr "Kurulacak paketler"
 
-msgid "Packages to be removed"
-msgstr "Kaldırılacak paketler"
-
 msgid "Packages to be upgraded"
 msgstr "Güncellenecek paketler"
 
-msgid "Preferences"
-msgstr "Ayarlar"
+msgid "Packages to be reinstalled"
+msgstr "Packages to be reinstalled"
 
-msgid "Progress"
-msgstr "Durum"
+msgid "Packages to be removed"
+msgstr "Kaldırılacak paketler"
 
-msgid "Quit"
-msgstr "Çık"
+msgid "Package"
+msgstr "Paket"
 
-msgid "Remove package"
-msgstr "Paket kaldır"
+#, fuzzy, c-format
+msgid "%d upgraded, "
+msgid_plural "%d upgraded, "
+msgstr[0] "Yükselt"
+msgstr[1] "Yükselt"
 
-msgid "Remove"
-msgstr "Kaldır"
+#, fuzzy, c-format
+msgid "%d reinstalled, "
+msgid_plural "%d reinstalled, "
+msgstr[0] "Kurulacak"
+msgstr[1] "Kurulacak"
 
-msgid "Removing packages..."
-msgstr "Paketleri kaldırıyor..."
-
-msgid "Required"
-msgstr "Gerekli"
-
-msgid "Search"
-msgstr "Ara"
-
-msgid "Size:"
-msgstr "Büyüklük:"
-
-msgid "Source"
-msgstr "Kaynak"
-
-msgid "Sources"
-msgstr "Kaynaklar"
-
-msgid "Suggests"
-msgstr "Önerilir"
-
-msgid "Summary"
-msgstr "Özet"
-
-msgid "This is a summary of the changes about to be performed."
-msgstr "Gerçekleştirilen değişiklikler hakkında özet bilgi."
-
-msgid "Uninstalling..."
-msgstr "Kaldırılıyor..."
-
-msgid "Up_grade"
-msgstr "Yü_kselt"
-
-msgid "Update local package cache"
-msgstr "Yerel paket zulasını güncelle"
-
-msgid "Update"
-msgstr "Güncelle"
-
-msgid "Upgrade"
-msgstr "Yükselt"
-
-msgid "Upgrading packages..."
-msgstr "Paketleri yükseltiyor..."
-
-msgid "Upgrading..."
-msgstr "Yükseltiyor..."
-
-msgid "Version"
-msgstr "Sürüm"
-
-msgid "Working Directory"
-msgstr "Çalışma Dizini"
-
-msgid "Yes"
-msgstr "Evet"
-
-msgid "_Help"
-msgstr "_Yardım"
-
-msgid ""
-"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
-"Slackware"
-msgstr "gslapt, Slackware'de APT-benzeri paketleme sistemi olan slapt-get için bir GTK+ arabirimi sağlar"
-
-msgid "total progress"
-msgstr "toplam ilerleme"
-
-msgid "working"
-msgstr "çalışıyor"
-
-msgid "Up to Date"
-msgstr "Güncel"
-
-msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Şimdilik güncelleme yok :)</span>"
+#, fuzzy, c-format
+msgid "%d newly installed, "
+msgid_plural "%d newly installed, "
+msgstr[0] "Kurulacak"
+msgstr[1] "Kurulacak"
 
 #, c-format
+msgid "%d to remove "
+msgid_plural "%d to remove "
+msgstr[0] ""
+msgstr[1] ""
+
+#, c-format
+msgid "and %d not upgraded."
+msgid_plural "and %d not upgraded."
+msgstr[0] ""
+msgstr[1] ""
+
 msgid ""
-"%d upgraded, %d reinstalled, %d newly installed, %d to remove and %d not "
-"upgraded."
-msgstr "%d yükseltme, %d reinstalled, %d yeni kurulum yapıldı, %d kaldırıldı ve %d yükseltilmedi."
+"<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Yeterli yeriniz yok</span>"
 
 #, c-format
 msgid "Need to get %.0f%s/%.0f%s of archives.\n"
@@ -256,244 +214,74 @@ msgstr "Paketlerin açılmasından sonra %.0f%s disk boşluğu kazanılacak."
 msgid "After unpacking %.0f%s of additional disk space will be used."
 msgstr "Paketlerin açılmasından sonra %.0f%s ilave disk boşluğu kullanılacak."
 
-msgid "Ready"
-msgstr "Hazır"
+msgid "Up to Date"
+msgstr "Güncel"
 
-msgid "Re-Install"
-msgstr "Yeniden-Kur"
+msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Şimdilik güncelleme yok :)</span>"
 
-msgid "Downgrade"
-msgstr "Alçalt"
+msgid "Downloading packages..."
+msgstr "Paketler indiriliyor..."
 
-msgid "_File"
-msgstr "_Dosya"
+msgid "Downloading..."
+msgstr "İndiriliyor..."
+
+#, c-format
+msgid "Failed to download %s: %s"
+msgstr "Failed to download %s: %s"
+
+msgid "Removing packages..."
+msgstr "Paketleri kaldırıyor..."
+
+msgid "Uninstalling..."
+msgstr "Kaldırılıyor..."
+
+msgid "Installing packages..."
+msgstr "Paketleri kuruyor..."
+
+msgid "Installing..."
+msgstr "Kuruyor..."
+
+msgid "Upgrading..."
+msgstr "Yükseltiyor..."
+
+msgid "Failed to commit preferences"
+msgstr "Ayarları uygulamada başarısızlık"
 
 msgid "Pending changes. Click execute when ready."
 msgstr "Değişiklikler beklemede. Hazır olduğunuzda Uygulayın."
 
-msgid "Packages with unmet dependencies"
-msgstr "Karşılanmamış bağımlılıkları olan paketler"
-
-msgid ": Depends: "
-msgstr ":Bağımlılık:"
-
-msgid "Package conflicts"
-msgstr "Paket çakışmaları"
-
-msgid ", which is required by "
-msgstr ", gereksinim duyan"
-
-msgid ", is excluded"
-msgstr ", dışlandı"
-
-msgid "<b>Conflicts:</b>"
-msgstr "<b>Çakışmalar:</b>"
-
-msgid "<b>Description:</b>"
-msgstr "<b>Açıklama:</b>"
-
-msgid "<b>Location:</b>"
-msgstr "<b>Konum:</b>"
-
-msgid "Source:"
-msgstr "Kaynak:"
-
-msgid "<b>Name:</b>"
-msgstr "<b>Adı:</b>"
-
-msgid "<b>Required:</b>"
-msgstr "<b>Gereksinim:</b>"
-
-msgid "<b>Size:</b>"
-msgstr "<b>Büyüklük:</b>"
-
-msgid "<b>Suggests:</b>"
-msgstr "<b>Öneriler:</b>"
-
-msgid "Version:"
-msgstr "Sürüm:"
-
-msgid "<b>Version:</b>"
-msgstr "<b>Sürüm:</b>"
-
-msgid "<b>Version</b>"
-msgstr "<b>Sürüm</b>"
-
-msgid "<b>Source:</b>"
-msgstr "<b>Kaynak:</b>"
-
-msgid "Common"
-msgstr "Ortak"
-
-msgid "Dependencies"
-msgstr "Bağımlılıklar"
-
-msgid "No package is selected."
-msgstr "Hiçbir paket seçilmedi."
-
 msgid "Status"
 msgstr "Durum"
 
-msgid "Source download failed"
-msgstr "Kaynak indirme başarısız"
+msgid "Name"
+msgstr "Ad"
 
-msgid "pkgtools returned an error"
-msgstr "pkgtools hata bildiriyor"
+msgid "Version"
+msgstr "Sürüm"
 
-msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Yeterli yeriniz yok</span>"
+msgid "Location"
+msgstr "Konum"
+
+msgid "Description"
+msgstr "Açıklama"
+
+msgid "Installed Size"
+msgstr "Kurulum Büyüklüğü"
 
 #, c-format
 msgid "<b>Excluding %s due to dependency failure</b>"
 msgstr "<b>Bağımlılık yetersizliği nedeniyle %s dışlanacak</b>"
 
-msgid "Unmark"
-msgstr "İşaretini kaldır"
-
-msgid "<b>Status:</b>"
-msgstr "<b>Durum:</b>"
-
-msgid "Excluded"
-msgstr "Dışlandı"
-
 msgid ""
-"<b>The following icons are used to indicate the current status of a "
-"package:</b>"
-msgstr "<b>Paketin şimdiki durumunu belirtmek için aşağıdaki simgeler kullanılacak:</b>"
+"Missing dependencies may mean the software in this package will not function "
+"correctly.  Do you want to continue without the required packages?"
+msgstr ""
+"Kayıp bağımlılıklar dolayısıyla paketteki yazılım beklendiği gibi "
+"çalışmayabilir. Eksikliklere rağmen devam edilsin mi?"
 
-msgid "Not Installed"
-msgstr "Kurulmadı"
-
-msgid "To be Installed"
-msgstr "Kurulacak"
-
-msgid "To be Re-Installed"
-msgstr "Yeniden-kurulacak"
-
-msgid "To be Upgraded"
-msgstr "Yükseltilecek"
-
-msgid "To be Removed"
-msgstr "Kaldırılacak"
-
-msgid "To be Downgraded"
-msgstr "Alçaltılacak"
-
-msgid "Icon Legend"
-msgstr "Simge Göstergesi"
-
-msgid "Completed actions"
-msgstr "Tamamlanan eylemler"
-
-msgid "Successfully executed all actions."
-msgstr "Tüm eylemler başarıyla yürütüldü."
-
-msgid "<b>Installed Version</b>"
-msgstr "<b>Kurulu Sürüm</b>"
-
-msgid "<b>Latest Available Version</b>"
-msgstr "<b>Uygun enson Sürüm</b>"
-
-msgid "Failed to commit preferences"
-msgstr "Ayarları uygulamada başarısızlık"
-
-msgid "Mark All Upgrades"
-msgstr "Tüm Yükseltmeleri İşaretle"
-
-msgid "_Edit"
-msgstr "Dü_zen"
-
-msgid "Unmark All"
-msgstr "Tüm Seçimleri İptal et"
-
-msgid "P_ackage"
-msgstr "_Paket"
-
-msgid ""
-"You need to reload the package list from the sources you have listed.  Do "
-"you want to do this now?"
-msgstr "Listelediğiniz kaynaklardaki paket listelerini yeniden yüklemeniz gerekiyor. Bunu şimdi yapmak ister misiniz?"
-
-msgid "Repositories changed"
-msgstr "Depo içeriği değişti"
-
-msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
-msgstr "<span size=\"large\" weight=\"bold\">Depo içeriği değişti</span>"
-
-msgid "Retrieving package data..."
-msgstr "Paket verileri alınıyor..."
-
-msgid "Retrieving patch list..."
-msgstr "Yama listesi alınıyor..."
-
-msgid "Retrieving checksum list..."
-msgstr "Sağlama bilgileri alınıyor..."
-
-msgid "Reading Package Lists..."
-msgstr "Paket Listeleri okunuyor..."
-
-msgid "_Delete Cached Package Files"
-msgstr "Zuladaki Paket Dosyalarını _Sil"
-
-msgid "Mark all possible upgrades"
-msgstr "Tüm olası yükseltmeleri işaretle"
-
-msgid "Enabled"
-msgstr "Etkinleştirildi"
-
-msgid ""
-"Missing dependencies may mean the software in this package will not function"
-" correctly.  Do you want to continue without the required packages?"
-msgstr "Kayıp bağımlılıklar dolayısıyla paketteki yazılım beklendiği gibi çalışmayabilir. Eksikliklere rağmen devam edilsin mi?"
-
-msgid ""
-"This package source failed or is not available.  Do you want to disable this"
-" source and continue anyway?"
-msgstr "Bu paketin kaynağı yok veya bulunamıyor.  Ne olursa olsun,-işleme devam edilsin mi?"
-
-msgid "Retrieving ChangeLog.txt..."
-msgstr "ChangeLog.txt dosyası alınıyor..."
-
-msgid "Changelog"
-msgstr "Changelog ( Değişiklikler )"
-
-msgid "_View"
-msgstr "_Göster"
-
-msgid "All"
-msgstr "Tümü"
-
-msgid "View all packages"
-msgstr "Tüm paketleri göster"
-
-msgid "Available"
-msgstr "Müsait"
-
-msgid "View available packages from current sources"
-msgstr "Halihazırdaki kaynaklarda müsait paketleri göster"
-
-msgid "View installed packages"
-msgstr "Kurulmuş paketleri göster"
-
-msgid "Marked"
-msgstr "İşaretli"
-
-msgid "View Marked Packages"
-msgstr "İşaretli Paketleri Göster"
-
-msgid "Mark Obsolete"
-msgstr "Terkedilmiş olarak işaretle"
-
-msgid "Mark all obsolete packages"
-msgstr "Tüm terkedilmiş paketleri göster"
-
-#, c-format
-msgid "Download rate: %.0f%s/s"
-msgstr "İndirme hızı: %.0f%s/s"
-
-#, c-format
-msgid "Failed to download %s: %s"
-msgstr "Failed to download %s: %s"
+msgid ": Depends: "
+msgstr ":Bağımlılık:"
 
 msgid "Import"
 msgstr "Import"
@@ -501,77 +289,11 @@ msgstr "Import"
 msgid "No key found"
 msgstr "No key found"
 
-msgid "<b>GPG Keys</b>"
-msgstr "<b>GPG Keys</b>"
-
-msgid "Verification"
-msgstr "Verification"
-
-msgid "Retrieving checksum signature..."
-msgstr "Retrieving checksum signature..."
-
-msgid "Verifying checksum signature..."
-msgstr "Verifying checksum signature..."
-
-msgid "GPG Key verification failed"
-msgstr "GPG Key verification failed"
-
-msgid "Error"
-msgstr "Error"
-
-msgid "Visible"
-msgstr "Visible"
-
-msgid "Upgradeable"
-msgstr "Upgradeable"
-
-msgid "View Upgradeable Packages"
-msgstr "View Upgradeable Packages"
-
-msgid "View ChangeLogs"
-msgstr "View ChangeLogs"
-
 msgid "ChangeLogs"
 msgstr "ChangeLogs"
 
 msgid "No changelogs found."
 msgstr ""
-
-msgid "Priority"
-msgstr "Priority"
-
-msgid "Package Source"
-msgstr "Package Source"
-
-msgid "<b>Priority:</b>"
-msgstr "<b>Priority:</b>"
-
-msgid "<b>Source</b>"
-msgstr "<b>Source</b>"
-
-msgid "Default"
-msgstr "Default"
-
-msgid "Preferred"
-msgstr "Preferred"
-
-msgid "Official"
-msgstr "Official"
-
-msgid "Custom"
-msgstr "Custom"
-
-msgid "Files"
-msgstr "Files"
-
-msgid "The list of installed files is only available for installed packages"
-msgstr "The list of installed files is only available for installed packages"
-
-msgid "No dependency information available"
-msgstr "No dependency information available"
-
-msgid "No changelog information available"
-msgstr "No changelog information available"
 
 msgid "Gslapt Package Manager"
 msgstr "Gslapt Package Manager"
@@ -672,8 +394,330 @@ msgstr "Games"
 msgid "Localization"
 msgstr "Localization"
 
-msgid "Packages to be reinstalled"
-msgstr "Packages to be reinstalled"
+msgid ""
+"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
+"Slackware"
+msgstr ""
+"gslapt, Slackware'de APT-benzeri paketleme sistemi olan slapt-get için bir "
+"GTK+ arabirimi sağlar"
+
+msgid "working"
+msgstr "çalışıyor"
+
+msgid "total progress"
+msgstr "toplam ilerleme"
+
+msgid "Gslapt"
+msgstr "Gslapt"
+
+msgid "_File"
+msgstr "_Dosya"
+
+msgid "Update local package cache"
+msgstr "Yerel paket zulasını güncelle"
+
+msgid "Update"
+msgstr "Güncelle"
+
+msgid "Mark all possible upgrades"
+msgstr "Tüm olası yükseltmeleri işaretle"
+
+msgid "Mark All Upgrades"
+msgstr "Tüm Yükseltmeleri İşaretle"
+
+msgid "Mark all obsolete packages"
+msgstr "Tüm terkedilmiş paketleri göster"
+
+msgid "Mark Obsolete"
+msgstr "Terkedilmiş olarak işaretle"
+
+msgid "Execute all scheduled actions in current transaction"
+msgstr "Şimdiki işlemde tüm planlanan eylemleri uygular"
+
+msgid "Execute"
+msgstr "Uygula"
+
+msgid "_Edit"
+msgstr "Dü_zen"
+
+msgid "Unmark All"
+msgstr "Tüm Seçimleri İptal et"
+
+msgid "Preferences"
+msgstr "Ayarlar"
+
+msgid "_View"
+msgstr "_Göster"
+
+msgid "View all packages"
+msgstr "Tüm paketleri göster"
+
+msgid "All"
+msgstr "Tümü"
+
+msgid "View available packages from current sources"
+msgstr "Halihazırdaki kaynaklarda müsait paketleri göster"
+
+msgid "Available"
+msgstr "Müsait"
+
+msgid "View installed packages"
+msgstr "Kurulmuş paketleri göster"
+
+msgid "View Marked Packages"
+msgstr "İşaretli Paketleri Göster"
+
+msgid "Marked"
+msgstr "İşaretli"
+
+msgid "View Upgradeable Packages"
+msgstr "View Upgradeable Packages"
+
+msgid "Upgradeable"
+msgstr "Upgradeable"
+
+msgid "P_ackage"
+msgstr "_Paket"
+
+msgid "Unmark"
+msgstr "İşaretini kaldır"
+
+msgid "Install"
+msgstr "Kur"
+
+msgid "Downgrade"
+msgstr "Alçalt"
+
+msgid "Remove"
+msgstr "Kaldır"
+
+msgid "_Help"
+msgstr "_Yardım"
+
+msgid "Icon Legend"
+msgstr "Simge Göstergesi"
+
+msgid "View ChangeLogs"
+msgstr "View ChangeLogs"
+
+msgid "About"
+msgstr "Hakkında"
+
+msgid "Search"
+msgstr "Ara"
+
+msgid "<b>Name:</b>"
+msgstr "<b>Adı:</b>"
+
+msgid "No package is selected."
+msgstr "Hiçbir paket seçilmedi."
+
+msgid "<b>Status:</b>"
+msgstr "<b>Durum:</b>"
+
+msgid "<b>Description:</b>"
+msgstr "<b>Açıklama:</b>"
+
+msgid "<b>Version:</b>"
+msgstr "<b>Sürüm:</b>"
+
+msgid "<b>Source:</b>"
+msgstr "<b>Kaynak:</b>"
+
+msgid "<b>Priority:</b>"
+msgstr "<b>Priority:</b>"
+
+msgid "<b>Location:</b>"
+msgstr "<b>Konum:</b>"
+
+msgid "<b>Installed Version</b>"
+msgstr "<b>Kurulu Sürüm</b>"
+
+msgid "Version:"
+msgstr "Sürüm:"
+
+msgid "Installed Size:"
+msgstr "Kurulum Büyüklüğü:"
+
+msgid "<b>Latest Available Version</b>"
+msgstr "<b>Uygun enson Sürüm</b>"
+
+msgid "Size:"
+msgstr "Büyüklük:"
+
+msgid "Source:"
+msgstr "Kaynak:"
+
+msgid "Common"
+msgstr "Ortak"
+
+msgid "Dependencies"
+msgstr "Bağımlılıklar"
+
+msgid "Changelog"
+msgstr "Changelog ( Değişiklikler )"
+
+msgid "Files"
+msgstr "Files"
+
+msgid ""
+"<b>The following icons are used to indicate the current status of a package:"
+"</b>"
+msgstr ""
+"<b>Paketin şimdiki durumunu belirtmek için aşağıdaki simgeler kullanılacak:</"
+"b>"
+
+msgid "Repositories changed"
+msgstr "Depo içeriği değişti"
+
+msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
+msgstr "<span size=\"large\" weight=\"bold\">Depo içeriği değişti</span>"
+
+msgid ""
+"You need to reload the package list from the sources you have listed.  Do "
+"you want to do this now?"
+msgstr ""
+"Listelediğiniz kaynaklardaki paket listelerini yeniden yüklemeniz gerekiyor. "
+"Bunu şimdi yapmak ister misiniz?"
 
 msgid "Source failed"
 msgstr "Source failed"
+
+msgid ""
+"This package source failed or is not available.  Do you want to disable this "
+"source and continue anyway?"
+msgstr ""
+"Bu paketin kaynağı yok veya bulunamıyor.  Ne olursa olsun,-işleme devam "
+"edilsin mi?"
+
+msgid "Default"
+msgstr "Default"
+
+msgid "Official"
+msgstr "Official"
+
+msgid "Preferred"
+msgstr "Preferred"
+
+msgid "Custom"
+msgstr "Custom"
+
+msgid "Package Source"
+msgstr "Package Source"
+
+msgid "Summary"
+msgstr "Özet"
+
+msgid ""
+"<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+msgstr ""
+"<span weight=\"bold\" size=\"large\">Değişiklikler uygulansın mı?</span>"
+
+msgid "This is a summary of the changes about to be performed."
+msgstr "Gerçekleştirilen değişiklikler hakkında özet bilgi."
+
+msgid "Download packages only"
+msgstr "Paketleri sadece indir"
+
+msgid "<b>Package and data storage</b>"
+msgstr "<b>Paket ve veri deposu</b>"
+
+msgid "_Delete Cached Package Files"
+msgstr "Zuladaki Paket Dosyalarını _Sil"
+
+msgid "Working Directory"
+msgstr "Çalışma Dizini"
+
+msgid "<b>Exclude List</b>"
+msgstr "<b>Dışlanan Liste</b>"
+
+msgid "<span weight=\"bold\">Exclude Expression:</span>"
+msgstr "<span weight=\"bold\">Dışlanan İfade:</span>"
+
+msgid "Excludes"
+msgstr "Dışlananlar"
+
+msgid "<b>Package Sources</b>"
+msgstr "<b>Paket Kaynakları</b>"
+
+msgid "Sources"
+msgstr "Kaynaklar"
+
+msgid "<b>GPG Keys</b>"
+msgstr "<b>GPG Keys</b>"
+
+msgid "Verification"
+msgstr "Verification"
+
+#~ msgid "<span weight=\"bold\">SOURCE=</span>"
+#~ msgstr "<span weight=\"bold\">SOURCE=</span>"
+
+#~ msgid "About gslapt"
+#~ msgstr "gslapt Hakkında"
+
+#~ msgid "Clear search expression"
+#~ msgstr "Aranan ifadeyi temizle"
+
+#~ msgid "Clear"
+#~ msgstr "Temizle"
+
+#~ msgid "Conflicts"
+#~ msgstr "Çakışmalar"
+
+#~ msgid "Couldn't find pixmap file: %s"
+#~ msgstr "Bulunamayan pixmap dosyası: %s"
+
+#~ msgid "Exclude package"
+#~ msgstr "Dışlanan paket"
+
+#~ msgid "Exclude"
+#~ msgstr "Dışla"
+
+#~ msgid "Install/Upgrade package"
+#~ msgstr "Paket Kur/Güncelle"
+
+#~ msgid "No"
+#~ msgstr "No"
+
+#~ msgid "Package Action"
+#~ msgstr "Paket Eylemi"
+
+#~ msgid "Package Information"
+#~ msgstr "Paket Bilgisi"
+
+#~ msgid "Quit"
+#~ msgstr "Çık"
+
+#~ msgid "Remove package"
+#~ msgstr "Paket kaldır"
+
+#~ msgid "Required"
+#~ msgstr "Gerekli"
+
+#~ msgid "Suggests"
+#~ msgstr "Önerilir"
+
+#~ msgid "Up_grade"
+#~ msgstr "Yü_kselt"
+
+#~ msgid "Upgrading packages..."
+#~ msgstr "Paketleri yükseltiyor..."
+
+#~ msgid "Yes"
+#~ msgstr "Evet"
+
+#~ msgid ""
+#~ "%d upgraded, %d reinstalled, %d newly installed, %d to remove and %d not "
+#~ "upgraded."
+#~ msgstr ""
+#~ "%d yükseltme, %d reinstalled, %d yeni kurulum yapıldı, %d kaldırıldı ve "
+#~ "%d yükseltilmedi."
+
+#~ msgid "<b>Size:</b>"
+#~ msgstr "<b>Büyüklük:</b>"
+
+#~ msgid "<b>Version</b>"
+#~ msgstr "<b>Sürüm</b>"
+
+#~ msgid "<b>Source</b>"
+#~ msgstr "<b>Source</b>"

@@ -1,134 +1,150 @@
 # gslapt translation template
 # Copyright (C) 2005-2010 Jason Woodward
 # This file is distributed under the same license as the gslapt package.
-# 
+#
 # Translators:
 # Victor Keranov <victor_keranov@mail.bg>, 2006
 msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
-"POT-Creation-Date: 2005-02-26 22:25-0500\n"
+"POT-Creation-Date: 2014-08-04 22:05-0400\n"
 "PO-Revision-Date: 2013-11-20 12:47+0000\n"
 "Last-Translator: Jason Woodward <woodwardj@jaos.org>\n"
-"Language-Team: Bulgarian (http://www.transifex.com/projects/p/slapt-get/language/bg/)\n"
+"Language-Team: Bulgarian (http://www.transifex.com/projects/p/slapt-get/"
+"language/bg/)\n"
+"Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: bg\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "<b>Exclude List</b>"
-msgstr "<b>Списък на изключенията</b>"
+msgid "Ready"
+msgstr "Готов"
 
-msgid "<b>Package Sources</b>"
-msgstr "<b>Хранилища</b>"
+msgid "Upgrade"
+msgstr "Обновяване"
 
-msgid "<b>Package and data storage</b>"
-msgstr "<b>Директория за съхранение</b>"
+msgid "Re-Install"
+msgstr "Преинсталиране"
 
-msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Извършване на следните промени?</span>"
+msgid "<b>Required:</b>"
+msgstr "<b>Изисквания:</b>"
 
-msgid "<span weight=\"bold\">Exclude Expression:</span>"
-msgstr "<span weight=\"bold\">Ново изключение:</span>"
+msgid "<b>Conflicts:</b>"
+msgstr "<b>Конфликти:</b>"
 
-msgid "<span weight=\"bold\">SOURCE=</span>"
-msgstr "<span weight=\"bold\">Ново хранилище:</span>"
+msgid "<b>Suggests:</b>"
+msgstr "<b>Предложения:</b>"
 
-msgid "About gslapt"
-msgstr "Относно gslapt"
+msgid "No dependency information available"
+msgstr "No dependency information available"
 
-msgid "About"
-msgstr "Относно"
+msgid "Source"
+msgstr "Адрес"
 
-msgid "Checking for new package data..."
-msgstr "Проверка за нова информация за пакети..."
+msgid "No changelog information available"
+msgstr "No changelog information available"
 
-msgid "Clear search expression"
-msgstr "Изчистване на фразите за търсене"
+msgid "The list of installed files is only available for installed packages"
+msgstr "The list of installed files is only available for installed packages"
 
-msgid "Clear"
-msgstr "Изчистване"
+msgid "Excluded"
+msgstr "Изключен"
 
-msgid "Conflicts"
-msgstr "Конфликти"
+msgid "To be Removed"
+msgstr "Ще бъде премахнат"
 
-#, c-format
-msgid "Couldn't find pixmap file: %s"
-msgstr "Couldn't find pixmap file: %s"
+msgid "To be Installed"
+msgstr "Ще бъде инсталиран"
 
-msgid "Description"
-msgstr "Описание"
+msgid "To be Re-Installed"
+msgstr "Ще бъде преинсталиран"
 
-msgid "Download packages only"
-msgstr "Само изтегляне на пакетите"
+msgid "To be Downgraded"
+msgstr "Ще бъде понижен"
 
-msgid "Downloading packages..."
-msgstr "Изтегляне на пакети..."
-
-msgid "Downloading..."
-msgstr "Изтегляне..."
-
-msgid "Exclude package"
-msgstr "Exclude package"
-
-msgid "Exclude"
-msgstr "Exclude"
-
-msgid "Excludes"
-msgstr "Изключения"
-
-msgid "Execute all scheduled actions in current transaction"
-msgstr "Изпълнение на всички избрани промени"
-
-msgid "Execute"
-msgstr "Изпълнение"
-
-msgid "Expression"
-msgstr "Фраза"
-
-msgid "Gslapt"
-msgstr "Gslapt"
-
-msgid "Install"
-msgstr "Инсталиране"
-
-msgid "Install/Upgrade package"
-msgstr "Инсталиране/Обновяване на пакет"
-
-msgid "Installed Size:"
-msgstr "Инсталиран обем:"
-
-msgid "Installed Size"
-msgstr "Инсталиран обем"
+msgid "To be Upgraded"
+msgstr "Ще бъде обновен"
 
 msgid "Installed"
 msgstr "Инсталиран"
 
-msgid "Installing packages..."
-msgstr "Инсталиране на пакети..."
+msgid "Not Installed"
+msgstr "Не е инсталиран"
 
-msgid "Installing..."
-msgstr "Инсталиране..."
+msgid "Progress"
+msgstr "Прогрес"
 
-msgid "Location"
-msgstr "Местоположение"
+msgid "Checking for new package data..."
+msgstr "Проверка за нова информация за пакети..."
 
-msgid "Name"
-msgstr "Име"
+msgid "Retrieving package data..."
+msgstr "Получаване на информация за пакетите..."
 
-msgid "No"
-msgstr "Не"
+msgid "Retrieving patch list..."
+msgstr "Получаване на списък с ъпдейти..."
 
-msgid "Package Action"
-msgstr "Действие"
+msgid "Retrieving checksum list..."
+msgstr "Получаване на списък с MD5 суми..."
 
-msgid "Package Information"
-msgstr "Информация"
+msgid "Source download failed"
+msgstr "Неуспех при изтегляне от източника"
 
-msgid "Package"
-msgstr "Пакет"
+msgid "Retrieving checksum signature..."
+msgstr "Retrieving checksum signature..."
+
+msgid "Verifying checksum signature..."
+msgstr "Verifying checksum signature..."
+
+msgid "GPG Key verification failed"
+msgstr "GPG Key verification failed"
+
+msgid "Retrieving ChangeLog.txt..."
+msgstr "Получаване на ChangeLog.txt..."
+
+msgid "Reading Package Lists..."
+msgstr "Прочитане на списъците с пакети..."
+
+#, c-format
+msgid "Download rate: %.0f%s/s"
+msgstr "Download rate: %.0f%s/s"
+
+msgid "Error"
+msgstr "Error"
+
+msgid "pkgtools returned an error"
+msgstr "pkgtools съобщи за грешка"
+
+msgid "Completed actions"
+msgstr "Извършени действия"
+
+msgid "Successfully executed all actions."
+msgstr "Успешно са извършени всички действия."
+
+msgid "Enabled"
+msgstr "Позволено"
+
+msgid "Visible"
+msgstr "Visible"
+
+msgid "Priority"
+msgstr "Priority"
+
+msgid "Expression"
+msgstr "Фраза"
+
+msgid "Packages with unmet dependencies"
+msgstr "Packages with unmet dependencies"
+
+msgid "Package conflicts"
+msgstr "Package conflicts"
+
+msgid ", which is required by "
+msgstr ", който се изисква от "
+
+msgid ", is excluded"
+msgstr ", е изключен"
 
 msgid "Packages excluded"
 msgstr "Изключени пакети"
@@ -136,109 +152,52 @@ msgstr "Изключени пакети"
 msgid "Packages to be installed"
 msgstr "Пакети за инсталиране"
 
-msgid "Packages to be removed"
-msgstr "Пакети за премахване"
-
 msgid "Packages to be upgraded"
 msgstr "Пакети за обновяване"
 
-msgid "Preferences"
-msgstr "Предпочитания"
+msgid "Packages to be reinstalled"
+msgstr "Packages to be reinstalled"
 
-msgid "Progress"
-msgstr "Прогрес"
+msgid "Packages to be removed"
+msgstr "Пакети за премахване"
 
-msgid "Quit"
-msgstr "Изход"
+msgid "Package"
+msgstr "Пакет"
 
-msgid "Remove package"
-msgstr "Премахване на пакет"
+#, fuzzy, c-format
+msgid "%d upgraded, "
+msgid_plural "%d upgraded, "
+msgstr[0] "Обновяване"
+msgstr[1] "Обновяване"
 
-msgid "Remove"
-msgstr "Премахване"
+#, fuzzy, c-format
+msgid "%d reinstalled, "
+msgid_plural "%d reinstalled, "
+msgstr[0] "Ще бъде инсталиран"
+msgstr[1] "Ще бъде инсталиран"
 
-msgid "Removing packages..."
-msgstr "Премахване на пакети..."
-
-msgid "Required"
-msgstr "Required"
-
-msgid "Search"
-msgstr "Търсене"
-
-msgid "Size:"
-msgstr "Обем:"
-
-msgid "Source"
-msgstr "Адрес"
-
-msgid "Sources"
-msgstr "Хранилища"
-
-msgid "Suggests"
-msgstr "Предложения"
-
-msgid "Summary"
-msgstr "Резюме"
-
-msgid "This is a summary of the changes about to be performed."
-msgstr "Това е резюме на промените, които ще бъдат извършени."
-
-msgid "Uninstalling..."
-msgstr "Деинсталиране..."
-
-msgid "Up_grade"
-msgstr "Up_grade"
-
-msgid "Update local package cache"
-msgstr "Обновяване на локалния кеш на пакетите"
-
-msgid "Update"
-msgstr "Актуализация"
-
-msgid "Upgrade"
-msgstr "Обновяване"
-
-msgid "Upgrading packages..."
-msgstr "Обновяване на пакети..."
-
-msgid "Upgrading..."
-msgstr "Обновяване..."
-
-msgid "Version"
-msgstr "Версия"
-
-msgid "Working Directory"
-msgstr "Работна директория"
-
-msgid "Yes"
-msgstr "Да"
-
-msgid "_Help"
-msgstr "_Помощ"
-
-msgid ""
-"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
-"Slackware"
-msgstr "gslapt е GTK+ фронтенд на slapt-get, подобна на APT пакетна система за Slackware"
-
-msgid "total progress"
-msgstr "общ прогрес"
-
-msgid "working"
-msgstr "working"
-
-msgid "Up to Date"
-msgstr "Актуализация"
-
-msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Няма налични ъпдейти</span>"
+#, fuzzy, c-format
+msgid "%d newly installed, "
+msgid_plural "%d newly installed, "
+msgstr[0] "Ще бъде инсталиран"
+msgstr[1] "Ще бъде инсталиран"
 
 #, c-format
+msgid "%d to remove "
+msgid_plural "%d to remove "
+msgstr[0] ""
+msgstr[1] ""
+
+#, c-format
+msgid "and %d not upgraded."
+msgid_plural "and %d not upgraded."
+msgstr[0] ""
+msgstr[1] ""
+
 msgid ""
-"%d upgraded, %d reinstalled, %d newly installed, %d to remove and %d not "
-"upgraded."
-msgstr "%d обновени, %d reinstalled, %d инсталирани, %d за премахване и %d необновени."
+"<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgstr ""
+"<span weight=\"bold\" size=\"large\">Нямате достатъчно свободно място</span>"
 
 #, c-format
 msgid "Need to get %.0f%s/%.0f%s of archives.\n"
@@ -256,244 +215,74 @@ msgstr "След разархивиране %.0f%s дисково простра
 msgid "After unpacking %.0f%s of additional disk space will be used."
 msgstr "След разархивиране %.0f%s дисково пространство ще бъде използвано."
 
-msgid "Ready"
-msgstr "Готов"
+msgid "Up to Date"
+msgstr "Актуализация"
 
-msgid "Re-Install"
-msgstr "Преинсталиране"
+msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Няма налични ъпдейти</span>"
 
-msgid "Downgrade"
-msgstr "Понижаване"
+msgid "Downloading packages..."
+msgstr "Изтегляне на пакети..."
 
-msgid "_File"
-msgstr "_Файл"
+msgid "Downloading..."
+msgstr "Изтегляне..."
+
+#, c-format
+msgid "Failed to download %s: %s"
+msgstr "Failed to download %s: %s"
+
+msgid "Removing packages..."
+msgstr "Премахване на пакети..."
+
+msgid "Uninstalling..."
+msgstr "Деинсталиране..."
+
+msgid "Installing packages..."
+msgstr "Инсталиране на пакети..."
+
+msgid "Installing..."
+msgstr "Инсталиране..."
+
+msgid "Upgrading..."
+msgstr "Обновяване..."
+
+msgid "Failed to commit preferences"
+msgstr "Неуспех при запис на предпочитанията"
 
 msgid "Pending changes. Click execute when ready."
 msgstr "Неизвършени промени. Кликнете на изпълнение, когато сте готови"
 
-msgid "Packages with unmet dependencies"
-msgstr "Packages with unmet dependencies"
-
-msgid ": Depends: "
-msgstr ": Зависимости: "
-
-msgid "Package conflicts"
-msgstr "Package conflicts"
-
-msgid ", which is required by "
-msgstr ", който се изисква от "
-
-msgid ", is excluded"
-msgstr ", е изключен"
-
-msgid "<b>Conflicts:</b>"
-msgstr "<b>Конфликти:</b>"
-
-msgid "<b>Description:</b>"
-msgstr "<b>Описание:</b>"
-
-msgid "<b>Location:</b>"
-msgstr "<b>Местоположение:</b>"
-
-msgid "Source:"
-msgstr "Източник:"
-
-msgid "<b>Name:</b>"
-msgstr "<b>Име:</b>"
-
-msgid "<b>Required:</b>"
-msgstr "<b>Изисквания:</b>"
-
-msgid "<b>Size:</b>"
-msgstr "<b>Обем:</b>"
-
-msgid "<b>Suggests:</b>"
-msgstr "<b>Предложения:</b>"
-
-msgid "Version:"
-msgstr "Версия:"
-
-msgid "<b>Version:</b>"
-msgstr "<b>Версия:</b>"
-
-msgid "<b>Version</b>"
-msgstr "<b>Версия</b>"
-
-msgid "<b>Source:</b>"
-msgstr "<b>Source:</b>"
-
-msgid "Common"
-msgstr "Общи"
-
-msgid "Dependencies"
-msgstr "Зависимости"
-
-msgid "No package is selected."
-msgstr "Няма избран пакет"
-
 msgid "Status"
 msgstr "Статус"
 
-msgid "Source download failed"
-msgstr "Неуспех при изтегляне от източника"
+msgid "Name"
+msgstr "Име"
 
-msgid "pkgtools returned an error"
-msgstr "pkgtools съобщи за грешка"
+msgid "Version"
+msgstr "Версия"
 
-msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Нямате достатъчно свободно място</span>"
+msgid "Location"
+msgstr "Местоположение"
+
+msgid "Description"
+msgstr "Описание"
+
+msgid "Installed Size"
+msgstr "Инсталиран обем"
 
 #, c-format
 msgid "<b>Excluding %s due to dependency failure</b>"
 msgstr "<b>Изключване на %s поради грешка в зависимостите</b>"
 
-msgid "Unmark"
-msgstr "Демаркиране"
-
-msgid "<b>Status:</b>"
-msgstr "<b>Статус:</b>"
-
-msgid "Excluded"
-msgstr "Изключен"
-
 msgid ""
-"<b>The following icons are used to indicate the current status of a "
-"package:</b>"
-msgstr "<b>Използвани са следните икони за индикация на актуалното състояние на пакетите:</b>"
+"Missing dependencies may mean the software in this package will not function "
+"correctly.  Do you want to continue without the required packages?"
+msgstr ""
+"Липсващи зависимости могат да означават, че дадения пакет няма да "
+"функционира правилно. Желаете ли да продължите без нужните пакети?"
 
-msgid "Not Installed"
-msgstr "Не е инсталиран"
-
-msgid "To be Installed"
-msgstr "Ще бъде инсталиран"
-
-msgid "To be Re-Installed"
-msgstr "Ще бъде преинсталиран"
-
-msgid "To be Upgraded"
-msgstr "Ще бъде обновен"
-
-msgid "To be Removed"
-msgstr "Ще бъде премахнат"
-
-msgid "To be Downgraded"
-msgstr "Ще бъде понижен"
-
-msgid "Icon Legend"
-msgstr "Легенда на иконите"
-
-msgid "Completed actions"
-msgstr "Извършени действия"
-
-msgid "Successfully executed all actions."
-msgstr "Успешно са извършени всички действия."
-
-msgid "<b>Installed Version</b>"
-msgstr "<b>Инсталирана версия</b>"
-
-msgid "<b>Latest Available Version</b>"
-msgstr "<b>Последна налична версия</b>"
-
-msgid "Failed to commit preferences"
-msgstr "Неуспех при запис на предпочитанията"
-
-msgid "Mark All Upgrades"
-msgstr "Маркиране на всички промени"
-
-msgid "_Edit"
-msgstr "_Редактиране"
-
-msgid "Unmark All"
-msgstr "Отказване на всички промени"
-
-msgid "P_ackage"
-msgstr "П_акет"
-
-msgid ""
-"You need to reload the package list from the sources you have listed.  Do "
-"you want to do this now?"
-msgstr "Нужно е да презаредите списъка с пакети от хранилищата, които сте избрали. Желаете ли да го направите сега?"
-
-msgid "Repositories changed"
-msgstr "Хранилищата са променени"
-
-msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
-msgstr "<span size=\"large\" weight=\"bold\">Хранилищата са променени</span>"
-
-msgid "Retrieving package data..."
-msgstr "Получаване на информация за пакетите..."
-
-msgid "Retrieving patch list..."
-msgstr "Получаване на списък с ъпдейти..."
-
-msgid "Retrieving checksum list..."
-msgstr "Получаване на списък с MD5 суми..."
-
-msgid "Reading Package Lists..."
-msgstr "Прочитане на списъците с пакети..."
-
-msgid "_Delete Cached Package Files"
-msgstr "_Изтриване на кешираните файлове"
-
-msgid "Mark all possible upgrades"
-msgstr "Маркиране на всички възможни промени"
-
-msgid "Enabled"
-msgstr "Позволено"
-
-msgid ""
-"Missing dependencies may mean the software in this package will not function"
-" correctly.  Do you want to continue without the required packages?"
-msgstr "Липсващи зависимости могат да означават, че дадения пакет няма да функционира правилно. Желаете ли да продължите без нужните пакети?"
-
-msgid ""
-"This package source failed or is not available.  Do you want to disable this"
-" source and continue anyway?"
-msgstr "Това хранилище не работи или не е достъпно в момента. Желаете ли да го деактивирате и да продължите напред?"
-
-msgid "Retrieving ChangeLog.txt..."
-msgstr "Получаване на ChangeLog.txt..."
-
-msgid "Changelog"
-msgstr "Лог на промените"
-
-msgid "_View"
-msgstr "_View"
-
-msgid "All"
-msgstr "All"
-
-msgid "View all packages"
-msgstr "View all packages"
-
-msgid "Available"
-msgstr "Available"
-
-msgid "View available packages from current sources"
-msgstr "View available packages from current sources"
-
-msgid "View installed packages"
-msgstr "View installed packages"
-
-msgid "Marked"
-msgstr "Marked"
-
-msgid "View Marked Packages"
-msgstr "View Marked Packages"
-
-msgid "Mark Obsolete"
-msgstr "Mark Obsolete"
-
-msgid "Mark all obsolete packages"
-msgstr "Mark all obsolete packages"
-
-#, c-format
-msgid "Download rate: %.0f%s/s"
-msgstr "Download rate: %.0f%s/s"
-
-#, c-format
-msgid "Failed to download %s: %s"
-msgstr "Failed to download %s: %s"
+msgid ": Depends: "
+msgstr ": Зависимости: "
 
 msgid "Import"
 msgstr "Import"
@@ -501,77 +290,11 @@ msgstr "Import"
 msgid "No key found"
 msgstr "No key found"
 
-msgid "<b>GPG Keys</b>"
-msgstr "<b>GPG Keys</b>"
-
-msgid "Verification"
-msgstr "Verification"
-
-msgid "Retrieving checksum signature..."
-msgstr "Retrieving checksum signature..."
-
-msgid "Verifying checksum signature..."
-msgstr "Verifying checksum signature..."
-
-msgid "GPG Key verification failed"
-msgstr "GPG Key verification failed"
-
-msgid "Error"
-msgstr "Error"
-
-msgid "Visible"
-msgstr "Visible"
-
-msgid "Upgradeable"
-msgstr "Upgradeable"
-
-msgid "View Upgradeable Packages"
-msgstr "View Upgradeable Packages"
-
-msgid "View ChangeLogs"
-msgstr "View ChangeLogs"
-
 msgid "ChangeLogs"
 msgstr "ChangeLogs"
 
 msgid "No changelogs found."
 msgstr "No changelogs found."
-
-msgid "Priority"
-msgstr "Priority"
-
-msgid "Package Source"
-msgstr "Package Source"
-
-msgid "<b>Priority:</b>"
-msgstr "<b>Priority:</b>"
-
-msgid "<b>Source</b>"
-msgstr "<b>Source</b>"
-
-msgid "Default"
-msgstr "Default"
-
-msgid "Preferred"
-msgstr "Preferred"
-
-msgid "Official"
-msgstr "Official"
-
-msgid "Custom"
-msgstr "Custom"
-
-msgid "Files"
-msgstr "Files"
-
-msgid "The list of installed files is only available for installed packages"
-msgstr "The list of installed files is only available for installed packages"
-
-msgid "No dependency information available"
-msgstr "No dependency information available"
-
-msgid "No changelog information available"
-msgstr "No changelog information available"
 
 msgid "Gslapt Package Manager"
 msgstr "Мениджър на пакети Gslapt"
@@ -672,8 +395,330 @@ msgstr "Games"
 msgid "Localization"
 msgstr "Localization"
 
-msgid "Packages to be reinstalled"
-msgstr "Packages to be reinstalled"
+msgid ""
+"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
+"Slackware"
+msgstr ""
+"gslapt е GTK+ фронтенд на slapt-get, подобна на APT пакетна система за "
+"Slackware"
+
+msgid "working"
+msgstr "working"
+
+msgid "total progress"
+msgstr "общ прогрес"
+
+msgid "Gslapt"
+msgstr "Gslapt"
+
+msgid "_File"
+msgstr "_Файл"
+
+msgid "Update local package cache"
+msgstr "Обновяване на локалния кеш на пакетите"
+
+msgid "Update"
+msgstr "Актуализация"
+
+msgid "Mark all possible upgrades"
+msgstr "Маркиране на всички възможни промени"
+
+msgid "Mark All Upgrades"
+msgstr "Маркиране на всички промени"
+
+msgid "Mark all obsolete packages"
+msgstr "Mark all obsolete packages"
+
+msgid "Mark Obsolete"
+msgstr "Mark Obsolete"
+
+msgid "Execute all scheduled actions in current transaction"
+msgstr "Изпълнение на всички избрани промени"
+
+msgid "Execute"
+msgstr "Изпълнение"
+
+msgid "_Edit"
+msgstr "_Редактиране"
+
+msgid "Unmark All"
+msgstr "Отказване на всички промени"
+
+msgid "Preferences"
+msgstr "Предпочитания"
+
+msgid "_View"
+msgstr "_View"
+
+msgid "View all packages"
+msgstr "View all packages"
+
+msgid "All"
+msgstr "All"
+
+msgid "View available packages from current sources"
+msgstr "View available packages from current sources"
+
+msgid "Available"
+msgstr "Available"
+
+msgid "View installed packages"
+msgstr "View installed packages"
+
+msgid "View Marked Packages"
+msgstr "View Marked Packages"
+
+msgid "Marked"
+msgstr "Marked"
+
+msgid "View Upgradeable Packages"
+msgstr "View Upgradeable Packages"
+
+msgid "Upgradeable"
+msgstr "Upgradeable"
+
+msgid "P_ackage"
+msgstr "П_акет"
+
+msgid "Unmark"
+msgstr "Демаркиране"
+
+msgid "Install"
+msgstr "Инсталиране"
+
+msgid "Downgrade"
+msgstr "Понижаване"
+
+msgid "Remove"
+msgstr "Премахване"
+
+msgid "_Help"
+msgstr "_Помощ"
+
+msgid "Icon Legend"
+msgstr "Легенда на иконите"
+
+msgid "View ChangeLogs"
+msgstr "View ChangeLogs"
+
+msgid "About"
+msgstr "Относно"
+
+msgid "Search"
+msgstr "Търсене"
+
+msgid "<b>Name:</b>"
+msgstr "<b>Име:</b>"
+
+msgid "No package is selected."
+msgstr "Няма избран пакет"
+
+msgid "<b>Status:</b>"
+msgstr "<b>Статус:</b>"
+
+msgid "<b>Description:</b>"
+msgstr "<b>Описание:</b>"
+
+msgid "<b>Version:</b>"
+msgstr "<b>Версия:</b>"
+
+msgid "<b>Source:</b>"
+msgstr "<b>Source:</b>"
+
+msgid "<b>Priority:</b>"
+msgstr "<b>Priority:</b>"
+
+msgid "<b>Location:</b>"
+msgstr "<b>Местоположение:</b>"
+
+msgid "<b>Installed Version</b>"
+msgstr "<b>Инсталирана версия</b>"
+
+msgid "Version:"
+msgstr "Версия:"
+
+msgid "Installed Size:"
+msgstr "Инсталиран обем:"
+
+msgid "<b>Latest Available Version</b>"
+msgstr "<b>Последна налична версия</b>"
+
+msgid "Size:"
+msgstr "Обем:"
+
+msgid "Source:"
+msgstr "Източник:"
+
+msgid "Common"
+msgstr "Общи"
+
+msgid "Dependencies"
+msgstr "Зависимости"
+
+msgid "Changelog"
+msgstr "Лог на промените"
+
+msgid "Files"
+msgstr "Files"
+
+msgid ""
+"<b>The following icons are used to indicate the current status of a package:"
+"</b>"
+msgstr ""
+"<b>Използвани са следните икони за индикация на актуалното състояние на "
+"пакетите:</b>"
+
+msgid "Repositories changed"
+msgstr "Хранилищата са променени"
+
+msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
+msgstr "<span size=\"large\" weight=\"bold\">Хранилищата са променени</span>"
+
+msgid ""
+"You need to reload the package list from the sources you have listed.  Do "
+"you want to do this now?"
+msgstr ""
+"Нужно е да презаредите списъка с пакети от хранилищата, които сте избрали. "
+"Желаете ли да го направите сега?"
 
 msgid "Source failed"
 msgstr "Source failed"
+
+msgid ""
+"This package source failed or is not available.  Do you want to disable this "
+"source and continue anyway?"
+msgstr ""
+"Това хранилище не работи или не е достъпно в момента. Желаете ли да го "
+"деактивирате и да продължите напред?"
+
+msgid "Default"
+msgstr "Default"
+
+msgid "Official"
+msgstr "Official"
+
+msgid "Preferred"
+msgstr "Preferred"
+
+msgid "Custom"
+msgstr "Custom"
+
+msgid "Package Source"
+msgstr "Package Source"
+
+msgid "Summary"
+msgstr "Резюме"
+
+msgid ""
+"<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+msgstr ""
+"<span weight=\"bold\" size=\"large\">Извършване на следните промени?</span>"
+
+msgid "This is a summary of the changes about to be performed."
+msgstr "Това е резюме на промените, които ще бъдат извършени."
+
+msgid "Download packages only"
+msgstr "Само изтегляне на пакетите"
+
+msgid "<b>Package and data storage</b>"
+msgstr "<b>Директория за съхранение</b>"
+
+msgid "_Delete Cached Package Files"
+msgstr "_Изтриване на кешираните файлове"
+
+msgid "Working Directory"
+msgstr "Работна директория"
+
+msgid "<b>Exclude List</b>"
+msgstr "<b>Списък на изключенията</b>"
+
+msgid "<span weight=\"bold\">Exclude Expression:</span>"
+msgstr "<span weight=\"bold\">Ново изключение:</span>"
+
+msgid "Excludes"
+msgstr "Изключения"
+
+msgid "<b>Package Sources</b>"
+msgstr "<b>Хранилища</b>"
+
+msgid "Sources"
+msgstr "Хранилища"
+
+msgid "<b>GPG Keys</b>"
+msgstr "<b>GPG Keys</b>"
+
+msgid "Verification"
+msgstr "Verification"
+
+#~ msgid "<span weight=\"bold\">SOURCE=</span>"
+#~ msgstr "<span weight=\"bold\">Ново хранилище:</span>"
+
+#~ msgid "About gslapt"
+#~ msgstr "Относно gslapt"
+
+#~ msgid "Clear search expression"
+#~ msgstr "Изчистване на фразите за търсене"
+
+#~ msgid "Clear"
+#~ msgstr "Изчистване"
+
+#~ msgid "Conflicts"
+#~ msgstr "Конфликти"
+
+#~ msgid "Couldn't find pixmap file: %s"
+#~ msgstr "Couldn't find pixmap file: %s"
+
+#~ msgid "Exclude package"
+#~ msgstr "Exclude package"
+
+#~ msgid "Exclude"
+#~ msgstr "Exclude"
+
+#~ msgid "Install/Upgrade package"
+#~ msgstr "Инсталиране/Обновяване на пакет"
+
+#~ msgid "No"
+#~ msgstr "Не"
+
+#~ msgid "Package Action"
+#~ msgstr "Действие"
+
+#~ msgid "Package Information"
+#~ msgstr "Информация"
+
+#~ msgid "Quit"
+#~ msgstr "Изход"
+
+#~ msgid "Remove package"
+#~ msgstr "Премахване на пакет"
+
+#~ msgid "Required"
+#~ msgstr "Required"
+
+#~ msgid "Suggests"
+#~ msgstr "Предложения"
+
+#~ msgid "Up_grade"
+#~ msgstr "Up_grade"
+
+#~ msgid "Upgrading packages..."
+#~ msgstr "Обновяване на пакети..."
+
+#~ msgid "Yes"
+#~ msgstr "Да"
+
+#~ msgid ""
+#~ "%d upgraded, %d reinstalled, %d newly installed, %d to remove and %d not "
+#~ "upgraded."
+#~ msgstr ""
+#~ "%d обновени, %d reinstalled, %d инсталирани, %d за премахване и %d "
+#~ "необновени."
+
+#~ msgid "<b>Size:</b>"
+#~ msgstr "<b>Обем:</b>"
+
+#~ msgid "<b>Version</b>"
+#~ msgstr "<b>Версия</b>"
+
+#~ msgid "<b>Source</b>"
+#~ msgstr "<b>Source</b>"

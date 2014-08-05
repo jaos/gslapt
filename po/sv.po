@@ -1,134 +1,151 @@
 # gslapt translation template
 # Copyright (C) 2005-2010 Jason Woodward
 # This file is distributed under the same license as the gslapt package.
-# 
+#
 # Translators:
 # Ingemar Karlsson <ingemar@ingk.se>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
-"POT-Creation-Date: 2005-02-26 22:25-0500\n"
+"POT-Creation-Date: 2014-08-04 22:05-0400\n"
 "PO-Revision-Date: 2013-11-20 12:47+0000\n"
 "Last-Translator: Jason Woodward <woodwardj@jaos.org>\n"
-"Language-Team: Swedish (http://www.transifex.com/projects/p/slapt-get/language/sv/)\n"
+"Language-Team: Swedish (http://www.transifex.com/projects/p/slapt-get/"
+"language/sv/)\n"
+"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "<b>Exclude List</b>"
-msgstr "<b>Uteslutningslista</b>"
+msgid "Ready"
+msgstr "Redo"
 
-msgid "<b>Package Sources</b>"
-msgstr "<b>Paket Källor</b>"
+msgid "Upgrade"
+msgstr "Uppgradera"
 
-msgid "<b>Package and data storage</b>"
-msgstr "<b>Paket och datalagring</b>"
+msgid "Re-Install"
+msgstr "Ominstallera"
 
-msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Aktivera de följande ändringarna?</span>"
+msgid "<b>Required:</b>"
+msgstr "<b>Krävs:</b>"
 
-msgid "<span weight=\"bold\">Exclude Expression:</span>"
-msgstr "<span weight=\"bold\">Uteslutningsuttryck:</span>"
+msgid "<b>Conflicts:</b>"
+msgstr "<b>Konflikter:</b>"
 
-msgid "<span weight=\"bold\">SOURCE=</span>"
-msgstr "<span weight=\"bold\">KÄLLA=</span>"
+msgid "<b>Suggests:</b>"
+msgstr "<b>Föreslår:</b>"
 
-msgid "About gslapt"
-msgstr "OM gslapt"
+msgid "No dependency information available"
+msgstr "Ingen beroende information tillgänglig"
 
-msgid "About"
-msgstr "Om"
+msgid "Source"
+msgstr "Källa"
 
-msgid "Checking for new package data..."
-msgstr "Letar efter ny paketdata..."
+msgid "No changelog information available"
+msgstr "Ingen ändringsloggs information tillgänglig"
 
-msgid "Clear search expression"
-msgstr "Rensa sökuttryck"
+msgid "The list of installed files is only available for installed packages"
+msgstr ""
+"Listan över installerade filer är endast tillgänglig för installerade paket"
 
-msgid "Clear"
-msgstr "Rensa"
+msgid "Excluded"
+msgstr "Undantagna"
 
-msgid "Conflicts"
-msgstr "Konflikter"
+msgid "To be Removed"
+msgstr "Ska tas bort"
 
-#, c-format
-msgid "Couldn't find pixmap file: %s"
-msgstr "Kunde inte hitta pixmapfilen: %s"
+msgid "To be Installed"
+msgstr "Skall installeras"
 
-msgid "Description"
-msgstr "Beskrivning"
+msgid "To be Re-Installed"
+msgstr "Skall återinstalleras"
 
-msgid "Download packages only"
-msgstr "Ladda endast ner paket"
+msgid "To be Downgraded"
+msgstr "Ska nedgraderas"
 
-msgid "Downloading packages..."
-msgstr "Laddar ner paket..."
-
-msgid "Downloading..."
-msgstr "Laddar ner..."
-
-msgid "Exclude package"
-msgstr "Uteslut paket"
-
-msgid "Exclude"
-msgstr "Uteslut"
-
-msgid "Excludes"
-msgstr "Utesluter"
-
-msgid "Execute all scheduled actions in current transaction"
-msgstr "Utför alla schemalagda aktiviteter i aktuell transaktion"
-
-msgid "Execute"
-msgstr "Utför"
-
-msgid "Expression"
-msgstr "Uttryck"
-
-msgid "Gslapt"
-msgstr "Gslapt"
-
-msgid "Install"
-msgstr "Installera"
-
-msgid "Install/Upgrade package"
-msgstr "Installera/Uppgradera paket"
-
-msgid "Installed Size:"
-msgstr "Storlek som installerad:"
-
-msgid "Installed Size"
-msgstr "Storlek som installerad"
+msgid "To be Upgraded"
+msgstr "Skall uppgraderas"
 
 msgid "Installed"
 msgstr "Installerad"
 
-msgid "Installing packages..."
-msgstr "Installerar paket..."
+msgid "Not Installed"
+msgstr "Inte installerad"
 
-msgid "Installing..."
-msgstr "Installerar..."
+msgid "Progress"
+msgstr "Framsteg"
 
-msgid "Location"
-msgstr "Plats"
+msgid "Checking for new package data..."
+msgstr "Letar efter ny paketdata..."
 
-msgid "Name"
-msgstr "Namn"
+msgid "Retrieving package data..."
+msgstr "Hämtar paketdata..."
 
-msgid "No"
-msgstr "Nej"
+msgid "Retrieving patch list..."
+msgstr "Hämtar patch listan..."
 
-msgid "Package Action"
-msgstr "Packetåtgärd"
+msgid "Retrieving checksum list..."
+msgstr "Hämtar kontrollsumme listan..."
 
-msgid "Package Information"
-msgstr "Paket information"
+msgid "Source download failed"
+msgstr "Nedladdning av källkod misslyckades"
 
-msgid "Package"
-msgstr "Paket"
+msgid "Retrieving checksum signature..."
+msgstr "Hämtar kontrollsumme signatur..."
+
+msgid "Verifying checksum signature..."
+msgstr "Verifiera kontrollsumme signatur..."
+
+msgid "GPG Key verification failed"
+msgstr "GPG Nyckel verifiering misslyckades"
+
+msgid "Retrieving ChangeLog.txt..."
+msgstr "Hämtar ChangeLog.txt..."
+
+msgid "Reading Package Lists..."
+msgstr "Läser paketlistor..."
+
+#, c-format
+msgid "Download rate: %.0f%s/s"
+msgstr "Nedladdnings takt: %.0f%s/s"
+
+msgid "Error"
+msgstr "Fel"
+
+msgid "pkgtools returned an error"
+msgstr "pkgtools returnerade ett fel"
+
+msgid "Completed actions"
+msgstr "Slutförda åtgärder"
+
+msgid "Successfully executed all actions."
+msgstr "Framgångsrikt genomfört alla åtgärder."
+
+msgid "Enabled"
+msgstr "Aktiverad"
+
+msgid "Visible"
+msgstr "Synlig"
+
+msgid "Priority"
+msgstr "Prioritet"
+
+msgid "Expression"
+msgstr "Uttryck"
+
+msgid "Packages with unmet dependencies"
+msgstr "Paket med ej uppfyllda beroenden"
+
+msgid "Package conflicts"
+msgstr "Paket konflikt"
+
+msgid ", which is required by "
+msgstr ", vilket behövs av"
+
+msgid ", is excluded"
+msgstr ", är uteslutet"
 
 msgid "Packages excluded"
 msgstr "Paket uteslutna"
@@ -136,109 +153,53 @@ msgstr "Paket uteslutna"
 msgid "Packages to be installed"
 msgstr "Paket som skall installeras"
 
-msgid "Packages to be removed"
-msgstr "Paket som skall tas bort"
-
 msgid "Packages to be upgraded"
 msgstr "Paket som skall uppdateras"
 
-msgid "Preferences"
-msgstr "Inställningar"
+msgid "Packages to be reinstalled"
+msgstr "Paket som ska återinstalleras"
 
-msgid "Progress"
-msgstr "Framsteg"
+msgid "Packages to be removed"
+msgstr "Paket som skall tas bort"
 
-msgid "Quit"
-msgstr "Avsluta"
+msgid "Package"
+msgstr "Paket"
 
-msgid "Remove package"
-msgstr "Ta bort paket"
+#, fuzzy, c-format
+msgid "%d upgraded, "
+msgid_plural "%d upgraded, "
+msgstr[0] "Uppgradera"
+msgstr[1] "Uppgradera"
 
-msgid "Remove"
-msgstr "Ta bort"
+#, fuzzy, c-format
+msgid "%d reinstalled, "
+msgid_plural "%d reinstalled, "
+msgstr[0] "Skall installeras"
+msgstr[1] "Skall installeras"
 
-msgid "Removing packages..."
-msgstr "Tar bort paket..."
-
-msgid "Required"
-msgstr "Obligatorisk"
-
-msgid "Search"
-msgstr "Sök"
-
-msgid "Size:"
-msgstr "Storlek:"
-
-msgid "Source"
-msgstr "Källa"
-
-msgid "Sources"
-msgstr "Källor"
-
-msgid "Suggests"
-msgstr "Förslag"
-
-msgid "Summary"
-msgstr "Sammanfattning"
-
-msgid "This is a summary of the changes about to be performed."
-msgstr "Detta är sammanfattningen av ändringarna som skall genomföras."
-
-msgid "Uninstalling..."
-msgstr "Avinstallerar..."
-
-msgid "Up_grade"
-msgstr "Upp_gradera"
-
-msgid "Update local package cache"
-msgstr "Uppdatera lokal paket cache"
-
-msgid "Update"
-msgstr "Uppdatera"
-
-msgid "Upgrade"
-msgstr "Uppgradera"
-
-msgid "Upgrading packages..."
-msgstr "Uppgraderar paket..."
-
-msgid "Upgrading..."
-msgstr "Uppgraderar..."
-
-msgid "Version"
-msgstr "Version"
-
-msgid "Working Directory"
-msgstr "Arbetskatalog"
-
-msgid "Yes"
-msgstr "Ja"
-
-msgid "_Help"
-msgstr "_Hjälp"
-
-msgid ""
-"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
-"Slackware"
-msgstr "gslapt är en GTK+ frontend till slapt-get, ett APT-liknande paket system för Slackware"
-
-msgid "total progress"
-msgstr "fullständing utveckling"
-
-msgid "working"
-msgstr "arbetar"
-
-msgid "Up to Date"
-msgstr "Aktuell"
-
-msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Inga uppdateringar tillgängliga</span>"
+#, fuzzy, c-format
+msgid "%d newly installed, "
+msgid_plural "%d newly installed, "
+msgstr[0] "Skall installeras"
+msgstr[1] "Skall installeras"
 
 #, c-format
+msgid "%d to remove "
+msgid_plural "%d to remove "
+msgstr[0] ""
+msgstr[1] ""
+
+#, c-format
+msgid "and %d not upgraded."
+msgid_plural "and %d not upgraded."
+msgstr[0] ""
+msgstr[1] ""
+
 msgid ""
-"%d upgraded, %d reinstalled, %d newly installed, %d to remove and %d not "
-"upgraded."
-msgstr "%d uppgraderade, %d återinstallerade, %d nyligen installerade, %d att ta bort och %d ej uppgraderade"
+"<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgstr ""
+"<span weight=\"bold\" size=\"large\">Du har inte tillräckligt med ledigt "
+"utrymme</span>"
 
 #, c-format
 msgid "Need to get %.0f%s/%.0f%s of archives.\n"
@@ -254,246 +215,78 @@ msgstr "Efter uppackning kommer %.0f%s av diskutrymmet att frigöras."
 
 #, c-format
 msgid "After unpacking %.0f%s of additional disk space will be used."
-msgstr "Efter uppackning kommer ytterligare %.0f%s av diskutrymmet att användas."
+msgstr ""
+"Efter uppackning kommer ytterligare %.0f%s av diskutrymmet att användas."
 
-msgid "Ready"
-msgstr "Redo"
+msgid "Up to Date"
+msgstr "Aktuell"
 
-msgid "Re-Install"
-msgstr "Ominstallera"
+msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
+msgstr ""
+"<span weight=\"bold\" size=\"large\">Inga uppdateringar tillgängliga</span>"
 
-msgid "Downgrade"
-msgstr "Nergradera"
+msgid "Downloading packages..."
+msgstr "Laddar ner paket..."
 
-msgid "_File"
-msgstr "_Arkiv"
+msgid "Downloading..."
+msgstr "Laddar ner..."
+
+#, c-format
+msgid "Failed to download %s: %s"
+msgstr "Det gick inte att hämta %s: %s"
+
+msgid "Removing packages..."
+msgstr "Tar bort paket..."
+
+msgid "Uninstalling..."
+msgstr "Avinstallerar..."
+
+msgid "Installing packages..."
+msgstr "Installerar paket..."
+
+msgid "Installing..."
+msgstr "Installerar..."
+
+msgid "Upgrading..."
+msgstr "Uppgraderar..."
+
+msgid "Failed to commit preferences"
+msgstr "Det gick inte att utföra inställningarna"
 
 msgid "Pending changes. Click execute when ready."
 msgstr "Ogenomförda ändringar. Tryck exekvera när du är redo."
 
-msgid "Packages with unmet dependencies"
-msgstr "Paket med ej uppfyllda beroenden"
-
-msgid ": Depends: "
-msgstr ": Beroende av :"
-
-msgid "Package conflicts"
-msgstr "Paket konflikt"
-
-msgid ", which is required by "
-msgstr ", vilket behövs av"
-
-msgid ", is excluded"
-msgstr ", är uteslutet"
-
-msgid "<b>Conflicts:</b>"
-msgstr "<b>Konflikter:</b>"
-
-msgid "<b>Description:</b>"
-msgstr "<b>Beskrivning</b>"
-
-msgid "<b>Location:</b>"
-msgstr "<b>Plats:</b>"
-
-msgid "Source:"
-msgstr "Källa:"
-
-msgid "<b>Name:</b>"
-msgstr "<b>Namn:</b>"
-
-msgid "<b>Required:</b>"
-msgstr "<b>Krävs:</b>"
-
-msgid "<b>Size:</b>"
-msgstr "<b>Storlek:</b>"
-
-msgid "<b>Suggests:</b>"
-msgstr "<b>Föreslår:</b>"
-
-msgid "Version:"
-msgstr "Version:"
-
-msgid "<b>Version:</b>"
-msgstr "<b>Version:</b>"
-
-msgid "<b>Version</b>"
-msgstr "<b>Version</b>"
-
-msgid "<b>Source:</b>"
-msgstr "<b>Källa:</b>"
-
-msgid "Common"
-msgstr "Vanliga"
-
-msgid "Dependencies"
-msgstr "Beroenden"
-
-msgid "No package is selected."
-msgstr "Inga paket är valda."
-
 msgid "Status"
 msgstr "Status"
 
-msgid "Source download failed"
-msgstr "Nedladdning av källkod misslyckades"
+msgid "Name"
+msgstr "Namn"
 
-msgid "pkgtools returned an error"
-msgstr "pkgtools returnerade ett fel"
+msgid "Version"
+msgstr "Version"
 
-msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Du har inte tillräckligt med ledigt utrymme</span>"
+msgid "Location"
+msgstr "Plats"
+
+msgid "Description"
+msgstr "Beskrivning"
+
+msgid "Installed Size"
+msgstr "Storlek som installerad"
 
 #, c-format
 msgid "<b>Excluding %s due to dependency failure</b>"
 msgstr "<b>Undantar %s på grund av beroendet fel</b>"
 
-msgid "Unmark"
-msgstr "Avmarkera"
-
-msgid "<b>Status:</b>"
-msgstr "<b>Status:</b>"
-
-msgid "Excluded"
-msgstr "Undantagna"
-
 msgid ""
-"<b>The following icons are used to indicate the current status of a "
-"package:</b>"
-msgstr "<b>Följande ikoner används för att indikera aktuell status för ett paket:</b>"
+"Missing dependencies may mean the software in this package will not function "
+"correctly.  Do you want to continue without the required packages?"
+msgstr ""
+"Saknade beroenden kan innebära att programvaran i paketet inte kommer att "
+"kunna fungera fullständigt. Vill du fortsätta utan de nödvändiga paketen?"
 
-msgid "Not Installed"
-msgstr "Inte installerad"
-
-msgid "To be Installed"
-msgstr "Skall installeras"
-
-msgid "To be Re-Installed"
-msgstr "Skall återinstalleras"
-
-msgid "To be Upgraded"
-msgstr "Skall uppgraderas"
-
-msgid "To be Removed"
-msgstr "Ska tas bort"
-
-msgid "To be Downgraded"
-msgstr "Ska nedgraderas"
-
-msgid "Icon Legend"
-msgstr "Ikon förklaring"
-
-msgid "Completed actions"
-msgstr "Slutförda åtgärder"
-
-msgid "Successfully executed all actions."
-msgstr "Framgångsrikt genomfört alla åtgärder."
-
-msgid "<b>Installed Version</b>"
-msgstr "<b>Installerad Version</b>"
-
-msgid "<b>Latest Available Version</b>"
-msgstr "<b>Senaste tillgängliga versionen</b>"
-
-msgid "Failed to commit preferences"
-msgstr "Det gick inte att utföra inställningarna"
-
-msgid "Mark All Upgrades"
-msgstr "Markera alla uppgraderingar"
-
-msgid "_Edit"
-msgstr "R_edigera"
-
-msgid "Unmark All"
-msgstr "Avmarkera Alla"
-
-msgid "P_ackage"
-msgstr "P_aket"
-
-msgid ""
-"You need to reload the package list from the sources you have listed.  Do "
-"you want to do this now?"
-msgstr "Du måste ladda om paketlistan från de källor du har listat. Vill du göra det nu?"
-
-msgid "Repositories changed"
-msgstr "Förråd har förändrats"
-
-msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
-msgstr "<span size=\"large\" weight=\"bold\">Förråd har förändrats</span>"
-
-msgid "Retrieving package data..."
-msgstr "Hämtar paketdata..."
-
-msgid "Retrieving patch list..."
-msgstr "Hämtar patch listan..."
-
-msgid "Retrieving checksum list..."
-msgstr "Hämtar kontrollsumme listan..."
-
-msgid "Reading Package Lists..."
-msgstr "Läser paketlistor..."
-
-msgid "_Delete Cached Package Files"
-msgstr "Ta bort Cacha_de paketfiler"
-
-msgid "Mark all possible upgrades"
-msgstr "Markera alla tänkbara uppgraderingar"
-
-msgid "Enabled"
-msgstr "Aktiverad"
-
-msgid ""
-"Missing dependencies may mean the software in this package will not function"
-" correctly.  Do you want to continue without the required packages?"
-msgstr "Saknade beroenden kan innebära att programvaran i paketet inte kommer att kunna fungera fullständigt. Vill du fortsätta utan de nödvändiga paketen?"
-
-msgid ""
-"This package source failed or is not available.  Do you want to disable this"
-" source and continue anyway?"
-msgstr "Detta paket källa misslyckades eller är inte tillgänglig. Vill du inaktivera denna källa och fortsätta ändå?"
-
-msgid "Retrieving ChangeLog.txt..."
-msgstr "Hämtar ChangeLog.txt..."
-
-msgid "Changelog"
-msgstr "Changelog"
-
-msgid "_View"
-msgstr "_Visa"
-
-msgid "All"
-msgstr "Alla"
-
-msgid "View all packages"
-msgstr "Visa alla paket"
-
-msgid "Available"
-msgstr "Tillgängliga"
-
-msgid "View available packages from current sources"
-msgstr "Visa tillgängliga paket från aktuella källor"
-
-msgid "View installed packages"
-msgstr "Visa installerade paket"
-
-msgid "Marked"
-msgstr "Markerade"
-
-msgid "View Marked Packages"
-msgstr "Visa Markerade paket"
-
-msgid "Mark Obsolete"
-msgstr "Markera Föråldrade"
-
-msgid "Mark all obsolete packages"
-msgstr "Markera alla föråldrade paket"
-
-#, c-format
-msgid "Download rate: %.0f%s/s"
-msgstr "Nedladdnings takt: %.0f%s/s"
-
-#, c-format
-msgid "Failed to download %s: %s"
-msgstr "Det gick inte att hämta %s: %s"
+msgid ": Depends: "
+msgstr ": Beroende av :"
 
 msgid "Import"
 msgstr "Importera"
@@ -501,77 +294,11 @@ msgstr "Importera"
 msgid "No key found"
 msgstr "Ingen nyckel hittades"
 
-msgid "<b>GPG Keys</b>"
-msgstr "<b>GPG Nyckel</b>"
-
-msgid "Verification"
-msgstr "Verification"
-
-msgid "Retrieving checksum signature..."
-msgstr "Hämtar kontrollsumme signatur..."
-
-msgid "Verifying checksum signature..."
-msgstr "Verifiera kontrollsumme signatur..."
-
-msgid "GPG Key verification failed"
-msgstr "GPG Nyckel verifiering misslyckades"
-
-msgid "Error"
-msgstr "Fel"
-
-msgid "Visible"
-msgstr "Synlig"
-
-msgid "Upgradeable"
-msgstr "Upgraderingsbar"
-
-msgid "View Upgradeable Packages"
-msgstr "Visa uppgraderingsbara paket"
-
-msgid "View ChangeLogs"
-msgstr "Visa Ändringsloggar"
-
 msgid "ChangeLogs"
 msgstr "Ändringsloggar"
 
 msgid "No changelogs found."
 msgstr "Inga ändringsloggar hittats."
-
-msgid "Priority"
-msgstr "Prioritet"
-
-msgid "Package Source"
-msgstr "Paketkälla"
-
-msgid "<b>Priority:</b>"
-msgstr "<b>Prioritet:</b>"
-
-msgid "<b>Source</b>"
-msgstr "<b>Källa</b>"
-
-msgid "Default"
-msgstr "Standard"
-
-msgid "Preferred"
-msgstr "Föredragen"
-
-msgid "Official"
-msgstr "Officiell"
-
-msgid "Custom"
-msgstr "Anpassad"
-
-msgid "Files"
-msgstr "Filer"
-
-msgid "The list of installed files is only available for installed packages"
-msgstr "Listan över installerade filer är endast tillgänglig för installerade paket"
-
-msgid "No dependency information available"
-msgstr "Ingen beroende information tillgänglig"
-
-msgid "No changelog information available"
-msgstr "Ingen ändringsloggs information tillgänglig"
 
 msgid "Gslapt Package Manager"
 msgstr "Gslapt Pakethanterare"
@@ -672,8 +399,329 @@ msgstr "Spel"
 msgid "Localization"
 msgstr "Internationalisering"
 
-msgid "Packages to be reinstalled"
-msgstr "Paket som ska återinstalleras"
+msgid ""
+"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
+"Slackware"
+msgstr ""
+"gslapt är en GTK+ frontend till slapt-get, ett APT-liknande paket system för "
+"Slackware"
+
+msgid "working"
+msgstr "arbetar"
+
+msgid "total progress"
+msgstr "fullständing utveckling"
+
+msgid "Gslapt"
+msgstr "Gslapt"
+
+msgid "_File"
+msgstr "_Arkiv"
+
+msgid "Update local package cache"
+msgstr "Uppdatera lokal paket cache"
+
+msgid "Update"
+msgstr "Uppdatera"
+
+msgid "Mark all possible upgrades"
+msgstr "Markera alla tänkbara uppgraderingar"
+
+msgid "Mark All Upgrades"
+msgstr "Markera alla uppgraderingar"
+
+msgid "Mark all obsolete packages"
+msgstr "Markera alla föråldrade paket"
+
+msgid "Mark Obsolete"
+msgstr "Markera Föråldrade"
+
+msgid "Execute all scheduled actions in current transaction"
+msgstr "Utför alla schemalagda aktiviteter i aktuell transaktion"
+
+msgid "Execute"
+msgstr "Utför"
+
+msgid "_Edit"
+msgstr "R_edigera"
+
+msgid "Unmark All"
+msgstr "Avmarkera Alla"
+
+msgid "Preferences"
+msgstr "Inställningar"
+
+msgid "_View"
+msgstr "_Visa"
+
+msgid "View all packages"
+msgstr "Visa alla paket"
+
+msgid "All"
+msgstr "Alla"
+
+msgid "View available packages from current sources"
+msgstr "Visa tillgängliga paket från aktuella källor"
+
+msgid "Available"
+msgstr "Tillgängliga"
+
+msgid "View installed packages"
+msgstr "Visa installerade paket"
+
+msgid "View Marked Packages"
+msgstr "Visa Markerade paket"
+
+msgid "Marked"
+msgstr "Markerade"
+
+msgid "View Upgradeable Packages"
+msgstr "Visa uppgraderingsbara paket"
+
+msgid "Upgradeable"
+msgstr "Upgraderingsbar"
+
+msgid "P_ackage"
+msgstr "P_aket"
+
+msgid "Unmark"
+msgstr "Avmarkera"
+
+msgid "Install"
+msgstr "Installera"
+
+msgid "Downgrade"
+msgstr "Nergradera"
+
+msgid "Remove"
+msgstr "Ta bort"
+
+msgid "_Help"
+msgstr "_Hjälp"
+
+msgid "Icon Legend"
+msgstr "Ikon förklaring"
+
+msgid "View ChangeLogs"
+msgstr "Visa Ändringsloggar"
+
+msgid "About"
+msgstr "Om"
+
+msgid "Search"
+msgstr "Sök"
+
+msgid "<b>Name:</b>"
+msgstr "<b>Namn:</b>"
+
+msgid "No package is selected."
+msgstr "Inga paket är valda."
+
+msgid "<b>Status:</b>"
+msgstr "<b>Status:</b>"
+
+msgid "<b>Description:</b>"
+msgstr "<b>Beskrivning</b>"
+
+msgid "<b>Version:</b>"
+msgstr "<b>Version:</b>"
+
+msgid "<b>Source:</b>"
+msgstr "<b>Källa:</b>"
+
+msgid "<b>Priority:</b>"
+msgstr "<b>Prioritet:</b>"
+
+msgid "<b>Location:</b>"
+msgstr "<b>Plats:</b>"
+
+msgid "<b>Installed Version</b>"
+msgstr "<b>Installerad Version</b>"
+
+msgid "Version:"
+msgstr "Version:"
+
+msgid "Installed Size:"
+msgstr "Storlek som installerad:"
+
+msgid "<b>Latest Available Version</b>"
+msgstr "<b>Senaste tillgängliga versionen</b>"
+
+msgid "Size:"
+msgstr "Storlek:"
+
+msgid "Source:"
+msgstr "Källa:"
+
+msgid "Common"
+msgstr "Vanliga"
+
+msgid "Dependencies"
+msgstr "Beroenden"
+
+msgid "Changelog"
+msgstr "Changelog"
+
+msgid "Files"
+msgstr "Filer"
+
+msgid ""
+"<b>The following icons are used to indicate the current status of a package:"
+"</b>"
+msgstr ""
+"<b>Följande ikoner används för att indikera aktuell status för ett paket:</b>"
+
+msgid "Repositories changed"
+msgstr "Förråd har förändrats"
+
+msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
+msgstr "<span size=\"large\" weight=\"bold\">Förråd har förändrats</span>"
+
+msgid ""
+"You need to reload the package list from the sources you have listed.  Do "
+"you want to do this now?"
+msgstr ""
+"Du måste ladda om paketlistan från de källor du har listat. Vill du göra det "
+"nu?"
 
 msgid "Source failed"
 msgstr "Källa misslyckades"
+
+msgid ""
+"This package source failed or is not available.  Do you want to disable this "
+"source and continue anyway?"
+msgstr ""
+"Detta paket källa misslyckades eller är inte tillgänglig. Vill du inaktivera "
+"denna källa och fortsätta ändå?"
+
+msgid "Default"
+msgstr "Standard"
+
+msgid "Official"
+msgstr "Officiell"
+
+msgid "Preferred"
+msgstr "Föredragen"
+
+msgid "Custom"
+msgstr "Anpassad"
+
+msgid "Package Source"
+msgstr "Paketkälla"
+
+msgid "Summary"
+msgstr "Sammanfattning"
+
+msgid ""
+"<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+msgstr ""
+"<span weight=\"bold\" size=\"large\">Aktivera de följande ändringarna?</span>"
+
+msgid "This is a summary of the changes about to be performed."
+msgstr "Detta är sammanfattningen av ändringarna som skall genomföras."
+
+msgid "Download packages only"
+msgstr "Ladda endast ner paket"
+
+msgid "<b>Package and data storage</b>"
+msgstr "<b>Paket och datalagring</b>"
+
+msgid "_Delete Cached Package Files"
+msgstr "Ta bort Cacha_de paketfiler"
+
+msgid "Working Directory"
+msgstr "Arbetskatalog"
+
+msgid "<b>Exclude List</b>"
+msgstr "<b>Uteslutningslista</b>"
+
+msgid "<span weight=\"bold\">Exclude Expression:</span>"
+msgstr "<span weight=\"bold\">Uteslutningsuttryck:</span>"
+
+msgid "Excludes"
+msgstr "Utesluter"
+
+msgid "<b>Package Sources</b>"
+msgstr "<b>Paket Källor</b>"
+
+msgid "Sources"
+msgstr "Källor"
+
+msgid "<b>GPG Keys</b>"
+msgstr "<b>GPG Nyckel</b>"
+
+msgid "Verification"
+msgstr "Verification"
+
+#~ msgid "<span weight=\"bold\">SOURCE=</span>"
+#~ msgstr "<span weight=\"bold\">KÄLLA=</span>"
+
+#~ msgid "About gslapt"
+#~ msgstr "OM gslapt"
+
+#~ msgid "Clear search expression"
+#~ msgstr "Rensa sökuttryck"
+
+#~ msgid "Clear"
+#~ msgstr "Rensa"
+
+#~ msgid "Conflicts"
+#~ msgstr "Konflikter"
+
+#~ msgid "Couldn't find pixmap file: %s"
+#~ msgstr "Kunde inte hitta pixmapfilen: %s"
+
+#~ msgid "Exclude package"
+#~ msgstr "Uteslut paket"
+
+#~ msgid "Exclude"
+#~ msgstr "Uteslut"
+
+#~ msgid "Install/Upgrade package"
+#~ msgstr "Installera/Uppgradera paket"
+
+#~ msgid "No"
+#~ msgstr "Nej"
+
+#~ msgid "Package Action"
+#~ msgstr "Packetåtgärd"
+
+#~ msgid "Package Information"
+#~ msgstr "Paket information"
+
+#~ msgid "Quit"
+#~ msgstr "Avsluta"
+
+#~ msgid "Remove package"
+#~ msgstr "Ta bort paket"
+
+#~ msgid "Required"
+#~ msgstr "Obligatorisk"
+
+#~ msgid "Suggests"
+#~ msgstr "Förslag"
+
+#~ msgid "Up_grade"
+#~ msgstr "Upp_gradera"
+
+#~ msgid "Upgrading packages..."
+#~ msgstr "Uppgraderar paket..."
+
+#~ msgid "Yes"
+#~ msgstr "Ja"
+
+#~ msgid ""
+#~ "%d upgraded, %d reinstalled, %d newly installed, %d to remove and %d not "
+#~ "upgraded."
+#~ msgstr ""
+#~ "%d uppgraderade, %d återinstallerade, %d nyligen installerade, %d att ta "
+#~ "bort och %d ej uppgraderade"
+
+#~ msgid "<b>Size:</b>"
+#~ msgstr "<b>Storlek:</b>"
+
+#~ msgid "<b>Version</b>"
+#~ msgstr "<b>Version</b>"
+
+#~ msgid "<b>Source</b>"
+#~ msgstr "<b>Källa</b>"
