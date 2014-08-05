@@ -4,17 +4,17 @@ src/main.c
 src/callbacks.c
 gslapt-kde.desktop.in
 gslapt.desktop.in
-series_map.rc.in
-ui/about.ui
-ui/changelog_window.ui
-ui/dep_error_dialog.ui
-ui/dl_progress_window.ui
-ui/gslapt.ui
-ui/icon_legend.ui
-ui/notification.ui
-ui/pkgtools_progress_window.ui
-ui/repositories_changed.ui
-ui/source_failed_dialog.ui
-ui/source_window.ui
-ui/transaction_window.ui
-ui/window_preferences.ui
+[type: gettext/ini]series_map.rc.in
+[type: gettext/glade]ui/about.ui
+[type: gettext/glade]ui/changelog_window.ui
+[type: gettext/glade]ui/dep_error_dialog.ui
+[type: gettext/glade]ui/dl_progress_window.ui
+[type: gettext/glade]ui/gslapt.ui
+[type: gettext/glade]ui/icon_legend.ui
+[type: gettext/glade]ui/notification.ui
+[type: gettext/glade]ui/pkgtools_progress_window.ui
+[type: gettext/glade]ui/repositories_changed.ui
+[type: gettext/glade]ui/source_failed_dialog.ui
+[type: gettext/glade]ui/source_window.ui
+[type: gettext/glade]ui/transaction_window.ui
+[type: gettext/glade]ui/window_preferences.ui
