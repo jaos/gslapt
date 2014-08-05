@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the gslapt package.
 # 
 # Translators:
-# jui <appukonrad@gmail.com>, 2013
-# jui <appukonrad@gmail.com>, 2013
+# Jiří Vírava <appukonrad@gmail.com>, 2013
+# Jiří Vírava <appukonrad@gmail.com>, 2013-2014
+# Jiří Vírava <appukonrad@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2005-02-26 22:25-0500\n"
-"PO-Revision-Date: 2013-12-12 10:50+0000\n"
-"Last-Translator: jui <appukonrad@gmail.com>\n"
+"PO-Revision-Date: 2014-08-01 07:30+0000\n"
+"Last-Translator: Jiří Vírava <appukonrad@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/slapt-get/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -44,10 +45,10 @@ msgid "About"
 msgstr "O"
 
 msgid "Checking for new package data..."
-msgstr ""
+msgstr "Kontroluji data o nových balíčcích..."
 
 msgid "Clear search expression"
-msgstr ""
+msgstr "Vymazat hledaný výraz"
 
 msgid "Clear"
 msgstr "Vyčistit"
@@ -57,7 +58,7 @@ msgstr "Konflikty"
 
 #, c-format
 msgid "Couldn't find pixmap file: %s"
-msgstr ""
+msgstr "Nelze najít Pixmap soubor: %s"
 
 msgid "Description"
 msgstr "Popis"
@@ -99,10 +100,10 @@ msgid "Install/Upgrade package"
 msgstr "Instalace/Aktualitace balíčku"
 
 msgid "Installed Size:"
-msgstr ""
+msgstr "Instalovaná velikost:"
 
 msgid "Installed Size"
-msgstr ""
+msgstr "Instalovaná velikost"
 
 msgid "Installed"
 msgstr "Instalováno"
@@ -183,7 +184,7 @@ msgid "Summary"
 msgstr "Přehled"
 
 msgid "This is a summary of the changes about to be performed."
-msgstr ""
+msgstr "Toto je shrnutí změn, které mají být provedeny."
 
 msgid "Uninstalling..."
 msgstr "Odinstalace.."
@@ -192,10 +193,10 @@ msgid "Up_grade"
 msgstr ""
 
 msgid "Update local package cache"
-msgstr ""
+msgstr "Aktualizovat lokální vyrovnávací paměti balíčků"
 
 msgid "Update"
-msgstr ""
+msgstr "Aktoalizace"
 
 msgid "Upgrade"
 msgstr ""
@@ -224,10 +225,10 @@ msgid ""
 msgstr ""
 
 msgid "total progress"
-msgstr ""
+msgstr "celkový průběh"
 
 msgid "working"
-msgstr ""
+msgstr "pracuji"
 
 msgid "Up to Date"
 msgstr ""

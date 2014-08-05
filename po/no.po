@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Jason Woodward <woodwardj@jaos.org>, 2010
+# Jason Woodward <woodwardj@jaos.org>, 2010
 msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
