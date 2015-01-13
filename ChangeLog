@@ -1,4 +1,7 @@
 
+0.5.4b Jan  12, 2015
+ * o not reset transaction when download only is set
+
 0.5.4a Jun  23, 2014
  * switch to gtkbuilder
  * fix gtk3.0 compatibility issues
