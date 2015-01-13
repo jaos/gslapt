@@ -1619,12 +1619,10 @@ static void lhandle_transaction (GtkBuilder *b)
 
   /* return early if download_only is set */
   if ( dl_only == TRUE ) {
-    slapt_free_transaction(trans);
-    trans = slapt_init_transaction();
     gdk_threads_enter();
     unlock_toolbar_buttons();
-    rebuild_treeviews(NULL,FALSE);
     clear_execute_active();
+    unlock_toolbar_buttons();
     gdk_threads_leave();
     return;
   }
