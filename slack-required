@@ -28,3 +28,16 @@ zlib
 libffi
 harfbuzz
 icu4c
+bzip2
+curl
+cyrus-sasl
+expat
+gpgme
+libXxf86vm
+libassuan
+libdrm
+libgpg-error
+libxshmfence
+mesa
+openldap-client
+udev
