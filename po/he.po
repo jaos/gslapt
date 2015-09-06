@@ -23,10 +23,10 @@ msgid "Ready"
 msgstr "מוכן"
 
 msgid "Upgrade"
-msgstr "_שדרג"
+msgstr "שדרג"
 
 msgid "Re-Install"
-msgstr "התקן שו_ב"
+msgstr "התקן שוב"
 
 msgid "<b>Required:</b>"
 msgstr "<b>חבילות נחוצות:</b>"
