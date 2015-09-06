@@ -1,7 +1,6 @@
-# gslapt translation template
-# Copyright (C) 2005-2010 Jason Woodward
-# This file is distributed under the same license as the gslapt package.
-#
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# 
 # Translators:
 # FIRST AUTHOR Erik Gyepes <depi@depi.sk>, 2005-2006
 msgid ""
@@ -9,14 +8,13 @@ msgstr ""
 "Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2014-08-04 22:05-0400\n"
-"PO-Revision-Date: 2013-11-20 12:47+0000\n"
+"PO-Revision-Date: 2014-08-05 02:05+0000\n"
 "Last-Translator: Jason Woodward <woodwardj@jaos.org>\n"
-"Language-Team: Slovak (http://www.transifex.com/projects/p/slapt-get/"
-"language/sk/)\n"
-"Language: sk\n"
+"Language-Team: Slovak (http://www.transifex.com/jaos/slapt-get/language/sk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: sk\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 msgid "Ready"
@@ -164,26 +162,26 @@ msgstr "Balíky, ktoré budú vymazané"
 msgid "Package"
 msgstr "Balík"
 
-#, fuzzy, c-format
+#, c-format
 msgid "%d upgraded, "
 msgid_plural "%d upgraded, "
-msgstr[0] "Upgrade"
-msgstr[1] "Upgrade"
-msgstr[2] "Upgrade"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
-#, fuzzy, c-format
+#, c-format
 msgid "%d reinstalled, "
 msgid_plural "%d reinstalled, "
-msgstr[0] "Bude inštalovaný"
-msgstr[1] "Bude inštalovaný"
-msgstr[2] "Bude inštalovaný"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
-#, fuzzy, c-format
+#, c-format
 msgid "%d newly installed, "
 msgid_plural "%d newly installed, "
-msgstr[0] "Bude inštalovaný"
-msgstr[1] "Bude inštalovaný"
-msgstr[2] "Bude inštalovaný"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #, c-format
 msgid "%d to remove "
@@ -199,10 +197,8 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-msgid ""
-"<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
-msgstr ""
-"<span weight=\"bold\" size=\"large\">Nemáte dostatok voľného miesta</span>"
+msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Nemáte dostatok voľného miesta</span>"
 
 #, c-format
 msgid "Need to get %.0f%s/%.0f%s of archives.\n"
@@ -224,9 +220,7 @@ msgid "Up to Date"
 msgstr "Je aktuálny"
 
 msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
-msgstr ""
-"<span weight=\"bold\" size=\"large\">Nie sú k dispozícii žiadne "
-"aktualizácie</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Nie sú k dispozícii žiadne aktualizácie</span>"
 
 msgid "Downloading packages..."
 msgstr "Sťahujem balíky..."
@@ -282,11 +276,9 @@ msgid "<b>Excluding %s due to dependency failure</b>"
 msgstr "<b>Vylučujem %s chybu so závisloťou</b>"
 
 msgid ""
-"Missing dependencies may mean the software in this package will not function "
-"correctly.  Do you want to continue without the required packages?"
-msgstr ""
-"Missing dependencies may mean the software in this package will not function "
-"correctly.  Do you want to continue without the required packages?"
+"Missing dependencies may mean the software in this package will not function"
+" correctly.  Do you want to continue without the required packages?"
+msgstr "Missing dependencies may mean the software in this package will not function correctly.  Do you want to continue without the required packages?"
 
 msgid ": Depends: "
 msgstr ": Závislosti: "
@@ -405,9 +397,7 @@ msgstr "Localization"
 msgid ""
 "gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
 "Slackware"
-msgstr ""
-"gslapt je GTK+ nadstavba k slapt-get, ktorý je založený na báze APT "
-"preSlackware"
+msgstr "gslapt je GTK+ nadstavba k slapt-get, ktorý je založený na báze APT preSlackware"
 
 msgid "working"
 msgstr "pracujem"
@@ -569,10 +559,9 @@ msgid "Files"
 msgstr "Files"
 
 msgid ""
-"<b>The following icons are used to indicate the current status of a package:"
-"</b>"
-msgstr ""
-"<b>Nasledovné ikony sú použité pre označenie aktuálneho stavu balíku:</b>"
+"<b>The following icons are used to indicate the current status of a "
+"package:</b>"
+msgstr "<b>Nasledovné ikony sú použité pre označenie aktuálneho stavu balíku:</b>"
 
 msgid "Repositories changed"
 msgstr "Repositories changed"
@@ -583,19 +572,15 @@ msgstr "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
 msgid ""
 "You need to reload the package list from the sources you have listed.  Do "
 "you want to do this now?"
-msgstr ""
-"You need to reload the package list from the sources you have listed.  Do "
-"you want to do this now?"
+msgstr "You need to reload the package list from the sources you have listed.  Do you want to do this now?"
 
 msgid "Source failed"
 msgstr "Source failed"
 
 msgid ""
-"This package source failed or is not available.  Do you want to disable this "
-"source and continue anyway?"
-msgstr ""
-"This package source failed or is not available.  Do you want to disable this "
-"source and continue anyway?"
+"This package source failed or is not available.  Do you want to disable this"
+" source and continue anyway?"
+msgstr "This package source failed or is not available.  Do you want to disable this source and continue anyway?"
 
 msgid "Default"
 msgstr "Default"
@@ -615,8 +600,7 @@ msgstr "Package Source"
 msgid "Summary"
 msgstr "Zhrnutie"
 
-msgid ""
-"<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Potvrdiť nasledovné zmeny?</span>"
 
 msgid "This is a summary of the changes about to be performed."
@@ -654,76 +638,3 @@ msgstr "<b>GPG Keys</b>"
 
 msgid "Verification"
 msgstr "Verification"
-
-#~ msgid "<span weight=\"bold\">SOURCE=</span>"
-#~ msgstr "<span weight=\"bold\">ZDROJ=</span>"
-
-#~ msgid "About gslapt"
-#~ msgstr "O gslapt"
-
-#~ msgid "Clear search expression"
-#~ msgstr "Vymazať hľadaný výraz"
-
-#~ msgid "Clear"
-#~ msgstr "Vymazať"
-
-#~ msgid "Conflicts"
-#~ msgstr "Konflikty"
-
-#~ msgid "Couldn't find pixmap file: %s"
-#~ msgstr "Nemôžem nájsť pixmap súbor: %s"
-
-#~ msgid "Exclude package"
-#~ msgstr "Vylúčiť balík"
-
-#~ msgid "Exclude"
-#~ msgstr "Vylúčiť"
-
-#~ msgid "Install/Upgrade package"
-#~ msgstr "Inštalovať/Upgradovať balík"
-
-#~ msgid "No"
-#~ msgstr "Nie"
-
-#~ msgid "Package Action"
-#~ msgstr "Funkcia balíka"
-
-#~ msgid "Package Information"
-#~ msgstr "Informácia o balíku"
-
-#~ msgid "Quit"
-#~ msgstr "Koniec"
-
-#~ msgid "Remove package"
-#~ msgstr "Vymazať balík"
-
-#~ msgid "Required"
-#~ msgstr "Potrebné"
-
-#~ msgid "Suggests"
-#~ msgstr "Doporučenia"
-
-#~ msgid "Up_grade"
-#~ msgstr "Up_grade"
-
-#~ msgid "Upgrading packages..."
-#~ msgstr "Upgradujem balíky..."
-
-#~ msgid "Yes"
-#~ msgstr "Áno"
-
-#~ msgid ""
-#~ "%d upgraded, %d reinstalled, %d newly installed, %d to remove and %d not "
-#~ "upgraded."
-#~ msgstr ""
-#~ "%d upgradnutých, %d reinstalled, %d novo nainštalovaných, %d na vymazanie "
-#~ "a %d neupgradnutých."
-
-#~ msgid "<b>Size:</b>"
-#~ msgstr "<b>Veľkosť:</b>"
-
-#~ msgid "<b>Version</b>"
-#~ msgstr "<b>Verzia</b>"
-
-#~ msgid "<b>Source</b>"
-#~ msgstr "<b>Source</b>"

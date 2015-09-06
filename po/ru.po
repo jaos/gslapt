@@ -1,25 +1,23 @@
-# gslapt translation template
-# Copyright (C) 2005-2010 Jason Woodward
-# This file is distributed under the same license as the gslapt package.
-#
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# 
 # Translators:
 # FIRST AUTHOR sin <digitalhunger@gmail.com>, 2005-2006
+# goriy <wolfr2@gmail.com>, 2014
 # Igor Murzov <e-mail@date.by>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2014-08-04 22:05-0400\n"
-"PO-Revision-Date: 2014-01-31 01:10+0000\n"
-"Last-Translator: Jason Woodward <woodwardj@jaos.org>\n"
-"Language-Team: Russian (http://www.transifex.com/projects/p/slapt-get/"
-"language/ru/)\n"
-"Language: ru\n"
+"PO-Revision-Date: 2014-09-27 21:22+0000\n"
+"Last-Translator: goriy <wolfr2@gmail.com>\n"
+"Language-Team: Russian (http://www.transifex.com/jaos/slapt-get/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 msgid "Ready"
 msgstr "Готово"
@@ -166,45 +164,48 @@ msgstr "Пакеты к удалению"
 msgid "Package"
 msgstr "Пакет"
 
-#, fuzzy, c-format
+#, c-format
 msgid "%d upgraded, "
 msgid_plural "%d upgraded, "
-msgstr[0] "Обновить"
-msgstr[1] "Обновить"
-msgstr[2] "Обновить"
+msgstr[0] "%d обновлен, "
+msgstr[1] "%d обновлено, "
+msgstr[2] "%d обновлено, "
+msgstr[3] "%d обновлено, "
 
-#, fuzzy, c-format
+#, c-format
 msgid "%d reinstalled, "
 msgid_plural "%d reinstalled, "
-msgstr[0] "Будет установлен"
-msgstr[1] "Будет установлен"
-msgstr[2] "Будет установлен"
+msgstr[0] "%d переустановлен, "
+msgstr[1] "%d переустановлено, "
+msgstr[2] "%d переустановлено, "
+msgstr[3] "%d переустановлено, "
 
-#, fuzzy, c-format
+#, c-format
 msgid "%d newly installed, "
 msgid_plural "%d newly installed, "
-msgstr[0] "Будет установлен"
-msgstr[1] "Будет установлен"
-msgstr[2] "Будет установлен"
+msgstr[0] "%d установлен, "
+msgstr[1] "%d установлено, "
+msgstr[2] "%d установлено, "
+msgstr[3] "%d установлено, "
 
 #, c-format
 msgid "%d to remove "
 msgid_plural "%d to remove "
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d будет удален"
+msgstr[1] "%d будет удалено"
+msgstr[2] "%d будет удалено"
+msgstr[3] "%d будет удалено"
 
 #, c-format
 msgid "and %d not upgraded."
 msgid_plural "and %d not upgraded."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "и %d не обновлен."
+msgstr[1] "и %d не обновлено."
+msgstr[2] "и %d не обновлено."
+msgstr[3] "и %d не обновлено."
 
-msgid ""
-"<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
-msgstr ""
-"<span weight=\"bold\" size=\"large\">Недостаточно свободного места</span>"
+msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Недостаточно свободного места</span>"
 
 #, c-format
 msgid "Need to get %.0f%s/%.0f%s of archives.\n"
@@ -282,12 +283,9 @@ msgid "<b>Excluding %s due to dependency failure</b>"
 msgstr "<b>Пропуск %s из-за неудовлетворённых зависимостей</b>"
 
 msgid ""
-"Missing dependencies may mean the software in this package will not function "
-"correctly.  Do you want to continue without the required packages?"
-msgstr ""
-"Неудовлетворённые зависимости могут привести к тому, что программы из этого "
-"пакета не смогут правильно функционировать. Хотите продолжить без требуемых "
-"пакетов?"
+"Missing dependencies may mean the software in this package will not function"
+" correctly.  Do you want to continue without the required packages?"
+msgstr "Неудовлетворённые зависимости могут привести к тому, что программы из этого пакета не смогут правильно функционировать. Хотите продолжить без требуемых пакетов?"
 
 msgid ": Depends: "
 msgstr ": Зависимости: "
@@ -406,9 +404,7 @@ msgstr "Localization"
 msgid ""
 "gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
 "Slackware"
-msgstr ""
-"gslapt — это GTK+-интерфейс к slapt-get, APT-подобному пакетному менеджеру "
-"для Slackware"
+msgstr "gslapt — это GTK+-интерфейс к slapt-get, APT-подобному пакетному менеджеру для Slackware"
 
 msgid "working"
 msgstr "работа"
@@ -570,8 +566,8 @@ msgid "Files"
 msgstr "Файлы"
 
 msgid ""
-"<b>The following icons are used to indicate the current status of a package:"
-"</b>"
+"<b>The following icons are used to indicate the current status of a "
+"package:</b>"
 msgstr "<b>Следующие значки отображают состояние пакета:</b>"
 
 msgid "Repositories changed"
@@ -583,19 +579,15 @@ msgstr "<span size=\"large\" weight=\"bold\">Репозитории измене
 msgid ""
 "You need to reload the package list from the sources you have listed.  Do "
 "you want to do this now?"
-msgstr ""
-"Необходимо перезагрузить список пакетов с перечисленных источников. Сделать "
-"это сейчас?"
+msgstr "Необходимо перезагрузить список пакетов с перечисленных источников. Сделать это сейчас?"
 
 msgid "Source failed"
 msgstr "Ошибка репозитория"
 
 msgid ""
-"This package source failed or is not available.  Do you want to disable this "
-"source and continue anyway?"
-msgstr ""
-"Данный репозиторий пакетов повреждён или недоступен. Хотите отключить "
-"использование этого репозитория и продолжить?"
+"This package source failed or is not available.  Do you want to disable this"
+" source and continue anyway?"
+msgstr "Данный репозиторий пакетов повреждён или недоступен. Хотите отключить использование этого репозитория и продолжить?"
 
 msgid "Default"
 msgstr "Default"
@@ -615,8 +607,7 @@ msgstr "Источник пакетов"
 msgid "Summary"
 msgstr "Итог"
 
-msgid ""
-"<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Применить изменения?</span>"
 
 msgid "This is a summary of the changes about to be performed."
@@ -654,76 +645,3 @@ msgstr "<b>GPG-ключи</b>"
 
 msgid "Verification"
 msgstr "Проверка"
-
-#~ msgid "<span weight=\"bold\">SOURCE=</span>"
-#~ msgstr "<span weight=\"bold\">ИСТОЧНИК=</span>"
-
-#~ msgid "About gslapt"
-#~ msgstr "О Gslapt "
-
-#~ msgid "Clear search expression"
-#~ msgstr "Очистить выражение поиска"
-
-#~ msgid "Clear"
-#~ msgstr "Очистить"
-
-#~ msgid "Conflicts"
-#~ msgstr "Конфликт:"
-
-#~ msgid "Couldn't find pixmap file: %s"
-#~ msgstr "Не могу найти файл изображения: %s"
-
-#~ msgid "Exclude package"
-#~ msgstr "Исключить пакет"
-
-#~ msgid "Exclude"
-#~ msgstr "Исключить"
-
-#~ msgid "Install/Upgrade package"
-#~ msgstr "Установить/обновить пакет"
-
-#~ msgid "No"
-#~ msgstr "Нет"
-
-#~ msgid "Package Action"
-#~ msgstr "Действия пакета"
-
-#~ msgid "Package Information"
-#~ msgstr "Информация о пакете"
-
-#~ msgid "Quit"
-#~ msgstr "Выход"
-
-#~ msgid "Remove package"
-#~ msgstr "Удалить пакет"
-
-#~ msgid "Required"
-#~ msgstr "Требует:"
-
-#~ msgid "Suggests"
-#~ msgstr "Желательно:"
-
-#~ msgid "Up_grade"
-#~ msgstr "Обновить"
-
-#~ msgid "Upgrading packages..."
-#~ msgstr "Обновление пакетов..."
-
-#~ msgid "Yes"
-#~ msgstr "Да"
-
-#~ msgid ""
-#~ "%d upgraded, %d reinstalled, %d newly installed, %d to remove and %d not "
-#~ "upgraded."
-#~ msgstr ""
-#~ "%d обновлен(ы), %d reinstalled, %d установлен(ы), %d для удаления %d не "
-#~ "обновлен(ы)."
-
-#~ msgid "<b>Size:</b>"
-#~ msgstr "<b>Размер:</b>"
-
-#~ msgid "<b>Version</b>"
-#~ msgstr "<b>Версия</b>"
-
-#~ msgid "<b>Source</b>"
-#~ msgstr "<b>Source</b>"

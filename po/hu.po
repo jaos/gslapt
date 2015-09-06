@@ -1,7 +1,6 @@
-# gslapt translation template
-# Copyright (C) 2005-2010 Jason Woodward
-# This file is distributed under the same license as the gslapt package.
-#
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# 
 # Translators:
 # Jason Woodward <woodwardj@jaos.org>, 2010
 # Jason Woodward <woodwardj@jaos.org>, 2010
@@ -10,14 +9,13 @@ msgstr ""
 "Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2014-08-04 22:05-0400\n"
-"PO-Revision-Date: 2013-11-20 12:47+0000\n"
+"PO-Revision-Date: 2014-08-05 02:05+0000\n"
 "Last-Translator: Jason Woodward <woodwardj@jaos.org>\n"
-"Language-Team: Hungarian (http://www.transifex.com/projects/p/slapt-get/"
-"language/hu/)\n"
-"Language: hu\n"
+"Language-Team: Hungarian (http://www.transifex.com/jaos/slapt-get/language/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: hu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Ready"
@@ -165,23 +163,23 @@ msgstr "Eltávolítandó csomagok"
 msgid "Package"
 msgstr "Csomag"
 
-#, fuzzy, c-format
+#, c-format
 msgid "%d upgraded, "
 msgid_plural "%d upgraded, "
-msgstr[0] "Frissítés"
-msgstr[1] "Frissítés"
+msgstr[0] ""
+msgstr[1] ""
 
-#, fuzzy, c-format
+#, c-format
 msgid "%d reinstalled, "
 msgid_plural "%d reinstalled, "
-msgstr[0] "Telepítendő"
-msgstr[1] "Telepítendő"
+msgstr[0] ""
+msgstr[1] ""
 
-#, fuzzy, c-format
+#, c-format
 msgid "%d newly installed, "
 msgid_plural "%d newly installed, "
-msgstr[0] "Telepítendő"
-msgstr[1] "Telepítendő"
+msgstr[0] ""
+msgstr[1] ""
 
 #, c-format
 msgid "%d to remove "
@@ -195,8 +193,7 @@ msgid_plural "and %d not upgraded."
 msgstr[0] ""
 msgstr[1] ""
 
-msgid ""
-"<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Nincs elég szabad hely</span>"
 
 #, c-format
@@ -275,11 +272,9 @@ msgid "<b>Excluding %s due to dependency failure</b>"
 msgstr "<b>%s kizárása miatt függőségi hiba lépett fel</b>"
 
 msgid ""
-"Missing dependencies may mean the software in this package will not function "
-"correctly.  Do you want to continue without the required packages?"
-msgstr ""
-"A hiányzó függőségek nélkül ez a csomag nem biztos, hogy megfelelően fog "
-"működni. Szeretné folytatni a szükséges csomagok nélkül?"
+"Missing dependencies may mean the software in this package will not function"
+" correctly.  Do you want to continue without the required packages?"
+msgstr "A hiányzó függőségek nélkül ez a csomag nem biztos, hogy megfelelően fog működni. Szeretné folytatni a szükséges csomagok nélkül?"
 
 msgid ": Depends: "
 msgstr ": Függőségek : "
@@ -398,9 +393,7 @@ msgstr "Lokalizáció"
 msgid ""
 "gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
 "Slackware"
-msgstr ""
-"Gslapt egy GTK+ felület a slapt-get  programhoz, ami egy APT stílusú "
-"csomagkezelő rendszer a Slackware Linuxhoz"
+msgstr "Gslapt egy GTK+ felület a slapt-get  programhoz, ami egy APT stílusú csomagkezelő rendszer a Slackware Linuxhoz"
 
 msgid "working"
 msgstr "dolgozom"
@@ -562,8 +555,8 @@ msgid "Files"
 msgstr "Fájlok"
 
 msgid ""
-"<b>The following icons are used to indicate the current status of a package:"
-"</b>"
+"<b>The following icons are used to indicate the current status of a "
+"package:</b>"
 msgstr "<b>A következő ikonok jelölik a csomag jelenlegi állapotát:</b>"
 
 msgid "Repositories changed"
@@ -575,19 +568,15 @@ msgstr "<span size=\"large\" weight=\"bold\">Csomagtárolók változtatva</span>
 msgid ""
 "You need to reload the package list from the sources you have listed.  Do "
 "you want to do this now?"
-msgstr ""
-"Újra kell olvasni a csomagok listáját a forrásokból. Szeretné ezt most "
-"megtenni?"
+msgstr "Újra kell olvasni a csomagok listáját a forrásokból. Szeretné ezt most megtenni?"
 
 msgid "Source failed"
 msgstr "Forrás hiányzik"
 
 msgid ""
-"This package source failed or is not available.  Do you want to disable this "
-"source and continue anyway?"
-msgstr ""
-"A csomag forrása hiányzik vagy nem elérhető. Szeretné ezt a forrást "
-"letiltani és folytatni tovább?"
+"This package source failed or is not available.  Do you want to disable this"
+" source and continue anyway?"
+msgstr "A csomag forrása hiányzik vagy nem elérhető. Szeretné ezt a forrást letiltani és folytatni tovább?"
 
 msgid "Default"
 msgstr "Alapértelmezett"
@@ -607,8 +596,7 @@ msgstr "Csomag forrás"
 msgid "Summary"
 msgstr "Összegzés"
 
-msgid ""
-"<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Alkalmazza a változásokat?</span>"
 
 msgid "This is a summary of the changes about to be performed."
@@ -646,76 +634,3 @@ msgstr "<b>GPG kulcsok</b>"
 
 msgid "Verification"
 msgstr "Ellenőrzés"
-
-#~ msgid "<span weight=\"bold\">SOURCE=</span>"
-#~ msgstr "<span weight=\"bold\">FORRÁS=</span>"
-
-#~ msgid "About gslapt"
-#~ msgstr "Gslapt névjegye"
-
-#~ msgid "Clear search expression"
-#~ msgstr "Kereső kifejezés törlése"
-
-#~ msgid "Clear"
-#~ msgstr "Törlés"
-
-#~ msgid "Conflicts"
-#~ msgstr "Ütközések"
-
-#~ msgid "Couldn't find pixmap file: %s"
-#~ msgstr "Nem található a  pixmap fájl: %s"
-
-#~ msgid "Exclude package"
-#~ msgstr "Kizárt csomagok"
-
-#~ msgid "Exclude"
-#~ msgstr "Kizárás"
-
-#~ msgid "Install/Upgrade package"
-#~ msgstr "Csomag telepítés/frissítés"
-
-#~ msgid "No"
-#~ msgstr "Nem"
-
-#~ msgid "Package Action"
-#~ msgstr "Csomag művelet"
-
-#~ msgid "Package Information"
-#~ msgstr "Csomag információ"
-
-#~ msgid "Quit"
-#~ msgstr "Kilépés"
-
-#~ msgid "Remove package"
-#~ msgstr "Csomagok törlése"
-
-#~ msgid "Required"
-#~ msgstr "Szükséges"
-
-#~ msgid "Suggests"
-#~ msgstr "Javaslatok"
-
-#~ msgid "Up_grade"
-#~ msgstr "F_rissítés"
-
-#~ msgid "Upgrading packages..."
-#~ msgstr "Csomagok frissítése..."
-
-#~ msgid "Yes"
-#~ msgstr "Igen"
-
-#~ msgid ""
-#~ "%d upgraded, %d reinstalled, %d newly installed, %d to remove and %d not "
-#~ "upgraded."
-#~ msgstr ""
-#~ "%d frissített, %d újratelepített, %d újonnan telepített, %d eltávolítandó "
-#~ "és %d nem frissített."
-
-#~ msgid "<b>Size:</b>"
-#~ msgstr "<b>Méret:</b>"
-
-#~ msgid "<b>Version</b>"
-#~ msgstr "<b>Verzió</b>"
-
-#~ msgid "<b>Source</b>"
-#~ msgstr "<b>Forrás</b>"

@@ -1,7 +1,6 @@
-# gslapt translation template
-# Copyright (C) 2005-2010 Jason Woodward
-# This file is distributed under the same license as the gslapt package.
-#
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# 
 # Translators:
 # Yang Jinsong <shannleon@gmail.com>, 2006
 msgid ""
@@ -9,14 +8,13 @@ msgstr ""
 "Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2014-08-04 22:05-0400\n"
-"PO-Revision-Date: 2013-11-20 12:47+0000\n"
+"PO-Revision-Date: 2014-08-05 02:05+0000\n"
 "Last-Translator: Jason Woodward <woodwardj@jaos.org>\n"
-"Language-Team: Chinese (China) (http://www.transifex.com/projects/p/slapt-"
-"get/language/zh_CN/)\n"
-"Language: zh_CN\n"
+"Language-Team: Chinese (China) (http://www.transifex.com/jaos/slapt-get/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Ready"
@@ -164,20 +162,20 @@ msgstr "将要被删除的软件包"
 msgid "Package"
 msgstr "软件包"
 
-#, fuzzy, c-format
+#, c-format
 msgid "%d upgraded, "
 msgid_plural "%d upgraded, "
-msgstr[0] "升级"
+msgstr[0] ""
 
-#, fuzzy, c-format
+#, c-format
 msgid "%d reinstalled, "
 msgid_plural "%d reinstalled, "
-msgstr[0] "将要被安装"
+msgstr[0] ""
 
-#, fuzzy, c-format
+#, c-format
 msgid "%d newly installed, "
 msgid_plural "%d newly installed, "
-msgstr[0] "将要被安装"
+msgstr[0] ""
 
 #, c-format
 msgid "%d to remove "
@@ -189,8 +187,7 @@ msgid "and %d not upgraded."
 msgid_plural "and %d not upgraded."
 msgstr[0] ""
 
-msgid ""
-"<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
 msgstr "<span weight=\"bold\" size=\"large\">你没有足够的自由空间</span>"
 
 #, c-format
@@ -269,8 +266,8 @@ msgid "<b>Excluding %s due to dependency failure</b>"
 msgstr "<b>排除 %s 因为依赖错误</b>"
 
 msgid ""
-"Missing dependencies may mean the software in this package will not function "
-"correctly.  Do you want to continue without the required packages?"
+"Missing dependencies may mean the software in this package will not function"
+" correctly.  Do you want to continue without the required packages?"
 msgstr "缺少依赖意味这软件可能不能正常工作. 是否在缺少依赖的情况下继续?"
 
 msgid ": Depends: "
@@ -390,9 +387,7 @@ msgstr "Localization"
 msgid ""
 "gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
 "Slackware"
-msgstr ""
-"gslapt 是 slapt-get 的 GTK+ 前端,一个 APT 类似的软件包系统,专门为 Slackware "
-"定制"
+msgstr "gslapt 是 slapt-get 的 GTK+ 前端,一个 APT 类似的软件包系统,专门为 Slackware 定制"
 
 msgid "working"
 msgstr "进行中"
@@ -554,8 +549,8 @@ msgid "Files"
 msgstr "Files"
 
 msgid ""
-"<b>The following icons are used to indicate the current status of a package:"
-"</b>"
+"<b>The following icons are used to indicate the current status of a "
+"package:</b>"
 msgstr "<b>以下图标表示软件包当前的状态:</b>"
 
 msgid "Repositories changed"
@@ -573,8 +568,8 @@ msgid "Source failed"
 msgstr "Source failed"
 
 msgid ""
-"This package source failed or is not available.  Do you want to disable this "
-"source and continue anyway?"
+"This package source failed or is not available.  Do you want to disable this"
+" source and continue anyway?"
 msgstr "软件源错误或暂不可用.  你是否希望禁止此源并继续?"
 
 msgid "Default"
@@ -595,8 +590,7 @@ msgstr "Package Source"
 msgid "Summary"
 msgstr "摘要"
 
-msgid ""
-"<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
 msgstr "<span weight=\"bold\" size=\"large\">应用以下变更?</span>"
 
 msgid "This is a summary of the changes about to be performed."
@@ -634,74 +628,3 @@ msgstr "<b>GPG Keys</b>"
 
 msgid "Verification"
 msgstr "Verification"
-
-#~ msgid "<span weight=\"bold\">SOURCE=</span>"
-#~ msgstr "<span weight=\"bold\">源=</span>"
-
-#~ msgid "About gslapt"
-#~ msgstr "关于 gslapt"
-
-#~ msgid "Clear search expression"
-#~ msgstr "清除搜索表达式"
-
-#~ msgid "Clear"
-#~ msgstr "清除"
-
-#~ msgid "Conflicts"
-#~ msgstr "冲突"
-
-#~ msgid "Couldn't find pixmap file: %s"
-#~ msgstr "无法找到图像文件: %s"
-
-#~ msgid "Exclude package"
-#~ msgstr "排除软件包"
-
-#~ msgid "Exclude"
-#~ msgstr "排除"
-
-#~ msgid "Install/Upgrade package"
-#~ msgstr "安装/升级 软件包"
-
-#~ msgid "No"
-#~ msgstr "否"
-
-#~ msgid "Package Action"
-#~ msgstr "Package Action"
-
-#~ msgid "Package Information"
-#~ msgstr "软件包信息"
-
-#~ msgid "Quit"
-#~ msgstr "退出"
-
-#~ msgid "Remove package"
-#~ msgstr "删除软件包"
-
-#~ msgid "Required"
-#~ msgstr "依赖"
-
-#~ msgid "Suggests"
-#~ msgstr "建议"
-
-#~ msgid "Up_grade"
-#~ msgstr "升级(_g)"
-
-#~ msgid "Upgrading packages..."
-#~ msgstr "正在升级软件包..."
-
-#~ msgid "Yes"
-#~ msgstr "是"
-
-#~ msgid ""
-#~ "%d upgraded, %d reinstalled, %d newly installed, %d to remove and %d not "
-#~ "upgraded."
-#~ msgstr "%d 升级, %d reinstalled, %d 安装, %d 删除, %d 不升级."
-
-#~ msgid "<b>Size:</b>"
-#~ msgstr "<b>大小:</b>"
-
-#~ msgid "<b>Version</b>"
-#~ msgstr "<b>版本</b>"
-
-#~ msgid "<b>Source</b>"
-#~ msgstr "<b>Source</b>"

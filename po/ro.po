@@ -1,23 +1,20 @@
-# gslapt translation template
-# Copyright (C) 2005-2010 Jason Woodward
-# This file is distributed under the same license as the gslapt package.
-#
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# 
 # Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2014-08-04 22:05-0400\n"
-"PO-Revision-Date: 2012-09-17 21:52+0000\n"
+"PO-Revision-Date: 2014-08-05 02:05+0000\n"
 "Last-Translator: Jason Woodward <woodwardj@jaos.org>\n"
-"Language-Team: Romanian (http://www.transifex.com/projects/p/slapt-get/"
-"language/ro/)\n"
-"Language: ro\n"
+"Language-Team: Romanian (http://www.transifex.com/jaos/slapt-get/language/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?"
-"2:1));\n"
+"Language: ro\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
 
 msgid "Ready"
 msgstr ""
@@ -199,8 +196,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-msgid ""
-"<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
 msgstr ""
 
 #, c-format
@@ -279,8 +275,8 @@ msgid "<b>Excluding %s due to dependency failure</b>"
 msgstr ""
 
 msgid ""
-"Missing dependencies may mean the software in this package will not function "
-"correctly.  Do you want to continue without the required packages?"
+"Missing dependencies may mean the software in this package will not function"
+" correctly.  Do you want to continue without the required packages?"
 msgstr ""
 
 msgid ": Depends: "
@@ -562,8 +558,8 @@ msgid "Files"
 msgstr ""
 
 msgid ""
-"<b>The following icons are used to indicate the current status of a package:"
-"</b>"
+"<b>The following icons are used to indicate the current status of a "
+"package:</b>"
 msgstr ""
 
 msgid "Repositories changed"
@@ -581,8 +577,8 @@ msgid "Source failed"
 msgstr ""
 
 msgid ""
-"This package source failed or is not available.  Do you want to disable this "
-"source and continue anyway?"
+"This package source failed or is not available.  Do you want to disable this"
+" source and continue anyway?"
 msgstr ""
 
 msgid "Default"
@@ -603,8 +599,7 @@ msgstr ""
 msgid "Summary"
 msgstr ""
 
-msgid ""
-"<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
 msgstr ""
 
 msgid "This is a summary of the changes about to be performed."

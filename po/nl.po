@@ -1,7 +1,6 @@
-# gslapt translation template
-# Copyright (C) 2005-2010 Jason Woodward
-# This file is distributed under the same license as the gslapt package.
-#
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# 
 # Translators:
 # Jason Woodward <woodwardj@jaos.org>, 2005
 # Jason Woodward <woodwardj@jaos.org>, 2005
@@ -11,14 +10,13 @@ msgstr ""
 "Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2014-08-04 22:05-0400\n"
-"PO-Revision-Date: 2013-11-20 12:47+0000\n"
+"PO-Revision-Date: 2014-08-05 02:05+0000\n"
 "Last-Translator: Jason Woodward <woodwardj@jaos.org>\n"
-"Language-Team: Dutch (http://www.transifex.com/projects/p/slapt-get/language/"
-"nl/)\n"
-"Language: nl\n"
+"Language-Team: Dutch (http://www.transifex.com/jaos/slapt-get/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Ready"
@@ -166,23 +164,23 @@ msgstr "Te verwijderen pakketten"
 msgid "Package"
 msgstr "Pakket"
 
-#, fuzzy, c-format
+#, c-format
 msgid "%d upgraded, "
 msgid_plural "%d upgraded, "
-msgstr[0] "Waardeer op"
-msgstr[1] "Waardeer op"
+msgstr[0] ""
+msgstr[1] ""
 
-#, fuzzy, c-format
+#, c-format
 msgid "%d reinstalled, "
 msgid_plural "%d reinstalled, "
-msgstr[0] "Te installeren"
-msgstr[1] "Te installeren"
+msgstr[0] ""
+msgstr[1] ""
 
-#, fuzzy, c-format
+#, c-format
 msgid "%d newly installed, "
 msgid_plural "%d newly installed, "
-msgstr[0] "Te installeren"
-msgstr[1] "Te installeren"
+msgstr[0] ""
+msgstr[1] ""
 
 #, c-format
 msgid "%d to remove "
@@ -196,10 +194,8 @@ msgid_plural "and %d not upgraded."
 msgstr[0] ""
 msgstr[1] ""
 
-msgid ""
-"<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
-msgstr ""
-"<span weight=\"bold\" size=\"large\">U hebt niet genoeg vrije ruimte</span>"
+msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgstr "<span weight=\"bold\" size=\"large\">U hebt niet genoeg vrije ruimte</span>"
 
 #, c-format
 msgid "Need to get %.0f%s/%.0f%s of archives.\n"
@@ -215,8 +211,7 @@ msgstr "Na het uitpakken wordt %.0f%s aan schijfruimte vrijgemaakt."
 
 #, c-format
 msgid "After unpacking %.0f%s of additional disk space will be used."
-msgstr ""
-"Na het uitpakken wordt %.0f%s aan extra schijfruimte in beslag genomen."
+msgstr "Na het uitpakken wordt %.0f%s aan extra schijfruimte in beslag genomen."
 
 msgid "Up to Date"
 msgstr "Bij de tijd"
@@ -278,11 +273,9 @@ msgid "<b>Excluding %s due to dependency failure</b>"
 msgstr "<b>%s wordt wegens onvervulde afhankelijkheid uitgesloten</b>"
 
 msgid ""
-"Missing dependencies may mean the software in this package will not function "
-"correctly.  Do you want to continue without the required packages?"
-msgstr ""
-"Missing dependencies may mean the software in this package will not function "
-"correctly.  Do you want to continue without the required packages?"
+"Missing dependencies may mean the software in this package will not function"
+" correctly.  Do you want to continue without the required packages?"
+msgstr "Missing dependencies may mean the software in this package will not function correctly.  Do you want to continue without the required packages?"
 
 msgid ": Depends: "
 msgstr ": Hangt af van: "
@@ -401,9 +394,7 @@ msgstr "Localization"
 msgid ""
 "gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
 "Slackware"
-msgstr ""
-"gslapt is een op GTK+ gebaseerd bedieningspaneel voor slapt-get, een op APT "
-"lijkend pakketsysteem voor Slackware"
+msgstr "gslapt is een op GTK+ gebaseerd bedieningspaneel voor slapt-get, een op APT lijkend pakketsysteem voor Slackware"
 
 msgid "working"
 msgstr "werken"
@@ -565,10 +556,9 @@ msgid "Files"
 msgstr "Files"
 
 msgid ""
-"<b>The following icons are used to indicate the current status of a package:"
-"</b>"
-msgstr ""
-"<b>De volgende pictogrammen geven de huidige status van een pakket aan:</b>"
+"<b>The following icons are used to indicate the current status of a "
+"package:</b>"
+msgstr "<b>De volgende pictogrammen geven de huidige status van een pakket aan:</b>"
 
 msgid "Repositories changed"
 msgstr "Magazijnen veranderd"
@@ -579,19 +569,15 @@ msgstr "<span size=\"large\" weight=\"bold\">Magazijnen veranderd</span>"
 msgid ""
 "You need to reload the package list from the sources you have listed.  Do "
 "you want to do this now?"
-msgstr ""
-"U moet de pakketlijst opnieuw binnenhalen vanaf de door u aangegeven "
-"bronnen. Wilt u dit nu doen?"
+msgstr "U moet de pakketlijst opnieuw binnenhalen vanaf de door u aangegeven bronnen. Wilt u dit nu doen?"
 
 msgid "Source failed"
 msgstr "Source failed"
 
 msgid ""
-"This package source failed or is not available.  Do you want to disable this "
-"source and continue anyway?"
-msgstr ""
-"This package source failed or is not available.  Do you want to disable this "
-"source and continue anyway?"
+"This package source failed or is not available.  Do you want to disable this"
+" source and continue anyway?"
+msgstr "This package source failed or is not available.  Do you want to disable this source and continue anyway?"
 
 msgid "Default"
 msgstr "Default"
@@ -611,11 +597,8 @@ msgstr "Package Source"
 msgid "Summary"
 msgstr "Samenvatting"
 
-msgid ""
-"<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
-msgstr ""
-"<span weight=\"bold\" size=\"large\">De volgende veranderingen aanbrengen?</"
-"span>"
+msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+msgstr "<span weight=\"bold\" size=\"large\">De volgende veranderingen aanbrengen?</span>"
 
 msgid "This is a summary of the changes about to be performed."
 msgstr "Dit is een samenvatting van de aan te brengen veranderingen."
@@ -652,76 +635,3 @@ msgstr "<b>GPG Keys</b>"
 
 msgid "Verification"
 msgstr "Verification"
-
-#~ msgid "<span weight=\"bold\">SOURCE=</span>"
-#~ msgstr "<span weight=\"bold\">BRON=</span>"
-
-#~ msgid "About gslapt"
-#~ msgstr "Over gslapt"
-
-#~ msgid "Clear search expression"
-#~ msgstr "Wis zoekuitdrukking"
-
-#~ msgid "Clear"
-#~ msgstr "Wis"
-
-#~ msgid "Conflicts"
-#~ msgstr "Conflicten"
-
-#~ msgid "Couldn't find pixmap file: %s"
-#~ msgstr "Kon pixmapbestand %s niet vinden"
-
-#~ msgid "Exclude package"
-#~ msgstr "Sluit pakket uit"
-
-#~ msgid "Exclude"
-#~ msgstr "Sluit uit"
-
-#~ msgid "Install/Upgrade package"
-#~ msgstr "Installeer/Waardeer op"
-
-#~ msgid "No"
-#~ msgstr "Nr"
-
-#~ msgid "Package Action"
-#~ msgstr "Pakketopdracht"
-
-#~ msgid "Package Information"
-#~ msgstr "Pakketinformatie"
-
-#~ msgid "Quit"
-#~ msgstr "Stop"
-
-#~ msgid "Remove package"
-#~ msgstr "Verwijder pakket"
-
-#~ msgid "Required"
-#~ msgstr "Vereist"
-
-#~ msgid "Suggests"
-#~ msgstr "Stelt voor"
-
-#~ msgid "Up_grade"
-#~ msgstr "Waardeer _op"
-
-#~ msgid "Upgrading packages..."
-#~ msgstr "Opwaarderen pakketten..."
-
-#~ msgid "Yes"
-#~ msgstr "Ja"
-
-#~ msgid ""
-#~ "%d upgraded, %d reinstalled, %d newly installed, %d to remove and %d not "
-#~ "upgraded."
-#~ msgstr ""
-#~ "%d opgewaardeerd, %d reinstalled, %d nieuw geinstalleerd, %d te "
-#~ "verwijderen en %d niet opgewaardeerd."
-
-#~ msgid "<b>Size:</b>"
-#~ msgstr "<b>Grootte:</b>"
-
-#~ msgid "<b>Version</b>"
-#~ msgstr "<b>Versie</b>"
-
-#~ msgid "<b>Source</b>"
-#~ msgstr "<b>Source</b>"

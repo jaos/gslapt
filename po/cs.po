@@ -1,7 +1,6 @@
-# gslapt translation template
-# Copyright (C) 2005-2010 Jason Woodward
-# This file is distributed under the same license as the gslapt package.
-#
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# 
 # Translators:
 # Jiří Vírava <appukonrad@gmail.com>, 2013
 # Jiří Vírava <appukonrad@gmail.com>, 2013-2014
@@ -11,33 +10,32 @@ msgstr ""
 "Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2014-08-04 22:05-0400\n"
-"PO-Revision-Date: 2014-08-01 07:30+0000\n"
+"PO-Revision-Date: 2015-01-13 01:50+0000\n"
 "Last-Translator: Jiří Vírava <appukonrad@gmail.com>\n"
-"Language-Team: Czech (http://www.transifex.com/projects/p/slapt-get/language/"
-"cs/)\n"
-"Language: cs\n"
+"Language-Team: Czech (http://www.transifex.com/jaos/slapt-get/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 msgid "Ready"
-msgstr ""
+msgstr "Připraveno"
 
 msgid "Upgrade"
-msgstr ""
+msgstr "Aktualizovat"
 
 msgid "Re-Install"
-msgstr ""
+msgstr "Přeinstalovat"
 
 msgid "<b>Required:</b>"
-msgstr ""
+msgstr "<b>Požadováno:</b>"
 
 msgid "<b>Conflicts:</b>"
 msgstr "<b>Konflikty:</b>"
 
 msgid "<b>Suggests:</b>"
-msgstr ""
+msgstr "<b>Navrhováno:</b>"
 
 msgid "No dependency information available"
 msgstr ""
@@ -173,19 +171,19 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#, fuzzy, c-format
+#, c-format
 msgid "%d reinstalled, "
 msgid_plural "%d reinstalled, "
-msgstr[0] "Instalováno"
-msgstr[1] "Instalováno"
-msgstr[2] "Instalováno"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #, c-format
 msgid "%d newly installed, "
 msgid_plural "%d newly installed, "
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "%d nově instalováno, "
 
 #, c-format
 msgid "%d to remove "
@@ -201,8 +199,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-msgid ""
-"<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
 msgstr ""
 
 #, c-format
@@ -281,8 +278,8 @@ msgid "<b>Excluding %s due to dependency failure</b>"
 msgstr ""
 
 msgid ""
-"Missing dependencies may mean the software in this package will not function "
-"correctly.  Do you want to continue without the required packages?"
+"Missing dependencies may mean the software in this package will not function"
+" correctly.  Do you want to continue without the required packages?"
 msgstr ""
 
 msgid ": Depends: "
@@ -564,8 +561,8 @@ msgid "Files"
 msgstr "Soubory"
 
 msgid ""
-"<b>The following icons are used to indicate the current status of a package:"
-"</b>"
+"<b>The following icons are used to indicate the current status of a "
+"package:</b>"
 msgstr ""
 
 msgid "Repositories changed"
@@ -583,8 +580,8 @@ msgid "Source failed"
 msgstr "Zdroj selhal"
 
 msgid ""
-"This package source failed or is not available.  Do you want to disable this "
-"source and continue anyway?"
+"This package source failed or is not available.  Do you want to disable this"
+" source and continue anyway?"
 msgstr ""
 
 msgid "Default"
@@ -605,8 +602,7 @@ msgstr ""
 msgid "Summary"
 msgstr "Přehled"
 
-msgid ""
-"<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
 msgstr ""
 
 msgid "This is a summary of the changes about to be performed."
@@ -644,57 +640,3 @@ msgstr "<b>GPG klíče</b>"
 
 msgid "Verification"
 msgstr "Ověření"
-
-#~ msgid "About gslapt"
-#~ msgstr "O gslapt"
-
-#~ msgid "Clear search expression"
-#~ msgstr "Vymazat hledaný výraz"
-
-#~ msgid "Clear"
-#~ msgstr "Vyčistit"
-
-#~ msgid "Conflicts"
-#~ msgstr "Konflikty"
-
-#~ msgid "Couldn't find pixmap file: %s"
-#~ msgstr "Nelze najít Pixmap soubor: %s"
-
-#~ msgid "Exclude package"
-#~ msgstr "Vyloučit balíček"
-
-#~ msgid "Exclude"
-#~ msgstr "Vyloučit"
-
-#~ msgid "Install/Upgrade package"
-#~ msgstr "Instalace/Aktualitace balíčku"
-
-#~ msgid "No"
-#~ msgstr "NE"
-
-#~ msgid "Package Information"
-#~ msgstr "Informace o balíčku"
-
-#~ msgid "Quit"
-#~ msgstr "Opustit"
-
-#~ msgid "Remove package"
-#~ msgstr "Odebrat balíček"
-
-#~ msgid "Required"
-#~ msgstr "Vyžadováno"
-
-#~ msgid "Suggests"
-#~ msgstr "Navrhované"
-
-#~ msgid "Yes"
-#~ msgstr "ANO"
-
-#~ msgid "<b>Size:</b>"
-#~ msgstr "<b>Velikost:</b>"
-
-#~ msgid "<b>Version</b>"
-#~ msgstr "Verze"
-
-#~ msgid "<b>Source</b>"
-#~ msgstr "<b>Zdroj:</b>"

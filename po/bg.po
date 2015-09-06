@@ -1,7 +1,6 @@
-# gslapt translation template
-# Copyright (C) 2005-2010 Jason Woodward
-# This file is distributed under the same license as the gslapt package.
-#
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# 
 # Translators:
 # Victor Keranov <victor_keranov@mail.bg>, 2006
 msgid ""
@@ -9,14 +8,13 @@ msgstr ""
 "Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2014-08-04 22:05-0400\n"
-"PO-Revision-Date: 2013-11-20 12:47+0000\n"
+"PO-Revision-Date: 2014-08-05 02:05+0000\n"
 "Last-Translator: Jason Woodward <woodwardj@jaos.org>\n"
-"Language-Team: Bulgarian (http://www.transifex.com/projects/p/slapt-get/"
-"language/bg/)\n"
-"Language: bg\n"
+"Language-Team: Bulgarian (http://www.transifex.com/jaos/slapt-get/language/bg/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: bg\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Ready"
@@ -164,23 +162,23 @@ msgstr "Пакети за премахване"
 msgid "Package"
 msgstr "Пакет"
 
-#, fuzzy, c-format
+#, c-format
 msgid "%d upgraded, "
 msgid_plural "%d upgraded, "
-msgstr[0] "Обновяване"
-msgstr[1] "Обновяване"
+msgstr[0] ""
+msgstr[1] ""
 
-#, fuzzy, c-format
+#, c-format
 msgid "%d reinstalled, "
 msgid_plural "%d reinstalled, "
-msgstr[0] "Ще бъде инсталиран"
-msgstr[1] "Ще бъде инсталиран"
+msgstr[0] ""
+msgstr[1] ""
 
-#, fuzzy, c-format
+#, c-format
 msgid "%d newly installed, "
 msgid_plural "%d newly installed, "
-msgstr[0] "Ще бъде инсталиран"
-msgstr[1] "Ще бъде инсталиран"
+msgstr[0] ""
+msgstr[1] ""
 
 #, c-format
 msgid "%d to remove "
@@ -194,10 +192,8 @@ msgid_plural "and %d not upgraded."
 msgstr[0] ""
 msgstr[1] ""
 
-msgid ""
-"<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
-msgstr ""
-"<span weight=\"bold\" size=\"large\">Нямате достатъчно свободно място</span>"
+msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Нямате достатъчно свободно място</span>"
 
 #, c-format
 msgid "Need to get %.0f%s/%.0f%s of archives.\n"
@@ -275,11 +271,9 @@ msgid "<b>Excluding %s due to dependency failure</b>"
 msgstr "<b>Изключване на %s поради грешка в зависимостите</b>"
 
 msgid ""
-"Missing dependencies may mean the software in this package will not function "
-"correctly.  Do you want to continue without the required packages?"
-msgstr ""
-"Липсващи зависимости могат да означават, че дадения пакет няма да "
-"функционира правилно. Желаете ли да продължите без нужните пакети?"
+"Missing dependencies may mean the software in this package will not function"
+" correctly.  Do you want to continue without the required packages?"
+msgstr "Липсващи зависимости могат да означават, че дадения пакет няма да функционира правилно. Желаете ли да продължите без нужните пакети?"
 
 msgid ": Depends: "
 msgstr ": Зависимости: "
@@ -398,9 +392,7 @@ msgstr "Localization"
 msgid ""
 "gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
 "Slackware"
-msgstr ""
-"gslapt е GTK+ фронтенд на slapt-get, подобна на APT пакетна система за "
-"Slackware"
+msgstr "gslapt е GTK+ фронтенд на slapt-get, подобна на APT пакетна система за Slackware"
 
 msgid "working"
 msgstr "working"
@@ -562,11 +554,9 @@ msgid "Files"
 msgstr "Files"
 
 msgid ""
-"<b>The following icons are used to indicate the current status of a package:"
-"</b>"
-msgstr ""
-"<b>Използвани са следните икони за индикация на актуалното състояние на "
-"пакетите:</b>"
+"<b>The following icons are used to indicate the current status of a "
+"package:</b>"
+msgstr "<b>Използвани са следните икони за индикация на актуалното състояние на пакетите:</b>"
 
 msgid "Repositories changed"
 msgstr "Хранилищата са променени"
@@ -577,19 +567,15 @@ msgstr "<span size=\"large\" weight=\"bold\">Хранилищата са про�
 msgid ""
 "You need to reload the package list from the sources you have listed.  Do "
 "you want to do this now?"
-msgstr ""
-"Нужно е да презаредите списъка с пакети от хранилищата, които сте избрали. "
-"Желаете ли да го направите сега?"
+msgstr "Нужно е да презаредите списъка с пакети от хранилищата, които сте избрали. Желаете ли да го направите сега?"
 
 msgid "Source failed"
 msgstr "Source failed"
 
 msgid ""
-"This package source failed or is not available.  Do you want to disable this "
-"source and continue anyway?"
-msgstr ""
-"Това хранилище не работи или не е достъпно в момента. Желаете ли да го "
-"деактивирате и да продължите напред?"
+"This package source failed or is not available.  Do you want to disable this"
+" source and continue anyway?"
+msgstr "Това хранилище не работи или не е достъпно в момента. Желаете ли да го деактивирате и да продължите напред?"
 
 msgid "Default"
 msgstr "Default"
@@ -609,10 +595,8 @@ msgstr "Package Source"
 msgid "Summary"
 msgstr "Резюме"
 
-msgid ""
-"<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
-msgstr ""
-"<span weight=\"bold\" size=\"large\">Извършване на следните промени?</span>"
+msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Извършване на следните промени?</span>"
 
 msgid "This is a summary of the changes about to be performed."
 msgstr "Това е резюме на промените, които ще бъдат извършени."
@@ -649,76 +633,3 @@ msgstr "<b>GPG Keys</b>"
 
 msgid "Verification"
 msgstr "Verification"
-
-#~ msgid "<span weight=\"bold\">SOURCE=</span>"
-#~ msgstr "<span weight=\"bold\">Ново хранилище:</span>"
-
-#~ msgid "About gslapt"
-#~ msgstr "Относно gslapt"
-
-#~ msgid "Clear search expression"
-#~ msgstr "Изчистване на фразите за търсене"
-
-#~ msgid "Clear"
-#~ msgstr "Изчистване"
-
-#~ msgid "Conflicts"
-#~ msgstr "Конфликти"
-
-#~ msgid "Couldn't find pixmap file: %s"
-#~ msgstr "Couldn't find pixmap file: %s"
-
-#~ msgid "Exclude package"
-#~ msgstr "Exclude package"
-
-#~ msgid "Exclude"
-#~ msgstr "Exclude"
-
-#~ msgid "Install/Upgrade package"
-#~ msgstr "Инсталиране/Обновяване на пакет"
-
-#~ msgid "No"
-#~ msgstr "Не"
-
-#~ msgid "Package Action"
-#~ msgstr "Действие"
-
-#~ msgid "Package Information"
-#~ msgstr "Информация"
-
-#~ msgid "Quit"
-#~ msgstr "Изход"
-
-#~ msgid "Remove package"
-#~ msgstr "Премахване на пакет"
-
-#~ msgid "Required"
-#~ msgstr "Required"
-
-#~ msgid "Suggests"
-#~ msgstr "Предложения"
-
-#~ msgid "Up_grade"
-#~ msgstr "Up_grade"
-
-#~ msgid "Upgrading packages..."
-#~ msgstr "Обновяване на пакети..."
-
-#~ msgid "Yes"
-#~ msgstr "Да"
-
-#~ msgid ""
-#~ "%d upgraded, %d reinstalled, %d newly installed, %d to remove and %d not "
-#~ "upgraded."
-#~ msgstr ""
-#~ "%d обновени, %d reinstalled, %d инсталирани, %d за премахване и %d "
-#~ "необновени."
-
-#~ msgid "<b>Size:</b>"
-#~ msgstr "<b>Обем:</b>"
-
-#~ msgid "<b>Version</b>"
-#~ msgstr "<b>Версия</b>"
-
-#~ msgid "<b>Source</b>"
-#~ msgstr "<b>Source</b>"

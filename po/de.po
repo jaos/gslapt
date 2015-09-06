@@ -1,7 +1,6 @@
-# gslapt translation template
-# Copyright (C) 2005-2010 Jason Woodward
-# This file is distributed under the same license as the gslapt package.
-#
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# 
 # Translators:
 # Sebastian Jauch <stellarboy653-minislack@yahoo.de>, 2005
 msgid ""
@@ -9,14 +8,13 @@ msgstr ""
 "Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2014-08-04 22:05-0400\n"
-"PO-Revision-Date: 2013-11-20 12:47+0000\n"
+"PO-Revision-Date: 2014-08-05 02:05+0000\n"
 "Last-Translator: Jason Woodward <woodwardj@jaos.org>\n"
-"Language-Team: German (http://www.transifex.com/projects/p/slapt-get/"
-"language/de/)\n"
-"Language: de\n"
+"Language-Team: German (http://www.transifex.com/jaos/slapt-get/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Ready"
@@ -47,9 +45,7 @@ msgid "No changelog information available"
 msgstr "Keine Changelog-Information(en) verfügbar"
 
 msgid "The list of installed files is only available for installed packages"
-msgstr ""
-"Die Liste installierter Dateien ist nur fuer bereits installierte Pakete "
-"verfuegbar"
+msgstr "Die Liste installierter Dateien ist nur fuer bereits installierte Pakete verfuegbar"
 
 msgid "Excluded"
 msgstr "Ausschluss"
@@ -166,23 +162,23 @@ msgstr "Zu entfernende Pakete"
 msgid "Package"
 msgstr "Paket"
 
-#, fuzzy, c-format
+#, c-format
 msgid "%d upgraded, "
 msgid_plural "%d upgraded, "
-msgstr[0] "Aktualisierung"
-msgstr[1] "Aktualisierung"
+msgstr[0] ""
+msgstr[1] ""
 
-#, fuzzy, c-format
+#, c-format
 msgid "%d reinstalled, "
 msgid_plural "%d reinstalled, "
-msgstr[0] "Zu Installieren"
-msgstr[1] "Zu Installieren"
+msgstr[0] ""
+msgstr[1] ""
 
-#, fuzzy, c-format
+#, c-format
 msgid "%d newly installed, "
 msgid_plural "%d newly installed, "
-msgstr[0] "Zu Installieren"
-msgstr[1] "Zu Installieren"
+msgstr[0] ""
+msgstr[1] ""
 
 #, c-format
 msgid "%d to remove "
@@ -196,8 +192,7 @@ msgid_plural "and %d not upgraded."
 msgstr[0] ""
 msgstr[1] ""
 
-msgid ""
-"<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Nicht genug Speicherplatz</span>"
 
 #, c-format
@@ -220,8 +215,7 @@ msgid "Up to Date"
 msgstr "Aktuell"
 
 msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
-msgstr ""
-"<span weight=\"bold\" size=\"large\">Keine Aktualisierungen vorhanden</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Keine Aktualisierungen vorhanden</span>"
 
 msgid "Downloading packages..."
 msgstr "Lade Pakete..."
@@ -277,11 +271,9 @@ msgid "<b>Excluding %s due to dependency failure</b>"
 msgstr "<b>Schliesse %s wegen Abhaengigkeits-Fehler aus</b>"
 
 msgid ""
-"Missing dependencies may mean the software in this package will not function "
-"correctly.  Do you want to continue without the required packages?"
-msgstr ""
-"Fehlende Abhaengigkeiten koennen instabiles System-Verhalten bewirken. "
-"Moechten Sie ohne die erforderlichen Pakete weitermachen?"
+"Missing dependencies may mean the software in this package will not function"
+" correctly.  Do you want to continue without the required packages?"
+msgstr "Fehlende Abhaengigkeiten koennen instabiles System-Verhalten bewirken. Moechten Sie ohne die erforderlichen Pakete weitermachen?"
 
 msgid ": Depends: "
 msgstr ": Erfordert: "
@@ -400,9 +392,7 @@ msgstr "Localisierung"
 msgid ""
 "gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
 "Slackware"
-msgstr ""
-"Gslapt ist ein GTK+-Frontend fuer slapt-get, dem Slackware-Pendant von "
-"Debian's APT"
+msgstr "Gslapt ist ein GTK+-Frontend fuer slapt-get, dem Slackware-Pendant von Debian's APT"
 
 msgid "working"
 msgstr "arbeite"
@@ -564,10 +554,9 @@ msgid "Files"
 msgstr "Dateien"
 
 msgid ""
-"<b>The following icons are used to indicate the current status of a package:"
-"</b>"
-msgstr ""
-"<b>Die folgenden Icons zeigen den momentanen Status eines Paketes an:</b>"
+"<b>The following icons are used to indicate the current status of a "
+"package:</b>"
+msgstr "<b>Die folgenden Icons zeigen den momentanen Status eines Paketes an:</b>"
 
 msgid "Repositories changed"
 msgstr "Geaenderte Quellen"
@@ -578,19 +567,15 @@ msgstr "<span size=\"large\" weight=\"bold\">Geaenderte Quellen</span>"
 msgid ""
 "You need to reload the package list from the sources you have listed.  Do "
 "you want to do this now?"
-msgstr ""
-"Sie muessen die Paket-Listen der gespeicherten Quellen aktualisieren.  Soll "
-"dies jetzt geschehen?"
+msgstr "Sie muessen die Paket-Listen der gespeicherten Quellen aktualisieren.  Soll dies jetzt geschehen?"
 
 msgid "Source failed"
 msgstr "Zugriff auf Quelle(n) fehlgeschlagen"
 
 msgid ""
-"This package source failed or is not available.  Do you want to disable this "
-"source and continue anyway?"
-msgstr ""
-"Diese Paket-Quelle ist defekt oder nicht verfuegbar.  Moechten Sie diese "
-"Quelle daktivieren und dann weitermachen?"
+"This package source failed or is not available.  Do you want to disable this"
+" source and continue anyway?"
+msgstr "Diese Paket-Quelle ist defekt oder nicht verfuegbar.  Moechten Sie diese Quelle daktivieren und dann weitermachen?"
 
 msgid "Default"
 msgstr "Standard"
@@ -610,8 +595,7 @@ msgstr "Paket-Quelle"
 msgid "Summary"
 msgstr "Zusammenfassung"
 
-msgid ""
-"<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Aenderungen aktivieren?</span>"
 
 msgid "This is a summary of the changes about to be performed."
@@ -649,76 +633,3 @@ msgstr "<b>GPG Schluessel</b>"
 
 msgid "Verification"
 msgstr "Ueberpruefung"
-
-#~ msgid "<span weight=\"bold\">SOURCE=</span>"
-#~ msgstr "<span weight=\"bold\">QUELLE=</span>"
-
-#~ msgid "About gslapt"
-#~ msgstr "Ueber gslapt"
-
-#~ msgid "Clear search expression"
-#~ msgstr "Loesche Suchbegriff"
-
-#~ msgid "Clear"
-#~ msgstr "Loeschen"
-
-#~ msgid "Conflicts"
-#~ msgstr "Konflikte"
-
-#~ msgid "Couldn't find pixmap file: %s"
-#~ msgstr "Kann Pixmap-Datei %s nicht finden"
-
-#~ msgid "Exclude package"
-#~ msgstr "Paket ausschliessen"
-
-#~ msgid "Exclude"
-#~ msgstr "Ausschliessen"
-
-#~ msgid "Install/Upgrade package"
-#~ msgstr "Installiere/Aktualisiere Paket"
-
-#~ msgid "No"
-#~ msgstr "Nein"
-
-#~ msgid "Package Action"
-#~ msgstr "Paket-Befehl"
-
-#~ msgid "Package Information"
-#~ msgstr "Paket-Information"
-
-#~ msgid "Quit"
-#~ msgstr "Ende"
-
-#~ msgid "Remove package"
-#~ msgstr "Entferne Paket"
-
-#~ msgid "Required"
-#~ msgstr "Erforderlich"
-
-#~ msgid "Suggests"
-#~ msgstr "Empfehlungen"
-
-#~ msgid "Up_grade"
-#~ msgstr "Akt_ualisiere"
-
-#~ msgid "Upgrading packages..."
-#~ msgstr "Aktualisiere Pakete"
-
-#~ msgid "Yes"
-#~ msgstr "Ja"
-
-#~ msgid ""
-#~ "%d upgraded, %d reinstalled, %d newly installed, %d to remove and %d not "
-#~ "upgraded."
-#~ msgstr ""
-#~ "%d aktualisiert, %d reinstalled, %d neu installiert, %d zu entfernen %d "
-#~ "nicht erneuert."
-
-#~ msgid "<b>Size:</b>"
-#~ msgstr "<b>Groesse:</b>"
-
-#~ msgid "<b>Version</b>"
-#~ msgstr "<b>Version</b>"
-
-#~ msgid "<b>Source</b>"
-#~ msgstr "<b>Quelle</b>"

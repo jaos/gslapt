@@ -1,7 +1,6 @@
-# gslapt translation template
-# Copyright (C) 2005-2010 Jason Woodward
-# This file is distributed under the same license as the gslapt package.
-#
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# 
 # Translators:
 # gapan <vlahavas@gmail.com>, 2012
 # gapan <vlahavas@gmail.com>, 2012
@@ -10,14 +9,13 @@ msgstr ""
 "Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2014-08-04 22:05-0400\n"
-"PO-Revision-Date: 2013-11-20 12:47+0000\n"
+"PO-Revision-Date: 2014-08-05 02:05+0000\n"
 "Last-Translator: Jason Woodward <woodwardj@jaos.org>\n"
-"Language-Team: Greek (http://www.transifex.com/projects/p/slapt-get/language/"
-"el/)\n"
-"Language: el\n"
+"Language-Team: Greek (http://www.transifex.com/jaos/slapt-get/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Ready"
@@ -48,9 +46,7 @@ msgid "No changelog information available"
 msgstr "Δεν υπάρχει αρχείο αλλαγών"
 
 msgid "The list of installed files is only available for installed packages"
-msgstr ""
-"Ο κατάλογος των εγκατεστημένων αρχείων είναι διαθέσιμος μόνο για "
-"εγκατεστημένα πακέτα"
+msgstr "Ο κατάλογος των εγκατεστημένων αρχείων είναι διαθέσιμος μόνο για εγκατεστημένα πακέτα"
 
 msgid "Excluded"
 msgstr "Εξαιρούμενα"
@@ -167,23 +163,23 @@ msgstr "Πακέτα προς απεγκατάσταση"
 msgid "Package"
 msgstr "Πακέτο"
 
-#, fuzzy, c-format
+#, c-format
 msgid "%d upgraded, "
 msgid_plural "%d upgraded, "
-msgstr[0] "Αναβάθμιση"
-msgstr[1] "Αναβάθμιση"
+msgstr[0] ""
+msgstr[1] ""
 
-#, fuzzy, c-format
+#, c-format
 msgid "%d reinstalled, "
 msgid_plural "%d reinstalled, "
-msgstr[0] "Προς εγκατάσταση"
-msgstr[1] "Προς εγκατάσταση"
+msgstr[0] ""
+msgstr[1] ""
 
-#, fuzzy, c-format
+#, c-format
 msgid "%d newly installed, "
 msgid_plural "%d newly installed, "
-msgstr[0] "Προς εγκατάσταση"
-msgstr[1] "Προς εγκατάσταση"
+msgstr[0] ""
+msgstr[1] ""
 
 #, c-format
 msgid "%d to remove "
@@ -197,11 +193,8 @@ msgid_plural "and %d not upgraded."
 msgstr[0] ""
 msgstr[1] ""
 
-msgid ""
-"<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
-msgstr ""
-"<span weight=\"bold\" size=\"large\">Δεν έχετε αρκετό ελεύθερο χώρο στο "
-"δίσκο</span>"
+msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Δεν έχετε αρκετό ελεύθερο χώρο στο δίσκο</span>"
 
 #, c-format
 msgid "Need to get %.0f%s/%.0f%s of archives.\n"
@@ -279,12 +272,9 @@ msgid "<b>Excluding %s due to dependency failure</b>"
 msgstr "<b>Εξαιρείται το %s λόγω αποτυχίας επίλυσης εξαρτήσεων</b>"
 
 msgid ""
-"Missing dependencies may mean the software in this package will not function "
-"correctly.  Do you want to continue without the required packages?"
-msgstr ""
-"Απούσες εξαρτήσεις μπορεί να σημαίνουν ότι το λογισμικό που περιλαμβάνεται "
-"στο πακέτο ενδέχεται να μη λειτουργεί σωστά. Θέλετε να συνεχίσετε χωρίς τα "
-"απαιτούμενα πακέτα;"
+"Missing dependencies may mean the software in this package will not function"
+" correctly.  Do you want to continue without the required packages?"
+msgstr "Απούσες εξαρτήσεις μπορεί να σημαίνουν ότι το λογισμικό που περιλαμβάνεται στο πακέτο ενδέχεται να μη λειτουργεί σωστά. Θέλετε να συνεχίσετε χωρίς τα απαιτούμενα πακέτα;"
 
 msgid ": Depends: "
 msgstr ": Εξαρτήσεις: "
@@ -403,9 +393,7 @@ msgstr "Διεθνοποίηση"
 msgid ""
 "gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
 "Slackware"
-msgstr ""
-"Το gslapt είναι ένα γραφικό περιβάλλον χρήσης του slapt-get, ένα σύστημα "
-"διαχείρισης πακέτων για το Slackware όμοιο με το APT"
+msgstr "Το gslapt είναι ένα γραφικό περιβάλλον χρήσης του slapt-get, ένα σύστημα διαχείρισης πακέτων για το Slackware όμοιο με το APT"
 
 msgid "working"
 msgstr "απασχολημένο"
@@ -567,11 +555,9 @@ msgid "Files"
 msgstr "Αρχεία"
 
 msgid ""
-"<b>The following icons are used to indicate the current status of a package:"
-"</b>"
-msgstr ""
-"<b>Τα ακόλουθα εικονίδια χρησιμοποιούνται για να δείξουν την τρέχουσα "
-"κατάσταση ενός πακέτου:</b>"
+"<b>The following icons are used to indicate the current status of a "
+"package:</b>"
+msgstr "<b>Τα ακόλουθα εικονίδια χρησιμοποιούνται για να δείξουν την τρέχουσα κατάσταση ενός πακέτου:</b>"
 
 msgid "Repositories changed"
 msgstr "Οι πηγές πακέτων άλλαξαν"
@@ -582,19 +568,15 @@ msgstr "<span size=\"large\" weight=\"bold\">Οι πηγές πακέτων άλ
 msgid ""
 "You need to reload the package list from the sources you have listed.  Do "
 "you want to do this now?"
-msgstr ""
-"Πρέπει να ανανεώσετε τη λίστα των πακέτων από τις πηγές που χρησιμοποιείτε. "
-"Θέλετε να το κάνετε τώρα;"
+msgstr "Πρέπει να ανανεώσετε τη λίστα των πακέτων από τις πηγές που χρησιμοποιείτε. Θέλετε να το κάνετε τώρα;"
 
 msgid "Source failed"
 msgstr "Η πηγή απέτυχε"
 
 msgid ""
-"This package source failed or is not available.  Do you want to disable this "
-"source and continue anyway?"
-msgstr ""
-"Απέτυχε η λήψη δεδομένων από την πηγή πακέτων.  Θέλετε να απενεργοποιήσετε "
-"αυτή την πηγή πακέτων και να συνεχίσετε ούτως ή άλλως;"
+"This package source failed or is not available.  Do you want to disable this"
+" source and continue anyway?"
+msgstr "Απέτυχε η λήψη δεδομένων από την πηγή πακέτων.  Θέλετε να απενεργοποιήσετε αυτή την πηγή πακέτων και να συνεχίσετε ούτως ή άλλως;"
 
 msgid "Default"
 msgstr "Εξ ορισμού"
@@ -614,11 +596,8 @@ msgstr "Πηγή πακέτων"
 msgid "Summary"
 msgstr "Περίληψη"
 
-msgid ""
-"<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
-msgstr ""
-"<span weight=\"bold\" size=\"large\">Να εφαρμοστούν οι παρακάτω αλλαγές;</"
-"span>"
+msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Να εφαρμοστούν οι παρακάτω αλλαγές;</span>"
 
 msgid "This is a summary of the changes about to be performed."
 msgstr "Αυτή είναι μια περίληψη των αλλαγών που πρόκειται να πραγματοποιηθούν"
@@ -655,76 +634,3 @@ msgstr "<b>Κλειδιά GPG</b>"
 
 msgid "Verification"
 msgstr "Επαλήθευση"
-
-#~ msgid "<span weight=\"bold\">SOURCE=</span>"
-#~ msgstr "<span weight=\"bold\">SOURCE=</span>"
-
-#~ msgid "About gslapt"
-#~ msgstr "Περί gslapt"
-
-#~ msgid "Clear search expression"
-#~ msgstr "Καθαρισμός της έκφρασης αναζήτησης"
-
-#~ msgid "Clear"
-#~ msgstr "Καθαρισμός"
-
-#~ msgid "Conflicts"
-#~ msgstr "Συγκρούσεις"
-
-#~ msgid "Couldn't find pixmap file: %s"
-#~ msgstr "Δεν ήταν δυνατό να βρεθεί το αρχείο pixmap: %s"
-
-#~ msgid "Exclude package"
-#~ msgstr "Αποκλεισμός πακέτου"
-
-#~ msgid "Exclude"
-#~ msgstr "Αποκλεισμός"
-
-#~ msgid "Install/Upgrade package"
-#~ msgstr "Εγκατάσταση/Αναβάθμιση πακέτου"
-
-#~ msgid "No"
-#~ msgstr "Όχι"
-
-#~ msgid "Package Action"
-#~ msgstr "Ενέργεια πακέτων"
-
-#~ msgid "Package Information"
-#~ msgstr "Πληροφορίες πακέτου"
-
-#~ msgid "Quit"
-#~ msgstr "Έξοδος"
-
-#~ msgid "Remove package"
-#~ msgstr "Απεγκατάσταση πακέτου"
-
-#~ msgid "Required"
-#~ msgstr "Απαιτούμενα"
-
-#~ msgid "Suggests"
-#~ msgstr "Προτεινόμενα"
-
-#~ msgid "Up_grade"
-#~ msgstr "Αναβάθμιση"
-
-#~ msgid "Upgrading packages..."
-#~ msgstr "Αναβάθμιση πακέτων..."
-
-#~ msgid "Yes"
-#~ msgstr "Ναι"
-
-#~ msgid ""
-#~ "%d upgraded, %d reinstalled, %d newly installed, %d to remove and %d not "
-#~ "upgraded."
-#~ msgstr ""
-#~ "%d προς αναβάθμιση, %d προς επανεγκατάσταση, %d προς εγκατάσταση, %d προς "
-#~ "απεγκατάσταση και %d δεν θα αναβαθμιστούν."
-
-#~ msgid "<b>Size:</b>"
-#~ msgstr "<b>Μέγεθος:</b>"
-
-#~ msgid "<b>Version</b>"
-#~ msgstr "<b>Έκδοση</b>"
-
-#~ msgid "<b>Source</b>"
-#~ msgstr "<b>Πηγή</b>"

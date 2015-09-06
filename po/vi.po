@@ -1,7 +1,6 @@
-# gslapt translation template
-# Copyright (C) 2005-2010 Jason Woodward
-# This file is distributed under the same license as the gslapt package.
-#
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# 
 # Translators:
 # FIRST AUTHOR Vu Nguyen <vncasper@yahoo.com>, 2005-2006
 msgid ""
@@ -9,14 +8,13 @@ msgstr ""
 "Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2014-08-04 22:05-0400\n"
-"PO-Revision-Date: 2013-11-20 12:47+0000\n"
+"PO-Revision-Date: 2014-08-05 02:05+0000\n"
 "Last-Translator: Jason Woodward <woodwardj@jaos.org>\n"
-"Language-Team: Vietnamese (http://www.transifex.com/projects/p/slapt-get/"
-"language/vi/)\n"
-"Language: vi\n"
+"Language-Team: Vietnamese (http://www.transifex.com/jaos/slapt-get/language/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: vi\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Ready"
@@ -164,20 +162,20 @@ msgstr "Các gói bị gỡ bỏ"
 msgid "Package"
 msgstr "Gói"
 
-#, fuzzy, c-format
+#, c-format
 msgid "%d upgraded, "
 msgid_plural "%d upgraded, "
-msgstr[0] "Nâng cấp"
+msgstr[0] ""
 
-#, fuzzy, c-format
+#, c-format
 msgid "%d reinstalled, "
 msgid_plural "%d reinstalled, "
-msgstr[0] "Được cài đặt"
+msgstr[0] ""
 
-#, fuzzy, c-format
+#, c-format
 msgid "%d newly installed, "
 msgid_plural "%d newly installed, "
-msgstr[0] "Được cài đặt"
+msgstr[0] ""
 
 #, c-format
 msgid "%d to remove "
@@ -189,10 +187,8 @@ msgid "and %d not upgraded."
 msgid_plural "and %d not upgraded."
 msgstr[0] ""
 
-msgid ""
-"<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
-msgstr ""
-"<span weight=\"bold\" size=\"large\">Bạn không có đủ không gian trống</span>"
+msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Bạn không có đủ không gian trống</span>"
 
 #, c-format
 msgid "Need to get %.0f%s/%.0f%s of archives.\n"
@@ -270,11 +266,9 @@ msgid "<b>Excluding %s due to dependency failure</b>"
 msgstr "<b>Loại bỏ %s do lỗi phụ thuộc</b>"
 
 msgid ""
-"Missing dependencies may mean the software in this package will not function "
-"correctly.  Do you want to continue without the required packages?"
-msgstr ""
-"Missing dependencies may mean the software in this package will not function "
-"correctly.  Do you want to continue without the required packages?"
+"Missing dependencies may mean the software in this package will not function"
+" correctly.  Do you want to continue without the required packages?"
+msgstr "Missing dependencies may mean the software in this package will not function correctly.  Do you want to continue without the required packages?"
 
 msgid ": Depends: "
 msgstr ": Các phụ thuộc: "
@@ -393,9 +387,7 @@ msgstr "Localization"
 msgid ""
 "gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
 "Slackware"
-msgstr ""
-"gslapt là giao diện GTK+ cho slapt-get, một hệ thống quản lý gói giống APT "
-"Slackware"
+msgstr "gslapt là giao diện GTK+ cho slapt-get, một hệ thống quản lý gói giống APT Slackware"
 
 msgid "working"
 msgstr "đang thực hiện"
@@ -557,11 +549,9 @@ msgid "Files"
 msgstr "Files"
 
 msgid ""
-"<b>The following icons are used to indicate the current status of a package:"
-"</b>"
-msgstr ""
-"<b>Các biểu tượng sau được sử dụng để nhận biết trạng thái hiện tại của một "
-"gói dữ liệu:</b>"
+"<b>The following icons are used to indicate the current status of a "
+"package:</b>"
+msgstr "<b>Các biểu tượng sau được sử dụng để nhận biết trạng thái hiện tại của một gói dữ liệu:</b>"
 
 msgid "Repositories changed"
 msgstr "Repositories changed"
@@ -572,19 +562,15 @@ msgstr "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
 msgid ""
 "You need to reload the package list from the sources you have listed.  Do "
 "you want to do this now?"
-msgstr ""
-"You need to reload the package list from the sources you have listed.  Do "
-"you want to do this now?"
+msgstr "You need to reload the package list from the sources you have listed.  Do you want to do this now?"
 
 msgid "Source failed"
 msgstr "Source failed"
 
 msgid ""
-"This package source failed or is not available.  Do you want to disable this "
-"source and continue anyway?"
-msgstr ""
-"This package source failed or is not available.  Do you want to disable this "
-"source and continue anyway?"
+"This package source failed or is not available.  Do you want to disable this"
+" source and continue anyway?"
+msgstr "This package source failed or is not available.  Do you want to disable this source and continue anyway?"
 
 msgid "Default"
 msgstr "Default"
@@ -604,10 +590,8 @@ msgstr "Package Source"
 msgid "Summary"
 msgstr "Tóm tắt"
 
-msgid ""
-"<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
-msgstr ""
-"<span weight=\"bold\" size=\"large\">Áp dụng những thay đổi sau?</span>"
+msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Áp dụng những thay đổi sau?</span>"
 
 msgid "This is a summary of the changes about to be performed."
 msgstr "Đây là bản tóm tắt các thay đổi về hiệu năng."
@@ -644,76 +628,3 @@ msgstr "<b>GPG Keys</b>"
 
 msgid "Verification"
 msgstr "Verification"
-
-#~ msgid "<span weight=\"bold\">SOURCE=</span>"
-#~ msgstr "<span weight=\"bold\">NGUỒN=</span>"
-
-#~ msgid "About gslapt"
-#~ msgstr "Giới thiệu gslapt"
-
-#~ msgid "Clear search expression"
-#~ msgstr "Xoá biểu thức tìm kiếm"
-
-#~ msgid "Clear"
-#~ msgstr "Xóa"
-
-#~ msgid "Conflicts"
-#~ msgstr "Các xung đột"
-
-#~ msgid "Couldn't find pixmap file: %s"
-#~ msgstr "Không tìm thấy tập tin hình ảnh: %s"
-
-#~ msgid "Exclude package"
-#~ msgstr "Gói phần mềm bị loại trừ"
-
-#~ msgid "Exclude"
-#~ msgstr "Loại trừ"
-
-#~ msgid "Install/Upgrade package"
-#~ msgstr "Cài đặt/Nâng cấp gói"
-
-#~ msgid "No"
-#~ msgstr "Không"
-
-#~ msgid "Package Action"
-#~ msgstr "Hoạt động gói"
-
-#~ msgid "Package Information"
-#~ msgstr "Thông tin gói"
-
-#~ msgid "Quit"
-#~ msgstr "Thoát"
-
-#~ msgid "Remove package"
-#~ msgstr "Gỡ bỏ gói"
-
-#~ msgid "Required"
-#~ msgstr "Yêu cầu"
-
-#~ msgid "Suggests"
-#~ msgstr "Các đề nghị"
-
-#~ msgid "Up_grade"
-#~ msgstr "Nâng cấp"
-
-#~ msgid "Upgrading packages..."
-#~ msgstr "Đang nâng cấp các gói..."
-
-#~ msgid "Yes"
-#~ msgstr "Đồng ý"
-
-#~ msgid ""
-#~ "%d upgraded, %d reinstalled, %d newly installed, %d to remove and %d not "
-#~ "upgraded."
-#~ msgstr ""
-#~ "%d gói được nâng cấp, %d reinstalled, %d gói được cài đặt mới, %d gói bị "
-#~ "gỡ bỏ và %d gói giữ nguyên"
-
-#~ msgid "<b>Size:</b>"
-#~ msgstr "<b>Kích thước:</b>"
-
-#~ msgid "<b>Version</b>"
-#~ msgstr "<b>Phiên bản</b>"
-
-#~ msgid "<b>Source</b>"
-#~ msgstr "<b>Source</b>"

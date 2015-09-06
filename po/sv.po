@@ -1,22 +1,20 @@
-# gslapt translation template
-# Copyright (C) 2005-2010 Jason Woodward
-# This file is distributed under the same license as the gslapt package.
-#
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# 
 # Translators:
-# Ingemar Karlsson <ingemar@ingk.se>, 2012
+# Ingemar Karlsson <ingemar@ingk.se>, 2012,2014
 msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2014-08-04 22:05-0400\n"
-"PO-Revision-Date: 2013-11-20 12:47+0000\n"
-"Last-Translator: Jason Woodward <woodwardj@jaos.org>\n"
-"Language-Team: Swedish (http://www.transifex.com/projects/p/slapt-get/"
-"language/sv/)\n"
-"Language: sv\n"
+"PO-Revision-Date: 2014-08-05 15:21+0000\n"
+"Last-Translator: Ingemar Karlsson <ingemar@ingk.se>\n"
+"Language-Team: Swedish (http://www.transifex.com/jaos/slapt-get/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Ready"
@@ -47,8 +45,7 @@ msgid "No changelog information available"
 msgstr "Ingen ändringsloggs information tillgänglig"
 
 msgid "The list of installed files is only available for installed packages"
-msgstr ""
-"Listan över installerade filer är endast tillgänglig för installerade paket"
+msgstr "Listan över installerade filer är endast tillgänglig för installerade paket"
 
 msgid "Excluded"
 msgstr "Undantagna"
@@ -165,41 +162,38 @@ msgstr "Paket som skall tas bort"
 msgid "Package"
 msgstr "Paket"
 
-#, fuzzy, c-format
+#, c-format
 msgid "%d upgraded, "
 msgid_plural "%d upgraded, "
-msgstr[0] "Uppgradera"
-msgstr[1] "Uppgradera"
+msgstr[0] "%d uppgraderad."
+msgstr[1] "%d uppgraderade."
 
-#, fuzzy, c-format
+#, c-format
 msgid "%d reinstalled, "
 msgid_plural "%d reinstalled, "
-msgstr[0] "Skall installeras"
-msgstr[1] "Skall installeras"
+msgstr[0] "%d återinstallerad."
+msgstr[1] "%d återinstallerade."
 
-#, fuzzy, c-format
+#, c-format
 msgid "%d newly installed, "
 msgid_plural "%d newly installed, "
-msgstr[0] "Skall installeras"
-msgstr[1] "Skall installeras"
+msgstr[0] "%d nyligen instalerad."
+msgstr[1] "%d nyligen installerade."
 
 #, c-format
 msgid "%d to remove "
 msgid_plural "%d to remove "
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d att ta bort"
+msgstr[1] "%d att ta bort"
 
 #, c-format
 msgid "and %d not upgraded."
 msgid_plural "and %d not upgraded."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "och %d inte uppgraderad."
+msgstr[1] "och %d inte uppgraderade."
 
-msgid ""
-"<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
-msgstr ""
-"<span weight=\"bold\" size=\"large\">Du har inte tillräckligt med ledigt "
-"utrymme</span>"
+msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Du har inte tillräckligt med ledigt utrymme</span>"
 
 #, c-format
 msgid "Need to get %.0f%s/%.0f%s of archives.\n"
@@ -215,15 +209,13 @@ msgstr "Efter uppackning kommer %.0f%s av diskutrymmet att frigöras."
 
 #, c-format
 msgid "After unpacking %.0f%s of additional disk space will be used."
-msgstr ""
-"Efter uppackning kommer ytterligare %.0f%s av diskutrymmet att användas."
+msgstr "Efter uppackning kommer ytterligare %.0f%s av diskutrymmet att användas."
 
 msgid "Up to Date"
 msgstr "Aktuell"
 
 msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
-msgstr ""
-"<span weight=\"bold\" size=\"large\">Inga uppdateringar tillgängliga</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Inga uppdateringar tillgängliga</span>"
 
 msgid "Downloading packages..."
 msgstr "Laddar ner paket..."
@@ -279,11 +271,9 @@ msgid "<b>Excluding %s due to dependency failure</b>"
 msgstr "<b>Undantar %s på grund av beroendet fel</b>"
 
 msgid ""
-"Missing dependencies may mean the software in this package will not function "
-"correctly.  Do you want to continue without the required packages?"
-msgstr ""
-"Saknade beroenden kan innebära att programvaran i paketet inte kommer att "
-"kunna fungera fullständigt. Vill du fortsätta utan de nödvändiga paketen?"
+"Missing dependencies may mean the software in this package will not function"
+" correctly.  Do you want to continue without the required packages?"
+msgstr "Saknade beroenden kan innebära att programvaran i paketet inte kommer att kunna fungera fullständigt. Vill du fortsätta utan de nödvändiga paketen?"
 
 msgid ": Depends: "
 msgstr ": Beroende av :"
@@ -402,9 +392,7 @@ msgstr "Internationalisering"
 msgid ""
 "gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
 "Slackware"
-msgstr ""
-"gslapt är en GTK+ frontend till slapt-get, ett APT-liknande paket system för "
-"Slackware"
+msgstr "gslapt är en GTK+ frontend till slapt-get, ett APT-liknande paket system för Slackware"
 
 msgid "working"
 msgstr "arbetar"
@@ -566,10 +554,9 @@ msgid "Files"
 msgstr "Filer"
 
 msgid ""
-"<b>The following icons are used to indicate the current status of a package:"
-"</b>"
-msgstr ""
-"<b>Följande ikoner används för att indikera aktuell status för ett paket:</b>"
+"<b>The following icons are used to indicate the current status of a "
+"package:</b>"
+msgstr "<b>Följande ikoner används för att indikera aktuell status för ett paket:</b>"
 
 msgid "Repositories changed"
 msgstr "Förråd har förändrats"
@@ -580,19 +567,15 @@ msgstr "<span size=\"large\" weight=\"bold\">Förråd har förändrats</span>"
 msgid ""
 "You need to reload the package list from the sources you have listed.  Do "
 "you want to do this now?"
-msgstr ""
-"Du måste ladda om paketlistan från de källor du har listat. Vill du göra det "
-"nu?"
+msgstr "Du måste ladda om paketlistan från de källor du har listat. Vill du göra det nu?"
 
 msgid "Source failed"
 msgstr "Källa misslyckades"
 
 msgid ""
-"This package source failed or is not available.  Do you want to disable this "
-"source and continue anyway?"
-msgstr ""
-"Detta paket källa misslyckades eller är inte tillgänglig. Vill du inaktivera "
-"denna källa och fortsätta ändå?"
+"This package source failed or is not available.  Do you want to disable this"
+" source and continue anyway?"
+msgstr "Detta paket källa misslyckades eller är inte tillgänglig. Vill du inaktivera denna källa och fortsätta ändå?"
 
 msgid "Default"
 msgstr "Standard"
@@ -612,10 +595,8 @@ msgstr "Paketkälla"
 msgid "Summary"
 msgstr "Sammanfattning"
 
-msgid ""
-"<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
-msgstr ""
-"<span weight=\"bold\" size=\"large\">Aktivera de följande ändringarna?</span>"
+msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Aktivera de följande ändringarna?</span>"
 
 msgid "This is a summary of the changes about to be performed."
 msgstr "Detta är sammanfattningen av ändringarna som skall genomföras."
@@ -652,76 +633,3 @@ msgstr "<b>GPG Nyckel</b>"
 
 msgid "Verification"
 msgstr "Verification"
-
-#~ msgid "<span weight=\"bold\">SOURCE=</span>"
-#~ msgstr "<span weight=\"bold\">KÄLLA=</span>"
-
-#~ msgid "About gslapt"
-#~ msgstr "OM gslapt"
-
-#~ msgid "Clear search expression"
-#~ msgstr "Rensa sökuttryck"
-
-#~ msgid "Clear"
-#~ msgstr "Rensa"
-
-#~ msgid "Conflicts"
-#~ msgstr "Konflikter"
-
-#~ msgid "Couldn't find pixmap file: %s"
-#~ msgstr "Kunde inte hitta pixmapfilen: %s"
-
-#~ msgid "Exclude package"
-#~ msgstr "Uteslut paket"
-
-#~ msgid "Exclude"
-#~ msgstr "Uteslut"
-
-#~ msgid "Install/Upgrade package"
-#~ msgstr "Installera/Uppgradera paket"
-
-#~ msgid "No"
-#~ msgstr "Nej"
-
-#~ msgid "Package Action"
-#~ msgstr "Packetåtgärd"
-
-#~ msgid "Package Information"
-#~ msgstr "Paket information"
-
-#~ msgid "Quit"
-#~ msgstr "Avsluta"
-
-#~ msgid "Remove package"
-#~ msgstr "Ta bort paket"
-
-#~ msgid "Required"
-#~ msgstr "Obligatorisk"
-
-#~ msgid "Suggests"
-#~ msgstr "Förslag"
-
-#~ msgid "Up_grade"
-#~ msgstr "Upp_gradera"
-
-#~ msgid "Upgrading packages..."
-#~ msgstr "Uppgraderar paket..."
-
-#~ msgid "Yes"
-#~ msgstr "Ja"
-
-#~ msgid ""
-#~ "%d upgraded, %d reinstalled, %d newly installed, %d to remove and %d not "
-#~ "upgraded."
-#~ msgstr ""
-#~ "%d uppgraderade, %d återinstallerade, %d nyligen installerade, %d att ta "
-#~ "bort och %d ej uppgraderade"
-
-#~ msgid "<b>Size:</b>"
-#~ msgstr "<b>Storlek:</b>"
-
-#~ msgid "<b>Version</b>"
-#~ msgstr "<b>Version</b>"
-
-#~ msgid "<b>Source</b>"
-#~ msgstr "<b>Källa</b>"

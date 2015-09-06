@@ -1,24 +1,22 @@
-# gslapt translation template
-# Copyright (C) 2005-2010 Jason Woodward
-# This file is distributed under the same license as the gslapt package.
-#
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# 
 # Translators:
 # GenghisKhan <genghiskhan@gmx.ca>, 2012-2013
-# GenghisKhan <genghiskhan@gmx.ca>, 2013
+# GenghisKhan <genghiskhan@gmx.ca>, 2013-2014
 # GenghisKhan <genghiskhan@gmx.ca>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2014-08-04 22:05-0400\n"
-"PO-Revision-Date: 2013-11-20 12:47+0000\n"
+"PO-Revision-Date: 2015-01-13 01:50+0000\n"
 "Last-Translator: Jason Woodward <woodwardj@jaos.org>\n"
-"Language-Team: Hebrew (http://www.transifex.com/projects/p/slapt-get/"
-"language/he/)\n"
-"Language: he\n"
+"Language-Team: Hebrew (http://www.transifex.com/jaos/slapt-get/language/he/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: he\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Ready"
@@ -166,38 +164,37 @@ msgstr "חבילות להסרה"
 msgid "Package"
 msgstr "חבילה"
 
-#, fuzzy, c-format
+#, c-format
 msgid "%d upgraded, "
 msgid_plural "%d upgraded, "
-msgstr[0] "_שדרג"
-msgstr[1] "_שדרג"
+msgstr[0] "%d לשדרוג, "
+msgstr[1] "%d לשדרוג, "
 
-#, fuzzy, c-format
+#, c-format
 msgid "%d reinstalled, "
 msgid_plural "%d reinstalled, "
-msgstr[0] "להתקנה"
-msgstr[1] "להתקנה"
+msgstr[0] "%d להתקנה חוזרת, "
+msgstr[1] "%d להתקנה חוזרת, "
 
-#, fuzzy, c-format
+#, c-format
 msgid "%d newly installed, "
 msgid_plural "%d newly installed, "
-msgstr[0] "להתקנה"
-msgstr[1] "להתקנה"
+msgstr[0] "%d התקנות חדשות, "
+msgstr[1] "%d התקנות חדשות, "
 
 #, c-format
 msgid "%d to remove "
 msgid_plural "%d to remove "
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d to להסרה "
+msgstr[1] "%d to להסרה "
 
 #, c-format
 msgid "and %d not upgraded."
 msgid_plural "and %d not upgraded."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ועוד %d לא ישודרגו."
+msgstr[1] "ועוד %d לא ישודרגו."
 
-msgid ""
-"<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
 msgstr "<span weight=\"bold\" size=\"large\">אין ברשותך מספיק נפח בכונן</span>"
 
 #, c-format
@@ -276,11 +273,9 @@ msgid "<b>Excluding %s due to dependency failure</b>"
 msgstr "<b>החבילה %s לא תיכלל עקב כשל תלות</b>"
 
 msgid ""
-"Missing dependencies may mean the software in this package will not function "
-"correctly.  Do you want to continue without the required packages?"
-msgstr ""
-"חסר בתלויות עשוי להתבטא בכך שהתוכנה שבחבילה זו לא תתפקד כראוי.  האם ברצונך "
-"להמשיך ללא החבילות הדרושות?"
+"Missing dependencies may mean the software in this package will not function"
+" correctly.  Do you want to continue without the required packages?"
+msgstr "חסר בתלויות עשוי להתבטא בכך שהתוכנה שבחבילה זו לא תתפקד כראוי.  האם ברצונך להמשיך ללא החבילות הדרושות?"
 
 msgid ": Depends: "
 msgstr ": תלויה: "
@@ -399,9 +394,7 @@ msgstr "התאמת שפה"
 msgid ""
 "gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
 "Slackware"
-msgstr ""
-"‏gslapt הינו מגשר חזיתי לתוכנית slapt-get, מערכת ניהול חבילות עבור Slackware "
-"הדומה למערכת ניהול החבילות APT."
+msgstr "‏gslapt הינו מגשר חזיתי לתוכנית slapt-get, מערכת ניהול חבילות עבור Slackware הדומה למערכת ניהול החבילות APT."
 
 msgid "working"
 msgstr "עובד כעת"
@@ -563,11 +556,9 @@ msgid "Files"
 msgstr "קבצים מותקנים"
 
 msgid ""
-"<b>The following icons are used to indicate the current status of a package:"
-"</b>"
-msgstr ""
-"<b>הצלמיות הבאות משמשות להכוונה\n"
-"על המצב הנתון של חבילה:</b>"
+"<b>The following icons are used to indicate the current status of a "
+"package:</b>"
+msgstr "<b>הצלמיות הבאות משמשות להכוונה\nעל המצב הנתון של חבילה:</b>"
 
 msgid "Repositories changed"
 msgstr "מאגרים השתנו"
@@ -578,19 +569,15 @@ msgstr "<span size=\"large\" weight=\"bold\">מאגרים השתנו</span>"
 msgid ""
 "You need to reload the package list from the sources you have listed.  Do "
 "you want to do this now?"
-msgstr ""
-"עליך להטעין מחדש את רשימת החבילות מן המקורות שציינת.  האם ברצונך לעשות זאת "
-"עכשיו?"
+msgstr "עליך להטעין מחדש את רשימת החבילות מן המקורות שציינת.  האם ברצונך לעשות זאת עכשיו?"
 
 msgid "Source failed"
 msgstr "מקור נכשל"
 
 msgid ""
-"This package source failed or is not available.  Do you want to disable this "
-"source and continue anyway?"
-msgstr ""
-"קיים כשל במקור חבילה זה או שמקור זה אינו קיים.  האם ברצונך לנטרל את מקור זה "
-"ועדיין להמשיך?"
+"This package source failed or is not available.  Do you want to disable this"
+" source and continue anyway?"
+msgstr "קיים כשל במקור חבילה זה או שמקור זה אינו קיים.  האם ברצונך לנטרל את מקור זה ועדיין להמשיך?"
 
 msgid "Default"
 msgstr "משתמטת"
@@ -610,8 +597,7 @@ msgstr "מקור חבילה"
 msgid "Summary"
 msgstr "סיכום"
 
-msgid ""
-"<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
 msgstr "<span weight=\"bold\" size=\"large\">להחיל את השינויים הבאים?</span>"
 
 msgid "This is a summary of the changes about to be performed."
@@ -649,75 +635,3 @@ msgstr "<b>מפתחות GPG</b>"
 
 msgid "Verification"
 msgstr "אימות"
-
-#~ msgid "<span weight=\"bold\">SOURCE=</span>"
-#~ msgstr "<span weight=\"bold\">מקור=</span>"
-
-#~ msgid "About gslapt"
-#~ msgstr "אודות gslapt"
-
-#~ msgid "Clear search expression"
-#~ msgstr "טהר ביטוי חיפוש"
-
-#~ msgid "Clear"
-#~ msgstr "טהר"
-
-#~ msgid "Conflicts"
-#~ msgstr "התנגשויות"
-
-#~ msgid "Couldn't find pixmap file: %s"
-#~ msgstr "לא היה ניתן למצוא קובץ מפת סיביות: %s"
-
-#~ msgid "Exclude package"
-#~ msgstr "הוצא חבילה"
-
-#~ msgid "Exclude"
-#~ msgstr "אל תכלול"
-
-#~ msgid "Install/Upgrade package"
-#~ msgstr "התקן/שדרג חבילה"
-
-#~ msgid "No"
-#~ msgstr "לא"
-
-#~ msgid "Package Action"
-#~ msgstr "פעולת חבילה"
-
-#~ msgid "Package Information"
-#~ msgstr "מידע חבילה"
-
-#~ msgid "Quit"
-#~ msgstr "י_ציאה"
-
-#~ msgid "Remove package"
-#~ msgstr "הסר חבילה"
-
-#~ msgid "Required"
-#~ msgstr "נחוצות"
-
-#~ msgid "Suggests"
-#~ msgstr "מוצעות"
-
-#~ msgid "Up_grade"
-#~ msgstr "ש_דרג"
-
-#~ msgid "Upgrading packages..."
-#~ msgstr "משדרג כעת חבילות..."
-
-#~ msgid "Yes"
-#~ msgstr "כן"
-
-#~ msgid ""
-#~ "%d upgraded, %d reinstalled, %d newly installed, %d to remove and %d not "
-#~ "upgraded."
-#~ msgstr ""
-#~ "%d לשדרוג, %d להתקנה חוזרת, %d התקנות חדשות, %d להסרה, %d לא ישודרגו."
-
-#~ msgid "<b>Size:</b>"
-#~ msgstr "<b>גודל:</b>"
-
-#~ msgid "<b>Version</b>"
-#~ msgstr "<b>גרסא</b>"
-
-#~ msgid "<b>Source</b>"
-#~ msgstr "<b>מקור</b>"
