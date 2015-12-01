@@ -2,14 +2,15 @@
 # This file is put in the public domain.
 # 
 # Translators:
+# Georgi Georgiev <georgiev_1994@abv.bg>, 2015
 # Victor Keranov <victor_keranov@mail.bg>, 2006
 msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2014-08-04 22:05-0400\n"
-"PO-Revision-Date: 2014-08-05 02:05+0000\n"
-"Last-Translator: Jason Woodward <woodwardj@jaos.org>\n"
+"PO-Revision-Date: 2015-10-25 12:40+0000\n"
+"Last-Translator: Georgi Georgiev <georgiev_1994@abv.bg>\n"
 "Language-Team: Bulgarian (http://www.transifex.com/jaos/slapt-get/language/bg/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,16 +37,16 @@ msgid "<b>Suggests:</b>"
 msgstr "<b>Предложения:</b>"
 
 msgid "No dependency information available"
-msgstr "No dependency information available"
+msgstr "Не е налична информация за зависимости"
 
 msgid "Source"
-msgstr "Адрес"
+msgstr "Източник"
 
 msgid "No changelog information available"
-msgstr "No changelog information available"
+msgstr "Не е налична информация за списък с промените"
 
 msgid "The list of installed files is only available for installed packages"
-msgstr "The list of installed files is only available for installed packages"
+msgstr "Списъкът с инсталирани файлове е наличен само за инсталираните пакети"
 
 msgid "Excluded"
 msgstr "Изключен"
@@ -81,7 +82,7 @@ msgid "Retrieving package data..."
 msgstr "Получаване на информация за пакетите..."
 
 msgid "Retrieving patch list..."
-msgstr "Получаване на списък с ъпдейти..."
+msgstr "Получаване на списък с пачове..."
 
 msgid "Retrieving checksum list..."
 msgstr "Получаване на списък с MD5 суми..."
@@ -90,13 +91,13 @@ msgid "Source download failed"
 msgstr "Неуспех при изтегляне от източника"
 
 msgid "Retrieving checksum signature..."
-msgstr "Retrieving checksum signature..."
+msgstr "Получаване на MD5 ключове..."
 
 msgid "Verifying checksum signature..."
-msgstr "Verifying checksum signature..."
+msgstr "Потвърждаване на MD5 ключове..."
 
 msgid "GPG Key verification failed"
-msgstr "GPG Key verification failed"
+msgstr "Потвърждаването на GPG ключ се провали"
 
 msgid "Retrieving ChangeLog.txt..."
 msgstr "Получаване на ChangeLog.txt..."
@@ -106,16 +107,16 @@ msgstr "Прочитане на списъците с пакети..."
 
 #, c-format
 msgid "Download rate: %.0f%s/s"
-msgstr "Download rate: %.0f%s/s"
+msgstr "Изтегляне: %.0f%s/s"
 
 msgid "Error"
-msgstr "Error"
+msgstr "Грешка"
 
 msgid "pkgtools returned an error"
 msgstr "pkgtools съобщи за грешка"
 
 msgid "Completed actions"
-msgstr "Извършени действия"
+msgstr "Завършени действия"
 
 msgid "Successfully executed all actions."
 msgstr "Успешно са извършени всички действия."
@@ -124,19 +125,19 @@ msgid "Enabled"
 msgstr "Позволено"
 
 msgid "Visible"
-msgstr "Visible"
+msgstr "Видим"
 
 msgid "Priority"
-msgstr "Priority"
+msgstr "Приоритет"
 
 msgid "Expression"
 msgstr "Фраза"
 
 msgid "Packages with unmet dependencies"
-msgstr "Packages with unmet dependencies"
+msgstr "Пакети с неудовлетворени зависимости"
 
 msgid "Package conflicts"
-msgstr "Package conflicts"
+msgstr "Пакети с конфликти"
 
 msgid ", which is required by "
 msgstr ", който се изисква от "
@@ -154,7 +155,7 @@ msgid "Packages to be upgraded"
 msgstr "Пакети за обновяване"
 
 msgid "Packages to be reinstalled"
-msgstr "Packages to be reinstalled"
+msgstr "Пакети за преинсталиране"
 
 msgid "Packages to be removed"
 msgstr "Пакети за премахване"
@@ -165,32 +166,32 @@ msgstr "Пакет"
 #, c-format
 msgid "%d upgraded, "
 msgid_plural "%d upgraded, "
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d обновен, "
+msgstr[1] "%d обновен, "
 
 #, c-format
 msgid "%d reinstalled, "
 msgid_plural "%d reinstalled, "
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d преинсталиран, "
+msgstr[1] "%d преинсталиран, "
 
 #, c-format
 msgid "%d newly installed, "
 msgid_plural "%d newly installed, "
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d новоинсталиран, "
+msgstr[1] "%d новоинсталиран, "
 
 #, c-format
 msgid "%d to remove "
 msgid_plural "%d to remove "
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d за премахване"
+msgstr[1] "%d за премахване"
 
 #, c-format
 msgid "and %d not upgraded."
 msgid_plural "and %d not upgraded."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "и %d без обновяване."
+msgstr[1] "и %d без обновяване."
 
 msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Нямате достатъчно свободно място</span>"
@@ -212,10 +213,10 @@ msgid "After unpacking %.0f%s of additional disk space will be used."
 msgstr "След разархивиране %.0f%s дисково пространство ще бъде използвано."
 
 msgid "Up to Date"
-msgstr "Актуализация"
+msgstr "Актуални"
 
 msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Няма налични ъпдейти</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Няма налични обновявания</span>"
 
 msgid "Downloading packages..."
 msgstr "Изтегляне на пакети..."
@@ -225,7 +226,7 @@ msgstr "Изтегляне..."
 
 #, c-format
 msgid "Failed to download %s: %s"
-msgstr "Failed to download %s: %s"
+msgstr "Неуспех при изтегляне %s: %s"
 
 msgid "Removing packages..."
 msgstr "Премахване на пакети..."
@@ -264,7 +265,7 @@ msgid "Description"
 msgstr "Описание"
 
 msgid "Installed Size"
-msgstr "Инсталиран обем"
+msgstr "Инсталиран размер"
 
 #, c-format
 msgid "<b>Excluding %s due to dependency failure</b>"
@@ -279,16 +280,16 @@ msgid ": Depends: "
 msgstr ": Зависимости: "
 
 msgid "Import"
-msgstr "Import"
+msgstr "Вмъкване"
 
 msgid "No key found"
-msgstr "No key found"
+msgstr "Не е намерен ключ"
 
 msgid "ChangeLogs"
-msgstr "ChangeLogs"
+msgstr "Списъци на промените"
 
 msgid "No changelogs found."
-msgstr "No changelogs found."
+msgstr "Списъци на промените не са намерени."
 
 msgid "Gslapt Package Manager"
 msgstr "Мениджър на пакети Gslapt"
@@ -297,37 +298,37 @@ msgid "Install, remove and upgrade software packages"
 msgstr "Инсталиране, премахване и обновяване на софтуерни пакети"
 
 msgid "Base"
-msgstr "Base"
+msgstr "База"
 
 msgid "Applications"
-msgstr "Applications"
+msgstr "Програми"
 
 msgid "Development Tools"
-msgstr "Development Tools"
+msgstr "Средства за разработка"
 
 msgid "GNU Emacs"
 msgstr "GNU Emacs"
 
 msgid "Documentation"
-msgstr "Documentation"
+msgstr "Документация"
 
 msgid "GNOME"
 msgstr "GNOME"
 
 msgid "Linux kernel"
-msgstr "Linux kernel"
+msgstr "Linux ядро"
 
 msgid "KDE"
 msgstr "KDE"
 
 msgid "KDE Internationalization"
-msgstr "KDE Internationalization"
+msgstr "KDE Интернационализация"
 
 msgid "Libraries"
-msgstr "Libraries"
+msgstr "Библиотеки"
 
 msgid "Networking"
-msgstr "Networking"
+msgstr "Мрежи"
 
 msgid "teTeX"
 msgstr "teTeX"
@@ -336,58 +337,58 @@ msgid "TCL"
 msgstr "TCL"
 
 msgid "X Window System"
-msgstr "X Window System"
+msgstr "X Мениджър на прозорците"
 
 msgid "X Applications"
-msgstr "X Applications"
+msgstr "X Програми"
 
 msgid "BSD Console games"
-msgstr "BSD Console games"
+msgstr "BSD Конзолни игри"
 
 msgid "Patches"
-msgstr "Patches"
+msgstr "Пачове"
 
 msgid "GSB Base"
-msgstr "GSB Base"
+msgstr "GSB База"
 
 msgid "GSB Accessibility"
-msgstr "GSB Accessibility"
+msgstr "GSB Достъпност"
 
 msgid "GSB Administration"
-msgstr "GSB Administration"
+msgstr "GSB Администрация"
 
 msgid "GSB Applications"
-msgstr "GSB Applications"
+msgstr "GSB Програми"
 
 msgid "GSB Compiz Fusion"
 msgstr "GSB Compiz Fusion"
 
 msgid "GSB Development"
-msgstr "GSB Development"
+msgstr "GSB Разработка"
 
 msgid "GSB Office"
-msgstr "GSB Office"
+msgstr "GSB Офис"
 
 msgid "GSB Libraries"
-msgstr "GSB Libraries"
+msgstr "GSB Библиотеки"
 
 msgid "GSB Mono"
-msgstr "GSB Mono"
+msgstr "GSB Моно"
 
 msgid "GSB Networking"
-msgstr "GSB Networking"
+msgstr "GSB Мрежи"
 
 msgid "GSB OpenOffice.org"
 msgstr "GSB OpenOffice.org"
 
 msgid "GSB Themes"
-msgstr "GSB Themes"
+msgstr "GSB Теми"
 
 msgid "Games"
-msgstr "Games"
+msgstr "Игри"
 
 msgid "Localization"
-msgstr "Localization"
+msgstr "Локализация"
 
 msgid ""
 "gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
@@ -395,7 +396,7 @@ msgid ""
 msgstr "gslapt е GTK+ фронтенд на slapt-get, подобна на APT пакетна система за Slackware"
 
 msgid "working"
-msgstr "working"
+msgstr "работи"
 
 msgid "total progress"
 msgstr "общ прогрес"
@@ -410,19 +411,19 @@ msgid "Update local package cache"
 msgstr "Обновяване на локалния кеш на пакетите"
 
 msgid "Update"
-msgstr "Актуализация"
+msgstr "Обнови"
 
 msgid "Mark all possible upgrades"
-msgstr "Маркиране на всички възможни промени"
+msgstr "Маркиране на всички възможни обновления"
 
 msgid "Mark All Upgrades"
-msgstr "Маркиране на всички промени"
+msgstr "Маркиране на всички обновления"
 
 msgid "Mark all obsolete packages"
-msgstr "Mark all obsolete packages"
+msgstr "Маркиране на всички остарели пакети"
 
 msgid "Mark Obsolete"
-msgstr "Mark Obsolete"
+msgstr "Маркиране на остарели пакети"
 
 msgid "Execute all scheduled actions in current transaction"
 msgstr "Изпълнение на всички избрани промени"
@@ -440,34 +441,34 @@ msgid "Preferences"
 msgstr "Предпочитания"
 
 msgid "_View"
-msgstr "_View"
+msgstr "_Изглед"
 
 msgid "View all packages"
-msgstr "View all packages"
+msgstr "Покажи всички пакети"
 
 msgid "All"
-msgstr "All"
+msgstr "Всички"
 
 msgid "View available packages from current sources"
-msgstr "View available packages from current sources"
+msgstr "Покажи налични пакети от сегашните източници"
 
 msgid "Available"
-msgstr "Available"
+msgstr "Налични"
 
 msgid "View installed packages"
-msgstr "View installed packages"
+msgstr "Покажи инсталирани пакети"
 
 msgid "View Marked Packages"
-msgstr "View Marked Packages"
+msgstr "Покажи маркирани пакети"
 
 msgid "Marked"
-msgstr "Marked"
+msgstr "Маркирани"
 
 msgid "View Upgradeable Packages"
-msgstr "View Upgradeable Packages"
+msgstr "Покажи обновими пакети"
 
 msgid "Upgradeable"
-msgstr "Upgradeable"
+msgstr "Обновим"
 
 msgid "P_ackage"
 msgstr "П_акет"
@@ -491,7 +492,7 @@ msgid "Icon Legend"
 msgstr "Легенда на иконите"
 
 msgid "View ChangeLogs"
-msgstr "View ChangeLogs"
+msgstr "Покажи списъци на промените"
 
 msgid "About"
 msgstr "Относно"
@@ -515,10 +516,10 @@ msgid "<b>Version:</b>"
 msgstr "<b>Версия:</b>"
 
 msgid "<b>Source:</b>"
-msgstr "<b>Source:</b>"
+msgstr "<b>Източник:</b>"
 
 msgid "<b>Priority:</b>"
-msgstr "<b>Priority:</b>"
+msgstr "<b>Приоритет:</b>"
 
 msgid "<b>Location:</b>"
 msgstr "<b>Местоположение:</b>"
@@ -530,13 +531,13 @@ msgid "Version:"
 msgstr "Версия:"
 
 msgid "Installed Size:"
-msgstr "Инсталиран обем:"
+msgstr "Инсталиран размер:"
 
 msgid "<b>Latest Available Version</b>"
 msgstr "<b>Последна налична версия</b>"
 
 msgid "Size:"
-msgstr "Обем:"
+msgstr "Размер:"
 
 msgid "Source:"
 msgstr "Източник:"
@@ -548,10 +549,10 @@ msgid "Dependencies"
 msgstr "Зависимости"
 
 msgid "Changelog"
-msgstr "Лог на промените"
+msgstr "Списък с промените"
 
 msgid "Files"
-msgstr "Files"
+msgstr "Файлове"
 
 msgid ""
 "<b>The following icons are used to indicate the current status of a "
@@ -570,7 +571,7 @@ msgid ""
 msgstr "Нужно е да презаредите списъка с пакети от хранилищата, които сте избрали. Желаете ли да го направите сега?"
 
 msgid "Source failed"
-msgstr "Source failed"
+msgstr "Източника се провали"
 
 msgid ""
 "This package source failed or is not available.  Do you want to disable this"
@@ -578,19 +579,19 @@ msgid ""
 msgstr "Това хранилище не работи или не е достъпно в момента. Желаете ли да го деактивирате и да продължите напред?"
 
 msgid "Default"
-msgstr "Default"
+msgstr "Подразбиране"
 
 msgid "Official"
-msgstr "Official"
+msgstr "Официални"
 
 msgid "Preferred"
-msgstr "Preferred"
+msgstr "Предпочитани"
 
 msgid "Custom"
-msgstr "Custom"
+msgstr "По избор"
 
 msgid "Package Source"
-msgstr "Package Source"
+msgstr "Източник на пакетите"
 
 msgid "Summary"
 msgstr "Резюме"
@@ -602,7 +603,7 @@ msgid "This is a summary of the changes about to be performed."
 msgstr "Това е резюме на промените, които ще бъдат извършени."
 
 msgid "Download packages only"
-msgstr "Само изтегляне на пакетите"
+msgstr "Изтегляне само на пакетите"
 
 msgid "<b>Package and data storage</b>"
 msgstr "<b>Директория за съхранение</b>"
@@ -623,13 +624,13 @@ msgid "Excludes"
 msgstr "Изключения"
 
 msgid "<b>Package Sources</b>"
-msgstr "<b>Хранилища</b>"
+msgstr "<b>Хранилища за пакети</b>"
 
 msgid "Sources"
 msgstr "Хранилища"
 
 msgid "<b>GPG Keys</b>"
-msgstr "<b>GPG Keys</b>"
+msgstr "<b>GPG Ключове</b>"
 
 msgid "Verification"
-msgstr "Verification"
+msgstr "Потвърждаване"
