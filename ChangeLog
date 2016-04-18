@@ -1,6 +1,10 @@
 
+0.5.4c Apr  17, 2016
+ * GtkDialog no longer has the has_separator property
+ * Updated translations
+
 0.5.4b Jan  12, 2015
- * o not reset transaction when download only is set
+ * do not reset transaction when download only is set
 
 0.5.4a Jun  23, 2014
  * switch to gtkbuilder
