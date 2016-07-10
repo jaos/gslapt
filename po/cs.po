@@ -418,7 +418,7 @@ msgid "Update local package cache"
 msgstr "Aktualizovat místní vyrovnávací paměti balíčků"
 
 msgid "Update"
-msgstr "Aktoalizace"
+msgstr "Aktualizace"
 
 msgid "Mark all possible upgrades"
 msgstr "Označit všechny možné upgrady"
