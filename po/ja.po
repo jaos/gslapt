@@ -2,6 +2,8 @@
 # This file is put in the public domain.
 # 
 # Translators:
+# ふうせん Fu-sen. | BALLOON a.k.a. Fu-sen., 2016
+# ふうせん Fu-sen. | BALLOON a.k.a. Fu-sen., 2016
 # tsuren <hydrangea_and_snail@hotmail.com>, 2015
 # JW <J_W@somewhere.c0.jp>, 2006
 # S_A <shin1.abe@nifty.com>, 2006
@@ -10,8 +12,8 @@ msgstr ""
 "Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2014-08-04 22:05-0400\n"
-"PO-Revision-Date: 2015-08-20 05:42+0000\n"
-"Last-Translator: tsuren <hydrangea_and_snail@hotmail.com>\n"
+"PO-Revision-Date: 2016-11-25 12:00+0000\n"
+"Last-Translator: ふうせん Fu-sen. | BALLOON a.k.a. Fu-sen.\n"
 "Language-Team: Japanese (http://www.transifex.com/jaos/slapt-get/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +22,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Ready"
-msgstr "Ready"
+msgstr "準備ができています"
 
 msgid "Upgrade"
 msgstr "アップグレード"
@@ -38,16 +40,16 @@ msgid "<b>Suggests:</b>"
 msgstr "<b>推奨:</b>"
 
 msgid "No dependency information available"
-msgstr "No dependency information available"
+msgstr "依存関係の情報はありません"
 
 msgid "Source"
 msgstr "ソース"
 
 msgid "No changelog information available"
-msgstr "No changelog information available"
+msgstr "更新情報はありません"
 
 msgid "The list of installed files is only available for installed packages"
-msgstr "The list of installed files is only available for installed packages"
+msgstr "インストールされたファイルのリストは、インストールされているパッケージでのみ利用可能です"
 
 msgid "Excluded"
 msgstr "除外"
@@ -83,22 +85,22 @@ msgid "Retrieving package data..."
 msgstr "パッケージデータを取得中..."
 
 msgid "Retrieving patch list..."
-msgstr "patchリストを取得中..."
+msgstr "パッチリストを取得中..."
 
 msgid "Retrieving checksum list..."
-msgstr "checksumリストを取得中..."
+msgstr "checksum リストを取得中..."
 
 msgid "Source download failed"
 msgstr "ソースのダウンロードに失敗しました"
 
 msgid "Retrieving checksum signature..."
-msgstr "Retrieving checksum signature..."
+msgstr "チェックサム署名の取得中..."
 
 msgid "Verifying checksum signature..."
-msgstr "Verifying checksum signature..."
+msgstr "チェックサム署名を確認しています..."
 
 msgid "GPG Key verification failed"
-msgstr "GPG Key verification failed"
+msgstr "GPG キーの確認に失敗しました"
 
 msgid "Retrieving ChangeLog.txt..."
 msgstr "ChangeLog.txt を取得中..."
@@ -108,10 +110,10 @@ msgstr "パッケージリストを読み込み中..."
 
 #, c-format
 msgid "Download rate: %.0f%s/s"
-msgstr "Download rate: %.0f%s/s"
+msgstr "ダウンロード率: %.0f%s/秒"
 
 msgid "Error"
-msgstr "Error"
+msgstr "エラー"
 
 msgid "pkgtools returned an error"
 msgstr "pkgtools がエラーを返しました"
@@ -126,10 +128,10 @@ msgid "Enabled"
 msgstr "有効"
 
 msgid "Visible"
-msgstr "Visible"
+msgstr "可視"
 
 msgid "Priority"
-msgstr "Priority"
+msgstr "優先"
 
 msgid "Expression"
 msgstr "除外ルール"
@@ -141,10 +143,10 @@ msgid "Package conflicts"
 msgstr "パッケージの衝突"
 
 msgid ", which is required by "
-msgstr ", which is required by "
+msgstr "、これには次が必要です "
 
 msgid ", is excluded"
-msgstr ", is excluded"
+msgstr " これらは除外します"
 
 msgid "Packages excluded"
 msgstr "除外されたパッケージ"
@@ -156,7 +158,7 @@ msgid "Packages to be upgraded"
 msgstr "アップグレードされるパッケージ"
 
 msgid "Packages to be reinstalled"
-msgstr "Packages to be reinstalled"
+msgstr "再インストールされるパッケージ"
 
 msgid "Packages to be removed"
 msgstr "削除されるパッケージ"
@@ -194,11 +196,11 @@ msgstr "<span weight=\"bold\" size=\"large\">十分な空きスペースがあ�
 
 #, c-format
 msgid "Need to get %.0f%s/%.0f%s of archives.\n"
-msgstr "%.0f%s/%.0f%s のアーカイブ取得が必要です。\n"
+msgstr "必要なアーカイブを取得中 %.0f%s/%.0f%s\n"
 
 #, c-format
 msgid "Need to get %.0f%s of archives."
-msgstr "%.0f%s のアーカイブ取得が必要です"
+msgstr "必要なアーカイブを取得中 %.0f%s"
 
 #, c-format
 msgid "After unpacking %.0f%s disk space will be freed."
@@ -222,7 +224,7 @@ msgstr "ダウンロード中..."
 
 #, c-format
 msgid "Failed to download %s: %s"
-msgstr "Failed to download %s: %s"
+msgstr " %s のダウンロードに失敗しました: %s"
 
 msgid "Removing packages..."
 msgstr "パッケージの削除中..."
@@ -240,10 +242,10 @@ msgid "Upgrading..."
 msgstr "アップグレード中..."
 
 msgid "Failed to commit preferences"
-msgstr "Failed to commit preferences"
+msgstr "設定を反映できませんでした"
 
 msgid "Pending changes. Click execute when ready."
-msgstr "変更を保留。準備が出来たら'実行'をクリック"
+msgstr "変更を保留しています。準備が出来たら'実行'をクリックして下さい"
 
 msgid "Status"
 msgstr "状態"
@@ -270,61 +272,61 @@ msgstr "<b>依存性の解決に失敗したため %s を除外中</b>"
 msgid ""
 "Missing dependencies may mean the software in this package will not function"
 " correctly.  Do you want to continue without the required packages?"
-msgstr "依存性の欠如。このパッケージに含まれるソフトウェアが正しく動作しない可能性があります。 依存性を解決せずに、このまま作業を進めますか？"
+msgstr "依存性の欠如。このパッケージに含まれるソフトウェアが正しく動作しない可能性があります。 依存性を解決せずにこのまま作業を進めますか？"
 
 msgid ": Depends: "
 msgstr ": 依存: "
 
 msgid "Import"
-msgstr "Import"
+msgstr "インポート"
 
 msgid "No key found"
-msgstr "No key found"
+msgstr "キーが見つかりません"
 
 msgid "ChangeLogs"
-msgstr "ChangeLogs"
+msgstr "更新履歴"
 
 msgid "No changelogs found."
-msgstr "No changelogs found."
+msgstr "更新履歴が見つかりませんでした。"
 
 msgid "Gslapt Package Manager"
-msgstr "Gslapt Package Manager"
+msgstr "Gslapt パッケージマネージャー"
 
 msgid "Install, remove and upgrade software packages"
-msgstr "Install, remove and upgrade software packages"
+msgstr "ソフトウェアパッケージのインストール・削除・更新"
 
 msgid "Base"
-msgstr "Base"
+msgstr "ベース"
 
 msgid "Applications"
-msgstr "Applications"
+msgstr "アプリケーション"
 
 msgid "Development Tools"
-msgstr "Development Tools"
+msgstr "開発ツール"
 
 msgid "GNU Emacs"
 msgstr "GNU Emacs"
 
 msgid "Documentation"
-msgstr "Documentation"
+msgstr "文章"
 
 msgid "GNOME"
 msgstr "GNOME"
 
 msgid "Linux kernel"
-msgstr "Linux kernel"
+msgstr "Linux カーネル"
 
 msgid "KDE"
 msgstr "KDE"
 
 msgid "KDE Internationalization"
-msgstr "KDE Internationalization"
+msgstr "KDE 言語ファイル"
 
 msgid "Libraries"
-msgstr "Libraries"
+msgstr "ライブラリ"
 
 msgid "Networking"
-msgstr "Networking"
+msgstr "ネットワーク"
 
 msgid "teTeX"
 msgstr "teTeX"
@@ -333,63 +335,63 @@ msgid "TCL"
 msgstr "TCL"
 
 msgid "X Window System"
-msgstr "X Window System"
+msgstr "X ウインドウシステム"
 
 msgid "X Applications"
-msgstr "X Applications"
+msgstr "X アプリケーション"
 
 msgid "BSD Console games"
-msgstr "BSD Console games"
+msgstr "BSD コンソールゲーム"
 
 msgid "Patches"
-msgstr "Patches"
+msgstr "パッチ"
 
 msgid "GSB Base"
-msgstr "GSB Base"
+msgstr "GSB ベース"
 
 msgid "GSB Accessibility"
-msgstr "GSB Accessibility"
+msgstr "GSB アクセサリ"
 
 msgid "GSB Administration"
-msgstr "GSB Administration"
+msgstr "GSB 管理"
 
 msgid "GSB Applications"
-msgstr "GSB Applications"
+msgstr "GSB アプリケーション"
 
 msgid "GSB Compiz Fusion"
 msgstr "GSB Compiz Fusion"
 
 msgid "GSB Development"
-msgstr "GSB Development"
+msgstr "GSB 開発"
 
 msgid "GSB Office"
-msgstr "GSB Office"
+msgstr "GSB オフィス"
 
 msgid "GSB Libraries"
-msgstr "GSB Libraries"
+msgstr "GSB ライブラリ"
 
 msgid "GSB Mono"
 msgstr "GSB Mono"
 
 msgid "GSB Networking"
-msgstr "GSB Networking"
+msgstr "GSB ネットワーク"
 
 msgid "GSB OpenOffice.org"
 msgstr "GSB OpenOffice.org"
 
 msgid "GSB Themes"
-msgstr "GSB Themes"
+msgstr "GSB テーマ"
 
 msgid "Games"
-msgstr "Games"
+msgstr "ゲーム"
 
 msgid "Localization"
-msgstr "Localization"
+msgstr "言語関連"
 
 msgid ""
 "gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
 "Slackware"
-msgstr "gslapt は APTライクな Slackware用パッケージ・システムのGTK+フロントエンドです"
+msgstr "gslapt は APT ライクな Slackware用パッケージシステムの GTK+ フロントエンドです"
 
 msgid "working"
 msgstr "作業中"
@@ -404,25 +406,25 @@ msgid "_File"
 msgstr "ファイル(_F)"
 
 msgid "Update local package cache"
-msgstr "ローカル・パッケージ・キャッシュの更新"
+msgstr "ローカルパッケージキャッシュの更新"
 
 msgid "Update"
 msgstr "更新"
 
 msgid "Mark all possible upgrades"
-msgstr "Mark all possible upgrades"
+msgstr "すべての有効な更新をマーク"
 
 msgid "Mark All Upgrades"
-msgstr "全てをアップグレード"
+msgstr "更新対象をすべてマーク"
 
 msgid "Mark all obsolete packages"
-msgstr "Mark all obsolete packages"
+msgstr "古いパッケージをすべてマーク"
 
 msgid "Mark Obsolete"
-msgstr "Mark Obsolete"
+msgstr "廃止マーク"
 
 msgid "Execute all scheduled actions in current transaction"
-msgstr "予約されている全ての動作を実行"
+msgstr "予約しているすべての動作を実行"
 
 msgid "Execute"
 msgstr "実行"
@@ -431,22 +433,22 @@ msgid "_Edit"
 msgstr "編集(_E)"
 
 msgid "Unmark All"
-msgstr "全てのマークを外す"
+msgstr "すべてのマークを外す"
 
 msgid "Preferences"
-msgstr "Preferences"
+msgstr "設定"
 
 msgid "_View"
-msgstr "一覧(_V)"
+msgstr "表示(_V)"
 
 msgid "View all packages"
-msgstr "全てのパッケージを一覧"
+msgstr "すべてのパッケージを一覧"
 
 msgid "All"
-msgstr "全て"
+msgstr "すべて"
 
 msgid "View available packages from current sources"
-msgstr "current sources から利用可能なパッケージの一覧"
+msgstr "現在のソースから利用可能なパッケージの一覧"
 
 msgid "Available"
 msgstr "利用可能"
@@ -455,19 +457,19 @@ msgid "View installed packages"
 msgstr "インストール済みパッケージの一覧"
 
 msgid "View Marked Packages"
-msgstr "View Marked Packages"
+msgstr "マークしたパッケージを表示"
 
 msgid "Marked"
-msgstr "Marked"
+msgstr "マーク済み"
 
 msgid "View Upgradeable Packages"
-msgstr "View Upgradeable Packages"
+msgstr "更新が必要なパッケージの表示"
 
 msgid "Upgradeable"
-msgstr "Upgradeable"
+msgstr "更新対象"
 
 msgid "P_ackage"
-msgstr "パッケージ(P_ackage)"
+msgstr "パッケージ(_A)"
 
 msgid "Unmark"
 msgstr "マークを外す"
@@ -482,16 +484,16 @@ msgid "Remove"
 msgstr "削除"
 
 msgid "_Help"
-msgstr "ヘルプ(_Help)"
+msgstr "ヘルプ(_H)"
 
 msgid "Icon Legend"
-msgstr "Icon Legend"
+msgstr "アイコンの凡例"
 
 msgid "View ChangeLogs"
-msgstr "View ChangeLogs"
+msgstr "更新履歴の表示"
 
 msgid "About"
-msgstr "About"
+msgstr "gslapt について"
 
 msgid "Search"
 msgstr "検索"
@@ -512,10 +514,10 @@ msgid "<b>Version:</b>"
 msgstr "<b>バージョン:</b>"
 
 msgid "<b>Source:</b>"
-msgstr "<b>Source:</b>"
+msgstr "<b>ソース:</b>"
 
 msgid "<b>Priority:</b>"
-msgstr "<b>Priority:</b>"
+msgstr "<b>優先度:</b>"
 
 msgid "<b>Location:</b>"
 msgstr "<b>場所:</b>"
@@ -545,10 +547,10 @@ msgid "Dependencies"
 msgstr "依存関係"
 
 msgid "Changelog"
-msgstr "更新履歴 (Changelog)"
+msgstr "更新履歴"
 
 msgid "Files"
-msgstr "Files"
+msgstr "ファイル"
 
 msgid ""
 "<b>The following icons are used to indicate the current status of a "
@@ -564,36 +566,36 @@ msgstr "<span size=\"large\" weight=\"bold\">レポジトリが変更されま�
 msgid ""
 "You need to reload the package list from the sources you have listed.  Do "
 "you want to do this now?"
-msgstr "ソース・リストからパッケージ・リストを再取得する必要があります。 今すぐ実行しますか？"
+msgstr "ソースリストからパッケージリストを再取得する必要があります。 今すぐ実行しますか？"
 
 msgid "Source failed"
-msgstr "Source failed"
+msgstr "ソースが失敗しました"
 
 msgid ""
 "This package source failed or is not available.  Do you want to disable this"
 " source and continue anyway?"
-msgstr "パッケージ・ソースが存在しない、もしくはソースに誤りがあります。 このソースを無効にして作業を続けますか？"
+msgstr "パッケージソースが存在しないか、またはソースに誤りがあります。 このソースを無効にして作業を続けますか？"
 
 msgid "Default"
-msgstr "Default"
+msgstr "デフォルト"
 
 msgid "Official"
-msgstr "Official"
+msgstr "公式"
 
 msgid "Preferred"
-msgstr "Preferred"
+msgstr "推奨"
 
 msgid "Custom"
-msgstr "Custom"
+msgstr "カスタム"
 
 msgid "Package Source"
-msgstr "Package Source"
+msgstr "パッケージソース"
 
 msgid "Summary"
 msgstr "要約"
 
 msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
-msgstr "<span weight=\"bold\" size=\"large\">以下の変更を適用しますか？</span>"
+msgstr "<span weight=\"bold\" size=\"large\">次の変更を適用しますか？</span>"
 
 msgid "This is a summary of the changes about to be performed."
 msgstr "これは実行されようとしている変更の概要です"
@@ -611,10 +613,10 @@ msgid "Working Directory"
 msgstr "作業ディレクトリ"
 
 msgid "<b>Exclude List</b>"
-msgstr "<b>除外するリスト</b>"
+msgstr "<b>除外リスト</b>"
 
 msgid "<span weight=\"bold\">Exclude Expression:</span>"
-msgstr "<span weight=\"bold\">Exclude Expression:</span>"
+msgstr "<span weight=\"bold\">除外エクスプレッション:</span>"
 
 msgid "Excludes"
 msgstr "除外"
@@ -626,7 +628,7 @@ msgid "Sources"
 msgstr "ソース"
 
 msgid "<b>GPG Keys</b>"
-msgstr "<b>GPG Keys</b>"
+msgstr "<b>GPG キー</b>"
 
 msgid "Verification"
-msgstr "Verification"
+msgstr "検証"

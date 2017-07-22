@@ -1,0 +1,635 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# 
+# Translators:
+# Davidmp <medipas@gmail.com>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: slapt-get\n"
+"Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
+"POT-Creation-Date: 2014-08-04 22:05-0400\n"
+"PO-Revision-Date: 2016-09-27 15:13+0000\n"
+"Last-Translator: Davidmp <medipas@gmail.com>\n"
+"Language-Team: Catalan (http://www.transifex.com/jaos/slapt-get/language/ca/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ca\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Ready"
+msgstr "A punt"
+
+msgid "Upgrade"
+msgstr "Actualitza"
+
+msgid "Re-Install"
+msgstr "Reinstal·la"
+
+msgid "<b>Required:</b>"
+msgstr "<b>Requerit:</b>"
+
+msgid "<b>Conflicts:</b>"
+msgstr "<b>Conflictes:</b>"
+
+msgid "<b>Suggests:</b>"
+msgstr "<b>Suggereix:</b>"
+
+msgid "No dependency information available"
+msgstr "No hi ha informació de dependències."
+
+msgid "Source"
+msgstr "Font"
+
+msgid "No changelog information available"
+msgstr "No hi ha informació de registre de canvis."
+
+msgid "The list of installed files is only available for installed packages"
+msgstr "La llista de fitxers instal·lats només està disponible per als paquets instal·lats."
+
+msgid "Excluded"
+msgstr "Exclòs"
+
+msgid "To be Removed"
+msgstr "Per eliminar"
+
+msgid "To be Installed"
+msgstr "Per instal·lar"
+
+msgid "To be Re-Installed"
+msgstr "Per reinstal·lar"
+
+msgid "To be Downgraded"
+msgstr "Per degradar"
+
+msgid "To be Upgraded"
+msgstr "Per actualitzar"
+
+msgid "Installed"
+msgstr "Instal·lat"
+
+msgid "Not Installed"
+msgstr "No instal·lat"
+
+msgid "Progress"
+msgstr "Progrés"
+
+msgid "Checking for new package data..."
+msgstr "Es comprova si hi ha dades de paquets noves..."
+
+msgid "Retrieving package data..."
+msgstr "Es recuperen dades de paquets..."
+
+msgid "Retrieving patch list..."
+msgstr "Es recupera la llista de pedaços..."
+
+msgid "Retrieving checksum list..."
+msgstr "Es recupera la llista de sumes de verificació..."
+
+msgid "Source download failed"
+msgstr "Ha fallat la baixada de la font"
+
+msgid "Retrieving checksum signature..."
+msgstr "Es recupera la signatura de la suma de verificació..."
+
+msgid "Verifying checksum signature..."
+msgstr "Es verifica la signatura de la suma de verificació..."
+
+msgid "GPG Key verification failed"
+msgstr "Ha fallat la verificació de la clau GPG."
+
+msgid "Retrieving ChangeLog.txt..."
+msgstr "Es recupera ChangeLog.txt..."
+
+msgid "Reading Package Lists..."
+msgstr "Es llegeixen les llistes de paquets..."
+
+#, c-format
+msgid "Download rate: %.0f%s/s"
+msgstr "Velocitat de baixada: %.0f%s/s"
+
+msgid "Error"
+msgstr "Error"
+
+msgid "pkgtools returned an error"
+msgstr "el pkgtools ha retornat un error"
+
+msgid "Completed actions"
+msgstr "Accions completades"
+
+msgid "Successfully executed all actions."
+msgstr "Totes les accions s'han executat correctament."
+
+msgid "Enabled"
+msgstr "Habilitat"
+
+msgid "Visible"
+msgstr "Visible"
+
+msgid "Priority"
+msgstr "Prioritat"
+
+msgid "Expression"
+msgstr "Expressió"
+
+msgid "Packages with unmet dependencies"
+msgstr "Paquets amb dependències no resoltes"
+
+msgid "Package conflicts"
+msgstr "Conflictes de paquet"
+
+msgid ", which is required by "
+msgstr ", que és requerit per "
+
+msgid ", is excluded"
+msgstr ", s'exclou"
+
+msgid "Packages excluded"
+msgstr "Paquets exclosos"
+
+msgid "Packages to be installed"
+msgstr "Paquets per instal·lar"
+
+msgid "Packages to be upgraded"
+msgstr "Paquets per actualitzar"
+
+msgid "Packages to be reinstalled"
+msgstr "Paquets per reinstal·lar"
+
+msgid "Packages to be removed"
+msgstr "Paquets per eliminar"
+
+msgid "Package"
+msgstr "Paquet"
+
+#, c-format
+msgid "%d upgraded, "
+msgid_plural "%d upgraded, "
+msgstr[0] "%d d'actualitzat, "
+msgstr[1] "%d d'actualitzats, "
+
+#, c-format
+msgid "%d reinstalled, "
+msgid_plural "%d reinstalled, "
+msgstr[0] "%d de reinstal·lat, "
+msgstr[1] "%d de reinstal·lats, "
+
+#, c-format
+msgid "%d newly installed, "
+msgid_plural "%d newly installed, "
+msgstr[0] "%d d'instal·lat de nou, "
+msgstr[1] "%d d'instal·lats de nou, "
+
+#, c-format
+msgid "%d to remove "
+msgid_plural "%d to remove "
+msgstr[0] "%d per eliminar"
+msgstr[1] "%d per eliminar"
+
+#, c-format
+msgid "and %d not upgraded."
+msgid_plural "and %d not upgraded."
+msgstr[0] "i %d de no actualitzat."
+msgstr[1] "i %d de no actualitzats."
+
+msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgstr "<span weight=\"bold\" size=\"large\">No teniu prou espai lliure.</span>"
+
+#, c-format
+msgid "Need to get %.0f%s/%.0f%s of archives.\n"
+msgstr "Cal obtenir %.0f%s/%.0f%s d'arxius.\n"
+
+#, c-format
+msgid "Need to get %.0f%s of archives."
+msgstr "Cal obtenir %.0f%s d'arxius."
+
+#, c-format
+msgid "After unpacking %.0f%s disk space will be freed."
+msgstr "Després de desempaquetar-ho, s'alliberaran %.0f%s d'espai de disc."
+
+#, c-format
+msgid "After unpacking %.0f%s of additional disk space will be used."
+msgstr "Després de desempaquetar-ho, s'usaran %.0f%s d'espai de disc addicional."
+
+msgid "Up to Date"
+msgstr "Al dia"
+
+msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
+msgstr "<span weight=\"bold\" size=\"large\">No hi ha actualitzacions disponibles</span>"
+
+msgid "Downloading packages..."
+msgstr "Es baixen els paquets..."
+
+msgid "Downloading..."
+msgstr "Baixant..."
+
+#, c-format
+msgid "Failed to download %s: %s"
+msgstr "Ha fallat la baixada de %s: %s"
+
+msgid "Removing packages..."
+msgstr "S'eliminen paquets..."
+
+msgid "Uninstalling..."
+msgstr "Desinstal·lant..."
+
+msgid "Installing packages..."
+msgstr "S'instal·len paquets..."
+
+msgid "Installing..."
+msgstr "Instal·lant..."
+
+msgid "Upgrading..."
+msgstr "Actualitzant..."
+
+msgid "Failed to commit preferences"
+msgstr "Ha fallat validar les preferències"
+
+msgid "Pending changes. Click execute when ready."
+msgstr "Hi ha canvis pendents. Cliqueu a \"Executa\" quan estigueu a punt."
+
+msgid "Status"
+msgstr "Estat"
+
+msgid "Name"
+msgstr "Nom"
+
+msgid "Version"
+msgstr "Versió"
+
+msgid "Location"
+msgstr "Ubicació"
+
+msgid "Description"
+msgstr "Descripció"
+
+msgid "Installed Size"
+msgstr "Mida un cop feta la instal·lació"
+
+#, c-format
+msgid "<b>Excluding %s due to dependency failure</b>"
+msgstr "<b>S'exclou %s a causa d'una fallada de dependència</b>"
+
+msgid ""
+"Missing dependencies may mean the software in this package will not function"
+" correctly.  Do you want to continue without the required packages?"
+msgstr "Si hi ha dependències que falten pot significar que el programari d'aquest paquet no funcionarà correctament. Voleu continuar sense els paquets requerits?"
+
+msgid ": Depends: "
+msgstr ": Depèn: "
+
+msgid "Import"
+msgstr "Importa"
+
+msgid "No key found"
+msgstr "No s'ha trobat cap clau"
+
+msgid "ChangeLogs"
+msgstr "Registre de canvis"
+
+msgid "No changelogs found."
+msgstr "No s'ha trobat cap registre de canvis."
+
+msgid "Gslapt Package Manager"
+msgstr "Gestor de paquets Gslapt"
+
+msgid "Install, remove and upgrade software packages"
+msgstr "Instal·leu, actualitzeu i elimineu paquets de programari"
+
+msgid "Base"
+msgstr "Base"
+
+msgid "Applications"
+msgstr "Aplicacions"
+
+msgid "Development Tools"
+msgstr "Eines de desenvolupament"
+
+msgid "GNU Emacs"
+msgstr "GNU Emacs"
+
+msgid "Documentation"
+msgstr "Documentació"
+
+msgid "GNOME"
+msgstr "GNOME"
+
+msgid "Linux kernel"
+msgstr "Nucli de Linux"
+
+msgid "KDE"
+msgstr "KDE"
+
+msgid "KDE Internationalization"
+msgstr "Internacionalització del KDE"
+
+msgid "Libraries"
+msgstr "Biblioteques"
+
+msgid "Networking"
+msgstr "Xarxa"
+
+msgid "teTeX"
+msgstr "teTeX"
+
+msgid "TCL"
+msgstr "TCL"
+
+msgid "X Window System"
+msgstr "Sistema de finestres X"
+
+msgid "X Applications"
+msgstr "Aplicacions d'X"
+
+msgid "BSD Console games"
+msgstr "Jocs de consola BSD"
+
+msgid "Patches"
+msgstr "Pedaços"
+
+msgid "GSB Base"
+msgstr "Base GSB"
+
+msgid "GSB Accessibility"
+msgstr "Accessibilitat GSB"
+
+msgid "GSB Administration"
+msgstr "Administració GSB"
+
+msgid "GSB Applications"
+msgstr "Aplicacions GSB"
+
+msgid "GSB Compiz Fusion"
+msgstr "Compiz Fusion GSB "
+
+msgid "GSB Development"
+msgstr "Desenvolupament GSB"
+
+msgid "GSB Office"
+msgstr "Oficina GSB"
+
+msgid "GSB Libraries"
+msgstr "Biblioteques GSB"
+
+msgid "GSB Mono"
+msgstr "Mono GSB"
+
+msgid "GSB Networking"
+msgstr "Xarxa GSB"
+
+msgid "GSB OpenOffice.org"
+msgstr "OpenOffice.org GSB"
+
+msgid "GSB Themes"
+msgstr "Temes GSB"
+
+msgid "Games"
+msgstr "Jocs"
+
+msgid "Localization"
+msgstr "Localització"
+
+msgid ""
+"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
+"Slackware"
+msgstr "El gslapt és un frontal de GTK+ per a slapt-get, un sistema de paquets semblant a APT per a l'Slackware."
+
+msgid "working"
+msgstr "treballant"
+
+msgid "total progress"
+msgstr "progrés total"
+
+msgid "Gslapt"
+msgstr "Gslapt"
+
+msgid "_File"
+msgstr "_Fitxer"
+
+msgid "Update local package cache"
+msgstr "Actualitza la memòria cau local de paquets"
+
+msgid "Update"
+msgstr "Actualitza"
+
+msgid "Mark all possible upgrades"
+msgstr "Marca totes les actualitzacions possibles"
+
+msgid "Mark All Upgrades"
+msgstr "Marca totes les actualitzacions"
+
+msgid "Mark all obsolete packages"
+msgstr "Marca tots els paquets obsolets"
+
+msgid "Mark Obsolete"
+msgstr "Marca com a obsolet"
+
+msgid "Execute all scheduled actions in current transaction"
+msgstr "Executa totes les accions programades a la transacció actual"
+
+msgid "Execute"
+msgstr "Executa"
+
+msgid "_Edit"
+msgstr "_Edita"
+
+msgid "Unmark All"
+msgstr "Desmarca-ho tot"
+
+msgid "Preferences"
+msgstr "Preferències"
+
+msgid "_View"
+msgstr "_Visualitza"
+
+msgid "View all packages"
+msgstr "Visualitza tots els paquets"
+
+msgid "All"
+msgstr "Tot"
+
+msgid "View available packages from current sources"
+msgstr "Visualitza els paquets disponibles de les fonts actuals"
+
+msgid "Available"
+msgstr "Disponible"
+
+msgid "View installed packages"
+msgstr "Visualitza els paquets instal·lats"
+
+msgid "View Marked Packages"
+msgstr "Visualitza els paquets marcats"
+
+msgid "Marked"
+msgstr "Marcat"
+
+msgid "View Upgradeable Packages"
+msgstr "Visualitza els paquets actualitzables"
+
+msgid "Upgradeable"
+msgstr "Actualitzable"
+
+msgid "P_ackage"
+msgstr "P_aquet"
+
+msgid "Unmark"
+msgstr "Desmarca"
+
+msgid "Install"
+msgstr "Instal·la"
+
+msgid "Downgrade"
+msgstr "Degrada"
+
+msgid "Remove"
+msgstr "Elimina"
+
+msgid "_Help"
+msgstr "A_juda"
+
+msgid "Icon Legend"
+msgstr "Llegenda de la icona"
+
+msgid "View ChangeLogs"
+msgstr "Visualitza els registres de canvis"
+
+msgid "About"
+msgstr "Quant a"
+
+msgid "Search"
+msgstr "Cerca"
+
+msgid "<b>Name:</b>"
+msgstr "<b>Nom:</b>"
+
+msgid "No package is selected."
+msgstr "No s'ha seleccionat cap paquet."
+
+msgid "<b>Status:</b>"
+msgstr "<b>Estat:</b>"
+
+msgid "<b>Description:</b>"
+msgstr "<b>Descripció:</b>"
+
+msgid "<b>Version:</b>"
+msgstr "<b>Versió:</b>"
+
+msgid "<b>Source:</b>"
+msgstr "<b>Font:</b>"
+
+msgid "<b>Priority:</b>"
+msgstr "<b>Prioritat:</b>"
+
+msgid "<b>Location:</b>"
+msgstr "<b>Ubicació:</b>"
+
+msgid "<b>Installed Version</b>"
+msgstr "<b>Versió instal·lada</b>"
+
+msgid "Version:"
+msgstr "Versió:"
+
+msgid "Installed Size:"
+msgstr "Mida un cop feta la instal·lació:"
+
+msgid "<b>Latest Available Version</b>"
+msgstr "<b>Última versió disponible</b>"
+
+msgid "Size:"
+msgstr "Mida:"
+
+msgid "Source:"
+msgstr "Font:"
+
+msgid "Common"
+msgstr "Comú"
+
+msgid "Dependencies"
+msgstr "Dependències"
+
+msgid "Changelog"
+msgstr "Registre de canvis"
+
+msgid "Files"
+msgstr "Fitxers"
+
+msgid ""
+"<b>The following icons are used to indicate the current status of a "
+"package:</b>"
+msgstr "<b>Les icones següents s'usen per indicar l'estat actual d'un paquet:</b>"
+
+msgid "Repositories changed"
+msgstr "Els repositoris han canviat"
+
+msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
+msgstr "<span size=\"large\" weight=\"bold\">Els repositoris han canviat</span>"
+
+msgid ""
+"You need to reload the package list from the sources you have listed.  Do "
+"you want to do this now?"
+msgstr "Cal que torneu a carregar la llista de paquets de les fonts que teniu llistades. Ho voleu fer ara?"
+
+msgid "Source failed"
+msgstr "Ha fallat la font"
+
+msgid ""
+"This package source failed or is not available.  Do you want to disable this"
+" source and continue anyway?"
+msgstr "Aquesta font de paquets ha fallat o bé no està disponible. Voleu inhabilitar-la i continuar tanmateix?"
+
+msgid "Default"
+msgstr "Per defecte"
+
+msgid "Official"
+msgstr "Oficial"
+
+msgid "Preferred"
+msgstr "Preferida"
+
+msgid "Custom"
+msgstr "Personalitzada"
+
+msgid "Package Source"
+msgstr "Font de paquets"
+
+msgid "Summary"
+msgstr "Resum"
+
+msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+msgstr "<span weight=\"bold\" size=\"large\">S'apliquen els canvis següents?</span>"
+
+msgid "This is a summary of the changes about to be performed."
+msgstr "Aquest és el resum dels canvis que s'estan a punt de fer."
+
+msgid "Download packages only"
+msgstr "Només baixa els paquets"
+
+msgid "<b>Package and data storage</b>"
+msgstr "<b>Emmagatzematge de paquets i dades</b>"
+
+msgid "_Delete Cached Package Files"
+msgstr "E_limina els fitxers de paquets de la cau"
+
+msgid "Working Directory"
+msgstr "Directori de treball"
+
+msgid "<b>Exclude List</b>"
+msgstr "<b>Llista d'exclusió</b>"
+
+msgid "<span weight=\"bold\">Exclude Expression:</span>"
+msgstr "<span weight=\"bold\">Expressió d'exclusió:</span>"
+
+msgid "Excludes"
+msgstr "Exclou"
+
+msgid "<b>Package Sources</b>"
+msgstr "<b>Fonts de paquets</b>"
+
+msgid "Sources"
+msgstr "Fonts"
+
+msgid "<b>GPG Keys</b>"
+msgstr "<b>Claus GPG</b>"
+
+msgid "Verification"
+msgstr "Verficació"
