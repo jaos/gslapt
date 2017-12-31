@@ -577,16 +577,16 @@ msgid ""
 msgstr ""
 
 msgid "Default"
-msgstr ""
+msgstr "Defaŭlta"
 
 msgid "Official"
-msgstr ""
+msgstr "Oficiala"
 
 msgid "Preferred"
 msgstr ""
 
 msgid "Custom"
-msgstr ""
+msgstr "Kutima"
 
 msgid "Package Source"
 msgstr ""
