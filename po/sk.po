@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sk\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);\n"
 
 msgid "Ready"
 msgstr "Pripravený"
@@ -168,6 +168,7 @@ msgid_plural "%d upgraded, "
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
+msgstr[3] ""
 
 #, c-format
 msgid "%d reinstalled, "
@@ -175,6 +176,7 @@ msgid_plural "%d reinstalled, "
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
+msgstr[3] ""
 
 #, c-format
 msgid "%d newly installed, "
@@ -182,6 +184,7 @@ msgid_plural "%d newly installed, "
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
+msgstr[3] ""
 
 #, c-format
 msgid "%d to remove "
@@ -189,6 +192,7 @@ msgid_plural "%d to remove "
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
+msgstr[3] ""
 
 #, c-format
 msgid "and %d not upgraded."
@@ -196,6 +200,7 @@ msgid_plural "and %d not upgraded."
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
+msgstr[3] ""
 
 msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Nemáte dostatok voľného miesta</span>"

@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % 1 == 0) ? 1: (n % 10 == 0 && n % 1 == 0 && n > 10) ? 2 : 3;\n"
 
 msgid "Ready"
 msgstr "מוכן"
@@ -169,30 +169,40 @@ msgid "%d upgraded, "
 msgid_plural "%d upgraded, "
 msgstr[0] "%d לשדרוג, "
 msgstr[1] "%d לשדרוג, "
+msgstr[2] "%d לשדרוג, "
+msgstr[3] "%d לשדרוג, "
 
 #, c-format
 msgid "%d reinstalled, "
 msgid_plural "%d reinstalled, "
 msgstr[0] "%d להתקנה חוזרת, "
 msgstr[1] "%d להתקנה חוזרת, "
+msgstr[2] "%d להתקנה חוזרת, "
+msgstr[3] "%d להתקנה חוזרת, "
 
 #, c-format
 msgid "%d newly installed, "
 msgid_plural "%d newly installed, "
 msgstr[0] "%d התקנות חדשות, "
 msgstr[1] "%d התקנות חדשות, "
+msgstr[2] "%d התקנות חדשות, "
+msgstr[3] "%d התקנות חדשות, "
 
 #, c-format
 msgid "%d to remove "
 msgid_plural "%d to remove "
 msgstr[0] "%d to להסרה "
 msgstr[1] "%d to להסרה "
+msgstr[2] "%d to להסרה "
+msgstr[3] "%d to להסרה "
 
 #, c-format
 msgid "and %d not upgraded."
 msgid_plural "and %d not upgraded."
 msgstr[0] "ועוד %d לא ישודרגו."
 msgstr[1] "ועוד %d לא ישודרגו."
+msgstr[2] "ועוד %d לא ישודרגו."
+msgstr[3] "ועוד %d לא ישודרגו."
 
 msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
 msgstr "<span weight=\"bold\" size=\"large\">אין ברשותך מספיק נפח בכונן</span>"

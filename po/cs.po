@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: cs\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
 msgid "Ready"
 msgstr "Připraveno"
@@ -171,6 +171,7 @@ msgid_plural "%d upgraded, "
 msgstr[0] "%d upgradován, "
 msgstr[1] "%d upgradovány, "
 msgstr[2] "%d upgradováno, "
+msgstr[3] "%d upgradováno, "
 
 #, c-format
 msgid "%d reinstalled, "
@@ -178,6 +179,7 @@ msgid_plural "%d reinstalled, "
 msgstr[0] "%d přeinstalován, "
 msgstr[1] "%d přeinstalovány, "
 msgstr[2] "%d přeinstalováno, "
+msgstr[3] "%d přeinstalováno, "
 
 #, c-format
 msgid "%d newly installed, "
@@ -185,6 +187,7 @@ msgid_plural "%d newly installed, "
 msgstr[0] "%d nově nainstalován, "
 msgstr[1] "%d nově nainstalovány, "
 msgstr[2] "%d nově nainstalováno, "
+msgstr[3] "%d nově nainstalováno, "
 
 #, c-format
 msgid "%d to remove "
@@ -192,6 +195,7 @@ msgid_plural "%d to remove "
 msgstr[0] "%d k odebrání"
 msgstr[1] "%d k odebrání"
 msgstr[2] "%d k odebrání"
+msgstr[3] "%d k odebrání"
 
 #, c-format
 msgid "and %d not upgraded."
@@ -199,6 +203,7 @@ msgid_plural "and %d not upgraded."
 msgstr[0] "a %d neupgradován."
 msgstr[1] "a %d neupgradovány."
 msgstr[2] "a %d neupgradováno."
+msgstr[3] "a %d neupgradováno."
 
 msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Nemáte dostatek volného místa</span>"
