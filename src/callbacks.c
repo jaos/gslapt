@@ -895,7 +895,7 @@ static void fillin_pkg_details (slapt_pkg_info_t *pkg)
   /* dependency information tab */
   store = gtk_tree_store_new(1,G_TYPE_STRING);
 
-  if (pkg->installed == SLAPT_FALSE) {
+  if (pkg->installed == false) {
 
     gtk_tree_store_append(store,&iter,NULL);
     gtk_tree_store_set(store,&iter,0,_("<b>Required:</b>"),-1);
@@ -1130,7 +1130,7 @@ static void get_package_data (void)
     unsigned int compressed = 0;
     SLAPT_PRIORITY_T source_priority = global_config->sources->src[i]->priority;
 
-    if (global_config->sources->src[i]->disabled == SLAPT_TRUE)
+    if (global_config->sources->src[i]->disabled == true)
       continue;
 
     if (_cancelled == 1) {
@@ -1192,7 +1192,7 @@ static void get_package_data (void)
           /* this is only disabled for the current session since
              slapt_write_rc_config() is not called */
           continue_anyway = TRUE;
-          global_config->sources->src[i]->disabled = SLAPT_TRUE;
+          global_config->sources->src[i]->disabled = true;
         } else {
           gtk_widget_destroy(progress_window);
           unlock_toolbar_buttons();
@@ -1410,7 +1410,7 @@ static void get_package_data (void)
           patch_pkgs->pkgs[pkg_i]->mirror = strdup(global_config->sources->src[i]->url);
         }
         /* set the priority of the package based on the source, plus 1 for the patch priority */
-        if (global_config->use_priority == SLAPT_TRUE)
+        if (global_config->use_priority == true)
           patch_pkgs->pkgs[pkg_i]->priority = source_priority + 1;
         else
           patch_pkgs->pkgs[pkg_i]->priority = source_priority;
@@ -1710,7 +1710,7 @@ static void build_sources_treeviewlist(GtkWidget *treeview)
     if ( global_config->sources->src[i]->url == NULL )
       continue;
 
-    if (global_config->sources->src[i]->disabled == SLAPT_TRUE) {
+    if (global_config->sources->src[i]->disabled == true) {
       enabled = FALSE;
       status_icon = disabled_status_icon;
     } else {
@@ -1906,7 +1906,7 @@ static int populate_transaction_window (GtkBuilder *b)
         trans->upgrade_pkgs->pkgs[i]->upgrade->version
       );
 
-      if (trans->upgrade_pkgs->pkgs[i]->reinstall == SLAPT_TRUE) {
+      if (trans->upgrade_pkgs->pkgs[i]->reinstall == true) {
         g_free(detail);
         continue;
       }
@@ -1932,7 +1932,7 @@ static int populate_transaction_window (GtkBuilder *b)
         trans->upgrade_pkgs->pkgs[i]->upgrade->version
       );
 
-      if (trans->upgrade_pkgs->pkgs[i]->reinstall == SLAPT_FALSE) {
+      if (trans->upgrade_pkgs->pkgs[i]->reinstall == false) {
         g_free(detail);
         continue;
       }
@@ -1992,12 +1992,12 @@ static int populate_transaction_window (GtkBuilder *b)
   gtk_label_set_text(GTK_LABEL(sum_pkg_num),buf);
 
   /* if we don't have enough free space to download */
-  if (slapt_disk_space_check(global_config->working_dir,dl_size - already_dl_size) == SLAPT_FALSE) {
+  if (slapt_disk_space_check(global_config->working_dir,dl_size - already_dl_size) == false) {
     notify((gchar *)_("Error"),(gchar *)_("<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"));
     return -1;
   }
   /* if we don't have enough free space to install on / */
-  if (slapt_disk_space_check("/",free_space) == SLAPT_FALSE) {
+  if (slapt_disk_space_check("/",free_space) == false) {
     notify((gchar *)_("Error"),(gchar *)_("<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"));
     return -1;
   }
@@ -2524,9 +2524,9 @@ void preferences_on_ok_clicked (GtkWidget *w, gpointer *user_data)
       if (src != NULL) {
 
         if (status)
-          src->disabled = SLAPT_FALSE;
+          src->disabled = false;
         else
-          src->disabled = SLAPT_TRUE;
+          src->disabled = true;
   
         src->priority = priority;
 
@@ -4010,7 +4010,7 @@ void view_changelogs (GtkMenuItem *menuitem, gpointer *user_data)
 
     if ( global_config->sources->src[i]->url == NULL )
       continue;
-    if ( global_config->sources->src[i]->disabled == SLAPT_TRUE)
+    if ( global_config->sources->src[i]->disabled == true)
       continue;
 
     source_url = g_strdup ( global_config->sources->src[i]->url );
