@@ -1,6 +1,6 @@
 dnl Process this file with autoconf to produce a configure script.
 
-AC_INIT([gslapt], [0.5.4c], [woodwardj@jaos.org])
+AC_INIT([gslapt], [0.5.5], [woodwardj@jaos.org])
 AC_CONFIG_SRCDIR([configure.ac])
 AM_INIT_AUTOMAKE([-Wall foreign])
 AM_CONFIG_HEADER(config.h)
