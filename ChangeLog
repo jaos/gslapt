@@ -1,4 +1,7 @@
 
+0.5.5 Jun 21, 2018
+ * build fixes
+
 0.5.4c Jul 04, 2016
  * Slackware 14.2 and Slackware-arm
  * GtkDialog no longer has the has_separator property
