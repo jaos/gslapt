@@ -2494,14 +2494,9 @@ void preferences_on_ok_clicked (GtkWidget *w, gpointer *user_data)
   GtkTreeIter iter;
   gboolean valid;
 
-  strncpy(
-    global_config->working_dir,
-    working_dir,
-    strlen(working_dir)
-  );
-  global_config->working_dir[
-    strlen(working_dir)
-  ] = '\0';
+  strcpy(global_config->working_dir, working_dir);
+  slapt_working_dir_init(global_config);
+  chdir(global_config->working_dir);
 
   slapt_free_list(global_config->exclude_list);
   slapt_free_source_list(global_config->sources);
