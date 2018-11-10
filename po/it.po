@@ -2,14 +2,14 @@
 # This file is put in the public domain.
 # 
 # Translators:
-# Antonio Sardei <laplume@libero.it>, 2016
+# Antonio Sardei <laplume@libero.it>, 2016,2018
 # FIRST AUTHOR Fabio Varesano <fvaresano@yahoo.it>, 2005-2006
 msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2014-08-04 22:05-0400\n"
-"PO-Revision-Date: 2017-09-19 14:08+0000\n"
+"PO-Revision-Date: 2018-08-16 18:27+0000\n"
 "Last-Translator: Antonio Sardei <laplume@libero.it>\n"
 "Language-Team: Italian (http://www.transifex.com/jaos/slapt-get/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -166,32 +166,32 @@ msgstr "Pacchetto"
 #, c-format
 msgid "%d upgraded, "
 msgid_plural "%d upgraded, "
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%daggiornato."
+msgstr[1] "%daggiornato,"
 
 #, c-format
 msgid "%d reinstalled, "
 msgid_plural "%d reinstalled, "
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%dappena installato,"
+msgstr[1] "%dreinstallato,"
 
 #, c-format
 msgid "%d newly installed, "
 msgid_plural "%d newly installed, "
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%dnon aggiornato."
+msgstr[1] "%dappena installato,"
 
 #, c-format
 msgid "%d to remove "
 msgid_plural "%d to remove "
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%dda rimuovere"
+msgstr[1] "%dda rimuovere"
 
 #, c-format
 msgid "and %d not upgraded."
 msgid_plural "and %d not upgraded."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%dnon aggiornato."
+msgstr[1] "%dnon aggiornato."
 
 msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Non hai spazio libero sufficiente</span>"
