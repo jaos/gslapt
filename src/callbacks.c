@@ -1127,7 +1127,7 @@ static void get_package_data (void)
     #ifdef SLAPT_HAS_GPGME
     FILE *tmp_signature_f = NULL;
     #endif
-    unsigned int compressed = 0;
+    bool  compressed = 0;
     SLAPT_PRIORITY_T source_priority = global_config->sources->src[i]->priority;
 
     if (global_config->sources->src[i]->disabled == true)
@@ -1311,7 +1311,7 @@ static void get_package_data (void)
       FILE *tmp_checksum_to_verify_f = NULL;
 
       /* if we downloaded the compressed checksums, open it raw (w/o gunzippign) */
-      if (compressed == 1) {
+      if (compressed) {
         char *filename = slapt_gen_filename_from_url(global_config->sources->src[i]->url,
                                                      SLAPT_CHECKSUM_FILE_GZ);
         tmp_checksum_to_verify_f = slapt_open_file(filename,"r");
@@ -1329,7 +1329,7 @@ static void get_package_data (void)
         if (verified == SLAPT_CHECKSUMS_NOT_VERIFIED) {
           fclose(tmp_checksum_f);
           fclose(tmp_signature_f);
-          if (compressed == 1)
+          if (compressed)
             fclose(tmp_checksum_to_verify_f);
           gdk_threads_enter();
           gslapt_clear_status(context_id);
@@ -1344,7 +1344,7 @@ static void get_package_data (void)
       fclose(tmp_signature_f);
 
       /* if we opened the raw gzipped checksums, close it here */
-      if (compressed == 1)
+      if (compressed)
         fclose(tmp_checksum_to_verify_f);
       else
         rewind(tmp_checksum_f);
@@ -3858,7 +3858,7 @@ static void get_gpg_key(GtkBuilder *b)
     GtkBuilder *builder;
     GtkLabel *progress_action_label, *progress_message_label;
     GtkProgressBar *p_bar, *dl_bar;
-    unsigned int compressed = 0;
+    bool compressed = false;
     FILE *gpg_key= NULL;
     slapt_code_t result;
     gchar *url;
