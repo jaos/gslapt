@@ -16,7 +16,7 @@ arm*) host_cpu=arm ;;
 esac
 
 AC_ISC_POSIX
-AC_PROG_CC
+AC_PROG_CC_C99
 AC_HEADER_STDC
 AC_C_CONST
 AC_C_VOLATILE
