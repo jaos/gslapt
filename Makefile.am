@@ -3,6 +3,7 @@
 SUBDIRS = src po ui
 
 PKGDIR = `pwd`/pkg
+PKGREL = 1
 
 EXTRA_DIST = \
   FAQ \
@@ -54,6 +55,6 @@ pkg: all
 	@echo "done" >> $(PKGDIR)/install/doinst.sh
 	@echo 'if [ -x usr/bin/update-desktop-database ]; then usr/bin/update-desktop-database &>/dev/null; fi' >> $(PKGDIR)/install/doinst.sh
 	strip --strip-unneeded $(PKGDIR)/$(sbindir)/@PACKAGE@
-	( cd $(PKGDIR) && /sbin/makepkg -l y -c n ../@PACKAGE@-@VERSION@-@host_cpu@-1.txz )
+	( cd $(PKGDIR) && /sbin/makepkg -l y -c n ../@PACKAGE@-@VERSION@-@host_cpu@-$(PKGREL).txz )
 
 
