@@ -42,8 +42,7 @@ AC_CHECK_LIB(gpgme,gpgme_new, [
       [AC_DEFINE(SLAPT_HAS_GPGME, 1, [libslapt has builtin gpgme support])],
       [AC_MSG_WARN(libslapt does not have gpgme support)])
 ], [AC_MSG_WARN(gpg support disabled)])
-AC_CHECK_MEMBER([slapt_pkg_list_t.pkgs], [LIBS="$LIBS -lslapt"], [AC_MSG_ERROR([libslapt 0.10.2g or greater is required])], [[#include <slapt.h>]])
-dnl AC_CHECK_LIB(slapt,slapt_disk_space_check, [], [AC_MSG_ERROR(libslapt 0.10.2b or greater is required)])
+AC_CHECK_LIB(slapt,slapt_vector_t_init, [], [AC_MSG_ERROR(libslapt 0.11.1 or greater is required)])
 
 
 glib_modules="glib-2.0 gthread-2.0 gmodule-2.0 gmodule-export-2.0"

@@ -121,7 +121,7 @@ void update_activate (GtkMenuItem *menuitem, gpointer *user_data);
 void mark_all_upgrades_activate (GtkMenuItem *menuitem, gpointer *user_data);
 void execute_activate (GtkMenuItem *menuitem, gpointer *user_data);
 
-slapt_source_list_t *parse_disabled_package_sources (const char *file_name);
+slapt_vector_t *parse_disabled_package_sources (const char *file_name);
 
 
 void view_all_packages (GtkMenuItem *menuitem, gpointer *user_data);

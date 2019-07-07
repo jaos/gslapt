@@ -26,8 +26,8 @@
 #include "series.h"
 
 slapt_rc_config *global_config; /* our config struct */
-slapt_pkg_list_t *installed;
-slapt_pkg_list_t *all;
+slapt_vector_t *installed;
+slapt_vector_t *all;
 GtkWidget *gslapt;
 GtkBuilder *gslapt_builder;
 slapt_transaction_t *trans = NULL;
@@ -39,10 +39,8 @@ int main (int argc, char *argv[]) {
   GtkStatusbar *bar;
   guint default_context_id;
   GtkEntryCompletion *completions;
-  gchar **pkg_inst_args = slapt_malloc(sizeof **pkg_inst_args);
-  guint pkg_inst_args_count = 0;
-  gchar **pkg_rem_args = slapt_malloc(sizeof **pkg_rem_args);
-  guint pkg_rem_args_count = 0;
+  slapt_vector_t *pkg_names_to_install = slapt_vector_t_init(free);
+  slapt_vector_t *pkg_names_to_remove = slapt_vector_t_init(free);
   gchar *rc = NULL;
   guint option_index = 0;
   guint do_upgrade = 0;
@@ -94,14 +92,7 @@ int main (int argc, char *argv[]) {
         next_opt = argv[++option_index];
 
       while (next_opt != NULL) {
-        char **tmp = NULL;
-
-        tmp = realloc(pkg_inst_args, sizeof *pkg_inst_args * (pkg_inst_args_count + 1));
-        if (tmp == NULL)
-          exit(1);
-        pkg_inst_args = tmp;
-        pkg_inst_args[pkg_inst_args_count] = g_strdup(next_opt);
-        ++pkg_inst_args_count;
+        slapt_vector_t_add(pkg_names_to_install, strdup(next_opt));
 
         if (argc > (option_index + 1) &&
         strcmp(argv[option_index + 1],"--upgrade") != 0 &&
@@ -123,14 +114,7 @@ int main (int argc, char *argv[]) {
         next_opt = argv[++option_index];
 
       while (next_opt != NULL) {
-        char **tmp = NULL;
-
-        tmp = realloc(pkg_rem_args, sizeof *pkg_rem_args * (pkg_rem_args_count + 1));
-        if (tmp == NULL)
-          exit(1);
-        pkg_rem_args = tmp;
-        pkg_rem_args[pkg_rem_args_count] = g_strdup(next_opt);
-        ++pkg_rem_args_count;
+        slapt_vector_t_add(pkg_names_to_remove, strdup(next_opt));
 
         if (argc > (option_index + 1) &&
         strcmp(argv[option_index + 1],"--upgrade") != 0 &&
@@ -208,11 +192,10 @@ int main (int argc, char *argv[]) {
   if (do_upgrade == 1) {
     g_signal_emit_by_name(gtk_builder_get_object (gslapt_builder,"action_bar_upgrade_button"),"clicked");
   } else {
-    if (pkg_inst_args_count > 0){
-      int i;
-      for (i = 0; i < pkg_inst_args_count; ++i) {
-        slapt_pkg_info_t *p = slapt_get_newest_pkg(all,pkg_inst_args[i]);
-        slapt_pkg_info_t *inst_p = slapt_get_newest_pkg(installed,pkg_inst_args[i]);
+      if (pkg_names_to_install->size > 0) {
+         slapt_vector_t_foreach(char *, pkg_name_to_install, pkg_names_to_install) {
+           slapt_pkg_info_t *p = slapt_get_newest_pkg(all, pkg_name_to_install);
+           slapt_pkg_info_t *inst_p = slapt_get_newest_pkg(installed, pkg_name_to_install);
 
         if (p == NULL)
           continue;
@@ -227,25 +210,23 @@ int main (int argc, char *argv[]) {
           }
         } else {
           if (slapt_add_deps_to_trans(global_config,trans,all,installed,p) == 0) {
-            slapt_pkg_list_t *conflicts = slapt_is_conflicted(trans,all,installed,p);
-            slapt_add_install_to_transaction(trans,p);
-            if ( conflicts->pkg_count > 0) {
-              unsigned int cindex = 0;
-              for (cindex = 0; cindex < conflicts->pkg_count; cindex++) {
-                slapt_add_remove_to_transaction(trans,conflicts->pkgs[cindex]);
-              }
+            slapt_vector_t *conflicts = slapt_is_conflicted(trans, all, installed, p);
+            slapt_add_install_to_transaction(trans, p);
+            if ( conflicts->size > 0) {
+                slapt_vector_t_foreach(slapt_pkg_info_t *, conflict_pkg, conflicts) {
+                    slapt_add_remove_to_transaction(trans, conflict_pkg);
+                }
             }
-            slapt_free_pkg_list(conflicts);
+            slapt_vector_t_free(conflicts);
           } else {
             exit(1);
           }
         }
       }
     }
-    if (pkg_rem_args_count > 0) {
-      int i;
-      for (i = 0; i < pkg_rem_args_count; ++i) {
-        slapt_pkg_info_t *r = slapt_get_newest_pkg(installed,pkg_rem_args[i]);
+      if (pkg_names_to_remove->size > 0) {
+        slapt_vector_t_foreach(char *, pkg_name_to_remove, pkg_names_to_remove) {
+          slapt_pkg_info_t *r = slapt_get_newest_pkg(installed, pkg_name_to_remove);
         if (r != NULL) {
           slapt_add_remove_to_transaction(trans,r);
         }
@@ -253,16 +234,11 @@ int main (int argc, char *argv[]) {
     }
   }
 
-  for (option_index = 0; option_index < pkg_inst_args_count; ++option_index) {
-    g_free(pkg_inst_args[option_index]);
-  }
-  g_free(pkg_inst_args);
-  for (option_index = 0; option_index < pkg_rem_args_count; ++option_index) {
-    g_free(pkg_rem_args[option_index]);
-  }
-  g_free(pkg_rem_args);
 
-  if ( trans->remove_pkgs->pkg_count > 0 || trans->install_pkgs->pkg_count > 0 || trans->upgrade_pkgs->pkg_count > 0) {
+  slapt_vector_t_free(pkg_names_to_install);
+  slapt_vector_t_free(pkg_names_to_remove);
+
+  if ( trans->remove_pkgs->size > 0 || trans->install_pkgs->size > 0 || trans->upgrade_pkgs->size > 0) {
     g_signal_emit_by_name(gtk_builder_get_object (gslapt_builder,"action_bar_execute_button"),"clicked");
   }
 
