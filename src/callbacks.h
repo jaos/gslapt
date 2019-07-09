@@ -21,127 +21,119 @@
 #define RC_LOCATION "/etc/slapt-get/slapt-getrc"
 
 #ifdef HAVE_CONFIG_H
-#  include <config.h>
+#include <config.h>
 #endif
 
 /*
  * Standard gettext macros.
  */
 #ifdef ENABLE_NLS
-#  include <libintl.h>
-#  undef _
-#  define _(String) dgettext (PACKAGE, String)
-#  define P_(String, String_p, n) ngettext(String, String_p, n)
-#  ifdef gettext_noop
-#    define N_(String) gettext_noop (String)
-#  else
-#    define N_(String) (String)
-#  endif
+#include <libintl.h>
+#undef _
+#define _(String) dgettext(PACKAGE, String)
+#define P_(String, String_p, n) ngettext(String, String_p, n)
+#ifdef gettext_noop
+#define N_(String) gettext_noop(String)
 #else
-#  define textdomain(String) (String)
-#  define gettext(String) (String)
-#  define dgettext(Domain,Message) (Message)
-#  define dcgettext(Domain,Message,Type) (Message)
-#  define bindtextdomain(Domain,Directory) (Domain)
-#  define _(String) (String)
-#  define P_(String, String_p, n) (String_p)
-#  define N_(String) (String)
+#define N_(String) (String)
+#endif
+#else
+#define textdomain(String) (String)
+#define gettext(String) (String)
+#define dgettext(Domain, Message) (Message)
+#define dcgettext(Domain, Message, Type) (Message)
+#define bindtextdomain(Domain, Directory) (Domain)
+#define _(String) (String)
+#define P_(String, String_p, n) (String_p)
+#define N_(String) (String)
 #endif
 
-
-
 enum {
-  STATUS_ICON_COLUMN,
-  NAME_COLUMN,
-  VERSION_COLUMN,
-  LOCATION_COLUMN,
-  SERIES_COLUMN,
-  DESC_COLUMN,
-  SIZE_COLUMN,
-  STATUS_COLUMN,
-  VISIBLE_COLUMN,
-  INST_COLUMN,
-  MARKED_COLUMN,
-  UPGRADEABLE_COLUMN,
-  NUMBER_OF_COLUMNS
+    STATUS_ICON_COLUMN,
+    NAME_COLUMN,
+    VERSION_COLUMN,
+    LOCATION_COLUMN,
+    SERIES_COLUMN,
+    DESC_COLUMN,
+    SIZE_COLUMN,
+    STATUS_COLUMN,
+    VISIBLE_COLUMN,
+    INST_COLUMN,
+    MARKED_COLUMN,
+    UPGRADEABLE_COLUMN,
+    NUMBER_OF_COLUMNS
 };
 
 gboolean gslapt_window_resized(GtkWindow *window, GdkEvent *event, gpointer data);
-void on_gslapt_destroy (GObject *object, gpointer *user_data);
-void update_callback (GObject *object, gpointer *user_data);
-void upgrade_callback (GObject *object, gpointer *user_data);
-void execute_callback (GObject *object, gpointer *user_data);
-void search_activated (GtkWidget *gslapt, gpointer *user_data);
-void add_pkg_for_install (GtkWidget *gslapt, gpointer *user_data);
-void add_pkg_for_reinstall (GtkWidget *gslapt, gpointer *user_data);
-void add_pkg_for_removal (GtkWidget *gslapt, gpointer *user_data);
-void build_installed_treeviewlist (GtkWidget *);
-void build_available_treeviewlist (GtkWidget *);
-void build_searched_treeviewlist (GtkWidget *,gchar *pattern);
-void open_about (GObject *object, gpointer *user_data);
+void on_gslapt_destroy(GObject *object, gpointer *user_data);
+void update_callback(GObject *object, gpointer *user_data);
+void upgrade_callback(GObject *object, gpointer *user_data);
+void execute_callback(GObject *object, gpointer *user_data);
+void search_activated(GtkWidget *gslapt, gpointer *user_data);
+void add_pkg_for_install(GtkWidget *gslapt, gpointer *user_data);
+void add_pkg_for_reinstall(GtkWidget *gslapt, gpointer *user_data);
+void add_pkg_for_removal(GtkWidget *gslapt, gpointer *user_data);
+void build_installed_treeviewlist(GtkWidget *);
+void build_available_treeviewlist(GtkWidget *);
+void build_searched_treeviewlist(GtkWidget *, gchar *pattern);
+void open_about(GObject *object, gpointer *user_data);
 
-void show_pkg_details (GtkTreeSelection *selection, gpointer data);
+void show_pkg_details(GtkTreeSelection *selection, gpointer data);
 
-void preferences_sources_add (GtkWidget *w, gpointer *user_data);
-void preferences_sources_remove (GtkWidget *w, gpointer *user_data);
-void preferences_sources_edit (GtkWidget *w, gpointer *user_data);
-void preferences_sources_modify (GtkWidget *w, gpointer *user_data);
-void preferences_on_ok_clicked (GtkWidget *w, gpointer *user_data);
+void preferences_sources_add(GtkWidget *w, gpointer *user_data);
+void preferences_sources_remove(GtkWidget *w, gpointer *user_data);
+void preferences_sources_edit(GtkWidget *w, gpointer *user_data);
+void preferences_sources_modify(GtkWidget *w, gpointer *user_data);
+void preferences_on_ok_clicked(GtkWidget *w, gpointer *user_data);
 
-void transaction_okbutton_clicked (GtkWidget *w, gpointer *user_data);
-void preferences_exclude_add (GtkWidget *w, gpointer *user_data);
-void preferences_exclude_remove (GtkWidget *w, gpointer *user_data);
+void transaction_okbutton_clicked(GtkWidget *w, gpointer *user_data);
+void preferences_exclude_add(GtkWidget *w, gpointer *user_data);
+void preferences_exclude_remove(GtkWidget *w, gpointer *user_data);
 
-int gtk_progress_callback (void *data, double dltotal, double dlnow,
-                           double ultotal, double ulnow);
-void build_package_treeviewlist (GtkWidget *treeview);
+int gtk_progress_callback(void *data, double dltotal, double dlnow, double ultotal, double ulnow);
+void build_package_treeviewlist(GtkWidget *treeview);
 
-void cancel_preferences (GtkWidget *w, gpointer *user_data);
-void cancel_transaction (GtkWidget *w, gpointer *user_data);
+void cancel_preferences(GtkWidget *w, gpointer *user_data);
+void cancel_transaction(GtkWidget *w, gpointer *user_data);
 
-void unmark_package (GtkWidget *gslapt, gpointer *user_data);
+void unmark_package(GtkWidget *gslapt, gpointer *user_data);
 
-void build_treeview_columns (GtkWidget *treeview);
+void build_treeview_columns(GtkWidget *treeview);
 
-void on_button_cancel_clicked (GtkButton *button, gpointer *user_data);
+void on_button_cancel_clicked(GtkButton *button, gpointer *user_data);
 
-GtkEntryCompletion *build_search_completions (void);
+GtkEntryCompletion *build_search_completions(void);
 
-
-void repositories_changed_callback (GtkWidget *repositories_changed,
-                                    gpointer *user_data);
-
+void repositories_changed_callback(GtkWidget *repositories_changed, gpointer *user_data);
 
 /* menu callbacks */
-void clean_callback (GtkWidget *widget, gpointer *user_data);
-void open_preferences (GtkMenuItem *menuitem, gpointer *user_data);
-void open_icon_legend  (GObject *object, gpointer *user_data);
-void unmark_all_activate (GtkMenuItem *menuitem, gpointer *user_data);
-void update_activate (GtkMenuItem *menuitem, gpointer *user_data);
-void mark_all_upgrades_activate (GtkMenuItem *menuitem, gpointer *user_data);
-void execute_activate (GtkMenuItem *menuitem, gpointer *user_data);
+void clean_callback(GtkWidget *widget, gpointer *user_data);
+void open_preferences(GtkMenuItem *menuitem, gpointer *user_data);
+void open_icon_legend(GObject *object, gpointer *user_data);
+void unmark_all_activate(GtkMenuItem *menuitem, gpointer *user_data);
+void update_activate(GtkMenuItem *menuitem, gpointer *user_data);
+void mark_all_upgrades_activate(GtkMenuItem *menuitem, gpointer *user_data);
+void execute_activate(GtkMenuItem *menuitem, gpointer *user_data);
 
-slapt_vector_t *parse_disabled_package_sources (const char *file_name);
+slapt_vector_t *parse_disabled_package_sources(const char *file_name);
 
+void view_all_packages(GtkMenuItem *menuitem, gpointer *user_data);
+void view_available_packages(GtkMenuItem *menuitem, gpointer *user_data);
+void view_installed_packages(GtkMenuItem *menuitem, gpointer *user_data);
 
-void view_all_packages (GtkMenuItem *menuitem, gpointer *user_data);
-void view_available_packages (GtkMenuItem *menuitem, gpointer *user_data);
-void view_installed_packages (GtkMenuItem *menuitem, gpointer *user_data);
+void view_marked_packages(GtkMenuItem *menuitem, gpointer *user_data);
 
-void view_marked_packages (GtkMenuItem *menuitem, gpointer *user_data);
-
-void mark_obsolete_packages (GtkMenuItem *menuitem, gpointer *user_data);
+void mark_obsolete_packages(GtkMenuItem *menuitem, gpointer *user_data);
 
 #ifdef SLAPT_HAS_GPGME
-void preferences_sources_add_key (GtkWidget *w, gpointer *user_data);
+void preferences_sources_add_key(GtkWidget *w, gpointer *user_data);
 #endif
 
+void view_upgradeable_packages(GtkMenuItem *menuitem, gpointer *user_data);
+void view_changelogs(GtkMenuItem *menuitem, gpointer *user_data);
 
-void view_upgradeable_packages (GtkMenuItem *menuitem, gpointer *user_data);
-void view_changelogs (GtkMenuItem *menuitem, gpointer *user_data);
+void cancel_source_edit(GtkWidget *w, gpointer *user_data);
+void source_edit_ok(GtkWidget *w, gpointer *user_data);
 
-void cancel_source_edit (GtkWidget *w, gpointer *user_data);
-void source_edit_ok (GtkWidget *w, gpointer *user_data);
-
-GdkPixbuf *gslapt_img (const char *img);
-void gslapt_load_ui (GtkBuilder *b, const char *f);
+GdkPixbuf *gslapt_img(const char *img);
+void gslapt_load_ui(GtkBuilder *b, const char *f);
