@@ -9,14 +9,15 @@ IT_PROG_INTLTOOL([0.35.0])
 
 AC_CANONICAL_HOST
 
+AC_ISC_POSIX
+AC_PROG_CC_C99
+
 case "$host_cpu" in
 i[[3456]]86) host_cpu=i386 ;CFLAGS="$CFLAGS -fpic";;
 x86_64) host_cpu=x86_64 ;CFLAGS="$CFLAGS -fPIC";;
 arm*) host_cpu=arm ;;
 esac
 
-AC_ISC_POSIX
-AC_PROG_CC_C99
 AC_HEADER_STDC
 AC_C_CONST
 AC_C_VOLATILE
