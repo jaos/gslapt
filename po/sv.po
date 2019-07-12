@@ -2,13 +2,13 @@
 # This file is put in the public domain.
 # 
 # Translators:
-# Ingemar Karlsson <ingemar@ingk.se>, 2012,2014
+# Ingemar Karlsson <ingemar@ingk.se>, 2012,2014,2019
 msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
 "POT-Creation-Date: 2014-08-04 22:05-0400\n"
-"PO-Revision-Date: 2017-09-19 14:08+0000\n"
+"PO-Revision-Date: 2019-04-20 07:44+0000\n"
 "Last-Translator: Ingemar Karlsson <ingemar@ingk.se>\n"
 "Language-Team: Swedish (http://www.transifex.com/jaos/slapt-get/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -246,7 +246,7 @@ msgid "Failed to commit preferences"
 msgstr "Det gick inte att utföra inställningarna"
 
 msgid "Pending changes. Click execute when ready."
-msgstr "Ogenomförda ändringar. Tryck exekvera när du är redo."
+msgstr "Väntande ändringar. Tryck på utför när du är klar."
 
 msgid "Status"
 msgstr "Status"
