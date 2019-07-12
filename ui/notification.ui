@@ -10,7 +10,6 @@
     <property name="icon">gslapt.png</property>
     <property name="type_hint">dialog</property>
     <property name="gravity">center</property>
-    <property name="has_separator">True</property>
     <child internal-child="vbox">
       <object class="GtkVBox" id="dialog-vbox3">
         <property name="can_focus">False</property>
