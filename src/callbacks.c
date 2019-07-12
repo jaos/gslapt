@@ -2845,6 +2845,7 @@ void open_icon_legend(GObject *object, gpointer *user_data)
     gslapt_load_ui(builder, "icon_legend.ui");
     icon_legend = GTK_WIDGET(gtk_builder_get_object(builder, "icon_legend"));
     gtk_builder_connect_signals(builder, NULL);
+    gtk_window_set_transient_for(GTK_WINDOW(icon_legend), GTK_WINDOW(gslapt));
     g_object_unref(G_OBJECT(builder));
 
     gtk_widget_show_all(icon_legend);
