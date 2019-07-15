@@ -41,6 +41,14 @@ typedef struct {
     gint tran_y;
     gint tran_width;
     gint tran_height;
+    gint progress_x;
+    gint progress_y;
+    gint progress_width;
+    gint progress_height;
+    gint notify_x;
+    gint notify_y;
+    gint notify_width;
+    gint notify_height;
 } GslaptSettings;
 
 char *gslapt_init_rc_dir(void);

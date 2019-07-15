@@ -102,7 +102,6 @@
                         <property name="use_stock">False</property>
                         <accelerator key="z" signal="activate" modifiers="GDK_CONTROL_MASK"/>
                         <signal name="activate" handler="unmark_all_activate" swapped="no"/>
-                        <signal name="activate" handler="unmark_all_activate" swapped="no"/>
                       </object>
                     </child>
                     <child>

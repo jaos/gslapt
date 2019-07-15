@@ -43,8 +43,7 @@ int main(int argc, char *argv[])
     slapt_vector_t *pkg_names_to_install = slapt_vector_t_init(free);
     slapt_vector_t *pkg_names_to_remove = slapt_vector_t_init(free);
     gchar *rc = NULL;
-    guint option_index = 0;
-    guint do_upgrade = 0;
+    bool do_upgrade = false;
 
 #ifdef ENABLE_NLS
     bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
@@ -56,11 +55,6 @@ int main(int argc, char *argv[])
     gpgme_check_version(NULL);
 #endif
 
-    /* gtk_set_locale (); */
-#if !GLIB_CHECK_VERSION(2, 31, 0)
-    g_thread_init(NULL);
-#endif
-    gdk_threads_init();
     gtk_init(&argc, &argv);
 
     trans = slapt_init_transaction();
@@ -69,9 +63,9 @@ int main(int argc, char *argv[])
     gslapt_series_map = gslapt_series_map_init();
     gslapt_series_map_fill(gslapt_series_map);
 
-    for (option_index = 1; option_index < argc; ++option_index) {
+    for (int option_index = 1; option_index < argc; ++option_index) {
         if (strcmp(argv[option_index], "--upgrade") == 0) {
-            do_upgrade = 1;
+            do_upgrade = true;
 
         } else if (strcmp(argv[option_index], "--config") == 0) {
             if (argc > (option_index + 1) &&
@@ -151,13 +145,16 @@ int main(int argc, char *argv[])
 
     completions = build_search_completions();
     gtk_entry_set_completion(GTK_ENTRY(gtk_builder_get_object(gslapt_builder, "search_entry")), completions);
+    g_object_unref(completions);
 
+    /* weird issue with 14.2 Gtk+ 3.18:
+     * Gtk-CRITICAL **: gtk_widget_get_preferred_width_for_height: assertion 'height >= 0' failed
+     * unless we set the min-content-height
+     */
+#if GTK_CHECK_VERSION(3,0,0)
+    gtk_scrolled_window_set_min_content_height(GTK_SCROLLED_WINDOW(gtk_builder_get_object(gslapt_builder, "pkg_list_scrolled")), 40);
+#endif
     build_treeview_columns(GTK_WIDGET(gtk_builder_get_object(gslapt_builder, "pkg_listing_treeview")));
-    /*
-    this sometimes screws up resizing of the window (why?)
-    g_thread_create((GThreadFunc)build_package_treeviewlist,
-     GTK_WIDGET(gtk_builder_get_object (gslapt_builder,"pkg_listing_treeview")),FALSE,NULL);
-    */
     build_package_treeviewlist(GTK_WIDGET(gtk_builder_get_object(gslapt_builder, "pkg_listing_treeview")));
 
     bar = GTK_STATUSBAR(gtk_builder_get_object(gslapt_builder, "bottom_statusbar"));
@@ -180,7 +177,7 @@ int main(int argc, char *argv[])
 
     gtk_widget_show_all(gslapt);
 
-    if (do_upgrade == 1) {
+    if (do_upgrade) {
         g_signal_emit_by_name(gtk_builder_get_object(gslapt_builder, "action_bar_upgrade_button"), "clicked");
     } else {
         if (pkg_names_to_install->size > 0) {
@@ -232,9 +229,7 @@ int main(int argc, char *argv[])
         g_signal_emit_by_name(gtk_builder_get_object(gslapt_builder, "action_bar_execute_button"), "clicked");
     }
 
-    gdk_threads_enter();
     gtk_main();
-    gdk_threads_leave();
 
     return 0;
 }

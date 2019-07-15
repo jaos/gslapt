@@ -38,6 +38,8 @@ GslaptSettings *gslapt_new_rc(void)
     g->cl_x = g->cl_y = g->cl_width = g->cl_height = 0;
     g->pref_x = g->pref_y = g->pref_width = g->pref_height = 0;
     g->tran_x = g->tran_y = g->tran_width = g->tran_height = 0;
+    g->notify_x = g->notify_y = g->notify_width = g->notify_height = 0;
+    g->progress_x = g->progress_y = g->progress_width = g->progress_height = 0;
 
     return g;
 }
@@ -103,6 +105,16 @@ GslaptSettings *gslapt_read_rc(void)
         gslapt_settings->tran_width = g_key_file_get_integer(keyfile, "transaction window", "width", NULL);
         gslapt_settings->tran_height = g_key_file_get_integer(keyfile, "transaction window", "height", NULL);
 
+        gslapt_settings->progress_x = g_key_file_get_integer(keyfile, "progress window", "x", NULL);
+        gslapt_settings->progress_y = g_key_file_get_integer(keyfile, "progress window", "y", NULL);
+        gslapt_settings->progress_width = g_key_file_get_integer(keyfile, "progress window", "width", NULL);
+        gslapt_settings->progress_height = g_key_file_get_integer(keyfile, "progress window", "height", NULL);
+
+        gslapt_settings->notify_x = g_key_file_get_integer(keyfile, "notify window", "x", NULL);
+        gslapt_settings->notify_y = g_key_file_get_integer(keyfile, "notify window", "y", NULL);
+        gslapt_settings->notify_width = g_key_file_get_integer(keyfile, "notify window", "width", NULL);
+        gslapt_settings->notify_height = g_key_file_get_integer(keyfile, "notify window", "height", NULL);
+
         g_key_file_free(keyfile);
     }
 
@@ -152,6 +164,21 @@ int gslapt_write_rc(GslaptSettings *gslapt_settings)
         g_key_file_set_integer(keyfile, "transaction window", "y", gslapt_settings->tran_y);
         g_key_file_set_integer(keyfile, "transaction window", "width", gslapt_settings->tran_width);
         g_key_file_set_integer(keyfile, "transaction window", "height", gslapt_settings->tran_height);
+
+        g_key_file_set_integer(keyfile, "changelog window", "x", gslapt_settings->cl_x);
+        g_key_file_set_integer(keyfile, "changelog window", "y", gslapt_settings->cl_y);
+        g_key_file_set_integer(keyfile, "changelog window", "width", gslapt_settings->cl_width);
+        g_key_file_set_integer(keyfile, "changelog window", "height", gslapt_settings->cl_height);
+
+        g_key_file_set_integer(keyfile, "progress window", "x", gslapt_settings->progress_x);
+        g_key_file_set_integer(keyfile, "progress window", "y", gslapt_settings->progress_y);
+        g_key_file_set_integer(keyfile, "progress window", "width", gslapt_settings->progress_width);
+        g_key_file_set_integer(keyfile, "progress window", "height", gslapt_settings->progress_height);
+
+        g_key_file_set_integer(keyfile, "notify window", "x", gslapt_settings->notify_x);
+        g_key_file_set_integer(keyfile, "notify window", "y", gslapt_settings->notify_y);
+        g_key_file_set_integer(keyfile, "notify window", "width", gslapt_settings->notify_width);
+        g_key_file_set_integer(keyfile, "notify window", "height", gslapt_settings->notify_height);
 
         rc_data = g_key_file_to_data(keyfile, &length, NULL);
         if (length != 0) {

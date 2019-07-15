@@ -11,6 +11,7 @@
     <property name="icon">gslapt.png</property>
     <property name="gravity">center</property>
     <signal name="delete-event" handler="gtk_true" swapped="no"/>
+    <signal name="configure-event" handler="gslapt_window_resized" swapped="no"/>
     <child>
       <object class="GtkVBox" id="vbox68">
         <property name="can_focus">False</property>
