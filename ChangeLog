@@ -1,4 +1,20 @@
 
+0.5.5 Jul 28, 2019
+ * update naming convention for data structures
+ * gtk3 deprecates threading (gdk_threads_enter/leave), port to gdk_threads_add_idle_full callbacks
+ * switch to gtk3 by default, switch back to gtk2 with --enable-gtk
+ * add ctrl-q accelerator to quit
+ * set icon legend window as transient for the main window
+ * GtkDialog no longer has the has_separator property
+ * tx pull
+ * bump to version 0.5.6
+ * update about.ui date
+ * move CFLAG customization until after AC_PROG_CC_C99
+ * clang-format
+ *  slapt 0.11.1 port
+ * add PKGREL automake variable for packaging release tag
+ * update build dependencies
+
 0.5.5 Mar 03, 2019
  * C99 mode by default
  * update copyright date
