@@ -25,7 +25,7 @@
 #include "settings.h"
 #include "series.h"
 
-slapt_rc_config *global_config; /* our config struct */
+slapt_config_t *global_config; /* our config struct */
 slapt_vector_t *installed;
 slapt_vector_t *all;
 GtkWidget *gslapt;
@@ -119,10 +119,10 @@ int main(int argc, char *argv[])
     }
 
     if (rc == NULL) {
-        global_config = slapt_read_rc_config(RC_LOCATION);
+        global_config = slapt_config_t_read(RC_LOCATION);
         strncpy(rc_location, RC_LOCATION, 1023);
     } else {
-        global_config = slapt_read_rc_config(rc);
+        global_config = slapt_config_t_read(rc);
         strncpy(rc_location, rc, 1023);
     }
     if (global_config == NULL)
@@ -182,8 +182,8 @@ int main(int argc, char *argv[])
     } else {
         if (pkg_names_to_install->size > 0) {
             slapt_vector_t_foreach (char *, pkg_name_to_install, pkg_names_to_install) {
-                slapt_pkg_info_t *p = slapt_get_newest_pkg(all, pkg_name_to_install);
-                slapt_pkg_info_t *inst_p = slapt_get_newest_pkg(installed, pkg_name_to_install);
+                slapt_pkg_t *p = slapt_get_newest_pkg(all, pkg_name_to_install);
+                slapt_pkg_t *inst_p = slapt_get_newest_pkg(installed, pkg_name_to_install);
 
                 if (p == NULL)
                     continue;
@@ -201,7 +201,7 @@ int main(int argc, char *argv[])
                         slapt_vector_t *conflicts = slapt_is_conflicted(trans, all, installed, p);
                         slapt_add_install_to_transaction(trans, p);
                         if (conflicts->size > 0) {
-                            slapt_vector_t_foreach (slapt_pkg_info_t *, conflict_pkg, conflicts) {
+                            slapt_vector_t_foreach (slapt_pkg_t *, conflict_pkg, conflicts) {
                                 slapt_add_remove_to_transaction(trans, conflict_pkg);
                             }
                         }
@@ -214,7 +214,7 @@ int main(int argc, char *argv[])
         }
         if (pkg_names_to_remove->size > 0) {
             slapt_vector_t_foreach (char *, pkg_name_to_remove, pkg_names_to_remove) {
-                slapt_pkg_info_t *r = slapt_get_newest_pkg(installed, pkg_name_to_remove);
+                slapt_pkg_t *r = slapt_get_newest_pkg(installed, pkg_name_to_remove);
                 if (r != NULL) {
                     slapt_add_remove_to_transaction(trans, r);
                 }

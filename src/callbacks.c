@@ -32,7 +32,7 @@ extern GtkWidget *gslapt;
 extern GtkBuilder *gslapt_builder;
 extern GslaptSettings *gslapt_settings;
 extern GHashTable *gslapt_series_map;
-extern slapt_rc_config *global_config;
+extern slapt_config_t *global_config;
 extern slapt_vector_t *all;
 extern slapt_vector_t *installed;
 extern slapt_transaction_t *trans;
@@ -44,12 +44,12 @@ static gboolean sources_modified = FALSE;
 static gboolean excludes_modified = FALSE;
 
 static gboolean pkg_action_popup_menu(GtkTreeView *treeview, gpointer data);
-static int set_iter_to_pkg(GtkTreeModel *model, GtkTreeIter *iter, slapt_pkg_info_t *pkg);
-static slapt_pkg_upgrade_t *lsearch_upgrade_transaction(slapt_transaction_t *tran, slapt_pkg_info_t *pkg);
-static void build_package_action_menu(slapt_pkg_info_t *pkg);
+static int set_iter_to_pkg(GtkTreeModel *model, GtkTreeIter *iter, slapt_pkg_t *pkg);
+static slapt_pkg_upgrade_t *lsearch_upgrade_transaction(slapt_transaction_t *tran, slapt_pkg_t *pkg);
+static void build_package_action_menu(slapt_pkg_t *pkg);
 static void rebuild_package_action_menu(void);
 static void mark_upgrade_packages(void);
-static void fillin_pkg_details(slapt_pkg_info_t *pkg);
+static void fillin_pkg_details(slapt_pkg_t *pkg);
 static void get_package_data(void);
 static void rebuild_treeviews(GtkWidget *current_window, gboolean reload);
 static void gslapt_set_status(const gchar *);
@@ -68,16 +68,16 @@ static void set_execute_active(void);
 static void clear_execute_active(void);
 static void notify(const char *title, const char *message);
 static void reset_search_list(void);
-static int ladd_deps_to_trans(slapt_transaction_t *tran, slapt_vector_t *avail_pkgs, slapt_vector_t *installed_pkgs, slapt_pkg_info_t *pkg);
+static int ladd_deps_to_trans(slapt_transaction_t *tran, slapt_vector_t *avail_pkgs, slapt_vector_t *installed_pkgs, slapt_pkg_t *pkg);
 static gboolean toggle_source_status(GtkTreeView *treeview, gpointer data);
-static void display_dep_error_dialog(slapt_pkg_info_t *pkg);
+static void display_dep_error_dialog(slapt_pkg_t *pkg);
 static void view_installed_or_available_packages(gboolean show_installed, gboolean show_available);
 
-static int set_iter_for_install(GtkTreeModel *model, GtkTreeIter *iter, slapt_pkg_info_t *pkg);
-static int set_iter_for_reinstall(GtkTreeModel *model, GtkTreeIter *iter, slapt_pkg_info_t *pkg);
-static int set_iter_for_downgrade(GtkTreeModel *model, GtkTreeIter *iter, slapt_pkg_info_t *pkg);
-static int set_iter_for_upgrade(GtkTreeModel *model, GtkTreeIter *iter, slapt_pkg_info_t *pkg);
-static int set_iter_for_remove(GtkTreeModel *model, GtkTreeIter *iter, slapt_pkg_info_t *pkg);
+static int set_iter_for_install(GtkTreeModel *model, GtkTreeIter *iter, slapt_pkg_t *pkg);
+static int set_iter_for_reinstall(GtkTreeModel *model, GtkTreeIter *iter, slapt_pkg_t *pkg);
+static int set_iter_for_downgrade(GtkTreeModel *model, GtkTreeIter *iter, slapt_pkg_t *pkg);
+static int set_iter_for_upgrade(GtkTreeModel *model, GtkTreeIter *iter, slapt_pkg_t *pkg);
+static int set_iter_for_remove(GtkTreeModel *model, GtkTreeIter *iter, slapt_pkg_t *pkg);
 
 static void set_busy_cursor(void);
 static void unset_busy_cursor(void);
@@ -135,7 +135,7 @@ void on_gslapt_destroy(GObject *object, gpointer user_data)
     slapt_free_transaction(trans);
     slapt_vector_t_free(all);
     slapt_vector_t_free(installed);
-    slapt_free_rc_config(global_config);
+    slapt_config_t_free(global_config);
     gslapt_series_map_free(gslapt_series_map);
 
     gslapt_write_rc(gslapt_settings);
@@ -254,7 +254,7 @@ void search_activated(GtkWidget *gslapt, gpointer user_data)
 
 void add_pkg_for_install(GtkWidget *gslapt, gpointer user_data)
 {
-    slapt_pkg_info_t *pkg = NULL, *installed_pkg = NULL;
+    slapt_pkg_t *pkg = NULL, *installed_pkg = NULL;
     GtkTreeView *treeview;
     GtkTreeIter iter;
     GtkTreeSelection *selection;
@@ -341,7 +341,7 @@ void add_pkg_for_install(GtkWidget *gslapt, gpointer user_data)
 
             /* if there is a conflict, we schedule the conflict for removal */
             if (conflicts->size > 0) {
-                slapt_vector_t_foreach (slapt_pkg_info_t *, conflicted_pkg, conflicts) {
+                slapt_vector_t_foreach (slapt_pkg_t *, conflicted_pkg, conflicts) {
                     slapt_add_remove_to_transaction(trans, conflicted_pkg);
                     set_execute_active();
                     if (set_iter_to_pkg(model, &actual_iter, conflicted_pkg)) {
@@ -363,7 +363,7 @@ void add_pkg_for_install(GtkWidget *gslapt, gpointer user_data)
                 slapt_vector_t *conflicts = slapt_is_conflicted(trans, all, installed, pkg);
 
                 if (conflicts->size > 0) {
-                    slapt_vector_t_foreach (slapt_pkg_info_t *, conflicted_pkg, conflicts) {
+                    slapt_vector_t_foreach (slapt_pkg_t *, conflicted_pkg, conflicts) {
                         fprintf(stderr, "%s conflicts with %s\n", pkg->name, conflicted_pkg->name);
                         slapt_add_remove_to_transaction(trans, conflicted_pkg);
                         set_execute_active();
@@ -387,7 +387,7 @@ void add_pkg_for_install(GtkWidget *gslapt, gpointer user_data)
                             }
                         }
                     } else {
-                        slapt_pkg_info_t *inst_avail = slapt_get_exact_pkg(all, installed_pkg->name, installed_pkg->version);
+                        slapt_pkg_t *inst_avail = slapt_get_exact_pkg(all, installed_pkg->name, installed_pkg->version);
                         set_iter_for_upgrade(model, &actual_iter, pkg);
                         if (pkg != NULL && set_iter_to_pkg(model, &actual_iter, pkg)) {
                             set_iter_for_upgrade(model, &actual_iter, pkg);
@@ -423,7 +423,7 @@ void add_pkg_for_removal(GtkWidget *gslapt, gpointer user_data)
         gchar *pkg_name;
         gchar *pkg_version;
         gchar *pkg_location;
-        slapt_pkg_info_t *pkg;
+        slapt_pkg_t *pkg;
 
         gtk_tree_model_get(GTK_TREE_MODEL(package_model), &iter, NAME_COLUMN, &pkg_name, -1);
         gtk_tree_model_get(GTK_TREE_MODEL(package_model), &iter, VERSION_COLUMN, &pkg_version, -1);
@@ -448,9 +448,9 @@ void add_pkg_for_removal(GtkWidget *gslapt, gpointer user_data)
             set_iter_for_remove(model, &actual_iter, pkg);
             set_execute_active();
 
-            slapt_vector_t_foreach (slapt_pkg_info_t *, dep, deps) {
+            slapt_vector_t_foreach (slapt_pkg_t *, dep, deps) {
                 /* need to check that it is actually installed */
-                slapt_pkg_info_t *installed_dep = slapt_get_exact_pkg(installed, dep->name, dep->version);
+                slapt_pkg_t *installed_dep = slapt_get_exact_pkg(installed, dep->name, dep->version);
                 if (installed_dep != NULL) {
                     slapt_add_remove_to_transaction(trans, installed_dep);
                     if (set_iter_to_pkg(model, &actual_iter, installed_dep)) {
@@ -493,14 +493,14 @@ void build_package_treeviewlist(GtkWidget *treeview)
         G_TYPE_BOOLEAN   /* is an upgrade */
         ));
 
-    slapt_vector_t_foreach (slapt_pkg_info_t *, pkg, all) {
+    slapt_vector_t_foreach (slapt_pkg_t *, pkg, all) {
         /* we use this for sorting the status */
         /* a=installed,i=install,r=remove,u=upgrade,z=available */
         gchar *status = NULL;
         gboolean is_inst = FALSE, is_an_upgrade = FALSE;
         GdkPixbuf *status_icon = NULL;
         gchar *short_desc = slapt_gen_short_pkg_description(pkg);
-        slapt_pkg_info_t *installed_pkg = NULL, *newer_available_pkg = NULL;
+        slapt_pkg_t *installed_pkg = NULL, *newer_available_pkg = NULL;
         gchar *location = NULL, *series = NULL;
 
         installed_pkg = slapt_get_newest_pkg(installed, pkg->name);
@@ -586,7 +586,7 @@ void build_package_treeviewlist(GtkWidget *treeview)
         g_object_unref(status_icon);
     }
 
-    slapt_vector_t_foreach (slapt_pkg_info_t *, installed_pkg, installed) {
+    slapt_vector_t_foreach (slapt_pkg_t *, installed_pkg, installed) {
         /* do not duplicate those packages that are still available from the package sources */
         if (slapt_get_exact_pkg(all, installed_pkg->name, installed_pkg->version) == NULL) {
             /* we use this for sorting the status */
@@ -657,7 +657,7 @@ void build_searched_treeviewlist(GtkWidget *treeview, gchar *pattern)
     if (pattern == NULL || (strcmp(pattern, "") == 0)) {
         reset_search_list();
     } else {
-        series_regex = slapt_init_regex(pattern);
+        series_regex = slapt_regex_t_init(pattern);
     }
 
     package_model = GTK_TREE_MODEL_SORT(gtk_tree_view_get_model(GTK_TREE_VIEW(treeview)));
@@ -676,7 +676,7 @@ void build_searched_treeviewlist(GtkWidget *treeview, gchar *pattern)
     valid = gtk_tree_model_get_iter_first(base_model, &iter);
     while (valid) {
         gchar *name = NULL, *version = NULL, *location = NULL, *series = NULL;
-        slapt_pkg_info_t *a_pkg = NULL, *i_pkg = NULL;
+        slapt_pkg_t *a_pkg = NULL, *i_pkg = NULL;
         gboolean marked = FALSE;
         gboolean upgradeable = FALSE;
         gboolean series_match = FALSE;
@@ -691,7 +691,7 @@ void build_searched_treeviewlist(GtkWidget *treeview, gchar *pattern)
                            -1);
 
         if (series_regex != NULL) {
-            slapt_execute_regex(series_regex, series);
+            slapt_regex_t_execute(series_regex, series);
             if (series_regex->reg_return == 0) {
                 series_match = TRUE;
             }
@@ -724,7 +724,7 @@ void build_searched_treeviewlist(GtkWidget *treeview, gchar *pattern)
     }
 
     if (series_regex != NULL)
-        slapt_free_regex(series_regex);
+        slapt_regex_t_free(series_regex);
 
     slapt_vector_t_free(a_matches);
     slapt_vector_t_free(i_matches);
@@ -749,7 +749,7 @@ void show_pkg_details(GtkTreeSelection *selection, gpointer data)
 
     if (gtk_tree_selection_get_selected(selection, (GtkTreeModel **)&package_model, &iter)) {
         gchar *p_name, *p_version, *p_location;
-        slapt_pkg_info_t *pkg;
+        slapt_pkg_t *pkg;
 
         gtk_tree_model_get(GTK_TREE_MODEL(package_model), &iter, NAME_COLUMN, &p_name, -1);
         gtk_tree_model_get(GTK_TREE_MODEL(package_model), &iter, VERSION_COLUMN, &p_version, -1);
@@ -773,7 +773,7 @@ void show_pkg_details(GtkTreeSelection *selection, gpointer data)
     }
 }
 
-static void fillin_pkg_details(slapt_pkg_info_t *pkg)
+static void fillin_pkg_details(slapt_pkg_t *pkg)
 {
     gchar *short_desc;
     GtkTextBuffer *pkg_full_desc;
@@ -786,8 +786,8 @@ static void fillin_pkg_details(slapt_pkg_info_t *pkg)
     GList *columns;
     guint i;
     GtkWidget *treeview = GTK_WIDGET(gtk_builder_get_object(gslapt_builder, "dep_conf_sug_treeview"));
-    slapt_pkg_info_t *latest_pkg = slapt_get_newest_pkg(all, pkg->name);
-    slapt_pkg_info_t *installed_pkg = slapt_get_newest_pkg(installed, pkg->name);
+    slapt_pkg_t *latest_pkg = slapt_get_newest_pkg(all, pkg->name);
+    slapt_pkg_t *installed_pkg = slapt_get_newest_pkg(installed, pkg->name);
     slapt_pkg_upgrade_t *pkg_upgrade = NULL;
     char *clean_desc = NULL, *changelog = NULL, *filelist = NULL, *location = NULL;
     const char *priority_str = NULL;
@@ -1164,7 +1164,7 @@ static int _get_package_data_source_failed(gpointer data)
     gint result = gtk_dialog_run(GTK_DIALOG(q));
     if (result == GTK_RESPONSE_YES) {
         /* we'll disable this source and continue on */
-        /* this is only disabled for the current session since slapt_write_rc_config() is not called */
+        /* this is only disabled for the current session since slapt_config_t_write() is not called */
         src->disabled = true;
     } else {
         gtk_widget_destroy(progress_window);
@@ -1196,7 +1196,7 @@ static void get_package_data(void)
 {
     gfloat dl_files = 0.0, dl_count = 0.0;
     FILE *pkg_list_fh;
-    slapt_vector_t *new_pkgs = slapt_vector_t_init((slapt_vector_t_free_function)slapt_free_pkg);
+    slapt_vector_t *new_pkgs = slapt_vector_t_init((slapt_vector_t_free_function)slapt_pkg_t_free);
 
     _progress_set_total_percent(0.0);
     _progress_set_download_percent(0.0);
@@ -1411,7 +1411,7 @@ static void get_package_data(void)
             slapt_get_md5sums(available_pkgs, tmp_checksum_f);
 
             /* put these into our new package list */
-            slapt_vector_t_foreach (slapt_pkg_info_t *, apkg, available_pkgs) {
+            slapt_vector_t_foreach (slapt_pkg_t *, apkg, available_pkgs) {
                 /* honor the mirror if it was set in the PACKAGES.TXT */
                 if (apkg->mirror == NULL || strlen(apkg->mirror) == 0) {
                     if (apkg->mirror != NULL) {
@@ -1424,7 +1424,7 @@ static void get_package_data(void)
                 slapt_vector_t_add(new_pkgs, apkg);
             }
 
-            /* don't free the slapt_pkg_info_t objects as they are now part of new_pkgs */
+            /* don't free the slapt_pkg_t objects as they are now part of new_pkgs */
             available_pkgs->free_function = NULL;
             slapt_vector_t_free(available_pkgs);
         }
@@ -1434,7 +1434,7 @@ static void get_package_data(void)
             slapt_get_md5sums(patch_pkgs, tmp_checksum_f);
 
             /* put these into our new package list */
-            slapt_vector_t_foreach (slapt_pkg_info_t *, ppkg, patch_pkgs) {
+            slapt_vector_t_foreach (slapt_pkg_t *, ppkg, patch_pkgs) {
                 /* honor the mirror if it was set in the PACKAGES.TXT */
                 if (ppkg->mirror == NULL || strlen(ppkg->mirror) == 0) {
                     if (ppkg->mirror != NULL) {
@@ -1450,7 +1450,7 @@ static void get_package_data(void)
                 slapt_vector_t_add(new_pkgs, ppkg);
             }
 
-            /* don't free the slapt_pkg_info_t objects as they are now part of new_pkgs */
+            /* don't free the slapt_pkg_t objects as they are now part of new_pkgs */
             patch_pkgs->free_function = NULL;
             slapt_vector_t_free(patch_pkgs);
         }
@@ -1832,7 +1832,7 @@ static int populate_transaction_window(void)
         gtk_tree_store_append(store, &iter, NULL);
         gtk_tree_store_set(store, &iter, 0, _("Packages excluded"), -1);
 
-        slapt_vector_t_foreach (slapt_pkg_info_t *, exclude_pkg, trans->exclude_pkgs) {
+        slapt_vector_t_foreach (slapt_pkg_t *, exclude_pkg, trans->exclude_pkgs) {
             gchar *detail = g_strdup_printf("%s %s", exclude_pkg->name, exclude_pkg->version);
 
             gtk_tree_store_append(store, &child_iter, &iter);
@@ -1846,7 +1846,7 @@ static int populate_transaction_window(void)
         gtk_tree_store_append(store, &iter, NULL);
         gtk_tree_store_set(store, &iter, 0, _("Packages to be installed"), -1);
 
-        slapt_vector_t_foreach (slapt_pkg_info_t *, install_pkg, trans->install_pkgs) {
+        slapt_vector_t_foreach (slapt_pkg_t *, install_pkg, trans->install_pkgs) {
             gchar *detail = g_strdup_printf("%s %s", install_pkg->name, install_pkg->version);
 
             gtk_tree_store_append(store, &child_iter, &iter);
@@ -1903,7 +1903,7 @@ static int populate_transaction_window(void)
         gtk_tree_store_append(store, &iter, NULL);
         gtk_tree_store_set(store, &iter, 0, _("Packages to be removed"), -1);
 
-        slapt_vector_t_foreach (slapt_pkg_info_t *, remove_pkg, trans->remove_pkgs) {
+        slapt_vector_t_foreach (slapt_pkg_t *, remove_pkg, trans->remove_pkgs) {
             gchar *detail = g_strdup_printf("%s %s", remove_pkg->name, remove_pkg->version);
 
             gtk_tree_store_append(store, &child_iter, &iter);
@@ -1994,9 +1994,9 @@ static void mark_upgrade_packages(void)
     filter_model = GTK_TREE_MODEL_FILTER(gtk_tree_model_sort_get_model(GTK_TREE_MODEL_SORT(package_model)));
     base_model = GTK_TREE_MODEL(gtk_tree_model_filter_get_model(GTK_TREE_MODEL_FILTER(filter_model)));
 
-    slapt_vector_t_foreach (slapt_pkg_info_t *, installed_pkg, installed) {
-        slapt_pkg_info_t *update_pkg = NULL;
-        slapt_pkg_info_t *newer_installed_pkg = NULL;
+    slapt_vector_t_foreach (slapt_pkg_t *, installed_pkg, installed) {
+        slapt_pkg_t *update_pkg = NULL;
+        slapt_pkg_t *newer_installed_pkg = NULL;
 
         /* we need to see if there is another installed package that is newer than this one */
         if ((newer_installed_pkg = slapt_get_newest_pkg(installed, installed_pkg->name)) != NULL) {
@@ -2108,7 +2108,7 @@ char *download_packages(void)
         return NULL;
     }
 
-    slapt_vector_t_foreach (slapt_pkg_info_t *, install_pkg, trans->install_pkgs) {
+    slapt_vector_t_foreach (slapt_pkg_t *, install_pkg, trans->install_pkgs) {
         guint msg_len = strlen(install_pkg->name) + strlen("-") + strlen(install_pkg->version) + strlen(".") + strlen(install_pkg->file_ext);
         gchar *msg = slapt_malloc(msg_len * sizeof *msg);
 
@@ -2385,7 +2385,7 @@ static gboolean install_packages(void)
 
     /* begin removing, installing, and upgrading */
     gdk_threads_add_idle_full(G_PRIORITY_HIGH, _install_packages_set_removing, NULL, NULL);
-    slapt_vector_t_foreach (slapt_pkg_info_t *, remove_pkg, trans->remove_pkgs) {
+    slapt_vector_t_foreach (slapt_pkg_t *, remove_pkg, trans->remove_pkgs) {
         char *clean_desc = strdup(remove_pkg->description);
         slapt_clean_description(clean_desc, remove_pkg->name);
 
@@ -2417,7 +2417,7 @@ static gboolean install_packages(void)
     count = 0.0;
     slapt_vector_t_foreach (slapt_queue_i *, qi, trans->queue) {
 
-        if (qi->type == INSTALL) {
+        if (qi->type == SLAPT_ACTION_INSTALL) {
             char *clean_desc = strdup(qi->pkg.i->description);
             slapt_clean_description(clean_desc, qi->pkg.i->name);
 
@@ -2432,7 +2432,7 @@ static gboolean install_packages(void)
                 gdk_threads_add_idle_full(G_PRIORITY_HIGH, _install_packages_failed, NULL, NULL);
                 return FALSE;
             }
-        } else if (qi->type == UPGRADE) {
+        } else if (qi->type == SLAPT_ACTION_UPGRADE) {
             char *clean_desc = strdup(qi->pkg.u->upgrade->description);
             slapt_clean_description(clean_desc, qi->pkg.u->upgrade->name);
 
@@ -2534,7 +2534,7 @@ void preferences_on_ok_clicked(GtkWidget *w, gpointer user_data)
     slapt_vector_t_free(global_config->sources);
 
     global_config->exclude_list = slapt_vector_t_init(free);
-    global_config->sources = slapt_vector_t_init((slapt_vector_t_free_function)slapt_free_source);
+    global_config->sources = slapt_vector_t_init((slapt_vector_t_free_function)slapt_source_t_free);
 
     tree = GTK_TREE_VIEW(gtk_builder_get_object(gslapt_builder, "preferences_sources_treeview"));
     model = gtk_tree_view_get_model(tree);
@@ -2546,7 +2546,7 @@ void preferences_on_ok_clicked(GtkWidget *w, gpointer user_data)
         gtk_tree_model_get(model, &iter, 1, &source, 2, &status, 4, &priority, -1);
 
         if (source != NULL) {
-            slapt_source_t *src = slapt_init_source(source);
+            slapt_source_t *src = slapt_source_t_init(source);
             if (src != NULL) {
                 if (status)
                     src->disabled = false;
@@ -2576,7 +2576,7 @@ void preferences_on_ok_clicked(GtkWidget *w, gpointer user_data)
         valid = gtk_tree_model_iter_next(model, &iter);
     }
 
-    if (slapt_write_rc_config(global_config, rc_location) != 0) {
+    if (slapt_config_t_write(global_config, rc_location) != 0) {
         notify((gchar *)_("Error"), (gchar *)_("Failed to commit preferences"));
         on_gslapt_destroy(NULL, NULL);
     }
@@ -2729,7 +2729,7 @@ void unmark_package(GtkWidget *gslapt, gpointer user_data)
     GtkTreeView *treeview;
     GtkTreeIter iter;
     GtkTreeSelection *selection;
-    slapt_pkg_info_t *pkg = NULL;
+    slapt_pkg_t *pkg = NULL;
     guint is_installed = 0;
     GtkTreeModelSort *package_model;
 
@@ -2809,8 +2809,8 @@ void unmark_package(GtkWidget *gslapt, gpointer user_data)
         /* clear the installed version as well if this was an upgrade */
         slapt_vector_t_foreach (slapt_pkg_upgrade_t *, upgrade, trans->upgrade_pkgs) {
             if (strcmp(upgrade->installed->name, pkg->name) == 0) {
-                slapt_pkg_info_t *installed_pkg = upgrade->installed;
-                slapt_pkg_info_t *upgrade_pkg = upgrade->upgrade;
+                slapt_pkg_t *installed_pkg = upgrade->installed;
+                slapt_pkg_t *upgrade_pkg = upgrade->upgrade;
 
                 if (installed_pkg == NULL)
                     continue;
@@ -2847,7 +2847,7 @@ void unmark_package(GtkWidget *gslapt, gpointer user_data)
 
 /* parse the dependencies for a package, and add them to the transaction as */
 /* needed check to see if a package is conflicted */
-static int ladd_deps_to_trans(slapt_transaction_t *tran, slapt_vector_t *avail_pkgs, slapt_vector_t *installed_pkgs, slapt_pkg_info_t *pkg)
+static int ladd_deps_to_trans(slapt_transaction_t *tran, slapt_vector_t *avail_pkgs, slapt_vector_t *installed_pkgs, slapt_pkg_t *pkg)
 {
     int dep_return = -1;
     slapt_vector_t *deps = NULL;
@@ -2882,14 +2882,14 @@ static int ladd_deps_to_trans(slapt_transaction_t *tran, slapt_vector_t *avail_p
     base_model = GTK_TREE_MODEL(gtk_tree_model_filter_get_model(GTK_TREE_MODEL_FILTER(filter_model)));
 
     /* loop through the deps */
-    slapt_vector_t_foreach (slapt_pkg_info_t *, dep, deps) {
-        slapt_pkg_info_t *dep_installed;
+    slapt_vector_t_foreach (slapt_pkg_t *, dep, deps) {
+        slapt_pkg_t *dep_installed;
         slapt_vector_t *conflicts = slapt_is_conflicted(tran, avail_pkgs, installed_pkgs, dep);
 
         /* the dep wouldn't get this far if it where excluded, so we don't check for that here */
 
         if (conflicts->size > 1) {
-            slapt_vector_t_foreach (slapt_pkg_info_t *, conflicted_pkg, conflicts) {
+            slapt_vector_t_foreach (slapt_pkg_t *, conflicted_pkg, conflicts) {
                 slapt_add_remove_to_transaction(tran, conflicted_pkg);
                 if (set_iter_to_pkg(GTK_TREE_MODEL(base_model), &iter, conflicted_pkg)) {
                     set_iter_for_remove(base_model, &iter, conflicted_pkg);
@@ -2919,7 +2919,7 @@ static int ladd_deps_to_trans(slapt_transaction_t *tran, slapt_vector_t *avail_p
     return 0;
 }
 
-static int set_iter_to_pkg(GtkTreeModel *model, GtkTreeIter *iter, slapt_pkg_info_t *pkg)
+static int set_iter_to_pkg(GtkTreeModel *model, GtkTreeIter *iter, slapt_pkg_t *pkg)
 {
     gboolean valid;
 
@@ -3017,7 +3017,7 @@ void build_treeview_columns(GtkWidget *treeview)
     g_signal_connect(G_OBJECT(treeview), "cursor-changed", G_CALLBACK(pkg_action_popup_menu), NULL);
 }
 
-static slapt_pkg_upgrade_t *lsearch_upgrade_transaction(slapt_transaction_t *tran, slapt_pkg_info_t *pkg)
+static slapt_pkg_upgrade_t *lsearch_upgrade_transaction(slapt_transaction_t *tran, slapt_pkg_t *pkg)
 {
     /*
     lookup the package in the upgrade list, checking for the same name,version
@@ -3049,9 +3049,9 @@ void on_button_cancel_clicked(GtkButton *button, gpointer user_data)
     G_UNLOCK(_cancelled);
 }
 
-static void build_package_action_menu(slapt_pkg_info_t *pkg)
+static void build_package_action_menu(slapt_pkg_t *pkg)
 {
-    slapt_pkg_info_t *newest_installed = NULL, *upgrade_pkg = NULL;
+    slapt_pkg_t *newest_installed = NULL, *upgrade_pkg = NULL;
     guint is_installed = 0, is_newest = 1, is_exclude = 0, is_downloadable = 0, is_downgrade = 0;
 
     if (slapt_get_exact_pkg(installed, pkg->name, pkg->version) != NULL)
@@ -3150,7 +3150,7 @@ static void rebuild_package_action_menu(void)
         gchar *pkg_name;
         gchar *pkg_version;
         gchar *pkg_location;
-        slapt_pkg_info_t *pkg = NULL;
+        slapt_pkg_t *pkg = NULL;
 
         gtk_tree_model_get(GTK_TREE_MODEL(package_model), &iter, NAME_COLUMN, &pkg_name, -1);
         gtk_tree_model_get(GTK_TREE_MODEL(package_model), &iter, VERSION_COLUMN, &pkg_version, -1);
@@ -3274,7 +3274,7 @@ slapt_vector_t *parse_disabled_package_sources(const char *file_name)
     char *getline_buffer = NULL;
     size_t gb_length = 0;
     ssize_t g_size;
-    slapt_vector_t *list = slapt_vector_t_init((slapt_vector_t_free_function)slapt_free_source);
+    slapt_vector_t *list = slapt_vector_t_init((slapt_vector_t_free_function)slapt_source_t_free);
 
     rc = slapt_open_file(file_name, "r");
     if (rc == NULL)
@@ -3288,7 +3288,7 @@ slapt_vector_t *parse_disabled_package_sources(const char *file_name)
 
         if (strstr(getline_buffer, "#DISABLED=") != NULL) {
             if (g_size > 10) {
-                slapt_source_t *src = slapt_init_source(getline_buffer + 10);
+                slapt_source_t *src = slapt_source_t_init(getline_buffer + 10);
                 if (src != NULL)
                     slapt_vector_t_add(list, src);
             }
@@ -3348,7 +3348,7 @@ static gboolean toggle_source_status(GtkTreeView *treeview, gpointer data)
     return FALSE;
 }
 
-static void display_dep_error_dialog(slapt_pkg_info_t *pkg)
+static void display_dep_error_dialog(slapt_pkg_t *pkg)
 {
     GtkTextBuffer *error_buf = NULL;
     gchar *msg = g_strdup_printf((gchar *)_("<b>Excluding %s due to dependency failure</b>"), pkg->name);
@@ -3387,7 +3387,7 @@ static void display_dep_error_dialog(slapt_pkg_info_t *pkg)
     gint result = gtk_dialog_run(GTK_DIALOG(w));
     if (result == GTK_RESPONSE_OK) {
         GtkTreeIter iter;
-        slapt_pkg_info_t *installed_pkg = slapt_get_newest_pkg(installed, pkg->name);
+        slapt_pkg_t *installed_pkg = slapt_get_newest_pkg(installed, pkg->name);
 
         GtkTreeView *treeview = GTK_TREE_VIEW(gtk_builder_get_object(gslapt_builder, "pkg_listing_treeview"));
         GtkTreeModelSort *package_model = GTK_TREE_MODEL_SORT(gtk_tree_view_get_model(treeview));
@@ -3534,7 +3534,7 @@ void view_marked_packages(GtkMenuItem *menuitem, gpointer user_data)
         build_searched_treeviewlist(GTK_WIDGET(treeview), pattern);
 }
 
-static int set_iter_for_install(GtkTreeModel *model, GtkTreeIter *iter, slapt_pkg_info_t *pkg)
+static int set_iter_for_install(GtkTreeModel *model, GtkTreeIter *iter, slapt_pkg_t *pkg)
 {
     gchar *status = g_strdup_printf("i%s", pkg->name);
     GdkPixbuf *status_icon = gslapt_img("pkg_action_install.png");
@@ -3546,7 +3546,7 @@ static int set_iter_for_install(GtkTreeModel *model, GtkTreeIter *iter, slapt_pk
     return 0;
 }
 
-static int set_iter_for_reinstall(GtkTreeModel *model, GtkTreeIter *iter, slapt_pkg_info_t *pkg)
+static int set_iter_for_reinstall(GtkTreeModel *model, GtkTreeIter *iter, slapt_pkg_t *pkg)
 {
     gchar *status = g_strdup_printf("u%s", pkg->name);
     GdkPixbuf *status_icon = gslapt_img("pkg_action_reinstall.png");
@@ -3558,7 +3558,7 @@ static int set_iter_for_reinstall(GtkTreeModel *model, GtkTreeIter *iter, slapt_
     return 0;
 }
 
-static int set_iter_for_downgrade(GtkTreeModel *model, GtkTreeIter *iter, slapt_pkg_info_t *pkg)
+static int set_iter_for_downgrade(GtkTreeModel *model, GtkTreeIter *iter, slapt_pkg_t *pkg)
 {
     gchar *status = g_strdup_printf("u%s", pkg->name);
     GdkPixbuf *status_icon = gslapt_img("pkg_action_downgrade.png");
@@ -3570,7 +3570,7 @@ static int set_iter_for_downgrade(GtkTreeModel *model, GtkTreeIter *iter, slapt_
     return 0;
 }
 
-static int set_iter_for_upgrade(GtkTreeModel *model, GtkTreeIter *iter, slapt_pkg_info_t *pkg)
+static int set_iter_for_upgrade(GtkTreeModel *model, GtkTreeIter *iter, slapt_pkg_t *pkg)
 {
     gchar *status = g_strdup_printf("u%s", pkg->name);
     GdkPixbuf *status_icon = gslapt_img("pkg_action_upgrade.png");
@@ -3582,7 +3582,7 @@ static int set_iter_for_upgrade(GtkTreeModel *model, GtkTreeIter *iter, slapt_pk
     return 0;
 }
 
-static int set_iter_for_remove(GtkTreeModel *model, GtkTreeIter *iter, slapt_pkg_info_t *pkg)
+static int set_iter_for_remove(GtkTreeModel *model, GtkTreeIter *iter, slapt_pkg_t *pkg)
 {
     gchar *status = g_strdup_printf("r%s", pkg->name);
     GdkPixbuf *status_icon = gslapt_img("pkg_action_remove.png");
@@ -3612,7 +3612,7 @@ void mark_obsolete_packages(GtkMenuItem *menuitem, gpointer user_data)
     filter_model = GTK_TREE_MODEL_FILTER(gtk_tree_model_sort_get_model(GTK_TREE_MODEL_SORT(package_model)));
     base_model = GTK_TREE_MODEL(gtk_tree_model_filter_get_model(GTK_TREE_MODEL_FILTER(filter_model)));
 
-    slapt_vector_t_foreach (slapt_pkg_info_t *, obsolete_pkg, obsolete) {
+    slapt_vector_t_foreach (slapt_pkg_t *, obsolete_pkg, obsolete) {
         if (slapt_is_excluded(global_config, obsolete_pkg) == 1) {
             slapt_add_exclude_to_transaction(trans, obsolete_pkg);
         } else {
