@@ -1,5 +1,6 @@
 
-0.5.5 Jul 28, 2019
+0.5.5 Aug 04, 2019
+ * performance tweaks in the package listing
  * update naming convention for data structures
  * gtk3 deprecates threading (gdk_threads_enter/leave), port to gdk_threads_add_idle_full callbacks
  * switch to gtk3 by default, switch back to gtk2 with --enable-gtk
