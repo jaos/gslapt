@@ -1837,7 +1837,7 @@ static int populate_transaction_window(void)
         slapt_vector_t_foreach (slapt_pkg_t *, exclude_pkg, trans->exclude_pkgs) {
             gchar *detail = g_strdup_printf("%s %s", exclude_pkg->name, exclude_pkg->version);
 
-            gtk_tree_store_insert_with_values(store, &child_iter, &iter -1, 0, detail, -1);
+            gtk_tree_store_insert_with_values(store, &child_iter, &iter, -1, 0, detail, -1);
 
             g_free(detail);
         }
