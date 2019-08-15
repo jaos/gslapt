@@ -72,6 +72,22 @@ fi
 AC_SUBST(GTK_CFLAGS)
 AC_SUBST(GTK_LIBS)
 
+AS_AC_EXPAND(DATADIR, $datadir)
+POLKIT_SYSTEM_ACTIONS_DIR="$DATADIR/polkit-1/actions"
+AC_SUBST(POLKIT_SYSTEM_ACTIONS_DIR)
+AC_DEFINE_UNQUOTED(POLKIT_SYSTEM_ACTIONS_DIR, "$POLKIT_SYSTEM_ACTIONS_DIR", [Where system actions dir for POLKIT is])
+AM_CONDITIONAL(POLKIT, false)
+
+AC_ARG_WITH(
+  [polkit],
+  AC_HELP_STRING([--with-polkit], [use Polkit pkexec to start gslapt (default is auto)]),
+  [ac_cv_prog_PKEXEC=$withval],
+  [AC_CHECK_PROG([PKEXEC], [pkexec], yes, [no])]
+)
+if test x"$ac_cv_prog_PKEXEC" = x"yes"; then
+  AM_CONDITIONAL(POLKIT, true)
+fi
+
 GETTEXT_PACKAGE=gslapt
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Gettext package.])
