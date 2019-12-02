@@ -76,10 +76,11 @@ AM_CONDITIONAL(POLKIT, false)
 AC_ARG_WITH(
   [polkit],
   AC_HELP_STRING([--with-polkit], [use Polkit pkexec to start gslapt (default is auto)]),
-  [ac_cv_prog_PKEXEC=$withval],
-  [AC_PATH_PROG([PKEXEC], [pkexec])]
+  [use_polkit=$withval],
+  [AC_CHECK_PROG([use_polkit], [pkexec], yes, [no])]
 )
-if test x"$ac_cv_prog_PKEXEC" = x"yes"; then
+if test x"$use_polkit" = x"yes"; then
+  AC_PATH_PROG([PKEXEC], [pkexec])
   AM_CONDITIONAL(POLKIT, true)
   AS_AC_EXPAND(DATADIR, $datadir)
   PKG_CHECK_VAR(POLKIT_SYSTEM_ACTIONS_DIR, polkit-gobject-1, actiondir)
