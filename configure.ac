@@ -77,7 +77,7 @@ AC_ARG_WITH(
   [polkit],
   AC_HELP_STRING([--with-polkit], [use Polkit pkexec to start gslapt (default is auto)]),
   [ac_cv_prog_PKEXEC=$withval],
-  [AC_CHECK_PROG([PKEXEC], [pkexec], yes, [no])]
+  [AC_PATH_PROG([PKEXEC], [pkexec])]
 )
 if test x"$ac_cv_prog_PKEXEC" = x"yes"; then
   AM_CONDITIONAL(POLKIT, true)
