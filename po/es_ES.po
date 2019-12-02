@@ -1,19 +1,20 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# 
+#
 # Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
-"Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
-"POT-Creation-Date: 2014-08-04 22:05-0400\n"
+"Report-Msgid-Bugs-To: woodwardj at jaos dot org\n"
+"POT-Creation-Date: 2019-12-02 18:41-0500\n"
 "PO-Revision-Date: 2017-09-19 22:00+0000\n"
 "Last-Translator: Jason Woodward <woodwardj@jaos.org>\n"
-"Language-Team: Spanish (Spain) (http://www.transifex.com/jaos/slapt-get/language/es_ES/)\n"
+"Language-Team: Spanish (Spain) (http://www.transifex.com/jaos/slapt-get/"
+"language/es_ES/)\n"
+"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Ready"
@@ -34,6 +35,7 @@ msgstr ""
 msgid "<b>Suggests:</b>"
 msgstr ""
 
+#. installed
 msgid "No dependency information available"
 msgstr ""
 
@@ -76,6 +78,9 @@ msgstr ""
 msgid "Checking for new package data..."
 msgstr ""
 
+msgid "GPG Key verification failed"
+msgstr ""
+
 msgid "Retrieving package data..."
 msgstr ""
 
@@ -85,16 +90,10 @@ msgstr ""
 msgid "Retrieving checksum list..."
 msgstr ""
 
-msgid "Source download failed"
-msgstr ""
-
 msgid "Retrieving checksum signature..."
 msgstr ""
 
 msgid "Verifying checksum signature..."
-msgstr ""
-
-msgid "GPG Key verification failed"
 msgstr ""
 
 msgid "Retrieving ChangeLog.txt..."
@@ -110,13 +109,13 @@ msgstr ""
 msgid "Error"
 msgstr ""
 
-msgid "pkgtools returned an error"
-msgstr ""
-
 msgid "Completed actions"
 msgstr ""
 
 msgid "Successfully executed all actions."
+msgstr ""
+
+msgid "pkgtools returned an error"
 msgstr ""
 
 msgid "Enabled"
@@ -191,7 +190,8 @@ msgid_plural "and %d not upgraded."
 msgstr[0] ""
 msgstr[1] ""
 
-msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgid ""
+"<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
 msgstr ""
 
 #, c-format
@@ -229,10 +229,10 @@ msgstr ""
 msgid "Removing packages..."
 msgstr ""
 
-msgid "Uninstalling..."
+msgid "Installing packages..."
 msgstr ""
 
-msgid "Installing packages..."
+msgid "Uninstalling..."
 msgstr ""
 
 msgid "Installing..."
@@ -270,8 +270,8 @@ msgid "<b>Excluding %s due to dependency failure</b>"
 msgstr ""
 
 msgid ""
-"Missing dependencies may mean the software in this package will not function"
-" correctly.  Do you want to continue without the required packages?"
+"Missing dependencies may mean the software in this package will not function "
+"correctly.  Do you want to continue without the required packages?"
 msgstr ""
 
 msgid ": Depends: "
@@ -293,6 +293,12 @@ msgid "Gslapt Package Manager"
 msgstr ""
 
 msgid "Install, remove and upgrade software packages"
+msgstr ""
+
+msgid "Run Gslapt as root"
+msgstr ""
+
+msgid "Authentication is required to run Gslapt"
 msgstr ""
 
 msgid "Base"
@@ -553,8 +559,8 @@ msgid "Files"
 msgstr ""
 
 msgid ""
-"<b>The following icons are used to indicate the current status of a "
-"package:</b>"
+"<b>The following icons are used to indicate the current status of a package:"
+"</b>"
 msgstr ""
 
 msgid "Repositories changed"
@@ -572,8 +578,8 @@ msgid "Source failed"
 msgstr ""
 
 msgid ""
-"This package source failed or is not available.  Do you want to disable this"
-" source and continue anyway?"
+"This package source failed or is not available.  Do you want to disable this "
+"source and continue anyway?"
 msgstr ""
 
 msgid "Default"
@@ -594,7 +600,8 @@ msgstr ""
 msgid "Summary"
 msgstr ""
 
-msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+msgid ""
+"<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
 msgstr ""
 
 msgid "This is a summary of the changes about to be performed."

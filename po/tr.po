@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# 
+#
 # Translators:
 # Bekir SONAT <bekirsonat@kde.org.tr>, 2006
 msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
-"Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
-"POT-Creation-Date: 2014-08-04 22:05-0400\n"
+"Report-Msgid-Bugs-To: woodwardj at jaos dot org\n"
+"POT-Creation-Date: 2019-12-02 18:41-0500\n"
 "PO-Revision-Date: 2017-09-19 14:08+0000\n"
 "Last-Translator: Jason Woodward <woodwardj@jaos.org>\n"
-"Language-Team: Turkish (http://www.transifex.com/jaos/slapt-get/language/tr/)\n"
+"Language-Team: Turkish (http://www.transifex.com/jaos/slapt-get/language/"
+"tr/)\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 msgid "Ready"
@@ -35,6 +36,7 @@ msgstr "<b>Çakışmalar:</b>"
 msgid "<b>Suggests:</b>"
 msgstr "<b>Öneriler:</b>"
 
+#. installed
 msgid "No dependency information available"
 msgstr "No dependency information available"
 
@@ -77,6 +79,9 @@ msgstr "Durum"
 msgid "Checking for new package data..."
 msgstr "Yeni paket verisi denetleniyor.."
 
+msgid "GPG Key verification failed"
+msgstr "GPG Key verification failed"
+
 msgid "Retrieving package data..."
 msgstr "Paket verileri alınıyor..."
 
@@ -86,17 +91,11 @@ msgstr "Yama listesi alınıyor..."
 msgid "Retrieving checksum list..."
 msgstr "Sağlama bilgileri alınıyor..."
 
-msgid "Source download failed"
-msgstr "Kaynak indirme başarısız"
-
 msgid "Retrieving checksum signature..."
 msgstr "Retrieving checksum signature..."
 
 msgid "Verifying checksum signature..."
 msgstr "Verifying checksum signature..."
-
-msgid "GPG Key verification failed"
-msgstr "GPG Key verification failed"
 
 msgid "Retrieving ChangeLog.txt..."
 msgstr "ChangeLog.txt dosyası alınıyor..."
@@ -111,14 +110,14 @@ msgstr "İndirme hızı: %.0f%s/s"
 msgid "Error"
 msgstr "Error"
 
-msgid "pkgtools returned an error"
-msgstr "pkgtools hata bildiriyor"
-
 msgid "Completed actions"
 msgstr "Tamamlanan eylemler"
 
 msgid "Successfully executed all actions."
 msgstr "Tüm eylemler başarıyla yürütüldü."
+
+msgid "pkgtools returned an error"
+msgstr "pkgtools hata bildiriyor"
 
 msgid "Enabled"
 msgstr "Etkinleştirildi"
@@ -192,7 +191,8 @@ msgid_plural "and %d not upgraded."
 msgstr[0] ""
 msgstr[1] ""
 
-msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgid ""
+"<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Yeterli yeriniz yok</span>"
 
 #, c-format
@@ -230,11 +230,11 @@ msgstr "Failed to download %s: %s"
 msgid "Removing packages..."
 msgstr "Paketleri kaldırıyor..."
 
-msgid "Uninstalling..."
-msgstr "Kaldırılıyor..."
-
 msgid "Installing packages..."
 msgstr "Paketleri kuruyor..."
+
+msgid "Uninstalling..."
+msgstr "Kaldırılıyor..."
 
 msgid "Installing..."
 msgstr "Kuruyor..."
@@ -271,9 +271,11 @@ msgid "<b>Excluding %s due to dependency failure</b>"
 msgstr "<b>Bağımlılık yetersizliği nedeniyle %s dışlanacak</b>"
 
 msgid ""
-"Missing dependencies may mean the software in this package will not function"
-" correctly.  Do you want to continue without the required packages?"
-msgstr "Kayıp bağımlılıklar dolayısıyla paketteki yazılım beklendiği gibi çalışmayabilir. Eksikliklere rağmen devam edilsin mi?"
+"Missing dependencies may mean the software in this package will not function "
+"correctly.  Do you want to continue without the required packages?"
+msgstr ""
+"Kayıp bağımlılıklar dolayısıyla paketteki yazılım beklendiği gibi "
+"çalışmayabilir. Eksikliklere rağmen devam edilsin mi?"
 
 msgid ": Depends: "
 msgstr ":Bağımlılık:"
@@ -295,6 +297,12 @@ msgstr "Gslapt Package Manager"
 
 msgid "Install, remove and upgrade software packages"
 msgstr "Install, remove and upgrade software packages"
+
+msgid "Run Gslapt as root"
+msgstr ""
+
+msgid "Authentication is required to run Gslapt"
+msgstr ""
 
 msgid "Base"
 msgstr "Base"
@@ -392,7 +400,9 @@ msgstr "Localization"
 msgid ""
 "gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
 "Slackware"
-msgstr "gslapt, Slackware'de APT-benzeri paketleme sistemi olan slapt-get için bir GTK+ arabirimi sağlar"
+msgstr ""
+"gslapt, Slackware'de APT-benzeri paketleme sistemi olan slapt-get için bir "
+"GTK+ arabirimi sağlar"
 
 msgid "working"
 msgstr "çalışıyor"
@@ -554,9 +564,11 @@ msgid "Files"
 msgstr "Files"
 
 msgid ""
-"<b>The following icons are used to indicate the current status of a "
-"package:</b>"
-msgstr "<b>Paketin şimdiki durumunu belirtmek için aşağıdaki simgeler kullanılacak:</b>"
+"<b>The following icons are used to indicate the current status of a package:"
+"</b>"
+msgstr ""
+"<b>Paketin şimdiki durumunu belirtmek için aşağıdaki simgeler kullanılacak:</"
+"b>"
 
 msgid "Repositories changed"
 msgstr "Depo içeriği değişti"
@@ -567,15 +579,19 @@ msgstr "<span size=\"large\" weight=\"bold\">Depo içeriği değişti</span>"
 msgid ""
 "You need to reload the package list from the sources you have listed.  Do "
 "you want to do this now?"
-msgstr "Listelediğiniz kaynaklardaki paket listelerini yeniden yüklemeniz gerekiyor. Bunu şimdi yapmak ister misiniz?"
+msgstr ""
+"Listelediğiniz kaynaklardaki paket listelerini yeniden yüklemeniz gerekiyor. "
+"Bunu şimdi yapmak ister misiniz?"
 
 msgid "Source failed"
 msgstr "Source failed"
 
 msgid ""
-"This package source failed or is not available.  Do you want to disable this"
-" source and continue anyway?"
-msgstr "Bu paketin kaynağı yok veya bulunamıyor.  Ne olursa olsun,-işleme devam edilsin mi?"
+"This package source failed or is not available.  Do you want to disable this "
+"source and continue anyway?"
+msgstr ""
+"Bu paketin kaynağı yok veya bulunamıyor.  Ne olursa olsun,-işleme devam "
+"edilsin mi?"
 
 msgid "Default"
 msgstr "Default"
@@ -595,8 +611,10 @@ msgstr "Package Source"
 msgid "Summary"
 msgstr "Özet"
 
-msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Değişiklikler uygulansın mı?</span>"
+msgid ""
+"<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+msgstr ""
+"<span weight=\"bold\" size=\"large\">Değişiklikler uygulansın mı?</span>"
 
 msgid "This is a summary of the changes about to be performed."
 msgstr "Gerçekleştirilen değişiklikler hakkında özet bilgi."
@@ -633,3 +651,6 @@ msgstr "<b>GPG Keys</b>"
 
 msgid "Verification"
 msgstr "Verification"
+
+#~ msgid "Source download failed"
+#~ msgstr "Kaynak indirme başarısız"

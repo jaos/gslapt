@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# 
+#
 # Translators:
 # Jiří Vírava <appukonrad@gmail.com>, 2013
 # Jiří Vírava <appukonrad@gmail.com>, 2013-2014
@@ -9,16 +9,17 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
-"Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
-"POT-Creation-Date: 2014-08-04 22:05-0400\n"
+"Report-Msgid-Bugs-To: woodwardj at jaos dot org\n"
+"POT-Creation-Date: 2019-12-02 18:41-0500\n"
 "PO-Revision-Date: 2017-09-19 22:00+0000\n"
 "Last-Translator: Jason Woodward <woodwardj@jaos.org>\n"
 "Language-Team: Czech (http://www.transifex.com/jaos/slapt-get/language/cs/)\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cs\n"
-"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n "
+"<= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
 msgid "Ready"
 msgstr "Připraveno"
@@ -38,6 +39,7 @@ msgstr "<b>Konflikty:</b>"
 msgid "<b>Suggests:</b>"
 msgstr "<b>Navrhováno:</b>"
 
+#. installed
 msgid "No dependency information available"
 msgstr "Informace o závislostech není dostupná"
 
@@ -48,7 +50,8 @@ msgid "No changelog information available"
 msgstr "Informace o protokolu změn není dostupná"
 
 msgid "The list of installed files is only available for installed packages"
-msgstr "Seznam nainstalovaných souborů je dostupný pouze pro nainstalované balíčky"
+msgstr ""
+"Seznam nainstalovaných souborů je dostupný pouze pro nainstalované balíčky"
 
 msgid "Excluded"
 msgstr "Vyloučeno"
@@ -80,6 +83,9 @@ msgstr "Průběh"
 msgid "Checking for new package data..."
 msgstr "Kontrola dat o nových balíčcích..."
 
+msgid "GPG Key verification failed"
+msgstr "Ověření klíče GPG se nezdařilo"
+
 msgid "Retrieving package data..."
 msgstr "Získávání dat o balíčcích..."
 
@@ -89,17 +95,11 @@ msgstr "Získávání seznamu patchů..."
 msgid "Retrieving checksum list..."
 msgstr "Získávání seznamu kontrolních součtů..."
 
-msgid "Source download failed"
-msgstr "Stažení zdroje se nezdařilo"
-
 msgid "Retrieving checksum signature..."
 msgstr "Získávání podpisu kontrolního součtu..."
 
 msgid "Verifying checksum signature..."
 msgstr "Ověřování podpisu kontrolního součtu..."
-
-msgid "GPG Key verification failed"
-msgstr "Ověření klíče GPG se nezdařilo"
 
 msgid "Retrieving ChangeLog.txt..."
 msgstr "Získávání souboru ChangeLog.txt..."
@@ -114,14 +114,14 @@ msgstr "Rychlost stahování: %.0f%s/s"
 msgid "Error"
 msgstr "Chyba"
 
-msgid "pkgtools returned an error"
-msgstr "nástroj pkgtools vrátil chybu"
-
 msgid "Completed actions"
 msgstr "Dokončené akce"
 
 msgid "Successfully executed all actions."
 msgstr "Všechny akce byly úspěšně spuštěny."
+
+msgid "pkgtools returned an error"
+msgstr "nástroj pkgtools vrátil chybu"
 
 msgid "Enabled"
 msgstr "Povolit"
@@ -205,8 +205,10 @@ msgstr[1] "a %d neupgradovány."
 msgstr[2] "a %d neupgradováno."
 msgstr[3] "a %d neupgradováno."
 
-msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Nemáte dostatek volného místa</span>"
+msgid ""
+"<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgstr ""
+"<span weight=\"bold\" size=\"large\">Nemáte dostatek volného místa</span>"
 
 #, c-format
 msgid "Need to get %.0f%s/%.0f%s of archives.\n"
@@ -228,7 +230,9 @@ msgid "Up to Date"
 msgstr "Aktuální"
 
 msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Žádné aktualizace nejsou k dispozici</span>"
+msgstr ""
+"<span weight=\"bold\" size=\"large\">Žádné aktualizace nejsou k dispozici</"
+"span>"
 
 msgid "Downloading packages..."
 msgstr "Stahování balíčků..."
@@ -243,11 +247,11 @@ msgstr "Nepodařilo se stáhnout %s: %s"
 msgid "Removing packages..."
 msgstr "Odebírání balíčků..."
 
-msgid "Uninstalling..."
-msgstr "Odinstalování..."
-
 msgid "Installing packages..."
 msgstr "Instalace balíčků..."
+
+msgid "Uninstalling..."
+msgstr "Odinstalování..."
 
 msgid "Installing..."
 msgstr "Instalace..."
@@ -284,9 +288,11 @@ msgid "<b>Excluding %s due to dependency failure</b>"
 msgstr "<b>Balíček %s se vylučuje z důvody chyby závislostí</b>"
 
 msgid ""
-"Missing dependencies may mean the software in this package will not function"
-" correctly.  Do you want to continue without the required packages?"
-msgstr "Chybějící závislosti mohou znamenat, že software v tomto balíčku nebude pracovat správně. Chcete pokračovat bez vyžadovaných balíčků?"
+"Missing dependencies may mean the software in this package will not function "
+"correctly.  Do you want to continue without the required packages?"
+msgstr ""
+"Chybějící závislosti mohou znamenat, že software v tomto balíčku nebude "
+"pracovat správně. Chcete pokračovat bez vyžadovaných balíčků?"
 
 msgid ": Depends: "
 msgstr ": Závisí na:"
@@ -308,6 +314,12 @@ msgstr "Správce balíčků Gslapt"
 
 msgid "Install, remove and upgrade software packages"
 msgstr "Instaluje, odebírá a upgraduje softwarové balíčky"
+
+msgid "Run Gslapt as root"
+msgstr ""
+
+msgid "Authentication is required to run Gslapt"
+msgstr ""
 
 msgid "Base"
 msgstr "Základ"
@@ -405,7 +417,9 @@ msgstr "Lokalizace"
 msgid ""
 "gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
 "Slackware"
-msgstr "Nástroj gslapt napsaný v GTK+ je frontend k nástroji slapt-get, systému pro práci s balíčky, podobnému APT"
+msgstr ""
+"Nástroj gslapt napsaný v GTK+ je frontend k nástroji slapt-get, systému pro "
+"práci s balíčky, podobnému APT"
 
 msgid "working"
 msgstr "zpracování"
@@ -567,8 +581,8 @@ msgid "Files"
 msgstr "Soubory"
 
 msgid ""
-"<b>The following icons are used to indicate the current status of a "
-"package:</b>"
+"<b>The following icons are used to indicate the current status of a package:"
+"</b>"
 msgstr "<b>Pro indikaci o současném stavu balíčku se použijí tyto ikony:</b>"
 
 msgid "Repositories changed"
@@ -580,15 +594,19 @@ msgstr "<span size=\"large\" weight=\"bold\">Uložiště změněny</span>"
 msgid ""
 "You need to reload the package list from the sources you have listed.  Do "
 "you want to do this now?"
-msgstr "Seznam balíčku je nutné znovu načíst ze zdrojů, které jste vypsali. Chcete tuto akci provést nyní?"
+msgstr ""
+"Seznam balíčku je nutné znovu načíst ze zdrojů, které jste vypsali. Chcete "
+"tuto akci provést nyní?"
 
 msgid "Source failed"
 msgstr "Zdroj selhal"
 
 msgid ""
-"This package source failed or is not available.  Do you want to disable this"
-" source and continue anyway?"
-msgstr "Zdroj tohoto balíčku selhal nebo není dostupný. Chcete tento zdroj zakázat a přesto pokračovat?"
+"This package source failed or is not available.  Do you want to disable this "
+"source and continue anyway?"
+msgstr ""
+"Zdroj tohoto balíčku selhal nebo není dostupný. Chcete tento zdroj zakázat a "
+"přesto pokračovat?"
 
 msgid "Default"
 msgstr "Výchozí"
@@ -608,7 +626,8 @@ msgstr "Zdroj balíčku"
 msgid "Summary"
 msgstr "Přehled"
 
-msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+msgid ""
+"<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Chcete použít tyto změny?</span>"
 
 msgid "This is a summary of the changes about to be performed."
@@ -646,3 +665,6 @@ msgstr "<b>Klíče GPG</b>"
 
 msgid "Verification"
 msgstr "Ověření"
+
+#~ msgid "Source download failed"
+#~ msgstr "Stažení zdroje se nezdařilo"

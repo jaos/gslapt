@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# 
+#
 # Translators:
 # Sebastian Jauch <stellarboy653-minislack@yahoo.de>, 2005
 msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
-"Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
-"POT-Creation-Date: 2014-08-04 22:05-0400\n"
+"Report-Msgid-Bugs-To: woodwardj at jaos dot org\n"
+"POT-Creation-Date: 2019-12-02 18:41-0500\n"
 "PO-Revision-Date: 2017-09-19 14:08+0000\n"
 "Last-Translator: Manfred Mueller <manfred.mueller@fluxflux.net>\n"
-"Language-Team: German (http://www.transifex.com/jaos/slapt-get/language/de/)\n"
+"Language-Team: German (http://www.transifex.com/jaos/slapt-get/language/"
+"de/)\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Ready"
@@ -35,6 +36,7 @@ msgstr "<b>Konflikt mit:</b>"
 msgid "<b>Suggests:</b>"
 msgstr "<b>Hinweise:</b>"
 
+#. installed
 msgid "No dependency information available"
 msgstr "Keine Abhaengigkeits-Information(en) verfügbar"
 
@@ -45,7 +47,9 @@ msgid "No changelog information available"
 msgstr "Keine Changelog-Information(en) verfügbar"
 
 msgid "The list of installed files is only available for installed packages"
-msgstr "Die Liste installierter Dateien ist nur fuer bereits installierte Pakete verfuegbar"
+msgstr ""
+"Die Liste installierter Dateien ist nur fuer bereits installierte Pakete "
+"verfuegbar"
 
 msgid "Excluded"
 msgstr "Ausschluss"
@@ -77,6 +81,9 @@ msgstr "Fortschritt"
 msgid "Checking for new package data..."
 msgstr "Pruefe auf neue Paket-Daten"
 
+msgid "GPG Key verification failed"
+msgstr "GPG-Schluessel Ueberpruefung fehlgeschlagen"
+
 msgid "Retrieving package data..."
 msgstr "Empfange Paket-Daten..."
 
@@ -86,17 +93,11 @@ msgstr "Empfange Patch-Liste..."
 msgid "Retrieving checksum list..."
 msgstr "Empfange Pruefsummen-Liste..."
 
-msgid "Source download failed"
-msgstr "Quell-Download gescheitert"
-
 msgid "Retrieving checksum signature..."
 msgstr "Empfange Pruefsummen-Signatur..."
 
 msgid "Verifying checksum signature..."
 msgstr "Ueberpruefe Pruefsummen-Signatur..."
-
-msgid "GPG Key verification failed"
-msgstr "GPG-Schluessel Ueberpruefung fehlgeschlagen"
 
 msgid "Retrieving ChangeLog.txt..."
 msgstr "Lade ChangeLog.txt..."
@@ -111,14 +112,14 @@ msgstr "Download-Rate: %.0f%s/S"
 msgid "Error"
 msgstr "Fehler"
 
-msgid "pkgtools returned an error"
-msgstr "pkgtools meldete Fehler"
-
 msgid "Completed actions"
 msgstr "Abgeschlossen"
 
 msgid "Successfully executed all actions."
 msgstr "Alles erfolgreich abgeschlossen."
+
+msgid "pkgtools returned an error"
+msgstr "pkgtools meldete Fehler"
 
 msgid "Enabled"
 msgstr "Aktiviert"
@@ -192,7 +193,8 @@ msgid_plural "and %d not upgraded."
 msgstr[0] "und %d nicht aktualisiert."
 msgstr[1] "and %d not upgraded."
 
-msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgid ""
+"<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Nicht genug Speicherplatz</span>"
 
 #, c-format
@@ -215,7 +217,8 @@ msgid "Up to Date"
 msgstr "Aktuell"
 
 msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Keine Aktualisierungen vorhanden</span>"
+msgstr ""
+"<span weight=\"bold\" size=\"large\">Keine Aktualisierungen vorhanden</span>"
 
 msgid "Downloading packages..."
 msgstr "Lade Pakete..."
@@ -230,11 +233,11 @@ msgstr "Download von %s: %s gescheitert"
 msgid "Removing packages..."
 msgstr "Entferne Pakete"
 
-msgid "Uninstalling..."
-msgstr "Deinstalliere"
-
 msgid "Installing packages..."
 msgstr "Installiere Pakete..."
+
+msgid "Uninstalling..."
+msgstr "Deinstalliere"
 
 msgid "Installing..."
 msgstr "Installiere..."
@@ -271,9 +274,11 @@ msgid "<b>Excluding %s due to dependency failure</b>"
 msgstr "<b>Schliesse %s wegen Abhaengigkeits-Fehler aus</b>"
 
 msgid ""
-"Missing dependencies may mean the software in this package will not function"
-" correctly.  Do you want to continue without the required packages?"
-msgstr "Fehlende Abhaengigkeiten koennen instabiles System-Verhalten bewirken. Moechten Sie ohne die erforderlichen Pakete weitermachen?"
+"Missing dependencies may mean the software in this package will not function "
+"correctly.  Do you want to continue without the required packages?"
+msgstr ""
+"Fehlende Abhaengigkeiten koennen instabiles System-Verhalten bewirken. "
+"Moechten Sie ohne die erforderlichen Pakete weitermachen?"
 
 msgid ": Depends: "
 msgstr ": Erfordert: "
@@ -295,6 +300,12 @@ msgstr "Gslapt-Paketverwaltung"
 
 msgid "Install, remove and upgrade software packages"
 msgstr "Software-Pakete installieren, entfernen und aktualisieren"
+
+msgid "Run Gslapt as root"
+msgstr ""
+
+msgid "Authentication is required to run Gslapt"
+msgstr ""
 
 msgid "Base"
 msgstr "Basis"
@@ -392,7 +403,9 @@ msgstr "Localisierung"
 msgid ""
 "gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
 "Slackware"
-msgstr "Gslapt ist ein GTK+-Frontend fuer slapt-get, dem Slackware-Pendant von Debian's APT"
+msgstr ""
+"Gslapt ist ein GTK+-Frontend fuer slapt-get, dem Slackware-Pendant von "
+"Debian's APT"
 
 msgid "working"
 msgstr "arbeite"
@@ -554,9 +567,10 @@ msgid "Files"
 msgstr "Dateien"
 
 msgid ""
-"<b>The following icons are used to indicate the current status of a "
-"package:</b>"
-msgstr "<b>Die folgenden Icons zeigen den momentanen Status eines Paketes an:</b>"
+"<b>The following icons are used to indicate the current status of a package:"
+"</b>"
+msgstr ""
+"<b>Die folgenden Icons zeigen den momentanen Status eines Paketes an:</b>"
 
 msgid "Repositories changed"
 msgstr "Geaenderte Quellen"
@@ -567,15 +581,19 @@ msgstr "<span size=\"large\" weight=\"bold\">Geaenderte Quellen</span>"
 msgid ""
 "You need to reload the package list from the sources you have listed.  Do "
 "you want to do this now?"
-msgstr "Sie muessen die Paket-Listen der gespeicherten Quellen aktualisieren.  Soll dies jetzt geschehen?"
+msgstr ""
+"Sie muessen die Paket-Listen der gespeicherten Quellen aktualisieren.  Soll "
+"dies jetzt geschehen?"
 
 msgid "Source failed"
 msgstr "Zugriff auf Quelle(n) fehlgeschlagen"
 
 msgid ""
-"This package source failed or is not available.  Do you want to disable this"
-" source and continue anyway?"
-msgstr "Diese Paket-Quelle ist defekt oder nicht verfuegbar.  Moechten Sie diese Quelle daktivieren und dann weitermachen?"
+"This package source failed or is not available.  Do you want to disable this "
+"source and continue anyway?"
+msgstr ""
+"Diese Paket-Quelle ist defekt oder nicht verfuegbar.  Moechten Sie diese "
+"Quelle daktivieren und dann weitermachen?"
 
 msgid "Default"
 msgstr "Standard"
@@ -595,7 +613,8 @@ msgstr "Paket-Quelle"
 msgid "Summary"
 msgstr "Zusammenfassung"
 
-msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+msgid ""
+"<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Aenderungen aktivieren?</span>"
 
 msgid "This is a summary of the changes about to be performed."
@@ -633,3 +652,6 @@ msgstr "<b>GPG Schluessel</b>"
 
 msgid "Verification"
 msgstr "Ueberpruefung"
+
+#~ msgid "Source download failed"
+#~ msgstr "Quell-Download gescheitert"

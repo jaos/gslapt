@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# 
+#
 # Translators:
 # PRIMER AUTOR Manuel Barallobre (BARA) <bara666@gmail.com>, 2005-2008
 msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
-"Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
-"POT-Creation-Date: 2014-08-04 22:05-0400\n"
+"Report-Msgid-Bugs-To: woodwardj at jaos dot org\n"
+"POT-Creation-Date: 2019-12-02 18:41-0500\n"
 "PO-Revision-Date: 2017-09-19 14:08+0000\n"
 "Last-Translator: Jason Woodward <woodwardj@jaos.org>\n"
-"Language-Team: Galician (Spain) (http://www.transifex.com/jaos/slapt-get/language/gl_ES/)\n"
+"Language-Team: Galician (Spain) (http://www.transifex.com/jaos/slapt-get/"
+"language/gl_ES/)\n"
+"Language: gl_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: gl_ES\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Ready"
@@ -35,6 +36,7 @@ msgstr "<b>Conflictos:</b>"
 msgid "<b>Suggests:</b>"
 msgstr "<b>Sugerencias:</b>"
 
+#. installed
 msgid "No dependency information available"
 msgstr "No dependency information available"
 
@@ -77,6 +79,9 @@ msgstr "Progreso"
 msgid "Checking for new package data..."
 msgstr "Buscando novos paquetes..."
 
+msgid "GPG Key verification failed"
+msgstr "GPG Clave verificacion fallida"
+
 msgid "Retrieving package data..."
 msgstr "Recuperando datos do paquete..."
 
@@ -86,17 +91,11 @@ msgstr "Recuperando a lista dos parches"
 msgid "Retrieving checksum list..."
 msgstr "Recuperando a lista de checksum..."
 
-msgid "Source download failed"
-msgstr "Descarga da fonte fallida"
-
 msgid "Retrieving checksum signature..."
 msgstr "Recuperando checksum signature..."
 
 msgid "Verifying checksum signature..."
 msgstr "Verificando checksum signature..."
-
-msgid "GPG Key verification failed"
-msgstr "GPG Clave verificacion fallida"
 
 msgid "Retrieving ChangeLog.txt..."
 msgstr "Recuperando ChangeLog.txt..."
@@ -111,14 +110,14 @@ msgstr "Velocidade de descarga: %.0f%s/s"
 msgid "Error"
 msgstr "Erro"
 
-msgid "pkgtools returned an error"
-msgstr "pkgtools devolveron un erro"
-
 msgid "Completed actions"
 msgstr "Accions completas"
 
 msgid "Successfully executed all actions."
 msgstr "Executadas todas as accions satisfactoriamente"
+
+msgid "pkgtools returned an error"
+msgstr "pkgtools devolveron un erro"
 
 msgid "Enabled"
 msgstr "Permitido"
@@ -192,8 +191,10 @@ msgid_plural "and %d not upgraded."
 msgstr[0] ""
 msgstr[1] ""
 
-msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Non ten suficiente espacio libre</span>"
+msgid ""
+"<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgstr ""
+"<span weight=\"bold\" size=\"large\">Non ten suficiente espacio libre</span>"
 
 #, c-format
 msgid "Need to get %.0f%s/%.0f%s of archives.\n"
@@ -209,13 +210,15 @@ msgstr "Despois de desmpaquetar %.0f%s de espacio do disco sera liberado"
 
 #, c-format
 msgid "After unpacking %.0f%s of additional disk space will be used."
-msgstr "Despois de desmpaquetar %.0f%s de espacio do disco adicional sera usado"
+msgstr ""
+"Despois de desmpaquetar %.0f%s de espacio do disco adicional sera usado"
 
 msgid "Up to Date"
 msgstr "Actualizado"
 
 msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Actualizacions non dispoÃÂ±ibles</span>"
+msgstr ""
+"<span weight=\"bold\" size=\"large\">Actualizacions non dispoÃÂ±ibles</span>"
 
 msgid "Downloading packages..."
 msgstr "Descargando paquetes..."
@@ -230,11 +233,11 @@ msgstr "Descarga fallida %s: %s"
 msgid "Removing packages..."
 msgstr "Borrando paquetes..."
 
-msgid "Uninstalling..."
-msgstr "Desinstalando..."
-
 msgid "Installing packages..."
 msgstr "Instalando paquetes..."
+
+msgid "Uninstalling..."
+msgstr "Desinstalando..."
 
 msgid "Installing..."
 msgstr "Instalando..."
@@ -271,9 +274,11 @@ msgid "<b>Excluding %s due to dependency failure</b>"
 msgstr "<b>Excluido %s devido a un fallo de dependencias</b>"
 
 msgid ""
-"Missing dependencies may mean the software in this package will not function"
-" correctly.  Do you want to continue without the required packages?"
-msgstr "Dependencias non encontradas significa que o software do paquete non funcionara correctamente. ÃÂ¿Quere continuar sin os paquetes requeridos?"
+"Missing dependencies may mean the software in this package will not function "
+"correctly.  Do you want to continue without the required packages?"
+msgstr ""
+"Dependencias non encontradas significa que o software do paquete non "
+"funcionara correctamente. ÃÂ¿Quere continuar sin os paquetes requeridos?"
 
 msgid ": Depends: "
 msgstr ": Depende:"
@@ -295,6 +300,12 @@ msgstr "Gslapt Package Manager"
 
 msgid "Install, remove and upgrade software packages"
 msgstr "Install, remove and upgrade software packages"
+
+msgid "Run Gslapt as root"
+msgstr ""
+
+msgid "Authentication is required to run Gslapt"
+msgstr ""
 
 msgid "Base"
 msgstr "Base"
@@ -392,7 +403,9 @@ msgstr "Localization"
 msgid ""
 "gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
 "Slackware"
-msgstr "gslapt e un frontend GTK+ pra slapt-get, un sistema de paquetes como APT pero para Slackware "
+msgstr ""
+"gslapt e un frontend GTK+ pra slapt-get, un sistema de paquetes como APT "
+"pero para Slackware "
 
 msgid "working"
 msgstr "traballando"
@@ -554,9 +567,10 @@ msgid "Files"
 msgstr "Files"
 
 msgid ""
-"<b>The following icons are used to indicate the current status of a "
-"package:</b>"
-msgstr "<b>Os seguintes iconos son usados para indicar o estado de un paquete:</b>"
+"<b>The following icons are used to indicate the current status of a package:"
+"</b>"
+msgstr ""
+"<b>Os seguintes iconos son usados para indicar o estado de un paquete:</b>"
 
 msgid "Repositories changed"
 msgstr "Os repositorios cambiaron"
@@ -567,15 +581,19 @@ msgstr "<span size=\"large\" weight=\"bold\">Os repositorios cambiaron</span>"
 msgid ""
 "You need to reload the package list from the sources you have listed.  Do "
 "you want to do this now?"
-msgstr "Vostede necesita recargar a lista de paquetes desde as fontes. Desexa facelo agora?"
+msgstr ""
+"Vostede necesita recargar a lista de paquetes desde as fontes. Desexa facelo "
+"agora?"
 
 msgid "Source failed"
 msgstr "Source failed"
 
 msgid ""
-"This package source failed or is not available.  Do you want to disable this"
-" source and continue anyway?"
-msgstr "Esta fonte de paquetes fallou ou non esta dispoÃÂ±ible.  ÃÂ¿Quere desactivala e continuar?"
+"This package source failed or is not available.  Do you want to disable this "
+"source and continue anyway?"
+msgstr ""
+"Esta fonte de paquetes fallou ou non esta dispoÃÂ±ible.  ÃÂ¿Quere "
+"desactivala e continuar?"
 
 msgid "Default"
 msgstr "Default"
@@ -595,8 +613,10 @@ msgstr "Package Source"
 msgid "Summary"
 msgstr "Resume"
 
-msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
-msgstr "<span weight=\"bold\" size=\"large\">ÃÂ¿Aplicar os seguintes cambios?</span>"
+msgid ""
+"<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+msgstr ""
+"<span weight=\"bold\" size=\"large\">ÃÂ¿Aplicar os seguintes cambios?</span>"
 
 msgid "This is a summary of the changes about to be performed."
 msgstr "Esto e un resume dos cambios que se van a realizar"
@@ -633,3 +653,6 @@ msgstr "<b>GPG Clave</b>"
 
 msgid "Verification"
 msgstr "Verificacion"
+
+#~ msgid "Source download failed"
+#~ msgstr "Descarga da fonte fallida"

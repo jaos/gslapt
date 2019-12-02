@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# 
+#
 # Translators:
 # FIRST AUTHOR sin <digitalhunger@gmail.com>, 2005-2006
 # Gregory <wolfr2@gmail.com>, 2014
@@ -8,16 +8,19 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
-"Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
-"POT-Creation-Date: 2014-08-04 22:05-0400\n"
+"Report-Msgid-Bugs-To: woodwardj at jaos dot org\n"
+"POT-Creation-Date: 2019-12-02 18:41-0500\n"
 "PO-Revision-Date: 2017-09-19 14:08+0000\n"
 "Last-Translator: Gregory <wolfr2@gmail.com>\n"
-"Language-Team: Russian (http://www.transifex.com/jaos/slapt-get/language/ru/)\n"
+"Language-Team: Russian (http://www.transifex.com/jaos/slapt-get/language/"
+"ru/)\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ru\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
 
 msgid "Ready"
 msgstr "Готово"
@@ -37,6 +40,7 @@ msgstr "<b>Конфликты:</b>"
 msgid "<b>Suggests:</b>"
 msgstr "<b>Желательно:</b>"
 
+#. installed
 msgid "No dependency information available"
 msgstr "Информация о зависимостях недоступна"
 
@@ -79,6 +83,9 @@ msgstr "Прогресс"
 msgid "Checking for new package data..."
 msgstr "Поиск новых данных о пакетах..."
 
+msgid "GPG Key verification failed"
+msgstr "Ошибка проверки ключа GPG"
+
 msgid "Retrieving package data..."
 msgstr "Получение данных о пакетах..."
 
@@ -88,17 +95,11 @@ msgstr "Получение списка патчей..."
 msgid "Retrieving checksum list..."
 msgstr "Получение списка контрольных сумм..."
 
-msgid "Source download failed"
-msgstr "Не могу загрузить с адреса"
-
 msgid "Retrieving checksum signature..."
 msgstr "Получение контрольной суммы..."
 
 msgid "Verifying checksum signature..."
 msgstr "Проверка контрольной суммы..."
-
-msgid "GPG Key verification failed"
-msgstr "Ошибка проверки ключа GPG"
 
 msgid "Retrieving ChangeLog.txt..."
 msgstr "Получение ChangeLog.txt..."
@@ -113,14 +114,14 @@ msgstr "Скорость закачки: %.0f%s/s"
 msgid "Error"
 msgstr "Ошибка"
 
-msgid "pkgtools returned an error"
-msgstr "ошибка pkgtools"
-
 msgid "Completed actions"
 msgstr "Действия завершены"
 
 msgid "Successfully executed all actions."
 msgstr "Все действия успешно выполнены."
+
+msgid "pkgtools returned an error"
+msgstr "ошибка pkgtools"
 
 msgid "Enabled"
 msgstr "Включен"
@@ -204,8 +205,10 @@ msgstr[1] "и %d не обновлено."
 msgstr[2] "и %d не обновлено."
 msgstr[3] "и %d не обновлено."
 
-msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Недостаточно свободного места</span>"
+msgid ""
+"<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgstr ""
+"<span weight=\"bold\" size=\"large\">Недостаточно свободного места</span>"
 
 #, c-format
 msgid "Need to get %.0f%s/%.0f%s of archives.\n"
@@ -242,11 +245,11 @@ msgstr "Не удалось загрузить %s: %s"
 msgid "Removing packages..."
 msgstr "Удаление пакетов..."
 
-msgid "Uninstalling..."
-msgstr "Удаление..."
-
 msgid "Installing packages..."
 msgstr "Установка пакетов..."
+
+msgid "Uninstalling..."
+msgstr "Удаление..."
 
 msgid "Installing..."
 msgstr "Установка..."
@@ -283,9 +286,12 @@ msgid "<b>Excluding %s due to dependency failure</b>"
 msgstr "<b>Пропуск %s из-за неудовлетворённых зависимостей</b>"
 
 msgid ""
-"Missing dependencies may mean the software in this package will not function"
-" correctly.  Do you want to continue without the required packages?"
-msgstr "Неудовлетворённые зависимости могут привести к тому, что программы из этого пакета не смогут правильно функционировать. Хотите продолжить без требуемых пакетов?"
+"Missing dependencies may mean the software in this package will not function "
+"correctly.  Do you want to continue without the required packages?"
+msgstr ""
+"Неудовлетворённые зависимости могут привести к тому, что программы из этого "
+"пакета не смогут правильно функционировать. Хотите продолжить без требуемых "
+"пакетов?"
 
 msgid ": Depends: "
 msgstr ": Зависимости: "
@@ -307,6 +313,12 @@ msgstr "Менеджер пакетов Gslapt"
 
 msgid "Install, remove and upgrade software packages"
 msgstr "Установка, обновление и удаление пакетов"
+
+msgid "Run Gslapt as root"
+msgstr ""
+
+msgid "Authentication is required to run Gslapt"
+msgstr ""
 
 msgid "Base"
 msgstr "Base"
@@ -404,7 +416,9 @@ msgstr "Localization"
 msgid ""
 "gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
 "Slackware"
-msgstr "gslapt — это GTK+-интерфейс к slapt-get, APT-подобному пакетному менеджеру для Slackware"
+msgstr ""
+"gslapt — это GTK+-интерфейс к slapt-get, APT-подобному пакетному менеджеру "
+"для Slackware"
 
 msgid "working"
 msgstr "работа"
@@ -566,8 +580,8 @@ msgid "Files"
 msgstr "Файлы"
 
 msgid ""
-"<b>The following icons are used to indicate the current status of a "
-"package:</b>"
+"<b>The following icons are used to indicate the current status of a package:"
+"</b>"
 msgstr "<b>Следующие значки отображают состояние пакета:</b>"
 
 msgid "Repositories changed"
@@ -579,15 +593,19 @@ msgstr "<span size=\"large\" weight=\"bold\">Репозитории измене
 msgid ""
 "You need to reload the package list from the sources you have listed.  Do "
 "you want to do this now?"
-msgstr "Необходимо перезагрузить список пакетов с перечисленных источников. Сделать это сейчас?"
+msgstr ""
+"Необходимо перезагрузить список пакетов с перечисленных источников. Сделать "
+"это сейчас?"
 
 msgid "Source failed"
 msgstr "Ошибка репозитория"
 
 msgid ""
-"This package source failed or is not available.  Do you want to disable this"
-" source and continue anyway?"
-msgstr "Данный репозиторий пакетов повреждён или недоступен. Хотите отключить использование этого репозитория и продолжить?"
+"This package source failed or is not available.  Do you want to disable this "
+"source and continue anyway?"
+msgstr ""
+"Данный репозиторий пакетов повреждён или недоступен. Хотите отключить "
+"использование этого репозитория и продолжить?"
 
 msgid "Default"
 msgstr "Default"
@@ -607,7 +625,8 @@ msgstr "Источник пакетов"
 msgid "Summary"
 msgstr "Итог"
 
-msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+msgid ""
+"<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Применить изменения?</span>"
 
 msgid "This is a summary of the changes about to be performed."
@@ -645,3 +664,6 @@ msgstr "<b>GPG-ключи</b>"
 
 msgid "Verification"
 msgstr "Проверка"
+
+#~ msgid "Source download failed"
+#~ msgstr "Не могу загрузить с адреса"

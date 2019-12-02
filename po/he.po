@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# 
+#
 # Translators:
 # GenghisKhan <genghiskhan@gmx.ca>, 2012-2013
 # GenghisKhan <genghiskhan@gmx.ca>, 2013-2014
@@ -8,16 +8,18 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
-"Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
-"POT-Creation-Date: 2014-08-04 22:05-0400\n"
+"Report-Msgid-Bugs-To: woodwardj at jaos dot org\n"
+"POT-Creation-Date: 2019-12-02 18:41-0500\n"
 "PO-Revision-Date: 2017-09-23 18:35+0000\n"
 "Last-Translator: Jason Woodward <woodwardj@jaos.org>\n"
-"Language-Team: Hebrew (http://www.transifex.com/jaos/slapt-get/language/he/)\n"
+"Language-Team: Hebrew (http://www.transifex.com/jaos/slapt-get/language/"
+"he/)\n"
+"Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: he\n"
-"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % 1 == 0) ? 1: (n % 10 == 0 && n % 1 == 0 && n > 10) ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % "
+"1 == 0) ? 1: (n % 10 == 0 && n % 1 == 0 && n > 10) ? 2 : 3;\n"
 
 msgid "Ready"
 msgstr "מוכן"
@@ -37,6 +39,7 @@ msgstr "<b>חבילות מתנגשות:</b>"
 msgid "<b>Suggests:</b>"
 msgstr "<b>חבילות מוצעות:</b>"
 
+#. installed
 msgid "No dependency information available"
 msgstr "אין מידע זמין"
 
@@ -79,6 +82,9 @@ msgstr "התקדמות"
 msgid "Checking for new package data..."
 msgstr "בודק כעת עבור נתוני חבילה חדשים..."
 
+msgid "GPG Key verification failed"
+msgstr "אימות מפתח GPG נכשל"
+
 msgid "Retrieving package data..."
 msgstr "מאחזר כעת נתוני חבילה..."
 
@@ -88,17 +94,11 @@ msgstr "מאחזר כעת רשימת טלאים..."
 msgid "Retrieving checksum list..."
 msgstr "מאחזר כעת רשימת סיכום ביקורת..."
 
-msgid "Source download failed"
-msgstr "הורדת מקור נכשלה"
-
 msgid "Retrieving checksum signature..."
 msgstr "מאחזר כעת חתימת סיכום ביקורת..."
 
 msgid "Verifying checksum signature..."
 msgstr "מאמת כעת חתימת סיכום ביקורת..."
-
-msgid "GPG Key verification failed"
-msgstr "אימות מפתח GPG נכשל"
 
 msgid "Retrieving ChangeLog.txt..."
 msgstr "מאחזר כעת ChangeLog.txt..."
@@ -113,14 +113,14 @@ msgstr "מהירות הורדה: %.0f%s/s"
 msgid "Error"
 msgstr "שגיאה"
 
-msgid "pkgtools returned an error"
-msgstr "‏pkgtools החזיר שגיאה"
-
 msgid "Completed actions"
 msgstr "פעולות שהושלמו"
 
 msgid "Successfully executed all actions."
 msgstr "כל הפעולות בוצעו בהצלחה."
+
+msgid "pkgtools returned an error"
+msgstr "‏pkgtools החזיר שגיאה"
 
 msgid "Enabled"
 msgstr "מאופשר"
@@ -204,7 +204,8 @@ msgstr[1] "ועוד %d לא ישודרגו."
 msgstr[2] "ועוד %d לא ישודרגו."
 msgstr[3] "ועוד %d לא ישודרגו."
 
-msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgid ""
+"<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
 msgstr "<span weight=\"bold\" size=\"large\">אין ברשותך מספיק נפח בכונן</span>"
 
 #, c-format
@@ -242,11 +243,11 @@ msgstr "כשל בהורדת %s: ‫%s"
 msgid "Removing packages..."
 msgstr "מסיר כעת חבילות..."
 
-msgid "Uninstalling..."
-msgstr "מסיר כעת..."
-
 msgid "Installing packages..."
 msgstr "מתקין כעת חבילות..."
+
+msgid "Uninstalling..."
+msgstr "מסיר כעת..."
 
 msgid "Installing..."
 msgstr "מתקין כעת..."
@@ -283,9 +284,11 @@ msgid "<b>Excluding %s due to dependency failure</b>"
 msgstr "<b>החבילה %s לא תיכלל עקב כשל תלות</b>"
 
 msgid ""
-"Missing dependencies may mean the software in this package will not function"
-" correctly.  Do you want to continue without the required packages?"
-msgstr "חסר בתלויות עשוי להתבטא בכך שהתוכנה שבחבילה זו לא תתפקד כראוי.  האם ברצונך להמשיך ללא החבילות הדרושות?"
+"Missing dependencies may mean the software in this package will not function "
+"correctly.  Do you want to continue without the required packages?"
+msgstr ""
+"חסר בתלויות עשוי להתבטא בכך שהתוכנה שבחבילה זו לא תתפקד כראוי.  האם ברצונך "
+"להמשיך ללא החבילות הדרושות?"
 
 msgid ": Depends: "
 msgstr ": תלויה: "
@@ -307,6 +310,12 @@ msgstr "מנהל חבילות Gslapt"
 
 msgid "Install, remove and upgrade software packages"
 msgstr "התקנה, הסרה ושדרוג של חבילות תוכנה"
+
+msgid "Run Gslapt as root"
+msgstr ""
+
+msgid "Authentication is required to run Gslapt"
+msgstr ""
 
 msgid "Base"
 msgstr "בסיס"
@@ -404,7 +413,9 @@ msgstr "התאמת שפה"
 msgid ""
 "gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
 "Slackware"
-msgstr "‏gslapt הינו מגשר חזיתי לתוכנית slapt-get, מערכת ניהול חבילות עבור Slackware הדומה למערכת ניהול החבילות APT."
+msgstr ""
+"‏gslapt הינו מגשר חזיתי לתוכנית slapt-get, מערכת ניהול חבילות עבור Slackware "
+"הדומה למערכת ניהול החבילות APT."
 
 msgid "working"
 msgstr "עובד כעת"
@@ -566,9 +577,11 @@ msgid "Files"
 msgstr "קבצים מותקנים"
 
 msgid ""
-"<b>The following icons are used to indicate the current status of a "
-"package:</b>"
-msgstr "<b>הצלמיות הבאות משמשות להכוונה\nעל המצב הנתון של חבילה:</b>"
+"<b>The following icons are used to indicate the current status of a package:"
+"</b>"
+msgstr ""
+"<b>הצלמיות הבאות משמשות להכוונה\n"
+"על המצב הנתון של חבילה:</b>"
 
 msgid "Repositories changed"
 msgstr "מאגרים השתנו"
@@ -579,15 +592,19 @@ msgstr "<span size=\"large\" weight=\"bold\">מאגרים השתנו</span>"
 msgid ""
 "You need to reload the package list from the sources you have listed.  Do "
 "you want to do this now?"
-msgstr "עליך להטעין מחדש את רשימת החבילות מן המקורות שציינת.  האם ברצונך לעשות זאת עכשיו?"
+msgstr ""
+"עליך להטעין מחדש את רשימת החבילות מן המקורות שציינת.  האם ברצונך לעשות זאת "
+"עכשיו?"
 
 msgid "Source failed"
 msgstr "מקור נכשל"
 
 msgid ""
-"This package source failed or is not available.  Do you want to disable this"
-" source and continue anyway?"
-msgstr "קיים כשל במקור חבילה זה או שמקור זה אינו קיים.  האם ברצונך לנטרל את מקור זה ועדיין להמשיך?"
+"This package source failed or is not available.  Do you want to disable this "
+"source and continue anyway?"
+msgstr ""
+"קיים כשל במקור חבילה זה או שמקור זה אינו קיים.  האם ברצונך לנטרל את מקור זה "
+"ועדיין להמשיך?"
 
 msgid "Default"
 msgstr "משתמטת"
@@ -607,7 +624,8 @@ msgstr "מקור חבילה"
 msgid "Summary"
 msgstr "סיכום"
 
-msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+msgid ""
+"<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
 msgstr "<span weight=\"bold\" size=\"large\">להחיל את השינויים הבאים?</span>"
 
 msgid "This is a summary of the changes about to be performed."
@@ -645,3 +663,6 @@ msgstr "<b>מפתחות GPG</b>"
 
 msgid "Verification"
 msgstr "אימות"
+
+#~ msgid "Source download failed"
+#~ msgstr "הורדת מקור נכשלה"

@@ -1,21 +1,23 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# 
+#
 # Translators:
 # FIRST AUTHOR Erik Gyepes <depi@depi.sk>, 2005-2006
 msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
-"Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
-"POT-Creation-Date: 2014-08-04 22:05-0400\n"
+"Report-Msgid-Bugs-To: woodwardj at jaos dot org\n"
+"POT-Creation-Date: 2019-12-02 18:41-0500\n"
 "PO-Revision-Date: 2017-09-19 14:08+0000\n"
 "Last-Translator: Jason Woodward <woodwardj@jaos.org>\n"
-"Language-Team: Slovak (http://www.transifex.com/jaos/slapt-get/language/sk/)\n"
+"Language-Team: Slovak (http://www.transifex.com/jaos/slapt-get/language/"
+"sk/)\n"
+"Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sk\n"
-"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n "
+">= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);\n"
 
 msgid "Ready"
 msgstr "Pripravený"
@@ -35,6 +37,7 @@ msgstr "<b>Konflikty:</b>"
 msgid "<b>Suggests:</b>"
 msgstr "<b>Doporučenia:</b>"
 
+#. installed
 msgid "No dependency information available"
 msgstr "No dependency information available"
 
@@ -77,6 +80,9 @@ msgstr "Spracovať"
 msgid "Checking for new package data..."
 msgstr "Hľadajú sa nové balíky..."
 
+msgid "GPG Key verification failed"
+msgstr "GPG Key verification failed"
+
 msgid "Retrieving package data..."
 msgstr "Retrieving package data..."
 
@@ -86,17 +92,11 @@ msgstr "Retrieving patch list..."
 msgid "Retrieving checksum list..."
 msgstr "Retrieving checksum list..."
 
-msgid "Source download failed"
-msgstr "Sťahovanie zlyhalo"
-
 msgid "Retrieving checksum signature..."
 msgstr "Retrieving checksum signature..."
 
 msgid "Verifying checksum signature..."
 msgstr "Verifying checksum signature..."
-
-msgid "GPG Key verification failed"
-msgstr "GPG Key verification failed"
 
 msgid "Retrieving ChangeLog.txt..."
 msgstr "Retrieving ChangeLog.txt..."
@@ -111,14 +111,14 @@ msgstr "Download rate: %.0f%s/s"
 msgid "Error"
 msgstr "Error"
 
-msgid "pkgtools returned an error"
-msgstr "pkgtools vrátil chybu"
-
 msgid "Completed actions"
 msgstr "Completed actions"
 
 msgid "Successfully executed all actions."
 msgstr "Successfully executed all actions."
+
+msgid "pkgtools returned an error"
+msgstr "pkgtools vrátil chybu"
 
 msgid "Enabled"
 msgstr "Enabled"
@@ -202,8 +202,10 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Nemáte dostatok voľného miesta</span>"
+msgid ""
+"<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgstr ""
+"<span weight=\"bold\" size=\"large\">Nemáte dostatok voľného miesta</span>"
 
 #, c-format
 msgid "Need to get %.0f%s/%.0f%s of archives.\n"
@@ -225,7 +227,9 @@ msgid "Up to Date"
 msgstr "Je aktuálny"
 
 msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Nie sú k dispozícii žiadne aktualizácie</span>"
+msgstr ""
+"<span weight=\"bold\" size=\"large\">Nie sú k dispozícii žiadne "
+"aktualizácie</span>"
 
 msgid "Downloading packages..."
 msgstr "Sťahujem balíky..."
@@ -240,11 +244,11 @@ msgstr "Failed to download %s: %s"
 msgid "Removing packages..."
 msgstr "Vymazávam balíky..."
 
-msgid "Uninstalling..."
-msgstr "Odinštalovávam..."
-
 msgid "Installing packages..."
 msgstr "Inštalujem balíky..."
+
+msgid "Uninstalling..."
+msgstr "Odinštalovávam..."
 
 msgid "Installing..."
 msgstr "Inštalujem..."
@@ -281,9 +285,11 @@ msgid "<b>Excluding %s due to dependency failure</b>"
 msgstr "<b>Vylučujem %s chybu so závisloťou</b>"
 
 msgid ""
-"Missing dependencies may mean the software in this package will not function"
-" correctly.  Do you want to continue without the required packages?"
-msgstr "Missing dependencies may mean the software in this package will not function correctly.  Do you want to continue without the required packages?"
+"Missing dependencies may mean the software in this package will not function "
+"correctly.  Do you want to continue without the required packages?"
+msgstr ""
+"Missing dependencies may mean the software in this package will not function "
+"correctly.  Do you want to continue without the required packages?"
 
 msgid ": Depends: "
 msgstr ": Závislosti: "
@@ -305,6 +311,12 @@ msgstr "Gslapt Package Manager"
 
 msgid "Install, remove and upgrade software packages"
 msgstr "Install, remove and upgrade software packages"
+
+msgid "Run Gslapt as root"
+msgstr ""
+
+msgid "Authentication is required to run Gslapt"
+msgstr ""
 
 msgid "Base"
 msgstr "Base"
@@ -402,7 +414,9 @@ msgstr "Localization"
 msgid ""
 "gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
 "Slackware"
-msgstr "gslapt je GTK+ nadstavba k slapt-get, ktorý je založený na báze APT preSlackware"
+msgstr ""
+"gslapt je GTK+ nadstavba k slapt-get, ktorý je založený na báze APT "
+"preSlackware"
 
 msgid "working"
 msgstr "pracujem"
@@ -564,9 +578,10 @@ msgid "Files"
 msgstr "Files"
 
 msgid ""
-"<b>The following icons are used to indicate the current status of a "
-"package:</b>"
-msgstr "<b>Nasledovné ikony sú použité pre označenie aktuálneho stavu balíku:</b>"
+"<b>The following icons are used to indicate the current status of a package:"
+"</b>"
+msgstr ""
+"<b>Nasledovné ikony sú použité pre označenie aktuálneho stavu balíku:</b>"
 
 msgid "Repositories changed"
 msgstr "Repositories changed"
@@ -577,15 +592,19 @@ msgstr "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
 msgid ""
 "You need to reload the package list from the sources you have listed.  Do "
 "you want to do this now?"
-msgstr "You need to reload the package list from the sources you have listed.  Do you want to do this now?"
+msgstr ""
+"You need to reload the package list from the sources you have listed.  Do "
+"you want to do this now?"
 
 msgid "Source failed"
 msgstr "Source failed"
 
 msgid ""
-"This package source failed or is not available.  Do you want to disable this"
-" source and continue anyway?"
-msgstr "This package source failed or is not available.  Do you want to disable this source and continue anyway?"
+"This package source failed or is not available.  Do you want to disable this "
+"source and continue anyway?"
+msgstr ""
+"This package source failed or is not available.  Do you want to disable this "
+"source and continue anyway?"
 
 msgid "Default"
 msgstr "Default"
@@ -605,7 +624,8 @@ msgstr "Package Source"
 msgid "Summary"
 msgstr "Zhrnutie"
 
-msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+msgid ""
+"<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Potvrdiť nasledovné zmeny?</span>"
 
 msgid "This is a summary of the changes about to be performed."
@@ -643,3 +663,6 @@ msgstr "<b>GPG Keys</b>"
 
 msgid "Verification"
 msgstr "Verification"
+
+#~ msgid "Source download failed"
+#~ msgstr "Sťahovanie zlyhalo"

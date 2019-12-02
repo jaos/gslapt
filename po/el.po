@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# 
+#
 # Translators:
 # gapan <vlahavas@gmail.com>, 2012
 # gapan <vlahavas@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
-"Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
-"POT-Creation-Date: 2014-08-04 22:05-0400\n"
+"Report-Msgid-Bugs-To: woodwardj at jaos dot org\n"
+"POT-Creation-Date: 2019-12-02 18:41-0500\n"
 "PO-Revision-Date: 2017-09-19 14:08+0000\n"
 "Last-Translator: Jason Woodward <woodwardj@jaos.org>\n"
 "Language-Team: Greek (http://www.transifex.com/jaos/slapt-get/language/el/)\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Ready"
@@ -36,6 +36,7 @@ msgstr "<b>Συγκρούσεις:</b>"
 msgid "<b>Suggests:</b>"
 msgstr "<b>Προτεινόμενα:</b>"
 
+#. installed
 msgid "No dependency information available"
 msgstr "Δεν υπάρχουν πληροφορίες εξαρτήσεων"
 
@@ -46,7 +47,9 @@ msgid "No changelog information available"
 msgstr "Δεν υπάρχει αρχείο αλλαγών"
 
 msgid "The list of installed files is only available for installed packages"
-msgstr "Ο κατάλογος των εγκατεστημένων αρχείων είναι διαθέσιμος μόνο για εγκατεστημένα πακέτα"
+msgstr ""
+"Ο κατάλογος των εγκατεστημένων αρχείων είναι διαθέσιμος μόνο για "
+"εγκατεστημένα πακέτα"
 
 msgid "Excluded"
 msgstr "Εξαιρούμενα"
@@ -78,6 +81,9 @@ msgstr "Πρόοδος"
 msgid "Checking for new package data..."
 msgstr "Έλεγχος για νέα δεδομένα πακέτων..."
 
+msgid "GPG Key verification failed"
+msgstr "Η επαλήθευση του κλειδιού GPG απέτυχε"
+
 msgid "Retrieving package data..."
 msgstr "Ανάκτηση δεδομένων πακέτων..."
 
@@ -87,17 +93,11 @@ msgstr "Ανάκτηση λίστας διορθώσεων..."
 msgid "Retrieving checksum list..."
 msgstr "Ανάκτηση λίστας αθροισμάτων..."
 
-msgid "Source download failed"
-msgstr "Η λήψη απέτυχε"
-
 msgid "Retrieving checksum signature..."
 msgstr "Ανάκτηση υπογραφής αθροίσματος..."
 
 msgid "Verifying checksum signature..."
 msgstr "Επαλήθευση υπογραφής αθροίσματος..."
-
-msgid "GPG Key verification failed"
-msgstr "Η επαλήθευση του κλειδιού GPG απέτυχε"
 
 msgid "Retrieving ChangeLog.txt..."
 msgstr "Ανάκτηση του ChangeLog.txt..."
@@ -112,14 +112,14 @@ msgstr "Ρυθμός λήψης: %.0f%s/s"
 msgid "Error"
 msgstr "Σφάλμα"
 
-msgid "pkgtools returned an error"
-msgstr "Τα pkgtools επέστρεψαν σφάλμα"
-
 msgid "Completed actions"
 msgstr "Ολοκληρωμένες ενέργειες"
 
 msgid "Successfully executed all actions."
 msgstr "Όλες οι ενέργειες εκτελέσθηκαν με επιτυχία."
+
+msgid "pkgtools returned an error"
+msgstr "Τα pkgtools επέστρεψαν σφάλμα"
 
 msgid "Enabled"
 msgstr "Ενεργοποιημένο"
@@ -193,8 +193,11 @@ msgid_plural "and %d not upgraded."
 msgstr[0] ""
 msgstr[1] ""
 
-msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Δεν έχετε αρκετό ελεύθερο χώρο στο δίσκο</span>"
+msgid ""
+"<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgstr ""
+"<span weight=\"bold\" size=\"large\">Δεν έχετε αρκετό ελεύθερο χώρο στο "
+"δίσκο</span>"
 
 #, c-format
 msgid "Need to get %.0f%s/%.0f%s of archives.\n"
@@ -231,11 +234,11 @@ msgstr "Αποτυχία λήψης %s: %s"
 msgid "Removing packages..."
 msgstr "Απεγκατάσταση πακέτων..."
 
-msgid "Uninstalling..."
-msgstr "Απεγκατάσταση..."
-
 msgid "Installing packages..."
 msgstr "Εγκατάσταση πακέτων..."
+
+msgid "Uninstalling..."
+msgstr "Απεγκατάσταση..."
 
 msgid "Installing..."
 msgstr "Εγκατάσταση..."
@@ -272,9 +275,12 @@ msgid "<b>Excluding %s due to dependency failure</b>"
 msgstr "<b>Εξαιρείται το %s λόγω αποτυχίας επίλυσης εξαρτήσεων</b>"
 
 msgid ""
-"Missing dependencies may mean the software in this package will not function"
-" correctly.  Do you want to continue without the required packages?"
-msgstr "Απούσες εξαρτήσεις μπορεί να σημαίνουν ότι το λογισμικό που περιλαμβάνεται στο πακέτο ενδέχεται να μη λειτουργεί σωστά. Θέλετε να συνεχίσετε χωρίς τα απαιτούμενα πακέτα;"
+"Missing dependencies may mean the software in this package will not function "
+"correctly.  Do you want to continue without the required packages?"
+msgstr ""
+"Απούσες εξαρτήσεις μπορεί να σημαίνουν ότι το λογισμικό που περιλαμβάνεται "
+"στο πακέτο ενδέχεται να μη λειτουργεί σωστά. Θέλετε να συνεχίσετε χωρίς τα "
+"απαιτούμενα πακέτα;"
 
 msgid ": Depends: "
 msgstr ": Εξαρτήσεις: "
@@ -296,6 +302,12 @@ msgstr "Διαχειριστής Πακέτων Gslapt"
 
 msgid "Install, remove and upgrade software packages"
 msgstr "Εγκαταστήστε, απεγκαταστήστε και αναβαθμίστε πακέτα λογισμικού"
+
+msgid "Run Gslapt as root"
+msgstr ""
+
+msgid "Authentication is required to run Gslapt"
+msgstr ""
 
 msgid "Base"
 msgstr "Βάση"
@@ -393,7 +405,9 @@ msgstr "Διεθνοποίηση"
 msgid ""
 "gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
 "Slackware"
-msgstr "Το gslapt είναι ένα γραφικό περιβάλλον χρήσης του slapt-get, ένα σύστημα διαχείρισης πακέτων για το Slackware όμοιο με το APT"
+msgstr ""
+"Το gslapt είναι ένα γραφικό περιβάλλον χρήσης του slapt-get, ένα σύστημα "
+"διαχείρισης πακέτων για το Slackware όμοιο με το APT"
 
 msgid "working"
 msgstr "απασχολημένο"
@@ -555,9 +569,11 @@ msgid "Files"
 msgstr "Αρχεία"
 
 msgid ""
-"<b>The following icons are used to indicate the current status of a "
-"package:</b>"
-msgstr "<b>Τα ακόλουθα εικονίδια χρησιμοποιούνται για να δείξουν την τρέχουσα κατάσταση ενός πακέτου:</b>"
+"<b>The following icons are used to indicate the current status of a package:"
+"</b>"
+msgstr ""
+"<b>Τα ακόλουθα εικονίδια χρησιμοποιούνται για να δείξουν την τρέχουσα "
+"κατάσταση ενός πακέτου:</b>"
 
 msgid "Repositories changed"
 msgstr "Οι πηγές πακέτων άλλαξαν"
@@ -568,15 +584,19 @@ msgstr "<span size=\"large\" weight=\"bold\">Οι πηγές πακέτων άλ
 msgid ""
 "You need to reload the package list from the sources you have listed.  Do "
 "you want to do this now?"
-msgstr "Πρέπει να ανανεώσετε τη λίστα των πακέτων από τις πηγές που χρησιμοποιείτε. Θέλετε να το κάνετε τώρα;"
+msgstr ""
+"Πρέπει να ανανεώσετε τη λίστα των πακέτων από τις πηγές που χρησιμοποιείτε. "
+"Θέλετε να το κάνετε τώρα;"
 
 msgid "Source failed"
 msgstr "Η πηγή απέτυχε"
 
 msgid ""
-"This package source failed or is not available.  Do you want to disable this"
-" source and continue anyway?"
-msgstr "Απέτυχε η λήψη δεδομένων από την πηγή πακέτων.  Θέλετε να απενεργοποιήσετε αυτή την πηγή πακέτων και να συνεχίσετε ούτως ή άλλως;"
+"This package source failed or is not available.  Do you want to disable this "
+"source and continue anyway?"
+msgstr ""
+"Απέτυχε η λήψη δεδομένων από την πηγή πακέτων.  Θέλετε να απενεργοποιήσετε "
+"αυτή την πηγή πακέτων και να συνεχίσετε ούτως ή άλλως;"
 
 msgid "Default"
 msgstr "Εξ ορισμού"
@@ -596,8 +616,11 @@ msgstr "Πηγή πακέτων"
 msgid "Summary"
 msgstr "Περίληψη"
 
-msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Να εφαρμοστούν οι παρακάτω αλλαγές;</span>"
+msgid ""
+"<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+msgstr ""
+"<span weight=\"bold\" size=\"large\">Να εφαρμοστούν οι παρακάτω αλλαγές;</"
+"span>"
 
 msgid "This is a summary of the changes about to be performed."
 msgstr "Αυτή είναι μια περίληψη των αλλαγών που πρόκειται να πραγματοποιηθούν"
@@ -634,3 +657,6 @@ msgstr "<b>Κλειδιά GPG</b>"
 
 msgid "Verification"
 msgstr "Επαλήθευση"
+
+#~ msgid "Source download failed"
+#~ msgstr "Η λήψη απέτυχε"
