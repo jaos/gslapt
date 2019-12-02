@@ -5,7 +5,7 @@ SUBDIRS = src po ui
 PKGDIR = `pwd`/pkg
 PKGREL = 1
 if POLKIT
-INSTALL_GSLAPT_POLKIT = mkdir -p $(DESTDIR)/$(bindir); echo -e "\#!/bin/sh\npkexec --disable-internal-agent /usr/sbin/gslapt \$$@" > $(DESTDIR)/$(bindir)/gslapt-polkit; chmod +x $(DESTDIR)/$(bindir)/gslapt-polkit
+INSTALL_GSLAPT_POLKIT = mkdir -p $(DESTDIR)/$(bindir); echo -e "\#!/bin/sh\npkexec --disable-internal-agent $(sbindir)/gslapt \$$@" > $(DESTDIR)/$(bindir)/gslapt-polkit; chmod +x $(DESTDIR)/$(bindir)/gslapt-polkit; $(mkinstalldirs) $(DESTDIR)/$(POLKIT_SYSTEM_ACTIONS_DIR); $(INSTALL_DATA) org.jaos.gslapt.policy $(DESTDIR)/$(POLKIT_SYSTEM_ACTIONS_DIR)/org.jaos.gslapt.policy; sed -i -re 's,(exec\.path">).*(<\/annotate>),\1$(sbindir)/@PACKAGE@\2,g' $(DESTDIR)/$(POLKIT_SYSTEM_ACTIONS_DIR)/org.jaos.gslapt.policy
 else
 INSTALL_GSLAPT_POLKIT =
 endif
@@ -41,8 +41,6 @@ install-data-local:
 	$(INSTALL_DATA) AUTHORS ChangeLog COPYING FAQ README $(DESTDIR)/$(datadir)/doc/@PACKAGE@ ; \
 	$(INSTALL_DATA) gslapt.desktop $(DESTDIR)/$(datadir)/applications/gslapt.desktop; \
 	$(INSTALL_DATA) gslapt-kde.desktop $(DESTDIR)/$(datadir)/applications/gslapt-kde.desktop; \
-	$(mkinstalldirs) $(DESTDIR)/$(POLKIT_SYSTEM_ACTIONS_DIR); \
-	$(INSTALL_DATA) org.jaos.gslapt.policy $(DESTDIR)/$(POLKIT_SYSTEM_ACTIONS_DIR)/org.jaos.gslapt.policy; \
 	$(INSTALL_DATA) series_map.rc $(DESTDIR)/$(pkgdatadir)/; \
 	$(mkinstalldirs) $(DESTDIR)/$(datadir)/pixmaps; \
 	$(INSTALL_DATA) ui/gslapt.png $(DESTDIR)/$(datadir)/pixmaps/
