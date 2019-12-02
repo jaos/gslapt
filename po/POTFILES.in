@@ -4,6 +4,7 @@ src/main.c
 src/callbacks.c
 gslapt-kde.desktop.in
 gslapt.desktop.in
+org.jaos.gslapt.policy.in
 [type: gettext/ini]series_map.rc.in
 [type: gettext/glade]ui/about.ui
 [type: gettext/glade]ui/changelog_window.ui

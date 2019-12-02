@@ -31,6 +31,7 @@ all-local:
 	@rm -rf series_map.rc_quoted series_map
 	@intltool-merge po/ -d -u gslapt.desktop.in gslapt.desktop
 	@intltool-merge po/ -d -u gslapt-kde.desktop.in gslapt-kde.desktop
+	@intltool-merge po/ -x -u org.jaos.gslapt.policy.in org.jaos.gslapt.policy
 	@sed -i -re 's,(Exec=)(.*),\1$(sbindir)/@PACKAGE@,' gslapt.desktop gslapt-kde.desktop
 	@sed -i -re 's,(Icon=).*?(/pixmaps.*),\1$(datadir)\2,' gslapt.desktop gslapt-kde.desktop
 
