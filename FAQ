@@ -8,10 +8,10 @@ Frequently Asked Questions:
 
 1.  I have a problem or a suggestion for gslapt, where do I take it?
 
-  Please subscribe to slapt-get-devel@software.jaos.org:
+  If gslapt doesn't start from the panel or you get a message like:
+  Email bug reports to me: Jason Woodward <woodwardj at jaos dot org>
 
-  http://software.jaos.org/cgi-bin/mailman/listinfo/slapt-get-devel
-
+  Or file a github issue: https://github.com/jaos/gslapt/issues
 
 2.  Why do I get permission denied on /var/slapt-get ?
 
