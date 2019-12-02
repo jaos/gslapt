@@ -1264,12 +1264,14 @@ static void get_package_data(void)
                 slapt_vector_t_free(new_pkgs);
                 return;
             } else {
+                g_source_remove(updater);
                 g_mutex_lock(&get_package_data_source_failed_mutex);
                 gdk_threads_add_idle_full(G_PRIORITY_HIGH, _get_package_data_source_failed, src, NULL);
                 g_cond_wait(&get_package_data_source_failed_cond, &get_package_data_source_failed_mutex);
                 g_mutex_unlock(&get_package_data_source_failed_mutex);
             }
             if (src->disabled) {
+                updater = gdk_threads_add_timeout_full(G_PRIORITY_HIGH, 20, _update_progress, NULL, NULL);
                 continue;
             } else {
                 g_source_remove(updater);
@@ -1324,12 +1326,14 @@ static void get_package_data(void)
                 slapt_vector_t_free(new_pkgs);
                 return;
             } else {
+                g_source_remove(updater);
                 g_mutex_lock(&get_package_data_source_failed_mutex);
                 gdk_threads_add_idle_full(G_PRIORITY_HIGH, _get_package_data_source_failed, src, NULL);
                 g_cond_wait(&get_package_data_source_failed_cond, &get_package_data_source_failed_mutex);
                 g_mutex_unlock(&get_package_data_source_failed_mutex);
             }
             if (src->disabled) {
+                updater = gdk_threads_add_timeout_full(G_PRIORITY_HIGH, 20, _update_progress, NULL, NULL);
                 continue;
             } else {
                 g_source_remove(updater);
