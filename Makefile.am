@@ -29,6 +29,8 @@ all-local:
 			sed "s/\"//g" $$i/series_map.rc >> ../series_map.rc; \
 		done
 	@rm -rf series_map.rc_quoted series_map
+	@sed -i -re 's,XXXDOTXXX,.,g' series_map.rc
+	@sed -i -re 's,XXXSLASHXXX,/,g' series_map.rc
 	@intltool-merge po/ -d -u gslapt.desktop.in gslapt.desktop
 	@intltool-merge po/ -d -u gslapt-kde.desktop.in gslapt-kde.desktop
 	@intltool-merge po/ -x -u org.jaos.gslapt.policy.in org.jaos.gslapt.policy
