@@ -32,6 +32,7 @@ all-local:
 	@intltool-merge po/ -d -u gslapt.desktop.in gslapt.desktop
 	@intltool-merge po/ -d -u gslapt-kde.desktop.in gslapt-kde.desktop
 	@sed -i -re 's,(Exec=)(.*),\1$(sbindir)/@PACKAGE@,' gslapt.desktop gslapt-kde.desktop
+	@sed -i -re 's,(Icon=).*?(/pixmaps.*),\1$(datadir)\2,' gslapt.desktop gslapt-kde.desktop
 
 
 install-data-local:
