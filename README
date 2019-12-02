@@ -26,3 +26,9 @@ To build from source, you must have these packages installed:
 Optional packages:
  GPG support: gnupg2 gpgme libgpg-error
  Polkit support: polkit
+
+To disable polkit use --without-polkit.  Otherwise polkit pkexec will be added
+to the .desktop files and a polkit policy will be installed for gslapt.
+
+To switch back to gtk+2, use --enable-gtk2.  This is deprecated and will be
+removed in a future version.
