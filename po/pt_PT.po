@@ -1,22 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-#
+# 
 # Translators:
-# Hugo Carvalho <hugokarvalho@hotmail.com>, 2014
+# Hugo Carvalho <hugokarvalho@hotmail.com>, 2014,2019
 # Sérgio Marques <smarquespt@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: woodwardj at jaos dot org\n"
 "POT-Creation-Date: 2019-12-02 18:41-0500\n"
-"PO-Revision-Date: 2017-09-19 22:00+0000\n"
+"PO-Revision-Date: 2019-12-03 17:35+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
-"Language-Team: Portuguese (Portugal) (http://www.transifex.com/jaos/slapt-"
-"get/language/pt_PT/)\n"
-"Language: pt_PT\n"
+"Language-Team: Portuguese (Portugal) (http://www.transifex.com/jaos/slapt-get/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_PT\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Ready"
@@ -48,8 +47,7 @@ msgid "No changelog information available"
 msgstr "Sem informações sobre alterações"
 
 msgid "The list of installed files is only available for installed packages"
-msgstr ""
-"A lista de ficheiros instalados só está disponível para pacotes instalados"
+msgstr "A lista de ficheiros instalados só está disponível para pacotes instalados"
 
 msgid "Excluded"
 msgstr "Excluído"
@@ -193,15 +191,12 @@ msgid_plural "and %d not upgraded."
 msgstr[0] "e %d não atualizado."
 msgstr[1] "e %d não atualizados"
 
-msgid ""
-"<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Não tem espeço suficiente</span>"
 
 #, c-format
 msgid "Need to get %.0f%s/%.0f%s of archives.\n"
-msgstr ""
-"É necessário obter %.0f%s/%.0f%s arquivos.\n"
-"\n"
+msgstr "É necessário obter %.0f%s/%.0f%s arquivos.\n\n"
 
 #, c-format
 msgid "Need to get %.0f%s of archives."
@@ -275,11 +270,9 @@ msgid "<b>Excluding %s due to dependency failure</b>"
 msgstr "<b>A excluir %s por falha nas dependências</b>"
 
 msgid ""
-"Missing dependencies may mean the software in this package will not function "
-"correctly.  Do you want to continue without the required packages?"
-msgstr ""
-"Se existirem dependências em falta, o pacote não funcionará corretamente. "
-"Pretende continuar sem as dependências?"
+"Missing dependencies may mean the software in this package will not function"
+" correctly.  Do you want to continue without the required packages?"
+msgstr "Se existirem dependências em falta, o pacote não funcionará corretamente. Pretende continuar sem as dependências?"
 
 msgid ": Depends: "
 msgstr ": Depende de: "
@@ -303,10 +296,10 @@ msgid "Install, remove and upgrade software packages"
 msgstr "Instalar, remover e atualizar pacotes"
 
 msgid "Run Gslapt as root"
-msgstr ""
+msgstr "Executar o Gslapt como root"
 
 msgid "Authentication is required to run Gslapt"
-msgstr ""
+msgstr "É necessária a autenticação para executar o Gslapt"
 
 msgid "Base"
 msgstr "Base"
@@ -404,9 +397,7 @@ msgstr "Internacionalização"
 msgid ""
 "gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
 "Slackware"
-msgstr ""
-"O gslapt é uma interface gráfica em GTK+ para o slapt-get,  a aplicação de "
-"gestão de pacotes do tipo APT para o Slackware"
+msgstr "O gslapt é uma interface gráfica em GTK+ para o slapt-get,  a aplicação de gestão de pacotes do tipo APT para o Slackware"
 
 msgid "working"
 msgstr "a trabalhar"
@@ -568,10 +559,9 @@ msgid "Files"
 msgstr "Ficheiros"
 
 msgid ""
-"<b>The following icons are used to indicate the current status of a package:"
-"</b>"
-msgstr ""
-"<b>Estes ícones são utilizados para mostrar o atual estado dos pacotes:</b>"
+"<b>The following icons are used to indicate the current status of a "
+"package:</b>"
+msgstr "<b>Estes ícones são utilizados para mostrar o atual estado dos pacotes:</b>"
 
 msgid "Repositories changed"
 msgstr "Repositórios alterados"
@@ -588,11 +578,9 @@ msgid "Source failed"
 msgstr "Falha na fonte"
 
 msgid ""
-"This package source failed or is not available.  Do you want to disable this "
-"source and continue anyway?"
-msgstr ""
-"Falha na fonte de pacotes ou esta não está disponível. Pretende desativar "
-"esta fonte e continuar?"
+"This package source failed or is not available.  Do you want to disable this"
+" source and continue anyway?"
+msgstr "Falha na fonte de pacotes ou esta não está disponível. Pretende desativar esta fonte e continuar?"
 
 msgid "Default"
 msgstr "Pré-definido"
@@ -612,8 +600,7 @@ msgstr "Fonte do pacote"
 msgid "Summary"
 msgstr "Resumo"
 
-msgid ""
-"<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Aplicar estas alterações?</span>"
 
 msgid "This is a summary of the changes about to be performed."
@@ -651,6 +638,3 @@ msgstr "<b>Chaves GPG</b>"
 
 msgid "Verification"
 msgstr "Verificação"
-
-#~ msgid "Source download failed"
-#~ msgstr "Erro ao receber a fonte"

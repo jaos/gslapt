@@ -1,20 +1,19 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-#
+# 
 # Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: woodwardj at jaos dot org\n"
 "POT-Creation-Date: 2019-12-02 18:41-0500\n"
-"PO-Revision-Date: 2014-08-05 02:05+0000\n"
-"Last-Translator: Jason Woodward <woodwardj@jaos.org>\n"
-"Language-Team: Danish (http://www.transifex.com/jaos/slapt-get/language/"
-"da/)\n"
-"Language: da\n"
+"PO-Revision-Date: 2019-12-03 01:06+0000\n"
+"Last-Translator: gapan <vlahavas@gmail.com>\n"
+"Language-Team: Danish (http://www.transifex.com/jaos/slapt-get/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: da\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Ready"
@@ -190,8 +189,7 @@ msgid_plural "and %d not upgraded."
 msgstr[0] ""
 msgstr[1] ""
 
-msgid ""
-"<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
 msgstr ""
 
 #, c-format
@@ -270,8 +268,8 @@ msgid "<b>Excluding %s due to dependency failure</b>"
 msgstr ""
 
 msgid ""
-"Missing dependencies may mean the software in this package will not function "
-"correctly.  Do you want to continue without the required packages?"
+"Missing dependencies may mean the software in this package will not function"
+" correctly.  Do you want to continue without the required packages?"
 msgstr ""
 
 msgid ": Depends: "
@@ -559,8 +557,8 @@ msgid "Files"
 msgstr ""
 
 msgid ""
-"<b>The following icons are used to indicate the current status of a package:"
-"</b>"
+"<b>The following icons are used to indicate the current status of a "
+"package:</b>"
 msgstr ""
 
 msgid "Repositories changed"
@@ -578,8 +576,8 @@ msgid "Source failed"
 msgstr ""
 
 msgid ""
-"This package source failed or is not available.  Do you want to disable this "
-"source and continue anyway?"
+"This package source failed or is not available.  Do you want to disable this"
+" source and continue anyway?"
 msgstr ""
 
 msgid "Default"
@@ -600,8 +598,7 @@ msgstr ""
 msgid "Summary"
 msgstr ""
 
-msgid ""
-"<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
 msgstr ""
 
 msgid "This is a summary of the changes about to be performed."

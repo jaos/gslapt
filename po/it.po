@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-#
+# 
 # Translators:
 # Antonio Sardei <laplume@libero.it>, 2016,2018
 # FIRST AUTHOR Fabio Varesano <fvaresano@yahoo.it>, 2005-2006
@@ -9,14 +9,13 @@ msgstr ""
 "Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: woodwardj at jaos dot org\n"
 "POT-Creation-Date: 2019-12-02 18:41-0500\n"
-"PO-Revision-Date: 2018-08-16 18:27+0000\n"
-"Last-Translator: Antonio Sardei <laplume@libero.it>\n"
-"Language-Team: Italian (http://www.transifex.com/jaos/slapt-get/language/"
-"it/)\n"
-"Language: it\n"
+"PO-Revision-Date: 2019-12-03 01:06+0000\n"
+"Last-Translator: gapan <vlahavas@gmail.com>\n"
+"Language-Team: Italian (http://www.transifex.com/jaos/slapt-get/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Ready"
@@ -48,8 +47,7 @@ msgid "No changelog information available"
 msgstr "Nessuna informazione disponibile sul changelog"
 
 msgid "The list of installed files is only available for installed packages"
-msgstr ""
-"La lista dei file installati è disponibile solo per i pacchetti installati"
+msgstr "La lista dei file installati è disponibile solo per i pacchetti installati"
 
 msgid "Excluded"
 msgstr "Escluso"
@@ -193,10 +191,8 @@ msgid_plural "and %d not upgraded."
 msgstr[0] "%dnon aggiornato."
 msgstr[1] "%dnon aggiornato."
 
-msgid ""
-"<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
-msgstr ""
-"<span weight=\"bold\" size=\"large\">Non hai spazio libero sufficiente</span>"
+msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Non hai spazio libero sufficiente</span>"
 
 #, c-format
 msgid "Need to get %.0f%s/%.0f%s of archives.\n"
@@ -212,16 +208,13 @@ msgstr "Dopo la decompressione %.0f%s di spazio su disco sarà liberato"
 
 #, c-format
 msgid "After unpacking %.0f%s of additional disk space will be used."
-msgstr ""
-"Dopo la decompressione %.0f%s di spazio addizionale su disco verrà "
-"utilizzato."
+msgstr "Dopo la decompressione %.0f%s di spazio addizionale su disco verrà utilizzato."
 
 msgid "Up to Date"
 msgstr "Aggiornato"
 
 msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
-msgstr ""
-"<span weight=\"bold\" size=\"large\">Nessun aggiornamento disponibile</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Nessun aggiornamento disponibile</span>"
 
 msgid "Downloading packages..."
 msgstr "Pacchetti in scaricamento..."
@@ -277,12 +270,9 @@ msgid "<b>Excluding %s due to dependency failure</b>"
 msgstr "<b>Esclusione di %s per dipendenza non soddisfatta</b>"
 
 msgid ""
-"Missing dependencies may mean the software in this package will not function "
-"correctly.  Do you want to continue without the required packages?"
-msgstr ""
-"Le dipendenze mancanti possono comportare malfunzionamenti del software "
-"contenuto nel pacchetto. Vuoi continuare comunque senza i pacchetti "
-"richiesti?"
+"Missing dependencies may mean the software in this package will not function"
+" correctly.  Do you want to continue without the required packages?"
+msgstr "Le dipendenze mancanti possono comportare malfunzionamenti del software contenuto nel pacchetto. Vuoi continuare comunque senza i pacchetti richiesti?"
 
 msgid ": Depends: "
 msgstr ": Dipende: "
@@ -407,9 +397,7 @@ msgstr "Localizzazioni"
 msgid ""
 "gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
 "Slackware"
-msgstr ""
-"gslapt è un frontend in GTK per slapt-get, un sistema di gestione pacchetti "
-"tipo APT"
+msgstr "gslapt è un frontend in GTK per slapt-get, un sistema di gestione pacchetti tipo APT"
 
 msgid "working"
 msgstr "attività in corso"
@@ -571,11 +559,9 @@ msgid "Files"
 msgstr "Files"
 
 msgid ""
-"<b>The following icons are used to indicate the current status of a package:"
-"</b>"
-msgstr ""
-"<b>Le seguenti icone sono utilizzate per indicare lo stato attuale di un "
-"pacchetto:</b>"
+"<b>The following icons are used to indicate the current status of a "
+"package:</b>"
+msgstr "<b>Le seguenti icone sono utilizzate per indicare lo stato attuale di un pacchetto:</b>"
 
 msgid "Repositories changed"
 msgstr "Repository modificati"
@@ -586,19 +572,15 @@ msgstr "<span size=\"large\" weight=\"bold\">Repository modificati</span>"
 msgid ""
 "You need to reload the package list from the sources you have listed.  Do "
 "you want to do this now?"
-msgstr ""
-"Devi ricaricare la lista dei pacchetti dalle fonti che hai in lista. "
-"Desideri farlo ora?"
+msgstr "Devi ricaricare la lista dei pacchetti dalle fonti che hai in lista. Desideri farlo ora?"
 
 msgid "Source failed"
 msgstr "Origine fallita"
 
 msgid ""
-"This package source failed or is not available.  Do you want to disable this "
-"source and continue anyway?"
-msgstr ""
-"Questa Origine di pacchetti non è riconosciuta oppure non è disponibile. "
-"Vuoi disabilitarla e proseguire?"
+"This package source failed or is not available.  Do you want to disable this"
+" source and continue anyway?"
+msgstr "Questa Origine di pacchetti non è riconosciuta oppure non è disponibile. Vuoi disabilitarla e proseguire?"
 
 msgid "Default"
 msgstr "Predefinito"
@@ -618,10 +600,8 @@ msgstr "Fonte dei Pacchetti"
 msgid "Summary"
 msgstr "Sommario"
 
-msgid ""
-"<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
-msgstr ""
-"<span weight=\"bold\" size=\"large\">Applicare le modifiche seguenti?</span>"
+msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Applicare le modifiche seguenti?</span>"
 
 msgid "This is a summary of the changes about to be performed."
 msgstr "Questo è un resoconto delle modifiche che verranno eseguite."
@@ -658,6 +638,3 @@ msgstr "<b>Chiavi GPG</b>"
 
 msgid "Verification"
 msgstr "Verifica"
-
-#~ msgid "Source download failed"
-#~ msgstr "Scaricamento fonte fallito"
