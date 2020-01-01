@@ -8,7 +8,7 @@
     <property name="destroy_with_parent">True</property>
     <property name="type_hint">dialog</property>
     <property name="program_name">gslapt</property>
-    <property name="copyright" translatable="no">Copyright (c) 2005-2019 Jason Woodward</property>
+    <property name="copyright" translatable="no">Copyright (c) 2005-2020 Jason Woodward</property>
     <property name="comments" translatable="yes">gslapt is a GTK+ frontend to slapt-get, an APT like package system for Slackware</property>
     <property name="website">http://software.jaos.org/#gslapt</property>
     <property name="logo">gslapt.png</property>
