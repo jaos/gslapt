@@ -79,10 +79,16 @@ AC_ARG_WITH(
   [use_polkit=$withval],
   [AC_CHECK_PROG([use_polkit], [pkexec], yes, [no])]
 )
+AC_ARG_WITH(
+  [polkitactiondir],
+  AC_HELP_STRING([--with-polkitactiondir], [Specify the location for the system polkit-1/actions path]),
+  [polkitactiondir=$withval],
+  [PKG_CHECK_VAR(polkitactiondir, polkit-gobject-1, actiondir)]
+)
 if test x"$use_polkit" = x"yes"; then
   AC_PATH_PROG([PKEXEC], [pkexec])
   AM_CONDITIONAL(POLKIT, true)
-  AS_AC_EXPAND(DATADIR, $datadir)
+  AC_SUBST(polkitactiondir)
 fi
 
 GETTEXT_PACKAGE=gslapt

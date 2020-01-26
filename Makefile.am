@@ -5,11 +5,14 @@ SUBDIRS = src po ui
 PKGDIR = `pwd`/pkg
 PKGREL = 1
 if POLKIT
-polkit_actiondir = $(datadir)/polkit-1/actions
-INSTALL_GSLAPT_POLKIT = mkdir -p $(DESTDIR)/$(bindir); echo -e "\#!/bin/sh\npkexec --disable-internal-agent $(sbindir)/gslapt \$$@" > $(DESTDIR)/$(bindir)/gslapt-polkit; chmod +x $(DESTDIR)/$(bindir)/gslapt-polkit; $(mkinstalldirs) $(DESTDIR)/$(polkit_actiondir); $(INSTALL_DATA) org.jaos.gslapt.policy $(DESTDIR)/$(polkit_actiondir)/org.jaos.gslapt.policy; sed -i -re 's,(exec\.path">).*(<\/annotate>),\1$(sbindir)/@PACKAGE@\2,g' $(DESTDIR)/$(polkit_actiondir)/org.jaos.gslapt.policy
+polkitactiondir = @polkitactiondir@
+INSTALL_GSLAPT_POLKIT = mkdir -p $(DESTDIR)/$(bindir); echo -e "\#!/bin/sh\npkexec --disable-internal-agent $(sbindir)/gslapt \$$@" > $(DESTDIR)/$(bindir)/gslapt-polkit; chmod +x $(DESTDIR)/$(bindir)/gslapt-polkit; $(mkinstalldirs) $(DESTDIR)/$(polkitactiondir); $(INSTALL_DATA) org.jaos.gslapt.policy $(DESTDIR)/$(polkitactiondir)/org.jaos.gslapt.policy; sed -i -re 's,(exec\.path">).*(<\/annotate>),\1$(sbindir)/@PACKAGE@\2,g' $(DESTDIR)/$(polkitactiondir)/org.jaos.gslapt.policy
 else
 INSTALL_GSLAPT_POLKIT =
 endif
+
+AM_DISTCHECK_CONFIGURE_FLAGS = \
+  --with-polkitactiondir='$$(prefix)/$(polkitactiondir)'
 
 EXTRA_DIST = \
   FAQ \
@@ -67,7 +70,7 @@ uninstall-local:
 	-rm -f $(DESTDIR)/$(datadir)/pixmaps/gslapt.png
 	-rm -f $(top_builddir)/series_map.rc $(DESTDIR)/$(pkgdatadir)/series_map.rc
 if POLKIT
-	-rm -f $(DESTDIR)/$(polkit_actiondir)/org.jaos.gslapt.policy
+	-rm -f $(DESTDIR)/$(polkitactiondir)/org.jaos.gslapt.policy
 	-rm -f $(DESTDIR)/$(bindir)/gslapt-polkit
 endif
 
