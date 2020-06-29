@@ -2,13 +2,14 @@
 # This file is put in the public domain.
 # 
 # Translators:
+# Panwar108 <caspian7pena@gmail.com>, 2020
 msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: woodwardj at jaos dot org\n"
 "POT-Creation-Date: 2019-12-02 18:41-0500\n"
-"PO-Revision-Date: 2012-09-17 21:52+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2020-06-29 07:55+0000\n"
+"Last-Translator: Panwar108 <caspian7pena@gmail.com>\n"
 "Language-Team: Hindi (India) (http://www.transifex.com/jaos/slapt-get/language/hi_IN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,13 +18,13 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Ready"
-msgstr ""
+msgstr "तैयार"
 
 msgid "Upgrade"
-msgstr ""
+msgstr "अपग्रेड"
 
 msgid "Re-Install"
-msgstr ""
+msgstr "पुनः इंस्टॉल"
 
 msgid "<b>Required:</b>"
 msgstr ""
@@ -39,7 +40,7 @@ msgid "No dependency information available"
 msgstr ""
 
 msgid "Source"
-msgstr ""
+msgstr "स्रोत"
 
 msgid "No changelog information available"
 msgstr ""
@@ -48,7 +49,7 @@ msgid "The list of installed files is only available for installed packages"
 msgstr ""
 
 msgid "Excluded"
-msgstr ""
+msgstr "अपवर्जित"
 
 msgid "To be Removed"
 msgstr ""
@@ -66,16 +67,16 @@ msgid "To be Upgraded"
 msgstr ""
 
 msgid "Installed"
-msgstr ""
+msgstr "इंस्टॉल हैं"
 
 msgid "Not Installed"
 msgstr ""
 
 msgid "Progress"
-msgstr ""
+msgstr "प्रगति"
 
 msgid "Checking for new package data..."
-msgstr ""
+msgstr "नया पैकेज डाटा खोजा जा रहा है ..."
 
 msgid "GPG Key verification failed"
 msgstr ""
@@ -99,7 +100,7 @@ msgid "Retrieving ChangeLog.txt..."
 msgstr ""
 
 msgid "Reading Package Lists..."
-msgstr ""
+msgstr "पैकेज सूची रीड हो रही है ..."
 
 #, c-format
 msgid "Download rate: %.0f%s/s"
@@ -127,13 +128,13 @@ msgid "Priority"
 msgstr ""
 
 msgid "Expression"
-msgstr ""
+msgstr "व्यंजक"
 
 msgid "Packages with unmet dependencies"
 msgstr ""
 
 msgid "Package conflicts"
-msgstr ""
+msgstr "विरुद्ध पैकेज"
 
 msgid ", which is required by "
 msgstr ""
@@ -142,22 +143,22 @@ msgid ", is excluded"
 msgstr ""
 
 msgid "Packages excluded"
-msgstr ""
+msgstr "अपवर्जित पैकेज"
 
 msgid "Packages to be installed"
-msgstr ""
+msgstr "पैकेज जो इंस्टॉल होंगे"
 
 msgid "Packages to be upgraded"
-msgstr ""
+msgstr "पैकेज जो अपग्रेड होंगे"
 
 msgid "Packages to be reinstalled"
 msgstr ""
 
 msgid "Packages to be removed"
-msgstr ""
+msgstr "पैकेज जो हटेंगे"
 
 msgid "Package"
-msgstr ""
+msgstr "पैकेज"
 
 #, c-format
 msgid "%d upgraded, "
@@ -209,35 +210,35 @@ msgid "After unpacking %.0f%s of additional disk space will be used."
 msgstr ""
 
 msgid "Up to Date"
-msgstr ""
+msgstr "कार्यरत"
 
 msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
-msgstr ""
+msgstr "<span weight=\"bold\" size=\"large\">कोई अपडेट नहीं</span>"
 
 msgid "Downloading packages..."
-msgstr ""
+msgstr "पैकेज डाउनलोड हो रहे हैं ..."
 
 msgid "Downloading..."
-msgstr ""
+msgstr "डाउनलोड हो रहा है ..."
 
 #, c-format
 msgid "Failed to download %s: %s"
 msgstr ""
 
 msgid "Removing packages..."
-msgstr ""
+msgstr "पैकेज हटाए जा रहे हैं ..."
 
 msgid "Installing packages..."
-msgstr ""
+msgstr "पैकेज इंस्टॉल हो रहे हैं ..."
 
 msgid "Uninstalling..."
-msgstr ""
+msgstr "हट रहा है ..."
 
 msgid "Installing..."
-msgstr ""
+msgstr "इंस्टॉल हो रहा है ..."
 
 msgid "Upgrading..."
-msgstr ""
+msgstr "अपग्रेड हो रहा है ..."
 
 msgid "Failed to commit preferences"
 msgstr ""
@@ -246,22 +247,22 @@ msgid "Pending changes. Click execute when ready."
 msgstr ""
 
 msgid "Status"
-msgstr ""
+msgstr "स्थिति"
 
 msgid "Name"
-msgstr ""
+msgstr "नाम"
 
 msgid "Version"
-msgstr ""
+msgstr "संस्करण"
 
 msgid "Location"
-msgstr ""
+msgstr "स्थान"
 
 msgid "Description"
-msgstr ""
+msgstr "विवरण"
 
 msgid "Installed Size"
-msgstr ""
+msgstr "इंस्टॉल आकार"
 
 #, c-format
 msgid "<b>Excluding %s due to dependency failure</b>"
@@ -273,7 +274,7 @@ msgid ""
 msgstr ""
 
 msgid ": Depends: "
-msgstr ""
+msgstr ": आश्रित पैकेज :"
 
 msgid "Import"
 msgstr ""
@@ -401,19 +402,19 @@ msgid "working"
 msgstr ""
 
 msgid "total progress"
-msgstr ""
+msgstr "कुल प्रगति"
 
 msgid "Gslapt"
-msgstr ""
+msgstr "Gslapt"
 
 msgid "_File"
-msgstr ""
+msgstr "फ़ाइल (_F)"
 
 msgid "Update local package cache"
-msgstr ""
+msgstr "लोकल पैकेज कैश अपडेट करें"
 
 msgid "Update"
-msgstr ""
+msgstr "अपडेट"
 
 msgid "Mark all possible upgrades"
 msgstr ""
@@ -428,19 +429,19 @@ msgid "Mark Obsolete"
 msgstr ""
 
 msgid "Execute all scheduled actions in current transaction"
-msgstr ""
+msgstr "वर्तमान संचालन में सभी अनुसूचित कार्य निष्पादित करें"
 
 msgid "Execute"
-msgstr ""
+msgstr "निष्पादित करें"
 
 msgid "_Edit"
 msgstr ""
 
 msgid "Unmark All"
-msgstr ""
+msgstr "सभी अचयनित करें"
 
 msgid "Preferences"
-msgstr ""
+msgstr "सेटिंग्स"
 
 msgid "_View"
 msgstr ""
@@ -473,22 +474,22 @@ msgid "Upgradeable"
 msgstr ""
 
 msgid "P_ackage"
-msgstr ""
+msgstr "पैकेज (_a)"
 
 msgid "Unmark"
 msgstr ""
 
 msgid "Install"
-msgstr ""
+msgstr "इंस्टॉल"
 
 msgid "Downgrade"
-msgstr ""
+msgstr "डाउनग्रेड"
 
 msgid "Remove"
-msgstr ""
+msgstr "हटाएँ"
 
 msgid "_Help"
-msgstr ""
+msgstr "सहायता (_H)"
 
 msgid "Icon Legend"
 msgstr ""
@@ -497,13 +498,13 @@ msgid "View ChangeLogs"
 msgstr ""
 
 msgid "About"
-msgstr ""
+msgstr "बारे में"
 
 msgid "Search"
-msgstr ""
+msgstr "खोजें"
 
 msgid "<b>Name:</b>"
-msgstr ""
+msgstr "<b>नाम :</b>"
 
 msgid "No package is selected."
 msgstr ""
@@ -512,7 +513,7 @@ msgid "<b>Status:</b>"
 msgstr ""
 
 msgid "<b>Description:</b>"
-msgstr ""
+msgstr "<b>विवरण :</b>"
 
 msgid "<b>Version:</b>"
 msgstr ""
@@ -530,19 +531,19 @@ msgid "<b>Installed Version</b>"
 msgstr ""
 
 msgid "Version:"
-msgstr ""
+msgstr "संस्करण :"
 
 msgid "Installed Size:"
-msgstr ""
+msgstr "इंस्टॉल आकार :"
 
 msgid "<b>Latest Available Version</b>"
 msgstr ""
 
 msgid "Size:"
-msgstr ""
+msgstr "आकार :"
 
 msgid "Source:"
-msgstr ""
+msgstr "स्रोत :"
 
 msgid "Common"
 msgstr ""
@@ -581,55 +582,55 @@ msgid ""
 msgstr ""
 
 msgid "Default"
-msgstr ""
+msgstr "डिफ़ॉल्ट"
 
 msgid "Official"
-msgstr ""
+msgstr "आधिकारिक"
 
 msgid "Preferred"
-msgstr ""
+msgstr "इच्छित"
 
 msgid "Custom"
-msgstr ""
+msgstr "अनुकूलित"
 
 msgid "Package Source"
 msgstr ""
 
 msgid "Summary"
-msgstr ""
+msgstr "संक्षेप"
 
 msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
-msgstr ""
+msgstr "<span weight=\"bold\" size=\"large\">निम्नलिखित बदलाव लागू करें?</span>"
 
 msgid "This is a summary of the changes about to be performed."
-msgstr ""
+msgstr "बदलावों का संक्षिप्त विवरण।"
 
 msgid "Download packages only"
-msgstr ""
+msgstr "केवल पैकेज डाउनलोड करें"
 
 msgid "<b>Package and data storage</b>"
-msgstr ""
+msgstr "<b>पैकेज व डाटा संचयन</b>"
 
 msgid "_Delete Cached Package Files"
 msgstr ""
 
 msgid "Working Directory"
-msgstr ""
+msgstr "कार्यरत डायरेक्टरी"
 
 msgid "<b>Exclude List</b>"
-msgstr ""
+msgstr "<b>अपवर्जन सूची</b>"
 
 msgid "<span weight=\"bold\">Exclude Expression:</span>"
-msgstr ""
+msgstr "<span weight=\"bold\">अपवर्जित व्यंजक :</span>"
 
 msgid "Excludes"
-msgstr ""
+msgstr "अपवर्जित"
 
 msgid "<b>Package Sources</b>"
-msgstr ""
+msgstr "<b>पैकेज स्रोत</b>"
 
 msgid "Sources"
-msgstr ""
+msgstr "स्रोत"
 
 msgid "<b>GPG Keys</b>"
 msgstr ""
