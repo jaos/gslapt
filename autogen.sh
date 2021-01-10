@@ -1,4 +1,5 @@
 #!/bin/sh
 
-autoreconf --install
+aclocal
 intltoolize --copy --force
+autoreconf --install --force

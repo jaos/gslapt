@@ -1,16 +1,16 @@
 dnl Process this file with autoconf to produce a configure script.
 
-AC_INIT([gslapt], [0.5.6], [woodwardj@jaos.org])
+AC_INIT([gslapt],[0.5.6],[woodwardj@jaos.org])
 AC_CONFIG_SRCDIR([configure.ac])
 AM_INIT_AUTOMAKE([-Wall foreign])
-AM_CONFIG_HEADER(config.h)
+AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_SRCDIR([src/])
 IT_PROG_INTLTOOL([0.35.0])
 
 AC_CANONICAL_HOST
 
-AC_ISC_POSIX
-AC_PROG_CC_C99
+AC_SEARCH_LIBS([strerror],[cposix])
+AC_PROG_CC dnl now defaults to C2011
 
 case "$host_cpu" in
 i[[3456]]86) host_cpu=i386 ;CFLAGS="$CFLAGS -fpic";;
@@ -18,7 +18,6 @@ x86_64) host_cpu=x86_64 ;CFLAGS="$CFLAGS -fPIC";;
 arm*) host_cpu=arm ;;
 esac
 
-AC_HEADER_STDC
 AC_C_CONST
 AC_C_VOLATILE
 AC_FUNC_REALLOC
@@ -75,13 +74,13 @@ AC_SUBST(GTK_LIBS)
 AM_CONDITIONAL(POLKIT, false)
 AC_ARG_WITH(
   [polkit],
-  AC_HELP_STRING([--with-polkit], [use Polkit pkexec to start gslapt (default is auto)]),
+  AS_HELP_STRING([--with-polkit], [use Polkit pkexec to start gslapt (default is auto)]),
   [use_polkit=$withval],
   [AC_CHECK_PROG([use_polkit], [pkexec], yes, [no])]
 )
 AC_ARG_WITH(
   [polkitactiondir],
-  AC_HELP_STRING([--with-polkitactiondir], [Specify the location for the system polkit-1/actions path]),
+  AS_HELP_STRING([--with-polkitactiondir], [Specify the location for the system polkit-1/actions path]),
   [polkitactiondir=$withval],
   [PKG_CHECK_VAR(polkitactiondir, polkit-gobject-1, actiondir)]
 )
@@ -94,7 +93,6 @@ fi
 GETTEXT_PACKAGE=gslapt
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Gettext package.])
-AM_GLIB_GNU_GETTEXT
 
 AC_CONFIG_FILES([
 Makefile
