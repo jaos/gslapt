@@ -50,7 +50,7 @@ all-local:
 	sed -i -re 's,(Icon=).*?(/pixmaps.*),\1$(datadir)\2,' $(top_builddir)/gslapt.desktop $(top_builddir)/gslapt-kde.desktop
 
 
-install-data-local:
+install-data-local: install-exec
 	@$(NORMAL_INSTALL)
 	$(mkinstalldirs) $(DESTDIR)/$(pkgdatadir); \
 	$(mkinstalldirs) $(DESTDIR)/$(datadir)/applications; \
