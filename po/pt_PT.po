@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: woodwardj at jaos dot org\n"
 "POT-Creation-Date: 2019-12-02 18:41-0500\n"
-"PO-Revision-Date: 2019-12-03 17:35+0000\n"
+"PO-Revision-Date: 2021-01-10 21:26+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/jaos/slapt-get/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
@@ -164,32 +164,32 @@ msgstr "Pacote"
 #, c-format
 msgid "%d upgraded, "
 msgid_plural "%d upgraded, "
-msgstr[0] "%d atualizado,"
-msgstr[1] "%d atualizados,"
+msgstr[0] "%d atualizado, "
+msgstr[1] "%d atualizados, "
 
 #, c-format
 msgid "%d reinstalled, "
 msgid_plural "%d reinstalled, "
-msgstr[0] "%d reinstalado,"
-msgstr[1] "%d reinstalados,"
+msgstr[0] "%d reinstalado, "
+msgstr[1] "%d reinstalados, "
 
 #, c-format
 msgid "%d newly installed, "
 msgid_plural "%d newly installed, "
-msgstr[0] "%d recém-instalado,"
-msgstr[1] "%d recém-instalados,"
+msgstr[0] "%d recém-instalado, "
+msgstr[1] "%d recém-instalados, "
 
 #, c-format
 msgid "%d to remove "
 msgid_plural "%d to remove "
-msgstr[0] "%d para remover"
-msgstr[1] "%d para remover"
+msgstr[0] "%d para remover "
+msgstr[1] "%d para remover "
 
 #, c-format
 msgid "and %d not upgraded."
 msgid_plural "and %d not upgraded."
 msgstr[0] "e %d não atualizado."
-msgstr[1] "e %d não atualizados"
+msgstr[1] "e %d não atualizados."
 
 msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Não tem espeço suficiente</span>"
@@ -263,7 +263,7 @@ msgid "Description"
 msgstr "Descrição"
 
 msgid "Installed Size"
-msgstr "Tamanho da instalação:"
+msgstr "Tamanho da instalação"
 
 #, c-format
 msgid "<b>Excluding %s due to dependency failure</b>"
@@ -397,7 +397,7 @@ msgstr "Internacionalização"
 msgid ""
 "gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
 "Slackware"
-msgstr "O gslapt é uma interface gráfica em GTK+ para o slapt-get,  a aplicação de gestão de pacotes do tipo APT para o Slackware"
+msgstr "O gslapt é uma interface gráfica em GTK+ para o slapt-get, a aplicação de gestão de pacotes do tipo APT para o Slackware"
 
 msgid "working"
 msgstr "a trabalhar"
@@ -583,7 +583,7 @@ msgid ""
 msgstr "Falha na fonte de pacotes ou esta não está disponível. Pretende desativar esta fonte e continuar?"
 
 msgid "Default"
-msgstr "Pré-definido"
+msgstr "Predefinido"
 
 msgid "Official"
 msgstr "Oficial"
@@ -604,7 +604,7 @@ msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Aplicar estas alterações?</span>"
 
 msgid "This is a summary of the changes about to be performed."
-msgstr "Este é o resumo das alterações que serão efetuadas"
+msgstr "Este é o resumo das alterações que serão efetuadas."
 
 msgid "Download packages only"
 msgstr "Apenas transferir pacotes"
