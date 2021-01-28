@@ -16,9 +16,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#ifdef HAVE_CONFIG_H
 #include <config.h>
-#endif
 
 #include <gtk/gtk.h>
 #include "callbacks.h"
@@ -45,11 +43,9 @@ int main(int argc, char *argv[])
     gchar *rc = NULL;
     bool do_upgrade = false;
 
-#ifdef ENABLE_NLS
     bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
     bindtextdomain(GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR);
     textdomain(GETTEXT_PACKAGE);
-#endif
 
 #ifdef SLAPT_HAS_GPGME
     gpgme_check_version(NULL);

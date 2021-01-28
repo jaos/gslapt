@@ -16,18 +16,15 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+#include <config.h>
 #include <gtk/gtk.h>
 #include <slapt.h>
 #define RC_LOCATION "/etc/slapt-get/slapt-getrc"
 
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
 
 /*
  * Standard gettext macros.
  */
-#ifdef ENABLE_NLS
 #include <libintl.h>
 #undef _
 #define _(String) dgettext(PACKAGE, String)
@@ -35,16 +32,6 @@
 #ifdef gettext_noop
 #define N_(String) gettext_noop(String)
 #else
-#define N_(String) (String)
-#endif
-#else
-#define textdomain(String) (String)
-#define gettext(String) (String)
-#define dgettext(Domain, Message) (Message)
-#define dcgettext(Domain, Message, Type) (Message)
-#define bindtextdomain(Domain, Directory) (Domain)
-#define _(String) (String)
-#define P_(String, String_p, n) (String_p)
 #define N_(String) (String)
 #endif
 
