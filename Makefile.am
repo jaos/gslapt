@@ -6,7 +6,7 @@ PKGDIR = `pwd`/pkg
 PKGREL = 1
 if POLKIT
 polkitactiondir = @polkitactiondir@
-INSTALL_GSLAPT_POLKIT = mkdir -p $(DESTDIR)/$(bindir); echo -e "\#!/bin/sh\npkexec --disable-internal-agent $(sbindir)/gslapt \$$@" > $(DESTDIR)/$(bindir)/gslapt-polkit; chmod +x $(DESTDIR)/$(bindir)/gslapt-polkit; $(mkinstalldirs) $(DESTDIR)/$(polkitactiondir); $(INSTALL_DATA) org.jaos.gslapt.policy $(DESTDIR)/$(polkitactiondir)/org.jaos.gslapt.policy; sed -i -re 's,(exec\.path">).*(<\/annotate>),\1$(sbindir)/@PACKAGE@\2,g' $(DESTDIR)/$(polkitactiondir)/org.jaos.gslapt.policy
+INSTALL_GSLAPT_POLKIT = mkdir -p $(DESTDIR)/$(bindir); echo -e "\#!/bin/sh\npkexec --disable-internal-agent $(sbindir)/gslapt \$$@" > $(DESTDIR)/$(bindir)/gslapt-polkit; chmod +x $(DESTDIR)/$(bindir)/gslapt-polkit; $(mkinstalldirs) $(DESTDIR)/$(polkitactiondir); $(INSTALL_DATA) org.jaos.gslapt.policy $(DESTDIR)/$(polkitactiondir)/org.jaos.gslapt.policy; sed -i -re 's,[@]sbindir[@],$(sbindir),g' $(DESTDIR)/$(polkitactiondir)/org.jaos.gslapt.policy
 else
 INSTALL_GSLAPT_POLKIT =
 endif
@@ -21,7 +21,13 @@ EXTRA_DIST = \
   series_map.rc.in \
   slack-desc \
   slack-required \
-  org.jaos.gslapt.policy.in
+  org.jaos.gslapt.policy.in \
+  src/meson.build \
+  ui/meson.build \
+  meson.build \
+  po/meson.build \
+  seriesmerge.sh
+
 
 CLEANFILES = \
   series_map.rc \
@@ -35,19 +41,17 @@ all-local:
 	sed "s/\_//" $(top_srcdir)/series_map.rc.in > $(top_builddir)/series_map.rc
 	mkdir $(top_builddir)/series_map
 	cd $(top_builddir)/series_map && \
-		intltool-merge --quoted-style -m -u $(top_srcdir)/po $(abs_top_builddir)/series_map.rc_quoted series_map.rc && \
+		intltool-merge --quoted-style -m -u $(abs_top_srcdir)/po $(abs_top_builddir)/series_map.rc_quoted series_map.rc && \
 		for i in $$(find . -mindepth 1 -maxdepth 1 -type d -exec basename {} \;);do \
 			sed -i "s/\(.*\)=\(.*\)/\1[$$i]=\2/" $$i/series_map.rc && \
-			sed "s/\"//g" $$i/series_map.rc >> $(top_builddir)/series_map.rc; \
+			sed "s/\"//g" $$i/series_map.rc >> $(abs_top_builddir)/series_map.rc; \
 		done
 	rm -rf $(top_builddir)/series_map.rc_quoted $(top_builddir)/series_map
-	sed -i -re 's,XXXDOTXXX,.,g' $(top_builddir)/series_map.rc
-	sed -i -re 's,XXXSLASHXXX,/,g' $(top_builddir)/series_map.rc
-	intltool-merge po/ -d -u $(top_srcdir)/gslapt.desktop.in $(top_builddir)/gslapt.desktop
-	intltool-merge po/ -d -u $(top_srcdir)/gslapt-kde.desktop.in $(top_builddir)/gslapt-kde.desktop
+	sed -i -r -e 's,XXXDOTXXX,.,g' -e 's,XXXSLASHXXX,/,g' $(top_builddir)/series_map.rc
+	msgfmt --desktop -d po/ --template $(top_srcdir)/gslapt.desktop.in -o $(top_builddir)/gslapt.desktop
+	msgfmt --desktop -d po/ --template $(top_srcdir)/gslapt-kde.desktop.in -o $(top_builddir)/gslapt-kde.desktop
 	intltool-merge po/ -x -u $(top_srcdir)/org.jaos.gslapt.policy.in $(top_builddir)/org.jaos.gslapt.policy
-	sed -i -re 's,(Exec=)(.*),\1$(sbindir)/@PACKAGE@,' $(top_builddir)/gslapt.desktop $(top_builddir)/gslapt-kde.desktop
-	sed -i -re 's,(Icon=).*?(/pixmaps.*),\1$(datadir)\2,' $(top_builddir)/gslapt.desktop $(top_builddir)/gslapt-kde.desktop
+	sed -i -r -e 's,[@]sbindir[@],$(sbindir),g' -e 's,[@]datadir[@],$(datadir),g' -e "s,[@]privprog[@],$(PKEXEC) ," $(top_builddir)/gslapt.desktop $(top_builddir)/gslapt-kde.desktop
 
 
 install-data-local: install-exec
