@@ -2523,7 +2523,9 @@ void preferences_on_ok_clicked(GtkWidget *w, gpointer user_data)
 
     strcpy(global_config->working_dir, working_dir);
     slapt_working_dir_init(global_config);
-    chdir(global_config->working_dir);
+    if (chdir(global_config->working_dir) == -1) {
+        exit(1);
+    }
 
     slapt_vector_t_free(global_config->exclude_list);
     slapt_vector_t_free(global_config->sources);

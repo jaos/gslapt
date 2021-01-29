@@ -124,7 +124,9 @@ int main(int argc, char *argv[])
     if (global_config == NULL)
         exit(1);
     slapt_working_dir_init(global_config);
-    chdir(global_config->working_dir);
+    if (chdir(global_config->working_dir) == -1) {
+        exit(1);
+    }
     global_config->progress_cb = gtk_progress_callback;
 
     /* read in all pkgs and installed pkgs */
