@@ -85,14 +85,6 @@ pkg: all
 	install slack-required $(PKGDIR)/install/
 	chown $$(stat --format "%u:%g" /usr/sbin) $(PKGDIR)/$(sbindir)
 	chown $$(stat --format "%u:%g" /usr/sbin) $(PKGDIR)/$(sbindir)/@PACKAGE@
-	@echo -n "for DESKTOPFILE in " > $(PKGDIR)/install/doinst.sh
-	@echo -n "$(DESTDIR)/$(datadir)/applications/gslapt.desktop " |sed -re "s/^\/+//" >> $(PKGDIR)/install/doinst.sh
-	@echo "$(DESTDIR)/$(datadir)/applications/gslapt-kde.desktop" |sed -re "s/^\/+//" >> $(PKGDIR)/install/doinst.sh
-	@echo "do" >> $(PKGDIR)/install/doinst.sh
-	@echo 'if [ -f $$DESKTOPFILE ]; then for privprog in $(PKEXEC) /usr/bin/gksudo /usr/bin/gksu /usr/bin/gnomesu /usr/bin/kdesu;do if [ -x ./$$privprog ]; then shortprivprog=$$(basename $$privprog); sed -i.bak -re "s/(Exec=)(\/.*)/\1$$shortprivprog \2/" $$DESKTOPFILE; break; fi; done; fi' >> $(PKGDIR)/install/doinst.sh
-	@echo "done" >> $(PKGDIR)/install/doinst.sh
 	@echo 'if [ -x usr/bin/update-desktop-database ]; then usr/bin/update-desktop-database &>/dev/null; fi' >> $(PKGDIR)/install/doinst.sh
 	strip --strip-unneeded $(PKGDIR)/$(sbindir)/@PACKAGE@
 	( cd $(PKGDIR) && /sbin/makepkg -l y -c n ../@PACKAGE@-@VERSION@-@host_cpu@-$(PKGREL).txz )
-
-

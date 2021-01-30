@@ -1,0 +1,46 @@
+#!/bin/sh
+set -eu
+# Slackware build script for gslapt
+# Copyright (C) 2003-2020 Jason Woodward <woodwardj at jaos dot org>
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Library General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+
+VERSION=${1:-$(grep '^\s*version:' meson.build | cut -f2 -d\')}
+BUILD=${BUILD:-1}
+
+if [ -z "${ARCH:=}" ]; then
+  case "$( uname -m )" in
+    i?86) ARCH=i586 ;;
+    arm*) ARCH=arm ;;
+    aarch64*) ARCH=aarch64 ;;
+    *) ARCH=$( uname -m ) ;;
+  esac
+fi
+
+TOP="${PWD}"
+DESTDIR="${TOP}/pkg"
+rm -rf "${DESTDIR}"
+
+meson build --prefix=/usr
+ninja -C build
+DESTDIR="${DESTDIR}" ninja -C build install
+
+find "${DESTDIR}" -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
+
+mkdir -p "${DESTDIR}/install"
+cat slack-desc > "${DESTDIR}/install/slack-desc"
+cat slack-required > "${DESTDIR}/install/slack-required"
+echo 'if [ -x usr/bin/update-desktop-database ]; then usr/bin/update-desktop-database &>/dev/null; fi' > "${DESTDIR}/install/doinst.sh"
+
+(cd "${DESTDIR}" && /sbin/makepkg -l y -c n "${TOP}/gslapt-${VERSION}-${ARCH}-${BUILD}.txz")
