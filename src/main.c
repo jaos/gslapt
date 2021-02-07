@@ -145,13 +145,7 @@ int main(int argc, char *argv[])
     gtk_entry_set_completion(GTK_ENTRY(gtk_builder_get_object(gslapt_builder, "search_entry")), completions);
     g_object_unref(completions);
 
-    /* weird issue with 14.2 Gtk+ 3.18:
-     * Gtk-CRITICAL **: gtk_widget_get_preferred_width_for_height: assertion 'height >= 0' failed
-     * unless we set the min-content-height
-     */
-#if GTK_CHECK_VERSION(3,0,0)
     gtk_scrolled_window_set_min_content_height(GTK_SCROLLED_WINDOW(gtk_builder_get_object(gslapt_builder, "pkg_list_scrolled")), 40);
-#endif
     build_treeview_columns(GTK_WIDGET(gtk_builder_get_object(gslapt_builder, "pkg_listing_treeview")));
     build_package_treeviewlist(GTK_WIDGET(gtk_builder_get_object(gslapt_builder, "pkg_listing_treeview")));
 
