@@ -2704,7 +2704,18 @@ static gboolean pkg_action_popup_menu(GtkTreeView *treeview, gpointer data)
         return FALSE;
 
     GtkMenu *menu = GTK_MENU(gtk_menu_item_get_submenu(GTK_MENU_ITEM(gtk_builder_get_object(gslapt_builder, "package1"))));
+#if GTK_CHECK_VERSION(3,22,0)
     gtk_menu_popup_at_pointer(menu, event);
+#else
+    gtk_menu_popup(
+        menu,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        eventb->button,
+        gtk_get_current_event_time());
+#endif
 
     return TRUE;
 }
@@ -3624,7 +3635,11 @@ static void set_busy_cursor(void)
     GdkCursor *c = gdk_cursor_new_for_display(display, GDK_WATCH);
     gdk_window_set_cursor(gtk_widget_get_window(gslapt), c);
     gdk_display_flush(display);
+#if GTK_CHECK_VERSION(3,0,0)
     g_object_unref(c);
+#else
+    gdk_cursor_unref(c);
+#endif
 }
 
 static void unset_busy_cursor(void)
