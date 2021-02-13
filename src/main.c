@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2003-2019 Jason Woodward <woodwardj at jaos dot org>
+ * Copyright (C) 2003-2021 Jason Woodward <woodwardj at jaos dot org>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,9 +16,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#ifdef HAVE_CONFIG_H
 #include <config.h>
-#endif
 
 #include <gtk/gtk.h>
 #include "callbacks.h"
@@ -45,11 +43,9 @@ int main(int argc, char *argv[])
     gchar *rc = NULL;
     bool do_upgrade = false;
 
-#ifdef ENABLE_NLS
     bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
     bindtextdomain(GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR);
     textdomain(GETTEXT_PACKAGE);
-#endif
 
 #ifdef SLAPT_HAS_GPGME
     gpgme_check_version(NULL);
@@ -128,7 +124,9 @@ int main(int argc, char *argv[])
     if (global_config == NULL)
         exit(1);
     slapt_working_dir_init(global_config);
-    chdir(global_config->working_dir);
+    if (chdir(global_config->working_dir) == -1) {
+        exit(1);
+    }
     global_config->progress_cb = gtk_progress_callback;
 
     /* read in all pkgs and installed pkgs */

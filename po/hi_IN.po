@@ -1,0 +1,639 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# 
+# Translators:
+# Panwar108 <caspian7pena@gmail.com>, 2020
+msgid ""
+msgstr ""
+"Project-Id-Version: slapt-get\n"
+"Report-Msgid-Bugs-To: woodwardj at jaos dot org\n"
+"POT-Creation-Date: 2019-12-02 18:41-0500\n"
+"PO-Revision-Date: 2020-07-02 16:34+0000\n"
+"Last-Translator: Panwar108 <caspian7pena@gmail.com>\n"
+"Language-Team: Hindi (India) (http://www.transifex.com/jaos/slapt-get/language/hi_IN/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: hi_IN\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Ready"
+msgstr "तैयार"
+
+msgid "Upgrade"
+msgstr "अपग्रेड"
+
+msgid "Re-Install"
+msgstr "पुनः इंस्टॉल"
+
+msgid "<b>Required:</b>"
+msgstr "<b>आवश्यक पैकेज :</b>"
+
+msgid "<b>Conflicts:</b>"
+msgstr "<b>विरुद्ध पैकेज :</b>"
+
+msgid "<b>Suggests:</b>"
+msgstr "<b>पैकेज सुझाव :</b>"
+
+#. installed
+msgid "No dependency information available"
+msgstr "कोई आश्रित पैकेज जानकारी उपलब्ध नहीं"
+
+msgid "Source"
+msgstr "स्रोत"
+
+msgid "No changelog information available"
+msgstr "कोई बदलाव सूची जानकारी उपलब्ध नहीं"
+
+msgid "The list of installed files is only available for installed packages"
+msgstr "इंस्टॉल फ़ाइल सूची केवल इंस्टॉल पैकेज हेतु ही उपलब्ध है"
+
+msgid "Excluded"
+msgstr "अपवर्जित"
+
+msgid "To be Removed"
+msgstr "हटेंगे"
+
+msgid "To be Installed"
+msgstr "इंस्टॉल होंगे"
+
+msgid "To be Re-Installed"
+msgstr "पुनः इंस्टॉल होंगे"
+
+msgid "To be Downgraded"
+msgstr "डाउनग्रेड होंगे"
+
+msgid "To be Upgraded"
+msgstr "अपग्रेड होंगे"
+
+msgid "Installed"
+msgstr "इंस्टॉल हैं"
+
+msgid "Not Installed"
+msgstr "इंस्टॉल नहीं है"
+
+msgid "Progress"
+msgstr "प्रगति"
+
+msgid "Checking for new package data..."
+msgstr "नया पैकेज डाटा खोजा जा रहा है ..."
+
+msgid "GPG Key verification failed"
+msgstr "जीपीजी कुंजी प्रमाणीकरण विफल"
+
+msgid "Retrieving package data..."
+msgstr "पैकेज डाटा प्राप्त हो रहा है ..."
+
+msgid "Retrieving patch list..."
+msgstr "पैच सूची प्राप्त हो रही है ..."
+
+msgid "Retrieving checksum list..."
+msgstr "चेकसम सूची प्राप्त हो रही है ..."
+
+msgid "Retrieving checksum signature..."
+msgstr "चेकसम हस्ताक्षर प्राप्त हो रहा है ..."
+
+msgid "Verifying checksum signature..."
+msgstr "चेकसम हस्ताक्षर प्रमाणित हो रहा है ..."
+
+msgid "Retrieving ChangeLog.txt..."
+msgstr "ChangeLog.txt प्राप्त हो रही है ..."
+
+msgid "Reading Package Lists..."
+msgstr "पैकेज सूची रीड हो रही है ..."
+
+#, c-format
+msgid "Download rate: %.0f%s/s"
+msgstr "डाउनलोड गति : %.0f%s/s"
+
+msgid "Error"
+msgstr "त्रुटि"
+
+msgid "Completed actions"
+msgstr "पूर्ण कार्य"
+
+msgid "Successfully executed all actions."
+msgstr "सभी कार्य सफलतापूर्वक निष्पादित।"
+
+msgid "pkgtools returned an error"
+msgstr "pkgtools हेतु त्रुटि"
+
+msgid "Enabled"
+msgstr "सक्रिय"
+
+msgid "Visible"
+msgstr "दृश्यमान"
+
+msgid "Priority"
+msgstr "प्राथमिकता"
+
+msgid "Expression"
+msgstr "व्यंजक"
+
+msgid "Packages with unmet dependencies"
+msgstr "पैकेज हेतु अपूर्ण आश्रित पैकेज"
+
+msgid "Package conflicts"
+msgstr "विरुद्ध पैकेज"
+
+msgid ", which is required by "
+msgstr ", हेतु आवश्यक"
+
+msgid ", is excluded"
+msgstr ", अपवर्जित"
+
+msgid "Packages excluded"
+msgstr "अपवर्जित पैकेज"
+
+msgid "Packages to be installed"
+msgstr "पैकेज जो इंस्टॉल होंगे"
+
+msgid "Packages to be upgraded"
+msgstr "पैकेज जो अपग्रेड होंगे"
+
+msgid "Packages to be reinstalled"
+msgstr "पैकेज जो पुनः इंस्टॉल होंगे"
+
+msgid "Packages to be removed"
+msgstr "पैकेज जो हटेंगे"
+
+msgid "Package"
+msgstr "पैकेज"
+
+#, c-format
+msgid "%d upgraded, "
+msgid_plural "%d upgraded, "
+msgstr[0] "%d अपग्रेड हुए,"
+msgstr[1] "%d अपग्रेड हुए,"
+
+#, c-format
+msgid "%d reinstalled, "
+msgid_plural "%d reinstalled, "
+msgstr[0] "%d पुनः इंस्टॉल हुए,"
+msgstr[1] "%d पुनः इंस्टॉल हुए,"
+
+#, c-format
+msgid "%d newly installed, "
+msgid_plural "%d newly installed, "
+msgstr[0] "%d नवीन इंस्टॉल,"
+msgstr[1] "%d नवीन इंस्टॉल,"
+
+#, c-format
+msgid "%d to remove "
+msgid_plural "%d to remove "
+msgstr[0] "%d हटेंगे"
+msgstr[1] "%d हटेंगे"
+
+#, c-format
+msgid "and %d not upgraded."
+msgid_plural "and %d not upgraded."
+msgstr[0] "व %d अपग्रेड नहीं हुए।"
+msgstr[1] "व %d अपग्रेड नहीं हुए।"
+
+msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgstr "<span weight=\"bold\" size=\"large\">आपके पास पर्याप्त स्पेस नहीं है</span>"
+
+#, c-format
+msgid "Need to get %.0f%s/%.0f%s of archives.\n"
+msgstr "पैकेज-संग्रह से %.0f%s/%.0f%s प्राप्त करना आवश्यक है।\n"
+
+#, c-format
+msgid "Need to get %.0f%s of archives."
+msgstr "पैकेज-संग्रह से %.0f%s प्राप्त करना आवश्यक है।"
+
+#, c-format
+msgid "After unpacking %.0f%s disk space will be freed."
+msgstr "%.0f अनपैक होने के उपरांत %s मुक्त डिस्क स्पेस प्राप्त होगा।"
+
+#, c-format
+msgid "After unpacking %.0f%s of additional disk space will be used."
+msgstr "%.0f अनपैक होने के उपरांत %s अतिरिक्त डिस्क स्पेस उपयोग होगा।"
+
+msgid "Up to Date"
+msgstr "नवीनतम"
+
+msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
+msgstr "<span weight=\"bold\" size=\"large\">कोई अपडेट नहीं</span>"
+
+msgid "Downloading packages..."
+msgstr "पैकेज डाउनलोड हो रहे हैं ..."
+
+msgid "Downloading..."
+msgstr "डाउनलोड हो रहा है ..."
+
+#, c-format
+msgid "Failed to download %s: %s"
+msgstr "डाउनलोड विफल  %s: %s"
+
+msgid "Removing packages..."
+msgstr "पैकेज हटाए जा रहे हैं ..."
+
+msgid "Installing packages..."
+msgstr "पैकेज इंस्टॉल हो रहे हैं ..."
+
+msgid "Uninstalling..."
+msgstr "हट रहा है ..."
+
+msgid "Installing..."
+msgstr "इंस्टॉल हो रहा है ..."
+
+msgid "Upgrading..."
+msgstr "अपग्रेड हो रहा है ..."
+
+msgid "Failed to commit preferences"
+msgstr "सेटिंग्स संचित करने में विफल"
+
+msgid "Pending changes. Click execute when ready."
+msgstr "बदलाव शेष। तैयार होने पर निष्पादन पर क्लिक करें।"
+
+msgid "Status"
+msgstr "स्थिति"
+
+msgid "Name"
+msgstr "नाम"
+
+msgid "Version"
+msgstr "संस्करण"
+
+msgid "Location"
+msgstr "स्थान"
+
+msgid "Description"
+msgstr "विवरण"
+
+msgid "Installed Size"
+msgstr "इंस्टॉल आकार"
+
+#, c-format
+msgid "<b>Excluding %s due to dependency failure</b>"
+msgstr "<b>आश्रित पैकेज विफलता के कारण %s अपवर्जित</b>"
+
+msgid ""
+"Missing dependencies may mean the software in this package will not function"
+" correctly.  Do you want to continue without the required packages?"
+msgstr "आश्रित पैकेज अनुपस्थित होने के कारण इस पैकेज के सॉफ्टवेयर हेतु समस्याएँ हो सकती हैं। क्या आप बिना आवश्यक पैकेज के जारी रखना चाहते हैं?"
+
+msgid ": Depends: "
+msgstr ": आश्रित पैकेज :"
+
+msgid "Import"
+msgstr "आयात करें"
+
+msgid "No key found"
+msgstr "कोई कुंजी नहीं मिली"
+
+msgid "ChangeLogs"
+msgstr "बदलाव सूची"
+
+msgid "No changelogs found."
+msgstr "कोई बदलाव सूची नहीं मिली।"
+
+msgid "Gslapt Package Manager"
+msgstr "GSlapt पैकेज प्रबंधक"
+
+msgid "Install, remove and upgrade software packages"
+msgstr "सॉफ्टवेयर पैकेज इंस्टॉल करें, हटाएँ व अपग्रेड करें"
+
+msgid "Run Gslapt as root"
+msgstr "GSlapt रुट उपयोक्ता के तौर पर उपयोग करें"
+
+msgid "Authentication is required to run Gslapt"
+msgstr "GSlapt उपयोग करने हेतु पुष्टिकरण आवश्यक"
+
+msgid "Base"
+msgstr "बेस"
+
+msgid "Applications"
+msgstr "अनुप्रयोग"
+
+msgid "Development Tools"
+msgstr "सॉफ्टवेयर विकास साधन"
+
+msgid "GNU Emacs"
+msgstr "GNU Emacs"
+
+msgid "Documentation"
+msgstr "प्रलेखन"
+
+msgid "GNOME"
+msgstr "गनोम"
+
+msgid "Linux kernel"
+msgstr "लिनक्स कर्नेल"
+
+msgid "KDE"
+msgstr "केडीेई"
+
+msgid "KDE Internationalization"
+msgstr "केडीेई अंतर्राष्ट्रीयकरण"
+
+msgid "Libraries"
+msgstr "सॉफ्टवेयर लाइब्रेरी"
+
+msgid "Networking"
+msgstr "नेटवर्क"
+
+msgid "teTeX"
+msgstr "teTeX"
+
+msgid "TCL"
+msgstr "TCL"
+
+msgid "X Window System"
+msgstr "एक्स विंडो सिस्टम"
+
+msgid "X Applications"
+msgstr "एक्स अनुप्रयोग"
+
+msgid "BSD Console games"
+msgstr "बीएसडी कंसोल खेल"
+
+msgid "Patches"
+msgstr "पैच"
+
+msgid "GSB Base"
+msgstr "जीएसबी बेस"
+
+msgid "GSB Accessibility"
+msgstr "जीएसबी अभिगम्यता"
+
+msgid "GSB Administration"
+msgstr "जीएसबी प्रबंधन"
+
+msgid "GSB Applications"
+msgstr "जीएसबी अनुप्रयोग"
+
+msgid "GSB Compiz Fusion"
+msgstr "जीएसबी कोम्पिज़ फ्यूज़न"
+
+msgid "GSB Development"
+msgstr "जीएसबी सॉफ्टवेयर विकास"
+
+msgid "GSB Office"
+msgstr "जीएसबी ऑफिस"
+
+msgid "GSB Libraries"
+msgstr "जीएसबी सॉफ्टवेयर लाइब्रेरी"
+
+msgid "GSB Mono"
+msgstr "जीएसबी मोनो"
+
+msgid "GSB Networking"
+msgstr "जीएसबी नेटवर्क"
+
+msgid "GSB OpenOffice.org"
+msgstr "जीएसबी OpenOffice.org"
+
+msgid "GSB Themes"
+msgstr "जीएसबी थीम"
+
+msgid "Games"
+msgstr "खेल"
+
+msgid "Localization"
+msgstr "स्थानीयकरण"
+
+msgid ""
+"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
+"Slackware"
+msgstr "GSlapt, slapt-get हेतु जीटीके+ फ्रंट-एंड है, जो स्लैकवेयर हेतु APT के समान पैकेज सिस्टम है"
+
+msgid "working"
+msgstr "कार्यरत"
+
+msgid "total progress"
+msgstr "कुल प्रगति"
+
+msgid "Gslapt"
+msgstr "Gslapt"
+
+msgid "_File"
+msgstr "फ़ाइल (_F)"
+
+msgid "Update local package cache"
+msgstr "लोकल पैकेज कैश अपडेट करें"
+
+msgid "Update"
+msgstr "अपडेट"
+
+msgid "Mark all possible upgrades"
+msgstr "सभी संभव अपग्रेड चिन्हित करें"
+
+msgid "Mark All Upgrades"
+msgstr "सभी अपग्रेड चिन्हित करें"
+
+msgid "Mark all obsolete packages"
+msgstr "सभी निर्थक पैकेज चिन्हित करें"
+
+msgid "Mark Obsolete"
+msgstr "निर्थक पैकेज चिन्हित करें"
+
+msgid "Execute all scheduled actions in current transaction"
+msgstr "वर्तमान संचालन में सभी अनुसूचित कार्य निष्पादित करें"
+
+msgid "Execute"
+msgstr "निष्पादित करें"
+
+msgid "_Edit"
+msgstr "संपादित करें (_E)"
+
+msgid "Unmark All"
+msgstr "सभी अचयनित करें"
+
+msgid "Preferences"
+msgstr "सेटिंग्स"
+
+msgid "_View"
+msgstr "देखें (_V)"
+
+msgid "View all packages"
+msgstr "सभी पैकेज देखें"
+
+msgid "All"
+msgstr "सभी"
+
+msgid "View available packages from current sources"
+msgstr "वर्तमान स्रोतों से उपलब्ध पैकेज देखें"
+
+msgid "Available"
+msgstr "उपलब्ध"
+
+msgid "View installed packages"
+msgstr "इंस्टॉल पैकेज देखें"
+
+msgid "View Marked Packages"
+msgstr "चिन्हित पैकेज देखें"
+
+msgid "Marked"
+msgstr "चिन्हित"
+
+msgid "View Upgradeable Packages"
+msgstr "अपग्रेड योग्य पैकेज देखें"
+
+msgid "Upgradeable"
+msgstr "अपग्रेड योग्य"
+
+msgid "P_ackage"
+msgstr "पैकेज (_a)"
+
+msgid "Unmark"
+msgstr "अचिन्हित"
+
+msgid "Install"
+msgstr "इंस्टॉल"
+
+msgid "Downgrade"
+msgstr "डाउनग्रेड"
+
+msgid "Remove"
+msgstr "हटाएँ"
+
+msgid "_Help"
+msgstr "सहायता (_H)"
+
+msgid "Icon Legend"
+msgstr "आइकन विवरण"
+
+msgid "View ChangeLogs"
+msgstr "बदलाव सूची देखें"
+
+msgid "About"
+msgstr "बारे में"
+
+msgid "Search"
+msgstr "खोजें"
+
+msgid "<b>Name:</b>"
+msgstr "<b>नाम :</b>"
+
+msgid "No package is selected."
+msgstr "कोई पैकेज चयनित नहीं है।"
+
+msgid "<b>Status:</b>"
+msgstr "<b>स्थिति :</b>"
+
+msgid "<b>Description:</b>"
+msgstr "<b>विवरण :</b>"
+
+msgid "<b>Version:</b>"
+msgstr "<b>संस्करण :</b>"
+
+msgid "<b>Source:</b>"
+msgstr "<b>स्रोत :</b>"
+
+msgid "<b>Priority:</b>"
+msgstr "<b>प्राथमिकता :</b>"
+
+msgid "<b>Location:</b>"
+msgstr "<b>स्थान :</b>"
+
+msgid "<b>Installed Version</b>"
+msgstr "<b>इंस्टॉल संस्करण</b>"
+
+msgid "Version:"
+msgstr "संस्करण :"
+
+msgid "Installed Size:"
+msgstr "इंस्टॉल आकार :"
+
+msgid "<b>Latest Available Version</b>"
+msgstr "<b>नवीनतम उपलब्ध संस्करण</b>"
+
+msgid "Size:"
+msgstr "आकार :"
+
+msgid "Source:"
+msgstr "स्रोत :"
+
+msgid "Common"
+msgstr "परस्पर"
+
+msgid "Dependencies"
+msgstr "आश्रित पैकेज"
+
+msgid "Changelog"
+msgstr "बदलाव सूची"
+
+msgid "Files"
+msgstr "फ़ाइलें"
+
+msgid ""
+"<b>The following icons are used to indicate the current status of a "
+"package:</b>"
+msgstr "<b>पैकेज की वर्तमान स्थिति हेतु निम्नलिखित आइकन प्रयुक्त :</b>"
+
+msgid "Repositories changed"
+msgstr "पैकेज-संग्रह बदलें गए"
+
+msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
+msgstr "<span size=\"large\" weight=\"bold\">पैकेज-संग्रह बदलें गए</span>"
+
+msgid ""
+"You need to reload the package list from the sources you have listed.  Do "
+"you want to do this now?"
+msgstr "सूचीबद्ध स्रोतों से पैकेज सूची पुनः लोड करना आवश्यक है। क्या यह कार्य अभी किया जाएँ?"
+
+msgid "Source failed"
+msgstr "स्रोत विफल"
+
+msgid ""
+"This package source failed or is not available.  Do you want to disable this"
+" source and continue anyway?"
+msgstr "पैकेज स्रोत विफल या अनुपलब्ध। क्या आप यह स्रोत निष्क्रिय कर जारी रखना चाहते हैं?"
+
+msgid "Default"
+msgstr "डिफ़ॉल्ट"
+
+msgid "Official"
+msgstr "आधिकारिक"
+
+msgid "Preferred"
+msgstr "इच्छित"
+
+msgid "Custom"
+msgstr "अनुकूलित"
+
+msgid "Package Source"
+msgstr "पैकेज स्रोत"
+
+msgid "Summary"
+msgstr "संक्षेप"
+
+msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+msgstr "<span weight=\"bold\" size=\"large\">निम्नलिखित बदलाव लागू करें?</span>"
+
+msgid "This is a summary of the changes about to be performed."
+msgstr "बदलावों का संक्षिप्त विवरण।"
+
+msgid "Download packages only"
+msgstr "केवल पैकेज डाउनलोड करें"
+
+msgid "<b>Package and data storage</b>"
+msgstr "<b>पैकेज व डाटा संचयन</b>"
+
+msgid "_Delete Cached Package Files"
+msgstr "कैश पैकेज फ़ाइलें हटाएँ (_D)"
+
+msgid "Working Directory"
+msgstr "कार्यरत डायरेक्टरी"
+
+msgid "<b>Exclude List</b>"
+msgstr "<b>अपवर्जन सूची</b>"
+
+msgid "<span weight=\"bold\">Exclude Expression:</span>"
+msgstr "<span weight=\"bold\">अपवर्जित व्यंजक :</span>"
+
+msgid "Excludes"
+msgstr "अपवर्जित"
+
+msgid "<b>Package Sources</b>"
+msgstr "<b>पैकेज स्रोत</b>"
+
+msgid "Sources"
+msgstr "स्रोत"
+
+msgid "<b>GPG Keys</b>"
+msgstr "<b>जीपीजी कुंजियाँ</b>"
+
+msgid "Verification"
+msgstr "प्रमाणीकरण"

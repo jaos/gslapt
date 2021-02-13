@@ -10,10 +10,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
-"Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
-"POT-Creation-Date: 2014-08-04 22:05-0400\n"
-"PO-Revision-Date: 2017-09-19 14:08+0000\n"
-"Last-Translator: ふうせん Fu-sen. | BALLOON a.k.a. Fu-sen.\n"
+"Report-Msgid-Bugs-To: woodwardj at jaos dot org\n"
+"POT-Creation-Date: 2019-12-02 18:41-0500\n"
+"PO-Revision-Date: 2019-12-03 01:06+0000\n"
+"Last-Translator: gapan <vlahavas@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/jaos/slapt-get/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,6 +39,7 @@ msgstr "<b>衝突:</b>"
 msgid "<b>Suggests:</b>"
 msgstr "<b>推奨:</b>"
 
+#. installed
 msgid "No dependency information available"
 msgstr "依存関係の情報はありません"
 
@@ -81,6 +82,9 @@ msgstr "進捗"
 msgid "Checking for new package data..."
 msgstr "新規パッケージの検査..."
 
+msgid "GPG Key verification failed"
+msgstr "GPG キーの確認に失敗しました"
+
 msgid "Retrieving package data..."
 msgstr "パッケージデータを取得中..."
 
@@ -90,17 +94,11 @@ msgstr "パッチリストを取得中..."
 msgid "Retrieving checksum list..."
 msgstr "checksum リストを取得中..."
 
-msgid "Source download failed"
-msgstr "ソースのダウンロードに失敗しました"
-
 msgid "Retrieving checksum signature..."
 msgstr "チェックサム署名の取得中..."
 
 msgid "Verifying checksum signature..."
 msgstr "チェックサム署名を確認しています..."
-
-msgid "GPG Key verification failed"
-msgstr "GPG キーの確認に失敗しました"
 
 msgid "Retrieving ChangeLog.txt..."
 msgstr "ChangeLog.txt を取得中..."
@@ -115,14 +113,14 @@ msgstr "ダウンロード率: %.0f%s/秒"
 msgid "Error"
 msgstr "エラー"
 
-msgid "pkgtools returned an error"
-msgstr "pkgtools がエラーを返しました"
-
 msgid "Completed actions"
 msgstr "処理済み"
 
 msgid "Successfully executed all actions."
 msgstr "全ての操作の実行に成功しました"
+
+msgid "pkgtools returned an error"
+msgstr "pkgtools がエラーを返しました"
 
 msgid "Enabled"
 msgstr "有効"
@@ -229,11 +227,11 @@ msgstr " %s のダウンロードに失敗しました: %s"
 msgid "Removing packages..."
 msgstr "パッケージの削除中..."
 
-msgid "Uninstalling..."
-msgstr "削除中..."
-
 msgid "Installing packages..."
 msgstr "パッケージのインストール..."
+
+msgid "Uninstalling..."
+msgstr "削除中..."
 
 msgid "Installing..."
 msgstr "インストール中..."
@@ -294,6 +292,12 @@ msgstr "Gslapt パッケージマネージャー"
 
 msgid "Install, remove and upgrade software packages"
 msgstr "ソフトウェアパッケージのインストール・削除・更新"
+
+msgid "Run Gslapt as root"
+msgstr ""
+
+msgid "Authentication is required to run Gslapt"
+msgstr ""
 
 msgid "Base"
 msgstr "ベース"

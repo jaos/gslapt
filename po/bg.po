@@ -2,14 +2,14 @@
 # This file is put in the public domain.
 # 
 # Translators:
-# Georgi Georgiev <georgiev_1994@abv.bg>, 2015
+# Georgi Georgiev <georgiev_1994@abv.bg>, 2015,2020
 # Victor Keranov <victor_keranov@mail.bg>, 2006
 msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
-"Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
-"POT-Creation-Date: 2014-08-04 22:05-0400\n"
-"PO-Revision-Date: 2017-09-19 14:08+0000\n"
+"Report-Msgid-Bugs-To: woodwardj at jaos dot org\n"
+"POT-Creation-Date: 2019-12-02 18:41-0500\n"
+"PO-Revision-Date: 2020-04-13 19:19+0000\n"
 "Last-Translator: Georgi Georgiev <georgiev_1994@abv.bg>\n"
 "Language-Team: Bulgarian (http://www.transifex.com/jaos/slapt-get/language/bg/)\n"
 "MIME-Version: 1.0\n"
@@ -36,6 +36,7 @@ msgstr "<b>Конфликти:</b>"
 msgid "<b>Suggests:</b>"
 msgstr "<b>Предложения:</b>"
 
+#. installed
 msgid "No dependency information available"
 msgstr "Не е налична информация за зависимости"
 
@@ -78,6 +79,9 @@ msgstr "Прогрес"
 msgid "Checking for new package data..."
 msgstr "Проверка за нова информация за пакети..."
 
+msgid "GPG Key verification failed"
+msgstr "Потвърждаването на GPG ключ се провали"
+
 msgid "Retrieving package data..."
 msgstr "Получаване на информация за пакетите..."
 
@@ -87,17 +91,11 @@ msgstr "Получаване на списък с пачове..."
 msgid "Retrieving checksum list..."
 msgstr "Получаване на списък с MD5 суми..."
 
-msgid "Source download failed"
-msgstr "Неуспех при изтегляне от източника"
-
 msgid "Retrieving checksum signature..."
 msgstr "Получаване на MD5 ключове..."
 
 msgid "Verifying checksum signature..."
 msgstr "Потвърждаване на MD5 ключове..."
-
-msgid "GPG Key verification failed"
-msgstr "Потвърждаването на GPG ключ се провали"
 
 msgid "Retrieving ChangeLog.txt..."
 msgstr "Получаване на ChangeLog.txt..."
@@ -112,14 +110,14 @@ msgstr "Изтегляне: %.0f%s/s"
 msgid "Error"
 msgstr "Грешка"
 
-msgid "pkgtools returned an error"
-msgstr "pkgtools съобщи за грешка"
-
 msgid "Completed actions"
 msgstr "Завършени действия"
 
 msgid "Successfully executed all actions."
 msgstr "Успешно са извършени всички действия."
+
+msgid "pkgtools returned an error"
+msgstr "pkgtools съобщи за грешка"
 
 msgid "Enabled"
 msgstr "Позволено"
@@ -231,11 +229,11 @@ msgstr "Неуспех при изтегляне %s: %s"
 msgid "Removing packages..."
 msgstr "Премахване на пакети..."
 
-msgid "Uninstalling..."
-msgstr "Деинсталиране..."
-
 msgid "Installing packages..."
 msgstr "Инсталиране на пакети..."
+
+msgid "Uninstalling..."
+msgstr "Деинсталиране..."
 
 msgid "Installing..."
 msgstr "Инсталиране..."
@@ -296,6 +294,12 @@ msgstr "Мениджър на пакети Gslapt"
 
 msgid "Install, remove and upgrade software packages"
 msgstr "Инсталиране, премахване и обновяване на софтуерни пакети"
+
+msgid "Run Gslapt as root"
+msgstr "Изпълни Gslapt с администраторски права"
+
+msgid "Authentication is required to run Gslapt"
+msgstr "Нужна е идентификация за изпълнение на Gslapt"
 
 msgid "Base"
 msgstr "База"

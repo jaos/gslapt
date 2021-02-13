@@ -8,10 +8,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
-"Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
-"POT-Creation-Date: 2014-08-04 22:05-0400\n"
-"PO-Revision-Date: 2017-09-19 14:08+0000\n"
-"Last-Translator: Gregory <wolfr2@gmail.com>\n"
+"Report-Msgid-Bugs-To: woodwardj at jaos dot org\n"
+"POT-Creation-Date: 2019-12-02 18:41-0500\n"
+"PO-Revision-Date: 2019-12-03 01:06+0000\n"
+"Last-Translator: gapan <vlahavas@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/jaos/slapt-get/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,6 +37,7 @@ msgstr "<b>Конфликты:</b>"
 msgid "<b>Suggests:</b>"
 msgstr "<b>Желательно:</b>"
 
+#. installed
 msgid "No dependency information available"
 msgstr "Информация о зависимостях недоступна"
 
@@ -79,6 +80,9 @@ msgstr "Прогресс"
 msgid "Checking for new package data..."
 msgstr "Поиск новых данных о пакетах..."
 
+msgid "GPG Key verification failed"
+msgstr "Ошибка проверки ключа GPG"
+
 msgid "Retrieving package data..."
 msgstr "Получение данных о пакетах..."
 
@@ -88,17 +92,11 @@ msgstr "Получение списка патчей..."
 msgid "Retrieving checksum list..."
 msgstr "Получение списка контрольных сумм..."
 
-msgid "Source download failed"
-msgstr "Не могу загрузить с адреса"
-
 msgid "Retrieving checksum signature..."
 msgstr "Получение контрольной суммы..."
 
 msgid "Verifying checksum signature..."
 msgstr "Проверка контрольной суммы..."
-
-msgid "GPG Key verification failed"
-msgstr "Ошибка проверки ключа GPG"
 
 msgid "Retrieving ChangeLog.txt..."
 msgstr "Получение ChangeLog.txt..."
@@ -113,14 +111,14 @@ msgstr "Скорость закачки: %.0f%s/s"
 msgid "Error"
 msgstr "Ошибка"
 
-msgid "pkgtools returned an error"
-msgstr "ошибка pkgtools"
-
 msgid "Completed actions"
 msgstr "Действия завершены"
 
 msgid "Successfully executed all actions."
 msgstr "Все действия успешно выполнены."
+
+msgid "pkgtools returned an error"
+msgstr "ошибка pkgtools"
 
 msgid "Enabled"
 msgstr "Включен"
@@ -242,11 +240,11 @@ msgstr "Не удалось загрузить %s: %s"
 msgid "Removing packages..."
 msgstr "Удаление пакетов..."
 
-msgid "Uninstalling..."
-msgstr "Удаление..."
-
 msgid "Installing packages..."
 msgstr "Установка пакетов..."
+
+msgid "Uninstalling..."
+msgstr "Удаление..."
 
 msgid "Installing..."
 msgstr "Установка..."
@@ -307,6 +305,12 @@ msgstr "Менеджер пакетов Gslapt"
 
 msgid "Install, remove and upgrade software packages"
 msgstr "Установка, обновление и удаление пакетов"
+
+msgid "Run Gslapt as root"
+msgstr ""
+
+msgid "Authentication is required to run Gslapt"
+msgstr ""
 
 msgid "Base"
 msgstr "Base"

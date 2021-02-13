@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2003-2019 Jason Woodward <woodwardj at jaos dot org>
+ * Copyright (C) 2003-2021 Jason Woodward <woodwardj at jaos dot org>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,10 +19,11 @@
 #ifndef GSLAPT_SETTINGS_HEADER
 #define GSLAPT_SETTINGS_HEADER
 
+#include "config.h"
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <glib.h>
-#include "config.h"
 
 typedef struct {
     gint x;

@@ -8,10 +8,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
-"Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
-"POT-Creation-Date: 2014-08-04 22:05-0400\n"
-"PO-Revision-Date: 2017-09-23 18:35+0000\n"
-"Last-Translator: Jason Woodward <woodwardj@jaos.org>\n"
+"Report-Msgid-Bugs-To: woodwardj at jaos dot org\n"
+"POT-Creation-Date: 2019-12-02 18:41-0500\n"
+"PO-Revision-Date: 2019-12-03 01:06+0000\n"
+"Last-Translator: gapan <vlahavas@gmail.com>\n"
 "Language-Team: Hebrew (http://www.transifex.com/jaos/slapt-get/language/he/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,6 +37,7 @@ msgstr "<b>חבילות מתנגשות:</b>"
 msgid "<b>Suggests:</b>"
 msgstr "<b>חבילות מוצעות:</b>"
 
+#. installed
 msgid "No dependency information available"
 msgstr "אין מידע זמין"
 
@@ -79,6 +80,9 @@ msgstr "התקדמות"
 msgid "Checking for new package data..."
 msgstr "בודק כעת עבור נתוני חבילה חדשים..."
 
+msgid "GPG Key verification failed"
+msgstr "אימות מפתח GPG נכשל"
+
 msgid "Retrieving package data..."
 msgstr "מאחזר כעת נתוני חבילה..."
 
@@ -88,17 +92,11 @@ msgstr "מאחזר כעת רשימת טלאים..."
 msgid "Retrieving checksum list..."
 msgstr "מאחזר כעת רשימת סיכום ביקורת..."
 
-msgid "Source download failed"
-msgstr "הורדת מקור נכשלה"
-
 msgid "Retrieving checksum signature..."
 msgstr "מאחזר כעת חתימת סיכום ביקורת..."
 
 msgid "Verifying checksum signature..."
 msgstr "מאמת כעת חתימת סיכום ביקורת..."
-
-msgid "GPG Key verification failed"
-msgstr "אימות מפתח GPG נכשל"
 
 msgid "Retrieving ChangeLog.txt..."
 msgstr "מאחזר כעת ChangeLog.txt..."
@@ -113,14 +111,14 @@ msgstr "מהירות הורדה: %.0f%s/s"
 msgid "Error"
 msgstr "שגיאה"
 
-msgid "pkgtools returned an error"
-msgstr "‏pkgtools החזיר שגיאה"
-
 msgid "Completed actions"
 msgstr "פעולות שהושלמו"
 
 msgid "Successfully executed all actions."
 msgstr "כל הפעולות בוצעו בהצלחה."
+
+msgid "pkgtools returned an error"
+msgstr "‏pkgtools החזיר שגיאה"
 
 msgid "Enabled"
 msgstr "מאופשר"
@@ -242,11 +240,11 @@ msgstr "כשל בהורדת %s: ‫%s"
 msgid "Removing packages..."
 msgstr "מסיר כעת חבילות..."
 
-msgid "Uninstalling..."
-msgstr "מסיר כעת..."
-
 msgid "Installing packages..."
 msgstr "מתקין כעת חבילות..."
+
+msgid "Uninstalling..."
+msgstr "מסיר כעת..."
 
 msgid "Installing..."
 msgstr "מתקין כעת..."
@@ -307,6 +305,12 @@ msgstr "מנהל חבילות Gslapt"
 
 msgid "Install, remove and upgrade software packages"
 msgstr "התקנה, הסרה ושדרוג של חבילות תוכנה"
+
+msgid "Run Gslapt as root"
+msgstr ""
+
+msgid "Authentication is required to run Gslapt"
+msgstr ""
 
 msgid "Base"
 msgstr "בסיס"

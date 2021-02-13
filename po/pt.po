@@ -3,14 +3,14 @@
 # 
 # Translators:
 # FIRST AUTHOR <pedro_nuno_pn@zmail.pt>, 2005-2006
-# Hugo Carvalho <hugokarvalho@hotmail.com>, 2014
+# Hugo Carvalho <hugokarvalho@hotmail.com>, 2014,2019
 # Sérgio Marques <smarquespt@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
-"Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
-"POT-Creation-Date: 2014-08-04 22:05-0400\n"
-"PO-Revision-Date: 2018-01-12 18:17+0000\n"
+"Report-Msgid-Bugs-To: woodwardj at jaos dot org\n"
+"POT-Creation-Date: 2019-12-02 18:41-0500\n"
+"PO-Revision-Date: 2021-01-10 21:22+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese (http://www.transifex.com/jaos/slapt-get/language/pt/)\n"
 "MIME-Version: 1.0\n"
@@ -37,6 +37,7 @@ msgstr "<b>Conflitos:</b>"
 msgid "<b>Suggests:</b>"
 msgstr "<b>Recomenda:</b>"
 
+#. installed
 msgid "No dependency information available"
 msgstr "Sem informações para as dependências"
 
@@ -79,6 +80,9 @@ msgstr "Progresso"
 msgid "Checking for new package data..."
 msgstr "A verificar dados de novos pacotes..."
 
+msgid "GPG Key verification failed"
+msgstr "Falha na verificação da chave GPG"
+
 msgid "Retrieving package data..."
 msgstr "A obter dados do pacote..."
 
@@ -88,17 +92,11 @@ msgstr "A obter lista de correções..."
 msgid "Retrieving checksum list..."
 msgstr "A obter lista de verificações..."
 
-msgid "Source download failed"
-msgstr "Erro ao receber a fonte"
-
 msgid "Retrieving checksum signature..."
 msgstr "A obter assinatura checksum..."
 
 msgid "Verifying checksum signature..."
 msgstr "A verificar assinatura checksum..."
-
-msgid "GPG Key verification failed"
-msgstr "Falha na verificação da chave GPG"
 
 msgid "Retrieving ChangeLog.txt..."
 msgstr "A obter ChangeLog.txt..."
@@ -113,14 +111,14 @@ msgstr "Taxa de receção: %.0f%s/s"
 msgid "Error"
 msgstr "Erro"
 
-msgid "pkgtools returned an error"
-msgstr "O pkgtools retornou um erro"
-
 msgid "Completed actions"
 msgstr "Ações terminadas"
 
 msgid "Successfully executed all actions."
 msgstr "Todas as ações efetuadas com sucesso."
+
+msgid "pkgtools returned an error"
+msgstr "O pkgtools retornou um erro"
 
 msgid "Enabled"
 msgstr "Ativo"
@@ -167,32 +165,32 @@ msgstr "Pacote"
 #, c-format
 msgid "%d upgraded, "
 msgid_plural "%d upgraded, "
-msgstr[0] "%d atualizado,"
-msgstr[1] "%d atualizados,"
+msgstr[0] "%d atualizado, "
+msgstr[1] "%d atualizados, "
 
 #, c-format
 msgid "%d reinstalled, "
 msgid_plural "%d reinstalled, "
-msgstr[0] "%d reinstalado,"
-msgstr[1] "%d reinstalados,"
+msgstr[0] "%d reinstalado, "
+msgstr[1] "%d reinstalados, "
 
 #, c-format
 msgid "%d newly installed, "
 msgid_plural "%d newly installed, "
-msgstr[0] "%d recém-instalado,"
-msgstr[1] "%d recém-instalados,"
+msgstr[0] "%d recém-instalado, "
+msgstr[1] "%d recém-instalados, "
 
 #, c-format
 msgid "%d to remove "
 msgid_plural "%d to remove "
-msgstr[0] "%d para remover"
-msgstr[1] "%d para remover"
+msgstr[0] "%d para remover "
+msgstr[1] "%d para remover "
 
 #, c-format
 msgid "and %d not upgraded."
 msgid_plural "and %d not upgraded."
 msgstr[0] "e %d não atualizado."
-msgstr[1] "e %d não atualizados"
+msgstr[1] "e %d não atualizados."
 
 msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Não tem espeço suficiente</span>"
@@ -232,11 +230,11 @@ msgstr "Falha ao receber %s: %s"
 msgid "Removing packages..."
 msgstr "A remover pacotes..."
 
-msgid "Uninstalling..."
-msgstr "A desinstalar..."
-
 msgid "Installing packages..."
 msgstr "A instalar pacotes..."
+
+msgid "Uninstalling..."
+msgstr "A desinstalar..."
 
 msgid "Installing..."
 msgstr "A instalar..."
@@ -266,7 +264,7 @@ msgid "Description"
 msgstr "Descrição"
 
 msgid "Installed Size"
-msgstr "Tamanho da instalação:"
+msgstr "Tamanho da instalação"
 
 #, c-format
 msgid "<b>Excluding %s due to dependency failure</b>"
@@ -297,6 +295,12 @@ msgstr "Gestor de pacotes Gslapt"
 
 msgid "Install, remove and upgrade software packages"
 msgstr "Instalar, remover e atualizar pacotes"
+
+msgid "Run Gslapt as root"
+msgstr "Executar o Gslapt como root"
+
+msgid "Authentication is required to run Gslapt"
+msgstr "É necessária a autenticação para executar o Gslapt"
 
 msgid "Base"
 msgstr "Base"
@@ -394,7 +398,7 @@ msgstr "Internacionalização"
 msgid ""
 "gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
 "Slackware"
-msgstr "O gslapt é uma interface gráfica em GTK+ para o slapt-get,  a aplicação de gestão de pacotes do tipo APT para o Slackware"
+msgstr "O gslapt é uma interface gráfica em GTK+ para o slapt-get, a aplicação de gestão de pacotes do tipo APT para o Slackware"
 
 msgid "working"
 msgstr "a trabalhar"
@@ -580,7 +584,7 @@ msgid ""
 msgstr "Falha na fonte de pacotes ou esta não está disponível. Pretende desativar esta fonte e continuar?"
 
 msgid "Default"
-msgstr "Pré-definido"
+msgstr "Predefinido"
 
 msgid "Official"
 msgstr "Oficial"
@@ -601,7 +605,7 @@ msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Aplicar estas alterações?</span>"
 
 msgid "This is a summary of the changes about to be performed."
-msgstr "Este é o resumo das alterações que serão efetuadas"
+msgstr "Este é o resumo das alterações que serão efetuadas."
 
 msgid "Download packages only"
 msgstr "Apenas transferir pacotes"

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2003-2019 Jason Woodward <woodwardj at jaos dot org>
+ * Copyright (C) 2003-2021 Jason Woodward <woodwardj at jaos dot org>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,11 +19,12 @@
 #ifndef GSLAPT_SERIES_HEADER
 #define GSLAPT_SERIES_HEADER
 
+#include "config.h"
+
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
 #include <glib.h>
-#include "config.h"
 
 GHashTable *gslapt_series_map_init(void);
 void gslapt_series_map_free(GHashTable *map);

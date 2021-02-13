@@ -1,4 +1,4 @@
-Copyright (C) 2003-2019 Jason Woodward <woodwardj at jaos dot org>
+Copyright (C) 2003-2021 Jason Woodward <woodwardj at jaos dot org>
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -19,7 +19,16 @@ This is a GTK version of slapt-get.  It requires slapt-get.
 
 To build from source, you must have these packages installed:
  autoconf automake libtool m4 gettext gettext-tools pkg-config
- intltool atk glib2 gtk+2 pango zlib openssl curl slapt-get
+ intltool atk glib2 gtk+3 pango zlib openssl curl slapt-get
  mesa libdrm libXxf86vm libunistring readline expat libxshmfence
  fribidi graphite2 libpthread-stubs xorgproto shared-mime-info
 
+Optional packages:
+ GPG support: gnupg2 gpgme libgpg-error
+ Polkit support: polkit
+
+To disable polkit use --without-polkit.  Otherwise polkit pkexec will be added
+to the .desktop files and a polkit policy will be installed for gslapt.
+
+To switch back to gtk+2, use --enable-gtk2.  This is deprecated and will be
+removed in a future version.

@@ -6,9 +6,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
-"Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
-"POT-Creation-Date: 2014-08-04 22:05-0400\n"
-"PO-Revision-Date: 2019-04-20 07:44+0000\n"
+"Report-Msgid-Bugs-To: woodwardj at jaos dot org\n"
+"POT-Creation-Date: 2019-12-02 18:41-0500\n"
+"PO-Revision-Date: 2019-12-03 17:18+0000\n"
 "Last-Translator: Ingemar Karlsson <ingemar@ingk.se>\n"
 "Language-Team: Swedish (http://www.transifex.com/jaos/slapt-get/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -35,6 +35,7 @@ msgstr "<b>Konflikter:</b>"
 msgid "<b>Suggests:</b>"
 msgstr "<b>Föreslår:</b>"
 
+#. installed
 msgid "No dependency information available"
 msgstr "Ingen beroende information tillgänglig"
 
@@ -77,6 +78,9 @@ msgstr "Framsteg"
 msgid "Checking for new package data..."
 msgstr "Letar efter ny paketdata..."
 
+msgid "GPG Key verification failed"
+msgstr "GPG Nyckel verifiering misslyckades"
+
 msgid "Retrieving package data..."
 msgstr "Hämtar paketdata..."
 
@@ -86,17 +90,11 @@ msgstr "Hämtar patch listan..."
 msgid "Retrieving checksum list..."
 msgstr "Hämtar kontrollsumme listan..."
 
-msgid "Source download failed"
-msgstr "Nedladdning av källkod misslyckades"
-
 msgid "Retrieving checksum signature..."
 msgstr "Hämtar kontrollsumme signatur..."
 
 msgid "Verifying checksum signature..."
 msgstr "Verifiera kontrollsumme signatur..."
-
-msgid "GPG Key verification failed"
-msgstr "GPG Nyckel verifiering misslyckades"
 
 msgid "Retrieving ChangeLog.txt..."
 msgstr "Hämtar ChangeLog.txt..."
@@ -111,14 +109,14 @@ msgstr "Nedladdnings takt: %.0f%s/s"
 msgid "Error"
 msgstr "Fel"
 
-msgid "pkgtools returned an error"
-msgstr "pkgtools returnerade ett fel"
-
 msgid "Completed actions"
 msgstr "Slutförda åtgärder"
 
 msgid "Successfully executed all actions."
 msgstr "Framgångsrikt genomfört alla åtgärder."
+
+msgid "pkgtools returned an error"
+msgstr "pkgtools returnerade ett fel"
 
 msgid "Enabled"
 msgstr "Aktiverad"
@@ -230,11 +228,11 @@ msgstr "Det gick inte att hämta %s: %s"
 msgid "Removing packages..."
 msgstr "Tar bort paket..."
 
-msgid "Uninstalling..."
-msgstr "Avinstallerar..."
-
 msgid "Installing packages..."
 msgstr "Installerar paket..."
+
+msgid "Uninstalling..."
+msgstr "Avinstallerar..."
 
 msgid "Installing..."
 msgstr "Installerar..."
@@ -295,6 +293,12 @@ msgstr "Gslapt Pakethanterare"
 
 msgid "Install, remove and upgrade software packages"
 msgstr "Installera, ta bort och uppgradera programpaket"
+
+msgid "Run Gslapt as root"
+msgstr "Kör Gslapt som root"
+
+msgid "Authentication is required to run Gslapt"
+msgstr "Autentisering krävs för att köra Gslapt"
 
 msgid "Base"
 msgstr "Bas"
