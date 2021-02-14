@@ -5,6 +5,7 @@ project('gslapt', 'c',
   default_options: [
     'buildtype=debugoptimized',
     'b_lto=true',
+    'warning_level=3',
   ],
 )
 package = meson.project_name()
