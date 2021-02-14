@@ -17,18 +17,5 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
 This is a GTK version of slapt-get.  It requires slapt-get.
 
-To build from source, you must have these packages installed:
- autoconf automake libtool m4 gettext gettext-tools pkg-config
- intltool atk glib2 gtk+3 pango zlib openssl curl slapt-get
- mesa libdrm libXxf86vm libunistring readline expat libxshmfence
- fribidi graphite2 libpthread-stubs xorgproto shared-mime-info
-
-Optional packages:
- GPG support: gnupg2 gpgme libgpg-error
- Polkit support: polkit
-
-To disable polkit use --without-polkit.  Otherwise polkit pkexec will be added
-to the .desktop files and a polkit policy will be installed for gslapt.
-
-To switch back to gtk+2, use --enable-gtk2.  This is deprecated and will be
-removed in a future version.
+To build from source, you must have the packages listed in slack-required
+installed.
