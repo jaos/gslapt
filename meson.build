@@ -1,7 +1,7 @@
 project('gslapt', 'c',
   version: '0.5.7',
   license: 'GPLv2',
-  meson_version: '>= 0.53',
+  meson_version: '>= 0.56',
   default_options: [
     'buildtype=debugoptimized',
     'b_lto=true',
@@ -51,11 +51,11 @@ endif
 # polkit
 polkit_dep = dependency('polkit-gobject-1', required: false)
 if polkit_dep.found()
-  polkitactiondir = polkit_dep.get_pkgconfig_variable('actiondir')#, define_variable: ['prefix', prefix])
+  polkitactiondir = polkit_dep.get_variable(pkgconfig: 'actiondir')#, define_variable: ['prefix', prefix])
 endif
 pkexec = find_program('pkexec', required: false)
 if pkexec.found()
-  configuration.set('privprog', pkexec.path() + ' ')
+  configuration.set('privprog', pkexec.full_path() + ' ')
   custom_target('org.jaos.gslapt.policy',
     input: configure_file(output: 'org.jaos.gslapt.policy.pre', input: 'org.jaos.gslapt.policy.in', configuration: configuration),
     output: 'org.jaos.gslapt.policy',
