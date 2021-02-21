@@ -59,7 +59,7 @@ if pkexec.found()
   custom_target('org.jaos.gslapt.policy',
     input: configure_file(output: 'org.jaos.gslapt.policy.pre', input: 'org.jaos.gslapt.policy.in', configuration: configuration),
     output: 'org.jaos.gslapt.policy',
-    command: ['intltool-merge', join_paths(meson.source_root(), 'po'), '-x', '-u', '@INPUT@', '@OUTPUT@'],
+    command: ['intltool-merge', join_paths(meson.project_source_root(), 'po'), '-x', '-u', '@INPUT@', '@OUTPUT@'],
     install: true,
     install_dir: polkitactiondir,
   )
@@ -97,7 +97,7 @@ install_data(['AUTHORS', 'ChangeLog', 'COPYING', 'FAQ', 'README'], install_dir: 
 custom_target('series_map.rc',
   input: 'series_map.rc.in',
   output: 'series_map.rc',
-  command: [find_program('seriesmerge.sh'), '@INPUT@', '@OUTPUT@', join_paths(meson.source_root())],
+  command: [find_program('seriesmerge.sh'), '@INPUT@', '@OUTPUT@', join_paths(meson.project_source_root())],
   install: true,
   install_dir: pkgdatadir,
 )
