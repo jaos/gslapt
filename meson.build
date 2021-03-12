@@ -39,7 +39,7 @@ openssl = dependency('openssl')
 libgpgme = dependency('gpgme', required: false)
 cc = meson.get_compiler('c')
 libm = cc.find_library('m')
-# libslapt = dependency('libslapt', version: '>=0.11.1') # use this when we have a few pkg-config enabled releases out
+# libslapt = dependency('libslapt', version: '>=0.11.3') # use this when we have a few pkg-config enabled releases out
 libslapt = cc.find_library('slapt', has_headers: ['slapt.h'])
 if libslapt.found()
   # if libgpgme.found() and cc.has_function('slapt_add_pkg_source_gpg_key', dependencies: [libslapt])

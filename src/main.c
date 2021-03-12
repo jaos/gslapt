@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
 
     gtk_init(&argc, &argv);
 
-    trans = slapt_init_transaction();
+    trans = slapt_transaction_t_init();
 
     /* series name mapping */
     gslapt_series_map = gslapt_series_map_init();
@@ -186,21 +186,21 @@ int main(int argc, char *argv[])
                 if (p == NULL)
                     continue;
 
-                if (inst_p != NULL && slapt_cmp_pkgs(inst_p, p) == 0) {
+                if (inst_p != NULL && slapt_pkg_t_cmp(inst_p, p) == 0) {
                     continue;
-                } else if (inst_p != NULL && slapt_cmp_pkgs(inst_p, p) < 0) {
-                    if (slapt_add_deps_to_trans(global_config, trans, all, installed, p) == 0) {
-                        slapt_add_upgrade_to_transaction(trans, inst_p, p);
+                } else if (inst_p != NULL && slapt_pkg_t_cmp(inst_p, p) < 0) {
+                    if (slapt_transaction_t_add_dependencies(global_config, trans, all, installed, p) == 0) {
+                        slapt_transaction_t_add_upgrade(trans, inst_p, p);
                     } else {
                         exit(1);
                     }
                 } else {
-                    if (slapt_add_deps_to_trans(global_config, trans, all, installed, p) == 0) {
-                        slapt_vector_t *conflicts = slapt_is_conflicted(trans, all, installed, p);
-                        slapt_add_install_to_transaction(trans, p);
+                    if (slapt_transaction_t_add_dependencies(global_config, trans, all, installed, p) == 0) {
+                        slapt_vector_t *conflicts = slapt_transaction_t_find_conflicts(trans, all, installed, p);
+                        slapt_transaction_t_add_install(trans, p);
                         if (conflicts->size > 0) {
                             slapt_vector_t_foreach (slapt_pkg_t *, conflict_pkg, conflicts) {
-                                slapt_add_remove_to_transaction(trans, conflict_pkg);
+                                slapt_transaction_t_add_remove(trans, conflict_pkg);
                             }
                         }
                         slapt_vector_t_free(conflicts);
@@ -214,7 +214,7 @@ int main(int argc, char *argv[])
             slapt_vector_t_foreach (char *, pkg_name_to_remove, pkg_names_to_remove) {
                 slapt_pkg_t *r = slapt_get_newest_pkg(installed, pkg_name_to_remove);
                 if (r != NULL) {
-                    slapt_add_remove_to_transaction(trans, r);
+                    slapt_transaction_t_add_remove(trans, r);
                 }
             }
         }
