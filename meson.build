@@ -1,5 +1,5 @@
 project('gslapt', 'c',
-  version: '0.5.7',
+  version: '0.5.8',
   license: 'GPLv2',
   meson_version: '>= 0.56',
   default_options: [
