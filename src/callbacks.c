@@ -890,8 +890,7 @@ static void fillin_pkg_details(slapt_pkg_t *pkg)
 
     /* description tab */
     pkg_full_desc = gtk_text_view_get_buffer(GTK_TEXT_VIEW(gtk_builder_get_object(gslapt_builder, "pkg_description_textview")));
-    clean_desc = strdup(pkg->description);
-    slapt_clean_description(clean_desc, pkg->name);
+    clean_desc = slapt_pkg_t_clean_description(pkg);
     gtk_text_buffer_set_text(pkg_full_desc, clean_desc, -1);
 
     if (clean_desc != NULL)
@@ -2381,8 +2380,7 @@ static gboolean install_packages(void)
     /* begin removing, installing, and upgrading */
     gdk_threads_add_idle_full(G_PRIORITY_HIGH, _install_packages_set_removing, NULL, NULL);
     slapt_vector_t_foreach (slapt_pkg_t *, remove_pkg, trans->remove_pkgs) {
-        char *clean_desc = strdup(remove_pkg->description);
-        slapt_clean_description(clean_desc, remove_pkg->name);
+        char *clean_desc = slapt_pkg_t_clean_description(remove_pkg);
 
         if (clean_desc != NULL)
             _pkgtools_status_set_desc(clean_desc);
@@ -2413,8 +2411,7 @@ static gboolean install_packages(void)
     slapt_vector_t_foreach (slapt_queue_i *, qi, trans->queue) {
 
         if (qi->type == SLAPT_ACTION_INSTALL) {
-            char *clean_desc = strdup(qi->pkg.i->description);
-            slapt_clean_description(clean_desc, qi->pkg.i->name);
+            char *clean_desc = slapt_pkg_t_clean_description(qi->pkg.i);
 
             if (clean_desc != NULL)
                 _pkgtools_status_set_desc(clean_desc);
@@ -2428,8 +2425,7 @@ static gboolean install_packages(void)
                 return FALSE;
             }
         } else if (qi->type == SLAPT_ACTION_UPGRADE) {
-            char *clean_desc = strdup(qi->pkg.u->upgrade->description);
-            slapt_clean_description(clean_desc, qi->pkg.u->upgrade->name);
+            char *clean_desc = slapt_pkg_t_clean_description(qi->pkg.u->upgrade);
 
             if (clean_desc != NULL)
                 _pkgtools_status_set_desc(clean_desc);
