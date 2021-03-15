@@ -80,8 +80,8 @@ static int set_iter_for_remove(GtkTreeModel *model, GtkTreeIter *iter, slapt_pkg
 
 static void set_busy_cursor(void);
 static void unset_busy_cursor(void);
-static SLAPT_PRIORITY_T convert_gslapt_priority_to_slapt_priority(gint p);
-static gint convert_slapt_priority_to_gslapt_priority(SLAPT_PRIORITY_T p);
+static slapt_priority_t convert_gslapt_priority_to_slapt_priority(gint p);
+static gint convert_slapt_priority_to_gslapt_priority(slapt_priority_t p);
 
 gboolean gslapt_window_resized(GtkWindow *window, GdkEvent *event, gpointer data __unused__)
 {
@@ -1236,7 +1236,7 @@ static void get_package_data(void)
         FILE *tmp_signature_f = NULL;
 #endif
         bool compressed = 0;
-        SLAPT_PRIORITY_T source_priority = src->priority;
+        slapt_priority_t source_priority = src->priority;
 
         if (src->disabled == true)
             continue;
@@ -2537,7 +2537,7 @@ void preferences_on_ok_clicked(GtkWidget *w __unused__, gpointer user_data __unu
     while (valid) {
         gchar *source = NULL;
         gboolean status;
-        SLAPT_PRIORITY_T priority;
+        slapt_priority_t priority;
         gtk_tree_model_get(model, &iter, 1, &source, 2, &status, 4, &priority, -1);
 
         if (source != NULL) {
@@ -3942,7 +3942,7 @@ void cancel_source_edit(GtkWidget *w __unused__, gpointer user_data __unused__)
 
 void source_edit_ok(GtkWidget *w __unused__, gpointer user_data __unused__)
 {
-    SLAPT_PRIORITY_T priority;
+    slapt_priority_t priority;
     const char *original_url = NULL;
     const gchar *source = NULL;
     GtkEntry *source_entry = GTK_ENTRY(gtk_builder_get_object(gslapt_builder, "source_entry"));
@@ -3983,7 +3983,7 @@ void source_edit_ok(GtkWidget *w __unused__, gpointer user_data __unused__)
     gtk_widget_destroy(GTK_WIDGET(gtk_builder_get_object(gslapt_builder, "source_window")));
 }
 
-static SLAPT_PRIORITY_T convert_gslapt_priority_to_slapt_priority(gint p)
+static slapt_priority_t convert_gslapt_priority_to_slapt_priority(gint p)
 {
     switch (p) {
     case 1:
@@ -3998,7 +3998,7 @@ static SLAPT_PRIORITY_T convert_gslapt_priority_to_slapt_priority(gint p)
     };
 }
 
-static gint convert_slapt_priority_to_gslapt_priority(SLAPT_PRIORITY_T p)
+static gint convert_slapt_priority_to_gslapt_priority(slapt_priority_t p)
 {
     switch (p) {
     case SLAPT_PRIORITY_DEFAULT:
