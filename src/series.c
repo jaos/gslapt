@@ -32,14 +32,10 @@ void gslapt_series_map_free(GHashTable *map)
 
 int gslapt_series_map_fill(GHashTable *map)
 {
-    char *file = NULL;
-    gchar **keys = NULL;
-    int c;
-
-    file = g_build_path(G_DIR_SEPARATOR_S, PACKAGE_DATA_DIR, PACKAGE, "series_map.rc", NULL);
-
-    if (file == NULL)
+    char *file = g_build_path(G_DIR_SEPARATOR_S, PACKAGE_DATA_DIR, PACKAGE, "series_map.rc", NULL);
+    if (file == NULL) {
         return -1;
+    }
 
     if (g_file_test(file, G_FILE_TEST_IS_REGULAR) == TRUE) {
         GKeyFile *keyfile = NULL;
@@ -58,9 +54,9 @@ int gslapt_series_map_fill(GHashTable *map)
             goto GSLAPT_SERIES_MAP_FILL_END;
         }
 
-        keys = g_key_file_get_keys(keyfile, "series mappings", NULL, NULL);
+        gchar **keys = g_key_file_get_keys(keyfile, "series mappings", NULL, NULL);
         if (keys != NULL) {
-            for (c = 0; keys[c] != NULL; c++) {
+            for (int c = 0; keys[c] != NULL; c++) {
                 gchar *value = g_key_file_get_locale_string(keyfile, "series mappings", keys[c], NULL, NULL);
                 if (value != NULL) {
                     g_hash_table_insert(map, g_strdup(keys[c]), g_strdup(value));
@@ -82,13 +78,12 @@ GSLAPT_SERIES_MAP_FILL_END:
 
 char *gslapt_series_map_lookup(GHashTable *map, const char *key)
 {
-    char *value = NULL, *converted = NULL;
-    void *v;
-
-    if (key == NULL)
+    if (key == NULL) {
         return NULL;
+    }
 
-    v = g_hash_table_lookup(map, key);
+    char *value = NULL;
+    void *v = g_hash_table_lookup(map, key);
     if (v != NULL) {
         value = (char *)v;
     } else {
@@ -97,7 +92,7 @@ char *gslapt_series_map_lookup(GHashTable *map, const char *key)
     }
 
     if (value != NULL) {
-        converted = g_convert(value, strlen(value), "UTF-8", "UTF-8", NULL, NULL, NULL);
+        char *converted = g_convert(value, strlen(value), "UTF-8", "UTF-8", NULL, NULL, NULL);
         if (converted != NULL)
             value = converted;
     }

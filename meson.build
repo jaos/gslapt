@@ -5,7 +5,7 @@ project('gslapt', 'c',
   default_options: [
     'buildtype=debugoptimized',
     'b_lto=true',
-    'warning_level=3',
+    'warning_level=2',
   ],
 )
 package = meson.project_name()
@@ -47,6 +47,10 @@ if libslapt.found()
     configuration.set('SLAPT_HAS_GPGME', 1)
   endif
 endif
+
+# Gtk makes this hard
+#cflags = ['-Wno-cast-function-type']
+#add_project_arguments(cc.get_supported_arguments(cflags), language: 'c')
 
 # polkit
 polkit_dep = dependency('polkit-gobject-1', required: false)
