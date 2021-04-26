@@ -46,20 +46,18 @@ GslaptSettings *gslapt_new_rc(void)
 
 GslaptSettings *gslapt_read_rc(void)
 {
-    GslaptSettings *gslapt_settings = NULL;
-    char *dir = NULL, *file = NULL;
-
-    dir = gslapt_init_rc_dir();
-
-    if (dir == NULL)
+    char *dir = gslapt_init_rc_dir();
+    if (dir == NULL) {
         return NULL;
+    }
 
-    file = g_build_path(G_DIR_SEPARATOR_S, dir, "rc", NULL);
+    char *file = g_build_path(G_DIR_SEPARATOR_S, dir, "rc", NULL);
     free(dir);
-
-    if (file == NULL)
+    if (file == NULL) {
         return NULL;
+    }
 
+    GslaptSettings *gslapt_settings = NULL;
     if (g_file_test(file, G_FILE_TEST_IS_REGULAR) == TRUE) {
         GKeyFile *keyfile = NULL;
         GKeyFileFlags flags = G_KEY_FILE_NONE;
@@ -131,13 +129,12 @@ void gslapt_free_rc(GslaptSettings *gslapt_settings)
 
 int gslapt_write_rc(GslaptSettings *gslapt_settings)
 {
-    char *dir;
     int rc = -1;
-
-    if (gslapt_settings == NULL)
+    if (gslapt_settings == NULL) {
         return rc;
+    }
 
-    dir = gslapt_init_rc_dir();
+    char *dir = gslapt_init_rc_dir();
     if (dir != NULL) {
         gsize length;
         GKeyFile *keyfile = NULL;

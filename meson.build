@@ -1,10 +1,11 @@
 project('gslapt', 'c',
-  version: '0.5.6',
+  version: '0.5.8',
   license: 'GPLv2',
-  meson_version: '>= 0.53',
+  meson_version: '>= 0.56',
   default_options: [
     'buildtype=debugoptimized',
     'b_lto=true',
+    'warning_level=2',
   ],
 )
 package = meson.project_name()
@@ -38,7 +39,7 @@ openssl = dependency('openssl')
 libgpgme = dependency('gpgme', required: false)
 cc = meson.get_compiler('c')
 libm = cc.find_library('m')
-# libslapt = dependency('libslapt', version: '>=0.11.1') # use this when we have a few pkg-config enabled releases out
+# libslapt = dependency('libslapt', version: '>=0.11.3') # use this when we have a few pkg-config enabled releases out
 libslapt = cc.find_library('slapt', has_headers: ['slapt.h'])
 if libslapt.found()
   # if libgpgme.found() and cc.has_function('slapt_add_pkg_source_gpg_key', dependencies: [libslapt])
@@ -47,18 +48,22 @@ if libslapt.found()
   endif
 endif
 
+# Gtk makes this hard
+#cflags = ['-Wno-cast-function-type']
+#add_project_arguments(cc.get_supported_arguments(cflags), language: 'c')
+
 # polkit
 polkit_dep = dependency('polkit-gobject-1', required: false)
 if polkit_dep.found()
-  polkitactiondir = polkit_dep.get_pkgconfig_variable('actiondir')#, define_variable: ['prefix', prefix])
+  polkitactiondir = polkit_dep.get_variable(pkgconfig: 'actiondir')#, define_variable: ['prefix', prefix])
 endif
 pkexec = find_program('pkexec', required: false)
 if pkexec.found()
-  configuration.set('privprog', pkexec.path() + ' ')
+  configuration.set('privprog', pkexec.full_path() + ' ')
   custom_target('org.jaos.gslapt.policy',
     input: configure_file(output: 'org.jaos.gslapt.policy.pre', input: 'org.jaos.gslapt.policy.in', configuration: configuration),
     output: 'org.jaos.gslapt.policy',
-    command: ['intltool-merge', join_paths(meson.source_root(), 'po'), '-x', '-u', '@INPUT@', '@OUTPUT@'],
+    command: ['intltool-merge', join_paths(meson.project_source_root(), 'po'), '-x', '-u', '@INPUT@', '@OUTPUT@'],
     install: true,
     install_dir: polkitactiondir,
   )
@@ -96,7 +101,7 @@ install_data(['AUTHORS', 'ChangeLog', 'COPYING', 'FAQ', 'README'], install_dir: 
 custom_target('series_map.rc',
   input: 'series_map.rc.in',
   output: 'series_map.rc',
-  command: [find_program('seriesmerge.sh'), '@INPUT@', '@OUTPUT@', join_paths(meson.source_root())],
+  command: [find_program('seriesmerge.sh'), '@INPUT@', '@OUTPUT@', join_paths(meson.project_source_root())],
   install: true,
   install_dir: pkgdatadir,
 )

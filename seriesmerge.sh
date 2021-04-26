@@ -1,5 +1,5 @@
 #!/bin/bash
-set -efux
+set -efu
 
 INPUT=$1
 OUTPUT=$2

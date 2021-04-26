@@ -35,14 +35,6 @@ GHashTable *gslapt_series_map = NULL;
 
 int main(int argc, char *argv[])
 {
-    GtkStatusbar *bar;
-    guint default_context_id;
-    GtkEntryCompletion *completions;
-    slapt_vector_t *pkg_names_to_install = slapt_vector_t_init(free);
-    slapt_vector_t *pkg_names_to_remove = slapt_vector_t_init(free);
-    gchar *rc = NULL;
-    bool do_upgrade = false;
-
     bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
     bindtextdomain(GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR);
     textdomain(GETTEXT_PACKAGE);
@@ -53,12 +45,17 @@ int main(int argc, char *argv[])
 
     gtk_init(&argc, &argv);
 
-    trans = slapt_init_transaction();
+    trans = slapt_transaction_t_init();
 
     /* series name mapping */
     gslapt_series_map = gslapt_series_map_init();
     gslapt_series_map_fill(gslapt_series_map);
 
+    slapt_vector_t *pkg_names_to_install = slapt_vector_t_init(free);
+    slapt_vector_t *pkg_names_to_remove = slapt_vector_t_init(free);
+
+    bool do_upgrade = false;
+    gchar *rc = NULL;
     for (int option_index = 1; option_index < argc; ++option_index) {
         if (strcmp(argv[option_index], "--upgrade") == 0) {
             do_upgrade = true;
@@ -141,7 +138,7 @@ int main(int argc, char *argv[])
     gtk_builder_connect_signals(gslapt_builder, NULL);
     // g_object_unref (G_OBJECT (gslapt_builder));
 
-    completions = build_search_completions();
+    GtkEntryCompletion *completions = build_search_completions();
     gtk_entry_set_completion(GTK_ENTRY(gtk_builder_get_object(gslapt_builder, "search_entry")), completions);
     g_object_unref(completions);
 
@@ -155,8 +152,8 @@ int main(int argc, char *argv[])
     build_treeview_columns(GTK_WIDGET(gtk_builder_get_object(gslapt_builder, "pkg_listing_treeview")));
     build_package_treeviewlist(GTK_WIDGET(gtk_builder_get_object(gslapt_builder, "pkg_listing_treeview")));
 
-    bar = GTK_STATUSBAR(gtk_builder_get_object(gslapt_builder, "bottom_statusbar"));
-    default_context_id = gtk_statusbar_get_context_id(bar, "default");
+    GtkStatusbar *bar = GTK_STATUSBAR(gtk_builder_get_object(gslapt_builder, "bottom_statusbar"));
+    guint default_context_id = gtk_statusbar_get_context_id(bar, "default");
     gtk_statusbar_push(bar, default_context_id, (gchar *)_("Ready"));
 
     gtk_widget_set_sensitive(GTK_WIDGET(gtk_builder_get_object(gslapt_builder, "action_bar_execute_button")), FALSE);
@@ -179,28 +176,28 @@ int main(int argc, char *argv[])
         g_signal_emit_by_name(gtk_builder_get_object(gslapt_builder, "action_bar_upgrade_button"), "clicked");
     } else {
         if (pkg_names_to_install->size > 0) {
-            slapt_vector_t_foreach (char *, pkg_name_to_install, pkg_names_to_install) {
+            slapt_vector_t_foreach (const char *, pkg_name_to_install, pkg_names_to_install) {
                 slapt_pkg_t *p = slapt_get_newest_pkg(all, pkg_name_to_install);
                 slapt_pkg_t *inst_p = slapt_get_newest_pkg(installed, pkg_name_to_install);
 
                 if (p == NULL)
                     continue;
 
-                if (inst_p != NULL && slapt_cmp_pkgs(inst_p, p) == 0) {
+                if (inst_p != NULL && slapt_pkg_t_cmp(inst_p, p) == 0) {
                     continue;
-                } else if (inst_p != NULL && slapt_cmp_pkgs(inst_p, p) < 0) {
-                    if (slapt_add_deps_to_trans(global_config, trans, all, installed, p) == 0) {
-                        slapt_add_upgrade_to_transaction(trans, inst_p, p);
+                } else if (inst_p != NULL && slapt_pkg_t_cmp(inst_p, p) < 0) {
+                    if (slapt_transaction_t_add_dependencies(global_config, trans, all, installed, p) == 0) {
+                        slapt_transaction_t_add_upgrade(trans, inst_p, p);
                     } else {
                         exit(1);
                     }
                 } else {
-                    if (slapt_add_deps_to_trans(global_config, trans, all, installed, p) == 0) {
-                        slapt_vector_t *conflicts = slapt_is_conflicted(trans, all, installed, p);
-                        slapt_add_install_to_transaction(trans, p);
+                    if (slapt_transaction_t_add_dependencies(global_config, trans, all, installed, p) == 0) {
+                        slapt_vector_t *conflicts = slapt_transaction_t_find_conflicts(trans, all, installed, p);
+                        slapt_transaction_t_add_install(trans, p);
                         if (conflicts->size > 0) {
                             slapt_vector_t_foreach (slapt_pkg_t *, conflict_pkg, conflicts) {
-                                slapt_add_remove_to_transaction(trans, conflict_pkg);
+                                slapt_transaction_t_add_remove(trans, conflict_pkg);
                             }
                         }
                         slapt_vector_t_free(conflicts);
@@ -214,7 +211,7 @@ int main(int argc, char *argv[])
             slapt_vector_t_foreach (char *, pkg_name_to_remove, pkg_names_to_remove) {
                 slapt_pkg_t *r = slapt_get_newest_pkg(installed, pkg_name_to_remove);
                 if (r != NULL) {
-                    slapt_add_remove_to_transaction(trans, r);
+                    slapt_transaction_t_add_remove(trans, r);
                 }
             }
         }
