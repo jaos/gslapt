@@ -5,13 +5,14 @@
 # FIRST AUTHOR sin <digitalhunger@gmail.com>, 2005-2006
 # Gregory <wolfr2@gmail.com>, 2014
 # Igor Murzov <e-mail@date.by>, 2013
+# Caarmi, 2022
 msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: woodwardj at jaos dot org\n"
 "POT-Creation-Date: 2019-12-02 18:41-0500\n"
-"PO-Revision-Date: 2019-12-03 01:06+0000\n"
-"Last-Translator: gapan <vlahavas@gmail.com>\n"
+"PO-Revision-Date: 2022-01-16 01:54+0000\n"
+"Last-Translator: Caarmi\n"
 "Language-Team: Russian (http://www.transifex.com/jaos/slapt-get/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -307,43 +308,43 @@ msgid "Install, remove and upgrade software packages"
 msgstr "Установка, обновление и удаление пакетов"
 
 msgid "Run Gslapt as root"
-msgstr ""
+msgstr "Запуск Gslapt от лица суперпользователя"
 
 msgid "Authentication is required to run Gslapt"
-msgstr ""
+msgstr "Для запуска Gslapt требуется подтверждение"
 
 msgid "Base"
-msgstr "Base"
+msgstr "Базовая система"
 
 msgid "Applications"
-msgstr "Applications"
+msgstr "Приложения"
 
 msgid "Development Tools"
-msgstr "Development Tools"
+msgstr "Инструменты разработки"
 
 msgid "GNU Emacs"
 msgstr "GNU Emacs"
 
 msgid "Documentation"
-msgstr "Documentation"
+msgstr "Документация"
 
 msgid "GNOME"
 msgstr "GNOME"
 
 msgid "Linux kernel"
-msgstr "Linux kernel"
+msgstr "Ядро Linux"
 
 msgid "KDE"
 msgstr "KDE"
 
 msgid "KDE Internationalization"
-msgstr "KDE Internationalization"
+msgstr "Переводы KDE"
 
 msgid "Libraries"
-msgstr "Libraries"
+msgstr "Библиотеки"
 
 msgid "Networking"
-msgstr "Networking"
+msgstr "Сеть"
 
 msgid "teTeX"
 msgstr "teTeX"
@@ -355,13 +356,13 @@ msgid "X Window System"
 msgstr "X Window System"
 
 msgid "X Applications"
-msgstr "X Applications"
+msgstr "Приложения X"
 
 msgid "BSD Console games"
-msgstr "BSD Console games"
+msgstr "Консольные игры BSD"
 
 msgid "Patches"
-msgstr "Patches"
+msgstr "Патчи"
 
 msgid "GSB Base"
 msgstr "GSB Base"
@@ -400,10 +401,10 @@ msgid "GSB Themes"
 msgstr "GSB Themes"
 
 msgid "Games"
-msgstr "Games"
+msgstr "Игры"
 
 msgid "Localization"
-msgstr "Localization"
+msgstr "Переводы"
 
 msgid ""
 "gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
@@ -594,16 +595,16 @@ msgid ""
 msgstr "Данный репозиторий пакетов повреждён или недоступен. Хотите отключить использование этого репозитория и продолжить?"
 
 msgid "Default"
-msgstr "Default"
+msgstr "По умолчанию"
 
 msgid "Official"
-msgstr "Official"
+msgstr "Официальный"
 
 msgid "Preferred"
-msgstr "Preferred"
+msgstr "Предпочитаемый"
 
 msgid "Custom"
-msgstr "Custom"
+msgstr "Пользовательский"
 
 msgid "Package Source"
 msgstr "Источник пакетов"
