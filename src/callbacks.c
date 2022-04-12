@@ -224,7 +224,7 @@ void open_preferences(GtkMenuItem *menuitem __unused__, gpointer user_data __unu
     gtk_widget_show_all(preferences_window);
 }
 
-void search_activated(GtkWidget *gslapt __unused__, gpointer user_data __unused__)
+void search_activated(GtkWidget *unused_gslapt __unused__, gpointer user_data __unused__)
 {
     GtkTreeIter iter;
     GtkTreeView *treeview = GTK_TREE_VIEW(gtk_builder_get_object(gslapt_builder, "pkg_listing_treeview"));
@@ -251,7 +251,7 @@ void search_activated(GtkWidget *gslapt __unused__, gpointer user_data __unused_
     }
 }
 
-void add_pkg_for_install(GtkWidget *gslapt __unused__, gpointer user_data)
+void add_pkg_for_install(GtkWidget *unused_gslapt __unused__, gpointer user_data)
 {
     slapt_pkg_t *pkg = NULL, *installed_pkg = NULL;
     GtkTreeIter iter;
@@ -405,7 +405,7 @@ void add_pkg_for_install(GtkWidget *gslapt __unused__, gpointer user_data)
     rebuild_package_action_menu();
 }
 
-void add_pkg_for_removal(GtkWidget *gslapt __unused__, gpointer user_data __unused__)
+void add_pkg_for_removal(GtkWidget *unused_gslapt __unused__, gpointer user_data __unused__)
 {
     GtkTreeIter iter;
     GtkTreeView *treeview = GTK_TREE_VIEW(gtk_builder_get_object(gslapt_builder, "pkg_listing_treeview"));
@@ -2582,10 +2582,10 @@ void cancel_transaction(GtkWidget *w __unused__, gpointer user_data __unused__)
     gtk_widget_destroy(GTK_WIDGET(gtk_builder_get_object(gslapt_builder, "transaction_window")));
 }
 
-void add_pkg_for_reinstall(GtkWidget *gslapt, gpointer user_data)
+void add_pkg_for_reinstall(GtkWidget *gslapt_widget, gpointer user_data)
 {
     global_config->re_install = TRUE;
-    add_pkg_for_install(gslapt, user_data);
+    add_pkg_for_install(gslapt_widget, user_data);
     global_config->re_install = FALSE;
 }
 
@@ -2661,7 +2661,7 @@ static gboolean pkg_action_popup_menu(GtkTreeView *treeview, gpointer data __unu
     return TRUE;
 }
 
-void unmark_package(GtkWidget *gslapt __unused__, gpointer user_data __unused__)
+void unmark_package(GtkWidget *unused_gslapt __unused__, gpointer user_data __unused__)
 {
     GtkTreeView *treeview = GTK_TREE_VIEW(gtk_builder_get_object(gslapt_builder, "pkg_listing_treeview"));
     GtkTreeSelection *selection = gtk_tree_view_get_selection(treeview);
