@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: woodwardj at jaos dot org\n"
-"POT-Creation-Date: 2019-12-02 18:41-0500\n"
+"POT-Creation-Date: 2022-06-03 22:11+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -346,6 +346,9 @@ msgstr ""
 msgid "X Applications"
 msgstr ""
 
+msgid "Xfce"
+msgstr ""
+
 msgid "BSD Console games"
 msgstr ""
 
@@ -392,6 +395,69 @@ msgid "Games"
 msgstr ""
 
 msgid "Localization"
+msgstr ""
+
+msgid "LXDE"
+msgstr ""
+
+msgid "MATE"
+msgstr ""
+
+msgid "Academic"
+msgstr ""
+
+msgid "Accessibility"
+msgstr ""
+
+msgid "Audio"
+msgstr ""
+
+msgid "Business"
+msgstr ""
+
+msgid "Desktop"
+msgstr ""
+
+msgid "Development"
+msgstr ""
+
+msgid "GIS"
+msgstr ""
+
+msgid "Graphics"
+msgstr ""
+
+msgid "HAM Radio"
+msgstr ""
+
+msgid "Haskell"
+msgstr ""
+
+msgid "Miscellaneous"
+msgstr ""
+
+msgid "Multimedia"
+msgstr ""
+
+msgid "Network"
+msgstr ""
+
+msgid "Office"
+msgstr ""
+
+msgid "Perl"
+msgstr ""
+
+msgid "Python"
+msgstr ""
+
+msgid "Ruby"
+msgstr ""
+
+msgid "System"
+msgstr ""
+
+msgid "Slackware Extra"
 msgstr ""
 
 msgid ""
