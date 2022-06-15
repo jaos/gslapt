@@ -3,14 +3,15 @@
 # 
 # Translators:
 # gapan <vlahavas@gmail.com>, 2012
+# gapan <vlahavas@gmail.com>, 2022
 # gapan <vlahavas@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: woodwardj at jaos dot org\n"
-"POT-Creation-Date: 2019-12-02 18:41-0500\n"
-"PO-Revision-Date: 2019-12-03 01:06+0000\n"
-"Last-Translator: gapan <vlahavas@gmail.com>\n"
+"POT-Creation-Date: 2022-06-03 22:11+0300\n"
+"PO-Revision-Date: 2012-09-17 21:52+0000\n"
+"Last-Translator: gapan <vlahavas@gmail.com>, 2022\n"
 "Language-Team: Greek (http://www.transifex.com/jaos/slapt-get/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -164,32 +165,32 @@ msgstr "Πακέτο"
 #, c-format
 msgid "%d upgraded, "
 msgid_plural "%d upgraded, "
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d ενημερώθηκε, "
+msgstr[1] "%d ενημερώθηκαν, "
 
 #, c-format
 msgid "%d reinstalled, "
 msgid_plural "%d reinstalled, "
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d επανεγκαταστάθηκε, "
+msgstr[1] "%d επανεγκαταστάθηκαν, "
 
 #, c-format
 msgid "%d newly installed, "
 msgid_plural "%d newly installed, "
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d νέο εγκαταστάθηκε, "
+msgstr[1] "%d νεά εγκαταστάθηκαν, "
 
 #, c-format
 msgid "%d to remove "
 msgid_plural "%d to remove "
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d προς αφαίρεση"
+msgstr[1] "%d προς αφαίρεση"
 
 #, c-format
 msgid "and %d not upgraded."
 msgid_plural "and %d not upgraded."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "και %d δεν ενημερώθηκε."
+msgstr[1] "και %d δεν ενημερώθηκαν."
 
 msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Δεν έχετε αρκετό ελεύθερο χώρο στο δίσκο</span>"
@@ -296,10 +297,10 @@ msgid "Install, remove and upgrade software packages"
 msgstr "Εγκαταστήστε, απεγκαταστήστε και αναβαθμίστε πακέτα λογισμικού"
 
 msgid "Run Gslapt as root"
-msgstr ""
+msgstr "Εκτέλεση του Gslapt ως χρήστης root"
 
 msgid "Authentication is required to run Gslapt"
-msgstr ""
+msgstr "Απαιτείται πιστοποίηση του χρήστη για να εκτελεστεί το Gslapt"
 
 msgid "Base"
 msgstr "Βάση"
@@ -345,6 +346,9 @@ msgstr "Σύστημα Γραφικών X"
 
 msgid "X Applications"
 msgstr "Εφαρμογές Γραφικού Περιβάλλοντος"
+
+msgid "Xfce"
+msgstr "Xfce"
 
 msgid "BSD Console games"
 msgstr "Παιγνίδια Κονσόλας BSD"
@@ -393,6 +397,69 @@ msgstr "Παιγνίδια"
 
 msgid "Localization"
 msgstr "Διεθνοποίηση"
+
+msgid "LXDE"
+msgstr "LXDE"
+
+msgid "MATE"
+msgstr "MATE"
+
+msgid "Academic"
+msgstr "Ακαδημαϊκά"
+
+msgid "Accessibility"
+msgstr "Προσιτότητα"
+
+msgid "Audio"
+msgstr "Ήχος"
+
+msgid "Business"
+msgstr "Εμπορικά"
+
+msgid "Desktop"
+msgstr "Επιφάνεια εργασίας"
+
+msgid "Development"
+msgstr "Ανάπτυξη"
+
+msgid "GIS"
+msgstr "GIS"
+
+msgid "Graphics"
+msgstr "Γραφικά"
+
+msgid "HAM Radio"
+msgstr "Ερασιτεχνικό ραδιόφωνο HAM"
+
+msgid "Haskell"
+msgstr "Haskell"
+
+msgid "Miscellaneous"
+msgstr "Διάφορα"
+
+msgid "Multimedia"
+msgstr "Πολυμέσα"
+
+msgid "Network"
+msgstr "Δίκτυο"
+
+msgid "Office"
+msgstr "Γραφείο"
+
+msgid "Perl"
+msgstr "Perl"
+
+msgid "Python"
+msgstr "Python"
+
+msgid "Ruby"
+msgstr "Ruby"
+
+msgid "System"
+msgstr "Σύστημα"
+
+msgid "Slackware Extra"
+msgstr "Επιπλέον πακέτα Slackware"
 
 msgid ""
 "gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
