@@ -570,7 +570,7 @@ msgid "View ChangeLogs"
 msgstr "Ver registo de alterações"
 
 msgid "About"
-msgstr "Sobre"
+msgstr "Acerca"
 
 msgid "Search"
 msgstr "Procurar"
@@ -675,7 +675,7 @@ msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Aplicar estas alterações?</span>"
 
 msgid "This is a summary of the changes about to be performed."
-msgstr "Este é o resumo das alterações que serão efetuadas."
+msgstr "Isto é um resumo das alterações que estão prestes a ser efetuadas."
 
 msgid "Download packages only"
 msgstr "Apenas transferir pacotes"
