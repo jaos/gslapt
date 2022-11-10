@@ -48,6 +48,7 @@ static slapt_pkg_upgrade_t *lsearch_upgrade_transaction(const slapt_transaction_
 static void build_package_action_menu(const slapt_pkg_t *pkg);
 static void rebuild_package_action_menu(void);
 static void mark_upgrade_packages(void);
+static void empty_pkg_details(void);
 static void fillin_pkg_details(const slapt_pkg_t *pkg);
 static void get_package_data(void);
 static void rebuild_treeviews(GtkWidget *current_window, gboolean reload);
@@ -718,6 +719,9 @@ void build_searched_treeviewlist(GtkWidget *treeview, gchar *pattern)
 
     // re-attach changed" signal here
     g_signal_connect(G_OBJECT(select), "changed", G_CALLBACK(show_pkg_details), NULL);
+    // signal changed on the current selection to fill in the details
+    select = gtk_tree_view_get_selection(GTK_TREE_VIEW(treeview));
+    show_pkg_details(select, NULL);
 
     if (series_regex != NULL)
         slapt_regex_t_free(series_regex);
@@ -766,14 +770,56 @@ void show_pkg_details(GtkTreeSelection *selection, gpointer data __unused__)
         g_free(p_name);
         g_free(p_version);
         g_free(p_location);
+    } else {
+        empty_pkg_details();
     }
+}
+
+void empty_pkg_details(void)
+{
+    /* set package details */
+    gtk_label_set_text(GTK_LABEL(gtk_builder_get_object(gslapt_builder, "pkg_info_name")), _("No package is selected."));
+    gtk_label_set_text(GTK_LABEL(gtk_builder_get_object(gslapt_builder, "pkg_info_version")), "");
+    gtk_label_set_text(GTK_LABEL(gtk_builder_get_object(gslapt_builder, "pkg_info_source")), "");
+    gtk_label_set_text(GTK_LABEL(gtk_builder_get_object(gslapt_builder, "pkg_info_description")), "");
+    gtk_label_set_text(GTK_LABEL(gtk_builder_get_object(gslapt_builder, "pkg_info_location")), "");
+    gtk_label_set_text(GTK_LABEL(gtk_builder_get_object(gslapt_builder, "pkg_info_priority")), "");
+    /* set status */
+    gtk_label_set_text(GTK_LABEL(gtk_builder_get_object(gslapt_builder, "pkg_info_status")), (gchar *)"");
+    /* set installed info */
+    gtk_label_set_text(GTK_LABEL(gtk_builder_get_object(gslapt_builder, "pkg_info_installed_installed_size")), "");
+    gtk_label_set_text(GTK_LABEL(gtk_builder_get_object(gslapt_builder, "pkg_info_installed_version")), "");
+    /* set latest available info */
+    gtk_label_set_text(GTK_LABEL(gtk_builder_get_object(gslapt_builder, "pkg_info_available_version")), "");
+    gtk_label_set_text(GTK_LABEL(gtk_builder_get_object(gslapt_builder, "pkg_info_available_source")), "");
+    gtk_label_set_text(GTK_LABEL(gtk_builder_get_object(gslapt_builder, "pkg_info_available_size")), "");
+    gtk_label_set_text(GTK_LABEL(gtk_builder_get_object(gslapt_builder, "pkg_info_available_installed_size")), "");
+
+    /* dependency information tab */
+    GtkTreeIter iter;
+    GtkWidget *dep_treeview = GTK_WIDGET(gtk_builder_get_object(gslapt_builder, "dep_conf_sug_treeview"));
+    GtkTreeStore *store = gtk_tree_store_new(1, G_TYPE_STRING);
+    gtk_tree_store_insert_with_values(store, &iter, NULL, -1, 0, "", -1);
+    gtk_tree_view_set_model(GTK_TREE_VIEW(dep_treeview), GTK_TREE_MODEL(store));
+    g_object_unref(store);
+    gtk_tree_view_expand_all(GTK_TREE_VIEW(dep_treeview));
+
+    /* description tab */
+    GtkTextBuffer *pkg_full_desc = gtk_text_view_get_buffer(GTK_TEXT_VIEW(gtk_builder_get_object(gslapt_builder, "pkg_description_textview")));
+    gtk_text_buffer_set_text(pkg_full_desc, "", -1);
+
+    /* changelog tab */
+    GtkTextBuffer *pkg_changelog = gtk_text_view_get_buffer(GTK_TEXT_VIEW(gtk_builder_get_object(gslapt_builder, "pkg_changelog_textview")));
+    gtk_text_buffer_set_text(pkg_changelog, "", -1);
+
+    /* file list tab */
+    GtkTextBuffer *pkg_filelist = gtk_text_view_get_buffer(GTK_TEXT_VIEW(gtk_builder_get_object(gslapt_builder, "pkg_filelist_textview")));
+    gtk_text_buffer_set_text(pkg_filelist, "", -1);
+
 }
 
 static void fillin_pkg_details(const slapt_pkg_t *pkg)
 {
-    GtkTreeIter iter;
-    GtkWidget *treeview = GTK_WIDGET(gtk_builder_get_object(gslapt_builder, "dep_conf_sug_treeview"));
-
     /* set package details */
     gtk_label_set_text(GTK_LABEL(gtk_builder_get_object(gslapt_builder, "pkg_info_name")), pkg->name);
     gtk_label_set_text(GTK_LABEL(gtk_builder_get_object(gslapt_builder, "pkg_info_version")), pkg->version);
@@ -797,8 +843,8 @@ static void fillin_pkg_details(const slapt_pkg_t *pkg)
     gtk_label_set_text(GTK_LABEL(gtk_builder_get_object(gslapt_builder, "pkg_info_priority")), priority_str);
 
     /* dependency information tab */
+    GtkTreeIter iter;
     GtkTreeStore *store = gtk_tree_store_new(1, G_TYPE_STRING);
-
     if (pkg->installed == false) {
         gtk_tree_store_insert_with_values(store, &iter, NULL, -1, 0, _("<b>Required:</b>"), -1);
 
@@ -840,22 +886,23 @@ static void fillin_pkg_details(const slapt_pkg_t *pkg)
         gtk_tree_store_insert_with_values(store, &iter, NULL, -1, 0, _("No dependency information available"), -1);
     }
 
-    GList *columns = gtk_tree_view_get_columns(GTK_TREE_VIEW(treeview));
+    GtkWidget *dep_treeview = GTK_WIDGET(gtk_builder_get_object(gslapt_builder, "dep_conf_sug_treeview"));
+    gtk_tree_view_set_model(GTK_TREE_VIEW(dep_treeview), GTK_TREE_MODEL(store));
+    g_object_unref(store);
+    gtk_tree_view_expand_all(GTK_TREE_VIEW(dep_treeview));
+
+    GList *columns = gtk_tree_view_get_columns(GTK_TREE_VIEW(dep_treeview));
     for (guint i = 0; i < g_list_length(columns); i++) {
         GtkTreeViewColumn *my_column = GTK_TREE_VIEW_COLUMN(g_list_nth_data(columns, i));
         if (my_column != NULL) {
-            gtk_tree_view_remove_column(GTK_TREE_VIEW(treeview), my_column);
+            gtk_tree_view_remove_column(GTK_TREE_VIEW(dep_treeview), my_column);
         }
     }
     g_list_free(columns);
 
     GtkCellRenderer *renderer = gtk_cell_renderer_text_new();
     GtkTreeViewColumn *column = gtk_tree_view_column_new_with_attributes((gchar *)_("Source"), renderer, "markup", 0, NULL);
-    gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
-
-    gtk_tree_view_set_model(GTK_TREE_VIEW(treeview), GTK_TREE_MODEL(store));
-    g_object_unref(store);
-    gtk_tree_view_expand_all(GTK_TREE_VIEW(treeview));
+    gtk_tree_view_append_column(GTK_TREE_VIEW(dep_treeview), column);
 
     /* description tab */
     GtkTextBuffer *pkg_full_desc = gtk_text_view_get_buffer(GTK_TEXT_VIEW(gtk_builder_get_object(gslapt_builder, "pkg_description_textview")));
@@ -3354,6 +3401,9 @@ void view_all_packages(GtkMenuItem *menuitem __unused__, gpointer user_data __un
     }
     // re-attach changed" signal here
     g_signal_connect(G_OBJECT(select), "changed", G_CALLBACK(show_pkg_details), NULL);
+    // signal changed on the current selection to fill in the details
+    select = gtk_tree_view_get_selection(GTK_TREE_VIEW(treeview));
+    show_pkg_details(select, NULL);
 }
 
 void view_available_packages(GtkMenuItem *menuitem __unused__, gpointer user_data __unused__)
@@ -3411,6 +3461,9 @@ void view_installed_or_available_packages(gboolean show_installed, gboolean show
     }
     // re-attach changed" signal here
     g_signal_connect(G_OBJECT(select), "changed", G_CALLBACK(show_pkg_details), NULL);
+    // signal changed on the current selection to fill in the details
+    select = gtk_tree_view_get_selection(GTK_TREE_VIEW(treeview));
+    show_pkg_details(select, NULL);
 }
 
 void view_marked_packages(GtkMenuItem *menuitem __unused__, gpointer user_data __unused__)
@@ -3442,6 +3495,9 @@ void view_marked_packages(GtkMenuItem *menuitem __unused__, gpointer user_data _
     }
     // re-attach changed" signal here
     g_signal_connect(G_OBJECT(select), "changed", G_CALLBACK(show_pkg_details), NULL);
+    // signal changed on the current selection to fill in the details
+    select = gtk_tree_view_get_selection(GTK_TREE_VIEW(treeview));
+    show_pkg_details(select, NULL);
 
     gchar *pattern = (gchar *)gtk_entry_get_text(GTK_ENTRY(gtk_builder_get_object(gslapt_builder, "search_entry")));
     if (pattern && strlen(pattern) > 0) {
@@ -3693,6 +3749,9 @@ void view_upgradeable_packages(GtkMenuItem *menuitem __unused__, gpointer user_d
     }
     // re-attach changed" signal here
     g_signal_connect(G_OBJECT(select), "changed", G_CALLBACK(show_pkg_details), NULL);
+    // signal changed on the current selection to fill in the details
+    select = gtk_tree_view_get_selection(GTK_TREE_VIEW(treeview));
+    show_pkg_details(select, NULL);
 
     gchar *pattern = (gchar *)gtk_entry_get_text(GTK_ENTRY(gtk_builder_get_object(gslapt_builder, "search_entry")));
     if (pattern && strlen(pattern) > 0) {
