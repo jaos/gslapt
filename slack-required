@@ -6,6 +6,7 @@ aaa_libraries|krb5
 aaa_libraries|libcap
 aaa_libraries|libffi
 aaa_libraries|libidn2
+aaa_libraries|libjpeg-turbo
 aaa_libraries|libnsl
 aaa_libraries|libpng
 aaa_libraries|libpsl
