@@ -1501,7 +1501,7 @@ static void get_package_data(void)
     gdk_threads_add_idle_full(G_PRIORITY_HIGH, _get_package_data_finish, NULL, NULL);
 }
 
-int gtk_progress_callback(void *data, double dltotal, double dlnow, double ultotal __unused__, double ulnow __unused__)
+int gtk_progress_callback(void *data, off_t dltotal, off_t dlnow, off_t ultotal __unused__, off_t ulnow __unused__)
 {
     if (_cancelled == 1) {
         return -1;

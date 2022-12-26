@@ -77,7 +77,7 @@ void transaction_okbutton_clicked(GtkWidget *w, gpointer user_data);
 void preferences_exclude_add(GtkWidget *w, gpointer user_data);
 void preferences_exclude_remove(GtkWidget *w, gpointer user_data);
 
-int gtk_progress_callback(void *data, double dltotal, double dlnow, double ultotal, double ulnow);
+int gtk_progress_callback(void *data, off_t dltotal, off_t dlnow, off_t ultotal, off_t ulnow);
 void build_package_treeviewlist(GtkWidget *treeview);
 
 void cancel_preferences(GtkWidget *w, gpointer user_data);
