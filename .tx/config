@@ -1,8 +1,8 @@
-# gslapt
 [main]
 host = https://www.transifex.com
 
-[slapt-get.gslapt]
+[o:jaos:p:slapt-get:r:gslapt]
 file_filter = po/<lang>.po
 source_file = po/gslapt.pot
 source_lang = en
+
