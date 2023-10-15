@@ -381,12 +381,12 @@ void add_pkg_for_install(GtkWidget *unused_gslapt __unused__, gpointer user_data
                             }
                         }
                     } else {
-                        slapt_pkg_t *inst_avail = slapt_get_exact_pkg(all, installed_pkg->name, installed_pkg->version);
+                        const slapt_pkg_t *inst_avail = slapt_get_exact_pkg(all, installed_pkg->name, installed_pkg->version);
                         set_iter_for_upgrade(model, &actual_iter, pkg);
                         if (pkg != NULL && set_iter_to_pkg(model, &actual_iter, pkg)) {
                             set_iter_for_upgrade(model, &actual_iter, pkg);
                         }
-                        if (installed_pkg != NULL && set_iter_to_pkg(model, &actual_iter, installed_pkg)) {
+                        if (set_iter_to_pkg(model, &actual_iter, installed_pkg)) {
                             set_iter_for_upgrade(model, &actual_iter, installed_pkg);
                         }
                         if (inst_avail != NULL && set_iter_to_pkg(model, &actual_iter, inst_avail)) {
@@ -947,7 +947,7 @@ static void fillin_pkg_details(const slapt_pkg_t *pkg)
     }
 
     slapt_pkg_t *latest_pkg = slapt_get_newest_pkg(all, pkg->name);
-    slapt_pkg_t *installed_pkg = slapt_get_newest_pkg(installed, pkg->name);
+    const slapt_pkg_t *installed_pkg = slapt_get_newest_pkg(installed, pkg->name);
     slapt_pkg_upgrade_t *pkg_upgrade = NULL;
 
     /* set status */
@@ -2670,8 +2670,8 @@ static void notify(const char *title, const char *message)
 
 static gboolean pkg_action_popup_menu(GtkTreeView *treeview, gpointer data __unused__)
 {
-    GdkEventButton *eventb = (GdkEventButton *)gtk_get_current_event();
-    GdkEvent *event = gtk_get_current_event();
+    const GdkEventButton *eventb = (GdkEventButton *)gtk_get_current_event();
+    const GdkEvent *event = gtk_get_current_event();
 
     if (event == NULL || eventb == NULL) {
         return FALSE;
@@ -3039,7 +3039,7 @@ static void build_package_action_menu(const slapt_pkg_t *pkg)
         if (slapt_pkg_t_cmp(pkg, newest_installed) < 0) {
             is_downgrade = 1;
         } else if (is_newest == 0 && slapt_pkg_t_cmp_versions(pkg->version, newest_installed->version) < 0) {
-            /* if pkg is not the newest available version and the version is actually 
+            /* if pkg is not the newest available version and the version is actually
             less (and does not have a higher priority or would have been handled
             above) then we consider this a downgrade */
             is_downgrade = 1;
@@ -3260,7 +3260,7 @@ slapt_vector_t *parse_disabled_package_sources(const char *file_name)
 
 static gboolean toggle_source_status(GtkTreeView *treeview, gpointer data __unused__)
 {
-    GdkEventButton *event = (GdkEventButton *)gtk_get_current_event();
+    const GdkEventButton *event = (GdkEventButton *)gtk_get_current_event();
     if (event == NULL) {
         return FALSE;
     }
@@ -3537,11 +3537,13 @@ static int set_iter_for_downgrade(GtkTreeModel *model, GtkTreeIter *iter, const 
 
 static int set_iter_for_upgrade(GtkTreeModel *model, GtkTreeIter *iter, const slapt_pkg_t *pkg)
 {
-    gchar *status = g_strdup_printf("u%s", pkg->name);
-    GdkPixbuf *status_icon = gslapt_img("pkg_action_upgrade.png");
-    gtk_list_store_set(GTK_LIST_STORE(model), iter, STATUS_ICON_COLUMN, status_icon, STATUS_COLUMN, status, MARKED_COLUMN, TRUE, -1);
-    g_free(status);
-    g_object_unref(status_icon);
+    if (pkg != NULL) {
+        gchar *status = g_strdup_printf("u%s", pkg->name);
+        GdkPixbuf *status_icon = gslapt_img("pkg_action_upgrade.png");
+        gtk_list_store_set(GTK_LIST_STORE(model), iter, STATUS_ICON_COLUMN, status_icon, STATUS_COLUMN, status, MARKED_COLUMN, TRUE, -1);
+        g_free(status);
+        g_object_unref(status_icon);
+    }
     return 0;
 }
 
