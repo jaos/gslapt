@@ -1,11 +1,13 @@
 project('gslapt', 'c',
   version: '0.5.10',
   license: 'GPLv2',
-  meson_version: '>= 0.56',
+  meson_version: '>= 0.59.4',
   default_options: [
+    'c_std=gnu2x',
     'buildtype=debugoptimized',
     'b_lto=true',
-    'warning_level=2',
+    'sysconfdir=/etc',
+    'warning_level=3',
   ],
 )
 package = meson.project_name()
@@ -105,6 +107,61 @@ custom_target('series_map.rc',
   install: true,
   install_dir: pkgdatadir,
 )
+
+cflags = [
+  '-U_FORTIFY_SOURCE',
+  '-D_FORTIFY_SOURCE=3',
+  '-fcf-protection=full',
+  '-fstack-clash-protection',
+  '-fstack-protector-all',
+  '-ftrivial-auto-var-init=zero',
+  '-ftrapv',
+  '-ggdb',
+  '-mshstk',
+
+  '-ffat-lto-objects',
+  '-fno-strict-aliasing',
+  '-fstrict-flex-arrays=3',
+  '-Warith-conversion',
+  '-Warray-bounds=2',
+  '-Wcast-align=strict',
+  '-Wconversion',
+  '-Wduplicated-cond',
+  '-Wduplicated-branches',
+  '-Wformat-nonliteral',
+  '-Wformat-overflow=2',
+  '-Wformat-security',
+  '-Wformat=2',
+  '-Wimplicit-function-declaration',
+  '-Wimplicit-fallthrough=3',
+  '-Wincompatible-pointer-types',
+  '-Winit-self',
+  '-Wint-conversion',
+  '-Wlogical-op',
+  '-Wmaybe-uninitialized',
+  '-Wmissing-field-initializers',
+  '-Wnull-dereference',
+  '-Wold-style-definition',
+  '-Wparentheses',
+  '-Wredundant-decls',
+  '-Wshadow',
+  '-Wshift-overflow=2',
+  '-Wstrict-overflow',
+  '-Wstrict-prototypes',
+  '-Wstringop-overflow=4',
+  '-Wswitch-default',
+  '-Wtrampolines',
+  '-Wundef',
+]
+add_project_arguments(cc.get_supported_arguments(cflags), language: 'c')
+add_project_link_arguments(cc.get_supported_link_arguments(cflags), language: 'c')
+lflags = ['-Wl,-z,defs',
+  '-Wl,-z,noexecstack',
+  '-Wl,-z,now',
+  '-Wl,-z,relro',
+  '-Wl,-z,separate-code',
+]
+add_project_link_arguments(cc.get_supported_link_arguments(lflags), language: 'c')
 
 subdir('po')
 subdir('src')

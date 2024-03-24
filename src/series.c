@@ -92,7 +92,7 @@ char *gslapt_series_map_lookup(GHashTable *map, const char *key)
     }
 
     if (value != NULL) {
-        char *converted = g_convert(value, strlen(value), "UTF-8", "UTF-8", NULL, NULL, NULL);
+        char *converted = g_convert(value, (gssize)strlen(value), "UTF-8", "UTF-8", NULL, NULL, NULL);
         if (converted != NULL)
             value = converted;
     }

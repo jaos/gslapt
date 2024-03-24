@@ -917,7 +917,7 @@ static void fillin_pkg_details(const slapt_pkg_t *pkg)
     char *changelog = slapt_pkg_t_changelog(pkg);
     if (changelog != NULL) {
         if (!g_utf8_validate(changelog, -1, NULL)) {
-            char *converted = g_convert(changelog, strlen(changelog), "UTF-8", "ISO-8859-1", NULL, NULL, NULL);
+            char *converted = g_convert(changelog, (gssize)strlen(changelog), "UTF-8", "ISO-8859-1", NULL, NULL, NULL);
             if (converted != NULL) {
                 free(changelog);
                 changelog = converted;
@@ -934,7 +934,7 @@ static void fillin_pkg_details(const slapt_pkg_t *pkg)
     char *filelist = slapt_pkg_t_filelist(pkg);
     if (filelist != NULL) {
         if (!g_utf8_validate(filelist, -1, NULL)) {
-            char *converted = g_convert(filelist, strlen(filelist), "UTF-8", "ISO-8859-1", NULL, NULL, NULL);
+            char *converted = g_convert(filelist, (gssize)strlen(filelist), "UTF-8", "ISO-8859-1", NULL, NULL, NULL);
             if (converted != NULL) {
                 free(filelist);
                 filelist = converted;
@@ -1221,7 +1221,7 @@ static int _get_package_data_source_verification_failed(gpointer data)
 
 static void get_package_data(void)
 {
-    gfloat dl_files = 0.0, dl_count = 0.0;
+    gdouble dl_files = 0.0, dl_count = 0.0;
     slapt_vector_t *new_pkgs = slapt_vector_t_init((slapt_vector_t_free_function)slapt_pkg_t_free);
 
     _progress_set_total_percent(0.0);
@@ -1508,14 +1508,14 @@ int gtk_progress_callback(void *data, off_t dltotal, off_t dlnow, off_t ultotal 
     }
 
     double percent = 1.0;
-    if (dltotal != 0.0) {
-        percent = ((dlnow * 100) / dltotal) / 100;
+    if (dltotal != 0) {
+        percent = (double)((dlnow * 100) / dltotal) / 100;
     }
 
     struct slapt_progress_data *cb_data = (struct slapt_progress_data *)data;
     const time_t now = time(NULL);
-    const double elapsed = now - cb_data->start;
-    const double speed = dlnow / (elapsed > 0 ? elapsed : 1);
+    const double elapsed = (double)now - (double)cb_data->start;
+    const double speed = (double)dlnow / (elapsed > 0 ? elapsed : 1);
 
     gchar *status = g_strdup_printf((gchar *)_("Download rate: %.0f%s/s"),
                              (speed > 1000) ? (speed > 1000000) ? speed / 1000000 : speed / 1000 : speed,
@@ -1612,7 +1612,6 @@ static int _lhandle_transaction_dl_failed(gpointer data)
     char *err = data;
     if (err != NULL) {
         notify((gchar *)_("Error"), (gchar *)err);
-        free(err);
     }
     unlock_toolbar_buttons();
     unset_busy_cursor();
@@ -1660,19 +1659,20 @@ static int _lhandle_transaction_dl_complete(gpointer data __unused__)
 
 static void *lhandle_transaction(gpointer data)
 {
-    gboolean dl_only = (intptr_t)data;
+    uintptr_t dl_only = (uintptr_t)data;
 
     /* download the pkgs */
     if (trans->install_pkgs->size > 0 || trans->upgrade_pkgs->size > 0 || trans->reinstall_pkgs->size > 0) {
         char *err = download_packages();
         if (err != NULL || _cancelled == 1) {
             gdk_threads_add_idle_full(G_PRIORITY_HIGH, _lhandle_transaction_dl_failed, err, NULL);
+            free(err);
             return NULL;
         }
     }
 
     /* return early if download_only is set */
-    if (dl_only == TRUE || _cancelled == 1) {
+    if ((gboolean)dl_only == TRUE || _cancelled == 1) {
         gdk_threads_add_idle_full(G_PRIORITY_HIGH, _lhandle_transaction_dl_finish, NULL, NULL);
         return NULL;
     }
@@ -1851,7 +1851,7 @@ static int populate_transaction_window(void)
 
             gtk_tree_store_insert_with_values(store, &child_iter, &iter, -1, 0, detail, -1);
             dl_size += install_pkg->size_c;
-            already_dl_size += slapt_get_pkg_file_size(global_config, install_pkg) / 1024;
+            already_dl_size += (double)slapt_get_pkg_file_size(global_config, install_pkg) / 1024;
             free_space += install_pkg->size_u;
 
             g_free(detail);
@@ -1870,7 +1870,7 @@ static int populate_transaction_window(void)
             gtk_tree_store_insert_with_values(store, &child_iter, &iter, -1, 0, detail, -1);
 
             dl_size += upgrade_pkg->upgrade->size_c;
-            already_dl_size += slapt_get_pkg_file_size(global_config, upgrade_pkg->upgrade) / 1024;
+            already_dl_size += (double)slapt_get_pkg_file_size(global_config, upgrade_pkg->upgrade) / 1024;
             free_space += upgrade_pkg->upgrade->size_u;
             free_space -= upgrade_pkg->installed->size_u;
 
@@ -1886,7 +1886,7 @@ static int populate_transaction_window(void)
             gtk_tree_store_insert_with_values(store, &child_iter, &iter, -1, 0, detail, -1);
 
             dl_size += reinstall_pkg->upgrade->size_c;
-            already_dl_size += slapt_get_pkg_file_size(global_config, reinstall_pkg->upgrade) / 1024;
+            already_dl_size += (double)slapt_get_pkg_file_size(global_config, reinstall_pkg->upgrade) / 1024;
             free_space += reinstall_pkg->upgrade->size_u;
             free_space -= reinstall_pkg->installed->size_u;
 
@@ -1923,12 +1923,18 @@ static int populate_transaction_window(void)
              P_("%d to remove ", "%d to remove ", trans->remove_pkgs->size),
              P_("and %d not upgraded.", "and %d not upgraded.", trans->exclude_pkgs->size));
     char buf[512];
+    # pragma GCC diagnostic push
+    # pragma GCC diagnostic ignored "-Wformat"
+    # pragma GCC diagnostic ignored "-Wformat-security"
+    # pragma GCC diagnostic ignored "-Wstrict-prototypes"
+    # pragma GCC diagnostic ignored "-Wformat-nonliteral"
     snprintf(buf, 512, fmt,
              trans->upgrade_pkgs->size,
              trans->reinstall_pkgs->size,
              trans->install_pkgs->size,
              trans->remove_pkgs->size,
              trans->exclude_pkgs->size);
+    # pragma GCC diagnostic pop
     gtk_label_set_text(GTK_LABEL(sum_pkg_num), buf);
 
     /* if we don't have enough free space to download */
@@ -2071,7 +2077,7 @@ static int _download_packages_cancel(gpointer data __unused__)
 
 char *download_packages(void)
 {
-    gfloat pkgs_to_dl = 0.0, count = 0.0;
+    gdouble pkgs_to_dl = 0.0, count = 0.0;
 
     pkgs_to_dl += trans->install_pkgs->size;
     pkgs_to_dl += trans->upgrade_pkgs->size;
@@ -2094,7 +2100,7 @@ char *download_packages(void)
     }
 
     slapt_vector_t_foreach (const slapt_pkg_t *, install_pkg, trans->install_pkgs) {
-        const guint msg_len = strlen(install_pkg->name) + strlen("-") + strlen(install_pkg->version) + strlen(".") + strlen(install_pkg->file_ext);
+        const size_t msg_len = strlen(install_pkg->name) + strlen("-") + strlen(install_pkg->version) + strlen(".") + strlen(install_pkg->file_ext);
         gchar msg[msg_len + 1]; // REVIEW
 
         snprintf(msg,
@@ -2128,7 +2134,7 @@ char *download_packages(void)
     }
 
     slapt_vector_t_foreach (const slapt_pkg_upgrade_t *, upgrade_pkg, trans->upgrade_pkgs) {
-        guint msg_len = strlen(upgrade_pkg->upgrade->name) + strlen("-") + strlen(upgrade_pkg->upgrade->version) + strlen(".") + strlen(upgrade_pkg->upgrade->file_ext);
+        size_t msg_len = strlen(upgrade_pkg->upgrade->name) + strlen("-") + strlen(upgrade_pkg->upgrade->version) + strlen(".") + strlen(upgrade_pkg->upgrade->file_ext);
         gchar msg[msg_len + 1]; // REVIEW
         gchar dl_size[20];
 
@@ -2164,7 +2170,7 @@ char *download_packages(void)
     }
 
     slapt_vector_t_foreach (const slapt_pkg_upgrade_t *, reinstall_pkg, trans->reinstall_pkgs) {
-        guint msg_len = strlen(reinstall_pkg->upgrade->name) + strlen("-") + strlen(reinstall_pkg->upgrade->version) + strlen(".") + strlen(reinstall_pkg->upgrade->file_ext);
+        size_t msg_len = strlen(reinstall_pkg->upgrade->name) + strlen("-") + strlen(reinstall_pkg->upgrade->version) + strlen(".") + strlen(reinstall_pkg->upgrade->file_ext);
         gchar msg[msg_len + 1]; // REVIEW
         gchar dl_size[20];
 
@@ -2355,7 +2361,7 @@ static int _install_packages_complete(gpointer data __unused__)
 
 static gboolean install_packages(void)
 {
-    gfloat count = 0.0;
+    gdouble count = 0.0;
 
     gdk_threads_add_idle_full(G_PRIORITY_HIGH, _install_packages_init, NULL, NULL);
     guint updater = gdk_threads_add_timeout_full(G_PRIORITY_HIGH, 20, _update_pkgtools_progress, NULL, NULL);
@@ -2683,7 +2689,7 @@ static gboolean pkg_action_popup_menu(GtkTreeView *treeview, gpointer data __unu
 
     GtkTreeViewColumn *column;
     GtkTreePath *path;
-    if (!gtk_tree_view_get_path_at_pos(treeview, eventb->x, eventb->y, &path, &column, NULL, NULL)) {
+    if (!gtk_tree_view_get_path_at_pos(treeview, (int)eventb->x, (int)eventb->y, &path, &column, NULL, NULL)) {
         gtk_tree_path_free(path);
         return FALSE;
     }
@@ -3271,7 +3277,7 @@ static gboolean toggle_source_status(GtkTreeView *treeview, gpointer data __unus
 
     GtkTreeViewColumn *column;
     GtkTreePath *path;
-    if (!gtk_tree_view_get_path_at_pos(treeview, event->x, event->y, &path, &column, NULL, NULL)) {
+    if (!gtk_tree_view_get_path_at_pos(treeview, (int)event->x, (int)event->y, &path, &column, NULL, NULL)) {
         return FALSE;
     }
 
@@ -3325,14 +3331,14 @@ static void display_dep_error_dialog(slapt_pkg_t *pkg)
     GtkTextBuffer *error_buf = gtk_text_view_get_buffer(GTK_TEXT_VIEW(gtk_builder_get_object(gslapt_builder, "dep_error_text")));
 
     slapt_vector_t_foreach (const slapt_pkg_err_t *, missing_err, trans->missing_err) {
-        const uint32_t len = strlen(missing_err->pkg) + strlen((gchar *)_(": Depends: ")) + strlen(missing_err->error) + 2;
+        const size_t len = strlen(missing_err->pkg) + strlen((gchar *)_(": Depends: ")) + strlen(missing_err->error) + 2;
         char err[len + 1]; // REVIEW
         snprintf(err, len, "%s: Depends: %s\n", missing_err->pkg, missing_err->error);
         gtk_text_buffer_insert_at_cursor(error_buf, err, -1);
     }
 
     slapt_vector_t_foreach (const slapt_pkg_err_t *, conflict_err, trans->conflict_err) {
-        const uint32_t len = strlen(conflict_err->error) + strlen((gchar *)_(", which is required by ")) + strlen(conflict_err->pkg) + strlen((gchar *)_(", is excluded")) + 2;
+        const size_t len = strlen(conflict_err->error) + strlen((gchar *)_(", which is required by ")) + strlen(conflict_err->pkg) + strlen((gchar *)_(", is excluded")) + 2;
         char err[len + 1]; // REVIEW
         snprintf(err, len, "%s, which is required by %s, is excluded\n", conflict_err->error, conflict_err->pkg);
         gtk_text_buffer_insert_at_cursor(error_buf, err, -1);
@@ -3654,7 +3660,7 @@ static int _get_gpg_key_error(gpointer data __unused__)
 }
 static int _get_gpg_key_complete(gpointer data)
 {
-    slapt_code_t result = (slapt_code_t)data;;
+    slapt_code_t result = (slapt_code_t)data;
     gtk_widget_destroy(progress_window);
     progress_window = NULL;
     notify(_("Import"), slapt_strerror(result));
@@ -3842,7 +3848,7 @@ void view_changelogs(GtkMenuItem *menuitem __unused__, gpointer user_data __unus
         GtkWidget *label = gtk_label_new(source_url);
 
         if (!g_utf8_validate(changelog_txt, -1, NULL)) {
-            gchar *converted = g_convert(changelog_txt, strlen(changelog_txt), "UTF-8", "ISO-8859-1", NULL, NULL, NULL);
+            gchar *converted = g_convert(changelog_txt, (gssize)strlen(changelog_txt), "UTF-8", "ISO-8859-1", NULL, NULL, NULL);
             if (converted != NULL) {
                 g_free(changelog_txt);
                 changelog_txt = converted;
