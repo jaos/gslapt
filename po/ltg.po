@@ -1,0 +1,712 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.5.0\n"
+"Report-Msgid-Bugs-To: slapt-get-devel@software.jaos.org\n"
+"POT-Creation-Date: 2005-09-08 00:54\n"
+"PO-Revision-Date: 2009-07-09 21:28+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Ready"
+msgstr "Gotovs"
+
+msgid "Upgrade"
+msgstr "Atjaunynōț"
+
+msgid "Re-Install"
+msgstr "Pōrinstaläț"
+
+msgid "<b>Required:</b>"
+msgstr "<b>Vajdzeigs:</b>"
+
+msgid "<b>Conflicts:</b>"
+msgstr "<b>Nasadereibys:</b>"
+
+msgid "<b>Suggests:</b>"
+msgstr "<b>Bȳtu labi ari:</b>"
+
+#. installed
+msgid "No dependency information available"
+msgstr "Nav informacejis par atkareibom"
+
+msgid "Source"
+msgstr "Olūts"
+
+msgid "No changelog information available"
+msgstr "Nav izmaiņu saroksta"
+
+msgid "The list of installed files is only available for installed packages"
+msgstr "Failu saroksts pīejams viņ deļ instaleitōm pakom"
+
+msgid "Excluded"
+msgstr "Izlaisti"
+
+msgid "To be Removed"
+msgstr "Tikș nūjymts"
+
+msgid "To be Installed"
+msgstr "Tikș instaleits"
+
+msgid "To be Re-Installed"
+msgstr "Tikș instaleits par jaunu"
+
+msgid "To be Downgraded"
+msgstr "Tikș instaleita vacōka verseja"
+
+msgid "To be Upgraded"
+msgstr "Tikș atjaunynōts"
+
+msgid "Installed"
+msgstr "Instaleitōs"
+
+msgid "Not Installed"
+msgstr "Nav instaleits"
+
+msgid "Progress"
+msgstr ""
+
+msgid "Checking for new package data..."
+msgstr "Verās jaunumus par pakom..."
+
+msgid "GPG Key verification failed"
+msgstr "Navar saleidzynōț GPG atslāgu"
+
+msgid "Retrieving package data..."
+msgstr "Sajem datus par pakom..."
+
+msgid "Retrieving patch list..."
+msgstr "Sajem īlōpu (patch) sarokstu..."
+
+msgid "Retrieving checksum list..."
+msgstr "Sajem kontrolsummu sarokstu..."
+
+msgid "Retrieving checksum signature..."
+msgstr "Sajem kontrolsummys parokstu..."
+
+msgid "Verifying checksum signature..."
+msgstr "Pōrbauda kontrolsummys parokstu..."
+
+msgid "Retrieving ChangeLog.txt..."
+msgstr "Sajem ChangeLog.txt..."
+
+msgid "Reading Package Lists..."
+msgstr "Losa paku sarokstu..."
+
+#, c-format
+msgid "Download rate: %.0f%s/s"
+msgstr "Īlōdis ōtrums: %.0f%s/s"
+
+msgid "Error"
+msgstr "Kļūda"
+
+msgid "Completed actions"
+msgstr "Pabeigtōs darbeibys"
+
+msgid "Successfully executed all actions."
+msgstr "Vyss izdareits."
+
+msgid "pkgtools returned an error"
+msgstr "pkgtools kļūda"
+
+msgid "Enabled"
+msgstr "Pīejams"
+
+msgid "Visible"
+msgstr "Radzams"
+
+msgid "Priority"
+msgstr "Prioritatá"
+
+msgid "Expression"
+msgstr "Izteiksmá"
+
+msgid "Packages with unmet dependencies"
+msgstr "Pakys ai navysom atkareibom"
+
+msgid "Package conflicts"
+msgstr "Paku nasadereiba"
+
+msgid ", which is required by "
+msgstr ", kas vajdzeigs "
+
+msgid ", is excluded"
+msgstr ", ir izlaists"
+
+msgid "Packages excluded"
+msgstr "Izlaisț pakys"
+
+msgid "Packages to be installed"
+msgstr "Pakys instaleišonai"
+
+msgid "Packages to be upgraded"
+msgstr "Pakys atjaunynōšonai"
+
+msgid "Packages to be reinstalled"
+msgstr "Pakys pōrinstaleišonai"
+
+msgid "Packages to be removed"
+msgstr "Pakys nūjimšonai"
+
+msgid "Package"
+msgstr "Paka"
+
+#, c-format
+msgid "%d upgraded, "
+msgid_plural "%d upgraded, "
+msgstr[0] "%d atjaunynōta, "
+msgstr[1] "%d atjaunynōtys, "
+
+#, c-format
+msgid "%d reinstalled, "
+msgid_plural "%d reinstalled, "
+msgstr[0] "%d pōrinstaleita, "
+msgstr[1] "%d pōrinstaleitys, "
+
+#, c-format
+msgid "%d newly installed, "
+msgid_plural "%d newly installed, "
+msgstr[0] "%d svaigi instaleita, "
+msgstr[1] "%d svaigi instaleitys, "
+
+#, c-format
+msgid "%d to remove "
+msgid_plural "%d to remove "
+msgstr[0] "%d nūjimta "
+msgstr[1] "%d nūjimtys "
+
+#, c-format
+msgid "and %d not upgraded."
+msgid_plural "and %d not upgraded."
+msgstr[0] "i %d nav atjaunynōta."
+msgstr[1] "i %d nav atjaunynōtys."
+
+msgid ""
+"<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgstr ""
+"<span weight=\"bold\" size=\"large\">Napīteik breivōs vītys</span>"
+
+#, c-format
+msgid "Need to get %.0f%s/%.0f%s of archives.\n"
+msgstr "Bȳș jōpajem %.0f%s/%.0f%s arhivi.\n"
+
+#, c-format
+msgid "Need to get %.0f%s of archives."
+msgstr "Bȳș jōpajem %.0f%s arhivi."
+
+#, c-format
+msgid "After unpacking %.0f%s disk space will be freed."
+msgstr "Pec atpakōšonys bȳș atbreivōts %.0f%s vītys iz diska."
+
+#, c-format
+msgid "After unpacking %.0f%s of additional disk space will be used."
+msgstr "Pec atpakōšonys bȳș papyldus aizjimts %.0f%s vītys iz diska."
+
+msgid "Up to Date"
+msgstr "Jau ir jaunōkō verseja"
+
+msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Atsvaidzynōšona nav pīejama</span>"
+
+msgid "Downloading packages..."
+msgstr "Paku īlōdeišona..."
+
+msgid "Downloading..."
+msgstr "Īlōdeišona..."
+
+#, c-format
+msgid "Failed to download %s: %s"
+msgstr "Navar īlōdäț %s: %s"
+
+msgid "Removing packages..."
+msgstr "Paku nūjimšona..."
+
+msgid "Installing packages..."
+msgstr "Paku instaleišona..."
+
+msgid "Uninstalling..."
+msgstr "Nūjimšona..."
+
+msgid "Installing..."
+msgstr "Instaleišona..."
+
+msgid "Upgrading..."
+msgstr "Atjaunynoj..."
+
+msgid "Failed to commit preferences"
+msgstr "Navar izmainäț īstatiejumus"
+
+msgid "Pending changes. Click execute when ready."
+msgstr "Pīlītoj izmainis. Damīdz Izpiļdäț, kod bȳsi gotovs"
+
+msgid "Status"
+msgstr "Statuss"
+
+msgid "Name"
+msgstr "Nūsaukums"
+
+msgid "Version"
+msgstr "Verseja"
+
+msgid "Location"
+msgstr "Kategoreja"
+
+msgid "Description"
+msgstr "Aproksts"
+
+msgid "Installed Size"
+msgstr "Izmārs pec instaleišonys"
+
+#, c-format
+msgid "<b>Excluding %s due to dependency failure</b>"
+msgstr "<b>Izlaiž %s deļ naapmīrynōtom atkareibom</b>"
+
+msgid ""
+"Missing dependencies may mean the software in this package will not function "
+"correctly.  Do you want to continue without the required packages?"
+msgstr ""
+"Naapmīrinōtys atkareibys var nūvásț pi tō, ka instaleitōs programys nastrōdōș "
+"kai vajag. Gribi turpynōt bez vajadzeigōm pakom?"
+
+msgid ": Depends: "
+msgstr ": Vajdzeigs: "
+
+msgid "Import"
+msgstr "Importäț"
+
+msgid "No key found"
+msgstr "Atslāga nav atrosta"
+
+msgid "ChangeLogs"
+msgstr "Izmaiņu saroksts"
+
+msgid "No changelogs found."
+msgstr "Nav izmaiņu saroksta"
+
+msgid "Gslapt Package Manager"
+msgstr "Gslapt paku menedžers"
+
+msgid "Install, remove and upgrade software packages"
+msgstr "Instalej, nūjem i atjaunynoj pakys"
+
+msgid "Run Gslapt as root"
+msgstr "Palaisț Gslapt nu root"
+
+msgid "Authentication is required to run Gslapt"
+msgstr "Lai palaistu Gslapt vajdzeiga pīzateikšona"
+
+msgid "Base"
+msgstr "Pamatprogramys"
+
+msgid "Applications"
+msgstr "Programys"
+
+msgid "Development Tools"
+msgstr "Programeišonys reiki"
+
+msgid "GNU Emacs"
+msgstr ""
+
+msgid "Documentation"
+msgstr "Dokunentaceja"
+
+msgid "GNOME"
+msgstr ""
+
+msgid "Linux kernel"
+msgstr ""
+
+msgid "KDE"
+msgstr ""
+
+msgid "KDE Internationalization"
+msgstr ""
+
+msgid "Libraries"
+msgstr "Bibliotekys"
+
+msgid "Networking"
+msgstr "Datorteikls"
+
+msgid "teTeX"
+msgstr ""
+
+msgid "TCL"
+msgstr ""
+
+msgid "X Window System"
+msgstr "X lūgu sistema"
+
+msgid "X Applications"
+msgstr "X programys"
+
+msgid "Xfce"
+msgstr ""
+
+msgid "BSD Console games"
+msgstr ""
+
+msgid "Patches"
+msgstr "Īlōpi"
+
+msgid "GSB Base"
+msgstr "GSB pamatprogramys"
+
+msgid "GSB Accessibility"
+msgstr ""
+
+msgid "GSB Administration"
+msgstr "GSB administreišona"
+
+msgid "GSB Applications"
+msgstr "GSB programys"
+
+msgid "GSB Compiz Fusion"
+msgstr ""
+
+msgid "GSB Development"
+msgstr "GSB programeišona"
+
+msgid "GSB Office"
+msgstr "GSB birojs"
+
+msgid "GSB Libraries"
+msgstr "GSB bibliotekys"
+
+msgid "GSB Mono"
+msgstr ""
+
+msgid "GSB Networking"
+msgstr "GSB datorteikls"
+
+msgid "GSB OpenOffice.org"
+msgstr ""
+
+msgid "GSB Themes"
+msgstr ""
+
+msgid "Games"
+msgstr "Spielis"
+
+msgid "Localization"
+msgstr "Lokalizaceja"
+
+msgid "LXDE"
+msgstr ""
+
+msgid "MATE"
+msgstr ""
+
+msgid "Academic"
+msgstr ""
+
+msgid "Accessibility"
+msgstr ""
+
+msgid "Audio"
+msgstr ""
+
+msgid "Business"
+msgstr "Bizness"
+
+msgid "Desktop"
+msgstr "Dorbgolds"
+
+msgid "Development"
+msgstr "Programeišona"
+
+msgid "GIS"
+msgstr ""
+
+msgid "Graphics"
+msgstr "Grafika"
+
+msgid "HAM Radio"
+msgstr ""
+
+msgid "Haskell"
+msgstr ""
+
+msgid "Miscellaneous"
+msgstr ""
+
+msgid "Multimedia"
+msgstr ""
+
+msgid "Network"
+msgstr "Teikls"
+
+msgid "Office"
+msgstr "Birojs"
+
+msgid "Perl"
+msgstr ""
+
+msgid "Python"
+msgstr ""
+
+msgid "Ruby"
+msgstr ""
+
+msgid "System"
+msgstr "Sistema"
+
+msgid "Slackware Extra"
+msgstr ""
+
+msgid ""
+"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
+"Slackware"
+msgstr ""
+"gslapt ir GTK programa deļ slapt-get, kas ir paku pōrvaļdeišonys sistema deļ "
+"Slackware"
+
+msgid "working"
+msgstr "vyss nūteik"
+
+msgid "total progress"
+msgstr "kūpejīs progress"
+
+msgid "Gslapt"
+msgstr ""
+
+msgid "_File"
+msgstr "_Fails"
+
+msgid "Update local package cache"
+msgstr "Atjaunōț paku lokālū kešu"
+
+msgid "Update"
+msgstr "Atsvaidzynōț"
+
+msgid "Mark all possible upgrades"
+msgstr "Atzeimōț vysys īspiejamōs atjaunynōšonys"
+
+msgid "Mark All Upgrades"
+msgstr "Atzeimōț vysys atjaunynōšonys"
+
+msgid "Mark all obsolete packages"
+msgstr "Atzeimōț vysys vacōkōs pakys"
+
+msgid "Mark Obsolete"
+msgstr "Atzeimōț vacōkōs"
+
+msgid "Execute all scheduled actions in current transaction"
+msgstr "Izdaräț vysys darbeibys itymā ŗaizī"
+
+msgid "Execute"
+msgstr "Izpiļdäț"
+
+msgid "_Edit"
+msgstr "Lobōț"
+
+msgid "Unmark All"
+msgstr "Najimț nivīnu"
+
+msgid "Preferences"
+msgstr "Īstatiejumi"
+
+msgid "_View"
+msgstr "Rōdäț"
+
+msgid "View all packages"
+msgstr "Rōdäț vysys pakys"
+
+msgid "All"
+msgstr "Vysys"
+
+msgid "View available packages from current sources"
+msgstr "Rōdäț pīejamōs pakys nu itīm olūtim"
+
+msgid "Available"
+msgstr "Pīejamōs"
+
+msgid "View installed packages"
+msgstr "Rōdäț instaleitōs pakys"
+
+msgid "View Marked Packages"
+msgstr "Rōdäț atzeimeitōs pakys"
+
+msgid "Marked"
+msgstr "Atzeimeitōs"
+
+msgid "View Upgradeable Packages"
+msgstr "Rōdäț atjaunynomōs pakys"
+
+msgid "Upgradeable"
+msgstr "Atjaunōjamōs"
+
+msgid "P_ackage"
+msgstr "P_aka"
+
+msgid "Unmark"
+msgstr "Najimț"
+
+msgid "Install"
+msgstr "Instaläț"
+
+msgid "Downgrade"
+msgstr "Instaläț vacōkū"
+
+msgid "Remove"
+msgstr "Nūjimț"
+
+msgid "_Help"
+msgstr "Paleigs"
+
+msgid "Icon Legend"
+msgstr "Ikonu aproksts"
+
+msgid "View ChangeLogs"
+msgstr "Rōdäț izmainis"
+
+msgid "About"
+msgstr "Par programu"
+
+msgid "Search"
+msgstr "Vaicōț"
+
+msgid "<b>Name:</b>"
+msgstr "<b>Nūsaukums:</b>"
+
+msgid "No package is selected."
+msgstr "Nikas nav atzeimeits."
+
+msgid "<b>Status:</b>"
+msgstr "<b>Statuss:</b>"
+
+msgid "<b>Description:</b>"
+msgstr "<b>Aproksts:</b>"
+
+msgid "<b>Version:</b>"
+msgstr "<b>Verseja:</b>"
+
+msgid "<b>Source:</b>"
+msgstr "<b>Olūts:</b>"
+
+msgid "<b>Priority:</b>"
+msgstr "<b>Prioritatá:</b>"
+
+msgid "<b>Location:</b>"
+msgstr "<b>Kategoreja:</b>"
+
+msgid "<b>Installed Version</b>"
+msgstr "<b>Instaleitō verseja</b>"
+
+msgid "Version:"
+msgstr "Verseja:"
+
+msgid "Installed Size:"
+msgstr "Izmārs pec instaleišonys:"
+
+msgid "<b>Latest Available Version</b>"
+msgstr "<b>Jaunōkō pīejamō verseja</b>"
+
+msgid "Size:"
+msgstr "Izmārs:"
+
+msgid "Source:"
+msgstr "Olūts:"
+
+msgid "Common"
+msgstr "Kūpeji"
+
+msgid "Dependencies"
+msgstr "Atkareibys"
+
+msgid "Changelog"
+msgstr "Izmaiņu saroksts"
+
+msgid "Files"
+msgstr "Faily"
+
+msgid ""
+"<b>The following icons are used to indicate the current status of a package:"
+"</b>"
+msgstr ""
+"<b>Ikonys parōda pakys tānejū statusu:</b>"
+
+msgid "Repositories changed"
+msgstr "Repozitoreji ir maineiti"
+
+msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
+msgstr "<span size=\"large\" weight=\"bold\">Repozitoreji ir maineiti</span>"
+
+msgid ""
+"You need to reload the package list from the sources you have listed.  Do "
+"you want to do this now?"
+msgstr ""
+"Vajag atjaunōț paku sarokstu nu olūtim. Daräț tagad?"
+
+msgid "Source failed"
+msgstr "Olūts nav pīejams"
+
+msgid ""
+"This package source failed or is not available.  Do you want to disable this "
+"source and continue anyway?"
+msgstr ""
+"Itōs pakys olūts nav pīejams ci naeksistej. Gribi atslägț itū olūtu i turpynōț?"
+
+msgid "Default"
+msgstr "Nūkluseitōs"
+
+msgid "Official"
+msgstr "Oficialōs"
+
+msgid "Preferred"
+msgstr "Īteicamōs"
+
+msgid "Custom"
+msgstr "Sovys"
+
+msgid "Package Source"
+msgstr "Paku olūts"
+
+msgid "Summary"
+msgstr "Kūpsavylkums"
+
+msgid ""
+"<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+msgstr ""
+"<span weight=\"bold\" size=\"large\">Pīlītōț izmainis?</span>"
+
+msgid "This is a summary of the changes about to be performed."
+msgstr "Tikș pīlītōtys itaidys izmainis."
+
+msgid "Download packages only"
+msgstr "Viņ īlōdäț pakys"
+
+msgid "<b>Package and data storage</b>"
+msgstr "<b>Paku i datu globōšonys vīta</b>"
+
+msgid "_Delete Cached Package Files"
+msgstr "Izdzäsț īlōdeitōs pakys"
+
+msgid "Working Directory"
+msgstr "Dorba mapá"
+
+msgid "<b>Exclude List</b>"
+msgstr "<b>Izjāmumu saroksts</b>"
+
+msgid "<span weight=\"bold\">Exclude Expression:</span>"
+msgstr "<span weight=\"bold\">Izjāmumu izteiksmá:</span>"
+
+msgid "Excludes"
+msgstr "Izjāmumi"
+
+msgid "<b>Package Sources</b>"
+msgstr "<b>Repozitoreji</b>"
+
+msgid "Sources"
+msgstr "Repozitoreji"
+
+msgid "<b>GPG Keys</b>"
+msgstr "<b>GPG atslāgys</b>"
+
+msgid "Verification"
+msgstr "Atslāgys"
