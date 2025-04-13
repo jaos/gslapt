@@ -1663,10 +1663,9 @@ static void *lhandle_transaction(gpointer data)
 
     /* download the pkgs */
     if (trans->install_pkgs->size > 0 || trans->upgrade_pkgs->size > 0 || trans->reinstall_pkgs->size > 0) {
-        char *err = download_packages();
+        const char *err = download_packages();
         if (err != NULL || _cancelled == 1) {
             gdk_threads_add_idle_full(G_PRIORITY_HIGH, _lhandle_transaction_dl_failed, err, NULL);
-            free(err);
             return NULL;
         }
     }
