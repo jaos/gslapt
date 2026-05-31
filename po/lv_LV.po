@@ -131,7 +131,7 @@ msgstr ""
 
 #, c-format
 msgid "Need to get %.0f%s/%.0f%s of archives.\n"
-msgstr "slapt-get tulkojums"
+msgstr ""
 
 msgid "No changelog information available"
 msgstr ""
@@ -263,15 +263,3 @@ msgstr ""
 
 msgid "pkgtools returned an error"
 msgstr ""
-
-#~ msgid "Default"
-#~ msgstr "slapt-get tulkojums"
-
-#~ msgid "Official"
-#~ msgstr "slapt-get tulkojums"
-
-#~ msgid "Preferred"
-#~ msgstr "slapt-get tulkojums"
-
-#~ msgid "Custom"
-#~ msgstr "slapt-get tulkojums"
