@@ -18,6 +18,7 @@
 
 #include <config.h>
 
+#include <limits.h>
 #define _GNU_SOURCE
 #include <gtk/gtk.h>
 
@@ -3955,21 +3956,38 @@ static gint convert_slapt_priority_to_gslapt_priority(const slapt_priority_t p)
     };
 }
 
+static gpointer _pixbuf_cache_init_func(gpointer data __unused__)
+{
+    _pixbuf_cache = g_hash_table_new_full(g_str_hash, g_str_equal,
+                                          g_free, (GDestroyNotify)g_object_unref);
+    return NULL;
+}
+
 GdkPixbuf *gslapt_img(const char *img)
 {
-    char buffer[2048];
+    g_once(&_pixbuf_cache_init, _pixbuf_cache_init_func, NULL);
 
-    snprintf(buffer, 2047, "%s/%s/ui/%s", PACKAGE_DATA_DIR, PACKAGE, img);
+    char buffer[PATH_MAX];
+    snprintf(buffer, PATH_MAX, "%s/%s/ui/%s", PACKAGE_DATA_DIR, PACKAGE, img);
 
-    GdkPixbuf *i = gdk_pixbuf_new_from_file(buffer, NULL);
+    GdkPixbuf *i = g_hash_table_lookup(_pixbuf_cache, buffer);
+    if (i != NULL) {
+        g_object_ref(i);
+        return i;
+    }
+
+    i = gdk_pixbuf_new_from_file(buffer, NULL);
+    if (i != NULL) {
+        g_hash_table_insert(_pixbuf_cache, g_strdup(buffer), i);
+    }
     return i;
 }
 
 void gslapt_load_ui(GtkBuilder *b, const char *f)
 {
     GError *error = NULL;
-    char buffer[2048];
-    snprintf(buffer, 2047, "%s/%s/ui/%s", PACKAGE_DATA_DIR, PACKAGE, f);
+    char buffer[PATH_MAX];
+    snprintf(buffer, PATH_MAX, "%s/%s/ui/%s", PACKAGE_DATA_DIR, PACKAGE, f);
 
     if (!gtk_builder_add_from_file(b, buffer, &error)) {
         g_warning("Couldn't load builder file: %s", error->message);
