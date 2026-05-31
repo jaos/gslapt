@@ -37,11 +37,16 @@ extern slapt_vector_t *all;
 extern slapt_vector_t *installed;
 extern slapt_transaction_t *trans;
 extern char rc_location[];
+extern GHashTable *installed_pkg_map;
+extern GHashTable *all_pkg_map;
 
 G_LOCK_DEFINE_STATIC(_cancelled);
 static volatile guint _cancelled = 0;
 static gboolean sources_modified = FALSE;
 static gboolean excludes_modified = FALSE;
+
+static GHashTable *_pixbuf_cache = NULL;
+static GOnce _pixbuf_cache_init = G_ONCE_INIT;
 
 static gboolean pkg_action_popup_menu(GtkTreeView *treeview, gpointer data);
 static int set_iter_to_pkg(GtkTreeModel *model, GtkTreeIter *iter, const slapt_pkg_t *pkg);
@@ -134,8 +139,12 @@ gboolean gslapt_window_resized(GtkWindow *window, GdkEvent *event, gpointer data
 void on_gslapt_destroy(GObject *object __unused__, gpointer user_data __unused__)
 {
     slapt_transaction_t_free(trans);
-    slapt_vector_t_free(all);
+    if (installed_pkg_map != NULL)
+        g_hash_table_destroy(installed_pkg_map);
+    if (all_pkg_map != NULL)
+        g_hash_table_destroy(all_pkg_map);
     slapt_vector_t_free(installed);
+    slapt_vector_t_free(all);
     slapt_config_t_free(global_config);
     gslapt_series_map_free(gslapt_series_map);
 
@@ -489,7 +498,7 @@ void build_package_treeviewlist(GtkWidget *treeview)
         /* we use this for sorting the status */
         /* a=installed,i=install,r=remove,u=upgrade,z=available */
         gboolean is_inst = FALSE, is_an_upgrade = FALSE;
-        const slapt_pkg_t *installed_pkg = slapt_get_newest_pkg(installed, pkg->name);
+        const slapt_pkg_t *installed_pkg = g_hash_table_lookup(installed_pkg_map, pkg->name);
         if (installed_pkg != NULL) {
             const int cmp = slapt_pkg_t_cmp(pkg, installed_pkg);
             if (strcmp(pkg->version, installed_pkg->version) == 0) {
@@ -498,7 +507,7 @@ void build_package_treeviewlist(GtkWidget *treeview)
                 is_an_upgrade = TRUE;
 
                 /* we need to see if there is another available package that is newer than this one */
-                const slapt_pkg_t *newer_available_pkg = slapt_get_newest_pkg(all, pkg->name);
+                const slapt_pkg_t *newer_available_pkg = g_hash_table_lookup(all_pkg_map, pkg->name);
                 if (newer_available_pkg != NULL) {
                     if (slapt_pkg_t_cmp(pkg, newer_available_pkg) < 0)
                         is_an_upgrade = FALSE;
@@ -1547,6 +1556,8 @@ static void rebuild_treeviews(GtkWidget *current_window __unused__, gboolean rel
         installed = slapt_get_installed_pkgs();
         all = slapt_get_available_pkgs(global_config);
 
+        gslapt_rebuild_pkg_maps();
+
         slapt_vector_t_free(installed_ptr);
         slapt_vector_t_free(all_ptr);
     }
@@ -1652,6 +1663,8 @@ static int _lhandle_transaction_dl_complete(gpointer data __unused__)
     slapt_vector_t *installed_ptr = installed;
     installed = slapt_get_installed_pkgs();
     slapt_vector_t_free(installed_ptr);
+
+    gslapt_rebuild_pkg_maps();
 
     rebuild_treeviews(NULL, FALSE);
     rebuild_package_action_menu();
@@ -3958,6 +3971,28 @@ static gint convert_slapt_priority_to_gslapt_priority(const slapt_priority_t p)
     default:
         return -1;
     };
+}
+
+/* rebuild installed_pkg_map and all_pkg_map from the current vectors */
+void gslapt_rebuild_pkg_maps(void)
+{
+    if (installed_pkg_map != NULL)
+        g_hash_table_destroy(installed_pkg_map);
+    installed_pkg_map = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, NULL);
+    {
+        slapt_vector_t_foreach (slapt_pkg_t *, pkg, installed) {
+            g_hash_table_insert(installed_pkg_map, g_strdup(pkg->name), pkg);
+        }
+    }
+
+    if (all_pkg_map != NULL)
+        g_hash_table_destroy(all_pkg_map);
+    all_pkg_map = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, NULL);
+    {
+        slapt_vector_t_foreach (slapt_pkg_t *, pkg, all) {
+            g_hash_table_insert(all_pkg_map, g_strdup(pkg->name), pkg);
+        }
+    }
 }
 
 static gpointer _pixbuf_cache_init_func(gpointer data __unused__)

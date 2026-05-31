@@ -32,6 +32,8 @@ slapt_transaction_t *trans = NULL;
 char rc_location[1024];
 GslaptSettings *gslapt_settings = NULL;
 GHashTable *gslapt_series_map = NULL;
+GHashTable *installed_pkg_map = NULL;
+GHashTable *all_pkg_map = NULL;
 
 int main(int argc, char *argv[])
 {
@@ -126,6 +128,8 @@ int main(int argc, char *argv[])
     /* read in all pkgs and installed pkgs */
     installed = slapt_get_installed_pkgs();
     all = slapt_get_available_pkgs(global_config);
+
+    gslapt_rebuild_pkg_maps();
 
     gslapt_builder = gtk_builder_new();
     gtk_builder_set_translation_domain(gslapt_builder, GETTEXT_PACKAGE);

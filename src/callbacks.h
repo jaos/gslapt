@@ -124,3 +124,4 @@ void source_edit_ok(GtkWidget *w, gpointer user_data);
 
 GdkPixbuf *gslapt_img(const char *img);
 void gslapt_load_ui(GtkBuilder *b, const char *f);
+void gslapt_rebuild_pkg_maps(void);
