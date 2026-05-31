@@ -1,205 +1,54 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# 
+#
 # Translators:
 # PRIMER AUTOR Manuel Barallobre (BARA) <bara666@gmail.com>, 2005-2008
 msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
-"Report-Msgid-Bugs-To: woodwardj at jaos dot org\n"
-"POT-Creation-Date: 2022-06-03 22:11+0300\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-31 17:49-0400\n"
 "PO-Revision-Date: 2012-09-17 21:52+0000\n"
-"Last-Translator: PRIMER AUTOR Manuel Barallobre (BARA) <bara666@gmail.com>, 2005-2008\n"
-"Language-Team: Galician (Spain) (http://app.transifex.com/jaos/slapt-get/language/gl_ES/)\n"
+"Last-Translator: PRIMER AUTOR Manuel Barallobre (BARA) <bara666@gmail.com>, "
+"2005-2008\n"
+"Language-Team: Galician (Spain) (http://app.transifex.com/jaos/slapt-get/"
+"language/gl_ES/)\n"
+"Language: gl_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: gl_ES\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid "Ready"
-msgstr "Preparado"
-
-msgid "Upgrade"
-msgstr "Actualizar"
-
-msgid "Re-Install"
-msgstr "Reinstalar"
-
-msgid "<b>Required:</b>"
-msgstr "<b>Requerido:</b>"
-
-msgid "<b>Conflicts:</b>"
-msgstr "<b>Conflictos:</b>"
-
-msgid "<b>Suggests:</b>"
-msgstr "<b>Sugerencias:</b>"
-
-#. installed
-msgid "No dependency information available"
-msgstr "No dependency information available"
-
-msgid "Source"
-msgstr "Fonte"
-
-msgid "No changelog information available"
-msgstr "No changelog information available"
-
-msgid "The list of installed files is only available for installed packages"
-msgstr "The list of installed files is only available for installed packages"
-
-msgid "Excluded"
-msgstr "Excluido"
-
-msgid "To be Removed"
-msgstr "Para Eliminar"
-
-msgid "To be Installed"
-msgstr "Para Installar"
-
-msgid "To be Re-Installed"
-msgstr "Para Reinstalar"
-
-msgid "To be Downgraded"
-msgstr "Para Desactualizar"
-
-msgid "To be Upgraded"
-msgstr "Para Actualizar"
-
-msgid "Installed"
-msgstr "Instalado"
-
-msgid "Not Installed"
-msgstr "Non instalado"
-
-msgid "Progress"
-msgstr "Progreso"
-
-msgid "Checking for new package data..."
-msgstr "Buscando novos paquetes..."
-
-msgid "GPG Key verification failed"
-msgstr "GPG Clave verificacion fallida"
-
-msgid "Retrieving package data..."
-msgstr "Recuperando datos do paquete..."
-
-msgid "Retrieving patch list..."
-msgstr "Recuperando a lista dos parches"
-
-msgid "Retrieving checksum list..."
-msgstr "Recuperando a lista de checksum..."
-
-msgid "Retrieving checksum signature..."
-msgstr "Recuperando checksum signature..."
-
-msgid "Verifying checksum signature..."
-msgstr "Verificando checksum signature..."
-
-msgid "Retrieving ChangeLog.txt..."
-msgstr "Recuperando ChangeLog.txt..."
-
-msgid "Reading Package Lists..."
-msgstr "Lendo a lista de paquetes..."
-
-#, c-format
-msgid "Download rate: %.0f%s/s"
-msgstr "Velocidade de descarga: %.0f%s/s"
-
-msgid "Error"
-msgstr "Erro"
-
-msgid "Completed actions"
-msgstr "Accions completas"
-
-msgid "Successfully executed all actions."
-msgstr "Executadas todas as accions satisfactoriamente"
-
-msgid "pkgtools returned an error"
-msgstr "pkgtools devolveron un erro"
-
-msgid "Enabled"
-msgstr "Permitido"
-
-msgid "Visible"
-msgstr "Visible"
-
-msgid "Priority"
-msgstr "Priority"
-
-msgid "Expression"
-msgstr "Expresion"
-
-msgid "Packages with unmet dependencies"
-msgstr "O paquete ten dependencias desconocidas"
-
-msgid "Package conflicts"
-msgstr "Conflictos de paquete"
-
-msgid ", which is required by "
-msgstr ", o cal e requerido por"
 
 msgid ", is excluded"
 msgstr ", esta excluido"
 
-msgid "Packages excluded"
-msgstr "Paquetes excluidos"
+msgid ", which is required by "
+msgstr ", o cal e requerido por"
 
-msgid "Packages to be installed"
-msgstr "Paquetes para ser instalados"
+msgid ": Depends: "
+msgstr ": Depende:"
 
-msgid "Packages to be upgraded"
-msgstr "Paquetes para ser actualizados"
-
-msgid "Packages to be reinstalled"
-msgstr "Packages to be reinstalled"
-
-msgid "Packages to be removed"
-msgstr "Paquetes para ser borrados"
-
-msgid "Package"
-msgstr "Paquete"
+msgid "<b>Conflicts:</b>"
+msgstr "<b>Conflictos:</b>"
 
 #, c-format
-msgid "%d upgraded, "
-msgid_plural "%d upgraded, "
-msgstr[0] ""
-msgstr[1] ""
+msgid "<b>Excluding %s due to dependency failure</b>"
+msgstr "<b>Excluido %s devido a un fallo de dependencias</b>"
 
-#, c-format
-msgid "%d reinstalled, "
-msgid_plural "%d reinstalled, "
-msgstr[0] ""
-msgstr[1] ""
+msgid "<b>Required:</b>"
+msgstr "<b>Requerido:</b>"
 
-#, c-format
-msgid "%d newly installed, "
-msgid_plural "%d newly installed, "
-msgstr[0] ""
-msgstr[1] ""
+msgid "<b>Suggests:</b>"
+msgstr "<b>Sugerencias:</b>"
 
-#, c-format
-msgid "%d to remove "
-msgid_plural "%d to remove "
-msgstr[0] ""
-msgstr[1] ""
+msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
+msgstr ""
+"<span weight=\"bold\" size=\"large\">Actualizacions non dispoÃÂ±ibles</span>"
 
-#, c-format
-msgid "and %d not upgraded."
-msgid_plural "and %d not upgraded."
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Non ten suficiente espacio libre</span>"
-
-#, c-format
-msgid "Need to get %.0f%s/%.0f%s of archives.\n"
-msgstr "Faltan %.0f%s/%.0f%s ficheiros.\n"
-
-#, c-format
-msgid "Need to get %.0f%s of archives."
-msgstr "Faltan %.0f%s ficheiros"
+msgid ""
+"<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgstr ""
+"<span weight=\"bold\" size=\"large\">Non ten suficiente espacio libre</span>"
 
 #, c-format
 msgid "After unpacking %.0f%s disk space will be freed."
@@ -207,13 +56,24 @@ msgstr "Despois de desmpaquetar %.0f%s de espacio do disco sera liberado"
 
 #, c-format
 msgid "After unpacking %.0f%s of additional disk space will be used."
-msgstr "Despois de desmpaquetar %.0f%s de espacio do disco adicional sera usado"
+msgstr ""
+"Despois de desmpaquetar %.0f%s de espacio do disco adicional sera usado"
 
-msgid "Up to Date"
-msgstr "Actualizado"
+msgid "ChangeLogs"
+msgstr "ChangeLogs"
 
-msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Actualizacions non dispoÃÂ±ibles</span>"
+msgid "Checking for new package data..."
+msgstr "Buscando novos paquetes..."
+
+msgid "Completed actions"
+msgstr "Accions completas"
+
+msgid "Description"
+msgstr "Descripcion"
+
+#, c-format
+msgid "Download rate: %.0f%s/s"
+msgstr "Velocidade de descarga: %.0f%s/s"
 
 msgid "Downloading packages..."
 msgstr "Descargando paquetes..."
@@ -221,485 +81,543 @@ msgstr "Descargando paquetes..."
 msgid "Downloading..."
 msgstr "Descargando..."
 
-#, c-format
-msgid "Failed to download %s: %s"
-msgstr "Descarga fallida %s: %s"
+msgid "Enabled"
+msgstr "Permitido"
 
-msgid "Removing packages..."
-msgstr "Borrando paquetes..."
+msgid "Error"
+msgstr "Erro"
 
-msgid "Installing packages..."
-msgstr "Instalando paquetes..."
+msgid "Excluded"
+msgstr "Excluido"
 
-msgid "Uninstalling..."
-msgstr "Desinstalando..."
-
-msgid "Installing..."
-msgstr "Instalando..."
-
-msgid "Upgrading..."
-msgstr "Actualizando..."
+msgid "Expression"
+msgstr "Expresion"
 
 msgid "Failed to commit preferences"
 msgstr "Fallo o confirmar as opcions"
 
-msgid "Pending changes. Click execute when ready."
-msgstr "Cambios pendentes. Pulse executar cando este listo"
-
-msgid "Status"
-msgstr "Estado"
-
-msgid "Name"
-msgstr "Nome"
-
-msgid "Version"
-msgstr "Vesion"
-
-msgid "Location"
-msgstr "Localizacion"
-
-msgid "Description"
-msgstr "Descripcion"
-
-msgid "Installed Size"
-msgstr "TamaÃÂ±o instalado"
-
 #, c-format
-msgid "<b>Excluding %s due to dependency failure</b>"
-msgstr "<b>Excluido %s devido a un fallo de dependencias</b>"
+msgid "Failed to download %s: %s"
+msgstr "Descarga fallida %s: %s"
 
-msgid ""
-"Missing dependencies may mean the software in this package will not function"
-" correctly.  Do you want to continue without the required packages?"
-msgstr "Dependencias non encontradas significa que o software do paquete non funcionara correctamente. ÃÂ¿Quere continuar sin os paquetes requeridos?"
-
-msgid ": Depends: "
-msgstr ": Depende:"
+msgid "GPG Key verification failed"
+msgstr "GPG Clave verificacion fallida"
 
 msgid "Import"
 msgstr "Importar"
 
-msgid "No key found"
-msgstr "Clave non econtrada"
+msgid "Installed"
+msgstr "Instalado"
 
-msgid "ChangeLogs"
-msgstr "ChangeLogs"
+msgid "Installed Size"
+msgstr "TamaÃÂ±o instalado"
+
+msgid "Installing packages..."
+msgstr "Instalando paquetes..."
+
+msgid "Installing..."
+msgstr "Instalando..."
+
+msgid "Location"
+msgstr "Localizacion"
+
+msgid ""
+"Missing dependencies may mean the software in this package will not function "
+"correctly.  Do you want to continue without the required packages?"
+msgstr ""
+"Dependencias non encontradas significa que o software do paquete non "
+"funcionara correctamente. ÃÂ¿Quere continuar sin os paquetes requeridos?"
+
+msgid "Name"
+msgstr "Nome"
+
+#, c-format
+msgid "Need to get %.0f%s of archives."
+msgstr "Faltan %.0f%s ficheiros"
+
+#, c-format
+msgid "Need to get %.0f%s/%.0f%s of archives.\n"
+msgstr "Faltan %.0f%s/%.0f%s ficheiros.\n"
+
+msgid "No changelog information available"
+msgstr "No changelog information available"
 
 msgid "No changelogs found."
 msgstr "No changelogs found."
 
-msgid "Gslapt Package Manager"
-msgstr "Gslapt Package Manager"
+#. installed
+msgid "No dependency information available"
+msgstr "No dependency information available"
 
-msgid "Install, remove and upgrade software packages"
-msgstr "Install, remove and upgrade software packages"
+msgid "No key found"
+msgstr "Clave non econtrada"
 
-msgid "Run Gslapt as root"
-msgstr ""
-
-msgid "Authentication is required to run Gslapt"
-msgstr ""
-
-msgid "Base"
-msgstr "Base"
-
-msgid "Applications"
-msgstr "Applications"
-
-msgid "Development Tools"
-msgstr "Development Tools"
-
-msgid "GNU Emacs"
-msgstr "GNU Emacs"
-
-msgid "Documentation"
-msgstr "Documentation"
-
-msgid "GNOME"
-msgstr "GNOME"
-
-msgid "Linux kernel"
-msgstr "Linux kernel"
-
-msgid "KDE"
-msgstr "KDE"
-
-msgid "KDE Internationalization"
-msgstr "KDE Internationalization"
-
-msgid "Libraries"
-msgstr "Libraries"
-
-msgid "Networking"
-msgstr "Networking"
-
-msgid "teTeX"
-msgstr "teTeX"
-
-msgid "TCL"
-msgstr "TCL"
-
-msgid "X Window System"
-msgstr "X Window System"
-
-msgid "X Applications"
-msgstr "X Applications"
-
-msgid "Xfce"
-msgstr ""
-
-msgid "BSD Console games"
-msgstr "BSD Console games"
-
-msgid "Patches"
-msgstr "Patches"
-
-msgid "GSB Base"
-msgstr "GSB Base"
-
-msgid "GSB Accessibility"
-msgstr "GSB Accessibility"
-
-msgid "GSB Administration"
-msgstr "GSB Administration"
-
-msgid "GSB Applications"
-msgstr "GSB Applications"
-
-msgid "GSB Compiz Fusion"
-msgstr "GSB Compiz Fusion"
-
-msgid "GSB Development"
-msgstr "GSB Development"
-
-msgid "GSB Office"
-msgstr "GSB Office"
-
-msgid "GSB Libraries"
-msgstr "GSB Libraries"
-
-msgid "GSB Mono"
-msgstr "GSB Mono"
-
-msgid "GSB Networking"
-msgstr "GSB Networking"
-
-msgid "GSB OpenOffice.org"
-msgstr "GSB OpenOffice.org"
-
-msgid "GSB Themes"
-msgstr "GSB Themes"
-
-msgid "Games"
-msgstr "Games"
-
-msgid "Localization"
-msgstr "Localization"
-
-msgid "LXDE"
-msgstr ""
-
-msgid "MATE"
-msgstr ""
-
-msgid "Academic"
-msgstr ""
-
-msgid "Accessibility"
-msgstr ""
-
-msgid "Audio"
-msgstr ""
-
-msgid "Business"
-msgstr ""
-
-msgid "Desktop"
-msgstr ""
-
-msgid "Development"
-msgstr ""
-
-msgid "GIS"
-msgstr ""
-
-msgid "Graphics"
-msgstr ""
-
-msgid "HAM Radio"
-msgstr ""
-
-msgid "Haskell"
-msgstr ""
-
-msgid "Miscellaneous"
-msgstr ""
-
-msgid "Multimedia"
-msgstr ""
-
-msgid "Network"
-msgstr ""
-
-msgid "Office"
-msgstr ""
-
-msgid "Perl"
-msgstr ""
-
-msgid "Python"
-msgstr ""
-
-msgid "Ruby"
-msgstr ""
-
-msgid "System"
-msgstr ""
-
-msgid "Slackware Extra"
-msgstr ""
-
-msgid ""
-"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
-"Slackware"
-msgstr "gslapt e un frontend GTK+ pra slapt-get, un sistema de paquetes como APT pero para Slackware "
-
-msgid "working"
-msgstr "traballando"
-
-msgid "total progress"
-msgstr "progreso total"
-
-msgid "Gslapt"
-msgstr "Gslapt"
-
-msgid "_File"
-msgstr "_Ficheiro"
-
-msgid "Update local package cache"
-msgstr "Actualizar a cache local de paquetes"
-
-msgid "Update"
-msgstr "Actualizar"
-
-msgid "Mark all possible upgrades"
-msgstr "Marcando todas as posibles actualizacions"
-
-msgid "Mark All Upgrades"
-msgstr "Marcar todas as Actualizacions"
-
-msgid "Mark all obsolete packages"
-msgstr "Marcar todos os paquetes obsoletos"
-
-msgid "Mark Obsolete"
-msgstr "Marcar obsoletos"
-
-msgid "Execute all scheduled actions in current transaction"
-msgstr "Executar todas as accios programadas na transaccion actual"
-
-msgid "Execute"
-msgstr "Executa"
-
-msgid "_Edit"
-msgstr "_Editar"
-
-msgid "Unmark All"
-msgstr "Desmarcar todo"
-
-msgid "Preferences"
-msgstr "Opcions"
-
-msgid "_View"
-msgstr "_Ver"
-
-msgid "View all packages"
-msgstr "Ver todos os paquetes"
-
-msgid "All"
-msgstr "Todo"
-
-msgid "View available packages from current sources"
-msgstr "Ver paquetes dispoÃÂ±ibles nas fontes corentes"
-
-msgid "Available"
-msgstr "DispoÃÂ±ible"
-
-msgid "View installed packages"
-msgstr "Ver os paquetes instalados"
-
-msgid "View Marked Packages"
-msgstr "Ver os paquetes marcados"
-
-msgid "Marked"
-msgstr "Marcado"
-
-msgid "View Upgradeable Packages"
-msgstr "Ver Paquetes Actualizables"
-
-msgid "Upgradeable"
-msgstr "Actualizables"
-
-msgid "P_ackage"
-msgstr "P_aquete"
-
-msgid "Unmark"
-msgstr "Desmarcar"
-
-msgid "Install"
-msgstr "Instalar"
-
-msgid "Downgrade"
-msgstr "Desactualizar"
-
-msgid "Remove"
-msgstr "Borrado"
-
-msgid "_Help"
-msgstr "Axuda"
-
-msgid "Icon Legend"
-msgstr "Leguenda de iconos"
-
-msgid "View ChangeLogs"
-msgstr "Ver ChangeLogs"
-
-msgid "About"
-msgstr "Acerca de"
-
-msgid "Search"
-msgstr "Buscar"
-
-msgid "<b>Name:</b>"
-msgstr "<b>Nome:</b>"
-
+#. set package details
 msgid "No package is selected."
 msgstr "Non hay paquetes seleccionados"
 
-msgid "<b>Status:</b>"
-msgstr "<b>Estado:</b>"
+msgid "Not Installed"
+msgstr "Non instalado"
 
-msgid "<b>Description:</b>"
-msgstr "<b>Descripcion:</b>"
+msgid "Package"
+msgstr "Paquete"
 
-msgid "<b>Version:</b>"
-msgstr "<b>Version:</b>"
+msgid "Package conflicts"
+msgstr "Conflictos de paquete"
 
-msgid "<b>Source:</b>"
-msgstr "<b>Fonte:</b>"
+msgid "Packages excluded"
+msgstr "Paquetes excluidos"
 
-msgid "<b>Priority:</b>"
-msgstr "<b>Priority:</b>"
+msgid "Packages to be installed"
+msgstr "Paquetes para ser instalados"
 
-msgid "<b>Location:</b>"
-msgstr "<b>Localizacion:</b>"
+msgid "Packages to be reinstalled"
+msgstr "Packages to be reinstalled"
 
-msgid "<b>Installed Version</b>"
-msgstr "<b>Version Instalada</b>"
+msgid "Packages to be removed"
+msgstr "Paquetes para ser borrados"
 
-msgid "Version:"
-msgstr "Version:"
+msgid "Packages to be upgraded"
+msgstr "Paquetes para ser actualizados"
 
-msgid "Installed Size:"
-msgstr "TamaÃÂ±o instalado:"
+msgid "Packages with unmet dependencies"
+msgstr "O paquete ten dependencias desconocidas"
 
-msgid "<b>Latest Available Version</b>"
-msgstr "<b>Ultima Version DispoÃÂ±ible</b>"
+msgid "Pending changes. Click execute when ready."
+msgstr "Cambios pendentes. Pulse executar cando este listo"
 
-msgid "Size:"
-msgstr "TamaÃÂ±o:"
+msgid "Priority"
+msgstr "Priority"
 
-msgid "Source:"
-msgstr "Fonte:"
+msgid "Progress"
+msgstr "Progreso"
 
-msgid "Common"
-msgstr "Comun"
+msgid "Re-Install"
+msgstr "Reinstalar"
 
-msgid "Dependencies"
-msgstr "Dependencias"
+msgid "Reading Package Lists..."
+msgstr "Lendo a lista de paquetes..."
 
-msgid "Changelog"
-msgstr "Changelog"
+msgid "Ready"
+msgstr "Preparado"
 
-msgid "Files"
-msgstr "Files"
+msgid "Removing packages..."
+msgstr "Borrando paquetes..."
 
-msgid ""
-"<b>The following icons are used to indicate the current status of a "
-"package:</b>"
-msgstr "<b>Os seguintes iconos son usados para indicar o estado de un paquete:</b>"
+msgid "Retrieving ChangeLog.txt..."
+msgstr "Recuperando ChangeLog.txt..."
 
-msgid "Repositories changed"
-msgstr "Os repositorios cambiaron"
+msgid "Retrieving checksum list..."
+msgstr "Recuperando a lista de checksum..."
 
-msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
-msgstr "<span size=\"large\" weight=\"bold\">Os repositorios cambiaron</span>"
+msgid "Retrieving checksum signature..."
+msgstr "Recuperando checksum signature..."
 
-msgid ""
-"You need to reload the package list from the sources you have listed.  Do "
-"you want to do this now?"
-msgstr "Vostede necesita recargar a lista de paquetes desde as fontes. Desexa facelo agora?"
+msgid "Retrieving package data..."
+msgstr "Recuperando datos do paquete..."
 
-msgid "Source failed"
-msgstr "Source failed"
+msgid "Retrieving patch list..."
+msgstr "Recuperando a lista dos parches"
 
-msgid ""
-"This package source failed or is not available.  Do you want to disable this"
-" source and continue anyway?"
-msgstr "Esta fonte de paquetes fallou ou non esta dispoÃÂ±ible.  ÃÂ¿Quere desactivala e continuar?"
+msgid "Source"
+msgstr "Fonte"
 
-msgid "Default"
-msgstr "Default"
+msgid "Status"
+msgstr "Estado"
 
-msgid "Official"
-msgstr "Official"
+msgid "Successfully executed all actions."
+msgstr "Executadas todas as accions satisfactoriamente"
 
-msgid "Preferred"
-msgstr "Preferred"
+msgid "The list of installed files is only available for installed packages"
+msgstr "The list of installed files is only available for installed packages"
 
-msgid "Custom"
-msgstr "Custom"
+msgid "To be Downgraded"
+msgstr "Para Desactualizar"
 
-msgid "Package Source"
-msgstr "Package Source"
+msgid "To be Installed"
+msgstr "Para Installar"
 
-msgid "Summary"
-msgstr "Resume"
+msgid "To be Re-Installed"
+msgstr "Para Reinstalar"
 
-msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
-msgstr "<span weight=\"bold\" size=\"large\">ÃÂ¿Aplicar os seguintes cambios?</span>"
+msgid "To be Removed"
+msgstr "Para Eliminar"
 
-msgid "This is a summary of the changes about to be performed."
-msgstr "Esto e un resume dos cambios que se van a realizar"
+msgid "To be Upgraded"
+msgstr "Para Actualizar"
 
-msgid "Download packages only"
-msgstr "Descargar paquetes nada mais"
+msgid "Uninstalling..."
+msgstr "Desinstalando..."
 
-msgid "<b>Package and data storage</b>"
-msgstr "<b>Almaces de paquetes e datos</b>"
+msgid "Up to Date"
+msgstr "Actualizado"
 
-msgid "_Delete Cached Package Files"
-msgstr "Borrando a cache de ficheiros de paquetes"
+msgid "Upgrade"
+msgstr "Actualizar"
 
-msgid "Working Directory"
-msgstr "Directorio de Traballo"
+msgid "Upgrading..."
+msgstr "Actualizando..."
 
-msgid "<b>Exclude List</b>"
-msgstr "<b>Lista de Excluidos</b>"
+msgid "Verifying checksum signature..."
+msgstr "Verificando checksum signature..."
 
-msgid "<span weight=\"bold\">Exclude Expression:</span>"
-msgstr "<span weight=\"bold\">Expresions excluidas:</span>"
+msgid "Version"
+msgstr "Vesion"
 
-msgid "Excludes"
-msgstr "Excluidos"
+msgid "Visible"
+msgstr "Visible"
 
-msgid "<b>Package Sources</b>"
-msgstr "<b>Fontes dos paquetes</b>"
+msgid "pkgtools returned an error"
+msgstr "pkgtools devolveron un erro"
 
-msgid "Sources"
-msgstr "Fontes"
+#~ msgid "Gslapt Package Manager"
+#~ msgstr "Gslapt Package Manager"
 
-msgid "<b>GPG Keys</b>"
-msgstr "<b>GPG Clave</b>"
+#~ msgid "Install, remove and upgrade software packages"
+#~ msgstr "Install, remove and upgrade software packages"
 
-msgid "Verification"
-msgstr "Verificacion"
+#~ msgid "Base"
+#~ msgstr "Base"
+
+#~ msgid "Applications"
+#~ msgstr "Applications"
+
+#~ msgid "Development Tools"
+#~ msgstr "Development Tools"
+
+#~ msgid "GNU Emacs"
+#~ msgstr "GNU Emacs"
+
+#~ msgid "Documentation"
+#~ msgstr "Documentation"
+
+#~ msgid "GNOME"
+#~ msgstr "GNOME"
+
+#~ msgid "Linux kernel"
+#~ msgstr "Linux kernel"
+
+#~ msgid "KDE"
+#~ msgstr "KDE"
+
+#~ msgid "KDE Internationalization"
+#~ msgstr "KDE Internationalization"
+
+#~ msgid "Libraries"
+#~ msgstr "Libraries"
+
+#~ msgid "Networking"
+#~ msgstr "Networking"
+
+#~ msgid "teTeX"
+#~ msgstr "teTeX"
+
+#~ msgid "TCL"
+#~ msgstr "TCL"
+
+#~ msgid "X Window System"
+#~ msgstr "X Window System"
+
+#~ msgid "X Applications"
+#~ msgstr "X Applications"
+
+#~ msgid "BSD Console games"
+#~ msgstr "BSD Console games"
+
+#~ msgid "Patches"
+#~ msgstr "Patches"
+
+#~ msgid "GSB Base"
+#~ msgstr "GSB Base"
+
+#~ msgid "GSB Accessibility"
+#~ msgstr "GSB Accessibility"
+
+#~ msgid "GSB Administration"
+#~ msgstr "GSB Administration"
+
+#~ msgid "GSB Applications"
+#~ msgstr "GSB Applications"
+
+#~ msgid "GSB Compiz Fusion"
+#~ msgstr "GSB Compiz Fusion"
+
+#~ msgid "GSB Development"
+#~ msgstr "GSB Development"
+
+#~ msgid "GSB Office"
+#~ msgstr "GSB Office"
+
+#~ msgid "GSB Libraries"
+#~ msgstr "GSB Libraries"
+
+#~ msgid "GSB Mono"
+#~ msgstr "GSB Mono"
+
+#~ msgid "GSB Networking"
+#~ msgstr "GSB Networking"
+
+#~ msgid "GSB OpenOffice.org"
+#~ msgstr "GSB OpenOffice.org"
+
+#~ msgid "GSB Themes"
+#~ msgstr "GSB Themes"
+
+#~ msgid "Games"
+#~ msgstr "Games"
+
+#~ msgid "Localization"
+#~ msgstr "Localization"
+
+#~ msgid ""
+#~ "gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
+#~ "Slackware"
+#~ msgstr ""
+#~ "gslapt e un frontend GTK+ pra slapt-get, un sistema de paquetes como APT "
+#~ "pero para Slackware "
+
+#~ msgid "working"
+#~ msgstr "traballando"
+
+#~ msgid "total progress"
+#~ msgstr "progreso total"
+
+#~ msgid "Gslapt"
+#~ msgstr "Gslapt"
+
+#~ msgid "_File"
+#~ msgstr "_Ficheiro"
+
+#~ msgid "Update local package cache"
+#~ msgstr "Actualizar a cache local de paquetes"
+
+#~ msgid "Update"
+#~ msgstr "Actualizar"
+
+#~ msgid "Mark all possible upgrades"
+#~ msgstr "Marcando todas as posibles actualizacions"
+
+#~ msgid "Mark All Upgrades"
+#~ msgstr "Marcar todas as Actualizacions"
+
+#~ msgid "Mark all obsolete packages"
+#~ msgstr "Marcar todos os paquetes obsoletos"
+
+#~ msgid "Mark Obsolete"
+#~ msgstr "Marcar obsoletos"
+
+#~ msgid "Execute all scheduled actions in current transaction"
+#~ msgstr "Executar todas as accios programadas na transaccion actual"
+
+#~ msgid "Execute"
+#~ msgstr "Executa"
+
+#~ msgid "_Edit"
+#~ msgstr "_Editar"
+
+#~ msgid "Unmark All"
+#~ msgstr "Desmarcar todo"
+
+#~ msgid "Preferences"
+#~ msgstr "Opcions"
+
+#~ msgid "_View"
+#~ msgstr "_Ver"
+
+#~ msgid "View all packages"
+#~ msgstr "Ver todos os paquetes"
+
+#~ msgid "All"
+#~ msgstr "Todo"
+
+#~ msgid "View available packages from current sources"
+#~ msgstr "Ver paquetes dispoÃÂ±ibles nas fontes corentes"
+
+#~ msgid "Available"
+#~ msgstr "DispoÃÂ±ible"
+
+#~ msgid "View installed packages"
+#~ msgstr "Ver os paquetes instalados"
+
+#~ msgid "View Marked Packages"
+#~ msgstr "Ver os paquetes marcados"
+
+#~ msgid "Marked"
+#~ msgstr "Marcado"
+
+#~ msgid "View Upgradeable Packages"
+#~ msgstr "Ver Paquetes Actualizables"
+
+#~ msgid "Upgradeable"
+#~ msgstr "Actualizables"
+
+#~ msgid "P_ackage"
+#~ msgstr "P_aquete"
+
+#~ msgid "Unmark"
+#~ msgstr "Desmarcar"
+
+#~ msgid "Install"
+#~ msgstr "Instalar"
+
+#~ msgid "Downgrade"
+#~ msgstr "Desactualizar"
+
+#~ msgid "Remove"
+#~ msgstr "Borrado"
+
+#~ msgid "_Help"
+#~ msgstr "Axuda"
+
+#~ msgid "Icon Legend"
+#~ msgstr "Leguenda de iconos"
+
+#~ msgid "View ChangeLogs"
+#~ msgstr "Ver ChangeLogs"
+
+#~ msgid "About"
+#~ msgstr "Acerca de"
+
+#~ msgid "Search"
+#~ msgstr "Buscar"
+
+#~ msgid "<b>Name:</b>"
+#~ msgstr "<b>Nome:</b>"
+
+#~ msgid "<b>Status:</b>"
+#~ msgstr "<b>Estado:</b>"
+
+#~ msgid "<b>Description:</b>"
+#~ msgstr "<b>Descripcion:</b>"
+
+#~ msgid "<b>Version:</b>"
+#~ msgstr "<b>Version:</b>"
+
+#~ msgid "<b>Source:</b>"
+#~ msgstr "<b>Fonte:</b>"
+
+#~ msgid "<b>Priority:</b>"
+#~ msgstr "<b>Priority:</b>"
+
+#~ msgid "<b>Location:</b>"
+#~ msgstr "<b>Localizacion:</b>"
+
+#~ msgid "<b>Installed Version</b>"
+#~ msgstr "<b>Version Instalada</b>"
+
+#~ msgid "Version:"
+#~ msgstr "Version:"
+
+#~ msgid "Installed Size:"
+#~ msgstr "TamaÃÂ±o instalado:"
+
+#~ msgid "<b>Latest Available Version</b>"
+#~ msgstr "<b>Ultima Version DispoÃÂ±ible</b>"
+
+#~ msgid "Size:"
+#~ msgstr "TamaÃÂ±o:"
+
+#~ msgid "Source:"
+#~ msgstr "Fonte:"
+
+#~ msgid "Common"
+#~ msgstr "Comun"
+
+#~ msgid "Dependencies"
+#~ msgstr "Dependencias"
+
+#~ msgid "Changelog"
+#~ msgstr "Changelog"
+
+#~ msgid "Files"
+#~ msgstr "Files"
+
+#~ msgid ""
+#~ "<b>The following icons are used to indicate the current status of a "
+#~ "package:</b>"
+#~ msgstr ""
+#~ "<b>Os seguintes iconos son usados para indicar o estado de un paquete:</b>"
+
+#~ msgid "Repositories changed"
+#~ msgstr "Os repositorios cambiaron"
+
+#~ msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
+#~ msgstr ""
+#~ "<span size=\"large\" weight=\"bold\">Os repositorios cambiaron</span>"
+
+#~ msgid ""
+#~ "You need to reload the package list from the sources you have listed.  Do "
+#~ "you want to do this now?"
+#~ msgstr ""
+#~ "Vostede necesita recargar a lista de paquetes desde as fontes. Desexa "
+#~ "facelo agora?"
+
+#~ msgid "Source failed"
+#~ msgstr "Source failed"
+
+#~ msgid ""
+#~ "This package source failed or is not available.  Do you want to disable "
+#~ "this source and continue anyway?"
+#~ msgstr ""
+#~ "Esta fonte de paquetes fallou ou non esta dispoÃÂ±ible.  ÃÂ¿Quere "
+#~ "desactivala e continuar?"
+
+#~ msgid "Default"
+#~ msgstr "Default"
+
+#~ msgid "Official"
+#~ msgstr "Official"
+
+#~ msgid "Preferred"
+#~ msgstr "Preferred"
+
+#~ msgid "Custom"
+#~ msgstr "Custom"
+
+#~ msgid "Package Source"
+#~ msgstr "Package Source"
+
+#~ msgid "Summary"
+#~ msgstr "Resume"
+
+#~ msgid ""
+#~ "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+#~ msgstr ""
+#~ "<span weight=\"bold\" size=\"large\">ÃÂ¿Aplicar os seguintes cambios?</"
+#~ "span>"
+
+#~ msgid "This is a summary of the changes about to be performed."
+#~ msgstr "Esto e un resume dos cambios que se van a realizar"
+
+#~ msgid "Download packages only"
+#~ msgstr "Descargar paquetes nada mais"
+
+#~ msgid "<b>Package and data storage</b>"
+#~ msgstr "<b>Almaces de paquetes e datos</b>"
+
+#~ msgid "_Delete Cached Package Files"
+#~ msgstr "Borrando a cache de ficheiros de paquetes"
+
+#~ msgid "Working Directory"
+#~ msgstr "Directorio de Traballo"
+
+#~ msgid "<b>Exclude List</b>"
+#~ msgstr "<b>Lista de Excluidos</b>"
+
+#~ msgid "<span weight=\"bold\">Exclude Expression:</span>"
+#~ msgstr "<span weight=\"bold\">Expresions excluidas:</span>"
+
+#~ msgid "Excludes"
+#~ msgstr "Excluidos"
+
+#~ msgid "<b>Package Sources</b>"
+#~ msgstr "<b>Fontes dos paquetes</b>"
+
+#~ msgid "Sources"
+#~ msgstr "Fontes"
+
+#~ msgid "<b>GPG Keys</b>"
+#~ msgstr "<b>GPG Clave</b>"
+
+#~ msgid "Verification"
+#~ msgstr "Verificacion"

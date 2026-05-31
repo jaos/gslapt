@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# 
+#
 # Translators:
 # gk <genghiskhan@gmx.ca>, 2012-2013
 # gk <genghiskhan@gmx.ca>, 2013-2014
@@ -8,205 +8,47 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
-"Report-Msgid-Bugs-To: woodwardj at jaos dot org\n"
-"POT-Creation-Date: 2022-06-03 22:11+0300\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-31 17:49-0400\n"
 "PO-Revision-Date: 2012-09-17 21:52+0000\n"
 "Last-Translator: gk <genghiskhan@gmx.ca>, 2012-2013\n"
-"Language-Team: Hebrew (http://app.transifex.com/jaos/slapt-get/language/he/)\n"
+"Language-Team: Hebrew (http://app.transifex.com/jaos/slapt-get/language/"
+"he/)\n"
+"Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: he\n"
-"Plural-Forms: nplurals=3; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % 1 == 0) ? 1: 2;\n"
-
-msgid "Ready"
-msgstr "מוכן"
-
-msgid "Upgrade"
-msgstr "שדרג"
-
-msgid "Re-Install"
-msgstr "התקן שוב"
-
-msgid "<b>Required:</b>"
-msgstr "<b>חבילות נחוצות:</b>"
-
-msgid "<b>Conflicts:</b>"
-msgstr "<b>חבילות מתנגשות:</b>"
-
-msgid "<b>Suggests:</b>"
-msgstr "<b>חבילות מוצעות:</b>"
-
-#. installed
-msgid "No dependency information available"
-msgstr "אין מידע זמין"
-
-msgid "Source"
-msgstr "מקור"
-
-msgid "No changelog information available"
-msgstr "אין מידע זמין"
-
-msgid "The list of installed files is only available for installed packages"
-msgstr "הרשימה של קבצים מותקנים זמינה עבור חבילות מותקנות בלבד"
-
-msgid "Excluded"
-msgstr "מוּצאת"
-
-msgid "To be Removed"
-msgstr "להסרה"
-
-msgid "To be Installed"
-msgstr "להתקנה"
-
-msgid "To be Re-Installed"
-msgstr "להתקנה חוזרת"
-
-msgid "To be Downgraded"
-msgstr "להנמכה"
-
-msgid "To be Upgraded"
-msgstr "לשדרוג"
-
-msgid "Installed"
-msgstr "חבילות מותקנות"
-
-msgid "Not Installed"
-msgstr "לא מותקנת"
-
-msgid "Progress"
-msgstr "התקדמות"
-
-msgid "Checking for new package data..."
-msgstr "בודק כעת עבור נתוני חבילה חדשים..."
-
-msgid "GPG Key verification failed"
-msgstr "אימות מפתח GPG נכשל"
-
-msgid "Retrieving package data..."
-msgstr "מאחזר כעת נתוני חבילה..."
-
-msgid "Retrieving patch list..."
-msgstr "מאחזר כעת רשימת טלאים..."
-
-msgid "Retrieving checksum list..."
-msgstr "מאחזר כעת רשימת סיכום ביקורת..."
-
-msgid "Retrieving checksum signature..."
-msgstr "מאחזר כעת חתימת סיכום ביקורת..."
-
-msgid "Verifying checksum signature..."
-msgstr "מאמת כעת חתימת סיכום ביקורת..."
-
-msgid "Retrieving ChangeLog.txt..."
-msgstr "מאחזר כעת ChangeLog.txt..."
-
-msgid "Reading Package Lists..."
-msgstr "קורא כעת רשימות חבילה..."
-
-#, c-format
-msgid "Download rate: %.0f%s/s"
-msgstr "מהירות הורדה: %.0f%s/s"
-
-msgid "Error"
-msgstr "שגיאה"
-
-msgid "Completed actions"
-msgstr "פעולות שהושלמו"
-
-msgid "Successfully executed all actions."
-msgstr "כל הפעולות בוצעו בהצלחה."
-
-msgid "pkgtools returned an error"
-msgstr "‏pkgtools החזיר שגיאה"
-
-msgid "Enabled"
-msgstr "מאופשר"
-
-msgid "Visible"
-msgstr "נראות"
-
-msgid "Priority"
-msgstr "עדיפות"
-
-msgid "Expression"
-msgstr "ביטוי"
-
-msgid "Packages with unmet dependencies"
-msgstr "חבילות עם תלויות לא מספקות"
-
-msgid "Package conflicts"
-msgstr "התנגשויות חבילה"
-
-msgid ", which is required by "
-msgstr ", שנדרשת על ידי "
+"Plural-Forms: nplurals=3; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % "
+"1 == 0) ? 1: 2;\n"
 
 msgid ", is excluded"
 msgstr ", לא כלולה"
 
-msgid "Packages excluded"
-msgstr "חבילות שהוצאו"
+msgid ", which is required by "
+msgstr ", שנדרשת על ידי "
 
-msgid "Packages to be installed"
-msgstr "חבילות להתקנה"
+msgid ": Depends: "
+msgstr ": תלויה: "
 
-msgid "Packages to be upgraded"
-msgstr "חבילות לשדרוג"
-
-msgid "Packages to be reinstalled"
-msgstr "חבילות להתקנה חוזרת"
-
-msgid "Packages to be removed"
-msgstr "חבילות להסרה"
-
-msgid "Package"
-msgstr "חבילה"
+msgid "<b>Conflicts:</b>"
+msgstr "<b>חבילות מתנגשות:</b>"
 
 #, c-format
-msgid "%d upgraded, "
-msgid_plural "%d upgraded, "
-msgstr[0] "%d לשדרוג, "
-msgstr[1] "%d לשדרוג, "
-msgstr[2] "%d לשדרוג, "
+msgid "<b>Excluding %s due to dependency failure</b>"
+msgstr "<b>החבילה %s לא תיכלל עקב כשל תלות</b>"
 
-#, c-format
-msgid "%d reinstalled, "
-msgid_plural "%d reinstalled, "
-msgstr[0] "%d להתקנה חוזרת, "
-msgstr[1] "%d להתקנה חוזרת, "
-msgstr[2] "%d להתקנה חוזרת, "
+msgid "<b>Required:</b>"
+msgstr "<b>חבילות נחוצות:</b>"
 
-#, c-format
-msgid "%d newly installed, "
-msgid_plural "%d newly installed, "
-msgstr[0] "%d התקנות חדשות, "
-msgstr[1] "%d התקנות חדשות, "
-msgstr[2] "%d התקנות חדשות, "
+msgid "<b>Suggests:</b>"
+msgstr "<b>חבילות מוצעות:</b>"
 
-#, c-format
-msgid "%d to remove "
-msgid_plural "%d to remove "
-msgstr[0] "%d to להסרה "
-msgstr[1] "%d to להסרה "
-msgstr[2] "%d to להסרה "
+msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
+msgstr "<span weight=\"bold\" size=\"large\">אין שדרוגים זמינים</span>"
 
-#, c-format
-msgid "and %d not upgraded."
-msgid_plural "and %d not upgraded."
-msgstr[0] "ועוד %d לא ישודרגו."
-msgstr[1] "ועוד %d לא ישודרגו."
-msgstr[2] "ועוד %d לא ישודרגו."
-
-msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgid ""
+"<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
 msgstr "<span weight=\"bold\" size=\"large\">אין ברשותך מספיק נפח בכונן</span>"
-
-#, c-format
-msgid "Need to get %.0f%s/%.0f%s of archives.\n"
-msgstr "צריך להוריד %.0f%s/%.0f%s של ארכיונים.\n"
-
-#, c-format
-msgid "Need to get %.0f%s of archives."
-msgstr "צריך להוריד %.0f%s של ארכיונים."
 
 #, c-format
 msgid "After unpacking %.0f%s disk space will be freed."
@@ -216,11 +58,21 @@ msgstr "לאחר חילוץ %.0f%s מן שטח הכונן יהיו זמין."
 msgid "After unpacking %.0f%s of additional disk space will be used."
 msgstr "לאחר חילוץ %.0f%s מן שטח הכונן יהיו בשימוש."
 
-msgid "Up to Date"
-msgstr "המערכת מעודכנת"
+msgid "ChangeLogs"
+msgstr "רשומות שינויים"
 
-msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
-msgstr "<span weight=\"bold\" size=\"large\">אין שדרוגים זמינים</span>"
+msgid "Checking for new package data..."
+msgstr "בודק כעת עבור נתוני חבילה חדשים..."
+
+msgid "Completed actions"
+msgstr "פעולות שהושלמו"
+
+msgid "Description"
+msgstr "תיאור"
+
+#, c-format
+msgid "Download rate: %.0f%s/s"
+msgstr "מהירות הורדה: %.0f%s/s"
 
 msgid "Downloading packages..."
 msgstr "מוריד כעת חבילות..."
@@ -228,485 +80,577 @@ msgstr "מוריד כעת חבילות..."
 msgid "Downloading..."
 msgstr "מוריד כעת..."
 
-#, c-format
-msgid "Failed to download %s: %s"
-msgstr "כשל בהורדת %s: ‫%s"
+msgid "Enabled"
+msgstr "מאופשר"
 
-msgid "Removing packages..."
-msgstr "מסיר כעת חבילות..."
+msgid "Error"
+msgstr "שגיאה"
 
-msgid "Installing packages..."
-msgstr "מתקין כעת חבילות..."
+msgid "Excluded"
+msgstr "מוּצאת"
 
-msgid "Uninstalling..."
-msgstr "מסיר כעת..."
-
-msgid "Installing..."
-msgstr "מתקין כעת..."
-
-msgid "Upgrading..."
-msgstr "משדרג כעת..."
+msgid "Expression"
+msgstr "ביטוי"
 
 msgid "Failed to commit preferences"
 msgstr "כשל בביצוע העדפות"
 
-msgid "Pending changes. Click execute when ready."
-msgstr "אותרו שינויים. יש ללחוץ על הכפתור ביצוע כדי להחילם."
-
-msgid "Status"
-msgstr "מצב"
-
-msgid "Name"
-msgstr "שם"
-
-msgid "Version"
-msgstr "גרסא"
-
-msgid "Location"
-msgstr "מיקום"
-
-msgid "Description"
-msgstr "תיאור"
-
-msgid "Installed Size"
-msgstr "גודל התקנה"
-
 #, c-format
-msgid "<b>Excluding %s due to dependency failure</b>"
-msgstr "<b>החבילה %s לא תיכלל עקב כשל תלות</b>"
+msgid "Failed to download %s: %s"
+msgstr "כשל בהורדת %s: ‫%s"
 
-msgid ""
-"Missing dependencies may mean the software in this package will not function"
-" correctly.  Do you want to continue without the required packages?"
-msgstr "חסר בתלויות עשוי להתבטא בכך שהתוכנה שבחבילה זו לא תתפקד כראוי.  האם ברצונך להמשיך ללא החבילות הדרושות?"
-
-msgid ": Depends: "
-msgstr ": תלויה: "
+msgid "GPG Key verification failed"
+msgstr "אימות מפתח GPG נכשל"
 
 msgid "Import"
 msgstr "ייבוא"
 
-msgid "No key found"
-msgstr "לא נמצא מפתח"
+msgid "Installed"
+msgstr "חבילות מותקנות"
 
-msgid "ChangeLogs"
-msgstr "רשומות שינויים"
+msgid "Installed Size"
+msgstr "גודל התקנה"
+
+msgid "Installing packages..."
+msgstr "מתקין כעת חבילות..."
+
+msgid "Installing..."
+msgstr "מתקין כעת..."
+
+msgid "Location"
+msgstr "מיקום"
+
+msgid ""
+"Missing dependencies may mean the software in this package will not function "
+"correctly.  Do you want to continue without the required packages?"
+msgstr ""
+"חסר בתלויות עשוי להתבטא בכך שהתוכנה שבחבילה זו לא תתפקד כראוי.  האם ברצונך "
+"להמשיך ללא החבילות הדרושות?"
+
+msgid "Name"
+msgstr "שם"
+
+#, c-format
+msgid "Need to get %.0f%s of archives."
+msgstr "צריך להוריד %.0f%s של ארכיונים."
+
+#, c-format
+msgid "Need to get %.0f%s/%.0f%s of archives.\n"
+msgstr "צריך להוריד %.0f%s/%.0f%s של ארכיונים.\n"
+
+msgid "No changelog information available"
+msgstr "אין מידע זמין"
 
 msgid "No changelogs found."
 msgstr "לא נמצאו רשומות שינויים."
 
-msgid "Gslapt Package Manager"
-msgstr "מנהל חבילות Gslapt"
+#. installed
+msgid "No dependency information available"
+msgstr "אין מידע זמין"
 
-msgid "Install, remove and upgrade software packages"
-msgstr "התקנה, הסרה ושדרוג של חבילות תוכנה"
+msgid "No key found"
+msgstr "לא נמצא מפתח"
 
-msgid "Run Gslapt as root"
-msgstr ""
-
-msgid "Authentication is required to run Gslapt"
-msgstr ""
-
-msgid "Base"
-msgstr "בסיס"
-
-msgid "Applications"
-msgstr "יישומים"
-
-msgid "Development Tools"
-msgstr "כלי פיתוח"
-
-msgid "GNU Emacs"
-msgstr "GNU Emacs"
-
-msgid "Documentation"
-msgstr "תיעוד"
-
-msgid "GNOME"
-msgstr "‏GNOME"
-
-msgid "Linux kernel"
-msgstr "Linux kernel"
-
-msgid "KDE"
-msgstr "‏KDE"
-
-msgid "KDE Internationalization"
-msgstr "‏KDE התאמת שפה"
-
-msgid "Libraries"
-msgstr "ספריות"
-
-msgid "Networking"
-msgstr "רשת תקשורת"
-
-msgid "teTeX"
-msgstr "‏teTeX"
-
-msgid "TCL"
-msgstr "‏TCL"
-
-msgid "X Window System"
-msgstr "מערכת חלון X"
-
-msgid "X Applications"
-msgstr "יישומי X"
-
-msgid "Xfce"
-msgstr ""
-
-msgid "BSD Console games"
-msgstr "‏BSD משחקי מסוף"
-
-msgid "Patches"
-msgstr "טלאים"
-
-msgid "GSB Base"
-msgstr "‏GSB בסיס"
-
-msgid "GSB Accessibility"
-msgstr "‏GSB נגישות"
-
-msgid "GSB Administration"
-msgstr "‏GSB ניהול מערכת"
-
-msgid "GSB Applications"
-msgstr "‏GSB יישומים"
-
-msgid "GSB Compiz Fusion"
-msgstr "‏GSB קומפיז"
-
-msgid "GSB Development"
-msgstr "‏GSB פיתוח"
-
-msgid "GSB Office"
-msgstr "‏GSB משרד"
-
-msgid "GSB Libraries"
-msgstr "‏GSB ספריות"
-
-msgid "GSB Mono"
-msgstr "‏GSB Mono"
-
-msgid "GSB Networking"
-msgstr "‏GSB רשת תקשורת"
-
-msgid "GSB OpenOffice.org"
-msgstr "‏GSB אופן אופיס"
-
-msgid "GSB Themes"
-msgstr "‏GSB מוטיבים"
-
-msgid "Games"
-msgstr "משחקים"
-
-msgid "Localization"
-msgstr "התאמת שפה"
-
-msgid "LXDE"
-msgstr ""
-
-msgid "MATE"
-msgstr ""
-
-msgid "Academic"
-msgstr ""
-
-msgid "Accessibility"
-msgstr ""
-
-msgid "Audio"
-msgstr ""
-
-msgid "Business"
-msgstr ""
-
-msgid "Desktop"
-msgstr ""
-
-msgid "Development"
-msgstr ""
-
-msgid "GIS"
-msgstr ""
-
-msgid "Graphics"
-msgstr ""
-
-msgid "HAM Radio"
-msgstr ""
-
-msgid "Haskell"
-msgstr ""
-
-msgid "Miscellaneous"
-msgstr ""
-
-msgid "Multimedia"
-msgstr ""
-
-msgid "Network"
-msgstr ""
-
-msgid "Office"
-msgstr ""
-
-msgid "Perl"
-msgstr ""
-
-msgid "Python"
-msgstr ""
-
-msgid "Ruby"
-msgstr ""
-
-msgid "System"
-msgstr ""
-
-msgid "Slackware Extra"
-msgstr ""
-
-msgid ""
-"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
-"Slackware"
-msgstr "‏gslapt הינו מגשר חזיתי לתוכנית slapt-get, מערכת ניהול חבילות עבור Slackware הדומה למערכת ניהול החבילות APT."
-
-msgid "working"
-msgstr "עובד כעת"
-
-msgid "total progress"
-msgstr "התקדמות כוללת"
-
-msgid "Gslapt"
-msgstr "Gslapt"
-
-msgid "_File"
-msgstr "_קובץ"
-
-msgid "Update local package cache"
-msgstr "עדכן מטמון חבילות מקומי"
-
-msgid "Update"
-msgstr "עדכן"
-
-msgid "Mark all possible upgrades"
-msgstr "סמן את כל השדרוגים האפשריים"
-
-msgid "Mark All Upgrades"
-msgstr "סמן את כל השדרוגים"
-
-msgid "Mark all obsolete packages"
-msgstr "סמן את כל החבילות המיושנות"
-
-msgid "Mark Obsolete"
-msgstr "סמן חבילות _מיושנות"
-
-msgid "Execute all scheduled actions in current transaction"
-msgstr "הוצא לפועל את כל הפעולות שנקבעו בסשן זה"
-
-msgid "Execute"
-msgstr "ביצוע"
-
-msgid "_Edit"
-msgstr "ע_ריכה"
-
-msgid "Unmark All"
-msgstr "בט_ל סימון מוחלט"
-
-msgid "Preferences"
-msgstr "העדפות"
-
-msgid "_View"
-msgstr "_תצוגה"
-
-msgid "View all packages"
-msgstr "הצג את כל החבילות"
-
-msgid "All"
-msgstr "_כל החבילות"
-
-msgid "View available packages from current sources"
-msgstr "הצג חבילות זמינות ממקורות נוכחיים"
-
-msgid "Available"
-msgstr "חבילות _זמינות"
-
-msgid "View installed packages"
-msgstr "הצג חבילות מותקנות"
-
-msgid "View Marked Packages"
-msgstr "הצג חבילות מסומנות"
-
-msgid "Marked"
-msgstr "חבילות מ_סומנות"
-
-msgid "View Upgradeable Packages"
-msgstr "הצג חבילות הניתנות לשדרוג"
-
-msgid "Upgradeable"
-msgstr "חבילות _ברות שדרוג"
-
-msgid "P_ackage"
-msgstr "_חבילה"
-
-msgid "Unmark"
-msgstr "בט_ל סימון"
-
-msgid "Install"
-msgstr "ה_תקן"
-
-msgid "Downgrade"
-msgstr "ה_נמך"
-
-msgid "Remove"
-msgstr "_הסר"
-
-msgid "_Help"
-msgstr "_עזרה"
-
-msgid "Icon Legend"
-msgstr "מקרא צלמית"
-
-msgid "View ChangeLogs"
-msgstr "הצג רשומות שינויים"
-
-msgid "About"
-msgstr "_אודות"
-
-msgid "Search"
-msgstr "חיפוש"
-
-msgid "<b>Name:</b>"
-msgstr "<b>שם:</b>"
-
+#. set package details
 msgid "No package is selected."
 msgstr "לא נבחרה חבילה."
 
-msgid "<b>Status:</b>"
-msgstr "<b>מצב:</b>"
+msgid "Not Installed"
+msgstr "לא מותקנת"
 
-msgid "<b>Description:</b>"
-msgstr "<b>תיאור:</b>"
+msgid "Package"
+msgstr "חבילה"
 
-msgid "<b>Version:</b>"
-msgstr "<b>גרסא:</b>"
+msgid "Package conflicts"
+msgstr "התנגשויות חבילה"
 
-msgid "<b>Source:</b>"
-msgstr "<b>מקור:</b>"
+msgid "Packages excluded"
+msgstr "חבילות שהוצאו"
 
-msgid "<b>Priority:</b>"
-msgstr "<b>עדיפות:</b>"
+msgid "Packages to be installed"
+msgstr "חבילות להתקנה"
 
-msgid "<b>Location:</b>"
-msgstr "<b>מיקום:</b>"
+msgid "Packages to be reinstalled"
+msgstr "חבילות להתקנה חוזרת"
 
-msgid "<b>Installed Version</b>"
-msgstr "<b>גרסא מותקנת</b>"
+msgid "Packages to be removed"
+msgstr "חבילות להסרה"
 
-msgid "Version:"
-msgstr "גרסא:"
+msgid "Packages to be upgraded"
+msgstr "חבילות לשדרוג"
 
-msgid "Installed Size:"
-msgstr "גודל התקנה:"
+msgid "Packages with unmet dependencies"
+msgstr "חבילות עם תלויות לא מספקות"
 
-msgid "<b>Latest Available Version</b>"
-msgstr "<b>גרסא נוכחית זמינה</b>"
+msgid "Pending changes. Click execute when ready."
+msgstr "אותרו שינויים. יש ללחוץ על הכפתור ביצוע כדי להחילם."
 
-msgid "Size:"
-msgstr "גודל הורדה:"
+msgid "Priority"
+msgstr "עדיפות"
 
-msgid "Source:"
-msgstr "מקור:"
+msgid "Progress"
+msgstr "התקדמות"
 
-msgid "Common"
-msgstr "כללי"
+msgid "Re-Install"
+msgstr "התקן שוב"
 
-msgid "Dependencies"
-msgstr "תלויות"
+msgid "Reading Package Lists..."
+msgstr "קורא כעת רשימות חבילה..."
 
-msgid "Changelog"
-msgstr "רשומת שינויים"
+msgid "Ready"
+msgstr "מוכן"
 
-msgid "Files"
-msgstr "קבצים מותקנים"
+msgid "Removing packages..."
+msgstr "מסיר כעת חבילות..."
 
-msgid ""
-"<b>The following icons are used to indicate the current status of a "
-"package:</b>"
-msgstr "<b>הצלמיות הבאות משמשות להכוונה\nעל המצב הנתון של חבילה:</b>"
+msgid "Retrieving ChangeLog.txt..."
+msgstr "מאחזר כעת ChangeLog.txt..."
 
-msgid "Repositories changed"
-msgstr "מאגרים השתנו"
+msgid "Retrieving checksum list..."
+msgstr "מאחזר כעת רשימת סיכום ביקורת..."
 
-msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
-msgstr "<span size=\"large\" weight=\"bold\">מאגרים השתנו</span>"
+msgid "Retrieving checksum signature..."
+msgstr "מאחזר כעת חתימת סיכום ביקורת..."
 
-msgid ""
-"You need to reload the package list from the sources you have listed.  Do "
-"you want to do this now?"
-msgstr "עליך להטעין מחדש את רשימת החבילות מן המקורות שציינת.  האם ברצונך לעשות זאת עכשיו?"
+msgid "Retrieving package data..."
+msgstr "מאחזר כעת נתוני חבילה..."
 
-msgid "Source failed"
-msgstr "מקור נכשל"
+msgid "Retrieving patch list..."
+msgstr "מאחזר כעת רשימת טלאים..."
 
-msgid ""
-"This package source failed or is not available.  Do you want to disable this"
-" source and continue anyway?"
-msgstr "קיים כשל במקור חבילה זה או שמקור זה אינו קיים.  האם ברצונך לנטרל את מקור זה ועדיין להמשיך?"
+msgid "Source"
+msgstr "מקור"
 
-msgid "Default"
-msgstr "משתמטת"
+msgid "Status"
+msgstr "מצב"
 
-msgid "Official"
-msgstr "רשמית"
+msgid "Successfully executed all actions."
+msgstr "כל הפעולות בוצעו בהצלחה."
 
-msgid "Preferred"
-msgstr "מועדפת"
+msgid "The list of installed files is only available for installed packages"
+msgstr "הרשימה של קבצים מותקנים זמינה עבור חבילות מותקנות בלבד"
 
-msgid "Custom"
-msgstr "מותאמת"
+msgid "To be Downgraded"
+msgstr "להנמכה"
 
-msgid "Package Source"
-msgstr "מקור חבילה"
+msgid "To be Installed"
+msgstr "להתקנה"
 
-msgid "Summary"
-msgstr "סיכום"
+msgid "To be Re-Installed"
+msgstr "להתקנה חוזרת"
 
-msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
-msgstr "<span weight=\"bold\" size=\"large\">להחיל את השינויים הבאים?</span>"
+msgid "To be Removed"
+msgstr "להסרה"
 
-msgid "This is a summary of the changes about to be performed."
-msgstr "זהו סיכום של השינויים שעומדים להתבצע."
+msgid "To be Upgraded"
+msgstr "לשדרוג"
 
-msgid "Download packages only"
-msgstr "הורד חבילות בלבד"
+msgid "Uninstalling..."
+msgstr "מסיר כעת..."
 
-msgid "<b>Package and data storage</b>"
-msgstr "<b>אחסון חבילות ונתונים</b>"
+msgid "Up to Date"
+msgstr "המערכת מעודכנת"
 
-msgid "_Delete Cached Package Files"
-msgstr "_מחק קבצי חבילה מוטמנים"
+msgid "Upgrade"
+msgstr "שדרג"
 
-msgid "Working Directory"
-msgstr "מדור עבודה"
+msgid "Upgrading..."
+msgstr "משדרג כעת..."
 
-msgid "<b>Exclude List</b>"
-msgstr "<b>רשימה של ביטויים שהוצאו</b>"
+msgid "Verifying checksum signature..."
+msgstr "מאמת כעת חתימת סיכום ביקורת..."
 
-msgid "<span weight=\"bold\">Exclude Expression:</span>"
-msgstr "<span weight=\"bold\">ביטוי להוצאה:</span>"
+msgid "Version"
+msgstr "גרסא"
 
-msgid "Excludes"
-msgstr "לא כלולים"
+msgid "Visible"
+msgstr "נראות"
 
-msgid "<b>Package Sources</b>"
-msgstr "<b>מקורות חבילה</b>"
+msgid "pkgtools returned an error"
+msgstr "‏pkgtools החזיר שגיאה"
 
-msgid "Sources"
-msgstr "מקורות"
+#, c-format
+#~ msgid "%d upgraded, "
+#~ msgid_plural "%d upgraded, "
+#~ msgstr[0] "%d לשדרוג, "
+#~ msgstr[1] "%d לשדרוג, "
+#~ msgstr[2] "%d לשדרוג, "
 
-msgid "<b>GPG Keys</b>"
-msgstr "<b>מפתחות GPG</b>"
+#, c-format
+#~ msgid "%d reinstalled, "
+#~ msgid_plural "%d reinstalled, "
+#~ msgstr[0] "%d להתקנה חוזרת, "
+#~ msgstr[1] "%d להתקנה חוזרת, "
+#~ msgstr[2] "%d להתקנה חוזרת, "
 
-msgid "Verification"
-msgstr "אימות"
+#, c-format
+#~ msgid "%d newly installed, "
+#~ msgid_plural "%d newly installed, "
+#~ msgstr[0] "%d התקנות חדשות, "
+#~ msgstr[1] "%d התקנות חדשות, "
+#~ msgstr[2] "%d התקנות חדשות, "
+
+#, c-format
+#~ msgid "%d to remove "
+#~ msgid_plural "%d to remove "
+#~ msgstr[0] "%d to להסרה "
+#~ msgstr[1] "%d to להסרה "
+#~ msgstr[2] "%d to להסרה "
+
+#, c-format
+#~ msgid "and %d not upgraded."
+#~ msgid_plural "and %d not upgraded."
+#~ msgstr[0] "ועוד %d לא ישודרגו."
+#~ msgstr[1] "ועוד %d לא ישודרגו."
+#~ msgstr[2] "ועוד %d לא ישודרגו."
+
+#~ msgid "Gslapt Package Manager"
+#~ msgstr "מנהל חבילות Gslapt"
+
+#~ msgid "Install, remove and upgrade software packages"
+#~ msgstr "התקנה, הסרה ושדרוג של חבילות תוכנה"
+
+#~ msgid "Base"
+#~ msgstr "בסיס"
+
+#~ msgid "Applications"
+#~ msgstr "יישומים"
+
+#~ msgid "Development Tools"
+#~ msgstr "כלי פיתוח"
+
+#~ msgid "GNU Emacs"
+#~ msgstr "GNU Emacs"
+
+#~ msgid "Documentation"
+#~ msgstr "תיעוד"
+
+#~ msgid "GNOME"
+#~ msgstr "‏GNOME"
+
+#~ msgid "Linux kernel"
+#~ msgstr "Linux kernel"
+
+#~ msgid "KDE"
+#~ msgstr "‏KDE"
+
+#~ msgid "KDE Internationalization"
+#~ msgstr "‏KDE התאמת שפה"
+
+#~ msgid "Libraries"
+#~ msgstr "ספריות"
+
+#~ msgid "Networking"
+#~ msgstr "רשת תקשורת"
+
+#~ msgid "teTeX"
+#~ msgstr "‏teTeX"
+
+#~ msgid "TCL"
+#~ msgstr "‏TCL"
+
+#~ msgid "X Window System"
+#~ msgstr "מערכת חלון X"
+
+#~ msgid "X Applications"
+#~ msgstr "יישומי X"
+
+#~ msgid "BSD Console games"
+#~ msgstr "‏BSD משחקי מסוף"
+
+#~ msgid "Patches"
+#~ msgstr "טלאים"
+
+#~ msgid "GSB Base"
+#~ msgstr "‏GSB בסיס"
+
+#~ msgid "GSB Accessibility"
+#~ msgstr "‏GSB נגישות"
+
+#~ msgid "GSB Administration"
+#~ msgstr "‏GSB ניהול מערכת"
+
+#~ msgid "GSB Applications"
+#~ msgstr "‏GSB יישומים"
+
+#~ msgid "GSB Compiz Fusion"
+#~ msgstr "‏GSB קומפיז"
+
+#~ msgid "GSB Development"
+#~ msgstr "‏GSB פיתוח"
+
+#~ msgid "GSB Office"
+#~ msgstr "‏GSB משרד"
+
+#~ msgid "GSB Libraries"
+#~ msgstr "‏GSB ספריות"
+
+#~ msgid "GSB Mono"
+#~ msgstr "‏GSB Mono"
+
+#~ msgid "GSB Networking"
+#~ msgstr "‏GSB רשת תקשורת"
+
+#~ msgid "GSB OpenOffice.org"
+#~ msgstr "‏GSB אופן אופיס"
+
+#~ msgid "GSB Themes"
+#~ msgstr "‏GSB מוטיבים"
+
+#~ msgid "Games"
+#~ msgstr "משחקים"
+
+#~ msgid "Localization"
+#~ msgstr "התאמת שפה"
+
+#~ msgid ""
+#~ "gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
+#~ "Slackware"
+#~ msgstr ""
+#~ "‏gslapt הינו מגשר חזיתי לתוכנית slapt-get, מערכת ניהול חבילות עבור "
+#~ "Slackware הדומה למערכת ניהול החבילות APT."
+
+#~ msgid "working"
+#~ msgstr "עובד כעת"
+
+#~ msgid "total progress"
+#~ msgstr "התקדמות כוללת"
+
+#~ msgid "Gslapt"
+#~ msgstr "Gslapt"
+
+#~ msgid "_File"
+#~ msgstr "_קובץ"
+
+#~ msgid "Update local package cache"
+#~ msgstr "עדכן מטמון חבילות מקומי"
+
+#~ msgid "Update"
+#~ msgstr "עדכן"
+
+#~ msgid "Mark all possible upgrades"
+#~ msgstr "סמן את כל השדרוגים האפשריים"
+
+#~ msgid "Mark All Upgrades"
+#~ msgstr "סמן את כל השדרוגים"
+
+#~ msgid "Mark all obsolete packages"
+#~ msgstr "סמן את כל החבילות המיושנות"
+
+#~ msgid "Mark Obsolete"
+#~ msgstr "סמן חבילות _מיושנות"
+
+#~ msgid "Execute all scheduled actions in current transaction"
+#~ msgstr "הוצא לפועל את כל הפעולות שנקבעו בסשן זה"
+
+#~ msgid "Execute"
+#~ msgstr "ביצוע"
+
+#~ msgid "_Edit"
+#~ msgstr "ע_ריכה"
+
+#~ msgid "Unmark All"
+#~ msgstr "בט_ל סימון מוחלט"
+
+#~ msgid "Preferences"
+#~ msgstr "העדפות"
+
+#~ msgid "_View"
+#~ msgstr "_תצוגה"
+
+#~ msgid "View all packages"
+#~ msgstr "הצג את כל החבילות"
+
+#~ msgid "All"
+#~ msgstr "_כל החבילות"
+
+#~ msgid "View available packages from current sources"
+#~ msgstr "הצג חבילות זמינות ממקורות נוכחיים"
+
+#~ msgid "Available"
+#~ msgstr "חבילות _זמינות"
+
+#~ msgid "View installed packages"
+#~ msgstr "הצג חבילות מותקנות"
+
+#~ msgid "View Marked Packages"
+#~ msgstr "הצג חבילות מסומנות"
+
+#~ msgid "Marked"
+#~ msgstr "חבילות מ_סומנות"
+
+#~ msgid "View Upgradeable Packages"
+#~ msgstr "הצג חבילות הניתנות לשדרוג"
+
+#~ msgid "Upgradeable"
+#~ msgstr "חבילות _ברות שדרוג"
+
+#~ msgid "P_ackage"
+#~ msgstr "_חבילה"
+
+#~ msgid "Unmark"
+#~ msgstr "בט_ל סימון"
+
+#~ msgid "Install"
+#~ msgstr "ה_תקן"
+
+#~ msgid "Downgrade"
+#~ msgstr "ה_נמך"
+
+#~ msgid "Remove"
+#~ msgstr "_הסר"
+
+#~ msgid "_Help"
+#~ msgstr "_עזרה"
+
+#~ msgid "Icon Legend"
+#~ msgstr "מקרא צלמית"
+
+#~ msgid "View ChangeLogs"
+#~ msgstr "הצג רשומות שינויים"
+
+#~ msgid "About"
+#~ msgstr "_אודות"
+
+#~ msgid "Search"
+#~ msgstr "חיפוש"
+
+#~ msgid "<b>Name:</b>"
+#~ msgstr "<b>שם:</b>"
+
+#~ msgid "<b>Status:</b>"
+#~ msgstr "<b>מצב:</b>"
+
+#~ msgid "<b>Description:</b>"
+#~ msgstr "<b>תיאור:</b>"
+
+#~ msgid "<b>Version:</b>"
+#~ msgstr "<b>גרסא:</b>"
+
+#~ msgid "<b>Source:</b>"
+#~ msgstr "<b>מקור:</b>"
+
+#~ msgid "<b>Priority:</b>"
+#~ msgstr "<b>עדיפות:</b>"
+
+#~ msgid "<b>Location:</b>"
+#~ msgstr "<b>מיקום:</b>"
+
+#~ msgid "<b>Installed Version</b>"
+#~ msgstr "<b>גרסא מותקנת</b>"
+
+#~ msgid "Version:"
+#~ msgstr "גרסא:"
+
+#~ msgid "Installed Size:"
+#~ msgstr "גודל התקנה:"
+
+#~ msgid "<b>Latest Available Version</b>"
+#~ msgstr "<b>גרסא נוכחית זמינה</b>"
+
+#~ msgid "Size:"
+#~ msgstr "גודל הורדה:"
+
+#~ msgid "Source:"
+#~ msgstr "מקור:"
+
+#~ msgid "Common"
+#~ msgstr "כללי"
+
+#~ msgid "Dependencies"
+#~ msgstr "תלויות"
+
+#~ msgid "Changelog"
+#~ msgstr "רשומת שינויים"
+
+#~ msgid "Files"
+#~ msgstr "קבצים מותקנים"
+
+#~ msgid ""
+#~ "<b>The following icons are used to indicate the current status of a "
+#~ "package:</b>"
+#~ msgstr ""
+#~ "<b>הצלמיות הבאות משמשות להכוונה\n"
+#~ "על המצב הנתון של חבילה:</b>"
+
+#~ msgid "Repositories changed"
+#~ msgstr "מאגרים השתנו"
+
+#~ msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
+#~ msgstr "<span size=\"large\" weight=\"bold\">מאגרים השתנו</span>"
+
+#~ msgid ""
+#~ "You need to reload the package list from the sources you have listed.  Do "
+#~ "you want to do this now?"
+#~ msgstr ""
+#~ "עליך להטעין מחדש את רשימת החבילות מן המקורות שציינת.  האם ברצונך לעשות "
+#~ "זאת עכשיו?"
+
+#~ msgid "Source failed"
+#~ msgstr "מקור נכשל"
+
+#~ msgid ""
+#~ "This package source failed or is not available.  Do you want to disable "
+#~ "this source and continue anyway?"
+#~ msgstr ""
+#~ "קיים כשל במקור חבילה זה או שמקור זה אינו קיים.  האם ברצונך לנטרל את מקור "
+#~ "זה ועדיין להמשיך?"
+
+#~ msgid "Default"
+#~ msgstr "משתמטת"
+
+#~ msgid "Official"
+#~ msgstr "רשמית"
+
+#~ msgid "Preferred"
+#~ msgstr "מועדפת"
+
+#~ msgid "Custom"
+#~ msgstr "מותאמת"
+
+#~ msgid "Package Source"
+#~ msgstr "מקור חבילה"
+
+#~ msgid "Summary"
+#~ msgstr "סיכום"
+
+#~ msgid ""
+#~ "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+#~ msgstr ""
+#~ "<span weight=\"bold\" size=\"large\">להחיל את השינויים הבאים?</span>"
+
+#~ msgid "This is a summary of the changes about to be performed."
+#~ msgstr "זהו סיכום של השינויים שעומדים להתבצע."
+
+#~ msgid "Download packages only"
+#~ msgstr "הורד חבילות בלבד"
+
+#~ msgid "<b>Package and data storage</b>"
+#~ msgstr "<b>אחסון חבילות ונתונים</b>"
+
+#~ msgid "_Delete Cached Package Files"
+#~ msgstr "_מחק קבצי חבילה מוטמנים"
+
+#~ msgid "Working Directory"
+#~ msgstr "מדור עבודה"
+
+#~ msgid "<b>Exclude List</b>"
+#~ msgstr "<b>רשימה של ביטויים שהוצאו</b>"
+
+#~ msgid "<span weight=\"bold\">Exclude Expression:</span>"
+#~ msgstr "<span weight=\"bold\">ביטוי להוצאה:</span>"
+
+#~ msgid "Excludes"
+#~ msgstr "לא כלולים"
+
+#~ msgid "<b>Package Sources</b>"
+#~ msgstr "<b>מקורות חבילה</b>"
+
+#~ msgid "Sources"
+#~ msgstr "מקורות"
+
+#~ msgid "<b>GPG Keys</b>"
+#~ msgstr "<b>מפתחות GPG</b>"
+
+#~ msgid "Verification"
+#~ msgstr "אימות"

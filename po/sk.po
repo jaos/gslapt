@@ -1,215 +1,55 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# 
+#
 # Translators:
 # FIRST AUTHOR Erik Gyepes <depi@depi.sk>, 2005-2006
 msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
-"Report-Msgid-Bugs-To: woodwardj at jaos dot org\n"
-"POT-Creation-Date: 2022-06-03 22:11+0300\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-31 17:49-0400\n"
 "PO-Revision-Date: 2012-09-17 21:52+0000\n"
 "Last-Translator: FIRST AUTHOR Erik Gyepes <depi@depi.sk>, 2005-2006\n"
-"Language-Team: Slovak (http://app.transifex.com/jaos/slapt-get/language/sk/)\n"
+"Language-Team: Slovak (http://app.transifex.com/jaos/slapt-get/language/"
+"sk/)\n"
+"Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sk\n"
-"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);\n"
-
-msgid "Ready"
-msgstr "Pripravený"
-
-msgid "Upgrade"
-msgstr "Upgrade"
-
-msgid "Re-Install"
-msgstr "Pre-Inštalovať"
-
-msgid "<b>Required:</b>"
-msgstr "<b>Požadovaný:</b>"
-
-msgid "<b>Conflicts:</b>"
-msgstr "<b>Konflikty:</b>"
-
-msgid "<b>Suggests:</b>"
-msgstr "<b>Doporučenia:</b>"
-
-#. installed
-msgid "No dependency information available"
-msgstr "No dependency information available"
-
-msgid "Source"
-msgstr "Zdroj"
-
-msgid "No changelog information available"
-msgstr "No changelog information available"
-
-msgid "The list of installed files is only available for installed packages"
-msgstr "The list of installed files is only available for installed packages"
-
-msgid "Excluded"
-msgstr "Vylúčené"
-
-msgid "To be Removed"
-msgstr "Bude vymazaný"
-
-msgid "To be Installed"
-msgstr "Bude inštalovaný"
-
-msgid "To be Re-Installed"
-msgstr "Bude pre-inštalovaný"
-
-msgid "To be Downgraded"
-msgstr "Bude downgradnutý"
-
-msgid "To be Upgraded"
-msgstr "Bude upgradnutý"
-
-msgid "Installed"
-msgstr "Nainštalovaný"
-
-msgid "Not Installed"
-msgstr "Nenainštalovaný"
-
-msgid "Progress"
-msgstr "Spracovať"
-
-msgid "Checking for new package data..."
-msgstr "Hľadajú sa nové balíky..."
-
-msgid "GPG Key verification failed"
-msgstr "GPG Key verification failed"
-
-msgid "Retrieving package data..."
-msgstr "Retrieving package data..."
-
-msgid "Retrieving patch list..."
-msgstr "Retrieving patch list..."
-
-msgid "Retrieving checksum list..."
-msgstr "Retrieving checksum list..."
-
-msgid "Retrieving checksum signature..."
-msgstr "Retrieving checksum signature..."
-
-msgid "Verifying checksum signature..."
-msgstr "Verifying checksum signature..."
-
-msgid "Retrieving ChangeLog.txt..."
-msgstr "Retrieving ChangeLog.txt..."
-
-msgid "Reading Package Lists..."
-msgstr "Reading Package Lists..."
-
-#, c-format
-msgid "Download rate: %.0f%s/s"
-msgstr "Download rate: %.0f%s/s"
-
-msgid "Error"
-msgstr "Error"
-
-msgid "Completed actions"
-msgstr "Completed actions"
-
-msgid "Successfully executed all actions."
-msgstr "Successfully executed all actions."
-
-msgid "pkgtools returned an error"
-msgstr "pkgtools vrátil chybu"
-
-msgid "Enabled"
-msgstr "Enabled"
-
-msgid "Visible"
-msgstr "Visible"
-
-msgid "Priority"
-msgstr "Priority"
-
-msgid "Expression"
-msgstr "Výraz"
-
-msgid "Packages with unmet dependencies"
-msgstr "Balíky s nesplnenými závislosťami"
-
-msgid "Package conflicts"
-msgstr "Konflikty balíkov"
-
-msgid ", which is required by "
-msgstr ", ktorý požaduje "
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n "
+">= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);\n"
 
 msgid ", is excluded"
 msgstr ", je spustený"
 
-msgid "Packages excluded"
-msgstr "Vylúčené balíky"
+msgid ", which is required by "
+msgstr ", ktorý požaduje "
 
-msgid "Packages to be installed"
-msgstr "Balíky, ktoré budú nainštalované"
+msgid ": Depends: "
+msgstr ": Závislosti: "
 
-msgid "Packages to be upgraded"
-msgstr "Balíky, ktoré budú upgradnuté"
-
-msgid "Packages to be reinstalled"
-msgstr "Packages to be reinstalled"
-
-msgid "Packages to be removed"
-msgstr "Balíky, ktoré budú vymazané"
-
-msgid "Package"
-msgstr "Balík"
+msgid "<b>Conflicts:</b>"
+msgstr "<b>Konflikty:</b>"
 
 #, c-format
-msgid "%d upgraded, "
-msgid_plural "%d upgraded, "
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgid "<b>Excluding %s due to dependency failure</b>"
+msgstr "<b>Vylučujem %s chybu so závisloťou</b>"
 
-#, c-format
-msgid "%d reinstalled, "
-msgid_plural "%d reinstalled, "
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgid "<b>Required:</b>"
+msgstr "<b>Požadovaný:</b>"
 
-#, c-format
-msgid "%d newly installed, "
-msgid_plural "%d newly installed, "
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgid "<b>Suggests:</b>"
+msgstr "<b>Doporučenia:</b>"
 
-#, c-format
-msgid "%d to remove "
-msgid_plural "%d to remove "
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
+msgstr ""
+"<span weight=\"bold\" size=\"large\">Nie sú k dispozícii žiadne "
+"aktualizácie</span>"
 
-#, c-format
-msgid "and %d not upgraded."
-msgid_plural "and %d not upgraded."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-
-msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Nemáte dostatok voľného miesta</span>"
-
-#, c-format
-msgid "Need to get %.0f%s/%.0f%s of archives.\n"
-msgstr "Potrebné stiahnuť %.0f%s/%.0f%s z archívov.\n"
-
-#, c-format
-msgid "Need to get %.0f%s of archives."
-msgstr "Potrebné stiahnuť %.0f%s z archívov."
+msgid ""
+"<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgstr ""
+"<span weight=\"bold\" size=\"large\">Nemáte dostatok voľného miesta</span>"
 
 #, c-format
 msgid "After unpacking %.0f%s disk space will be freed."
@@ -219,11 +59,21 @@ msgstr "Po rozbalení %.0f%s diskového priestoru bude uvoľnených."
 msgid "After unpacking %.0f%s of additional disk space will be used."
 msgstr "Po rozbalení bude použitých ďaľších %.0f%s diskového priestoru."
 
-msgid "Up to Date"
-msgstr "Je aktuálny"
+msgid "ChangeLogs"
+msgstr "ChangeLogs"
 
-msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Nie sú k dispozícii žiadne aktualizácie</span>"
+msgid "Checking for new package data..."
+msgstr "Hľadajú sa nové balíky..."
+
+msgid "Completed actions"
+msgstr "Completed actions"
+
+msgid "Description"
+msgstr "Popis"
+
+#, c-format
+msgid "Download rate: %.0f%s/s"
+msgstr "Download rate: %.0f%s/s"
 
 msgid "Downloading packages..."
 msgstr "Sťahujem balíky..."
@@ -231,485 +81,541 @@ msgstr "Sťahujem balíky..."
 msgid "Downloading..."
 msgstr "Sťahujem..."
 
-#, c-format
-msgid "Failed to download %s: %s"
-msgstr "Failed to download %s: %s"
+msgid "Enabled"
+msgstr "Enabled"
 
-msgid "Removing packages..."
-msgstr "Vymazávam balíky..."
+msgid "Error"
+msgstr "Error"
 
-msgid "Installing packages..."
-msgstr "Inštalujem balíky..."
+msgid "Excluded"
+msgstr "Vylúčené"
 
-msgid "Uninstalling..."
-msgstr "Odinštalovávam..."
-
-msgid "Installing..."
-msgstr "Inštalujem..."
-
-msgid "Upgrading..."
-msgstr "Upgradujem..."
+msgid "Expression"
+msgstr "Výraz"
 
 msgid "Failed to commit preferences"
 msgstr "Neúspešné vykonanie preferencií"
 
-msgid "Pending changes. Click execute when ready."
-msgstr "Čakajúce zmeny. Klikni spustiť, keď budú pripravené."
-
-msgid "Status"
-msgstr "Stav"
-
-msgid "Name"
-msgstr "Názov"
-
-msgid "Version"
-msgstr "Verzia"
-
-msgid "Location"
-msgstr "Umiestnenie"
-
-msgid "Description"
-msgstr "Popis"
-
-msgid "Installed Size"
-msgstr "Nainštalovaná veľkosť"
-
 #, c-format
-msgid "<b>Excluding %s due to dependency failure</b>"
-msgstr "<b>Vylučujem %s chybu so závisloťou</b>"
+msgid "Failed to download %s: %s"
+msgstr "Failed to download %s: %s"
 
-msgid ""
-"Missing dependencies may mean the software in this package will not function"
-" correctly.  Do you want to continue without the required packages?"
-msgstr "Missing dependencies may mean the software in this package will not function correctly.  Do you want to continue without the required packages?"
-
-msgid ": Depends: "
-msgstr ": Závislosti: "
+msgid "GPG Key verification failed"
+msgstr "GPG Key verification failed"
 
 msgid "Import"
 msgstr "Import"
 
-msgid "No key found"
-msgstr "No key found"
+msgid "Installed"
+msgstr "Nainštalovaný"
 
-msgid "ChangeLogs"
-msgstr "ChangeLogs"
+msgid "Installed Size"
+msgstr "Nainštalovaná veľkosť"
+
+msgid "Installing packages..."
+msgstr "Inštalujem balíky..."
+
+msgid "Installing..."
+msgstr "Inštalujem..."
+
+msgid "Location"
+msgstr "Umiestnenie"
+
+msgid ""
+"Missing dependencies may mean the software in this package will not function "
+"correctly.  Do you want to continue without the required packages?"
+msgstr ""
+"Missing dependencies may mean the software in this package will not function "
+"correctly.  Do you want to continue without the required packages?"
+
+msgid "Name"
+msgstr "Názov"
+
+#, c-format
+msgid "Need to get %.0f%s of archives."
+msgstr "Potrebné stiahnuť %.0f%s z archívov."
+
+#, c-format
+msgid "Need to get %.0f%s/%.0f%s of archives.\n"
+msgstr "Potrebné stiahnuť %.0f%s/%.0f%s z archívov.\n"
+
+msgid "No changelog information available"
+msgstr "No changelog information available"
 
 msgid "No changelogs found."
 msgstr ""
 
-msgid "Gslapt Package Manager"
-msgstr "Gslapt Package Manager"
+#. installed
+msgid "No dependency information available"
+msgstr "No dependency information available"
 
-msgid "Install, remove and upgrade software packages"
-msgstr "Install, remove and upgrade software packages"
+msgid "No key found"
+msgstr "No key found"
 
-msgid "Run Gslapt as root"
-msgstr ""
-
-msgid "Authentication is required to run Gslapt"
-msgstr ""
-
-msgid "Base"
-msgstr "Base"
-
-msgid "Applications"
-msgstr "Applications"
-
-msgid "Development Tools"
-msgstr "Development Tools"
-
-msgid "GNU Emacs"
-msgstr "GNU Emacs"
-
-msgid "Documentation"
-msgstr "Documentation"
-
-msgid "GNOME"
-msgstr "GNOME"
-
-msgid "Linux kernel"
-msgstr "Linux kernel"
-
-msgid "KDE"
-msgstr "KDE"
-
-msgid "KDE Internationalization"
-msgstr "KDE Internationalization"
-
-msgid "Libraries"
-msgstr "Libraries"
-
-msgid "Networking"
-msgstr "Networking"
-
-msgid "teTeX"
-msgstr "teTeX"
-
-msgid "TCL"
-msgstr "TCL"
-
-msgid "X Window System"
-msgstr "X Window System"
-
-msgid "X Applications"
-msgstr "X Applications"
-
-msgid "Xfce"
-msgstr ""
-
-msgid "BSD Console games"
-msgstr "BSD Console games"
-
-msgid "Patches"
-msgstr "Patches"
-
-msgid "GSB Base"
-msgstr "GSB Base"
-
-msgid "GSB Accessibility"
-msgstr "GSB Accessibility"
-
-msgid "GSB Administration"
-msgstr "GSB Administration"
-
-msgid "GSB Applications"
-msgstr "GSB Applications"
-
-msgid "GSB Compiz Fusion"
-msgstr "GSB Compiz Fusion"
-
-msgid "GSB Development"
-msgstr "GSB Development"
-
-msgid "GSB Office"
-msgstr "GSB Office"
-
-msgid "GSB Libraries"
-msgstr "GSB Libraries"
-
-msgid "GSB Mono"
-msgstr "GSB Mono"
-
-msgid "GSB Networking"
-msgstr "GSB Networking"
-
-msgid "GSB OpenOffice.org"
-msgstr "GSB OpenOffice.org"
-
-msgid "GSB Themes"
-msgstr "GSB Themes"
-
-msgid "Games"
-msgstr "Games"
-
-msgid "Localization"
-msgstr "Localization"
-
-msgid "LXDE"
-msgstr ""
-
-msgid "MATE"
-msgstr ""
-
-msgid "Academic"
-msgstr ""
-
-msgid "Accessibility"
-msgstr ""
-
-msgid "Audio"
-msgstr ""
-
-msgid "Business"
-msgstr ""
-
-msgid "Desktop"
-msgstr ""
-
-msgid "Development"
-msgstr ""
-
-msgid "GIS"
-msgstr ""
-
-msgid "Graphics"
-msgstr ""
-
-msgid "HAM Radio"
-msgstr ""
-
-msgid "Haskell"
-msgstr ""
-
-msgid "Miscellaneous"
-msgstr ""
-
-msgid "Multimedia"
-msgstr ""
-
-msgid "Network"
-msgstr ""
-
-msgid "Office"
-msgstr ""
-
-msgid "Perl"
-msgstr ""
-
-msgid "Python"
-msgstr ""
-
-msgid "Ruby"
-msgstr ""
-
-msgid "System"
-msgstr ""
-
-msgid "Slackware Extra"
-msgstr ""
-
-msgid ""
-"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
-"Slackware"
-msgstr "gslapt je GTK+ nadstavba k slapt-get, ktorý je založený na báze APT preSlackware"
-
-msgid "working"
-msgstr "pracujem"
-
-msgid "total progress"
-msgstr "celkovo spracovať"
-
-msgid "Gslapt"
-msgstr "Gslapt"
-
-msgid "_File"
-msgstr "_Súbor"
-
-msgid "Update local package cache"
-msgstr "Aktualizovať lokálnu cache balíkov"
-
-msgid "Update"
-msgstr "Aktualizovať"
-
-msgid "Mark all possible upgrades"
-msgstr "Mark all possible upgrades"
-
-msgid "Mark All Upgrades"
-msgstr "Označiť všetky upgrady"
-
-msgid "Mark all obsolete packages"
-msgstr "Mark all obsolete packages"
-
-msgid "Mark Obsolete"
-msgstr "Mark Obsolete"
-
-msgid "Execute all scheduled actions in current transaction"
-msgstr "Spustiť všetky naplánované akcie v aktuálnej transakcii"
-
-msgid "Execute"
-msgstr "Spustiť"
-
-msgid "_Edit"
-msgstr "_Edit"
-
-msgid "Unmark All"
-msgstr "Unmark All"
-
-msgid "Preferences"
-msgstr "Nastavenia"
-
-msgid "_View"
-msgstr "_View"
-
-msgid "View all packages"
-msgstr "View all packages"
-
-msgid "All"
-msgstr "All"
-
-msgid "View available packages from current sources"
-msgstr "View available packages from current sources"
-
-msgid "Available"
-msgstr "Available"
-
-msgid "View installed packages"
-msgstr "View installed packages"
-
-msgid "View Marked Packages"
-msgstr "View Marked Packages"
-
-msgid "Marked"
-msgstr "Marked"
-
-msgid "View Upgradeable Packages"
-msgstr "View Upgradeable Packages"
-
-msgid "Upgradeable"
-msgstr "Upgradeable"
-
-msgid "P_ackage"
-msgstr "P_ackage"
-
-msgid "Unmark"
-msgstr "Odznačiť"
-
-msgid "Install"
-msgstr "Inštalovať"
-
-msgid "Downgrade"
-msgstr "Downgradnuť"
-
-msgid "Remove"
-msgstr "Vymazať"
-
-msgid "_Help"
-msgstr "_Pomoc"
-
-msgid "Icon Legend"
-msgstr "Legenda ikôn"
-
-msgid "View ChangeLogs"
-msgstr "View ChangeLogs"
-
-msgid "About"
-msgstr "Info"
-
-msgid "Search"
-msgstr "Hľadať"
-
-msgid "<b>Name:</b>"
-msgstr "<b>Názov:</b>"
-
+#. set package details
 msgid "No package is selected."
 msgstr "Nebol označený žiadny balík."
 
-msgid "<b>Status:</b>"
-msgstr "<b>Stav:</b>"
+msgid "Not Installed"
+msgstr "Nenainštalovaný"
 
-msgid "<b>Description:</b>"
-msgstr "<b>Popis:</b>"
+msgid "Package"
+msgstr "Balík"
 
-msgid "<b>Version:</b>"
-msgstr "<b>Verzia:</b>"
+msgid "Package conflicts"
+msgstr "Konflikty balíkov"
 
-msgid "<b>Source:</b>"
-msgstr "<b>Source:</b>"
+msgid "Packages excluded"
+msgstr "Vylúčené balíky"
 
-msgid "<b>Priority:</b>"
-msgstr "<b>Priority:</b>"
+msgid "Packages to be installed"
+msgstr "Balíky, ktoré budú nainštalované"
 
-msgid "<b>Location:</b>"
-msgstr "<b>Umiestnenie:</b>"
+msgid "Packages to be reinstalled"
+msgstr "Packages to be reinstalled"
 
-msgid "<b>Installed Version</b>"
-msgstr "<b>Installed Version</b>"
+msgid "Packages to be removed"
+msgstr "Balíky, ktoré budú vymazané"
 
-msgid "Version:"
-msgstr "Verzia:"
+msgid "Packages to be upgraded"
+msgstr "Balíky, ktoré budú upgradnuté"
 
-msgid "Installed Size:"
-msgstr "Nainštalovaná veľkosť:"
+msgid "Packages with unmet dependencies"
+msgstr "Balíky s nesplnenými závislosťami"
 
-msgid "<b>Latest Available Version</b>"
-msgstr "<b>Latest Available Version</b>"
+msgid "Pending changes. Click execute when ready."
+msgstr "Čakajúce zmeny. Klikni spustiť, keď budú pripravené."
 
-msgid "Size:"
-msgstr "Veľkosť:"
+msgid "Priority"
+msgstr "Priority"
 
-msgid "Source:"
-msgstr "Zdroj:"
+msgid "Progress"
+msgstr "Spracovať"
 
-msgid "Common"
-msgstr "Spoločný"
+msgid "Re-Install"
+msgstr "Pre-Inštalovať"
 
-msgid "Dependencies"
-msgstr "Závislosti"
+msgid "Reading Package Lists..."
+msgstr "Reading Package Lists..."
 
-msgid "Changelog"
-msgstr "Changelog"
+msgid "Ready"
+msgstr "Pripravený"
 
-msgid "Files"
-msgstr "Files"
+msgid "Removing packages..."
+msgstr "Vymazávam balíky..."
 
-msgid ""
-"<b>The following icons are used to indicate the current status of a "
-"package:</b>"
-msgstr "<b>Nasledovné ikony sú použité pre označenie aktuálneho stavu balíku:</b>"
+msgid "Retrieving ChangeLog.txt..."
+msgstr "Retrieving ChangeLog.txt..."
 
-msgid "Repositories changed"
-msgstr "Repositories changed"
+msgid "Retrieving checksum list..."
+msgstr "Retrieving checksum list..."
 
-msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
-msgstr "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
+msgid "Retrieving checksum signature..."
+msgstr "Retrieving checksum signature..."
 
-msgid ""
-"You need to reload the package list from the sources you have listed.  Do "
-"you want to do this now?"
-msgstr "You need to reload the package list from the sources you have listed.  Do you want to do this now?"
+msgid "Retrieving package data..."
+msgstr "Retrieving package data..."
 
-msgid "Source failed"
-msgstr "Source failed"
+msgid "Retrieving patch list..."
+msgstr "Retrieving patch list..."
 
-msgid ""
-"This package source failed or is not available.  Do you want to disable this"
-" source and continue anyway?"
-msgstr "This package source failed or is not available.  Do you want to disable this source and continue anyway?"
+msgid "Source"
+msgstr "Zdroj"
 
-msgid "Default"
-msgstr "Default"
+msgid "Status"
+msgstr "Stav"
 
-msgid "Official"
-msgstr "Official"
+msgid "Successfully executed all actions."
+msgstr "Successfully executed all actions."
 
-msgid "Preferred"
-msgstr "Preferred"
+msgid "The list of installed files is only available for installed packages"
+msgstr "The list of installed files is only available for installed packages"
 
-msgid "Custom"
-msgstr "Custom"
+msgid "To be Downgraded"
+msgstr "Bude downgradnutý"
 
-msgid "Package Source"
-msgstr "Package Source"
+msgid "To be Installed"
+msgstr "Bude inštalovaný"
 
-msgid "Summary"
-msgstr "Zhrnutie"
+msgid "To be Re-Installed"
+msgstr "Bude pre-inštalovaný"
 
-msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Potvrdiť nasledovné zmeny?</span>"
+msgid "To be Removed"
+msgstr "Bude vymazaný"
 
-msgid "This is a summary of the changes about to be performed."
-msgstr "Toto je zhrnutie o zmenách, ktoré budú vykonané."
+msgid "To be Upgraded"
+msgstr "Bude upgradnutý"
 
-msgid "Download packages only"
-msgstr "Len stiahnuť balík"
+msgid "Uninstalling..."
+msgstr "Odinštalovávam..."
 
-msgid "<b>Package and data storage</b>"
-msgstr "<b>Úložné miesto dát a balíkov</b>"
+msgid "Up to Date"
+msgstr "Je aktuálny"
 
-msgid "_Delete Cached Package Files"
-msgstr "_Delete Cached Package Files"
+msgid "Upgrade"
+msgstr "Upgrade"
 
-msgid "Working Directory"
-msgstr "Pracovný Adresár"
+msgid "Upgrading..."
+msgstr "Upgradujem..."
 
-msgid "<b>Exclude List</b>"
-msgstr "<b>Vylúčené</b>"
+msgid "Verifying checksum signature..."
+msgstr "Verifying checksum signature..."
 
-msgid "<span weight=\"bold\">Exclude Expression:</span>"
-msgstr "<span weight=\"bold\">Vylúčiť výraz:</span>"
+msgid "Version"
+msgstr "Verzia"
 
-msgid "Excludes"
-msgstr "Vylúčenia"
+msgid "Visible"
+msgstr "Visible"
 
-msgid "<b>Package Sources</b>"
-msgstr "<b>Zdroje balíkov</b>"
+msgid "pkgtools returned an error"
+msgstr "pkgtools vrátil chybu"
 
-msgid "Sources"
-msgstr "Zdroje"
+#~ msgid "Gslapt Package Manager"
+#~ msgstr "Gslapt Package Manager"
 
-msgid "<b>GPG Keys</b>"
-msgstr "<b>GPG Keys</b>"
+#~ msgid "Install, remove and upgrade software packages"
+#~ msgstr "Install, remove and upgrade software packages"
 
-msgid "Verification"
-msgstr "Verification"
+#~ msgid "Base"
+#~ msgstr "Base"
+
+#~ msgid "Applications"
+#~ msgstr "Applications"
+
+#~ msgid "Development Tools"
+#~ msgstr "Development Tools"
+
+#~ msgid "GNU Emacs"
+#~ msgstr "GNU Emacs"
+
+#~ msgid "Documentation"
+#~ msgstr "Documentation"
+
+#~ msgid "GNOME"
+#~ msgstr "GNOME"
+
+#~ msgid "Linux kernel"
+#~ msgstr "Linux kernel"
+
+#~ msgid "KDE"
+#~ msgstr "KDE"
+
+#~ msgid "KDE Internationalization"
+#~ msgstr "KDE Internationalization"
+
+#~ msgid "Libraries"
+#~ msgstr "Libraries"
+
+#~ msgid "Networking"
+#~ msgstr "Networking"
+
+#~ msgid "teTeX"
+#~ msgstr "teTeX"
+
+#~ msgid "TCL"
+#~ msgstr "TCL"
+
+#~ msgid "X Window System"
+#~ msgstr "X Window System"
+
+#~ msgid "X Applications"
+#~ msgstr "X Applications"
+
+#~ msgid "BSD Console games"
+#~ msgstr "BSD Console games"
+
+#~ msgid "Patches"
+#~ msgstr "Patches"
+
+#~ msgid "GSB Base"
+#~ msgstr "GSB Base"
+
+#~ msgid "GSB Accessibility"
+#~ msgstr "GSB Accessibility"
+
+#~ msgid "GSB Administration"
+#~ msgstr "GSB Administration"
+
+#~ msgid "GSB Applications"
+#~ msgstr "GSB Applications"
+
+#~ msgid "GSB Compiz Fusion"
+#~ msgstr "GSB Compiz Fusion"
+
+#~ msgid "GSB Development"
+#~ msgstr "GSB Development"
+
+#~ msgid "GSB Office"
+#~ msgstr "GSB Office"
+
+#~ msgid "GSB Libraries"
+#~ msgstr "GSB Libraries"
+
+#~ msgid "GSB Mono"
+#~ msgstr "GSB Mono"
+
+#~ msgid "GSB Networking"
+#~ msgstr "GSB Networking"
+
+#~ msgid "GSB OpenOffice.org"
+#~ msgstr "GSB OpenOffice.org"
+
+#~ msgid "GSB Themes"
+#~ msgstr "GSB Themes"
+
+#~ msgid "Games"
+#~ msgstr "Games"
+
+#~ msgid "Localization"
+#~ msgstr "Localization"
+
+#~ msgid ""
+#~ "gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
+#~ "Slackware"
+#~ msgstr ""
+#~ "gslapt je GTK+ nadstavba k slapt-get, ktorý je založený na báze APT "
+#~ "preSlackware"
+
+#~ msgid "working"
+#~ msgstr "pracujem"
+
+#~ msgid "total progress"
+#~ msgstr "celkovo spracovať"
+
+#~ msgid "Gslapt"
+#~ msgstr "Gslapt"
+
+#~ msgid "_File"
+#~ msgstr "_Súbor"
+
+#~ msgid "Update local package cache"
+#~ msgstr "Aktualizovať lokálnu cache balíkov"
+
+#~ msgid "Update"
+#~ msgstr "Aktualizovať"
+
+#~ msgid "Mark all possible upgrades"
+#~ msgstr "Mark all possible upgrades"
+
+#~ msgid "Mark All Upgrades"
+#~ msgstr "Označiť všetky upgrady"
+
+#~ msgid "Mark all obsolete packages"
+#~ msgstr "Mark all obsolete packages"
+
+#~ msgid "Mark Obsolete"
+#~ msgstr "Mark Obsolete"
+
+#~ msgid "Execute all scheduled actions in current transaction"
+#~ msgstr "Spustiť všetky naplánované akcie v aktuálnej transakcii"
+
+#~ msgid "Execute"
+#~ msgstr "Spustiť"
+
+#~ msgid "_Edit"
+#~ msgstr "_Edit"
+
+#~ msgid "Unmark All"
+#~ msgstr "Unmark All"
+
+#~ msgid "Preferences"
+#~ msgstr "Nastavenia"
+
+#~ msgid "_View"
+#~ msgstr "_View"
+
+#~ msgid "View all packages"
+#~ msgstr "View all packages"
+
+#~ msgid "All"
+#~ msgstr "All"
+
+#~ msgid "View available packages from current sources"
+#~ msgstr "View available packages from current sources"
+
+#~ msgid "Available"
+#~ msgstr "Available"
+
+#~ msgid "View installed packages"
+#~ msgstr "View installed packages"
+
+#~ msgid "View Marked Packages"
+#~ msgstr "View Marked Packages"
+
+#~ msgid "Marked"
+#~ msgstr "Marked"
+
+#~ msgid "View Upgradeable Packages"
+#~ msgstr "View Upgradeable Packages"
+
+#~ msgid "Upgradeable"
+#~ msgstr "Upgradeable"
+
+#~ msgid "P_ackage"
+#~ msgstr "P_ackage"
+
+#~ msgid "Unmark"
+#~ msgstr "Odznačiť"
+
+#~ msgid "Install"
+#~ msgstr "Inštalovať"
+
+#~ msgid "Downgrade"
+#~ msgstr "Downgradnuť"
+
+#~ msgid "Remove"
+#~ msgstr "Vymazať"
+
+#~ msgid "_Help"
+#~ msgstr "_Pomoc"
+
+#~ msgid "Icon Legend"
+#~ msgstr "Legenda ikôn"
+
+#~ msgid "View ChangeLogs"
+#~ msgstr "View ChangeLogs"
+
+#~ msgid "About"
+#~ msgstr "Info"
+
+#~ msgid "Search"
+#~ msgstr "Hľadať"
+
+#~ msgid "<b>Name:</b>"
+#~ msgstr "<b>Názov:</b>"
+
+#~ msgid "<b>Status:</b>"
+#~ msgstr "<b>Stav:</b>"
+
+#~ msgid "<b>Description:</b>"
+#~ msgstr "<b>Popis:</b>"
+
+#~ msgid "<b>Version:</b>"
+#~ msgstr "<b>Verzia:</b>"
+
+#~ msgid "<b>Source:</b>"
+#~ msgstr "<b>Source:</b>"
+
+#~ msgid "<b>Priority:</b>"
+#~ msgstr "<b>Priority:</b>"
+
+#~ msgid "<b>Location:</b>"
+#~ msgstr "<b>Umiestnenie:</b>"
+
+#~ msgid "<b>Installed Version</b>"
+#~ msgstr "<b>Installed Version</b>"
+
+#~ msgid "Version:"
+#~ msgstr "Verzia:"
+
+#~ msgid "Installed Size:"
+#~ msgstr "Nainštalovaná veľkosť:"
+
+#~ msgid "<b>Latest Available Version</b>"
+#~ msgstr "<b>Latest Available Version</b>"
+
+#~ msgid "Size:"
+#~ msgstr "Veľkosť:"
+
+#~ msgid "Source:"
+#~ msgstr "Zdroj:"
+
+#~ msgid "Common"
+#~ msgstr "Spoločný"
+
+#~ msgid "Dependencies"
+#~ msgstr "Závislosti"
+
+#~ msgid "Changelog"
+#~ msgstr "Changelog"
+
+#~ msgid "Files"
+#~ msgstr "Files"
+
+#~ msgid ""
+#~ "<b>The following icons are used to indicate the current status of a "
+#~ "package:</b>"
+#~ msgstr ""
+#~ "<b>Nasledovné ikony sú použité pre označenie aktuálneho stavu balíku:</b>"
+
+#~ msgid "Repositories changed"
+#~ msgstr "Repositories changed"
+
+#~ msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
+#~ msgstr "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
+
+#~ msgid ""
+#~ "You need to reload the package list from the sources you have listed.  Do "
+#~ "you want to do this now?"
+#~ msgstr ""
+#~ "You need to reload the package list from the sources you have listed.  Do "
+#~ "you want to do this now?"
+
+#~ msgid "Source failed"
+#~ msgstr "Source failed"
+
+#~ msgid ""
+#~ "This package source failed or is not available.  Do you want to disable "
+#~ "this source and continue anyway?"
+#~ msgstr ""
+#~ "This package source failed or is not available.  Do you want to disable "
+#~ "this source and continue anyway?"
+
+#~ msgid "Default"
+#~ msgstr "Default"
+
+#~ msgid "Official"
+#~ msgstr "Official"
+
+#~ msgid "Preferred"
+#~ msgstr "Preferred"
+
+#~ msgid "Custom"
+#~ msgstr "Custom"
+
+#~ msgid "Package Source"
+#~ msgstr "Package Source"
+
+#~ msgid "Summary"
+#~ msgstr "Zhrnutie"
+
+#~ msgid ""
+#~ "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+#~ msgstr ""
+#~ "<span weight=\"bold\" size=\"large\">Potvrdiť nasledovné zmeny?</span>"
+
+#~ msgid "This is a summary of the changes about to be performed."
+#~ msgstr "Toto je zhrnutie o zmenách, ktoré budú vykonané."
+
+#~ msgid "Download packages only"
+#~ msgstr "Len stiahnuť balík"
+
+#~ msgid "<b>Package and data storage</b>"
+#~ msgstr "<b>Úložné miesto dát a balíkov</b>"
+
+#~ msgid "_Delete Cached Package Files"
+#~ msgstr "_Delete Cached Package Files"
+
+#~ msgid "Working Directory"
+#~ msgstr "Pracovný Adresár"
+
+#~ msgid "<b>Exclude List</b>"
+#~ msgstr "<b>Vylúčené</b>"
+
+#~ msgid "<span weight=\"bold\">Exclude Expression:</span>"
+#~ msgstr "<span weight=\"bold\">Vylúčiť výraz:</span>"
+
+#~ msgid "Excludes"
+#~ msgstr "Vylúčenia"
+
+#~ msgid "<b>Package Sources</b>"
+#~ msgstr "<b>Zdroje balíkov</b>"
+
+#~ msgid "Sources"
+#~ msgstr "Zdroje"
+
+#~ msgid "<b>GPG Keys</b>"
+#~ msgstr "<b>GPG Keys</b>"
+
+#~ msgid "Verification"
+#~ msgstr "Verification"

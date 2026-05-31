@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# 
+#
 # Translators:
 # gapan <vlahavas@gmail.com>, 2012
 # gapan <vlahavas@gmail.com>, 2022
@@ -8,200 +8,47 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
-"Report-Msgid-Bugs-To: woodwardj at jaos dot org\n"
-"POT-Creation-Date: 2022-06-03 22:11+0300\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-31 17:49-0400\n"
 "PO-Revision-Date: 2012-09-17 21:52+0000\n"
 "Last-Translator: gapan <vlahavas@gmail.com>, 2022\n"
 "Language-Team: Greek (http://app.transifex.com/jaos/slapt-get/language/el/)\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid "Ready"
-msgstr "Έτοιμο"
-
-msgid "Upgrade"
-msgstr "Αναβάθμιση"
-
-msgid "Re-Install"
-msgstr "Επανεγκατάσταση"
-
-msgid "<b>Required:</b>"
-msgstr "<b>Απαιτούμενα:</b>"
-
-msgid "<b>Conflicts:</b>"
-msgstr "<b>Συγκρούσεις:</b>"
-
-msgid "<b>Suggests:</b>"
-msgstr "<b>Προτεινόμενα:</b>"
-
-#. installed
-msgid "No dependency information available"
-msgstr "Δεν υπάρχουν πληροφορίες εξαρτήσεων"
-
-msgid "Source"
-msgstr "Πηγή"
-
-msgid "No changelog information available"
-msgstr "Δεν υπάρχει αρχείο αλλαγών"
-
-msgid "The list of installed files is only available for installed packages"
-msgstr "Ο κατάλογος των εγκατεστημένων αρχείων είναι διαθέσιμος μόνο για εγκατεστημένα πακέτα"
-
-msgid "Excluded"
-msgstr "Εξαιρούμενα"
-
-msgid "To be Removed"
-msgstr "Προς απεγκατάσταση"
-
-msgid "To be Installed"
-msgstr "Προς εγκατάσταση"
-
-msgid "To be Re-Installed"
-msgstr "Προς επανεγκατάσταση"
-
-msgid "To be Downgraded"
-msgstr "Προς εγκατάσταση προηγούμενης έκδοσης"
-
-msgid "To be Upgraded"
-msgstr "Προς αναβάθμιση"
-
-msgid "Installed"
-msgstr "Εγκατεστημένα"
-
-msgid "Not Installed"
-msgstr "Μη εγκατεστημένα"
-
-msgid "Progress"
-msgstr "Πρόοδος"
-
-msgid "Checking for new package data..."
-msgstr "Έλεγχος για νέα δεδομένα πακέτων..."
-
-msgid "GPG Key verification failed"
-msgstr "Η επαλήθευση του κλειδιού GPG απέτυχε"
-
-msgid "Retrieving package data..."
-msgstr "Ανάκτηση δεδομένων πακέτων..."
-
-msgid "Retrieving patch list..."
-msgstr "Ανάκτηση λίστας διορθώσεων..."
-
-msgid "Retrieving checksum list..."
-msgstr "Ανάκτηση λίστας αθροισμάτων..."
-
-msgid "Retrieving checksum signature..."
-msgstr "Ανάκτηση υπογραφής αθροίσματος..."
-
-msgid "Verifying checksum signature..."
-msgstr "Επαλήθευση υπογραφής αθροίσματος..."
-
-msgid "Retrieving ChangeLog.txt..."
-msgstr "Ανάκτηση του ChangeLog.txt..."
-
-msgid "Reading Package Lists..."
-msgstr "Ανάγνωση λίστας πακέτων..."
-
-#, c-format
-msgid "Download rate: %.0f%s/s"
-msgstr "Ρυθμός λήψης: %.0f%s/s"
-
-msgid "Error"
-msgstr "Σφάλμα"
-
-msgid "Completed actions"
-msgstr "Ολοκληρωμένες ενέργειες"
-
-msgid "Successfully executed all actions."
-msgstr "Όλες οι ενέργειες εκτελέσθηκαν με επιτυχία."
-
-msgid "pkgtools returned an error"
-msgstr "Τα pkgtools επέστρεψαν σφάλμα"
-
-msgid "Enabled"
-msgstr "Ενεργοποιημένο"
-
-msgid "Visible"
-msgstr "Εμφανή"
-
-msgid "Priority"
-msgstr "Προτεραιότητα"
-
-msgid "Expression"
-msgstr "Έκφραση"
-
-msgid "Packages with unmet dependencies"
-msgstr "Πακέτα με εξαρτήσεις που δεν ικανοποιήθηκαν"
-
-msgid "Package conflicts"
-msgstr "Συγκρούσεις πακέτων"
-
-msgid ", which is required by "
-msgstr ", το οποίο απαιτείται από το"
 
 msgid ", is excluded"
 msgstr ", εξαιρείται"
 
-msgid "Packages excluded"
-msgstr "Πακέτα που εξαιρέθηκαν"
+msgid ", which is required by "
+msgstr ", το οποίο απαιτείται από το"
 
-msgid "Packages to be installed"
-msgstr "Πακέτα προς εγκατάσταση"
+msgid ": Depends: "
+msgstr ": Εξαρτήσεις: "
 
-msgid "Packages to be upgraded"
-msgstr "Πακέτα που θα αναβαθμιστούν"
-
-msgid "Packages to be reinstalled"
-msgstr "Πακέτα προς επανεγκατάσταση"
-
-msgid "Packages to be removed"
-msgstr "Πακέτα προς απεγκατάσταση"
-
-msgid "Package"
-msgstr "Πακέτο"
+msgid "<b>Conflicts:</b>"
+msgstr "<b>Συγκρούσεις:</b>"
 
 #, c-format
-msgid "%d upgraded, "
-msgid_plural "%d upgraded, "
-msgstr[0] "%d ενημερώθηκε, "
-msgstr[1] "%d ενημερώθηκαν, "
+msgid "<b>Excluding %s due to dependency failure</b>"
+msgstr "<b>Εξαιρείται το %s λόγω αποτυχίας επίλυσης εξαρτήσεων</b>"
 
-#, c-format
-msgid "%d reinstalled, "
-msgid_plural "%d reinstalled, "
-msgstr[0] "%d επανεγκαταστάθηκε, "
-msgstr[1] "%d επανεγκαταστάθηκαν, "
+msgid "<b>Required:</b>"
+msgstr "<b>Απαιτούμενα:</b>"
 
-#, c-format
-msgid "%d newly installed, "
-msgid_plural "%d newly installed, "
-msgstr[0] "%d νέο εγκαταστάθηκε, "
-msgstr[1] "%d νεά εγκαταστάθηκαν, "
+msgid "<b>Suggests:</b>"
+msgstr "<b>Προτεινόμενα:</b>"
 
-#, c-format
-msgid "%d to remove "
-msgid_plural "%d to remove "
-msgstr[0] "%d προς αφαίρεση"
-msgstr[1] "%d προς αφαίρεση"
+msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Δεν βρέθηκαν ενημερώσεις</span>"
 
-#, c-format
-msgid "and %d not upgraded."
-msgid_plural "and %d not upgraded."
-msgstr[0] "και %d δεν ενημερώθηκε."
-msgstr[1] "και %d δεν ενημερώθηκαν."
-
-msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Δεν έχετε αρκετό ελεύθερο χώρο στο δίσκο</span>"
-
-#, c-format
-msgid "Need to get %.0f%s/%.0f%s of archives.\n"
-msgstr "Πρέπει να ληφθούν %.0f%s/%.0f%s αρχείων.\n"
-
-#, c-format
-msgid "Need to get %.0f%s of archives."
-msgstr "Πρέπει να ληφθούν %.0f%s αρχείων."
+msgid ""
+"<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgstr ""
+"<span weight=\"bold\" size=\"large\">Δεν έχετε αρκετό ελεύθερο χώρο στο "
+"δίσκο</span>"
 
 #, c-format
 msgid "After unpacking %.0f%s disk space will be freed."
@@ -211,11 +58,21 @@ msgstr "Μετά την εγκατάσταση θα χρησιμοποιηθεί
 msgid "After unpacking %.0f%s of additional disk space will be used."
 msgstr "Μετά την εγκατάσταση θα χρησιμοποιηθεί επιπλέον %.0f%s χώρος δίσκου."
 
-msgid "Up to Date"
-msgstr "Ενημερωμένο"
+msgid "ChangeLogs"
+msgstr "Αλλαγές"
 
-msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Δεν βρέθηκαν ενημερώσεις</span>"
+msgid "Checking for new package data..."
+msgstr "Έλεγχος για νέα δεδομένα πακέτων..."
+
+msgid "Completed actions"
+msgstr "Ολοκληρωμένες ενέργειες"
+
+msgid "Description"
+msgstr "Περιγραφή"
+
+#, c-format
+msgid "Download rate: %.0f%s/s"
+msgstr "Ρυθμός λήψης: %.0f%s/s"
 
 msgid "Downloading packages..."
 msgstr "Λήψη πακέτων..."
@@ -223,485 +80,651 @@ msgstr "Λήψη πακέτων..."
 msgid "Downloading..."
 msgstr "Λήψη..."
 
-#, c-format
-msgid "Failed to download %s: %s"
-msgstr "Αποτυχία λήψης %s: %s"
+msgid "Enabled"
+msgstr "Ενεργοποιημένο"
 
-msgid "Removing packages..."
-msgstr "Απεγκατάσταση πακέτων..."
+msgid "Error"
+msgstr "Σφάλμα"
 
-msgid "Installing packages..."
-msgstr "Εγκατάσταση πακέτων..."
+msgid "Excluded"
+msgstr "Εξαιρούμενα"
 
-msgid "Uninstalling..."
-msgstr "Απεγκατάσταση..."
-
-msgid "Installing..."
-msgstr "Εγκατάσταση..."
-
-msgid "Upgrading..."
-msgstr "Αναβάθμιση..."
+msgid "Expression"
+msgstr "Έκφραση"
 
 msgid "Failed to commit preferences"
 msgstr "Αποτυχία στην εφαρμογή των προτιμήσεων"
 
-msgid "Pending changes. Click execute when ready."
-msgstr "Αλλαγές έτοιμες για εφαρμογή. Πατήστε εκτέλεση όταν είστε έτοιμοι."
-
-msgid "Status"
-msgstr "Κατάσταση"
-
-msgid "Name"
-msgstr "Όνομα"
-
-msgid "Version"
-msgstr "Έκδοση"
-
-msgid "Location"
-msgstr "Τοποθεσία"
-
-msgid "Description"
-msgstr "Περιγραφή"
-
-msgid "Installed Size"
-msgstr "Μέγεθος εγκατάστασης"
-
 #, c-format
-msgid "<b>Excluding %s due to dependency failure</b>"
-msgstr "<b>Εξαιρείται το %s λόγω αποτυχίας επίλυσης εξαρτήσεων</b>"
+msgid "Failed to download %s: %s"
+msgstr "Αποτυχία λήψης %s: %s"
 
-msgid ""
-"Missing dependencies may mean the software in this package will not function"
-" correctly.  Do you want to continue without the required packages?"
-msgstr "Απούσες εξαρτήσεις μπορεί να σημαίνουν ότι το λογισμικό που περιλαμβάνεται στο πακέτο ενδέχεται να μη λειτουργεί σωστά. Θέλετε να συνεχίσετε χωρίς τα απαιτούμενα πακέτα;"
-
-msgid ": Depends: "
-msgstr ": Εξαρτήσεις: "
+msgid "GPG Key verification failed"
+msgstr "Η επαλήθευση του κλειδιού GPG απέτυχε"
 
 msgid "Import"
 msgstr "Εισαγωγή"
 
-msgid "No key found"
-msgstr "Το κλειδί δεν βρέθηκε"
+msgid "Installed"
+msgstr "Εγκατεστημένα"
 
-msgid "ChangeLogs"
-msgstr "Αλλαγές"
+msgid "Installed Size"
+msgstr "Μέγεθος εγκατάστασης"
+
+msgid "Installing packages..."
+msgstr "Εγκατάσταση πακέτων..."
+
+msgid "Installing..."
+msgstr "Εγκατάσταση..."
+
+msgid "Location"
+msgstr "Τοποθεσία"
+
+msgid ""
+"Missing dependencies may mean the software in this package will not function "
+"correctly.  Do you want to continue without the required packages?"
+msgstr ""
+"Απούσες εξαρτήσεις μπορεί να σημαίνουν ότι το λογισμικό που περιλαμβάνεται "
+"στο πακέτο ενδέχεται να μη λειτουργεί σωστά. Θέλετε να συνεχίσετε χωρίς τα "
+"απαιτούμενα πακέτα;"
+
+msgid "Name"
+msgstr "Όνομα"
+
+#, c-format
+msgid "Need to get %.0f%s of archives."
+msgstr "Πρέπει να ληφθούν %.0f%s αρχείων."
+
+#, c-format
+msgid "Need to get %.0f%s/%.0f%s of archives.\n"
+msgstr "Πρέπει να ληφθούν %.0f%s/%.0f%s αρχείων.\n"
+
+msgid "No changelog information available"
+msgstr "Δεν υπάρχει αρχείο αλλαγών"
 
 msgid "No changelogs found."
 msgstr "Δεν βρέθηκαν καταγραφές αλλαγών."
 
-msgid "Gslapt Package Manager"
-msgstr "Διαχειριστής Πακέτων Gslapt"
+#. installed
+msgid "No dependency information available"
+msgstr "Δεν υπάρχουν πληροφορίες εξαρτήσεων"
 
-msgid "Install, remove and upgrade software packages"
-msgstr "Εγκαταστήστε, απεγκαταστήστε και αναβαθμίστε πακέτα λογισμικού"
+msgid "No key found"
+msgstr "Το κλειδί δεν βρέθηκε"
 
-msgid "Run Gslapt as root"
-msgstr "Εκτέλεση του Gslapt ως χρήστης root"
-
-msgid "Authentication is required to run Gslapt"
-msgstr "Απαιτείται πιστοποίηση του χρήστη για να εκτελεστεί το Gslapt"
-
-msgid "Base"
-msgstr "Βάση"
-
-msgid "Applications"
-msgstr "Εφαρμογές"
-
-msgid "Development Tools"
-msgstr "Εργαλεία Ανάπτυξης"
-
-msgid "GNU Emacs"
-msgstr "GNU Emacs"
-
-msgid "Documentation"
-msgstr "Τεκμηρίωση"
-
-msgid "GNOME"
-msgstr "GNOME"
-
-msgid "Linux kernel"
-msgstr "Πυρήνας Linux"
-
-msgid "KDE"
-msgstr "KDE"
-
-msgid "KDE Internationalization"
-msgstr "Διεθνοποίηση KDE"
-
-msgid "Libraries"
-msgstr "Βιβλιοθήκες"
-
-msgid "Networking"
-msgstr "Δικτύωση"
-
-msgid "teTeX"
-msgstr "teTeX"
-
-msgid "TCL"
-msgstr "TCL"
-
-msgid "X Window System"
-msgstr "Σύστημα Γραφικών X"
-
-msgid "X Applications"
-msgstr "Εφαρμογές Γραφικού Περιβάλλοντος"
-
-msgid "Xfce"
-msgstr "Xfce"
-
-msgid "BSD Console games"
-msgstr "Παιγνίδια Κονσόλας BSD"
-
-msgid "Patches"
-msgstr "Διορθώσεις"
-
-msgid "GSB Base"
-msgstr "Βάση GSB"
-
-msgid "GSB Accessibility"
-msgstr "Προσβασιμότητα GSB"
-
-msgid "GSB Administration"
-msgstr "Διαχείρηση συστήματος GSB"
-
-msgid "GSB Applications"
-msgstr "Εφαρμογές GSB"
-
-msgid "GSB Compiz Fusion"
-msgstr "GSB Compiz Fusion"
-
-msgid "GSB Development"
-msgstr "Ανάπτυξη GSB"
-
-msgid "GSB Office"
-msgstr "Γραφείο GSB"
-
-msgid "GSB Libraries"
-msgstr "Βιβλιοθήκες GSB"
-
-msgid "GSB Mono"
-msgstr "GSB Mono"
-
-msgid "GSB Networking"
-msgstr "Δικτύωση GSB"
-
-msgid "GSB OpenOffice.org"
-msgstr "GSB OpenOffice.org"
-
-msgid "GSB Themes"
-msgstr "Θέματα GSB"
-
-msgid "Games"
-msgstr "Παιγνίδια"
-
-msgid "Localization"
-msgstr "Διεθνοποίηση"
-
-msgid "LXDE"
-msgstr "LXDE"
-
-msgid "MATE"
-msgstr "MATE"
-
-msgid "Academic"
-msgstr "Ακαδημαϊκά"
-
-msgid "Accessibility"
-msgstr "Προσιτότητα"
-
-msgid "Audio"
-msgstr "Ήχος"
-
-msgid "Business"
-msgstr "Εμπορικά"
-
-msgid "Desktop"
-msgstr "Επιφάνεια εργασίας"
-
-msgid "Development"
-msgstr "Ανάπτυξη"
-
-msgid "GIS"
-msgstr "GIS"
-
-msgid "Graphics"
-msgstr "Γραφικά"
-
-msgid "HAM Radio"
-msgstr "Ερασιτεχνικό ραδιόφωνο HAM"
-
-msgid "Haskell"
-msgstr "Haskell"
-
-msgid "Miscellaneous"
-msgstr "Διάφορα"
-
-msgid "Multimedia"
-msgstr "Πολυμέσα"
-
-msgid "Network"
-msgstr "Δίκτυο"
-
-msgid "Office"
-msgstr "Γραφείο"
-
-msgid "Perl"
-msgstr "Perl"
-
-msgid "Python"
-msgstr "Python"
-
-msgid "Ruby"
-msgstr "Ruby"
-
-msgid "System"
-msgstr "Σύστημα"
-
-msgid "Slackware Extra"
-msgstr "Επιπλέον πακέτα Slackware"
-
-msgid ""
-"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
-"Slackware"
-msgstr "Το gslapt είναι ένα γραφικό περιβάλλον χρήσης του slapt-get, ένα σύστημα διαχείρισης πακέτων για το Slackware όμοιο με το APT"
-
-msgid "working"
-msgstr "απασχολημένο"
-
-msgid "total progress"
-msgstr "Συνολική πρόοδος"
-
-msgid "Gslapt"
-msgstr "Gslapt"
-
-msgid "_File"
-msgstr "_Αρχείο"
-
-msgid "Update local package cache"
-msgstr "Ενημέρωση της τοπικής αποθήκης πακέτων"
-
-msgid "Update"
-msgstr "Ενημέρωση"
-
-msgid "Mark all possible upgrades"
-msgstr "Επιλογή όλων των δυνατών αναβαθμίσεων"
-
-msgid "Mark All Upgrades"
-msgstr "Επιλογή όλων των αναβαθμίσεων"
-
-msgid "Mark all obsolete packages"
-msgstr "Επιλογή όλων των παρωχημένων πακέτων"
-
-msgid "Mark Obsolete"
-msgstr "Επιλογή παρωχημένων"
-
-msgid "Execute all scheduled actions in current transaction"
-msgstr "Εκτέλεση όλων των προγραμματισμένων εργασιών στην τρέχουσα συναλλαγή"
-
-msgid "Execute"
-msgstr "Εκτέλεση"
-
-msgid "_Edit"
-msgstr "_Επεξεργασία"
-
-msgid "Unmark All"
-msgstr "Αποεπιλογή όλων"
-
-msgid "Preferences"
-msgstr "Προτιμήσεις"
-
-msgid "_View"
-msgstr "Ε_μφάνιση"
-
-msgid "View all packages"
-msgstr "Εμφάνιση όλων των πακέτων"
-
-msgid "All"
-msgstr "Όλων"
-
-msgid "View available packages from current sources"
-msgstr "Εμφάνιση διαθέσιμων πακέτων από τις τρέχουσες πηγές πακέτων"
-
-msgid "Available"
-msgstr "Διαθέσιμα"
-
-msgid "View installed packages"
-msgstr "Εμφάνιση των εγκατεστημένων πακέτων"
-
-msgid "View Marked Packages"
-msgstr "Εμφάνιση των επιλεγμένων πακέτων"
-
-msgid "Marked"
-msgstr "Επιλεγμένα"
-
-msgid "View Upgradeable Packages"
-msgstr "Εμφάνιση των πακέτων που μπορούν να αναβαθμιστούν"
-
-msgid "Upgradeable"
-msgstr "Με δυνατότητα αναβάθμισης"
-
-msgid "P_ackage"
-msgstr "_Πακέτα"
-
-msgid "Unmark"
-msgstr "Μη επιλογή"
-
-msgid "Install"
-msgstr "Εγκατάσταση"
-
-msgid "Downgrade"
-msgstr "Εγκατάσταση προηγούμενης έκδοσης"
-
-msgid "Remove"
-msgstr "Απεγκατάσταση"
-
-msgid "_Help"
-msgstr "_Βοήθεια"
-
-msgid "Icon Legend"
-msgstr "Λεζάντα εικονιδίων"
-
-msgid "View ChangeLogs"
-msgstr "Εμφάνιση της καταγραφής αλλαγών"
-
-msgid "About"
-msgstr "Περί..."
-
-msgid "Search"
-msgstr "Εύρεση"
-
-msgid "<b>Name:</b>"
-msgstr "<b>Όνομα:</b>"
-
+#. set package details
 msgid "No package is selected."
 msgstr "Δεν επιλέχθηκε κανένα πακέτο."
 
-msgid "<b>Status:</b>"
-msgstr "<b>Κατάσταση:</b>"
+msgid "Not Installed"
+msgstr "Μη εγκατεστημένα"
 
-msgid "<b>Description:</b>"
-msgstr "<b>Περιγραφή:</b>"
+msgid "Package"
+msgstr "Πακέτο"
 
-msgid "<b>Version:</b>"
-msgstr "<b>Έκδοση:</b>"
+msgid "Package conflicts"
+msgstr "Συγκρούσεις πακέτων"
 
-msgid "<b>Source:</b>"
-msgstr "<b>Πηγή:</b>"
+msgid "Packages excluded"
+msgstr "Πακέτα που εξαιρέθηκαν"
 
-msgid "<b>Priority:</b>"
-msgstr "<b>Προτεραιότητα:</b>"
+msgid "Packages to be installed"
+msgstr "Πακέτα προς εγκατάσταση"
 
-msgid "<b>Location:</b>"
-msgstr "<b>Τοποθεσία:</b>"
+msgid "Packages to be reinstalled"
+msgstr "Πακέτα προς επανεγκατάσταση"
 
-msgid "<b>Installed Version</b>"
-msgstr "<b>Εγκατεστημένη έκδοση</b>"
+msgid "Packages to be removed"
+msgstr "Πακέτα προς απεγκατάσταση"
 
-msgid "Version:"
-msgstr "Έκδοση:"
+msgid "Packages to be upgraded"
+msgstr "Πακέτα που θα αναβαθμιστούν"
 
-msgid "Installed Size:"
-msgstr "Μέγεθος εγκατάστασης:"
+msgid "Packages with unmet dependencies"
+msgstr "Πακέτα με εξαρτήσεις που δεν ικανοποιήθηκαν"
 
-msgid "<b>Latest Available Version</b>"
-msgstr "<b>Τελευταία διαθέσιμη έκδοση</b>"
+msgid "Pending changes. Click execute when ready."
+msgstr "Αλλαγές έτοιμες για εφαρμογή. Πατήστε εκτέλεση όταν είστε έτοιμοι."
 
-msgid "Size:"
-msgstr "Μέγεθος:"
+msgid "Priority"
+msgstr "Προτεραιότητα"
 
-msgid "Source:"
-msgstr "Πηγή:"
+msgid "Progress"
+msgstr "Πρόοδος"
 
-msgid "Common"
-msgstr "Γενικά"
+msgid "Re-Install"
+msgstr "Επανεγκατάσταση"
 
-msgid "Dependencies"
-msgstr "Εξαρτήσεις"
+msgid "Reading Package Lists..."
+msgstr "Ανάγνωση λίστας πακέτων..."
 
-msgid "Changelog"
-msgstr "Τελευταίες αλλαγές"
+msgid "Ready"
+msgstr "Έτοιμο"
 
-msgid "Files"
-msgstr "Αρχεία"
+msgid "Removing packages..."
+msgstr "Απεγκατάσταση πακέτων..."
 
-msgid ""
-"<b>The following icons are used to indicate the current status of a "
-"package:</b>"
-msgstr "<b>Τα ακόλουθα εικονίδια χρησιμοποιούνται για να δείξουν την τρέχουσα κατάσταση ενός πακέτου:</b>"
+msgid "Retrieving ChangeLog.txt..."
+msgstr "Ανάκτηση του ChangeLog.txt..."
 
-msgid "Repositories changed"
-msgstr "Οι πηγές πακέτων άλλαξαν"
+msgid "Retrieving checksum list..."
+msgstr "Ανάκτηση λίστας αθροισμάτων..."
 
-msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
-msgstr "<span size=\"large\" weight=\"bold\">Οι πηγές πακέτων άλλαξαν</span>"
+msgid "Retrieving checksum signature..."
+msgstr "Ανάκτηση υπογραφής αθροίσματος..."
 
-msgid ""
-"You need to reload the package list from the sources you have listed.  Do "
-"you want to do this now?"
-msgstr "Πρέπει να ανανεώσετε τη λίστα των πακέτων από τις πηγές που χρησιμοποιείτε. Θέλετε να το κάνετε τώρα;"
+msgid "Retrieving package data..."
+msgstr "Ανάκτηση δεδομένων πακέτων..."
 
-msgid "Source failed"
-msgstr "Η πηγή απέτυχε"
+msgid "Retrieving patch list..."
+msgstr "Ανάκτηση λίστας διορθώσεων..."
 
-msgid ""
-"This package source failed or is not available.  Do you want to disable this"
-" source and continue anyway?"
-msgstr "Απέτυχε η λήψη δεδομένων από την πηγή πακέτων.  Θέλετε να απενεργοποιήσετε αυτή την πηγή πακέτων και να συνεχίσετε ούτως ή άλλως;"
+msgid "Source"
+msgstr "Πηγή"
 
-msgid "Default"
-msgstr "Εξ ορισμού"
+msgid "Status"
+msgstr "Κατάσταση"
 
-msgid "Official"
-msgstr "Επίσημη"
+msgid "Successfully executed all actions."
+msgstr "Όλες οι ενέργειες εκτελέσθηκαν με επιτυχία."
 
-msgid "Preferred"
-msgstr "Προτιμώμενη"
+msgid "The list of installed files is only available for installed packages"
+msgstr ""
+"Ο κατάλογος των εγκατεστημένων αρχείων είναι διαθέσιμος μόνο για "
+"εγκατεστημένα πακέτα"
 
-msgid "Custom"
-msgstr "Προσαρμοσμένη"
+msgid "To be Downgraded"
+msgstr "Προς εγκατάσταση προηγούμενης έκδοσης"
 
-msgid "Package Source"
-msgstr "Πηγή πακέτων"
+msgid "To be Installed"
+msgstr "Προς εγκατάσταση"
 
-msgid "Summary"
-msgstr "Περίληψη"
+msgid "To be Re-Installed"
+msgstr "Προς επανεγκατάσταση"
 
-msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Να εφαρμοστούν οι παρακάτω αλλαγές;</span>"
+msgid "To be Removed"
+msgstr "Προς απεγκατάσταση"
 
-msgid "This is a summary of the changes about to be performed."
-msgstr "Αυτή είναι μια περίληψη των αλλαγών που πρόκειται να πραγματοποιηθούν"
+msgid "To be Upgraded"
+msgstr "Προς αναβάθμιση"
 
-msgid "Download packages only"
-msgstr "Μόνο λήψη πακέτων"
+msgid "Uninstalling..."
+msgstr "Απεγκατάσταση..."
 
-msgid "<b>Package and data storage</b>"
-msgstr "<b>Κατάλογος αποθήκης πακέτων και δεδομένων</b>"
+msgid "Up to Date"
+msgstr "Ενημερωμένο"
 
-msgid "_Delete Cached Package Files"
-msgstr "_Διαγραφή των τοπικά αποθηκευμένων πακέτων"
+msgid "Upgrade"
+msgstr "Αναβάθμιση"
 
-msgid "Working Directory"
-msgstr "Κατάλογος εργασίας"
+msgid "Upgrading..."
+msgstr "Αναβάθμιση..."
 
-msgid "<b>Exclude List</b>"
-msgstr "<b>Λίστα αποκλεισμού</b>"
+msgid "Verifying checksum signature..."
+msgstr "Επαλήθευση υπογραφής αθροίσματος..."
 
-msgid "<span weight=\"bold\">Exclude Expression:</span>"
-msgstr "<span weight=\"bold\">Έκφραση αποκλεισμού:</span>"
+msgid "Version"
+msgstr "Έκδοση"
 
-msgid "Excludes"
-msgstr "Αποκλεισμοί"
+msgid "Visible"
+msgstr "Εμφανή"
 
-msgid "<b>Package Sources</b>"
-msgstr "<b>Πηγαίος κώδικας πακέτων</b>"
+msgid "pkgtools returned an error"
+msgstr "Τα pkgtools επέστρεψαν σφάλμα"
 
-msgid "Sources"
-msgstr "Πηγές"
+#, c-format
+#~ msgid "%d upgraded, "
+#~ msgid_plural "%d upgraded, "
+#~ msgstr[0] "%d ενημερώθηκε, "
+#~ msgstr[1] "%d ενημερώθηκαν, "
 
-msgid "<b>GPG Keys</b>"
-msgstr "<b>Κλειδιά GPG</b>"
+#, c-format
+#~ msgid "%d reinstalled, "
+#~ msgid_plural "%d reinstalled, "
+#~ msgstr[0] "%d επανεγκαταστάθηκε, "
+#~ msgstr[1] "%d επανεγκαταστάθηκαν, "
 
-msgid "Verification"
-msgstr "Επαλήθευση"
+#, c-format
+#~ msgid "%d newly installed, "
+#~ msgid_plural "%d newly installed, "
+#~ msgstr[0] "%d νέο εγκαταστάθηκε, "
+#~ msgstr[1] "%d νεά εγκαταστάθηκαν, "
+
+#, c-format
+#~ msgid "%d to remove "
+#~ msgid_plural "%d to remove "
+#~ msgstr[0] "%d προς αφαίρεση"
+#~ msgstr[1] "%d προς αφαίρεση"
+
+#, c-format
+#~ msgid "and %d not upgraded."
+#~ msgid_plural "and %d not upgraded."
+#~ msgstr[0] "και %d δεν ενημερώθηκε."
+#~ msgstr[1] "και %d δεν ενημερώθηκαν."
+
+#~ msgid "Gslapt Package Manager"
+#~ msgstr "Διαχειριστής Πακέτων Gslapt"
+
+#~ msgid "Install, remove and upgrade software packages"
+#~ msgstr "Εγκαταστήστε, απεγκαταστήστε και αναβαθμίστε πακέτα λογισμικού"
+
+#~ msgid "Run Gslapt as root"
+#~ msgstr "Εκτέλεση του Gslapt ως χρήστης root"
+
+#~ msgid "Authentication is required to run Gslapt"
+#~ msgstr "Απαιτείται πιστοποίηση του χρήστη για να εκτελεστεί το Gslapt"
+
+#~ msgid "Base"
+#~ msgstr "Βάση"
+
+#~ msgid "Applications"
+#~ msgstr "Εφαρμογές"
+
+#~ msgid "Development Tools"
+#~ msgstr "Εργαλεία Ανάπτυξης"
+
+#~ msgid "GNU Emacs"
+#~ msgstr "GNU Emacs"
+
+#~ msgid "Documentation"
+#~ msgstr "Τεκμηρίωση"
+
+#~ msgid "GNOME"
+#~ msgstr "GNOME"
+
+#~ msgid "Linux kernel"
+#~ msgstr "Πυρήνας Linux"
+
+#~ msgid "KDE"
+#~ msgstr "KDE"
+
+#~ msgid "KDE Internationalization"
+#~ msgstr "Διεθνοποίηση KDE"
+
+#~ msgid "Libraries"
+#~ msgstr "Βιβλιοθήκες"
+
+#~ msgid "Networking"
+#~ msgstr "Δικτύωση"
+
+#~ msgid "teTeX"
+#~ msgstr "teTeX"
+
+#~ msgid "TCL"
+#~ msgstr "TCL"
+
+#~ msgid "X Window System"
+#~ msgstr "Σύστημα Γραφικών X"
+
+#~ msgid "X Applications"
+#~ msgstr "Εφαρμογές Γραφικού Περιβάλλοντος"
+
+#~ msgid "Xfce"
+#~ msgstr "Xfce"
+
+#~ msgid "BSD Console games"
+#~ msgstr "Παιγνίδια Κονσόλας BSD"
+
+#~ msgid "Patches"
+#~ msgstr "Διορθώσεις"
+
+#~ msgid "GSB Base"
+#~ msgstr "Βάση GSB"
+
+#~ msgid "GSB Accessibility"
+#~ msgstr "Προσβασιμότητα GSB"
+
+#~ msgid "GSB Administration"
+#~ msgstr "Διαχείρηση συστήματος GSB"
+
+#~ msgid "GSB Applications"
+#~ msgstr "Εφαρμογές GSB"
+
+#~ msgid "GSB Compiz Fusion"
+#~ msgstr "GSB Compiz Fusion"
+
+#~ msgid "GSB Development"
+#~ msgstr "Ανάπτυξη GSB"
+
+#~ msgid "GSB Office"
+#~ msgstr "Γραφείο GSB"
+
+#~ msgid "GSB Libraries"
+#~ msgstr "Βιβλιοθήκες GSB"
+
+#~ msgid "GSB Mono"
+#~ msgstr "GSB Mono"
+
+#~ msgid "GSB Networking"
+#~ msgstr "Δικτύωση GSB"
+
+#~ msgid "GSB OpenOffice.org"
+#~ msgstr "GSB OpenOffice.org"
+
+#~ msgid "GSB Themes"
+#~ msgstr "Θέματα GSB"
+
+#~ msgid "Games"
+#~ msgstr "Παιγνίδια"
+
+#~ msgid "Localization"
+#~ msgstr "Διεθνοποίηση"
+
+#~ msgid "LXDE"
+#~ msgstr "LXDE"
+
+#~ msgid "MATE"
+#~ msgstr "MATE"
+
+#~ msgid "Academic"
+#~ msgstr "Ακαδημαϊκά"
+
+#~ msgid "Accessibility"
+#~ msgstr "Προσιτότητα"
+
+#~ msgid "Audio"
+#~ msgstr "Ήχος"
+
+#~ msgid "Business"
+#~ msgstr "Εμπορικά"
+
+#~ msgid "Desktop"
+#~ msgstr "Επιφάνεια εργασίας"
+
+#~ msgid "Development"
+#~ msgstr "Ανάπτυξη"
+
+#~ msgid "GIS"
+#~ msgstr "GIS"
+
+#~ msgid "Graphics"
+#~ msgstr "Γραφικά"
+
+#~ msgid "HAM Radio"
+#~ msgstr "Ερασιτεχνικό ραδιόφωνο HAM"
+
+#~ msgid "Haskell"
+#~ msgstr "Haskell"
+
+#~ msgid "Miscellaneous"
+#~ msgstr "Διάφορα"
+
+#~ msgid "Multimedia"
+#~ msgstr "Πολυμέσα"
+
+#~ msgid "Network"
+#~ msgstr "Δίκτυο"
+
+#~ msgid "Office"
+#~ msgstr "Γραφείο"
+
+#~ msgid "Perl"
+#~ msgstr "Perl"
+
+#~ msgid "Python"
+#~ msgstr "Python"
+
+#~ msgid "Ruby"
+#~ msgstr "Ruby"
+
+#~ msgid "System"
+#~ msgstr "Σύστημα"
+
+#~ msgid "Slackware Extra"
+#~ msgstr "Επιπλέον πακέτα Slackware"
+
+#~ msgid ""
+#~ "gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
+#~ "Slackware"
+#~ msgstr ""
+#~ "Το gslapt είναι ένα γραφικό περιβάλλον χρήσης του slapt-get, ένα σύστημα "
+#~ "διαχείρισης πακέτων για το Slackware όμοιο με το APT"
+
+#~ msgid "working"
+#~ msgstr "απασχολημένο"
+
+#~ msgid "total progress"
+#~ msgstr "Συνολική πρόοδος"
+
+#~ msgid "Gslapt"
+#~ msgstr "Gslapt"
+
+#~ msgid "_File"
+#~ msgstr "_Αρχείο"
+
+#~ msgid "Update local package cache"
+#~ msgstr "Ενημέρωση της τοπικής αποθήκης πακέτων"
+
+#~ msgid "Update"
+#~ msgstr "Ενημέρωση"
+
+#~ msgid "Mark all possible upgrades"
+#~ msgstr "Επιλογή όλων των δυνατών αναβαθμίσεων"
+
+#~ msgid "Mark All Upgrades"
+#~ msgstr "Επιλογή όλων των αναβαθμίσεων"
+
+#~ msgid "Mark all obsolete packages"
+#~ msgstr "Επιλογή όλων των παρωχημένων πακέτων"
+
+#~ msgid "Mark Obsolete"
+#~ msgstr "Επιλογή παρωχημένων"
+
+#~ msgid "Execute all scheduled actions in current transaction"
+#~ msgstr ""
+#~ "Εκτέλεση όλων των προγραμματισμένων εργασιών στην τρέχουσα συναλλαγή"
+
+#~ msgid "Execute"
+#~ msgstr "Εκτέλεση"
+
+#~ msgid "_Edit"
+#~ msgstr "_Επεξεργασία"
+
+#~ msgid "Unmark All"
+#~ msgstr "Αποεπιλογή όλων"
+
+#~ msgid "Preferences"
+#~ msgstr "Προτιμήσεις"
+
+#~ msgid "_View"
+#~ msgstr "Ε_μφάνιση"
+
+#~ msgid "View all packages"
+#~ msgstr "Εμφάνιση όλων των πακέτων"
+
+#~ msgid "All"
+#~ msgstr "Όλων"
+
+#~ msgid "View available packages from current sources"
+#~ msgstr "Εμφάνιση διαθέσιμων πακέτων από τις τρέχουσες πηγές πακέτων"
+
+#~ msgid "Available"
+#~ msgstr "Διαθέσιμα"
+
+#~ msgid "View installed packages"
+#~ msgstr "Εμφάνιση των εγκατεστημένων πακέτων"
+
+#~ msgid "View Marked Packages"
+#~ msgstr "Εμφάνιση των επιλεγμένων πακέτων"
+
+#~ msgid "Marked"
+#~ msgstr "Επιλεγμένα"
+
+#~ msgid "View Upgradeable Packages"
+#~ msgstr "Εμφάνιση των πακέτων που μπορούν να αναβαθμιστούν"
+
+#~ msgid "Upgradeable"
+#~ msgstr "Με δυνατότητα αναβάθμισης"
+
+#~ msgid "P_ackage"
+#~ msgstr "_Πακέτα"
+
+#~ msgid "Unmark"
+#~ msgstr "Μη επιλογή"
+
+#~ msgid "Install"
+#~ msgstr "Εγκατάσταση"
+
+#~ msgid "Downgrade"
+#~ msgstr "Εγκατάσταση προηγούμενης έκδοσης"
+
+#~ msgid "Remove"
+#~ msgstr "Απεγκατάσταση"
+
+#~ msgid "_Help"
+#~ msgstr "_Βοήθεια"
+
+#~ msgid "Icon Legend"
+#~ msgstr "Λεζάντα εικονιδίων"
+
+#~ msgid "View ChangeLogs"
+#~ msgstr "Εμφάνιση της καταγραφής αλλαγών"
+
+#~ msgid "About"
+#~ msgstr "Περί..."
+
+#~ msgid "Search"
+#~ msgstr "Εύρεση"
+
+#~ msgid "<b>Name:</b>"
+#~ msgstr "<b>Όνομα:</b>"
+
+#~ msgid "<b>Status:</b>"
+#~ msgstr "<b>Κατάσταση:</b>"
+
+#~ msgid "<b>Description:</b>"
+#~ msgstr "<b>Περιγραφή:</b>"
+
+#~ msgid "<b>Version:</b>"
+#~ msgstr "<b>Έκδοση:</b>"
+
+#~ msgid "<b>Source:</b>"
+#~ msgstr "<b>Πηγή:</b>"
+
+#~ msgid "<b>Priority:</b>"
+#~ msgstr "<b>Προτεραιότητα:</b>"
+
+#~ msgid "<b>Location:</b>"
+#~ msgstr "<b>Τοποθεσία:</b>"
+
+#~ msgid "<b>Installed Version</b>"
+#~ msgstr "<b>Εγκατεστημένη έκδοση</b>"
+
+#~ msgid "Version:"
+#~ msgstr "Έκδοση:"
+
+#~ msgid "Installed Size:"
+#~ msgstr "Μέγεθος εγκατάστασης:"
+
+#~ msgid "<b>Latest Available Version</b>"
+#~ msgstr "<b>Τελευταία διαθέσιμη έκδοση</b>"
+
+#~ msgid "Size:"
+#~ msgstr "Μέγεθος:"
+
+#~ msgid "Source:"
+#~ msgstr "Πηγή:"
+
+#~ msgid "Common"
+#~ msgstr "Γενικά"
+
+#~ msgid "Dependencies"
+#~ msgstr "Εξαρτήσεις"
+
+#~ msgid "Changelog"
+#~ msgstr "Τελευταίες αλλαγές"
+
+#~ msgid "Files"
+#~ msgstr "Αρχεία"
+
+#~ msgid ""
+#~ "<b>The following icons are used to indicate the current status of a "
+#~ "package:</b>"
+#~ msgstr ""
+#~ "<b>Τα ακόλουθα εικονίδια χρησιμοποιούνται για να δείξουν την τρέχουσα "
+#~ "κατάσταση ενός πακέτου:</b>"
+
+#~ msgid "Repositories changed"
+#~ msgstr "Οι πηγές πακέτων άλλαξαν"
+
+#~ msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
+#~ msgstr ""
+#~ "<span size=\"large\" weight=\"bold\">Οι πηγές πακέτων άλλαξαν</span>"
+
+#~ msgid ""
+#~ "You need to reload the package list from the sources you have listed.  Do "
+#~ "you want to do this now?"
+#~ msgstr ""
+#~ "Πρέπει να ανανεώσετε τη λίστα των πακέτων από τις πηγές που "
+#~ "χρησιμοποιείτε. Θέλετε να το κάνετε τώρα;"
+
+#~ msgid "Source failed"
+#~ msgstr "Η πηγή απέτυχε"
+
+#~ msgid ""
+#~ "This package source failed or is not available.  Do you want to disable "
+#~ "this source and continue anyway?"
+#~ msgstr ""
+#~ "Απέτυχε η λήψη δεδομένων από την πηγή πακέτων.  Θέλετε να "
+#~ "απενεργοποιήσετε αυτή την πηγή πακέτων και να συνεχίσετε ούτως ή άλλως;"
+
+#~ msgid "Default"
+#~ msgstr "Εξ ορισμού"
+
+#~ msgid "Official"
+#~ msgstr "Επίσημη"
+
+#~ msgid "Preferred"
+#~ msgstr "Προτιμώμενη"
+
+#~ msgid "Custom"
+#~ msgstr "Προσαρμοσμένη"
+
+#~ msgid "Package Source"
+#~ msgstr "Πηγή πακέτων"
+
+#~ msgid "Summary"
+#~ msgstr "Περίληψη"
+
+#~ msgid ""
+#~ "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+#~ msgstr ""
+#~ "<span weight=\"bold\" size=\"large\">Να εφαρμοστούν οι παρακάτω αλλαγές;</"
+#~ "span>"
+
+#~ msgid "This is a summary of the changes about to be performed."
+#~ msgstr ""
+#~ "Αυτή είναι μια περίληψη των αλλαγών που πρόκειται να πραγματοποιηθούν"
+
+#~ msgid "Download packages only"
+#~ msgstr "Μόνο λήψη πακέτων"
+
+#~ msgid "<b>Package and data storage</b>"
+#~ msgstr "<b>Κατάλογος αποθήκης πακέτων και δεδομένων</b>"
+
+#~ msgid "_Delete Cached Package Files"
+#~ msgstr "_Διαγραφή των τοπικά αποθηκευμένων πακέτων"
+
+#~ msgid "Working Directory"
+#~ msgstr "Κατάλογος εργασίας"
+
+#~ msgid "<b>Exclude List</b>"
+#~ msgstr "<b>Λίστα αποκλεισμού</b>"
+
+#~ msgid "<span weight=\"bold\">Exclude Expression:</span>"
+#~ msgstr "<span weight=\"bold\">Έκφραση αποκλεισμού:</span>"
+
+#~ msgid "Excludes"
+#~ msgstr "Αποκλεισμοί"
+
+#~ msgid "<b>Package Sources</b>"
+#~ msgstr "<b>Πηγαίος κώδικας πακέτων</b>"
+
+#~ msgid "Sources"
+#~ msgstr "Πηγές"
+
+#~ msgid "<b>GPG Keys</b>"
+#~ msgstr "<b>Κλειδιά GPG</b>"
+
+#~ msgid "Verification"
+#~ msgstr "Επαλήθευση"

@@ -1,200 +1,51 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# 
+#
 # Translators:
 # Yang Jinsong <shannleon@gmail.com>, 2006
 msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
-"Report-Msgid-Bugs-To: woodwardj at jaos dot org\n"
-"POT-Creation-Date: 2022-06-03 22:11+0300\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-31 17:49-0400\n"
 "PO-Revision-Date: 2012-09-17 21:52+0000\n"
 "Last-Translator: Yang Jinsong <shannleon@gmail.com>, 2006\n"
-"Language-Team: Chinese (China) (http://app.transifex.com/jaos/slapt-get/language/zh_CN/)\n"
+"Language-Team: Chinese (China) (http://app.transifex.com/jaos/slapt-get/"
+"language/zh_CN/)\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-
-msgid "Ready"
-msgstr "准备就绪"
-
-msgid "Upgrade"
-msgstr "升级"
-
-msgid "Re-Install"
-msgstr "重新安装"
-
-msgid "<b>Required:</b>"
-msgstr "<b>需要:</b>"
-
-msgid "<b>Conflicts:</b>"
-msgstr "<b>冲突:</b>"
-
-msgid "<b>Suggests:</b>"
-msgstr "<b>建议:</b>"
-
-#. installed
-msgid "No dependency information available"
-msgstr "No dependency information available"
-
-msgid "Source"
-msgstr "源"
-
-msgid "No changelog information available"
-msgstr "No changelog information available"
-
-msgid "The list of installed files is only available for installed packages"
-msgstr "The list of installed files is only available for installed packages"
-
-msgid "Excluded"
-msgstr "已设置为排除"
-
-msgid "To be Removed"
-msgstr "将要被删除"
-
-msgid "To be Installed"
-msgstr "将要被安装"
-
-msgid "To be Re-Installed"
-msgstr "将要被重新安装"
-
-msgid "To be Downgraded"
-msgstr "将要被降级"
-
-msgid "To be Upgraded"
-msgstr "将要被升级"
-
-msgid "Installed"
-msgstr "已经安装"
-
-msgid "Not Installed"
-msgstr "没有安装"
-
-msgid "Progress"
-msgstr "进度"
-
-msgid "Checking for new package data..."
-msgstr "检查新软件包数据..."
-
-msgid "GPG Key verification failed"
-msgstr "GPG Key verification failed"
-
-msgid "Retrieving package data..."
-msgstr "检索软件包数据..."
-
-msgid "Retrieving patch list..."
-msgstr "检索补丁包列表..."
-
-msgid "Retrieving checksum list..."
-msgstr "检索校验列表..."
-
-msgid "Retrieving checksum signature..."
-msgstr "Retrieving checksum signature..."
-
-msgid "Verifying checksum signature..."
-msgstr "Verifying checksum signature..."
-
-msgid "Retrieving ChangeLog.txt..."
-msgstr "Retrieving ChangeLog.txt..."
-
-msgid "Reading Package Lists..."
-msgstr "读取软件包列表..."
-
-#, c-format
-msgid "Download rate: %.0f%s/s"
-msgstr "Download rate: %.0f%s/s"
-
-msgid "Error"
-msgstr "Error"
-
-msgid "Completed actions"
-msgstr "已完成动作"
-
-msgid "Successfully executed all actions."
-msgstr "已成功完成所有动作."
-
-msgid "pkgtools returned an error"
-msgstr "pkgtools 返回一个错误"
-
-msgid "Enabled"
-msgstr "允许"
-
-msgid "Visible"
-msgstr "Visible"
-
-msgid "Priority"
-msgstr "Priority"
-
-msgid "Expression"
-msgstr "表达式"
-
-msgid "Packages with unmet dependencies"
-msgstr "软件包缺少依赖"
-
-msgid "Package conflicts"
-msgstr "软件包冲突"
-
-msgid ", which is required by "
-msgstr ", which is required by "
 
 msgid ", is excluded"
 msgstr ", 被设置为排除"
 
-msgid "Packages excluded"
-msgstr "排除的软件包"
+msgid ", which is required by "
+msgstr ", which is required by "
 
-msgid "Packages to be installed"
-msgstr "将要被安装的软件包"
+msgid ": Depends: "
+msgstr ": 依赖于: "
 
-msgid "Packages to be upgraded"
-msgstr "将要被升级的软件包"
-
-msgid "Packages to be reinstalled"
-msgstr "Packages to be reinstalled"
-
-msgid "Packages to be removed"
-msgstr "将要被删除的软件包"
-
-msgid "Package"
-msgstr "软件包"
+msgid "<b>Conflicts:</b>"
+msgstr "<b>冲突:</b>"
 
 #, c-format
-msgid "%d upgraded, "
-msgid_plural "%d upgraded, "
-msgstr[0] ""
+msgid "<b>Excluding %s due to dependency failure</b>"
+msgstr "<b>排除 %s 因为依赖错误</b>"
 
-#, c-format
-msgid "%d reinstalled, "
-msgid_plural "%d reinstalled, "
-msgstr[0] ""
+msgid "<b>Required:</b>"
+msgstr "<b>需要:</b>"
 
-#, c-format
-msgid "%d newly installed, "
-msgid_plural "%d newly installed, "
-msgstr[0] ""
+msgid "<b>Suggests:</b>"
+msgstr "<b>建议:</b>"
 
-#, c-format
-msgid "%d to remove "
-msgid_plural "%d to remove "
-msgstr[0] ""
+msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
+msgstr "<span weight=\"bold\" size=\"large\">无可用更新</span>"
 
-#, c-format
-msgid "and %d not upgraded."
-msgid_plural "and %d not upgraded."
-msgstr[0] ""
-
-msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgid ""
+"<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
 msgstr "<span weight=\"bold\" size=\"large\">你没有足够的自由空间</span>"
-
-#, c-format
-msgid "Need to get %.0f%s/%.0f%s of archives.\n"
-msgstr "需要获取 %.0f%s/%.0f%s 的档案.\n"
-
-#, c-format
-msgid "Need to get %.0f%s of archives."
-msgstr "需要获取 %.0f%s 的档案."
 
 #, c-format
 msgid "After unpacking %.0f%s disk space will be freed."
@@ -204,11 +55,21 @@ msgstr "解压后 %.0f%s 的磁盘空间将被回收."
 msgid "After unpacking %.0f%s of additional disk space will be used."
 msgstr "解压后 %.0f%s 的附加磁盘空间将被使用."
 
-msgid "Up to Date"
-msgstr "已经是最新的"
+msgid "ChangeLogs"
+msgstr "ChangeLogs"
 
-msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
-msgstr "<span weight=\"bold\" size=\"large\">无可用更新</span>"
+msgid "Checking for new package data..."
+msgstr "检查新软件包数据..."
+
+msgid "Completed actions"
+msgstr "已完成动作"
+
+msgid "Description"
+msgstr "描述"
+
+#, c-format
+msgid "Download rate: %.0f%s/s"
+msgstr "Download rate: %.0f%s/s"
 
 msgid "Downloading packages..."
 msgstr "正在下载软件包..."
@@ -216,485 +77,533 @@ msgstr "正在下载软件包..."
 msgid "Downloading..."
 msgstr "正在下载..."
 
-#, c-format
-msgid "Failed to download %s: %s"
-msgstr "Failed to download %s: %s"
+msgid "Enabled"
+msgstr "允许"
 
-msgid "Removing packages..."
-msgstr "正在删除软件包..."
+msgid "Error"
+msgstr "Error"
 
-msgid "Installing packages..."
-msgstr "正在安装软件包..."
+msgid "Excluded"
+msgstr "已设置为排除"
 
-msgid "Uninstalling..."
-msgstr "正在删除..."
-
-msgid "Installing..."
-msgstr "正在安装..."
-
-msgid "Upgrading..."
-msgstr "正在升级..."
+msgid "Expression"
+msgstr "表达式"
 
 msgid "Failed to commit preferences"
 msgstr "Failed to commit preferences"
 
-msgid "Pending changes. Click execute when ready."
-msgstr "Pending changes. Click execute when ready."
-
-msgid "Status"
-msgstr "状态"
-
-msgid "Name"
-msgstr "名称"
-
-msgid "Version"
-msgstr "版本"
-
-msgid "Location"
-msgstr "位置"
-
-msgid "Description"
-msgstr "描述"
-
-msgid "Installed Size"
-msgstr "安装后大小"
-
 #, c-format
-msgid "<b>Excluding %s due to dependency failure</b>"
-msgstr "<b>排除 %s 因为依赖错误</b>"
+msgid "Failed to download %s: %s"
+msgstr "Failed to download %s: %s"
 
-msgid ""
-"Missing dependencies may mean the software in this package will not function"
-" correctly.  Do you want to continue without the required packages?"
-msgstr "缺少依赖意味这软件可能不能正常工作. 是否在缺少依赖的情况下继续?"
-
-msgid ": Depends: "
-msgstr ": 依赖于: "
+msgid "GPG Key verification failed"
+msgstr "GPG Key verification failed"
 
 msgid "Import"
 msgstr "Import"
 
-msgid "No key found"
-msgstr "No key found"
+msgid "Installed"
+msgstr "已经安装"
 
-msgid "ChangeLogs"
-msgstr "ChangeLogs"
+msgid "Installed Size"
+msgstr "安装后大小"
+
+msgid "Installing packages..."
+msgstr "正在安装软件包..."
+
+msgid "Installing..."
+msgstr "正在安装..."
+
+msgid "Location"
+msgstr "位置"
+
+msgid ""
+"Missing dependencies may mean the software in this package will not function "
+"correctly.  Do you want to continue without the required packages?"
+msgstr "缺少依赖意味这软件可能不能正常工作. 是否在缺少依赖的情况下继续?"
+
+msgid "Name"
+msgstr "名称"
+
+#, c-format
+msgid "Need to get %.0f%s of archives."
+msgstr "需要获取 %.0f%s 的档案."
+
+#, c-format
+msgid "Need to get %.0f%s/%.0f%s of archives.\n"
+msgstr "需要获取 %.0f%s/%.0f%s 的档案.\n"
+
+msgid "No changelog information available"
+msgstr "No changelog information available"
 
 msgid "No changelogs found."
 msgstr ""
 
-msgid "Gslapt Package Manager"
-msgstr "Gslapt Package Manager"
+#. installed
+msgid "No dependency information available"
+msgstr "No dependency information available"
 
-msgid "Install, remove and upgrade software packages"
-msgstr "Install, remove and upgrade software packages"
+msgid "No key found"
+msgstr "No key found"
 
-msgid "Run Gslapt as root"
-msgstr ""
-
-msgid "Authentication is required to run Gslapt"
-msgstr ""
-
-msgid "Base"
-msgstr "Base"
-
-msgid "Applications"
-msgstr "Applications"
-
-msgid "Development Tools"
-msgstr "Development Tools"
-
-msgid "GNU Emacs"
-msgstr "GNU Emacs"
-
-msgid "Documentation"
-msgstr "Documentation"
-
-msgid "GNOME"
-msgstr "GNOME"
-
-msgid "Linux kernel"
-msgstr "Linux kernel"
-
-msgid "KDE"
-msgstr "KDE"
-
-msgid "KDE Internationalization"
-msgstr "KDE Internationalization"
-
-msgid "Libraries"
-msgstr "Libraries"
-
-msgid "Networking"
-msgstr "Networking"
-
-msgid "teTeX"
-msgstr "teTeX"
-
-msgid "TCL"
-msgstr "TCL"
-
-msgid "X Window System"
-msgstr "X Window System"
-
-msgid "X Applications"
-msgstr "X Applications"
-
-msgid "Xfce"
-msgstr ""
-
-msgid "BSD Console games"
-msgstr "BSD Console games"
-
-msgid "Patches"
-msgstr "Patches"
-
-msgid "GSB Base"
-msgstr "GSB Base"
-
-msgid "GSB Accessibility"
-msgstr "GSB Accessibility"
-
-msgid "GSB Administration"
-msgstr "GSB Administration"
-
-msgid "GSB Applications"
-msgstr "GSB Applications"
-
-msgid "GSB Compiz Fusion"
-msgstr "GSB Compiz Fusion"
-
-msgid "GSB Development"
-msgstr "GSB Development"
-
-msgid "GSB Office"
-msgstr "GSB Office"
-
-msgid "GSB Libraries"
-msgstr "GSB Libraries"
-
-msgid "GSB Mono"
-msgstr "GSB Mono"
-
-msgid "GSB Networking"
-msgstr "GSB Networking"
-
-msgid "GSB OpenOffice.org"
-msgstr "GSB OpenOffice.org"
-
-msgid "GSB Themes"
-msgstr "GSB Themes"
-
-msgid "Games"
-msgstr "Games"
-
-msgid "Localization"
-msgstr "Localization"
-
-msgid "LXDE"
-msgstr ""
-
-msgid "MATE"
-msgstr ""
-
-msgid "Academic"
-msgstr ""
-
-msgid "Accessibility"
-msgstr ""
-
-msgid "Audio"
-msgstr ""
-
-msgid "Business"
-msgstr ""
-
-msgid "Desktop"
-msgstr ""
-
-msgid "Development"
-msgstr ""
-
-msgid "GIS"
-msgstr ""
-
-msgid "Graphics"
-msgstr ""
-
-msgid "HAM Radio"
-msgstr ""
-
-msgid "Haskell"
-msgstr ""
-
-msgid "Miscellaneous"
-msgstr ""
-
-msgid "Multimedia"
-msgstr ""
-
-msgid "Network"
-msgstr ""
-
-msgid "Office"
-msgstr ""
-
-msgid "Perl"
-msgstr ""
-
-msgid "Python"
-msgstr ""
-
-msgid "Ruby"
-msgstr ""
-
-msgid "System"
-msgstr ""
-
-msgid "Slackware Extra"
-msgstr ""
-
-msgid ""
-"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
-"Slackware"
-msgstr "gslapt 是 slapt-get 的 GTK+ 前端,一个 APT 类似的软件包系统,专门为 Slackware 定制"
-
-msgid "working"
-msgstr "进行中"
-
-msgid "total progress"
-msgstr "总进度"
-
-msgid "Gslapt"
-msgstr "Gslapt"
-
-msgid "_File"
-msgstr "文件(_F)"
-
-msgid "Update local package cache"
-msgstr "更新本地软件包缓存"
-
-msgid "Update"
-msgstr "更新"
-
-msgid "Mark all possible upgrades"
-msgstr "尽可能将所有软件包标记为升级"
-
-msgid "Mark All Upgrades"
-msgstr "将所有标记为升级"
-
-msgid "Mark all obsolete packages"
-msgstr "Mark all obsolete packages"
-
-msgid "Mark Obsolete"
-msgstr "Mark Obsolete"
-
-msgid "Execute all scheduled actions in current transaction"
-msgstr "Execute all scheduled actions in current transaction"
-
-msgid "Execute"
-msgstr "执行"
-
-msgid "_Edit"
-msgstr "编辑(_E)"
-
-msgid "Unmark All"
-msgstr "取消所有标记"
-
-msgid "Preferences"
-msgstr "首选项"
-
-msgid "_View"
-msgstr "_View"
-
-msgid "View all packages"
-msgstr "View all packages"
-
-msgid "All"
-msgstr "All"
-
-msgid "View available packages from current sources"
-msgstr "View available packages from current sources"
-
-msgid "Available"
-msgstr "Available"
-
-msgid "View installed packages"
-msgstr "View installed packages"
-
-msgid "View Marked Packages"
-msgstr "View Marked Packages"
-
-msgid "Marked"
-msgstr "Marked"
-
-msgid "View Upgradeable Packages"
-msgstr "View Upgradeable Packages"
-
-msgid "Upgradeable"
-msgstr "Upgradeable"
-
-msgid "P_ackage"
-msgstr "软件包(_a)"
-
-msgid "Unmark"
-msgstr "取消标记"
-
-msgid "Install"
-msgstr "安装"
-
-msgid "Downgrade"
-msgstr "降级"
-
-msgid "Remove"
-msgstr "删除"
-
-msgid "_Help"
-msgstr "帮助(_H)"
-
-msgid "Icon Legend"
-msgstr "图示"
-
-msgid "View ChangeLogs"
-msgstr "View ChangeLogs"
-
-msgid "About"
-msgstr "关于"
-
-msgid "Search"
-msgstr "查找"
-
-msgid "<b>Name:</b>"
-msgstr "<b>名称:</b>"
-
+#. set package details
 msgid "No package is selected."
 msgstr "没有软件包被选择."
 
-msgid "<b>Status:</b>"
-msgstr "<b>状态:</b>"
+msgid "Not Installed"
+msgstr "没有安装"
 
-msgid "<b>Description:</b>"
-msgstr "<b>描述:</b>"
+msgid "Package"
+msgstr "软件包"
 
-msgid "<b>Version:</b>"
-msgstr "<b>版本:</b>"
+msgid "Package conflicts"
+msgstr "软件包冲突"
 
-msgid "<b>Source:</b>"
-msgstr "<b>Source:</b>"
+msgid "Packages excluded"
+msgstr "排除的软件包"
 
-msgid "<b>Priority:</b>"
-msgstr "<b>Priority:</b>"
+msgid "Packages to be installed"
+msgstr "将要被安装的软件包"
 
-msgid "<b>Location:</b>"
-msgstr "<b>位置:</b>"
+msgid "Packages to be reinstalled"
+msgstr "Packages to be reinstalled"
 
-msgid "<b>Installed Version</b>"
-msgstr "<b>已经安装的版本</b>"
+msgid "Packages to be removed"
+msgstr "将要被删除的软件包"
 
-msgid "Version:"
-msgstr "版本:"
+msgid "Packages to be upgraded"
+msgstr "将要被升级的软件包"
 
-msgid "Installed Size:"
-msgstr "安装后大小:"
+msgid "Packages with unmet dependencies"
+msgstr "软件包缺少依赖"
 
-msgid "<b>Latest Available Version</b>"
-msgstr "<b>可用的最新版本</b>"
+msgid "Pending changes. Click execute when ready."
+msgstr "Pending changes. Click execute when ready."
 
-msgid "Size:"
-msgstr "大小:"
+msgid "Priority"
+msgstr "Priority"
 
-msgid "Source:"
-msgstr "源:"
+msgid "Progress"
+msgstr "进度"
 
-msgid "Common"
-msgstr "通用"
+msgid "Re-Install"
+msgstr "重新安装"
 
-msgid "Dependencies"
-msgstr "依赖"
+msgid "Reading Package Lists..."
+msgstr "读取软件包列表..."
 
-msgid "Changelog"
-msgstr "Changelog"
+msgid "Ready"
+msgstr "准备就绪"
 
-msgid "Files"
-msgstr "Files"
+msgid "Removing packages..."
+msgstr "正在删除软件包..."
 
-msgid ""
-"<b>The following icons are used to indicate the current status of a "
-"package:</b>"
-msgstr "<b>以下图标表示软件包当前的状态:</b>"
+msgid "Retrieving ChangeLog.txt..."
+msgstr "Retrieving ChangeLog.txt..."
 
-msgid "Repositories changed"
-msgstr "软件仓库已变更"
+msgid "Retrieving checksum list..."
+msgstr "检索校验列表..."
 
-msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
-msgstr "<span size=\"large\" weight=\"bold\">软件仓库已变更</span>"
+msgid "Retrieving checksum signature..."
+msgstr "Retrieving checksum signature..."
 
-msgid ""
-"You need to reload the package list from the sources you have listed.  Do "
-"you want to do this now?"
-msgstr "你需要从列出的源重新装载软件包列表. 确定吗?"
+msgid "Retrieving package data..."
+msgstr "检索软件包数据..."
 
-msgid "Source failed"
-msgstr "Source failed"
+msgid "Retrieving patch list..."
+msgstr "检索补丁包列表..."
 
-msgid ""
-"This package source failed or is not available.  Do you want to disable this"
-" source and continue anyway?"
-msgstr "软件源错误或暂不可用.  你是否希望禁止此源并继续?"
-
-msgid "Default"
-msgstr "Default"
-
-msgid "Official"
-msgstr "Official"
-
-msgid "Preferred"
-msgstr "Preferred"
-
-msgid "Custom"
-msgstr "Custom"
-
-msgid "Package Source"
-msgstr "Package Source"
-
-msgid "Summary"
-msgstr "摘要"
-
-msgid "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
-msgstr "<span weight=\"bold\" size=\"large\">应用以下变更?</span>"
-
-msgid "This is a summary of the changes about to be performed."
-msgstr "这是将要执行的变更摘要"
-
-msgid "Download packages only"
-msgstr "仅下载软件包"
-
-msgid "<b>Package and data storage</b>"
-msgstr "<b>软件包与数据存储</b>"
-
-msgid "_Delete Cached Package Files"
-msgstr "删除已经缓存的软件包文件(_D)"
-
-msgid "Working Directory"
-msgstr "工作目录"
-
-msgid "<b>Exclude List</b>"
-msgstr "<b>已排除列表</b>"
-
-msgid "<span weight=\"bold\">Exclude Expression:</span>"
-msgstr "<span weight=\"bold\">排除表达式:</span>"
-
-msgid "Excludes"
-msgstr "排除"
-
-msgid "<b>Package Sources</b>"
-msgstr "<b>软件包源</b>"
-
-msgid "Sources"
+msgid "Source"
 msgstr "源"
 
-msgid "<b>GPG Keys</b>"
-msgstr "<b>GPG Keys</b>"
+msgid "Status"
+msgstr "状态"
 
-msgid "Verification"
-msgstr "Verification"
+msgid "Successfully executed all actions."
+msgstr "已成功完成所有动作."
+
+msgid "The list of installed files is only available for installed packages"
+msgstr "The list of installed files is only available for installed packages"
+
+msgid "To be Downgraded"
+msgstr "将要被降级"
+
+msgid "To be Installed"
+msgstr "将要被安装"
+
+msgid "To be Re-Installed"
+msgstr "将要被重新安装"
+
+msgid "To be Removed"
+msgstr "将要被删除"
+
+msgid "To be Upgraded"
+msgstr "将要被升级"
+
+msgid "Uninstalling..."
+msgstr "正在删除..."
+
+msgid "Up to Date"
+msgstr "已经是最新的"
+
+msgid "Upgrade"
+msgstr "升级"
+
+msgid "Upgrading..."
+msgstr "正在升级..."
+
+msgid "Verifying checksum signature..."
+msgstr "Verifying checksum signature..."
+
+msgid "Version"
+msgstr "版本"
+
+msgid "Visible"
+msgstr "Visible"
+
+msgid "pkgtools returned an error"
+msgstr "pkgtools 返回一个错误"
+
+#~ msgid "Gslapt Package Manager"
+#~ msgstr "Gslapt Package Manager"
+
+#~ msgid "Install, remove and upgrade software packages"
+#~ msgstr "Install, remove and upgrade software packages"
+
+#~ msgid "Base"
+#~ msgstr "Base"
+
+#~ msgid "Applications"
+#~ msgstr "Applications"
+
+#~ msgid "Development Tools"
+#~ msgstr "Development Tools"
+
+#~ msgid "GNU Emacs"
+#~ msgstr "GNU Emacs"
+
+#~ msgid "Documentation"
+#~ msgstr "Documentation"
+
+#~ msgid "GNOME"
+#~ msgstr "GNOME"
+
+#~ msgid "Linux kernel"
+#~ msgstr "Linux kernel"
+
+#~ msgid "KDE"
+#~ msgstr "KDE"
+
+#~ msgid "KDE Internationalization"
+#~ msgstr "KDE Internationalization"
+
+#~ msgid "Libraries"
+#~ msgstr "Libraries"
+
+#~ msgid "Networking"
+#~ msgstr "Networking"
+
+#~ msgid "teTeX"
+#~ msgstr "teTeX"
+
+#~ msgid "TCL"
+#~ msgstr "TCL"
+
+#~ msgid "X Window System"
+#~ msgstr "X Window System"
+
+#~ msgid "X Applications"
+#~ msgstr "X Applications"
+
+#~ msgid "BSD Console games"
+#~ msgstr "BSD Console games"
+
+#~ msgid "Patches"
+#~ msgstr "Patches"
+
+#~ msgid "GSB Base"
+#~ msgstr "GSB Base"
+
+#~ msgid "GSB Accessibility"
+#~ msgstr "GSB Accessibility"
+
+#~ msgid "GSB Administration"
+#~ msgstr "GSB Administration"
+
+#~ msgid "GSB Applications"
+#~ msgstr "GSB Applications"
+
+#~ msgid "GSB Compiz Fusion"
+#~ msgstr "GSB Compiz Fusion"
+
+#~ msgid "GSB Development"
+#~ msgstr "GSB Development"
+
+#~ msgid "GSB Office"
+#~ msgstr "GSB Office"
+
+#~ msgid "GSB Libraries"
+#~ msgstr "GSB Libraries"
+
+#~ msgid "GSB Mono"
+#~ msgstr "GSB Mono"
+
+#~ msgid "GSB Networking"
+#~ msgstr "GSB Networking"
+
+#~ msgid "GSB OpenOffice.org"
+#~ msgstr "GSB OpenOffice.org"
+
+#~ msgid "GSB Themes"
+#~ msgstr "GSB Themes"
+
+#~ msgid "Games"
+#~ msgstr "Games"
+
+#~ msgid "Localization"
+#~ msgstr "Localization"
+
+#~ msgid ""
+#~ "gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
+#~ "Slackware"
+#~ msgstr ""
+#~ "gslapt 是 slapt-get 的 GTK+ 前端,一个 APT 类似的软件包系统,专门为 "
+#~ "Slackware 定制"
+
+#~ msgid "working"
+#~ msgstr "进行中"
+
+#~ msgid "total progress"
+#~ msgstr "总进度"
+
+#~ msgid "Gslapt"
+#~ msgstr "Gslapt"
+
+#~ msgid "_File"
+#~ msgstr "文件(_F)"
+
+#~ msgid "Update local package cache"
+#~ msgstr "更新本地软件包缓存"
+
+#~ msgid "Update"
+#~ msgstr "更新"
+
+#~ msgid "Mark all possible upgrades"
+#~ msgstr "尽可能将所有软件包标记为升级"
+
+#~ msgid "Mark All Upgrades"
+#~ msgstr "将所有标记为升级"
+
+#~ msgid "Mark all obsolete packages"
+#~ msgstr "Mark all obsolete packages"
+
+#~ msgid "Mark Obsolete"
+#~ msgstr "Mark Obsolete"
+
+#~ msgid "Execute all scheduled actions in current transaction"
+#~ msgstr "Execute all scheduled actions in current transaction"
+
+#~ msgid "Execute"
+#~ msgstr "执行"
+
+#~ msgid "_Edit"
+#~ msgstr "编辑(_E)"
+
+#~ msgid "Unmark All"
+#~ msgstr "取消所有标记"
+
+#~ msgid "Preferences"
+#~ msgstr "首选项"
+
+#~ msgid "_View"
+#~ msgstr "_View"
+
+#~ msgid "View all packages"
+#~ msgstr "View all packages"
+
+#~ msgid "All"
+#~ msgstr "All"
+
+#~ msgid "View available packages from current sources"
+#~ msgstr "View available packages from current sources"
+
+#~ msgid "Available"
+#~ msgstr "Available"
+
+#~ msgid "View installed packages"
+#~ msgstr "View installed packages"
+
+#~ msgid "View Marked Packages"
+#~ msgstr "View Marked Packages"
+
+#~ msgid "Marked"
+#~ msgstr "Marked"
+
+#~ msgid "View Upgradeable Packages"
+#~ msgstr "View Upgradeable Packages"
+
+#~ msgid "Upgradeable"
+#~ msgstr "Upgradeable"
+
+#~ msgid "P_ackage"
+#~ msgstr "软件包(_a)"
+
+#~ msgid "Unmark"
+#~ msgstr "取消标记"
+
+#~ msgid "Install"
+#~ msgstr "安装"
+
+#~ msgid "Downgrade"
+#~ msgstr "降级"
+
+#~ msgid "Remove"
+#~ msgstr "删除"
+
+#~ msgid "_Help"
+#~ msgstr "帮助(_H)"
+
+#~ msgid "Icon Legend"
+#~ msgstr "图示"
+
+#~ msgid "View ChangeLogs"
+#~ msgstr "View ChangeLogs"
+
+#~ msgid "About"
+#~ msgstr "关于"
+
+#~ msgid "Search"
+#~ msgstr "查找"
+
+#~ msgid "<b>Name:</b>"
+#~ msgstr "<b>名称:</b>"
+
+#~ msgid "<b>Status:</b>"
+#~ msgstr "<b>状态:</b>"
+
+#~ msgid "<b>Description:</b>"
+#~ msgstr "<b>描述:</b>"
+
+#~ msgid "<b>Version:</b>"
+#~ msgstr "<b>版本:</b>"
+
+#~ msgid "<b>Source:</b>"
+#~ msgstr "<b>Source:</b>"
+
+#~ msgid "<b>Priority:</b>"
+#~ msgstr "<b>Priority:</b>"
+
+#~ msgid "<b>Location:</b>"
+#~ msgstr "<b>位置:</b>"
+
+#~ msgid "<b>Installed Version</b>"
+#~ msgstr "<b>已经安装的版本</b>"
+
+#~ msgid "Version:"
+#~ msgstr "版本:"
+
+#~ msgid "Installed Size:"
+#~ msgstr "安装后大小:"
+
+#~ msgid "<b>Latest Available Version</b>"
+#~ msgstr "<b>可用的最新版本</b>"
+
+#~ msgid "Size:"
+#~ msgstr "大小:"
+
+#~ msgid "Source:"
+#~ msgstr "源:"
+
+#~ msgid "Common"
+#~ msgstr "通用"
+
+#~ msgid "Dependencies"
+#~ msgstr "依赖"
+
+#~ msgid "Changelog"
+#~ msgstr "Changelog"
+
+#~ msgid "Files"
+#~ msgstr "Files"
+
+#~ msgid ""
+#~ "<b>The following icons are used to indicate the current status of a "
+#~ "package:</b>"
+#~ msgstr "<b>以下图标表示软件包当前的状态:</b>"
+
+#~ msgid "Repositories changed"
+#~ msgstr "软件仓库已变更"
+
+#~ msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
+#~ msgstr "<span size=\"large\" weight=\"bold\">软件仓库已变更</span>"
+
+#~ msgid ""
+#~ "You need to reload the package list from the sources you have listed.  Do "
+#~ "you want to do this now?"
+#~ msgstr "你需要从列出的源重新装载软件包列表. 确定吗?"
+
+#~ msgid "Source failed"
+#~ msgstr "Source failed"
+
+#~ msgid ""
+#~ "This package source failed or is not available.  Do you want to disable "
+#~ "this source and continue anyway?"
+#~ msgstr "软件源错误或暂不可用.  你是否希望禁止此源并继续?"
+
+#~ msgid "Default"
+#~ msgstr "Default"
+
+#~ msgid "Official"
+#~ msgstr "Official"
+
+#~ msgid "Preferred"
+#~ msgstr "Preferred"
+
+#~ msgid "Custom"
+#~ msgstr "Custom"
+
+#~ msgid "Package Source"
+#~ msgstr "Package Source"
+
+#~ msgid "Summary"
+#~ msgstr "摘要"
+
+#~ msgid ""
+#~ "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+#~ msgstr "<span weight=\"bold\" size=\"large\">应用以下变更?</span>"
+
+#~ msgid "This is a summary of the changes about to be performed."
+#~ msgstr "这是将要执行的变更摘要"
+
+#~ msgid "Download packages only"
+#~ msgstr "仅下载软件包"
+
+#~ msgid "<b>Package and data storage</b>"
+#~ msgstr "<b>软件包与数据存储</b>"
+
+#~ msgid "_Delete Cached Package Files"
+#~ msgstr "删除已经缓存的软件包文件(_D)"
+
+#~ msgid "Working Directory"
+#~ msgstr "工作目录"
+
+#~ msgid "<b>Exclude List</b>"
+#~ msgstr "<b>已排除列表</b>"
+
+#~ msgid "<span weight=\"bold\">Exclude Expression:</span>"
+#~ msgstr "<span weight=\"bold\">排除表达式:</span>"
+
+#~ msgid "Excludes"
+#~ msgstr "排除"
+
+#~ msgid "<b>Package Sources</b>"
+#~ msgstr "<b>软件包源</b>"
+
+#~ msgid "Sources"
+#~ msgstr "源"
+
+#~ msgid "<b>GPG Keys</b>"
+#~ msgstr "<b>GPG Keys</b>"
+
+#~ msgid "Verification"
+#~ msgstr "Verification"
