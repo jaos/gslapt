@@ -506,12 +506,16 @@ void build_package_treeviewlist(GtkWidget *treeview)
             }
         }
 
+        /* check exclusion once, reuse across branches */
+        gboolean excluded_by_trans = slapt_get_exact_pkg(trans->exclude_pkgs, pkg->name, pkg->version) != NULL;
+        gboolean excluded_by_config = slapt_is_excluded(global_config, pkg) == 1;
+        gboolean excluded = excluded_by_trans || excluded_by_config;
+
         gchar *status = NULL;
         GdkPixbuf *status_icon = NULL;
         gchar *location = NULL;
-        if (slapt_get_exact_pkg(trans->exclude_pkgs, pkg->name, pkg->version) != NULL) {
-            /* if it's excluded */
-            if ((slapt_get_exact_pkg(trans->exclude_pkgs, pkg->name, pkg->version) != NULL) || slapt_is_excluded(global_config, pkg) == 1) {
+        if (excluded_by_trans) {
+            if (excluded) {
                 status_icon = gslapt_img("pkg_action_available_excluded.png");
             } else {
                 status_icon = gslapt_img("pkg_action_available.png");
@@ -531,8 +535,7 @@ void build_package_treeviewlist(GtkWidget *treeview)
             status = g_strdup_printf("u%s", pkg->name);
             location = pkg->location;
         } else if (is_inst) {
-            /* if it's excluded */
-            if ((slapt_get_exact_pkg(trans->exclude_pkgs, pkg->name, pkg->version) != NULL) || slapt_is_excluded(global_config, pkg) == 1) {
+            if (excluded) {
                 status_icon = gslapt_img("pkg_action_installed_excluded.png");
             } else {
                 status_icon = gslapt_img("pkg_action_installed.png");
@@ -540,8 +543,7 @@ void build_package_treeviewlist(GtkWidget *treeview)
             status = g_strdup_printf("a%s", pkg->name);
             location = installed_pkg->location;
         } else {
-            /* if it's excluded */
-            if ((slapt_get_exact_pkg(trans->exclude_pkgs, pkg->name, pkg->version) != NULL) || slapt_is_excluded(global_config, pkg) == 1) {
+            if (excluded) {
                 status_icon = gslapt_img("pkg_action_available_excluded.png");
             } else {
                 status_icon = gslapt_img("pkg_action_available.png");
@@ -586,16 +588,18 @@ void build_package_treeviewlist(GtkWidget *treeview)
             GdkPixbuf *status_icon = NULL;
             gchar *short_desc = slapt_pkg_t_short_description(installed_pkg);
 
+            gboolean excluded_by_trans = slapt_get_exact_pkg(trans->exclude_pkgs, installed_pkg->name, installed_pkg->version) != NULL;
+            gboolean excluded_by_config = slapt_is_excluded(global_config, installed_pkg) == 1;
+            gboolean excluded = excluded_by_trans || excluded_by_config;
+
             if (slapt_get_exact_pkg(trans->remove_pkgs, installed_pkg->name, installed_pkg->version) != NULL) {
                 status_icon = gslapt_img("pkg_action_remove.png");
                 status = g_strdup_printf("r%s", installed_pkg->name);
+            } else if (excluded) {
+                status_icon = gslapt_img("pkg_action_installed_excluded.png");
+                status = g_strdup_printf("a%s", installed_pkg->name);
             } else {
-                /* if it's excluded */
-                if ((slapt_get_exact_pkg(trans->exclude_pkgs, installed_pkg->name, installed_pkg->version) != NULL) || slapt_is_excluded(global_config, installed_pkg) == 1) {
-                    status_icon = gslapt_img("pkg_action_installed_excluded.png");
-                } else {
-                    status_icon = gslapt_img("pkg_action_installed.png");
-                }
+                status_icon = gslapt_img("pkg_action_installed.png");
                 status = g_strdup_printf("a%s", installed_pkg->name);
             }
 
