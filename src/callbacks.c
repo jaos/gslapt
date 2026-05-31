@@ -914,7 +914,7 @@ static void fillin_pkg_details(const slapt_pkg_t *pkg)
 
     /* changelog tab */
     GtkTextBuffer *pkg_changelog = gtk_text_view_get_buffer(GTK_TEXT_VIEW(gtk_builder_get_object(gslapt_builder, "pkg_changelog_textview")));
-    char *changelog = slapt_pkg_t_changelog(pkg);
+    char *changelog = slapt_pkg_t_changelog(global_config, pkg);
     if (changelog != NULL) {
         if (!g_utf8_validate(changelog, -1, NULL)) {
             char *converted = g_convert(changelog, (gssize)strlen(changelog), "UTF-8", "ISO-8859-1", NULL, NULL, NULL);
@@ -1381,7 +1381,7 @@ static void get_package_data(void)
 
             /* if we downloaded the compressed checksums, open it raw (w/o gunzippign) */
             if (compressed) {
-                char *filename = slapt_gen_filename_from_url(src->url, SLAPT_CHECKSUM_FILE_GZ);
+                char *filename = slapt_gen_filename_from_url(global_config, src->url, SLAPT_CHECKSUM_FILE_GZ);
                 tmp_checksum_to_verify_f = slapt_open_file(filename, "r");
                 free(filename);
             } else {
@@ -1484,7 +1484,9 @@ static void get_package_data(void)
     } /* end for loop */
 
     /* if all our downloads where a success, write to SLAPT_PKG_LIST_L */
-    FILE *pkg_list_fh = slapt_open_file(SLAPT_PKG_LIST_L, "w+");
+    char *pkg_list_path = slapt_gen_abs_path(global_config->working_dir, SLAPT_PKG_LIST_L);
+    FILE *pkg_list_fh = slapt_open_file(pkg_list_path, "w+");
+    free(pkg_list_path);
     if (pkg_list_fh == NULL) {
         exit(1);
     }
@@ -1538,7 +1540,7 @@ static void rebuild_treeviews(GtkWidget *current_window __unused__, gboolean rel
         slapt_vector_t *all_ptr = all;
 
         installed = slapt_get_installed_pkgs();
-        all = slapt_get_available_pkgs();
+        all = slapt_get_available_pkgs(global_config);
 
         slapt_vector_t_free(installed_ptr);
         slapt_vector_t_free(all_ptr);
@@ -2511,9 +2513,6 @@ void preferences_on_ok_clicked(GtkWidget *w __unused__, gpointer user_data __unu
 
     strcpy(global_config->working_dir, working_dir);
     slapt_working_dir_init(global_config);
-    if (chdir(global_config->working_dir) == -1) {
-        exit(1);
-    }
 
     slapt_vector_t_free(global_config->exclude_list);
     slapt_vector_t_free(global_config->sources);
@@ -3790,13 +3789,11 @@ void view_changelogs(GtkMenuItem *menuitem __unused__, gpointer user_data __unus
         }
 
         gchar *source_url = g_strdup(src->url);
-        char *changelog_filename = slapt_gen_filename_from_url(source_url, SLAPT_CHANGELOG_FILE);
-        gchar *path_and_file = g_strjoin("/", global_config->working_dir, changelog_filename, NULL);
+        char *changelog_filename = slapt_gen_filename_from_url(global_config, source_url, SLAPT_CHANGELOG_FILE);
 
-        FILE *changelog_f = fopen(path_and_file, "rb");
+        FILE *changelog_f = fopen(changelog_filename, "rb");
         if (changelog_f == NULL) {
             free(changelog_filename);
-            g_free(path_and_file);
             g_free(source_url);
             continue;
         }
@@ -3805,13 +3802,11 @@ void view_changelogs(GtkMenuItem *menuitem __unused__, gpointer user_data __unus
         if (stat(changelog_filename, &stat_buf) == -1) {
             fclose(changelog_f);
             free(changelog_filename);
-            g_free(path_and_file);
             g_free(source_url);
             continue;
         }
 
         free(changelog_filename);
-        g_free(path_and_file);
 
         /* don't mmap empty files */
         if ((int)stat_buf.st_size < 1) {

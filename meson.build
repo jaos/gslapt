@@ -1,5 +1,5 @@
 project('gslapt', 'c',
-  version: '0.5.12',
+  version: '0.5.13',
   license: 'GPLv2',
   meson_version: '>= 0.59.4',
   default_options: [
@@ -41,10 +41,8 @@ openssl = dependency('openssl')
 libgpgme = dependency('gpgme', required: false)
 cc = meson.get_compiler('c')
 libm = cc.find_library('m')
-# libslapt = dependency('libslapt', version: '>=0.11.3') # use this when we have a few pkg-config enabled releases out
-libslapt = cc.find_library('slapt', has_headers: ['slapt.h'])
+libslapt = dependency('libslapt', version: '>=0.11.12')
 if libslapt.found()
-  # if libgpgme.found() and cc.has_function('slapt_add_pkg_source_gpg_key', dependencies: [libslapt])
   if libgpgme.found() and cc.has_function('slapt_add_pkg_source_gpg_key', dependencies: [libcurl, zlib, openssl, libgpgme, libslapt])
     configuration.set('SLAPT_HAS_GPGME', 1)
   endif
