@@ -20,7 +20,7 @@
 
 GHashTable *gslapt_series_map_init(void)
 {
-    GHashTable *map = g_hash_table_new(g_str_hash, g_str_equal);
+    GHashTable *map = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, g_free);
 
     return map;
 }
@@ -85,16 +85,10 @@ char *gslapt_series_map_lookup(GHashTable *map, const char *key)
     char *value = NULL;
     void *v = g_hash_table_lookup(map, key);
     if (v != NULL) {
-        value = (char *)v;
+        value = g_strdup((char *)v);
     } else {
         if (strcmp(key, "") != 0)
             value = g_path_get_basename(key);
-    }
-
-    if (value != NULL) {
-        char *converted = g_convert(value, (gssize)strlen(value), "UTF-8", "UTF-8", NULL, NULL, NULL);
-        if (converted != NULL)
-            value = converted;
     }
 
     return value;
