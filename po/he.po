@@ -2,22 +2,22 @@
 # This file is put in the public domain.
 # 
 # Translators:
-# GenghisKhan <genghiskhan@gmx.ca>, 2012-2013
-# GenghisKhan <genghiskhan@gmx.ca>, 2013-2014
-# GenghisKhan <genghiskhan@gmx.ca>, 2012
+# gk <genghiskhan@gmx.ca>, 2012-2013
+# gk <genghiskhan@gmx.ca>, 2013-2014
+# gk <genghiskhan@gmx.ca>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: woodwardj at jaos dot org\n"
-"POT-Creation-Date: 2019-12-02 18:41-0500\n"
-"PO-Revision-Date: 2019-12-03 01:06+0000\n"
-"Last-Translator: gapan <vlahavas@gmail.com>\n"
-"Language-Team: Hebrew (http://www.transifex.com/jaos/slapt-get/language/he/)\n"
+"POT-Creation-Date: 2022-06-03 22:11+0300\n"
+"PO-Revision-Date: 2012-09-17 21:52+0000\n"
+"Last-Translator: gk <genghiskhan@gmx.ca>, 2012-2013\n"
+"Language-Team: Hebrew (http://app.transifex.com/jaos/slapt-get/language/he/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
-"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % 1 == 0) ? 1: (n % 10 == 0 && n % 1 == 0 && n > 10) ? 2 : 3;\n"
+"Plural-Forms: nplurals=3; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % 1 == 0) ? 1: 2;\n"
 
 msgid "Ready"
 msgstr "מוכן"
@@ -168,7 +168,6 @@ msgid_plural "%d upgraded, "
 msgstr[0] "%d לשדרוג, "
 msgstr[1] "%d לשדרוג, "
 msgstr[2] "%d לשדרוג, "
-msgstr[3] "%d לשדרוג, "
 
 #, c-format
 msgid "%d reinstalled, "
@@ -176,7 +175,6 @@ msgid_plural "%d reinstalled, "
 msgstr[0] "%d להתקנה חוזרת, "
 msgstr[1] "%d להתקנה חוזרת, "
 msgstr[2] "%d להתקנה חוזרת, "
-msgstr[3] "%d להתקנה חוזרת, "
 
 #, c-format
 msgid "%d newly installed, "
@@ -184,7 +182,6 @@ msgid_plural "%d newly installed, "
 msgstr[0] "%d התקנות חדשות, "
 msgstr[1] "%d התקנות חדשות, "
 msgstr[2] "%d התקנות חדשות, "
-msgstr[3] "%d התקנות חדשות, "
 
 #, c-format
 msgid "%d to remove "
@@ -192,7 +189,6 @@ msgid_plural "%d to remove "
 msgstr[0] "%d to להסרה "
 msgstr[1] "%d to להסרה "
 msgstr[2] "%d to להסרה "
-msgstr[3] "%d to להסרה "
 
 #, c-format
 msgid "and %d not upgraded."
@@ -200,7 +196,6 @@ msgid_plural "and %d not upgraded."
 msgstr[0] "ועוד %d לא ישודרגו."
 msgstr[1] "ועוד %d לא ישודרגו."
 msgstr[2] "ועוד %d לא ישודרגו."
-msgstr[3] "ועוד %d לא ישודרגו."
 
 msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
 msgstr "<span weight=\"bold\" size=\"large\">אין ברשותך מספיק נפח בכונן</span>"
@@ -357,6 +352,9 @@ msgstr "מערכת חלון X"
 msgid "X Applications"
 msgstr "יישומי X"
 
+msgid "Xfce"
+msgstr ""
+
 msgid "BSD Console games"
 msgstr "‏BSD משחקי מסוף"
 
@@ -404,6 +402,69 @@ msgstr "משחקים"
 
 msgid "Localization"
 msgstr "התאמת שפה"
+
+msgid "LXDE"
+msgstr ""
+
+msgid "MATE"
+msgstr ""
+
+msgid "Academic"
+msgstr ""
+
+msgid "Accessibility"
+msgstr ""
+
+msgid "Audio"
+msgstr ""
+
+msgid "Business"
+msgstr ""
+
+msgid "Desktop"
+msgstr ""
+
+msgid "Development"
+msgstr ""
+
+msgid "GIS"
+msgstr ""
+
+msgid "Graphics"
+msgstr ""
+
+msgid "HAM Radio"
+msgstr ""
+
+msgid "Haskell"
+msgstr ""
+
+msgid "Miscellaneous"
+msgstr ""
+
+msgid "Multimedia"
+msgstr ""
+
+msgid "Network"
+msgstr ""
+
+msgid "Office"
+msgstr ""
+
+msgid "Perl"
+msgstr ""
+
+msgid "Python"
+msgstr ""
+
+msgid "Ruby"
+msgstr ""
+
+msgid "System"
+msgstr ""
+
+msgid "Slackware Extra"
+msgstr ""
 
 msgid ""
 "gslapt is a GTK+ frontend to slapt-get, an APT like package system for "

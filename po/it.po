@@ -8,15 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: woodwardj at jaos dot org\n"
-"POT-Creation-Date: 2019-12-02 18:41-0500\n"
+"POT-Creation-Date: 2022-06-03 22:11+0300\n"
 "PO-Revision-Date: 2012-09-17 21:52+0000\n"
 "Last-Translator: Antonio Sardei <laplume@libero.it>, 2016,2018,2022\n"
-"Language-Team: Italian (http://www.transifex.com/jaos/slapt-get/language/it/)\n"
+"Language-Team: Italian (http://app.transifex.com/jaos/slapt-get/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "Ready"
 msgstr "Pronto"
@@ -166,30 +166,35 @@ msgid "%d upgraded, "
 msgid_plural "%d upgraded, "
 msgstr[0] "%daggiornato."
 msgstr[1] "%daggiornato,"
+msgstr[2] "%daggiornato,"
 
 #, c-format
 msgid "%d reinstalled, "
 msgid_plural "%d reinstalled, "
 msgstr[0] "%dappena installato,"
 msgstr[1] "%dreinstallato,"
+msgstr[2] "%dreinstallato,"
 
 #, c-format
 msgid "%d newly installed, "
 msgid_plural "%d newly installed, "
 msgstr[0] "%dnon aggiornato."
 msgstr[1] "%dappena installato,"
+msgstr[2] "%dappena installato,"
 
 #, c-format
 msgid "%d to remove "
 msgid_plural "%d to remove "
 msgstr[0] "%dda rimuovere"
 msgstr[1] "%dda rimuovere"
+msgstr[2] "%dda rimuovere"
 
 #, c-format
 msgid "and %d not upgraded."
 msgid_plural "and %d not upgraded."
 msgstr[0] "%dnon aggiornato."
 msgstr[1] "%dnon aggiornato."
+msgstr[2] "%dnon aggiornato."
 
 msgid "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
 msgstr "<span weight=\"bold\" size=\"large\">Non hai spazio libero sufficiente</span>"
@@ -346,6 +351,9 @@ msgstr "X Window System"
 msgid "X Applications"
 msgstr "Applicazioni per X"
 
+msgid "Xfce"
+msgstr ""
+
 msgid "BSD Console games"
 msgstr "Giochi Console BSD"
 
@@ -393,6 +401,69 @@ msgstr "Giochi"
 
 msgid "Localization"
 msgstr "Localizzazioni"
+
+msgid "LXDE"
+msgstr ""
+
+msgid "MATE"
+msgstr ""
+
+msgid "Academic"
+msgstr ""
+
+msgid "Accessibility"
+msgstr ""
+
+msgid "Audio"
+msgstr ""
+
+msgid "Business"
+msgstr ""
+
+msgid "Desktop"
+msgstr ""
+
+msgid "Development"
+msgstr ""
+
+msgid "GIS"
+msgstr ""
+
+msgid "Graphics"
+msgstr ""
+
+msgid "HAM Radio"
+msgstr ""
+
+msgid "Haskell"
+msgstr ""
+
+msgid "Miscellaneous"
+msgstr ""
+
+msgid "Multimedia"
+msgstr ""
+
+msgid "Network"
+msgstr ""
+
+msgid "Office"
+msgstr ""
+
+msgid "Perl"
+msgstr ""
+
+msgid "Python"
+msgstr ""
+
+msgid "Ruby"
+msgstr ""
+
+msgid "System"
+msgstr ""
+
+msgid "Slackware Extra"
+msgstr ""
 
 msgid ""
 "gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
