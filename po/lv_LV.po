@@ -130,7 +130,7 @@ msgid "Need to get %.0f%s of archives."
 msgstr ""
 
 #, c-format
-msgid "Need to get %.0f%s/%.0f%s of archives.\n"
+msgid "Need to get %.0f%s/%.0f%s of archives."
 msgstr "slapt-get tulkojums"
 
 msgid "No changelog information available"
