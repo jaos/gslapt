@@ -16,10 +16,11 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+#define _GNU_SOURCE
+
 #include <config.h>
 
 #include <limits.h>
-#define _GNU_SOURCE
 #include <gtk/gtk.h>
 
 #include "callbacks.h"
