@@ -2330,10 +2330,9 @@ static int _install_packages_init(gpointer data __unused__)
     pkgtools_progress_window = GTK_WIDGET(gtk_builder_get_object(gslapt_builder, "pkgtools_progress_window"));
     gtk_window_set_transient_for(GTK_WINDOW(pkgtools_progress_window), GTK_WINDOW(gslapt));
     if(!(gslapt_settings->progress_width == 0 && gslapt_settings->progress_height == 0))
-        gtk_window_set_default_size(GTK_WINDOW(progress_window), gslapt_settings->progress_width, gslapt_settings->progress_height);
+        gtk_window_set_default_size(GTK_WINDOW(pkgtools_progress_window), gslapt_settings->progress_width, gslapt_settings->progress_height);
     if (!(gslapt_settings->progress_x == 0 && gslapt_settings->progress_y == 0))
-        gtk_window_move(GTK_WINDOW(progress_window), gslapt_settings->progress_x, gslapt_settings->progress_y);
-    gtk_window_move(GTK_WINDOW(pkgtools_progress_window), gslapt_settings->progress_x, gslapt_settings->progress_y);
+        gtk_window_move(GTK_WINDOW(pkgtools_progress_window), gslapt_settings->progress_x, gslapt_settings->progress_y);
     gtk_widget_show_all(pkgtools_progress_window);
     g_mutex_unlock(&pkgtools_progress_window_mutex);
 
