@@ -2813,6 +2813,7 @@ void unmark_package(GtkWidget *unused_gslapt __unused__, gpointer user_data __un
         g_free(status);
 
         /* clear the installed version as well if this was an upgrade */
+        slapt_vector_t *upgrades_to_remove = slapt_vector_t_init(NULL);
         slapt_vector_t_foreach (const slapt_pkg_upgrade_t *, upgrade, trans->upgrade_pkgs) {
             if (strcmp(upgrade->installed->name, pkg->name) == 0) {
                 slapt_pkg_t *installed_pkg = upgrade->installed;
@@ -2833,10 +2834,15 @@ void unmark_package(GtkWidget *unused_gslapt __unused__, gpointer user_data __un
                 }
 
                 if (upgrade_pkg != NULL) {
-                    trans = slapt_transaction_t_remove(trans, upgrade_pkg);
+                    slapt_vector_t_add(upgrades_to_remove, (void *)upgrade_pkg);
                 }
             }
         }
+
+        slapt_vector_t_foreach (const slapt_pkg_t *, upgrade_pkg_to_remove, upgrades_to_remove) {
+            trans = slapt_transaction_t_remove(trans, upgrade_pkg_to_remove);
+        }
+        slapt_vector_t_free(upgrades_to_remove);
 
         trans = slapt_transaction_t_remove(trans, pkg);
         if (trans->install_pkgs->size == 0 &&
