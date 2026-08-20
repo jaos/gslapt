@@ -3986,6 +3986,14 @@ static gint convert_slapt_priority_to_gslapt_priority(const slapt_priority_t p)
     };
 }
 
+static void pkg_map_insert_if_newer(GHashTable *map, const slapt_pkg_t *pkg)
+{
+    slapt_pkg_t *existing = g_hash_table_lookup(map, pkg->name);
+    if (existing != NULL && slapt_pkg_t_cmp(existing, pkg) >= 0)
+        return;
+    g_hash_table_insert(map, g_strdup(pkg->name), (void *)pkg);
+}
+
 /* rebuild installed_pkg_map and all_pkg_map from the current vectors */
 void gslapt_rebuild_pkg_maps(void)
 {
@@ -3993,8 +4001,8 @@ void gslapt_rebuild_pkg_maps(void)
         g_hash_table_destroy(installed_pkg_map);
     installed_pkg_map = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, NULL);
     {
-        slapt_vector_t_foreach (slapt_pkg_t *, pkg, installed) {
-            g_hash_table_insert(installed_pkg_map, g_strdup(pkg->name), pkg);
+        slapt_vector_t_foreach (const slapt_pkg_t *, pkg, installed) {
+            pkg_map_insert_if_newer(installed_pkg_map, pkg);
         }
     }
 
@@ -4002,8 +4010,8 @@ void gslapt_rebuild_pkg_maps(void)
         g_hash_table_destroy(all_pkg_map);
     all_pkg_map = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, NULL);
     {
-        slapt_vector_t_foreach (slapt_pkg_t *, pkg, all) {
-            g_hash_table_insert(all_pkg_map, g_strdup(pkg->name), pkg);
+        slapt_vector_t_foreach (const slapt_pkg_t *, pkg, all) {
+            pkg_map_insert_if_newer(all_pkg_map, pkg);
         }
     }
 }
