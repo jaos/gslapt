@@ -2529,7 +2529,12 @@ void preferences_on_ok_clicked(GtkWidget *w __unused__, gpointer user_data __unu
     GtkEntry *preferences_working_dir_entry = GTK_ENTRY(gtk_builder_get_object(gslapt_builder, "preferences_working_dir_entry"));
     const gchar *working_dir = gtk_entry_get_text(preferences_working_dir_entry);
 
-    strcpy(global_config->working_dir, working_dir);
+    if (working_dir == NULL || strlen(working_dir) < 1 || strlen(working_dir) >= SLAPT_WORKINGDIR_TOKEN_LEN) {
+        notify((gchar *)_("Error"), (gchar *)_("Invalid working directory"));
+        return;
+    }
+
+    g_strlcpy(global_config->working_dir, working_dir, SLAPT_WORKINGDIR_TOKEN_LEN);
     slapt_working_dir_init(global_config);
 
     slapt_vector_t_free(global_config->exclude_list);
