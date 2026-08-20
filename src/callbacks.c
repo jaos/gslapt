@@ -29,6 +29,15 @@
 
 #define __unused__ __attribute__((unused))
 
+// silence stupid warnings
+#define gslapt_disconnect_by_func(instance, func, data) \
+    do { \
+        _Pragma("GCC diagnostic push") \
+        _Pragma("GCC diagnostic ignored \"-Wpedantic\"") \
+        g_signal_handlers_disconnect_by_func((instance), G_CALLBACK(func), (data)); \
+        _Pragma("GCC diagnostic pop") \
+    } while (0)
+
 extern GtkWidget *gslapt;
 extern GtkBuilder *gslapt_builder;
 extern GslaptSettings *gslapt_settings;
@@ -708,7 +717,7 @@ void build_searched_treeviewlist(GtkWidget *treeview, gchar *pattern)
 
     // disconnect "changed" signal here otherwise we fire off a changed event for every item we iterate over
     GtkTreeSelection *select = gtk_tree_view_get_selection(GTK_TREE_VIEW(treeview));
-    g_signal_handlers_disconnect_by_func(G_OBJECT(select), G_CALLBACK(show_pkg_details), NULL);
+    gslapt_disconnect_by_func(G_OBJECT(select), show_pkg_details, NULL);
 
     GtkTreeIter iter;
     gboolean valid = gtk_tree_model_get_iter_first(base_model, &iter);
@@ -1836,7 +1845,7 @@ static void build_sources_treeviewlist(GtkWidget *treeview)
 
     GtkTreeSelection *select = gtk_tree_view_get_selection(GTK_TREE_VIEW(treeview));
     gtk_tree_selection_set_mode(select, GTK_SELECTION_SINGLE);
-    g_signal_handlers_disconnect_by_func(G_OBJECT(treeview), toggle_source_status, NULL);
+    gslapt_disconnect_by_func(G_OBJECT(treeview), toggle_source_status, NULL);
     g_signal_connect(G_OBJECT(treeview), "cursor-changed", G_CALLBACK(toggle_source_status), NULL);
 }
 
@@ -3150,12 +3159,12 @@ static void build_package_action_menu(const slapt_pkg_t *pkg)
     gtk_widget_set_sensitive(GTK_WIDGET(gtk_builder_get_object(gslapt_builder, "remove1")), FALSE);
     gtk_widget_set_sensitive(GTK_WIDGET(gtk_builder_get_object(gslapt_builder, "unmark1")), FALSE);
 
-    g_signal_handlers_disconnect_by_func(G_OBJECT(gtk_builder_get_object(gslapt_builder, "upgrade1")), add_pkg_for_install, G_OBJECT(gslapt));
-    g_signal_handlers_disconnect_by_func(G_OBJECT(gtk_builder_get_object(gslapt_builder, "re-install1")), add_pkg_for_reinstall, G_OBJECT(gslapt));
-    g_signal_handlers_disconnect_by_func(G_OBJECT(gtk_builder_get_object(gslapt_builder, "downgrade1")), add_pkg_for_reinstall, G_OBJECT(gslapt));
-    g_signal_handlers_disconnect_by_func(G_OBJECT(gtk_builder_get_object(gslapt_builder, "install1")), add_pkg_for_install, G_OBJECT(gslapt));
-    g_signal_handlers_disconnect_by_func(G_OBJECT(gtk_builder_get_object(gslapt_builder, "remove1")), add_pkg_for_removal, G_OBJECT(gslapt));
-    g_signal_handlers_disconnect_by_func(G_OBJECT(gtk_builder_get_object(gslapt_builder, "unmark1")), unmark_package, G_OBJECT(gslapt));
+    gslapt_disconnect_by_func(G_OBJECT(gtk_builder_get_object(gslapt_builder, "upgrade1")), add_pkg_for_install, G_OBJECT(gslapt));
+    gslapt_disconnect_by_func(G_OBJECT(gtk_builder_get_object(gslapt_builder, "re-install1")), add_pkg_for_reinstall, G_OBJECT(gslapt));
+    gslapt_disconnect_by_func(G_OBJECT(gtk_builder_get_object(gslapt_builder, "downgrade1")), add_pkg_for_reinstall, G_OBJECT(gslapt));
+    gslapt_disconnect_by_func(G_OBJECT(gtk_builder_get_object(gslapt_builder, "install1")), add_pkg_for_install, G_OBJECT(gslapt));
+    gslapt_disconnect_by_func(G_OBJECT(gtk_builder_get_object(gslapt_builder, "remove1")), add_pkg_for_removal, G_OBJECT(gslapt));
+    gslapt_disconnect_by_func(G_OBJECT(gtk_builder_get_object(gslapt_builder, "unmark1")), unmark_package, G_OBJECT(gslapt));
 
     g_signal_connect_swapped(G_OBJECT(gtk_builder_get_object(gslapt_builder, "upgrade1")), "activate", G_CALLBACK(add_pkg_for_install), GTK_WIDGET(gslapt));
     g_signal_connect_swapped((gpointer)gtk_builder_get_object(gslapt_builder, "re-install1"), "activate", G_CALLBACK(add_pkg_for_reinstall), G_OBJECT(gslapt));
@@ -3477,7 +3486,7 @@ void view_all_packages(GtkMenuItem *menuitem __unused__, gpointer user_data __un
 
     // disconnect "changed" signal here otherwise we fire off a changed event for every item we iterate over
     GtkTreeSelection *select = gtk_tree_view_get_selection(GTK_TREE_VIEW(treeview));
-    g_signal_handlers_disconnect_by_func(G_OBJECT(select), G_CALLBACK(show_pkg_details), NULL);
+    gslapt_disconnect_by_func(G_OBJECT(select), show_pkg_details, NULL);
 
     GtkTreeIter iter;
     gboolean valid = gtk_tree_model_get_iter_first(base_model, &iter);
@@ -3526,7 +3535,7 @@ void view_installed_or_available_packages(gboolean show_installed, gboolean show
 
     // disconnect "changed" signal here otherwise we fire off a changed event for every item we iterate over
     GtkTreeSelection *select = gtk_tree_view_get_selection(GTK_TREE_VIEW(treeview));
-    g_signal_handlers_disconnect_by_func(G_OBJECT(select), G_CALLBACK(show_pkg_details), NULL);
+    gslapt_disconnect_by_func(G_OBJECT(select), show_pkg_details, NULL);
 
     GtkTreeIter iter;
     gboolean valid = gtk_tree_model_get_iter_first(base_model, &iter);
@@ -3562,7 +3571,7 @@ void view_marked_packages(GtkMenuItem *menuitem __unused__, gpointer user_data _
 
     // disconnect "changed" signal here otherwise we fire off a changed event for every item we iterate over
     GtkTreeSelection *select = gtk_tree_view_get_selection(GTK_TREE_VIEW(treeview));
-    g_signal_handlers_disconnect_by_func(G_OBJECT(select), G_CALLBACK(show_pkg_details), NULL);
+    gslapt_disconnect_by_func(G_OBJECT(select), show_pkg_details, NULL);
 
     GtkTreeIter iter;
     gboolean valid = gtk_tree_model_get_iter_first(base_model, &iter);
@@ -3837,7 +3846,7 @@ void view_upgradeable_packages(GtkMenuItem *menuitem __unused__, gpointer user_d
 
     // disconnect "changed" signal here otherwise we fire off a changed event for every item we iterate over
     GtkTreeSelection *select = gtk_tree_view_get_selection(GTK_TREE_VIEW(treeview));
-    g_signal_handlers_disconnect_by_func(G_OBJECT(select), G_CALLBACK(show_pkg_details), NULL);
+    gslapt_disconnect_by_func(G_OBJECT(select), show_pkg_details, NULL);
 
     GtkTreeIter iter;
     gboolean valid = gtk_tree_model_get_iter_first(base_model, &iter);

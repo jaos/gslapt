@@ -8,6 +8,7 @@ project('gslapt', 'c',
     'b_lto=true',
     'sysconfdir=/etc',
     'warning_level=3',
+    'werror=true',
   ],
 )
 package = meson.project_name()
@@ -113,7 +114,6 @@ cflags = [
   '-fstack-clash-protection',
   '-fstack-protector-all',
   '-ftrivial-auto-var-init=zero',
-  '-ftrapv',
   '-ggdb',
   '-mshstk',
 
