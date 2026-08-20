@@ -1979,27 +1979,25 @@ static int populate_transaction_window(void)
     gtk_tree_view_column_set_sort_column_id(column, 0);
     gtk_tree_view_append_column(GTK_TREE_VIEW(summary_treeview), column);
 
-    char fmt[512];
-    snprintf(fmt, 512, "%s%s%s%s%s",
-             P_("%d upgraded, ", "%d upgraded, ", trans->upgrade_pkgs->size),
-             P_("%d reinstalled, ", "%d reinstalled, ", trans->reinstall_pkgs->size),
-             P_("%d newly installed, ", "%d newly installed, ", trans->install_pkgs->size),
-             P_("%d to remove ", "%d to remove ", trans->remove_pkgs->size),
-             P_("and %d not upgraded.", "and %d not upgraded.", trans->exclude_pkgs->size));
-    char buf[512];
+    gchar *fmt = g_strdup_printf("%s%s%s%s%s",
+                                 P_("%d upgraded, ", "%d upgraded, ", trans->upgrade_pkgs->size),
+                                 P_("%d reinstalled, ", "%d reinstalled, ", trans->reinstall_pkgs->size),
+                                 P_("%d newly installed, ", "%d newly installed, ", trans->install_pkgs->size),
+                                 P_("%d to remove ", "%d to remove ", trans->remove_pkgs->size),
+                                 P_("and %d not upgraded.", "and %d not upgraded.", trans->exclude_pkgs->size));
     # pragma GCC diagnostic push
-    # pragma GCC diagnostic ignored "-Wformat"
-    # pragma GCC diagnostic ignored "-Wformat-security"
-    # pragma GCC diagnostic ignored "-Wstrict-prototypes"
     # pragma GCC diagnostic ignored "-Wformat-nonliteral"
-    snprintf(buf, 512, fmt,
-             trans->upgrade_pkgs->size,
-             trans->reinstall_pkgs->size,
-             trans->install_pkgs->size,
-             trans->remove_pkgs->size,
-             trans->exclude_pkgs->size);
+    # pragma GCC diagnostic ignored "-Wformat-security"
+    gchar *buf = g_strdup_printf(fmt,
+                                 trans->upgrade_pkgs->size,
+                                 trans->reinstall_pkgs->size,
+                                 trans->install_pkgs->size,
+                                 trans->remove_pkgs->size,
+                                 trans->exclude_pkgs->size);
     # pragma GCC diagnostic pop
     gtk_label_set_text(GTK_LABEL(sum_pkg_num), buf);
+    g_free(buf);
+    g_free(fmt);
 
     /* if we don't have enough free space to download */
     if (slapt_disk_space_check(global_config->working_dir, dl_size - already_dl_size) == false) {
@@ -2012,33 +2010,37 @@ static int populate_transaction_window(void)
         return -1;
     }
 
+    gchar *dl_size_str;
     if (already_dl_size > 0) {
         double need_to_dl = dl_size - already_dl_size;
-        snprintf(buf, 512, (gchar *)_("Need to get %.0f%s/%.0f%s of archives.\n"),
-                 (need_to_dl > 1024) ? need_to_dl / 1024
-                                     : need_to_dl,
-                 (need_to_dl > 1024) ? "MB" : "kB",
-                 (dl_size > 1024) ? dl_size / 1024 : dl_size,
-                 (dl_size > 1024) ? "MB" : "kB");
+        dl_size_str = g_strdup_printf((gchar *)_("Need to get %.0f%s/%.0f%s of archives.\n"),
+                                      (need_to_dl > 1024) ? need_to_dl / 1024
+                                                         : need_to_dl,
+                                      (need_to_dl > 1024) ? "MB" : "kB",
+                                      (dl_size > 1024) ? dl_size / 1024 : dl_size,
+                                      (dl_size > 1024) ? "MB" : "kB");
     } else {
-        snprintf(buf, 512, (gchar *)_("Need to get %.0f%s of archives."),
-                 (dl_size > 1024) ? dl_size / 1024 : dl_size,
-                 (dl_size > 1024) ? "MB" : "kB");
+        dl_size_str = g_strdup_printf((gchar *)_("Need to get %.0f%s of archives."),
+                                      (dl_size > 1024) ? dl_size / 1024 : dl_size,
+                                      (dl_size > 1024) ? "MB" : "kB");
     }
-    gtk_label_set_text(GTK_LABEL(sum_dl_size), buf);
+    gtk_label_set_text(GTK_LABEL(sum_dl_size), dl_size_str);
+    g_free(dl_size_str);
 
+    gchar *free_space_str;
     if (free_space < 0) {
         free_space *= -1;
-        snprintf(buf, 512, (gchar *)_("After unpacking %.0f%s disk space will be freed."),
-                 (free_space > 1024) ? free_space / 1024
-                                     : free_space,
-                 (free_space > 1024) ? "MB" : "kB");
+        free_space_str = g_strdup_printf((gchar *)_("After unpacking %.0f%s disk space will be freed."),
+                                         (free_space > 1024) ? free_space / 1024
+                                                            : free_space,
+                                         (free_space > 1024) ? "MB" : "kB");
     } else {
-        snprintf(buf, 512, (gchar *)_("After unpacking %.0f%s of additional disk space will be used."),
-                 (free_space > 1024) ? free_space / 1024 : free_space,
-                 (free_space > 1024) ? "MB" : "kB");
+        free_space_str = g_strdup_printf((gchar *)_("After unpacking %.0f%s of additional disk space will be used."),
+                                         (free_space > 1024) ? free_space / 1024 : free_space,
+                                         (free_space > 1024) ? "MB" : "kB");
     }
-    gtk_label_set_text(GTK_LABEL(sum_free_space), buf);
+    gtk_label_set_text(GTK_LABEL(sum_free_space), free_space_str);
+    g_free(free_space_str);
 
     return 0;
 }
