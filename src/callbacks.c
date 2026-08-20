@@ -260,6 +260,9 @@ void open_preferences(GtkMenuItem *menuitem __unused__, gpointer user_data __unu
     gtk_widget_show_all(preferences_window);
 }
 
+
+#define SEARCH_HISTORY_CAP 50
+
 void search_activated(GtkWidget *unused_gslapt __unused__, gpointer user_data __unused__)
 {
     GtkTreeIter iter;
@@ -284,6 +287,14 @@ void search_activated(GtkWidget *unused_gslapt __unused__, gpointer user_data __
     if (!exists) {
         gtk_list_store_append(GTK_LIST_STORE(completions), &iter);
         gtk_list_store_set(GTK_LIST_STORE(completions), &iter, 0, pattern, -1);
+
+        /* cap the search history; drop the oldest entries */
+        while (gtk_tree_model_iter_n_children(completions, NULL) > SEARCH_HISTORY_CAP) {
+            GtkTreePath *oldest = gtk_tree_path_new_from_indices(0, -1);
+            gtk_tree_model_get_iter(completions, &iter, oldest);
+            gtk_tree_path_free(oldest);
+            gtk_list_store_remove(GTK_LIST_STORE(completions), &iter);
+        }
     }
 }
 
@@ -3352,6 +3363,7 @@ static gboolean toggle_source_status(GtkTreeView *treeview, gpointer data __unus
     }
 
     if (strcmp(gtk_tree_view_column_get_title(column), (gchar *)_("Enabled")) != 0) {
+        gtk_tree_path_free(path);
         return FALSE;
     }
 
