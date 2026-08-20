@@ -42,6 +42,7 @@ extern GHashTable *all_pkg_map;
 
 G_LOCK_DEFINE_STATIC(_cancelled);
 static volatile guint _cancelled = 0;
+
 static gboolean sources_modified = FALSE;
 static gboolean excludes_modified = FALSE;
 
@@ -89,6 +90,27 @@ static void set_busy_cursor(void);
 static void unset_busy_cursor(void);
 static slapt_priority_t convert_gslapt_priority_to_slapt_priority(const gint p);
 static gint convert_slapt_priority_to_gslapt_priority(const slapt_priority_t p);
+
+/* one background workflow at a time */
+static gint _busy = 0;
+static gboolean _busy_try_enter(void)
+{
+    return g_atomic_int_compare_and_exchange(&_busy, 0, 1);
+}
+
+static void _busy_leave(void)
+{
+    g_atomic_int_set(&_busy, 0);
+}
+
+static gboolean busy_try_enter(void)
+{
+    if (_busy_try_enter())
+        return TRUE;
+
+    notify((gchar *)_("Error"), (gchar *)_("Already in progress"));
+    return FALSE;
+}
 
 gboolean gslapt_window_resized(GtkWindow *window, GdkEvent *event, gpointer data __unused__)
 {
@@ -157,6 +179,9 @@ void on_gslapt_destroy(GObject *object __unused__, gpointer user_data __unused__
 
 void update_callback(GObject *object __unused__, gpointer user_data __unused__)
 {
+    if (!busy_try_enter())
+        return;
+
     clear_execute_active();
     set_busy_cursor();
 
@@ -1155,6 +1180,7 @@ static int _get_package_data_cancel(gpointer data __unused__) {
     G_UNLOCK(_cancelled);
     gslapt_clear_status();
     gtk_widget_destroy(progress_window);
+    progress_window = NULL;
     unlock_toolbar_buttons();
     g_mutex_unlock(&progress_window_mutex);
 
@@ -1165,6 +1191,7 @@ static int _get_package_data_cancel(gpointer data __unused__) {
     _progress_set_desc(NULL);
     _progress_set_speed(NULL);
     unset_busy_cursor();
+    _busy_leave();
     return FALSE;
 }
 
@@ -1172,9 +1199,10 @@ static int _get_package_data_finish(gpointer data __unused__)
 {
     g_mutex_lock(&progress_window_mutex);
     gtk_widget_destroy(progress_window);
+    progress_window = NULL;
     gslapt_clear_status();
     unlock_toolbar_buttons();
-    rebuild_treeviews(progress_window, TRUE);
+    rebuild_treeviews(NULL, TRUE);
     g_mutex_unlock(&progress_window_mutex);
 
     _progress_set_total_percent(0.0);
@@ -1184,6 +1212,7 @@ static int _get_package_data_finish(gpointer data __unused__)
     _progress_set_desc(NULL);
     _progress_set_speed(NULL);
     unset_busy_cursor();
+    _busy_leave();
     return FALSE;
 }
 
@@ -1209,8 +1238,10 @@ static int _get_package_data_source_failed(gpointer data)
         src->disabled = true;
     } else {
         gtk_widget_destroy(progress_window);
+        progress_window = NULL;
         unlock_toolbar_buttons();
         gslapt_clear_status();
+        _busy_leave();
     }
     gtk_widget_destroy(q);
 
@@ -1226,10 +1257,12 @@ static int _get_package_data_source_verification_failed(gpointer data)
     char *src_url = data;
     gslapt_clear_status();
     gtk_widget_destroy(progress_window);
+    progress_window = NULL;
     unlock_toolbar_buttons();
     notify((gchar *)_("GPG Key verification failed"), src_url);
     free(src_url);
     g_mutex_unlock(&progress_window_mutex);
+    _busy_leave();
     return FALSE;
 }
 
@@ -1630,9 +1663,11 @@ static int _lhandle_transaction_dl_failed(gpointer data)
     char *err = data;
     if (err != NULL) {
         notify((gchar *)_("Error"), (gchar *)err);
+        g_free(err);
     }
     unlock_toolbar_buttons();
     unset_busy_cursor();
+    _busy_leave();
     return FALSE;
 }
 
@@ -1646,6 +1681,7 @@ static int _lhandle_transaction_dl_finish(gpointer data __unused__)
     clear_execute_active();
     unlock_toolbar_buttons();
     unset_busy_cursor();
+    _busy_leave();
 
     return FALSE;
 }
@@ -1671,6 +1707,7 @@ static int _lhandle_transaction_dl_complete(gpointer data __unused__)
     unlock_toolbar_buttons();
     /* reset cursor */
     unset_busy_cursor();
+    _busy_leave();
 
     notify((gchar *)_("Completed actions"), (gchar *)_("Successfully executed all actions."));
 
@@ -1683,7 +1720,8 @@ static void *lhandle_transaction(gpointer data)
 
     /* download the pkgs */
     if (trans->install_pkgs->size > 0 || trans->upgrade_pkgs->size > 0 || trans->reinstall_pkgs->size > 0) {
-        const char *err = download_packages();
+        /* err is freed by _lhandle_transaction_dl_failed */
+        char *err = download_packages();
         if (err != NULL || _cancelled == 1) {
             gdk_threads_add_idle_full(G_PRIORITY_HIGH, _lhandle_transaction_dl_failed, err, NULL);
             return NULL;
@@ -1698,7 +1736,7 @@ static void *lhandle_transaction(gpointer data)
 
     /* begin removing, installing, and upgrading */
     if (install_packages() == FALSE) {
-        gdk_threads_add_idle_full(G_PRIORITY_HIGH, _lhandle_transaction_dl_failed, _("pkgtools returned an error"), NULL);
+        gdk_threads_add_idle_full(G_PRIORITY_HIGH, _lhandle_transaction_dl_failed, g_strdup(_("pkgtools returned an error")), NULL);
         return NULL;
     }
 
@@ -1709,6 +1747,10 @@ static void *lhandle_transaction(gpointer data)
 void transaction_okbutton_clicked(GtkWidget *w __unused__, gpointer user_data __unused__)
 {
     GThread *gdp;
+
+    if (!busy_try_enter())
+        return;
+
     lock_toolbar_buttons();
     GtkCheckButton *dl_only_checkbutton = GTK_CHECK_BUTTON(gtk_builder_get_object(gslapt_builder, "download_only_checkbutton"));
     gboolean dl_only = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(dl_only_checkbutton));
@@ -2462,16 +2504,35 @@ static gboolean install_packages(void)
     return TRUE;
 }
 
+static int _clean_finish(gpointer data __unused__)
+{
+    _busy_leave();
+    return FALSE;
+}
+
+static void *clean_working_dir(gpointer data)
+{
+    gchar *working_dir = data;
+
+    slapt_clean_pkg_dir(working_dir);
+    g_free(working_dir);
+    gdk_threads_add_idle_full(G_PRIORITY_HIGH, _clean_finish, NULL, NULL);
+    return NULL;
+}
+
 void clean_callback(GtkWidget *widget __unused__, gpointer user_data __unused__)
 {
     GThread *gdp;
 
+    if (!busy_try_enter())
+        return;
+
 _Pragma("GCC diagnostic push")
 _Pragma("GCC diagnostic ignored \"-Wcast-function-type\"")
 #if !GLIB_CHECK_VERSION(2, 31, 0)
-    gdp = g_thread_create((GThreadFunc)slapt_clean_pkg_dir, global_config->working_dir, FALSE, NULL);
+    gdp = g_thread_create((GThreadFunc)clean_working_dir, g_strdup(global_config->working_dir), FALSE, NULL);
 #else
-    gdp = g_thread_new("GslaptCleanCallback", (GThreadFunc)slapt_clean_pkg_dir, global_config->working_dir);
+    gdp = g_thread_new("GslaptCleanCallback", (GThreadFunc)clean_working_dir, g_strdup(global_config->working_dir));
     g_thread_unref(gdp);
 #endif
 _Pragma("GCC diagnostic pop")
@@ -3685,6 +3746,14 @@ static int _get_gpg_key_error(gpointer data __unused__)
     gtk_widget_destroy(progress_window);
     progress_window = NULL;
     notify(_("Import"), _("No key found"));
+    _busy_leave();
+    return FALSE;
+}
+static int _get_gpg_key_cancelled(gpointer data __unused__)
+{
+    gtk_widget_destroy(progress_window);
+    progress_window = NULL;
+    _busy_leave();
     return FALSE;
 }
 static int _get_gpg_key_complete(gpointer data)
@@ -3693,6 +3762,7 @@ static int _get_gpg_key_complete(gpointer data)
     gtk_widget_destroy(progress_window);
     progress_window = NULL;
     notify(_("Import"), slapt_strerror(result));
+    _busy_leave();
     return FALSE;
 }
 
@@ -3722,6 +3792,10 @@ static void * get_gpg_key(gpointer data)
             fclose(gpg_key);
             gpg_key = NULL;
         }
+        g_source_remove(updater);
+        g_free(url);
+        gdk_threads_add_idle_full(G_PRIORITY_HIGH, _get_gpg_key_cancelled, NULL, NULL);
+        return NULL;
     }
 
     g_source_remove(updater);
@@ -3738,6 +3812,9 @@ static void * get_gpg_key(gpointer data)
 
 void preferences_sources_add_key(GtkWidget *w __unused__, gpointer user_data __unused__)
 {
+    if (!busy_try_enter())
+        return;
+
     GtkTreeView *source_tree = GTK_TREE_VIEW(gtk_builder_get_object(gslapt_builder, "preferences_verification_sources_treeview"));
     GtkTreeSelection *select = gtk_tree_view_get_selection(GTK_TREE_VIEW(source_tree));
     GtkTreeIter iter;
@@ -3751,6 +3828,9 @@ void preferences_sources_add_key(GtkWidget *w __unused__, gpointer user_data __u
         GThread *gdp = g_thread_new("GslaptPrefAddSource", (GThreadFunc)get_gpg_key, strdup(url));
         g_thread_unref(gdp);
 #endif
+        g_free(url);
+    } else {
+        _busy_leave();
     }
 
     return;
