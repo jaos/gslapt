@@ -1752,8 +1752,11 @@ static void build_sources_treeviewlist(GtkWidget *treeview)
         priority_str = slapt_priority_to_str(src->priority);
 
         gtk_list_store_insert_with_values(store, &iter, -1, 0, status_icon, 1, src->url, 2, enabled, 3, priority_str, 4, src->priority, -1);
-        // g_object_unref(status_icon);
     }
+
+    /* gslapt_img() returns a new ref each time; the store took its own */
+    g_object_unref(enabled_status_icon);
+    g_object_unref(disabled_status_icon);
 
     /* column for enabled status */
     GtkCellRenderer *renderer = gtk_cell_renderer_pixbuf_new();
@@ -4027,9 +4030,11 @@ GdkPixbuf *gslapt_img(const char *img)
     }
 
     i = gdk_pixbuf_new_from_file(buffer, NULL);
-    if (i != NULL) {
-        g_hash_table_insert(_pixbuf_cache, g_strdup(buffer), i);
-    }
+    if (i == NULL)
+        return NULL;
+
+    g_hash_table_insert(_pixbuf_cache, g_strdup(buffer), i);
+    g_object_ref(i);
     return i;
 }
 

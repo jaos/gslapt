@@ -122,6 +122,7 @@ void view_changelogs(GtkMenuItem *menuitem, gpointer user_data);
 void cancel_source_edit(GtkWidget *w, gpointer user_data);
 void source_edit_ok(GtkWidget *w, gpointer user_data);
 
+/* returns a new ref; caller must g_object_unref() it */
 GdkPixbuf *gslapt_img(const char *img);
 void gslapt_load_ui(GtkBuilder *b, const char *f);
 void gslapt_rebuild_pkg_maps(void);
