@@ -18,6 +18,8 @@
 
 #include <config.h>
 
+#include <getopt.h>
+
 #include <gtk/gtk.h>
 #include "callbacks.h"
 #include "settings.h"
@@ -35,6 +37,24 @@ GHashTable *gslapt_series_map = NULL;
 GHashTable *installed_pkg_map = NULL;
 GHashTable *all_pkg_map = NULL;
 
+#define UPGRADE_OPT 'U'
+#define CONFIG_OPT 'c'
+#define INSTALL_OPT 'i'
+#define REMOVE_OPT 'r'
+#define HELP_OPT 'h'
+
+static void cli_usage(FILE *out)
+{
+    fprintf(out, "Usage: gslapt [OPTION...]\n");
+    fprintf(out, "\n");
+    fprintf(out, "Options:\n");
+    fprintf(out, "  --upgrade        %s\n", "Mark all upgradable packages for upgrade");
+    fprintf(out, "  --config FILE    %s\n", "Read configuration from FILE instead of the default");
+    fprintf(out, "  --install PKG... %s\n", "Install the given package(s)");
+    fprintf(out, "  --remove PKG...  %s\n", "Remove the given package(s)");
+    fprintf(out, "  -h, --help       %s\n", "Show this help");
+}
+
 int main(int argc, char *argv[])
 {
     bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
@@ -45,6 +65,58 @@ int main(int argc, char *argv[])
     gpgme_check_version(NULL);
 #endif
 
+    static const struct option long_options[] = {
+        {"upgrade", no_argument,       0, UPGRADE_OPT},
+        {"config",  required_argument, 0, CONFIG_OPT},
+        {"install", required_argument, 0, INSTALL_OPT},
+        {"remove",  required_argument, 0, REMOVE_OPT},
+        {"help",    no_argument,       0, HELP_OPT},
+        {0, 0, 0, 0}
+    };
+
+    slapt_vector_t *pkg_names_to_install = slapt_vector_t_init(g_free);
+    slapt_vector_t *pkg_names_to_remove = slapt_vector_t_init(g_free);
+    slapt_vector_t *pkg_names = NULL; /* last --install/--remove seen */
+
+    bool do_upgrade = false;
+    gchar *rc = NULL;
+    int c, option_index;
+    while ((c = getopt_long_only(argc, argv, "h", long_options, &option_index)) != -1) {
+        switch (c) {
+        case HELP_OPT:
+            cli_usage(stdout);
+            exit(EXIT_SUCCESS);
+        case UPGRADE_OPT:
+            do_upgrade = true;
+            break;
+        case CONFIG_OPT:
+            rc = g_strdup(optarg);
+            break;
+        case INSTALL_OPT:
+            pkg_names = pkg_names_to_install;
+            slapt_vector_t_add(pkg_names, g_strdup(optarg));
+            break;
+        case REMOVE_OPT:
+            pkg_names = pkg_names_to_remove;
+            slapt_vector_t_add(pkg_names, g_strdup(optarg));
+            break;
+        default:
+            /* getopt already printed the error */
+            cli_usage(stderr);
+            exit(EXIT_FAILURE);
+        }
+    }
+
+    while (optind < argc) {
+        if (pkg_names == NULL) {
+            fprintf(stderr, _("gslapt: unknown argument '%s'\n"), argv[optind]);
+            cli_usage(stderr);
+            exit(EXIT_FAILURE);
+        }
+        slapt_vector_t_add(pkg_names, g_strdup(argv[optind]));
+        ++optind;
+    }
+
     gtk_init(&argc, &argv);
 
     trans = slapt_transaction_t_init();
@@ -53,72 +125,13 @@ int main(int argc, char *argv[])
     gslapt_series_map = gslapt_series_map_init();
     gslapt_series_map_fill(gslapt_series_map);
 
-    slapt_vector_t *pkg_names_to_install = slapt_vector_t_init(free);
-    slapt_vector_t *pkg_names_to_remove = slapt_vector_t_init(free);
-
-    bool do_upgrade = false;
-    gchar *rc = NULL;
-    for (int option_index = 1; option_index < argc; ++option_index) {
-        if (strcmp(argv[option_index], "--upgrade") == 0) {
-            do_upgrade = true;
-
-        } else if (strcmp(argv[option_index], "--config") == 0) {
-            if (argc > (option_index + 1) &&
-                strcmp(argv[option_index + 1], "--upgrade") != 0 &&
-                strcmp(argv[option_index + 1], "--config") != 0 &&
-                strcmp(argv[option_index + 1], "--remove") != 0)
-                rc = argv[++option_index];
-
-        } else if (strcmp(argv[option_index], "--install") == 0) {
-            char *next_opt = NULL;
-
-            if (argc > (option_index + 1) &&
-                strcmp(argv[option_index + 1], "--upgrade") != 0 &&
-                strcmp(argv[option_index + 1], "--config") != 0 &&
-                strcmp(argv[option_index + 1], "--remove") != 0)
-                next_opt = argv[++option_index];
-
-            while (next_opt != NULL) {
-                slapt_vector_t_add(pkg_names_to_install, strdup(next_opt));
-
-                if (argc > (option_index + 1) &&
-                    strcmp(argv[option_index + 1], "--upgrade") != 0 &&
-                    strcmp(argv[option_index + 1], "--config") != 0 &&
-                    strcmp(argv[option_index + 1], "--remove") != 0)
-                    next_opt = argv[++option_index];
-                else
-                    next_opt = NULL;
-            }
-
-        } else if (strcmp(argv[option_index], "--remove") == 0) {
-            char *next_opt = NULL;
-
-            if (argc > (option_index + 1) &&
-                strcmp(argv[option_index + 1], "--upgrade") != 0 &&
-                strcmp(argv[option_index + 1], "--config") != 0 &&
-                strcmp(argv[option_index + 1], "--install") != 0)
-                next_opt = argv[++option_index];
-
-            while (next_opt != NULL) {
-                slapt_vector_t_add(pkg_names_to_remove, strdup(next_opt));
-
-                if (argc > (option_index + 1) &&
-                    strcmp(argv[option_index + 1], "--upgrade") != 0 &&
-                    strcmp(argv[option_index + 1], "--config") != 0 &&
-                    strcmp(argv[option_index + 1], "--install") != 0)
-                    next_opt = argv[++option_index];
-                else
-                    next_opt = NULL;
-            }
-        }
-    }
-
     if (rc == NULL) {
         global_config = slapt_config_t_read(RC_LOCATION);
-        strncpy(rc_location, RC_LOCATION, 1023);
+        g_strlcpy(rc_location, RC_LOCATION, sizeof(rc_location));
     } else {
         global_config = slapt_config_t_read(rc);
-        strncpy(rc_location, rc, 1023);
+        g_strlcpy(rc_location, rc, sizeof(rc_location));
+        g_free(rc);
     }
     if (global_config == NULL)
         exit(1);
@@ -177,12 +190,15 @@ int main(int argc, char *argv[])
         g_signal_emit_by_name(gtk_builder_get_object(gslapt_builder, "action_bar_upgrade_button"), "clicked");
     } else {
         if (pkg_names_to_install->size > 0) {
+            GPtrArray *not_found = g_ptr_array_new();
             slapt_vector_t_foreach (const char *, pkg_name_to_install, pkg_names_to_install) {
                 slapt_pkg_t *p = slapt_get_newest_pkg(all, pkg_name_to_install);
                 slapt_pkg_t *inst_p = slapt_get_newest_pkg(installed, pkg_name_to_install);
 
-                if (p == NULL)
+                if (p == NULL) {
+                    g_ptr_array_add(not_found, (gchar *)pkg_name_to_install);
                     continue;
+                }
 
                 if (inst_p != NULL && slapt_pkg_t_cmp(inst_p, p) == 0) {
                     continue;
@@ -207,14 +223,29 @@ int main(int argc, char *argv[])
                     }
                 }
             }
+            if (not_found->len > 0) {
+                gchar *names = g_strjoinv(", ", (gchar **)not_found->pdata);
+                fprintf(stderr, _("The following packages were not found: %s\n"), names);
+                g_free(names);
+            }
+            g_ptr_array_free(not_found, TRUE);
         }
         if (pkg_names_to_remove->size > 0) {
+            GPtrArray *not_found = g_ptr_array_new();
             slapt_vector_t_foreach (char *, pkg_name_to_remove, pkg_names_to_remove) {
                 slapt_pkg_t *r = slapt_get_newest_pkg(installed, pkg_name_to_remove);
                 if (r != NULL) {
                     slapt_transaction_t_add_remove(trans, r);
+                } else {
+                    g_ptr_array_add(not_found, pkg_name_to_remove);
                 }
             }
+            if (not_found->len > 0) {
+                gchar *names = g_strjoinv(", ", (gchar **)not_found->pdata);
+                fprintf(stderr, _("The following packages are not installed: %s\n"), names);
+                g_free(names);
+            }
+            g_ptr_array_free(not_found, TRUE);
         }
     }
 
