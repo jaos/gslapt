@@ -1,0 +1,223 @@
+{
+   libcrypto
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   ...
+   fun:CRYPTO_*alloc
+   ...
+}
+
+{
+   libgpgme_engine_init
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   ...
+   fun:_slapt_init_gpgme_ctx
+}
+
+{
+   libgpgme_data_objects
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   ...
+   fun:gpgme_*et_engine_info
+}
+
+{
+   gpgme_op_verify_ext
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   ...
+   fun:gpgme_op_verify_ext
+}
+
+{
+   gpgme_op_import
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   ...
+   fun:gpgme_op_import
+}
+
+{
+   dynamic_linker
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   ...
+   fun:_dl_open
+   fun:do_dlopen
+}
+
+{
+   gpgme_data_new_from_stream
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   ...
+   fun:gpgme_data_new_from_stream
+}
+
+{
+   gpgme_set_locale
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   ...
+   fun:gpgme_set_locale
+}
+
+{
+   libcurl_global_init
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   ...
+   fun:curl_global_init
+}
+
+{
+   gnutls_allocation
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:*alloc
+   ...
+   fun:call_init
+}
+
+{
+   gnutls_allocation
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:*alloc
+   ...
+   obj:*libgnutls*
+}
+
+{
+   g_type_create_instance
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   ...
+   fun:g_type_create_instance
+}
+
+{
+   gtk_css_provider_load_from_resource
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   ...
+   fun:gtk_css_provider_load_from_resource
+}
+
+{
+   cairo_show_glyphs
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   ...
+   fun:cairo_show_glyphs
+}
+
+{
+   cairo_mask_surface
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   ...
+   fun:cairo_mask_surface
+}
+
+{
+   pango_glyph_string_extents_range
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   ...
+   fun:pango_glyph_string_extents_range
+}
+
+{
+   g_closure_invoke
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   ...
+   fun:g_closure_invoke
+}
+
+{
+   pango_itemize_with_base_dir
+   Memcheck:Leak
+   ...
+   fun:pango_itemize_with_base_dir
+}
+
+{
+   gtk_init
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   ...
+   fun:gtk_init
+}
+
+{
+   _dl_init
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   ...
+   fun:_dl_init
+}
+
+{
+   FcInitLoadConfigAndFonts
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   ...
+   fun:FcInitLoadConfigAndFonts
+}
+
+{
+   GTK3_gtk_tree_path_new_leak
+   Memcheck:Leak
+   ...
+   fun:gtk_tree_path_new
+   obj:*libgtk-3.so*
+}
+{
+   ATK_bridge_adaptor_init_leak
+   Memcheck:Leak
+   ...
+   fun:atk_bridge_adaptor_init
+   obj:*libatk-bridge-2.0.so*
+}
+{
+   GTK3_internal_slice_alloc_leak
+   Memcheck:Leak
+   ...
+   fun:g_slice_alloc0
+   obj:*libglib-2.0.so*
+   fun:*
+   obj:*libgtk-3.so*
+}
+{
+   fontconfig_DefaultSubstitute_leak
+   Memcheck:Leak
+   ...
+   fun:FcDefaultSubstitute
+   obj:*libfontconfig.so*
+}
+{
+   fontconfig_FontRenderPrepare_leak
+   Memcheck:Leak
+   ...
+   fun:FcFontRenderPrepare
+   obj:*libfontconfig.so*
+}
+{
+   fontconfig_FontSetMatch_leak
+   Memcheck:Leak
+   ...
+   fun:FcFontSetMatch
+   obj:*libfontconfig.so*
+}
+{
+   harfbuzz_shape_plan_execute_leak
+   Memcheck:Leak
+   ...
+   fun:hb_shape_plan_execute
+   obj:*libharfbuzz.so*
+}
