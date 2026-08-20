@@ -417,10 +417,8 @@ void add_pkg_for_install(GtkWidget *unused_gslapt __unused__, gpointer user_data
                         }
                     } else {
                         const slapt_pkg_t *inst_avail = slapt_get_exact_pkg(all, installed_pkg->name, installed_pkg->version);
+                        /* actual_iter is the selected pkg's row */
                         set_iter_for_upgrade(model, &actual_iter, pkg);
-                        if (pkg != NULL && set_iter_to_pkg(model, &actual_iter, pkg)) {
-                            set_iter_for_upgrade(model, &actual_iter, pkg);
-                        }
                         if (set_iter_to_pkg(model, &actual_iter, installed_pkg)) {
                             set_iter_for_upgrade(model, &actual_iter, installed_pkg);
                         }
@@ -2141,6 +2139,11 @@ static int _download_packages_cancel(gpointer data __unused__)
     return FALSE;
 }
 
+static gchar *pkg_display_name(const slapt_pkg_t *pkg)
+{
+    return g_strdup_printf("%s-%s%s", pkg->name, pkg->version, pkg->file_ext);
+}
+
 char *download_packages(void)
 {
     gdouble pkgs_to_dl = 0.0, count = 0.0;
@@ -2166,18 +2169,11 @@ char *download_packages(void)
     }
 
     slapt_vector_t_foreach (const slapt_pkg_t *, install_pkg, trans->install_pkgs) {
-        const size_t msg_len = strlen(install_pkg->name) + strlen("-") + strlen(install_pkg->version) + strlen(".") + strlen(install_pkg->file_ext);
-        gchar msg[msg_len + 1]; // REVIEW
-
-        snprintf(msg,
-                 strlen(install_pkg->name) + strlen("-") + strlen(install_pkg->version) + strlen(".") + strlen(install_pkg->file_ext),
-                 "%s-%s%s",
-                 install_pkg->name,
-                 install_pkg->version,
-                 install_pkg->file_ext);
+        gchar *msg = pkg_display_name(install_pkg);
 
         _progress_set_action(strdup((char *)_("Downloading...")));
         _progress_set_msg(strdup(msg));
+        g_free(msg);
         _progress_set_desc(strdup(install_pkg->mirror));
         _progress_set_download_percent(0.0);
         _progress_set_total_percent(((count * 100) / pkgs_to_dl) / 100);
@@ -2200,20 +2196,11 @@ char *download_packages(void)
     }
 
     slapt_vector_t_foreach (const slapt_pkg_upgrade_t *, upgrade_pkg, trans->upgrade_pkgs) {
-        size_t msg_len = strlen(upgrade_pkg->upgrade->name) + strlen("-") + strlen(upgrade_pkg->upgrade->version) + strlen(".") + strlen(upgrade_pkg->upgrade->file_ext);
-        gchar msg[msg_len + 1]; // REVIEW
-        gchar dl_size[20];
-
-        snprintf(msg,
-                 strlen(upgrade_pkg->upgrade->name) + strlen("-") + strlen(upgrade_pkg->upgrade->version) + strlen(".") + strlen(upgrade_pkg->upgrade->file_ext),
-                 "%s-%s%s",
-                 upgrade_pkg->upgrade->name,
-                 upgrade_pkg->upgrade->version,
-                 upgrade_pkg->upgrade->file_ext);
-        sprintf(dl_size, "%d K", upgrade_pkg->upgrade->size_c);
+        gchar *msg = pkg_display_name(upgrade_pkg->upgrade);
 
         _progress_set_action(strdup((char *)_("Downloading...")));
         _progress_set_msg(strdup(msg));
+        g_free(msg);
         _progress_set_desc(strdup(upgrade_pkg->upgrade->mirror));
         _progress_set_download_percent(0.0);
         _progress_set_total_percent(((count * 100) / pkgs_to_dl) / 100);
@@ -2236,20 +2223,11 @@ char *download_packages(void)
     }
 
     slapt_vector_t_foreach (const slapt_pkg_upgrade_t *, reinstall_pkg, trans->reinstall_pkgs) {
-        size_t msg_len = strlen(reinstall_pkg->upgrade->name) + strlen("-") + strlen(reinstall_pkg->upgrade->version) + strlen(".") + strlen(reinstall_pkg->upgrade->file_ext);
-        gchar msg[msg_len + 1]; // REVIEW
-        gchar dl_size[20];
-
-        snprintf(msg,
-                 strlen(reinstall_pkg->upgrade->name) + strlen("-") + strlen(reinstall_pkg->upgrade->version) + strlen(".") + strlen(reinstall_pkg->upgrade->file_ext),
-                 "%s-%s%s",
-                 reinstall_pkg->upgrade->name,
-                 reinstall_pkg->upgrade->version,
-                 reinstall_pkg->upgrade->file_ext);
-        sprintf(dl_size, "%d K", reinstall_pkg->upgrade->size_c);
+        gchar *msg = pkg_display_name(reinstall_pkg->upgrade);
 
         _progress_set_action(strdup((char *)_("Downloading...")));
         _progress_set_msg(strdup(msg));
+        g_free(msg);
         _progress_set_desc(strdup(reinstall_pkg->upgrade->mirror));
         _progress_set_download_percent(0.0);
         _progress_set_total_percent(((count * 100) / pkgs_to_dl) / 100);
@@ -3423,17 +3401,15 @@ static void display_dep_error_dialog(slapt_pkg_t *pkg)
     GtkTextBuffer *error_buf = gtk_text_view_get_buffer(GTK_TEXT_VIEW(gtk_builder_get_object(gslapt_builder, "dep_error_text")));
 
     slapt_vector_t_foreach (const slapt_pkg_err_t *, missing_err, trans->missing_err) {
-        const size_t len = strlen(missing_err->pkg) + strlen((gchar *)_(": Depends: ")) + strlen(missing_err->error) + 2;
-        char err[len + 1]; // REVIEW
-        snprintf(err, len, "%s: Depends: %s\n", missing_err->pkg, missing_err->error);
+        gchar *err = g_strdup_printf("%s: Depends: %s\n", missing_err->pkg, missing_err->error);
         gtk_text_buffer_insert_at_cursor(error_buf, err, -1);
+        g_free(err);
     }
 
     slapt_vector_t_foreach (const slapt_pkg_err_t *, conflict_err, trans->conflict_err) {
-        const size_t len = strlen(conflict_err->error) + strlen((gchar *)_(", which is required by ")) + strlen(conflict_err->pkg) + strlen((gchar *)_(", is excluded")) + 2;
-        char err[len + 1]; // REVIEW
-        snprintf(err, len, "%s, which is required by %s, is excluded\n", conflict_err->error, conflict_err->pkg);
+        gchar *err = g_strdup_printf("%s, which is required by %s, is excluded\n", conflict_err->error, conflict_err->pkg);
         gtk_text_buffer_insert_at_cursor(error_buf, err, -1);
+        g_free(err);
     }
 
     gtk_widget_show_all(w);
@@ -3481,7 +3457,6 @@ void view_all_packages(GtkMenuItem *menuitem __unused__, gpointer user_data __un
         return;
     }
 
-    // treeview = GTK_TREE_VIEW(gtk_builder_get_object(gslapt_builder, "pkg_listing_treeview")); // REVIEW
     GtkTreeModelSort *package_model = GTK_TREE_MODEL_SORT(gtk_tree_view_get_model(treeview));
 
     GtkTreeModelFilter *filter_model = GTK_TREE_MODEL_FILTER(gtk_tree_model_sort_get_model(GTK_TREE_MODEL_SORT(package_model)));
