@@ -3454,9 +3454,9 @@ static void display_dep_error_dialog(slapt_pkg_t *pkg)
             slapt_transaction_t_add_upgrade(trans, installed_pkg, pkg);
             if (ver_cmp == 0) {
                 set_iter_for_reinstall(model, &iter, pkg);
-            } else if (ver_cmp > 1) {
+            } else if (ver_cmp < 0) {
                 set_iter_for_upgrade(model, &iter, pkg);
-            } else if (ver_cmp < 1) {
+            } else {
                 set_iter_for_downgrade(model, &iter, pkg);
             }
         }
