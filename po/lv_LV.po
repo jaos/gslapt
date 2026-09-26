@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-31 17:49-0400\n"
+"POT-Creation-Date: 2026-10-12 22:34-0400\n"
 "PO-Revision-Date: 2012-09-17 21:52+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Latvian (Latvia) (http://app.transifex.com/jaos/slapt-get/"
@@ -18,33 +18,211 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
 
-msgid ", is excluded"
+#, c-format
+msgid "gslapt: unknown argument '%s'\n"
 msgstr ""
 
-msgid ", which is required by "
-msgstr ""
-
-msgid ": Depends: "
-msgstr ""
-
-msgid "<b>Conflicts:</b>"
+msgid "Ready"
 msgstr ""
 
 #, c-format
-msgid "<b>Excluding %s due to dependency failure</b>"
+msgid "The following packages were not found: %s\n"
+msgstr ""
+
+#, c-format
+msgid "The following packages are not installed: %s\n"
+msgstr ""
+
+msgid "Error"
+msgstr ""
+
+msgid "Already in progress"
+msgstr ""
+
+msgid "Upgrade"
+msgstr ""
+
+msgid "Re-Install"
+msgstr ""
+
+msgid "No package is selected."
 msgstr ""
 
 msgid "<b>Required:</b>"
 msgstr ""
 
+msgid "<b>Conflicts:</b>"
+msgstr ""
+
 msgid "<b>Suggests:</b>"
 msgstr ""
 
-msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
+msgid "No dependency information available"
 msgstr ""
+
+msgid "Source"
+msgstr ""
+
+msgid "No changelog information available"
+msgstr ""
+
+msgid "The list of installed files is only available for installed packages"
+msgstr ""
+
+msgid "Excluded"
+msgstr ""
+
+msgid "To be Removed"
+msgstr ""
+
+msgid "To be Installed"
+msgstr ""
+
+msgid "To be Re-Installed"
+msgstr ""
+
+msgid "To be Downgraded"
+msgstr ""
+
+msgid "To be Upgraded"
+msgstr ""
+
+msgid "Installed"
+msgstr ""
+
+msgid "Not Installed"
+msgstr ""
+
+msgid "Progress"
+msgstr ""
+
+msgid "Checking for new package data..."
+msgstr ""
+
+msgid "GPG Key verification failed"
+msgstr ""
+
+msgid "Retrieving package data..."
+msgstr ""
+
+msgid "Retrieving patch list..."
+msgstr ""
+
+msgid "Retrieving checksum list..."
+msgstr ""
+
+msgid "Retrieving checksum signature..."
+msgstr ""
+
+msgid "Verifying checksum signature..."
+msgstr ""
+
+msgid "Retrieving ChangeLog.txt..."
+msgstr ""
+
+msgid "Reading Package Lists..."
+msgstr "slapt-get tulkojums"
+
+#, c-format
+msgid "Download rate: %.0f%s/s"
+msgstr ""
+
+msgid "Completed actions"
+msgstr ""
+
+msgid "Successfully executed all actions."
+msgstr ""
+
+msgid "pkgtools returned an error"
+msgstr ""
+
+msgid "Enabled"
+msgstr ""
+
+msgid "Visible"
+msgstr ""
+
+msgid "Priority"
+msgstr ""
+
+msgid "Expression"
+msgstr ""
+
+msgid "Packages with unmet dependencies"
+msgstr ""
+
+msgid "Package conflicts"
+msgstr ""
+
+msgid ", which is required by "
+msgstr ""
+
+msgid ", is excluded"
+msgstr ""
+
+msgid "Packages excluded"
+msgstr ""
+
+msgid "Packages to be installed"
+msgstr ""
+
+msgid "Packages to be upgraded"
+msgstr ""
+
+msgid "Packages to be reinstalled"
+msgstr ""
+
+msgid "Packages to be removed"
+msgstr ""
+
+msgid "Package"
+msgstr ""
+
+#, c-format
+msgid "%d upgraded, "
+msgid_plural "%d upgraded, "
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#, c-format
+msgid "%d reinstalled, "
+msgid_plural "%d reinstalled, "
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#, c-format
+msgid "%d newly installed, "
+msgid_plural "%d newly installed, "
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#, c-format
+msgid "%d to remove "
+msgid_plural "%d to remove "
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#, c-format
+msgid "and %d not upgraded."
+msgid_plural "and %d not upgraded."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 msgid ""
 "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
+msgstr ""
+
+#, c-format
+msgid "Need to get %.0f%s/%.0f%s of archives.\n"
+msgstr ""
+
+#, c-format
+msgid "Need to get %.0f%s of archives."
 msgstr ""
 
 #, c-format
@@ -55,20 +233,10 @@ msgstr ""
 msgid "After unpacking %.0f%s of additional disk space will be used."
 msgstr ""
 
-msgid "ChangeLogs"
+msgid "Up to Date"
 msgstr ""
 
-msgid "Checking for new package data..."
-msgstr ""
-
-msgid "Completed actions"
-msgstr ""
-
-msgid "Description"
-msgstr ""
-
-#, c-format
-msgid "Download rate: %.0f%s/s"
+msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
 msgstr ""
 
 msgid "Downloading packages..."
@@ -77,44 +245,54 @@ msgstr ""
 msgid "Downloading..."
 msgstr ""
 
-msgid "Enabled"
-msgstr ""
-
-msgid "Error"
-msgstr ""
-
-msgid "Excluded"
-msgstr ""
-
-msgid "Expression"
-msgstr ""
-
-msgid "Failed to commit preferences"
-msgstr ""
-
 #, c-format
 msgid "Failed to download %s: %s"
 msgstr ""
 
-msgid "GPG Key verification failed"
-msgstr ""
-
-msgid "Import"
-msgstr ""
-
-msgid "Installed"
-msgstr ""
-
-msgid "Installed Size"
+msgid "Removing packages..."
 msgstr ""
 
 msgid "Installing packages..."
 msgstr ""
 
+msgid "Uninstalling..."
+msgstr ""
+
 msgid "Installing..."
 msgstr ""
 
+msgid "Upgrading..."
+msgstr ""
+
+msgid "Invalid working directory"
+msgstr ""
+
+msgid "Failed to commit preferences"
+msgstr ""
+
+msgid "Pending changes. Click execute when ready."
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Version"
+msgstr ""
+
 msgid "Location"
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "Installed Size"
+msgstr ""
+
+#, c-format
+msgid "<b>Excluding %s due to dependency failure</b>"
 msgstr ""
 
 msgid ""
@@ -122,144 +300,263 @@ msgid ""
 "correctly.  Do you want to continue without the required packages?"
 msgstr ""
 
-msgid "Name"
-msgstr ""
-
-#, c-format
-msgid "Need to get %.0f%s of archives."
-msgstr ""
-
-#, c-format
-msgid "Need to get %.0f%s/%.0f%s of archives.\n"
-msgstr ""
-
-msgid "No changelog information available"
-msgstr ""
-
-msgid "No changelogs found."
-msgstr ""
-
-#. installed
-msgid "No dependency information available"
+msgid "Import"
 msgstr ""
 
 msgid "No key found"
 msgstr ""
 
-#. set package details
-msgid "No package is selected."
+msgid "ChangeLogs"
 msgstr ""
 
-msgid "Not Installed"
+msgid "No changelogs found."
 msgstr ""
 
-msgid "Package"
+msgid ""
+"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
+"Slackware"
 msgstr ""
 
-msgid "Package conflicts"
+msgid "working"
 msgstr ""
 
-msgid "Packages excluded"
+msgid "total progress"
 msgstr ""
 
-msgid "Packages to be installed"
+msgid "Gslapt"
 msgstr ""
 
-msgid "Packages to be reinstalled"
+msgid "_File"
 msgstr ""
 
-msgid "Packages to be removed"
+msgid "Update local package cache"
 msgstr ""
 
-msgid "Packages to be upgraded"
+msgid "Update"
 msgstr ""
 
-msgid "Packages with unmet dependencies"
+msgid "Mark all possible upgrades"
 msgstr ""
 
-msgid "Pending changes. Click execute when ready."
+msgid "Mark All Upgrades"
 msgstr ""
 
-msgid "Priority"
+msgid "Mark all obsolete packages"
 msgstr ""
 
-msgid "Progress"
+msgid "Mark Obsolete"
 msgstr ""
 
-msgid "Re-Install"
+msgid "Execute all scheduled actions in current transaction"
 msgstr ""
 
-msgid "Reading Package Lists..."
-msgstr "slapt-get tulkojums"
-
-msgid "Ready"
+msgid "Execute"
 msgstr ""
 
-msgid "Removing packages..."
+msgid "_Edit"
 msgstr ""
 
-msgid "Retrieving ChangeLog.txt..."
+msgid "Unmark All"
 msgstr ""
 
-msgid "Retrieving checksum list..."
+msgid "Preferences"
 msgstr ""
 
-msgid "Retrieving checksum signature..."
+msgid "_View"
 msgstr ""
 
-msgid "Retrieving package data..."
+msgid "View all packages"
 msgstr ""
 
-msgid "Retrieving patch list..."
+msgid "All"
 msgstr ""
 
-msgid "Source"
+msgid "View available packages from current sources"
 msgstr ""
 
-msgid "Status"
+msgid "Available"
 msgstr ""
 
-msgid "Successfully executed all actions."
+msgid "View installed packages"
 msgstr ""
 
-msgid "The list of installed files is only available for installed packages"
+msgid "View Marked Packages"
 msgstr ""
 
-msgid "To be Downgraded"
+msgid "Marked"
 msgstr ""
 
-msgid "To be Installed"
+msgid "View Upgradeable Packages"
 msgstr ""
 
-msgid "To be Re-Installed"
+msgid "Upgradeable"
 msgstr ""
 
-msgid "To be Removed"
+msgid "P_ackage"
 msgstr ""
 
-msgid "To be Upgraded"
+msgid "Unmark"
 msgstr ""
 
-msgid "Uninstalling..."
+msgid "Install"
 msgstr ""
 
-msgid "Up to Date"
+msgid "Downgrade"
 msgstr ""
 
-msgid "Upgrade"
+msgid "Remove"
 msgstr ""
 
-msgid "Upgrading..."
+msgid "_Help"
 msgstr ""
 
-msgid "Verifying checksum signature..."
+msgid "Icon Legend"
 msgstr ""
 
-msgid "Version"
+msgid "View ChangeLogs"
 msgstr ""
 
-msgid "Visible"
+msgid "About"
 msgstr ""
 
-msgid "pkgtools returned an error"
+msgid "Search"
+msgstr ""
+
+msgid "<b>Name:</b>"
+msgstr ""
+
+msgid "<b>Status:</b>"
+msgstr ""
+
+msgid "<b>Description:</b>"
+msgstr ""
+
+msgid "<b>Version:</b>"
+msgstr ""
+
+msgid "<b>Source:</b>"
+msgstr ""
+
+msgid "<b>Priority:</b>"
+msgstr ""
+
+msgid "<b>Location:</b>"
+msgstr ""
+
+msgid "<b>Installed Version</b>"
+msgstr ""
+
+msgid "Version:"
+msgstr ""
+
+msgid "Installed Size:"
+msgstr ""
+
+msgid "<b>Latest Available Version</b>"
+msgstr ""
+
+msgid "Size:"
+msgstr ""
+
+msgid "Source:"
+msgstr ""
+
+msgid "Common"
+msgstr ""
+
+msgid "Dependencies"
+msgstr ""
+
+msgid "Changelog"
+msgstr ""
+
+msgid "Files"
+msgstr ""
+
+msgid ""
+"<b>The following icons are used to indicate the current status of a package:"
+"</b>"
+msgstr ""
+
+msgid "Repositories changed"
+msgstr ""
+
+msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
+msgstr ""
+
+msgid ""
+"You need to reload the package list from the sources you have listed.  Do "
+"you want to do this now?"
+msgstr ""
+
+msgid "Source failed"
+msgstr ""
+
+msgid ""
+"This package source failed or is not available.  Do you want to disable this "
+"source and continue anyway?"
+msgstr ""
+
+msgid "Default"
+msgstr ""
+
+msgid "Official"
+msgstr ""
+
+msgid "Preferred"
+msgstr ""
+
+msgid "Custom"
+msgstr ""
+
+msgid "Package Source"
+msgstr ""
+
+msgid "Summary"
+msgstr ""
+
+msgid ""
+"<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+msgstr ""
+
+msgid "This is a summary of the changes about to be performed."
+msgstr ""
+
+msgid "Download packages only"
+msgstr ""
+
+msgid "<b>Package and data storage</b>"
+msgstr ""
+
+msgid "_Delete Cached Package Files"
+msgstr ""
+
+msgid "Working Directory"
+msgstr ""
+
+msgid "<b>Exclude List</b>"
+msgstr ""
+
+msgid "<span weight=\"bold\">Exclude Expression:</span>"
+msgstr ""
+
+msgid "Excludes"
+msgstr ""
+
+msgid "<b>Package Sources</b>"
+msgstr ""
+
+msgid "Sources"
+msgstr ""
+
+msgid "<b>GPG Keys</b>"
+msgstr ""
+
+msgid "Verification"
+msgstr ""
+
+msgid "Gslapt Package Manager"
+msgstr ""
+
+msgid "Install, remove and upgrade software packages"
 msgstr ""

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-31 17:49-0400\n"
+"POT-Creation-Date: 2026-10-12 22:34-0400\n"
 "PO-Revision-Date: 2012-09-17 21:52+0000\n"
 "Last-Translator: FIRST AUTHOR Kemas Antonius <kyantonius@kyantonius.com>, "
 "2005-2006\n"
@@ -19,36 +19,205 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-msgid ", is excluded"
-msgstr ", ditiadakan"
+#, c-format
+msgid "gslapt: unknown argument '%s'\n"
+msgstr ""
 
-msgid ", which is required by "
-msgstr ", yang dibutuhkan oleh "
-
-msgid ": Depends: "
-msgstr ": Bergantung kepada: "
-
-msgid "<b>Conflicts:</b>"
-msgstr "<b>Konflik-konflik:</b>"
+msgid "Ready"
+msgstr "Siap"
 
 #, c-format
-msgid "<b>Excluding %s due to dependency failure</b>"
-msgstr "<b>Meniadakan %s karena kesalahan dependensi</b>"
+msgid "The following packages were not found: %s\n"
+msgstr ""
+
+#, c-format
+msgid "The following packages are not installed: %s\n"
+msgstr ""
+
+msgid "Error"
+msgstr "Error"
+
+#, fuzzy
+msgid "Already in progress"
+msgstr "perkembangan total"
+
+msgid "Upgrade"
+msgstr "Perbaharui"
+
+msgid "Re-Install"
+msgstr "Instal ulang"
+
+msgid "No package is selected."
+msgstr "Tidak ada paket yang dipilih."
 
 msgid "<b>Required:</b>"
 msgstr "<b>Membutuhkan:</b>"
 
+msgid "<b>Conflicts:</b>"
+msgstr "<b>Konflik-konflik:</b>"
+
 msgid "<b>Suggests:</b>"
 msgstr "<b>Menyarankan:</b>"
 
-msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Tidak ditemukan paket baru</span>"
+msgid "No dependency information available"
+msgstr "No dependency information available"
+
+msgid "Source"
+msgstr "Sumber"
+
+msgid "No changelog information available"
+msgstr "No changelog information available"
+
+msgid "The list of installed files is only available for installed packages"
+msgstr "The list of installed files is only available for installed packages"
+
+msgid "Excluded"
+msgstr "Ditiadakan"
+
+msgid "To be Removed"
+msgstr "Akan dihapus"
+
+msgid "To be Installed"
+msgstr "Akan diinstal"
+
+msgid "To be Re-Installed"
+msgstr "Akan diinstal ulang"
+
+msgid "To be Downgraded"
+msgstr "Akan diturunkan"
+
+msgid "To be Upgraded"
+msgstr "Akan diperbaharui"
+
+msgid "Installed"
+msgstr "Terinstall"
+
+msgid "Not Installed"
+msgstr "Tidak terinstal"
+
+msgid "Progress"
+msgstr "Perkembangan"
+
+msgid "Checking for new package data..."
+msgstr "Memeriksa data paket baru..."
+
+msgid "GPG Key verification failed"
+msgstr "GPG Key verification failed"
+
+msgid "Retrieving package data..."
+msgstr "Mengambil data paket..."
+
+msgid "Retrieving patch list..."
+msgstr "Mengambil daftar tambalan..."
+
+msgid "Retrieving checksum list..."
+msgstr "Mengambil daftar checksum..."
+
+msgid "Retrieving checksum signature..."
+msgstr "Retrieving checksum signature..."
+
+msgid "Verifying checksum signature..."
+msgstr "Verifying checksum signature..."
+
+msgid "Retrieving ChangeLog.txt..."
+msgstr "Retrieving ChangeLog.txt..."
+
+msgid "Reading Package Lists..."
+msgstr "Membaca daftar paket..."
+
+#, c-format
+msgid "Download rate: %.0f%s/s"
+msgstr "Download rate: %.0f%s/s"
+
+msgid "Completed actions"
+msgstr "Aksi-aksi yang telah dijalankan"
+
+msgid "Successfully executed all actions."
+msgstr "Berhasil mengeksekusi semua aksi."
+
+msgid "pkgtools returned an error"
+msgstr "pkgtools melaporkan sebuah kesalahan"
+
+msgid "Enabled"
+msgstr "Diaktifkan"
+
+msgid "Visible"
+msgstr "Visible"
+
+msgid "Priority"
+msgstr "Priority"
+
+msgid "Expression"
+msgstr "Ekspresi"
+
+msgid "Packages with unmet dependencies"
+msgstr "Paket-paket dengan dependensi tidak terpenuhi"
+
+msgid "Package conflicts"
+msgstr "Konflik-konflik paket"
+
+msgid ", which is required by "
+msgstr ", yang dibutuhkan oleh "
+
+msgid ", is excluded"
+msgstr ", ditiadakan"
+
+msgid "Packages excluded"
+msgstr "Paket-paket yang ditiadakan"
+
+msgid "Packages to be installed"
+msgstr "Paket-paket yang akan diinstal"
+
+msgid "Packages to be upgraded"
+msgstr "Paket-paket yang akan diperbaharui"
+
+msgid "Packages to be reinstalled"
+msgstr "Packages to be reinstalled"
+
+msgid "Packages to be removed"
+msgstr "Paket-paket yang akan dihapus"
+
+msgid "Package"
+msgstr "Paket"
+
+#, fuzzy, c-format
+msgid "%d upgraded, "
+msgid_plural "%d upgraded, "
+msgstr[0] "Perbaharui"
+
+#, fuzzy, c-format
+msgid "%d reinstalled, "
+msgid_plural "%d reinstalled, "
+msgstr[0] "Akan diinstal"
+
+#, fuzzy, c-format
+msgid "%d newly installed, "
+msgid_plural "%d newly installed, "
+msgstr[0] "Akan diinstal"
+
+#, c-format
+msgid "%d to remove "
+msgid_plural "%d to remove "
+msgstr[0] ""
+
+#, c-format
+msgid "and %d not upgraded."
+msgid_plural "and %d not upgraded."
+msgstr[0] ""
 
 msgid ""
 "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
 msgstr ""
 "<span weight=\"bold\" size=\"large\">Anda tidak memiliki ruang disket bebas "
 "yang cukup</span>"
+
+#, c-format
+msgid "Need to get %.0f%s/%.0f%s of archives.\n"
+msgstr "Harus mendapatkan %.0f%s/%.0f%s dari arsip.\n"
+
+#, c-format
+msgid "Need to get %.0f%s of archives."
+msgstr "Harus mendapatkan %.0f%s dari arsip"
 
 #, c-format
 msgid "After unpacking %.0f%s disk space will be freed."
@@ -58,21 +227,11 @@ msgstr "Setelah dibuka, %.0f%s ruang disket akan dibebaskan."
 msgid "After unpacking %.0f%s of additional disk space will be used."
 msgstr "Setelah dibuka, %.0f%s tambahan ruang disket akan digunakan."
 
-msgid "ChangeLogs"
-msgstr "ChangeLogs"
+msgid "Up to Date"
+msgstr "Mutakhir"
 
-msgid "Checking for new package data..."
-msgstr "Memeriksa data paket baru..."
-
-msgid "Completed actions"
-msgstr "Aksi-aksi yang telah dijalankan"
-
-msgid "Description"
-msgstr "Deskripsi"
-
-#, c-format
-msgid "Download rate: %.0f%s/s"
-msgstr "Download rate: %.0f%s/s"
+msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Tidak ditemukan paket baru</span>"
 
 msgid "Downloading packages..."
 msgstr "Mendownload paket-paket..."
@@ -80,45 +239,56 @@ msgstr "Mendownload paket-paket..."
 msgid "Downloading..."
 msgstr "Sedang mendownload..."
 
-msgid "Enabled"
-msgstr "Diaktifkan"
-
-msgid "Error"
-msgstr "Error"
-
-msgid "Excluded"
-msgstr "Ditiadakan"
-
-msgid "Expression"
-msgstr "Ekspresi"
-
-msgid "Failed to commit preferences"
-msgstr "Gagal menjalankan preferensi"
-
 #, c-format
 msgid "Failed to download %s: %s"
 msgstr "Failed to download %s: %s"
 
-msgid "GPG Key verification failed"
-msgstr "GPG Key verification failed"
-
-msgid "Import"
-msgstr "Import"
-
-msgid "Installed"
-msgstr "Terinstall"
-
-msgid "Installed Size"
-msgstr "Ukuran setelah diinstal"
+msgid "Removing packages..."
+msgstr "Menghapus paket-paket..."
 
 msgid "Installing packages..."
 msgstr "Menginstal paket-paket..."
 
+msgid "Uninstalling..."
+msgstr "Menghapus..."
+
 msgid "Installing..."
 msgstr "Sedang menginstal..."
 
+msgid "Upgrading..."
+msgstr "Memperbaharui..."
+
+#, fuzzy
+msgid "Invalid working directory"
+msgstr "Direktori kerja"
+
+msgid "Failed to commit preferences"
+msgstr "Gagal menjalankan preferensi"
+
+msgid "Pending changes. Click execute when ready."
+msgstr "Menunda perubahan. Klik eksekusi jika sudah siap."
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Name"
+msgstr "Nama"
+
+msgid "Version"
+msgstr "Versi"
+
 msgid "Location"
 msgstr "Lokasi"
+
+msgid "Description"
+msgstr "Deskripsi"
+
+msgid "Installed Size"
+msgstr "Ukuran setelah diinstal"
+
+#, c-format
+msgid "<b>Excluding %s due to dependency failure</b>"
+msgstr "<b>Meniadakan %s karena kesalahan dependensi</b>"
 
 msgid ""
 "Missing dependencies may mean the software in this package will not function "
@@ -128,153 +298,280 @@ msgstr ""
 "tidak akan bekerja dengan baik. Apakah anda ingin lanjut ke langkah "
 "berikutnya tanpa paket-paket yang dibutuhkan?"
 
-msgid "Name"
-msgstr "Nama"
-
-#, c-format
-msgid "Need to get %.0f%s of archives."
-msgstr "Harus mendapatkan %.0f%s dari arsip"
-
-#, c-format
-msgid "Need to get %.0f%s/%.0f%s of archives.\n"
-msgstr "Harus mendapatkan %.0f%s/%.0f%s dari arsip.\n"
-
-msgid "No changelog information available"
-msgstr "No changelog information available"
-
-msgid "No changelogs found."
-msgstr "No changelogs found."
-
-#. installed
-msgid "No dependency information available"
-msgstr "No dependency information available"
+msgid "Import"
+msgstr "Import"
 
 msgid "No key found"
 msgstr "No key found"
 
-#. set package details
-msgid "No package is selected."
-msgstr "Tidak ada paket yang dipilih."
+msgid "ChangeLogs"
+msgstr "ChangeLogs"
 
-msgid "Not Installed"
-msgstr "Tidak terinstal"
+msgid "No changelogs found."
+msgstr "No changelogs found."
 
-msgid "Package"
-msgstr "Paket"
+msgid ""
+"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
+"Slackware"
+msgstr ""
+"gslapt adalah sebuah tampilan muka GTK+ untuk slapt-get, sebuah sistem paket "
+"APT untuk Slackware"
 
-msgid "Package conflicts"
-msgstr "Konflik-konflik paket"
+msgid "working"
+msgstr "bekerja"
 
-msgid "Packages excluded"
-msgstr "Paket-paket yang ditiadakan"
+msgid "total progress"
+msgstr "perkembangan total"
 
-msgid "Packages to be installed"
-msgstr "Paket-paket yang akan diinstal"
+msgid "Gslapt"
+msgstr "Gslapt"
 
-msgid "Packages to be reinstalled"
-msgstr "Packages to be reinstalled"
+msgid "_File"
+msgstr "_Berkas"
 
-msgid "Packages to be removed"
-msgstr "Paket-paket yang akan dihapus"
+msgid "Update local package cache"
+msgstr "Memutakhirkan data sementara dari paket lokal"
 
-msgid "Packages to be upgraded"
-msgstr "Paket-paket yang akan diperbaharui"
-
-msgid "Packages with unmet dependencies"
-msgstr "Paket-paket dengan dependensi tidak terpenuhi"
-
-msgid "Pending changes. Click execute when ready."
-msgstr "Menunda perubahan. Klik eksekusi jika sudah siap."
-
-msgid "Priority"
-msgstr "Priority"
-
-msgid "Progress"
-msgstr "Perkembangan"
-
-msgid "Re-Install"
-msgstr "Instal ulang"
-
-msgid "Reading Package Lists..."
-msgstr "Membaca daftar paket..."
-
-msgid "Ready"
-msgstr "Siap"
-
-msgid "Removing packages..."
-msgstr "Menghapus paket-paket..."
-
-msgid "Retrieving ChangeLog.txt..."
-msgstr "Retrieving ChangeLog.txt..."
-
-msgid "Retrieving checksum list..."
-msgstr "Mengambil daftar checksum..."
-
-msgid "Retrieving checksum signature..."
-msgstr "Retrieving checksum signature..."
-
-msgid "Retrieving package data..."
-msgstr "Mengambil data paket..."
-
-msgid "Retrieving patch list..."
-msgstr "Mengambil daftar tambalan..."
-
-msgid "Source"
-msgstr "Sumber"
-
-msgid "Status"
-msgstr "Status"
-
-msgid "Successfully executed all actions."
-msgstr "Berhasil mengeksekusi semua aksi."
-
-msgid "The list of installed files is only available for installed packages"
-msgstr "The list of installed files is only available for installed packages"
-
-msgid "To be Downgraded"
-msgstr "Akan diturunkan"
-
-msgid "To be Installed"
-msgstr "Akan diinstal"
-
-msgid "To be Re-Installed"
-msgstr "Akan diinstal ulang"
-
-msgid "To be Removed"
-msgstr "Akan dihapus"
-
-msgid "To be Upgraded"
-msgstr "Akan diperbaharui"
-
-msgid "Uninstalling..."
-msgstr "Menghapus..."
-
-msgid "Up to Date"
+msgid "Update"
 msgstr "Mutakhir"
 
-msgid "Upgrade"
-msgstr "Perbaharui"
+msgid "Mark all possible upgrades"
+msgstr "Beri tanda semua kemungkinan paket baru"
 
-msgid "Upgrading..."
-msgstr "Memperbaharui..."
+msgid "Mark All Upgrades"
+msgstr "Beri tanda semua paket baru"
 
-msgid "Verifying checksum signature..."
-msgstr "Verifying checksum signature..."
+msgid "Mark all obsolete packages"
+msgstr "Mark all obsolete packages"
 
-msgid "Version"
-msgstr "Versi"
+msgid "Mark Obsolete"
+msgstr "Mark Obsolete"
 
-msgid "Visible"
-msgstr "Visible"
+msgid "Execute all scheduled actions in current transaction"
+msgstr "Mengeksekusi seluruh jadwal aksi di transaksi yang berlangsung"
 
-msgid "pkgtools returned an error"
-msgstr "pkgtools melaporkan sebuah kesalahan"
+msgid "Execute"
+msgstr "Eksekusi"
 
-#~ msgid "Gslapt Package Manager"
-#~ msgstr "Gslapt Package Manager"
+msgid "_Edit"
+msgstr "_Edit"
 
-#~ msgid "Install, remove and upgrade software packages"
-#~ msgstr "Install, remove and upgrade software packages"
+msgid "Unmark All"
+msgstr "Tidak menandai satupun juga"
+
+msgid "Preferences"
+msgstr "Preferensi"
+
+msgid "_View"
+msgstr "_View"
+
+msgid "View all packages"
+msgstr "View all packages"
+
+msgid "All"
+msgstr "All"
+
+msgid "View available packages from current sources"
+msgstr "View available packages from current sources"
+
+msgid "Available"
+msgstr "Available"
+
+msgid "View installed packages"
+msgstr "View installed packages"
+
+msgid "View Marked Packages"
+msgstr "View Marked Packages"
+
+msgid "Marked"
+msgstr "Marked"
+
+msgid "View Upgradeable Packages"
+msgstr "View Upgradeable Packages"
+
+msgid "Upgradeable"
+msgstr "Upgradeable"
+
+msgid "P_ackage"
+msgstr "P_aket"
+
+msgid "Unmark"
+msgstr "Tidak ditandai"
+
+msgid "Install"
+msgstr "Instal"
+
+msgid "Downgrade"
+msgstr "Menurunkan versi"
+
+msgid "Remove"
+msgstr "Hapus"
+
+msgid "_Help"
+msgstr "_Bantuan"
+
+msgid "Icon Legend"
+msgstr "Legenda icon"
+
+msgid "View ChangeLogs"
+msgstr "View ChangeLogs"
+
+msgid "About"
+msgstr "Info"
+
+msgid "Search"
+msgstr "Telusur"
+
+msgid "<b>Name:</b>"
+msgstr "<b>Nama:</b>"
+
+msgid "<b>Status:</b>"
+msgstr "<b>Status:</b>"
+
+msgid "<b>Description:</b>"
+msgstr "<b>Deskripsi:</b>"
+
+msgid "<b>Version:</b>"
+msgstr "<b>Versi:</b>"
+
+msgid "<b>Source:</b>"
+msgstr "<b>Source:</b>"
+
+msgid "<b>Priority:</b>"
+msgstr "<b>Priority:</b>"
+
+msgid "<b>Location:</b>"
+msgstr "<b>Lokasi:</b>"
+
+msgid "<b>Installed Version</b>"
+msgstr "<b>Versi terinstal</b>"
+
+msgid "Version:"
+msgstr "Versi:"
+
+msgid "Installed Size:"
+msgstr "Ukuran setelah diinstal:"
+
+msgid "<b>Latest Available Version</b>"
+msgstr "<b>Versi terakhir yang tersedia</b>"
+
+msgid "Size:"
+msgstr "Besar"
+
+msgid "Source:"
+msgstr "Sumber:"
+
+msgid "Common"
+msgstr "Umum"
+
+msgid "Dependencies"
+msgstr "Dependensi"
+
+msgid "Changelog"
+msgstr "Changelog"
+
+msgid "Files"
+msgstr "Files"
+
+msgid ""
+"<b>The following icons are used to indicate the current status of a package:"
+"</b>"
+msgstr ""
+"<b>Icon berikut digunakan untuk mengindikasikan status terkini dari sebuah "
+"paket:</b>"
+
+msgid "Repositories changed"
+msgstr "Tempat penyimpanan berkas berubah"
+
+msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
+msgstr ""
+"<span size=\"large\" weight=\"bold\">Tempat penyimpanan berkas berubah</span>"
+
+msgid ""
+"You need to reload the package list from the sources you have listed.  Do "
+"you want to do this now?"
+msgstr ""
+"Anda harus memperbaharui daftar paket dari sumber-sumber yang telah "
+"diberikan sebelumnya. Apakah anda ingin melakukannya sekarang?"
+
+msgid "Source failed"
+msgstr "Source failed"
+
+msgid ""
+"This package source failed or is not available.  Do you want to disable this "
+"source and continue anyway?"
+msgstr ""
+"This package source failed or is not available.  Do you want to disable this "
+"source and continue anyway?"
+
+msgid "Default"
+msgstr "Default"
+
+msgid "Official"
+msgstr "Official"
+
+msgid "Preferred"
+msgstr "Preferred"
+
+msgid "Custom"
+msgstr "Custom"
+
+msgid "Package Source"
+msgstr "Package Source"
+
+msgid "Summary"
+msgstr "Rangkuman"
+
+msgid ""
+"<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+msgstr ""
+"<span weight=\"bold\" size=\"large\">Terapkan perubahan-perubahan berikut?</"
+"span>"
+
+msgid "This is a summary of the changes about to be performed."
+msgstr "Ini adalah rangkuman dari perubahan-perubahan yang akan dibuat."
+
+msgid "Download packages only"
+msgstr "Hanya mendownload paket-paket saja"
+
+msgid "<b>Package and data storage</b>"
+msgstr "<b>Tempat penyimpanan paket dan data</b>"
+
+msgid "_Delete Cached Package Files"
+msgstr "_Hapus berkas paket yang sementara tersimpan"
+
+msgid "Working Directory"
+msgstr "Direktori kerja"
+
+msgid "<b>Exclude List</b>"
+msgstr "<b>Daftar paket yang ditiadakan</b>"
+
+msgid "<span weight=\"bold\">Exclude Expression:</span>"
+msgstr "<span weight=\"bold\">Meniadakan ekspresi:</span>"
+
+msgid "Excludes"
+msgstr "Meniadakan"
+
+msgid "<b>Package Sources</b>"
+msgstr "<b>Sumber-sumber paket</b>"
+
+msgid "Sources"
+msgstr "Sumber-sumber"
+
+msgid "<b>GPG Keys</b>"
+msgstr "<b>GPG Keys</b>"
+
+msgid "Verification"
+msgstr "Verification"
+
+msgid "Gslapt Package Manager"
+msgstr "Gslapt Package Manager"
+
+msgid "Install, remove and upgrade software packages"
+msgstr "Install, remove and upgrade software packages"
+
+#~ msgid ": Depends: "
+#~ msgstr ": Bergantung kepada: "
 
 #~ msgid "Base"
 #~ msgstr "Base"
@@ -368,258 +665,3 @@ msgstr "pkgtools melaporkan sebuah kesalahan"
 
 #~ msgid "Localization"
 #~ msgstr "Localization"
-
-#~ msgid ""
-#~ "gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
-#~ "Slackware"
-#~ msgstr ""
-#~ "gslapt adalah sebuah tampilan muka GTK+ untuk slapt-get, sebuah sistem "
-#~ "paket APT untuk Slackware"
-
-#~ msgid "working"
-#~ msgstr "bekerja"
-
-#~ msgid "total progress"
-#~ msgstr "perkembangan total"
-
-#~ msgid "Gslapt"
-#~ msgstr "Gslapt"
-
-#~ msgid "_File"
-#~ msgstr "_Berkas"
-
-#~ msgid "Update local package cache"
-#~ msgstr "Memutakhirkan data sementara dari paket lokal"
-
-#~ msgid "Update"
-#~ msgstr "Mutakhir"
-
-#~ msgid "Mark all possible upgrades"
-#~ msgstr "Beri tanda semua kemungkinan paket baru"
-
-#~ msgid "Mark All Upgrades"
-#~ msgstr "Beri tanda semua paket baru"
-
-#~ msgid "Mark all obsolete packages"
-#~ msgstr "Mark all obsolete packages"
-
-#~ msgid "Mark Obsolete"
-#~ msgstr "Mark Obsolete"
-
-#~ msgid "Execute all scheduled actions in current transaction"
-#~ msgstr "Mengeksekusi seluruh jadwal aksi di transaksi yang berlangsung"
-
-#~ msgid "Execute"
-#~ msgstr "Eksekusi"
-
-#~ msgid "_Edit"
-#~ msgstr "_Edit"
-
-#~ msgid "Unmark All"
-#~ msgstr "Tidak menandai satupun juga"
-
-#~ msgid "Preferences"
-#~ msgstr "Preferensi"
-
-#~ msgid "_View"
-#~ msgstr "_View"
-
-#~ msgid "View all packages"
-#~ msgstr "View all packages"
-
-#~ msgid "All"
-#~ msgstr "All"
-
-#~ msgid "View available packages from current sources"
-#~ msgstr "View available packages from current sources"
-
-#~ msgid "Available"
-#~ msgstr "Available"
-
-#~ msgid "View installed packages"
-#~ msgstr "View installed packages"
-
-#~ msgid "View Marked Packages"
-#~ msgstr "View Marked Packages"
-
-#~ msgid "Marked"
-#~ msgstr "Marked"
-
-#~ msgid "View Upgradeable Packages"
-#~ msgstr "View Upgradeable Packages"
-
-#~ msgid "Upgradeable"
-#~ msgstr "Upgradeable"
-
-#~ msgid "P_ackage"
-#~ msgstr "P_aket"
-
-#~ msgid "Unmark"
-#~ msgstr "Tidak ditandai"
-
-#~ msgid "Install"
-#~ msgstr "Instal"
-
-#~ msgid "Downgrade"
-#~ msgstr "Menurunkan versi"
-
-#~ msgid "Remove"
-#~ msgstr "Hapus"
-
-#~ msgid "_Help"
-#~ msgstr "_Bantuan"
-
-#~ msgid "Icon Legend"
-#~ msgstr "Legenda icon"
-
-#~ msgid "View ChangeLogs"
-#~ msgstr "View ChangeLogs"
-
-#~ msgid "About"
-#~ msgstr "Info"
-
-#~ msgid "Search"
-#~ msgstr "Telusur"
-
-#~ msgid "<b>Name:</b>"
-#~ msgstr "<b>Nama:</b>"
-
-#~ msgid "<b>Status:</b>"
-#~ msgstr "<b>Status:</b>"
-
-#~ msgid "<b>Description:</b>"
-#~ msgstr "<b>Deskripsi:</b>"
-
-#~ msgid "<b>Version:</b>"
-#~ msgstr "<b>Versi:</b>"
-
-#~ msgid "<b>Source:</b>"
-#~ msgstr "<b>Source:</b>"
-
-#~ msgid "<b>Priority:</b>"
-#~ msgstr "<b>Priority:</b>"
-
-#~ msgid "<b>Location:</b>"
-#~ msgstr "<b>Lokasi:</b>"
-
-#~ msgid "<b>Installed Version</b>"
-#~ msgstr "<b>Versi terinstal</b>"
-
-#~ msgid "Version:"
-#~ msgstr "Versi:"
-
-#~ msgid "Installed Size:"
-#~ msgstr "Ukuran setelah diinstal:"
-
-#~ msgid "<b>Latest Available Version</b>"
-#~ msgstr "<b>Versi terakhir yang tersedia</b>"
-
-#~ msgid "Size:"
-#~ msgstr "Besar"
-
-#~ msgid "Source:"
-#~ msgstr "Sumber:"
-
-#~ msgid "Common"
-#~ msgstr "Umum"
-
-#~ msgid "Dependencies"
-#~ msgstr "Dependensi"
-
-#~ msgid "Changelog"
-#~ msgstr "Changelog"
-
-#~ msgid "Files"
-#~ msgstr "Files"
-
-#~ msgid ""
-#~ "<b>The following icons are used to indicate the current status of a "
-#~ "package:</b>"
-#~ msgstr ""
-#~ "<b>Icon berikut digunakan untuk mengindikasikan status terkini dari "
-#~ "sebuah paket:</b>"
-
-#~ msgid "Repositories changed"
-#~ msgstr "Tempat penyimpanan berkas berubah"
-
-#~ msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
-#~ msgstr ""
-#~ "<span size=\"large\" weight=\"bold\">Tempat penyimpanan berkas berubah</"
-#~ "span>"
-
-#~ msgid ""
-#~ "You need to reload the package list from the sources you have listed.  Do "
-#~ "you want to do this now?"
-#~ msgstr ""
-#~ "Anda harus memperbaharui daftar paket dari sumber-sumber yang telah "
-#~ "diberikan sebelumnya. Apakah anda ingin melakukannya sekarang?"
-
-#~ msgid "Source failed"
-#~ msgstr "Source failed"
-
-#~ msgid ""
-#~ "This package source failed or is not available.  Do you want to disable "
-#~ "this source and continue anyway?"
-#~ msgstr ""
-#~ "This package source failed or is not available.  Do you want to disable "
-#~ "this source and continue anyway?"
-
-#~ msgid "Default"
-#~ msgstr "Default"
-
-#~ msgid "Official"
-#~ msgstr "Official"
-
-#~ msgid "Preferred"
-#~ msgstr "Preferred"
-
-#~ msgid "Custom"
-#~ msgstr "Custom"
-
-#~ msgid "Package Source"
-#~ msgstr "Package Source"
-
-#~ msgid "Summary"
-#~ msgstr "Rangkuman"
-
-#~ msgid ""
-#~ "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
-#~ msgstr ""
-#~ "<span weight=\"bold\" size=\"large\">Terapkan perubahan-perubahan berikut?"
-#~ "</span>"
-
-#~ msgid "This is a summary of the changes about to be performed."
-#~ msgstr "Ini adalah rangkuman dari perubahan-perubahan yang akan dibuat."
-
-#~ msgid "Download packages only"
-#~ msgstr "Hanya mendownload paket-paket saja"
-
-#~ msgid "<b>Package and data storage</b>"
-#~ msgstr "<b>Tempat penyimpanan paket dan data</b>"
-
-#~ msgid "_Delete Cached Package Files"
-#~ msgstr "_Hapus berkas paket yang sementara tersimpan"
-
-#~ msgid "Working Directory"
-#~ msgstr "Direktori kerja"
-
-#~ msgid "<b>Exclude List</b>"
-#~ msgstr "<b>Daftar paket yang ditiadakan</b>"
-
-#~ msgid "<span weight=\"bold\">Exclude Expression:</span>"
-#~ msgstr "<span weight=\"bold\">Meniadakan ekspresi:</span>"
-
-#~ msgid "Excludes"
-#~ msgstr "Meniadakan"
-
-#~ msgid "<b>Package Sources</b>"
-#~ msgstr "<b>Sumber-sumber paket</b>"
-
-#~ msgid "Sources"
-#~ msgstr "Sumber-sumber"
-
-#~ msgid "<b>GPG Keys</b>"
-#~ msgstr "<b>GPG Keys</b>"
-
-#~ msgid "Verification"
-#~ msgstr "Verification"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-31 17:49-0400\n"
+"POT-Creation-Date: 2026-10-12 22:34-0400\n"
 "PO-Revision-Date: 2012-09-17 21:52+0000\n"
 "Last-Translator: FIRST AUTHOR Vu Nguyen <vncasper@yahoo.com>, 2005-2006\n"
 "Language-Team: Vietnamese (http://app.transifex.com/jaos/slapt-get/language/"
@@ -18,35 +18,204 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-msgid ", is excluded"
-msgstr ", được thực hiện"
+#, c-format
+msgid "gslapt: unknown argument '%s'\n"
+msgstr ""
 
-msgid ", which is required by "
-msgstr ", được yêu cầu bởi "
-
-msgid ": Depends: "
-msgstr ": Các phụ thuộc: "
-
-msgid "<b>Conflicts:</b>"
-msgstr "<b>Danh sách xung đột:</b>"
+msgid "Ready"
+msgstr "Sẵn sàng"
 
 #, c-format
-msgid "<b>Excluding %s due to dependency failure</b>"
-msgstr "<b>Loại bỏ %s do lỗi phụ thuộc</b>"
+msgid "The following packages were not found: %s\n"
+msgstr ""
+
+#, c-format
+msgid "The following packages are not installed: %s\n"
+msgstr ""
+
+msgid "Error"
+msgstr "Error"
+
+#, fuzzy
+msgid "Already in progress"
+msgstr "toàn bộ quá trình"
+
+msgid "Upgrade"
+msgstr "Nâng cấp"
+
+msgid "Re-Install"
+msgstr "Cài đặt lại"
+
+msgid "No package is selected."
+msgstr "Không có gói nào được chọn"
 
 msgid "<b>Required:</b>"
 msgstr "<b>Yêu cầu:</b>"
 
+msgid "<b>Conflicts:</b>"
+msgstr "<b>Danh sách xung đột:</b>"
+
 msgid "<b>Suggests:</b>"
 msgstr "<b>Danh sách đề nghị:</b>"
 
-msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
-msgstr "<span weight=\"bold\" size=\"large\">Cập nhật không có sẵn</span>"
+msgid "No dependency information available"
+msgstr "No dependency information available"
+
+msgid "Source"
+msgstr "Nguồn"
+
+msgid "No changelog information available"
+msgstr "No changelog information available"
+
+msgid "The list of installed files is only available for installed packages"
+msgstr "The list of installed files is only available for installed packages"
+
+msgid "Excluded"
+msgstr "Loại bỏ"
+
+msgid "To be Removed"
+msgstr "Bị gỡ bỏ"
+
+msgid "To be Installed"
+msgstr "Được cài đặt"
+
+msgid "To be Re-Installed"
+msgstr "Được cài đặt lại"
+
+msgid "To be Downgraded"
+msgstr "Bị xuống cấp :)"
+
+msgid "To be Upgraded"
+msgstr "Được nâng cấp"
+
+msgid "Installed"
+msgstr "Đã cài đặt"
+
+msgid "Not Installed"
+msgstr "Không được cài đặt"
+
+msgid "Progress"
+msgstr "Quá trình"
+
+msgid "Checking for new package data..."
+msgstr "Kiểm tra cho gói dữ liệu mới..."
+
+msgid "GPG Key verification failed"
+msgstr "GPG Key verification failed"
+
+msgid "Retrieving package data..."
+msgstr "Retrieving package data..."
+
+msgid "Retrieving patch list..."
+msgstr "Retrieving patch list..."
+
+msgid "Retrieving checksum list..."
+msgstr "Retrieving checksum list..."
+
+msgid "Retrieving checksum signature..."
+msgstr "Retrieving checksum signature..."
+
+msgid "Verifying checksum signature..."
+msgstr "Verifying checksum signature..."
+
+msgid "Retrieving ChangeLog.txt..."
+msgstr "Retrieving ChangeLog.txt..."
+
+msgid "Reading Package Lists..."
+msgstr "Reading Package Lists..."
+
+#, c-format
+msgid "Download rate: %.0f%s/s"
+msgstr "Download rate: %.0f%s/s"
+
+msgid "Completed actions"
+msgstr "Các hành động đã hoàn tất"
+
+msgid "Successfully executed all actions."
+msgstr "Đã thực hiện thành công tất cả các hành động."
+
+msgid "pkgtools returned an error"
+msgstr "pkgtools trả về một lỗi"
+
+msgid "Enabled"
+msgstr "Enabled"
+
+msgid "Visible"
+msgstr "Visible"
+
+msgid "Priority"
+msgstr "Priority"
+
+msgid "Expression"
+msgstr "Biểu thức"
+
+msgid "Packages with unmet dependencies"
+msgstr "Các gói không thoả điều kiện phụ thuộc"
+
+msgid "Package conflicts"
+msgstr "Các xung đột"
+
+msgid ", which is required by "
+msgstr ", được yêu cầu bởi "
+
+msgid ", is excluded"
+msgstr ", được thực hiện"
+
+msgid "Packages excluded"
+msgstr "Các gói bị loại trừ"
+
+msgid "Packages to be installed"
+msgstr "Các gói được cài đặt"
+
+msgid "Packages to be upgraded"
+msgstr "Các gói được nâng cấp"
+
+msgid "Packages to be reinstalled"
+msgstr "Packages to be reinstalled"
+
+msgid "Packages to be removed"
+msgstr "Các gói bị gỡ bỏ"
+
+msgid "Package"
+msgstr "Gói"
+
+#, fuzzy, c-format
+msgid "%d upgraded, "
+msgid_plural "%d upgraded, "
+msgstr[0] "Nâng cấp"
+
+#, fuzzy, c-format
+msgid "%d reinstalled, "
+msgid_plural "%d reinstalled, "
+msgstr[0] "Được cài đặt"
+
+#, fuzzy, c-format
+msgid "%d newly installed, "
+msgid_plural "%d newly installed, "
+msgstr[0] "Được cài đặt"
+
+#, c-format
+msgid "%d to remove "
+msgid_plural "%d to remove "
+msgstr[0] ""
+
+#, c-format
+msgid "and %d not upgraded."
+msgid_plural "and %d not upgraded."
+msgstr[0] ""
 
 msgid ""
 "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
 msgstr ""
 "<span weight=\"bold\" size=\"large\">Bạn không có đủ không gian trống</span>"
+
+#, c-format
+msgid "Need to get %.0f%s/%.0f%s of archives.\n"
+msgstr "Cần lấy %.0f%s/%.0f%s từ kho lưu trữ.\n"
+
+#, c-format
+msgid "Need to get %.0f%s of archives."
+msgstr "Cần lấy %.0f%s từ kho lưu trữ."
 
 #, c-format
 msgid "After unpacking %.0f%s disk space will be freed."
@@ -56,21 +225,11 @@ msgstr "Sau khi giải nén %.0f%s không gian đĩa sẽ được giải phóng
 msgid "After unpacking %.0f%s of additional disk space will be used."
 msgstr "Sau khi giải nén %.0f%s không gian đĩa sẽ được sử dụng"
 
-msgid "ChangeLogs"
-msgstr "ChangeLogs"
+msgid "Up to Date"
+msgstr "Cập nhật mới"
 
-msgid "Checking for new package data..."
-msgstr "Kiểm tra cho gói dữ liệu mới..."
-
-msgid "Completed actions"
-msgstr "Các hành động đã hoàn tất"
-
-msgid "Description"
-msgstr "Mô tả"
-
-#, c-format
-msgid "Download rate: %.0f%s/s"
-msgstr "Download rate: %.0f%s/s"
+msgid "<span weight=\"bold\" size=\"large\">No updates available</span>"
+msgstr "<span weight=\"bold\" size=\"large\">Cập nhật không có sẵn</span>"
 
 msgid "Downloading packages..."
 msgstr "Đang lấy danh sách gói phần mềm..."
@@ -78,45 +237,56 @@ msgstr "Đang lấy danh sách gói phần mềm..."
 msgid "Downloading..."
 msgstr "Đang lấy dữ liệu..."
 
-msgid "Enabled"
-msgstr "Enabled"
-
-msgid "Error"
-msgstr "Error"
-
-msgid "Excluded"
-msgstr "Loại bỏ"
-
-msgid "Expression"
-msgstr "Biểu thức"
-
-msgid "Failed to commit preferences"
-msgstr "Bị lỗi khi đồng ý các tuỳ chỉnh"
-
 #, c-format
 msgid "Failed to download %s: %s"
 msgstr "Failed to download %s: %s"
 
-msgid "GPG Key verification failed"
-msgstr "GPG Key verification failed"
-
-msgid "Import"
-msgstr "Import"
-
-msgid "Installed"
-msgstr "Đã cài đặt"
-
-msgid "Installed Size"
-msgstr "Kích thước đã cài đặt"
+msgid "Removing packages..."
+msgstr "Đang gỡ bỏ các gói..."
 
 msgid "Installing packages..."
 msgstr "Đang cài đặt các gói..."
 
+msgid "Uninstalling..."
+msgstr "Đang gỡ bỏ..."
+
 msgid "Installing..."
 msgstr "Đang cài đặt..."
 
+msgid "Upgrading..."
+msgstr "Đang nâng cấp..."
+
+#, fuzzy
+msgid "Invalid working directory"
+msgstr "Thư mục làm việc"
+
+msgid "Failed to commit preferences"
+msgstr "Bị lỗi khi đồng ý các tuỳ chỉnh"
+
+msgid "Pending changes. Click execute when ready."
+msgstr "Tạm dừng các thay đổi. Chọn thực hiện khi sẵn sàng."
+
+msgid "Status"
+msgstr "Trạng thái"
+
+msgid "Name"
+msgstr "Tên"
+
+msgid "Version"
+msgstr "Phiên bản"
+
 msgid "Location"
 msgstr "Vị trí"
+
+msgid "Description"
+msgstr "Mô tả"
+
+msgid "Installed Size"
+msgstr "Kích thước đã cài đặt"
+
+#, c-format
+msgid "<b>Excluding %s due to dependency failure</b>"
+msgstr "<b>Loại bỏ %s do lỗi phụ thuộc</b>"
 
 msgid ""
 "Missing dependencies may mean the software in this package will not function "
@@ -125,153 +295,278 @@ msgstr ""
 "Missing dependencies may mean the software in this package will not function "
 "correctly.  Do you want to continue without the required packages?"
 
-msgid "Name"
-msgstr "Tên"
-
-#, c-format
-msgid "Need to get %.0f%s of archives."
-msgstr "Cần lấy %.0f%s từ kho lưu trữ."
-
-#, c-format
-msgid "Need to get %.0f%s/%.0f%s of archives.\n"
-msgstr "Cần lấy %.0f%s/%.0f%s từ kho lưu trữ.\n"
-
-msgid "No changelog information available"
-msgstr "No changelog information available"
-
-msgid "No changelogs found."
-msgstr ""
-
-#. installed
-msgid "No dependency information available"
-msgstr "No dependency information available"
+msgid "Import"
+msgstr "Import"
 
 msgid "No key found"
 msgstr "No key found"
 
-#. set package details
-msgid "No package is selected."
-msgstr "Không có gói nào được chọn"
+msgid "ChangeLogs"
+msgstr "ChangeLogs"
 
-msgid "Not Installed"
-msgstr "Không được cài đặt"
+msgid "No changelogs found."
+msgstr ""
 
-msgid "Package"
-msgstr "Gói"
+msgid ""
+"gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
+"Slackware"
+msgstr ""
+"gslapt là giao diện GTK+ cho slapt-get, một hệ thống quản lý gói giống APT "
+"Slackware"
 
-msgid "Package conflicts"
-msgstr "Các xung đột"
+msgid "working"
+msgstr "đang thực hiện"
 
-msgid "Packages excluded"
-msgstr "Các gói bị loại trừ"
+msgid "total progress"
+msgstr "toàn bộ quá trình"
 
-msgid "Packages to be installed"
-msgstr "Các gói được cài đặt"
+msgid "Gslapt"
+msgstr "Gslapt"
 
-msgid "Packages to be reinstalled"
-msgstr "Packages to be reinstalled"
+msgid "_File"
+msgstr "_Tập tin"
 
-msgid "Packages to be removed"
-msgstr "Các gói bị gỡ bỏ"
+msgid "Update local package cache"
+msgstr "Cập nhật danh sách gói sao lưu cục bộ"
 
-msgid "Packages to be upgraded"
-msgstr "Các gói được nâng cấp"
+msgid "Update"
+msgstr "Cập nhật"
 
-msgid "Packages with unmet dependencies"
-msgstr "Các gói không thoả điều kiện phụ thuộc"
+msgid "Mark all possible upgrades"
+msgstr "Mark all possible upgrades"
 
-msgid "Pending changes. Click execute when ready."
-msgstr "Tạm dừng các thay đổi. Chọn thực hiện khi sẵn sàng."
+msgid "Mark All Upgrades"
+msgstr "Đánh dấu nâng cấp tất cả"
 
-msgid "Priority"
-msgstr "Priority"
+msgid "Mark all obsolete packages"
+msgstr "Mark all obsolete packages"
 
-msgid "Progress"
-msgstr "Quá trình"
+msgid "Mark Obsolete"
+msgstr "Mark Obsolete"
 
-msgid "Re-Install"
-msgstr "Cài đặt lại"
+msgid "Execute all scheduled actions in current transaction"
+msgstr "Thực hiện các hành động được lập lịch trong phiên làm việc hiện tại"
 
-msgid "Reading Package Lists..."
-msgstr "Reading Package Lists..."
+msgid "Execute"
+msgstr "Thực hiện"
 
-msgid "Ready"
-msgstr "Sẵn sàng"
+msgid "_Edit"
+msgstr "_Hiệu chỉnh"
 
-msgid "Removing packages..."
-msgstr "Đang gỡ bỏ các gói..."
+msgid "Unmark All"
+msgstr "Không đánh dấu tất cả"
 
-msgid "Retrieving ChangeLog.txt..."
-msgstr "Retrieving ChangeLog.txt..."
+msgid "Preferences"
+msgstr "Tuỳ chỉnh"
 
-msgid "Retrieving checksum list..."
-msgstr "Retrieving checksum list..."
+msgid "_View"
+msgstr "_View"
 
-msgid "Retrieving checksum signature..."
-msgstr "Retrieving checksum signature..."
+msgid "View all packages"
+msgstr "View all packages"
 
-msgid "Retrieving package data..."
-msgstr "Retrieving package data..."
+msgid "All"
+msgstr "All"
 
-msgid "Retrieving patch list..."
-msgstr "Retrieving patch list..."
+msgid "View available packages from current sources"
+msgstr "View available packages from current sources"
 
-msgid "Source"
-msgstr "Nguồn"
+msgid "Available"
+msgstr "Available"
 
-msgid "Status"
-msgstr "Trạng thái"
+msgid "View installed packages"
+msgstr "View installed packages"
 
-msgid "Successfully executed all actions."
-msgstr "Đã thực hiện thành công tất cả các hành động."
+msgid "View Marked Packages"
+msgstr "View Marked Packages"
 
-msgid "The list of installed files is only available for installed packages"
-msgstr "The list of installed files is only available for installed packages"
+msgid "Marked"
+msgstr "Marked"
 
-msgid "To be Downgraded"
-msgstr "Bị xuống cấp :)"
+msgid "View Upgradeable Packages"
+msgstr "View Upgradeable Packages"
 
-msgid "To be Installed"
-msgstr "Được cài đặt"
+msgid "Upgradeable"
+msgstr "Upgradeable"
 
-msgid "To be Re-Installed"
-msgstr "Được cài đặt lại"
+msgid "P_ackage"
+msgstr "G_ói phần mềm"
 
-msgid "To be Removed"
-msgstr "Bị gỡ bỏ"
+msgid "Unmark"
+msgstr "Không đánh dấu"
 
-msgid "To be Upgraded"
-msgstr "Được nâng cấp"
+msgid "Install"
+msgstr "Cài đặt"
 
-msgid "Uninstalling..."
-msgstr "Đang gỡ bỏ..."
+msgid "Downgrade"
+msgstr "Trở về phiên bản trước"
 
-msgid "Up to Date"
-msgstr "Cập nhật mới"
+msgid "Remove"
+msgstr "Gỡ bỏ"
 
-msgid "Upgrade"
-msgstr "Nâng cấp"
+msgid "_Help"
+msgstr "_Giúp đỡ"
 
-msgid "Upgrading..."
-msgstr "Đang nâng cấp..."
+msgid "Icon Legend"
+msgstr "Chú thích biểu tượng"
 
-msgid "Verifying checksum signature..."
-msgstr "Verifying checksum signature..."
+msgid "View ChangeLogs"
+msgstr "View ChangeLogs"
 
-msgid "Version"
-msgstr "Phiên bản"
+msgid "About"
+msgstr "Giới thiệu"
 
-msgid "Visible"
-msgstr "Visible"
+msgid "Search"
+msgstr "Tìm kiếm"
 
-msgid "pkgtools returned an error"
-msgstr "pkgtools trả về một lỗi"
+msgid "<b>Name:</b>"
+msgstr "<b>Tên</b>"
 
-#~ msgid "Gslapt Package Manager"
-#~ msgstr "Gslapt Package Manager"
+msgid "<b>Status:</b>"
+msgstr "<b>Trạng thái:</b>"
 
-#~ msgid "Install, remove and upgrade software packages"
-#~ msgstr "Install, remove and upgrade software packages"
+msgid "<b>Description:</b>"
+msgstr "<b>Mô tả</b>"
+
+msgid "<b>Version:</b>"
+msgstr "<b>Phiên bản:</b>"
+
+msgid "<b>Source:</b>"
+msgstr "<b>Source:</b>"
+
+msgid "<b>Priority:</b>"
+msgstr "<b>Priority:</b>"
+
+msgid "<b>Location:</b>"
+msgstr "<b>Vị trí</b>"
+
+msgid "<b>Installed Version</b>"
+msgstr "<b>Phiên bản được cài đặt</b>"
+
+msgid "Version:"
+msgstr "Phiên bản:"
+
+msgid "Installed Size:"
+msgstr "Kích thước đã cài đặt:"
+
+msgid "<b>Latest Available Version</b>"
+msgstr "<b>Phiên bản hiện có mới nhất</b>"
+
+msgid "Size:"
+msgstr "Kích thước:"
+
+msgid "Source:"
+msgstr "Nguồn:"
+
+msgid "Common"
+msgstr "Tổng quát"
+
+msgid "Dependencies"
+msgstr "Danh sách phụ thuộc"
+
+msgid "Changelog"
+msgstr "Changelog"
+
+msgid "Files"
+msgstr "Files"
+
+msgid ""
+"<b>The following icons are used to indicate the current status of a package:"
+"</b>"
+msgstr ""
+"<b>Các biểu tượng sau được sử dụng để nhận biết trạng thái hiện tại của một "
+"gói dữ liệu:</b>"
+
+msgid "Repositories changed"
+msgstr "Repositories changed"
+
+msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
+msgstr "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
+
+msgid ""
+"You need to reload the package list from the sources you have listed.  Do "
+"you want to do this now?"
+msgstr ""
+"You need to reload the package list from the sources you have listed.  Do "
+"you want to do this now?"
+
+msgid "Source failed"
+msgstr "Source failed"
+
+msgid ""
+"This package source failed or is not available.  Do you want to disable this "
+"source and continue anyway?"
+msgstr ""
+"This package source failed or is not available.  Do you want to disable this "
+"source and continue anyway?"
+
+msgid "Default"
+msgstr "Default"
+
+msgid "Official"
+msgstr "Official"
+
+msgid "Preferred"
+msgstr "Preferred"
+
+msgid "Custom"
+msgstr "Custom"
+
+msgid "Package Source"
+msgstr "Package Source"
+
+msgid "Summary"
+msgstr "Tóm tắt"
+
+msgid ""
+"<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
+msgstr ""
+"<span weight=\"bold\" size=\"large\">Áp dụng những thay đổi sau?</span>"
+
+msgid "This is a summary of the changes about to be performed."
+msgstr "Đây là bản tóm tắt các thay đổi về hiệu năng."
+
+msgid "Download packages only"
+msgstr "Chỉ lấy dữ liệu gói phần mềm"
+
+msgid "<b>Package and data storage</b>"
+msgstr "<b>Kho gói phần mềm và dữ liệu</b>"
+
+msgid "_Delete Cached Package Files"
+msgstr "_Delete Cached Package Files"
+
+msgid "Working Directory"
+msgstr "Thư mục làm việc"
+
+msgid "<b>Exclude List</b>"
+msgstr "<b>Danh sách loại trừ</b>"
+
+msgid "<span weight=\"bold\">Exclude Expression:</span>"
+msgstr "<span weight=\"bold\">Biểu thức loại trừ:</span>"
+
+msgid "Excludes"
+msgstr "Danh sách loại trừ"
+
+msgid "<b>Package Sources</b>"
+msgstr "<b>Nguồn các gói phần mềm</b>"
+
+msgid "Sources"
+msgstr "Danh sách nguồn"
+
+msgid "<b>GPG Keys</b>"
+msgstr "<b>GPG Keys</b>"
+
+msgid "Verification"
+msgstr "Verification"
+
+msgid "Gslapt Package Manager"
+msgstr "Gslapt Package Manager"
+
+msgid "Install, remove and upgrade software packages"
+msgstr "Install, remove and upgrade software packages"
+
+#~ msgid ": Depends: "
+#~ msgstr ": Các phụ thuộc: "
 
 #~ msgid "Base"
 #~ msgstr "Base"
@@ -365,255 +660,3 @@ msgstr "pkgtools trả về một lỗi"
 
 #~ msgid "Localization"
 #~ msgstr "Localization"
-
-#~ msgid ""
-#~ "gslapt is a GTK+ frontend to slapt-get, an APT like package system for "
-#~ "Slackware"
-#~ msgstr ""
-#~ "gslapt là giao diện GTK+ cho slapt-get, một hệ thống quản lý gói giống "
-#~ "APT Slackware"
-
-#~ msgid "working"
-#~ msgstr "đang thực hiện"
-
-#~ msgid "total progress"
-#~ msgstr "toàn bộ quá trình"
-
-#~ msgid "Gslapt"
-#~ msgstr "Gslapt"
-
-#~ msgid "_File"
-#~ msgstr "_Tập tin"
-
-#~ msgid "Update local package cache"
-#~ msgstr "Cập nhật danh sách gói sao lưu cục bộ"
-
-#~ msgid "Update"
-#~ msgstr "Cập nhật"
-
-#~ msgid "Mark all possible upgrades"
-#~ msgstr "Mark all possible upgrades"
-
-#~ msgid "Mark All Upgrades"
-#~ msgstr "Đánh dấu nâng cấp tất cả"
-
-#~ msgid "Mark all obsolete packages"
-#~ msgstr "Mark all obsolete packages"
-
-#~ msgid "Mark Obsolete"
-#~ msgstr "Mark Obsolete"
-
-#~ msgid "Execute all scheduled actions in current transaction"
-#~ msgstr "Thực hiện các hành động được lập lịch trong phiên làm việc hiện tại"
-
-#~ msgid "Execute"
-#~ msgstr "Thực hiện"
-
-#~ msgid "_Edit"
-#~ msgstr "_Hiệu chỉnh"
-
-#~ msgid "Unmark All"
-#~ msgstr "Không đánh dấu tất cả"
-
-#~ msgid "Preferences"
-#~ msgstr "Tuỳ chỉnh"
-
-#~ msgid "_View"
-#~ msgstr "_View"
-
-#~ msgid "View all packages"
-#~ msgstr "View all packages"
-
-#~ msgid "All"
-#~ msgstr "All"
-
-#~ msgid "View available packages from current sources"
-#~ msgstr "View available packages from current sources"
-
-#~ msgid "Available"
-#~ msgstr "Available"
-
-#~ msgid "View installed packages"
-#~ msgstr "View installed packages"
-
-#~ msgid "View Marked Packages"
-#~ msgstr "View Marked Packages"
-
-#~ msgid "Marked"
-#~ msgstr "Marked"
-
-#~ msgid "View Upgradeable Packages"
-#~ msgstr "View Upgradeable Packages"
-
-#~ msgid "Upgradeable"
-#~ msgstr "Upgradeable"
-
-#~ msgid "P_ackage"
-#~ msgstr "G_ói phần mềm"
-
-#~ msgid "Unmark"
-#~ msgstr "Không đánh dấu"
-
-#~ msgid "Install"
-#~ msgstr "Cài đặt"
-
-#~ msgid "Downgrade"
-#~ msgstr "Trở về phiên bản trước"
-
-#~ msgid "Remove"
-#~ msgstr "Gỡ bỏ"
-
-#~ msgid "_Help"
-#~ msgstr "_Giúp đỡ"
-
-#~ msgid "Icon Legend"
-#~ msgstr "Chú thích biểu tượng"
-
-#~ msgid "View ChangeLogs"
-#~ msgstr "View ChangeLogs"
-
-#~ msgid "About"
-#~ msgstr "Giới thiệu"
-
-#~ msgid "Search"
-#~ msgstr "Tìm kiếm"
-
-#~ msgid "<b>Name:</b>"
-#~ msgstr "<b>Tên</b>"
-
-#~ msgid "<b>Status:</b>"
-#~ msgstr "<b>Trạng thái:</b>"
-
-#~ msgid "<b>Description:</b>"
-#~ msgstr "<b>Mô tả</b>"
-
-#~ msgid "<b>Version:</b>"
-#~ msgstr "<b>Phiên bản:</b>"
-
-#~ msgid "<b>Source:</b>"
-#~ msgstr "<b>Source:</b>"
-
-#~ msgid "<b>Priority:</b>"
-#~ msgstr "<b>Priority:</b>"
-
-#~ msgid "<b>Location:</b>"
-#~ msgstr "<b>Vị trí</b>"
-
-#~ msgid "<b>Installed Version</b>"
-#~ msgstr "<b>Phiên bản được cài đặt</b>"
-
-#~ msgid "Version:"
-#~ msgstr "Phiên bản:"
-
-#~ msgid "Installed Size:"
-#~ msgstr "Kích thước đã cài đặt:"
-
-#~ msgid "<b>Latest Available Version</b>"
-#~ msgstr "<b>Phiên bản hiện có mới nhất</b>"
-
-#~ msgid "Size:"
-#~ msgstr "Kích thước:"
-
-#~ msgid "Source:"
-#~ msgstr "Nguồn:"
-
-#~ msgid "Common"
-#~ msgstr "Tổng quát"
-
-#~ msgid "Dependencies"
-#~ msgstr "Danh sách phụ thuộc"
-
-#~ msgid "Changelog"
-#~ msgstr "Changelog"
-
-#~ msgid "Files"
-#~ msgstr "Files"
-
-#~ msgid ""
-#~ "<b>The following icons are used to indicate the current status of a "
-#~ "package:</b>"
-#~ msgstr ""
-#~ "<b>Các biểu tượng sau được sử dụng để nhận biết trạng thái hiện tại của "
-#~ "một gói dữ liệu:</b>"
-
-#~ msgid "Repositories changed"
-#~ msgstr "Repositories changed"
-
-#~ msgid "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
-#~ msgstr "<span size=\"large\" weight=\"bold\">Repositories changed</span>"
-
-#~ msgid ""
-#~ "You need to reload the package list from the sources you have listed.  Do "
-#~ "you want to do this now?"
-#~ msgstr ""
-#~ "You need to reload the package list from the sources you have listed.  Do "
-#~ "you want to do this now?"
-
-#~ msgid "Source failed"
-#~ msgstr "Source failed"
-
-#~ msgid ""
-#~ "This package source failed or is not available.  Do you want to disable "
-#~ "this source and continue anyway?"
-#~ msgstr ""
-#~ "This package source failed or is not available.  Do you want to disable "
-#~ "this source and continue anyway?"
-
-#~ msgid "Default"
-#~ msgstr "Default"
-
-#~ msgid "Official"
-#~ msgstr "Official"
-
-#~ msgid "Preferred"
-#~ msgstr "Preferred"
-
-#~ msgid "Custom"
-#~ msgstr "Custom"
-
-#~ msgid "Package Source"
-#~ msgstr "Package Source"
-
-#~ msgid "Summary"
-#~ msgstr "Tóm tắt"
-
-#~ msgid ""
-#~ "<span weight=\"bold\" size=\"large\">Apply the following changes?</span>"
-#~ msgstr ""
-#~ "<span weight=\"bold\" size=\"large\">Áp dụng những thay đổi sau?</span>"
-
-#~ msgid "This is a summary of the changes about to be performed."
-#~ msgstr "Đây là bản tóm tắt các thay đổi về hiệu năng."
-
-#~ msgid "Download packages only"
-#~ msgstr "Chỉ lấy dữ liệu gói phần mềm"
-
-#~ msgid "<b>Package and data storage</b>"
-#~ msgstr "<b>Kho gói phần mềm và dữ liệu</b>"
-
-#~ msgid "_Delete Cached Package Files"
-#~ msgstr "_Delete Cached Package Files"
-
-#~ msgid "Working Directory"
-#~ msgstr "Thư mục làm việc"
-
-#~ msgid "<b>Exclude List</b>"
-#~ msgstr "<b>Danh sách loại trừ</b>"
-
-#~ msgid "<span weight=\"bold\">Exclude Expression:</span>"
-#~ msgstr "<span weight=\"bold\">Biểu thức loại trừ:</span>"
-
-#~ msgid "Excludes"
-#~ msgstr "Danh sách loại trừ"
-
-#~ msgid "<b>Package Sources</b>"
-#~ msgstr "<b>Nguồn các gói phần mềm</b>"
-
-#~ msgid "Sources"
-#~ msgstr "Danh sách nguồn"
-
-#~ msgid "<b>GPG Keys</b>"
-#~ msgstr "<b>GPG Keys</b>"
-
-#~ msgid "Verification"
-#~ msgstr "Verification"
