@@ -3927,7 +3927,7 @@ void view_changelogs(GtkMenuItem *menuitem __unused__, gpointer user_data __unus
 
         size_t pls = (size_t)stat_buf.st_size;
 
-        char *changelog_data = (char *)mmap(0, pls, PROT_READ | PROT_WRITE, MAP_PRIVATE, fileno(changelog_f), 0);
+        char *changelog_data = (char *)mmap(0, pls, PROT_READ, MAP_PRIVATE, fileno(changelog_f), 0);
 
         fclose(changelog_f);
 
@@ -3936,9 +3936,7 @@ void view_changelogs(GtkMenuItem *menuitem __unused__, gpointer user_data __unus
             continue;
         }
 
-        changelog_data[pls - 1] = '\0';
-
-        gchar *changelog_txt = g_strdup(changelog_data);
+        gchar *changelog_txt = g_strndup(changelog_data, pls - 1);
 
         /* munmap now that we are done */
         if (munmap(changelog_data, pls) == -1) {
