@@ -1577,7 +1577,7 @@ int gtk_progress_callback(void *data, off_t dltotal, off_t dlnow, off_t ultotal 
 
     double percent = 1.0;
     if (dltotal != 0) {
-        percent = (double)((dlnow * 100) / dltotal) / 100;
+        percent = (double)dlnow / (double)dltotal;
     }
 
     struct slapt_progress_data *cb_data = (struct slapt_progress_data *)data;
