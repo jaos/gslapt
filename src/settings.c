@@ -162,11 +162,6 @@ int gslapt_write_rc(GslaptSettings *gslapt_settings)
         g_key_file_set_integer(keyfile, "transaction window", "width", gslapt_settings->tran_width);
         g_key_file_set_integer(keyfile, "transaction window", "height", gslapt_settings->tran_height);
 
-        g_key_file_set_integer(keyfile, "changelog window", "x", gslapt_settings->cl_x);
-        g_key_file_set_integer(keyfile, "changelog window", "y", gslapt_settings->cl_y);
-        g_key_file_set_integer(keyfile, "changelog window", "width", gslapt_settings->cl_width);
-        g_key_file_set_integer(keyfile, "changelog window", "height", gslapt_settings->cl_height);
-
         g_key_file_set_integer(keyfile, "progress window", "x", gslapt_settings->progress_x);
         g_key_file_set_integer(keyfile, "progress window", "y", gslapt_settings->progress_y);
         g_key_file_set_integer(keyfile, "progress window", "width", gslapt_settings->progress_width);
