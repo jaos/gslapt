@@ -80,7 +80,8 @@ int main(int argc, char *argv[])
 
     bool do_upgrade = false;
     gchar *rc = NULL;
-    int c, option_index;
+    int c = 0;
+    int option_index = 0;
     while ((c = getopt_long_only(argc, argv, "h", long_options, &option_index)) != -1) {
         switch (c) {
         case HELP_OPT:
