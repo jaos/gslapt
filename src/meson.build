@@ -10,4 +10,9 @@ sources = [
 ]
 
 configure_file(output: 'config.h', configuration: configuration)
-executable('gslapt', sources, dependencies : deps, install: true, install_dir: get_option('sbindir'), link_args: ['-Wl,--export-dynamic'])
+gslapt_bin = executable('gslapt', sources,
+  dependencies: deps,
+  install: true,
+  install_dir: get_option('sbindir'),
+  link_args: ['-Wl,--export-dynamic'],
+)
