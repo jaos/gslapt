@@ -1064,6 +1064,15 @@ static void fillin_pkg_details(const slapt_pkg_t *pkg)
 static GtkWidget *progress_window;
 GMutex progress_window_mutex;
 
+static void progress_window_close(void)
+{
+    if (progress_window == NULL)
+        return;
+
+    gtk_widget_destroy(progress_window);
+    progress_window = NULL;
+}
+
 struct _progress {
     double total_percent;
     double download_percent;
@@ -1198,8 +1207,7 @@ static int _get_package_data_cancel(gpointer data __unused__) {
     _cancelled = 0;
     G_UNLOCK(_cancelled);
     gslapt_clear_status();
-    gtk_widget_destroy(progress_window);
-    progress_window = NULL;
+    progress_window_close();
     unlock_toolbar_buttons();
     g_mutex_unlock(&progress_window_mutex);
 
@@ -1217,8 +1225,7 @@ static int _get_package_data_cancel(gpointer data __unused__) {
 static int _get_package_data_finish(gpointer data __unused__)
 {
     g_mutex_lock(&progress_window_mutex);
-    gtk_widget_destroy(progress_window);
-    progress_window = NULL;
+    progress_window_close();
     gslapt_clear_status();
     unlock_toolbar_buttons();
     rebuild_treeviews(NULL, TRUE);
@@ -1256,8 +1263,7 @@ static int _get_package_data_source_failed(gpointer data)
         /* this is only disabled for the current session since slapt_config_t_write() is not called */
         src->disabled = true;
     } else {
-        gtk_widget_destroy(progress_window);
-        progress_window = NULL;
+        progress_window_close();
         unlock_toolbar_buttons();
         gslapt_clear_status();
         _busy_leave();
@@ -1275,8 +1281,7 @@ static int _get_package_data_source_verification_failed(gpointer data)
     g_mutex_lock(&progress_window_mutex);
     char *src_url = data;
     gslapt_clear_status();
-    gtk_widget_destroy(progress_window);
-    progress_window = NULL;
+    progress_window_close();
     unlock_toolbar_buttons();
     notify((gchar *)_("GPG Key verification failed"), src_url);
     free(src_url);
@@ -2147,8 +2152,7 @@ static int _download_packages_cancel(gpointer data __unused__)
     _cancelled = 0;
     G_UNLOCK(_cancelled);
 
-    gtk_widget_destroy(progress_window);
-    progress_window = NULL;
+    progress_window_close();
     gslapt_clear_status();
 
     _progress_set_total_percent(0.0);
@@ -2277,6 +2281,17 @@ char *download_packages(void)
 static GtkWidget *pkgtools_progress_window;
 GMutex pkgtools_progress_window_mutex;
 
+/* see progress_window_close(): the pkgtools window has the same one-per
+ * workflow teardown rule (_install_packages_failed/complete both run) */
+static void pkgtools_progress_window_close(void)
+{
+    if (pkgtools_progress_window == NULL)
+        return;
+
+    gtk_widget_destroy(pkgtools_progress_window);
+    pkgtools_progress_window = NULL;
+}
+
 struct _pkgtools_status {
     double total_percent;
     char *desc;
@@ -2398,7 +2413,7 @@ static int _install_packages_failed(gpointer data __unused__)
 {
     g_mutex_lock(&pkgtools_progress_window_mutex);
     gslapt_clear_status();
-    gtk_widget_destroy(pkgtools_progress_window);
+    pkgtools_progress_window_close();
     g_mutex_unlock(&pkgtools_progress_window_mutex);
 
     _pkgtools_status_set_desc(NULL);
@@ -2412,8 +2427,7 @@ static int _install_packages_complete(gpointer data __unused__)
 {
     g_mutex_lock(&pkgtools_progress_window_mutex);
     gslapt_clear_status();
-    gtk_widget_destroy(pkgtools_progress_window);
-    pkgtools_progress_window = NULL;
+    pkgtools_progress_window_close();
     g_mutex_unlock(&pkgtools_progress_window_mutex);
 
     _pkgtools_status_set_desc(NULL);
@@ -3742,24 +3756,30 @@ static int _get_gpg_key_init(gpointer data __unused__)
 
 static int _get_gpg_key_error(gpointer data __unused__)
 {
-    gtk_widget_destroy(progress_window);
-    progress_window = NULL;
+    g_mutex_lock(&progress_window_mutex);
+    progress_window_close();
+    g_mutex_unlock(&progress_window_mutex);
+
     notify(_("Import"), _("No key found"));
     _busy_leave();
     return FALSE;
 }
 static int _get_gpg_key_cancelled(gpointer data __unused__)
 {
-    gtk_widget_destroy(progress_window);
-    progress_window = NULL;
+    g_mutex_lock(&progress_window_mutex);
+    progress_window_close();
+    g_mutex_unlock(&progress_window_mutex);
+
     _busy_leave();
     return FALSE;
 }
 static int _get_gpg_key_complete(gpointer data)
 {
     slapt_code_t result = (slapt_code_t)data;
-    gtk_widget_destroy(progress_window);
-    progress_window = NULL;
+    g_mutex_lock(&progress_window_mutex);
+    progress_window_close();
+    g_mutex_unlock(&progress_window_mutex);
+
     notify(_("Import"), slapt_strerror(result));
     _busy_leave();
     return FALSE;
