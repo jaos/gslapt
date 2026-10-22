@@ -1,5 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# This file is put in the public domain.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the gslapt package.
 #
 # Translators:
 # Sebastian Jauch <stellarboy653-minislack@yahoo.de>, 2005
@@ -7,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-12 22:34-0400\n"
+"POT-Creation-Date: 2026-10-21 20:21-0400\n"
 "PO-Revision-Date: 2012-09-17 21:52+0000\n"
 "Last-Translator: Sebastian Jauch <stellarboy653-minislack@yahoo.de>, 2005\n"
 "Language-Team: German (http://app.transifex.com/jaos/slapt-get/language/"
@@ -36,9 +37,8 @@ msgstr ""
 msgid "Error"
 msgstr "Fehler"
 
-#, fuzzy
 msgid "Already in progress"
-msgstr "Gesamt-Fortschritt"
+msgstr ""
 
 msgid "Upgrade"
 msgstr "Aktualisierung"
@@ -263,9 +263,8 @@ msgstr "Installiere..."
 msgid "Upgrading..."
 msgstr "Aktualisiere..."
 
-#, fuzzy
 msgid "Invalid working directory"
-msgstr "Arbeitsverzeichnis"
+msgstr ""
 
 msgid "Failed to commit preferences"
 msgstr "Optionen nicht angewandt"
@@ -570,98 +569,167 @@ msgstr "Gslapt-Paketverwaltung"
 msgid "Install, remove and upgrade software packages"
 msgstr "Software-Pakete installieren, entfernen und aktualisieren"
 
-#~ msgid ": Depends: "
-#~ msgstr ": Erfordert: "
+msgid "Academic"
+msgstr ""
 
-#~ msgid "Base"
-#~ msgstr "Basis"
+msgid "Accessibility"
+msgstr ""
 
-#~ msgid "Applications"
-#~ msgstr "Anwendungen"
+#, fuzzy
+msgid "Applications"
+msgstr "Ort"
 
-#~ msgid "Development Tools"
-#~ msgstr "Entwicklungs-Werkzeuge"
+msgid "Audio"
+msgstr ""
 
-#~ msgid "GNU Emacs"
-#~ msgstr "GNU Emacs"
+msgid "Base"
+msgstr ""
 
-#~ msgid "Documentation"
-#~ msgstr "Dokumentation"
+msgid "BSD Console games"
+msgstr ""
 
-#~ msgid "GNOME"
-#~ msgstr "GNOME"
+msgid "Business"
+msgstr ""
 
-#~ msgid "Linux kernel"
-#~ msgstr "Linux Kernel"
+msgid "Desktop"
+msgstr ""
 
-#~ msgid "KDE"
-#~ msgstr "KDE"
+msgid "Development"
+msgstr ""
 
-#~ msgid "KDE Internationalization"
-#~ msgstr "KDE Lokalisierungen"
+msgid "Development Tools"
+msgstr ""
 
-#~ msgid "Libraries"
-#~ msgstr "Bibliotheken"
+#, fuzzy
+msgid "Documentation"
+msgstr "Ort"
 
-#~ msgid "Networking"
-#~ msgstr "Netzwerk"
+msgid "Games"
+msgstr ""
 
-#~ msgid "teTeX"
-#~ msgstr "teTeX"
+msgid "GIS"
+msgstr ""
 
-#~ msgid "TCL"
-#~ msgstr "TCL"
+msgid "GNOME"
+msgstr ""
 
-#~ msgid "X Window System"
-#~ msgstr "X Window System"
+msgid "GNU Emacs"
+msgstr ""
 
-#~ msgid "X Applications"
-#~ msgstr "X Anwendungen"
+msgid "Graphics"
+msgstr ""
 
-#~ msgid "BSD Console games"
-#~ msgstr "BSD Konsolen-Spiele"
+msgid "GSB Accessibility"
+msgstr ""
 
-#~ msgid "Patches"
-#~ msgstr "Patche"
+msgid "GSB Administration"
+msgstr ""
 
-#~ msgid "GSB Base"
-#~ msgstr "GSB Basis"
+msgid "GSB Applications"
+msgstr ""
 
-#~ msgid "GSB Accessibility"
-#~ msgstr "GSB Zugangs-Hilfen"
+msgid "GSB Base"
+msgstr ""
 
-#~ msgid "GSB Administration"
-#~ msgstr "GSB Administration"
+msgid "GSB Compiz Fusion"
+msgstr ""
 
-#~ msgid "GSB Applications"
-#~ msgstr "GSB Anwendungen"
+msgid "GSB Development"
+msgstr ""
 
-#~ msgid "GSB Compiz Fusion"
-#~ msgstr "GSB Compiz Fusion"
+msgid "GSB Libraries"
+msgstr ""
 
-#~ msgid "GSB Development"
-#~ msgstr "GSB Entwicklung"
+msgid "GSB Mono"
+msgstr ""
 
-#~ msgid "GSB Office"
-#~ msgstr "GSB Büro-Anwendungen"
+#, fuzzy
+msgid "GSB Networking"
+msgstr "arbeite"
 
-#~ msgid "GSB Libraries"
-#~ msgstr "GSB Bibliotheken"
+msgid "GSB Office"
+msgstr ""
 
-#~ msgid "GSB Mono"
-#~ msgstr "GSB Mono"
+msgid "GSB OpenOffice.org"
+msgstr ""
 
-#~ msgid "GSB Networking"
-#~ msgstr "GSB Netzwerk"
+msgid "GSB Themes"
+msgstr ""
 
-#~ msgid "GSB OpenOffice.org"
-#~ msgstr "GSB OpenOffice.org"
+msgid "HAM Radio"
+msgstr ""
 
-#~ msgid "GSB Themes"
-#~ msgstr "GSB Themen"
+msgid "Haskell"
+msgstr ""
 
-#~ msgid "Games"
-#~ msgstr "Spiele"
+msgid "KDE"
+msgstr ""
 
-#~ msgid "Localization"
-#~ msgstr "Localisierung"
+msgid "KDE Internationalization"
+msgstr ""
+
+msgid "Libraries"
+msgstr ""
+
+msgid "Linux kernel"
+msgstr ""
+
+#, fuzzy
+msgid "Localization"
+msgstr "Ort"
+
+msgid "LXDE"
+msgstr ""
+
+msgid "MATE"
+msgstr ""
+
+msgid "Miscellaneous"
+msgstr ""
+
+msgid "Multimedia"
+msgstr ""
+
+msgid "Network"
+msgstr ""
+
+#, fuzzy
+msgid "Networking"
+msgstr "arbeite"
+
+#, fuzzy
+msgid "Office"
+msgstr "Offiziell"
+
+msgid "Patches"
+msgstr ""
+
+msgid "Perl"
+msgstr ""
+
+msgid "Python"
+msgstr ""
+
+msgid "Ruby"
+msgstr ""
+
+msgid "Slackware Extra"
+msgstr ""
+
+msgid "System"
+msgstr ""
+
+msgid "TCL"
+msgstr ""
+
+msgid "teTeX"
+msgstr ""
+
+msgid "X Applications"
+msgstr ""
+
+msgid "Xfce"
+msgstr ""
+
+msgid "X Window System"
+msgstr ""

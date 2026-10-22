@@ -1,5 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# This file is put in the public domain.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the gslapt package.
 #
 # Translators:
 # Panwar108 <caspian7pena@gmail.com>, 2020
@@ -7,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-12 22:34-0400\n"
+"POT-Creation-Date: 2026-10-21 20:21-0400\n"
 "PO-Revision-Date: 2012-09-17 21:52+0000\n"
 "Last-Translator: Panwar108 <caspian7pena@gmail.com>, 2020\n"
 "Language-Team: Hindi (India) (http://app.transifex.com/jaos/slapt-get/"
@@ -36,9 +37,8 @@ msgstr ""
 msgid "Error"
 msgstr "त्रुटि"
 
-#, fuzzy
 msgid "Already in progress"
-msgstr "कुल प्रगति"
+msgstr ""
 
 msgid "Upgrade"
 msgstr "अपग्रेड"
@@ -260,9 +260,8 @@ msgstr "इंस्टॉल हो रहा है ..."
 msgid "Upgrading..."
 msgstr "अपग्रेड हो रहा है ..."
 
-#, fuzzy
 msgid "Invalid working directory"
-msgstr "कार्यरत डायरेक्टरी"
+msgstr ""
 
 msgid "Failed to commit preferences"
 msgstr "सेटिंग्स संचित करने में विफल"
@@ -561,104 +560,167 @@ msgstr "GSlapt पैकेज प्रबंधक"
 msgid "Install, remove and upgrade software packages"
 msgstr "सॉफ्टवेयर पैकेज इंस्टॉल करें, हटाएँ व अपग्रेड करें"
 
-#~ msgid ": Depends: "
-#~ msgstr ": आश्रित पैकेज :"
+msgid "Academic"
+msgstr ""
 
-#~ msgid "Run Gslapt as root"
-#~ msgstr "GSlapt रुट उपयोक्ता के तौर पर उपयोग करें"
+msgid "Accessibility"
+msgstr ""
 
-#~ msgid "Authentication is required to run Gslapt"
-#~ msgstr "GSlapt उपयोग करने हेतु पुष्टिकरण आवश्यक"
+#, fuzzy
+msgid "Applications"
+msgstr "स्थान"
 
-#~ msgid "Base"
-#~ msgstr "बेस"
+msgid "Audio"
+msgstr ""
 
-#~ msgid "Applications"
-#~ msgstr "अनुप्रयोग"
+msgid "Base"
+msgstr ""
 
-#~ msgid "Development Tools"
-#~ msgstr "सॉफ्टवेयर विकास साधन"
+msgid "BSD Console games"
+msgstr ""
 
-#~ msgid "GNU Emacs"
-#~ msgstr "GNU Emacs"
+msgid "Business"
+msgstr ""
 
-#~ msgid "Documentation"
-#~ msgstr "प्रलेखन"
+msgid "Desktop"
+msgstr ""
 
-#~ msgid "GNOME"
-#~ msgstr "गनोम"
+msgid "Development"
+msgstr ""
 
-#~ msgid "Linux kernel"
-#~ msgstr "लिनक्स कर्नेल"
+msgid "Development Tools"
+msgstr ""
 
-#~ msgid "KDE"
-#~ msgstr "केडीेई"
+#, fuzzy
+msgid "Documentation"
+msgstr "स्थान"
 
-#~ msgid "KDE Internationalization"
-#~ msgstr "केडीेई अंतर्राष्ट्रीयकरण"
+msgid "Games"
+msgstr ""
 
-#~ msgid "Libraries"
-#~ msgstr "सॉफ्टवेयर लाइब्रेरी"
+msgid "GIS"
+msgstr ""
 
-#~ msgid "Networking"
-#~ msgstr "नेटवर्क"
+msgid "GNOME"
+msgstr ""
 
-#~ msgid "teTeX"
-#~ msgstr "teTeX"
+msgid "GNU Emacs"
+msgstr ""
 
-#~ msgid "TCL"
-#~ msgstr "TCL"
+msgid "Graphics"
+msgstr ""
 
-#~ msgid "X Window System"
-#~ msgstr "एक्स विंडो सिस्टम"
+msgid "GSB Accessibility"
+msgstr ""
 
-#~ msgid "X Applications"
-#~ msgstr "एक्स अनुप्रयोग"
+msgid "GSB Administration"
+msgstr ""
 
-#~ msgid "BSD Console games"
-#~ msgstr "बीएसडी कंसोल खेल"
+msgid "GSB Applications"
+msgstr ""
 
-#~ msgid "Patches"
-#~ msgstr "पैच"
+msgid "GSB Base"
+msgstr ""
 
-#~ msgid "GSB Base"
-#~ msgstr "जीएसबी बेस"
+msgid "GSB Compiz Fusion"
+msgstr ""
 
-#~ msgid "GSB Accessibility"
-#~ msgstr "जीएसबी अभिगम्यता"
+msgid "GSB Development"
+msgstr ""
 
-#~ msgid "GSB Administration"
-#~ msgstr "जीएसबी प्रबंधन"
+msgid "GSB Libraries"
+msgstr ""
 
-#~ msgid "GSB Applications"
-#~ msgstr "जीएसबी अनुप्रयोग"
+msgid "GSB Mono"
+msgstr ""
 
-#~ msgid "GSB Compiz Fusion"
-#~ msgstr "जीएसबी कोम्पिज़ फ्यूज़न"
+#, fuzzy
+msgid "GSB Networking"
+msgstr "कार्यरत"
 
-#~ msgid "GSB Development"
-#~ msgstr "जीएसबी सॉफ्टवेयर विकास"
+msgid "GSB Office"
+msgstr ""
 
-#~ msgid "GSB Office"
-#~ msgstr "जीएसबी ऑफिस"
+msgid "GSB OpenOffice.org"
+msgstr ""
 
-#~ msgid "GSB Libraries"
-#~ msgstr "जीएसबी सॉफ्टवेयर लाइब्रेरी"
+msgid "GSB Themes"
+msgstr ""
 
-#~ msgid "GSB Mono"
-#~ msgstr "जीएसबी मोनो"
+msgid "HAM Radio"
+msgstr ""
 
-#~ msgid "GSB Networking"
-#~ msgstr "जीएसबी नेटवर्क"
+msgid "Haskell"
+msgstr ""
 
-#~ msgid "GSB OpenOffice.org"
-#~ msgstr "जीएसबी OpenOffice.org"
+msgid "KDE"
+msgstr ""
 
-#~ msgid "GSB Themes"
-#~ msgstr "जीएसबी थीम"
+msgid "KDE Internationalization"
+msgstr ""
 
-#~ msgid "Games"
-#~ msgstr "खेल"
+msgid "Libraries"
+msgstr ""
 
-#~ msgid "Localization"
-#~ msgstr "स्थानीयकरण"
+msgid "Linux kernel"
+msgstr ""
+
+#, fuzzy
+msgid "Localization"
+msgstr "स्थान"
+
+msgid "LXDE"
+msgstr ""
+
+msgid "MATE"
+msgstr ""
+
+msgid "Miscellaneous"
+msgstr ""
+
+msgid "Multimedia"
+msgstr ""
+
+msgid "Network"
+msgstr ""
+
+#, fuzzy
+msgid "Networking"
+msgstr "कार्यरत"
+
+#, fuzzy
+msgid "Office"
+msgstr "आधिकारिक"
+
+msgid "Patches"
+msgstr ""
+
+msgid "Perl"
+msgstr ""
+
+msgid "Python"
+msgstr ""
+
+msgid "Ruby"
+msgstr ""
+
+msgid "Slackware Extra"
+msgstr ""
+
+msgid "System"
+msgstr ""
+
+msgid "TCL"
+msgstr ""
+
+msgid "teTeX"
+msgstr ""
+
+msgid "X Applications"
+msgstr ""
+
+msgid "Xfce"
+msgstr ""
+
+msgid "X Window System"
+msgstr ""

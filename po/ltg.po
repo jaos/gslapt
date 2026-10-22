@@ -1,18 +1,23 @@
 # SOME DESCRIPTIVE TITLE.
-# This file is put in the public domain.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the gslapt package.
 #
+# Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.5.0\n"
+"Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-12 22:34-0400\n"
-"PO-Revision-Date: 2009-07-09 21:28+0200\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: \n"
+"POT-Creation-Date: 2026-10-21 20:21-0400\n"
+"PO-Revision-Date: 2012-09-17 21:52+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Latgalian (http://app.transifex.com/jaos/slapt-get/language/"
+"ltg/)\n"
+"Language: ltg\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
+"2);\n"
 
 #, c-format
 msgid "gslapt: unknown argument '%s'\n"
@@ -32,9 +37,8 @@ msgstr ""
 msgid "Error"
 msgstr "Kļūda"
 
-#, fuzzy
 msgid "Already in progress"
-msgstr "kūpejīs progress"
+msgstr ""
 
 msgid "Upgrade"
 msgstr "Atjaunynōț"
@@ -180,30 +184,35 @@ msgid "%d upgraded, "
 msgid_plural "%d upgraded, "
 msgstr[0] "%d atjaunynōta, "
 msgstr[1] "%d atjaunynōtys, "
+msgstr[2] "%d atjaunynōtys, "
 
 #, c-format
 msgid "%d reinstalled, "
 msgid_plural "%d reinstalled, "
 msgstr[0] "%d pōrinstaleita, "
 msgstr[1] "%d pōrinstaleitys, "
+msgstr[2] "%d pōrinstaleitys, "
 
 #, c-format
 msgid "%d newly installed, "
 msgid_plural "%d newly installed, "
 msgstr[0] "%d svaigi instaleita, "
 msgstr[1] "%d svaigi instaleitys, "
+msgstr[2] "%d svaigi instaleitys, "
 
 #, c-format
 msgid "%d to remove "
 msgid_plural "%d to remove "
 msgstr[0] "%d nūjimta "
 msgstr[1] "%d nūjimtys "
+msgstr[2] "%d nūjimtys "
 
 #, c-format
 msgid "and %d not upgraded."
 msgid_plural "and %d not upgraded."
 msgstr[0] "i %d nav atjaunynōta."
 msgstr[1] "i %d nav atjaunynōtys."
+msgstr[2] "i %d nav atjaunynōtys."
 
 msgid ""
 "<span weight=\"bold\" size=\"large\">You don't have enough free space</span>"
@@ -257,9 +266,8 @@ msgstr "Instaleišona..."
 msgid "Upgrading..."
 msgstr "Atjaunynoj..."
 
-#, fuzzy
 msgid "Invalid working directory"
-msgstr "Dorba mapá"
+msgstr ""
 
 msgid "Failed to commit preferences"
 msgstr "Navar izmainäț īstatiejumus"
@@ -561,86 +569,167 @@ msgstr "Gslapt paku menedžers"
 msgid "Install, remove and upgrade software packages"
 msgstr "Instalej, nūjem i atjaunynoj pakys"
 
-#~ msgid ": Depends: "
-#~ msgstr ": Vajdzeigs: "
+msgid "Academic"
+msgstr ""
 
-#~ msgid "Run Gslapt as root"
-#~ msgstr "Palaisț Gslapt nu root"
+msgid "Accessibility"
+msgstr ""
 
-#~ msgid "Authentication is required to run Gslapt"
-#~ msgstr "Lai palaistu Gslapt vajdzeiga pīzateikšona"
+#, fuzzy
+msgid "Applications"
+msgstr "Kategoreja"
 
-#~ msgid "Base"
-#~ msgstr "Pamatprogramys"
+msgid "Audio"
+msgstr ""
 
-#~ msgid "Applications"
-#~ msgstr "Programys"
+msgid "Base"
+msgstr ""
 
-#~ msgid "Development Tools"
-#~ msgstr "Programeišonys reiki"
+msgid "BSD Console games"
+msgstr ""
 
-#~ msgid "Documentation"
-#~ msgstr "Dokunentaceja"
+msgid "Business"
+msgstr ""
 
-#~ msgid "Libraries"
-#~ msgstr "Bibliotekys"
+msgid "Desktop"
+msgstr ""
 
-#~ msgid "Networking"
-#~ msgstr "Datorteikls"
+msgid "Development"
+msgstr ""
 
-#~ msgid "X Window System"
-#~ msgstr "X lūgu sistema"
+msgid "Development Tools"
+msgstr ""
 
-#~ msgid "X Applications"
-#~ msgstr "X programys"
+#, fuzzy
+msgid "Documentation"
+msgstr "Kategoreja"
 
-#~ msgid "Patches"
-#~ msgstr "Īlōpi"
+msgid "Games"
+msgstr ""
 
-#~ msgid "GSB Base"
-#~ msgstr "GSB pamatprogramys"
+msgid "GIS"
+msgstr ""
 
-#~ msgid "GSB Administration"
-#~ msgstr "GSB administreišona"
+msgid "GNOME"
+msgstr ""
 
-#~ msgid "GSB Applications"
-#~ msgstr "GSB programys"
+msgid "GNU Emacs"
+msgstr ""
 
-#~ msgid "GSB Development"
-#~ msgstr "GSB programeišona"
+msgid "Graphics"
+msgstr ""
 
-#~ msgid "GSB Office"
-#~ msgstr "GSB birojs"
+msgid "GSB Accessibility"
+msgstr ""
 
-#~ msgid "GSB Libraries"
-#~ msgstr "GSB bibliotekys"
+msgid "GSB Administration"
+msgstr ""
 
-#~ msgid "GSB Networking"
-#~ msgstr "GSB datorteikls"
+msgid "GSB Applications"
+msgstr ""
 
-#~ msgid "Games"
-#~ msgstr "Spielis"
+msgid "GSB Base"
+msgstr ""
 
-#~ msgid "Localization"
-#~ msgstr "Lokalizaceja"
+msgid "GSB Compiz Fusion"
+msgstr ""
 
-#~ msgid "Business"
-#~ msgstr "Bizness"
+msgid "GSB Development"
+msgstr ""
 
-#~ msgid "Desktop"
-#~ msgstr "Dorbgolds"
+msgid "GSB Libraries"
+msgstr ""
 
-#~ msgid "Development"
-#~ msgstr "Programeišona"
+msgid "GSB Mono"
+msgstr ""
 
-#~ msgid "Graphics"
-#~ msgstr "Grafika"
+#, fuzzy
+msgid "GSB Networking"
+msgstr "vyss nūteik"
 
-#~ msgid "Network"
-#~ msgstr "Teikls"
+msgid "GSB Office"
+msgstr ""
 
-#~ msgid "Office"
-#~ msgstr "Birojs"
+msgid "GSB OpenOffice.org"
+msgstr ""
 
-#~ msgid "System"
-#~ msgstr "Sistema"
+msgid "GSB Themes"
+msgstr ""
+
+msgid "HAM Radio"
+msgstr ""
+
+msgid "Haskell"
+msgstr ""
+
+msgid "KDE"
+msgstr ""
+
+msgid "KDE Internationalization"
+msgstr ""
+
+msgid "Libraries"
+msgstr ""
+
+msgid "Linux kernel"
+msgstr ""
+
+#, fuzzy
+msgid "Localization"
+msgstr "Kategoreja"
+
+msgid "LXDE"
+msgstr ""
+
+msgid "MATE"
+msgstr ""
+
+msgid "Miscellaneous"
+msgstr ""
+
+msgid "Multimedia"
+msgstr ""
+
+msgid "Network"
+msgstr ""
+
+#, fuzzy
+msgid "Networking"
+msgstr "vyss nūteik"
+
+#, fuzzy
+msgid "Office"
+msgstr "Oficialōs"
+
+msgid "Patches"
+msgstr ""
+
+msgid "Perl"
+msgstr ""
+
+msgid "Python"
+msgstr ""
+
+msgid "Ruby"
+msgstr ""
+
+msgid "Slackware Extra"
+msgstr ""
+
+msgid "System"
+msgstr ""
+
+msgid "TCL"
+msgstr ""
+
+msgid "teTeX"
+msgstr ""
+
+msgid "X Applications"
+msgstr ""
+
+msgid "Xfce"
+msgstr ""
+
+msgid "X Window System"
+msgstr ""

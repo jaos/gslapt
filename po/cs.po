@@ -1,18 +1,20 @@
 # SOME DESCRIPTIVE TITLE.
-# This file is put in the public domain.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the gslapt package.
 #
 # Translators:
 # Appukonrad <appukonrad@gmail.com>, 2013
+# Appukonrad <appukonrad@gmail.com>, 2013
 # Appukonrad <appukonrad@gmail.com>, 2013-2014
 # Appukonrad <appukonrad@gmail.com>, 2013
-# Michal Várady <miko.vaji@gmail.com>, 2015
+# Michal Várady <miko.vaji@gmail.com>, 2015,2026
 msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-12 22:34-0400\n"
+"POT-Creation-Date: 2026-10-21 20:21-0400\n"
 "PO-Revision-Date: 2012-09-17 21:52+0000\n"
-"Last-Translator: Michal Várady <miko.vaji@gmail.com>, 2015\n"
+"Last-Translator: Michal Várady <miko.vaji@gmail.com>, 2015,2026\n"
 "Language-Team: Czech (http://app.transifex.com/jaos/slapt-get/language/cs/)\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
@@ -23,25 +25,24 @@ msgstr ""
 
 #, c-format
 msgid "gslapt: unknown argument '%s'\n"
-msgstr ""
+msgstr "gslapt: neznámý argument '%s'\n"
 
 msgid "Ready"
 msgstr "Připraveno"
 
 #, c-format
 msgid "The following packages were not found: %s\n"
-msgstr ""
+msgstr "Nebyly nalezeny tyto balíčky: %s\n"
 
 #, c-format
 msgid "The following packages are not installed: %s\n"
-msgstr ""
+msgstr "Tyto balíčky nejsou nainstalovány: %s\n"
 
 msgid "Error"
 msgstr "Chyba"
 
-#, fuzzy
 msgid "Already in progress"
-msgstr "celkový průběh"
+msgstr "Již probíhá"
 
 msgid "Upgrade"
 msgstr "Upgradovat"
@@ -277,9 +278,8 @@ msgstr "Instalace..."
 msgid "Upgrading..."
 msgstr "Upgradování..."
 
-#, fuzzy
 msgid "Invalid working directory"
-msgstr "Pracovní adresář"
+msgstr "Neplatný pracovní adresář"
 
 msgid "Failed to commit preferences"
 msgstr "Potvrzení předvoleb se nezdařilo"
@@ -583,98 +583,167 @@ msgstr "Správce balíčků Gslapt"
 msgid "Install, remove and upgrade software packages"
 msgstr "Instaluje, odebírá a upgraduje softwarové balíčky"
 
-#~ msgid ": Depends: "
-#~ msgstr ": Závisí na:"
+msgid "Academic"
+msgstr ""
 
-#~ msgid "Base"
-#~ msgstr "Základ"
+msgid "Accessibility"
+msgstr ""
 
-#~ msgid "Applications"
-#~ msgstr "Aplikace"
+#, fuzzy
+msgid "Applications"
+msgstr "Umístění"
 
-#~ msgid "Development Tools"
-#~ msgstr "Vývojové nástroje"
+msgid "Audio"
+msgstr ""
 
-#~ msgid "GNU Emacs"
-#~ msgstr "GNU Emacs"
+msgid "Base"
+msgstr ""
 
-#~ msgid "Documentation"
-#~ msgstr "Dokumentace"
+msgid "BSD Console games"
+msgstr ""
 
-#~ msgid "GNOME"
-#~ msgstr "GNOME"
+msgid "Business"
+msgstr ""
 
-#~ msgid "Linux kernel"
-#~ msgstr "Linuxové jádro"
+msgid "Desktop"
+msgstr ""
 
-#~ msgid "KDE"
-#~ msgstr "KDE"
+msgid "Development"
+msgstr ""
 
-#~ msgid "KDE Internationalization"
-#~ msgstr "Mezinárodní prostředí pro KDE"
+msgid "Development Tools"
+msgstr ""
 
-#~ msgid "Libraries"
-#~ msgstr "Knihovny"
+#, fuzzy
+msgid "Documentation"
+msgstr "Umístění"
 
-#~ msgid "Networking"
-#~ msgstr "Sítě"
+msgid "Games"
+msgstr ""
 
-#~ msgid "teTeX"
-#~ msgstr "teTeX"
+msgid "GIS"
+msgstr ""
 
-#~ msgid "TCL"
-#~ msgstr "TCL"
+msgid "GNOME"
+msgstr ""
 
-#~ msgid "X Window System"
-#~ msgstr "X Window Systém"
+msgid "GNU Emacs"
+msgstr ""
 
-#~ msgid "X Applications"
-#~ msgstr "X aplikace"
+msgid "Graphics"
+msgstr ""
 
-#~ msgid "BSD Console games"
-#~ msgstr "BSD konzolové hry"
+msgid "GSB Accessibility"
+msgstr ""
 
-#~ msgid "Patches"
-#~ msgstr "Patche"
+msgid "GSB Administration"
+msgstr ""
 
-#~ msgid "GSB Base"
-#~ msgstr "GSB Základ"
+msgid "GSB Applications"
+msgstr ""
 
-#~ msgid "GSB Accessibility"
-#~ msgstr "GSB Přístupnost"
+msgid "GSB Base"
+msgstr ""
 
-#~ msgid "GSB Administration"
-#~ msgstr "GSB Administrace"
+msgid "GSB Compiz Fusion"
+msgstr ""
 
-#~ msgid "GSB Applications"
-#~ msgstr "GSB Aplikace"
+msgid "GSB Development"
+msgstr ""
 
-#~ msgid "GSB Compiz Fusion"
-#~ msgstr "GSB Compiz Fusion"
+msgid "GSB Libraries"
+msgstr ""
 
-#~ msgid "GSB Development"
-#~ msgstr "GSB Vývoj"
+msgid "GSB Mono"
+msgstr ""
 
-#~ msgid "GSB Office"
-#~ msgstr "GSB Kancelář"
+#, fuzzy
+msgid "GSB Networking"
+msgstr "zpracování"
 
-#~ msgid "GSB Libraries"
-#~ msgstr "GSB Knihovny"
+msgid "GSB Office"
+msgstr ""
 
-#~ msgid "GSB Mono"
-#~ msgstr "GSB Mono"
+msgid "GSB OpenOffice.org"
+msgstr ""
 
-#~ msgid "GSB Networking"
-#~ msgstr "GSB Sítě"
+msgid "GSB Themes"
+msgstr ""
 
-#~ msgid "GSB OpenOffice.org"
-#~ msgstr "GSB OpenOffice.org"
+msgid "HAM Radio"
+msgstr ""
 
-#~ msgid "GSB Themes"
-#~ msgstr "GSB Témata"
+msgid "Haskell"
+msgstr ""
 
-#~ msgid "Games"
-#~ msgstr "Hry"
+msgid "KDE"
+msgstr ""
 
-#~ msgid "Localization"
-#~ msgstr "Lokalizace"
+msgid "KDE Internationalization"
+msgstr ""
+
+msgid "Libraries"
+msgstr ""
+
+msgid "Linux kernel"
+msgstr ""
+
+#, fuzzy
+msgid "Localization"
+msgstr "Umístění"
+
+msgid "LXDE"
+msgstr ""
+
+msgid "MATE"
+msgstr ""
+
+msgid "Miscellaneous"
+msgstr ""
+
+msgid "Multimedia"
+msgstr ""
+
+msgid "Network"
+msgstr ""
+
+#, fuzzy
+msgid "Networking"
+msgstr "zpracování"
+
+#, fuzzy
+msgid "Office"
+msgstr "Oficiální"
+
+msgid "Patches"
+msgstr ""
+
+msgid "Perl"
+msgstr ""
+
+msgid "Python"
+msgstr ""
+
+msgid "Ruby"
+msgstr ""
+
+msgid "Slackware Extra"
+msgstr ""
+
+msgid "System"
+msgstr ""
+
+msgid "TCL"
+msgstr ""
+
+msgid "teTeX"
+msgstr ""
+
+msgid "X Applications"
+msgstr ""
+
+msgid "Xfce"
+msgstr ""
+
+msgid "X Window System"
+msgstr ""

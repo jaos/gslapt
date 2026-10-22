@@ -1,13 +1,15 @@
 # SOME DESCRIPTIVE TITLE.
-# This file is put in the public domain.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the gslapt package.
 #
 # Translators:
+# Davidmp <medipas@gmail.com>, 2016,2019,2022
 # Davidmp <medipas@gmail.com>, 2016,2019,2022
 msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-12 22:34-0400\n"
+"POT-Creation-Date: 2026-10-21 20:21-0400\n"
 "PO-Revision-Date: 2012-09-17 21:52+0000\n"
 "Last-Translator: Davidmp <medipas@gmail.com>, 2016,2019,2022\n"
 "Language-Team: Catalan (http://app.transifex.com/jaos/slapt-get/language/"
@@ -36,9 +38,8 @@ msgstr ""
 msgid "Error"
 msgstr "Error"
 
-#, fuzzy
 msgid "Already in progress"
-msgstr "progrés total"
+msgstr ""
 
 msgid "Upgrade"
 msgstr "Actualitza"
@@ -266,9 +267,8 @@ msgstr "Instal·lant..."
 msgid "Upgrading..."
 msgstr "Actualitzant..."
 
-#, fuzzy
 msgid "Invalid working directory"
-msgstr "Directori de treball"
+msgstr ""
 
 msgid "Failed to commit preferences"
 msgstr "Ha fallat validar les preferències"
@@ -576,170 +576,167 @@ msgstr "Gestor de paquets Gslapt"
 msgid "Install, remove and upgrade software packages"
 msgstr "Instal·leu, actualitzeu i elimineu paquets de programari"
 
-#~ msgid ": Depends: "
-#~ msgstr ": Depèn: "
+msgid "Academic"
+msgstr ""
 
-#~ msgid "Run Gslapt as root"
-#~ msgstr "Executa Gslapt com a administrador"
+msgid "Accessibility"
+msgstr ""
 
-#~ msgid "Authentication is required to run Gslapt"
-#~ msgstr "Cal autenticació per executar Gslapt."
+#, fuzzy
+msgid "Applications"
+msgstr "Ubicació"
 
-#~ msgid "Base"
-#~ msgstr "Base"
+msgid "Audio"
+msgstr ""
 
-#~ msgid "Applications"
-#~ msgstr "Aplicacions"
+msgid "Base"
+msgstr ""
 
-#~ msgid "Development Tools"
-#~ msgstr "Eines de desenvolupament"
+msgid "BSD Console games"
+msgstr ""
 
-#~ msgid "GNU Emacs"
-#~ msgstr "GNU Emacs"
+msgid "Business"
+msgstr ""
 
-#~ msgid "Documentation"
-#~ msgstr "Documentació"
+msgid "Desktop"
+msgstr ""
 
-#~ msgid "GNOME"
-#~ msgstr "GNOME"
+msgid "Development"
+msgstr ""
 
-#~ msgid "Linux kernel"
-#~ msgstr "Nucli de Linux"
+msgid "Development Tools"
+msgstr ""
 
-#~ msgid "KDE"
-#~ msgstr "KDE"
+#, fuzzy
+msgid "Documentation"
+msgstr "Ubicació"
 
-#~ msgid "KDE Internationalization"
-#~ msgstr "Internacionalització del KDE"
+msgid "Games"
+msgstr ""
 
-#~ msgid "Libraries"
-#~ msgstr "Biblioteques"
+msgid "GIS"
+msgstr ""
 
-#~ msgid "Networking"
-#~ msgstr "Xarxa"
+msgid "GNOME"
+msgstr ""
 
-#~ msgid "teTeX"
-#~ msgstr "teTeX"
+msgid "GNU Emacs"
+msgstr ""
 
-#~ msgid "TCL"
-#~ msgstr "TCL"
+msgid "Graphics"
+msgstr ""
 
-#~ msgid "X Window System"
-#~ msgstr "Sistema de finestres X"
+msgid "GSB Accessibility"
+msgstr ""
 
-#~ msgid "X Applications"
-#~ msgstr "Aplicacions d'X"
+msgid "GSB Administration"
+msgstr ""
 
-#~ msgid "Xfce"
-#~ msgstr "Xfce"
+msgid "GSB Applications"
+msgstr ""
 
-#~ msgid "BSD Console games"
-#~ msgstr "Jocs de consola BSD"
+msgid "GSB Base"
+msgstr ""
 
-#~ msgid "Patches"
-#~ msgstr "Pedaços"
+msgid "GSB Compiz Fusion"
+msgstr ""
 
-#~ msgid "GSB Base"
-#~ msgstr "Base GSB"
+msgid "GSB Development"
+msgstr ""
 
-#~ msgid "GSB Accessibility"
-#~ msgstr "Accessibilitat GSB"
+msgid "GSB Libraries"
+msgstr ""
 
-#~ msgid "GSB Administration"
-#~ msgstr "Administració GSB"
+msgid "GSB Mono"
+msgstr ""
 
-#~ msgid "GSB Applications"
-#~ msgstr "Aplicacions GSB"
+#, fuzzy
+msgid "GSB Networking"
+msgstr "treballant"
 
-#~ msgid "GSB Compiz Fusion"
-#~ msgstr "Compiz Fusion GSB "
+msgid "GSB Office"
+msgstr ""
 
-#~ msgid "GSB Development"
-#~ msgstr "Desenvolupament GSB"
+msgid "GSB OpenOffice.org"
+msgstr ""
 
-#~ msgid "GSB Office"
-#~ msgstr "Oficina GSB"
+msgid "GSB Themes"
+msgstr ""
 
-#~ msgid "GSB Libraries"
-#~ msgstr "Biblioteques GSB"
+msgid "HAM Radio"
+msgstr ""
 
-#~ msgid "GSB Mono"
-#~ msgstr "Mono GSB"
+msgid "Haskell"
+msgstr ""
 
-#~ msgid "GSB Networking"
-#~ msgstr "Xarxa GSB"
+msgid "KDE"
+msgstr ""
 
-#~ msgid "GSB OpenOffice.org"
-#~ msgstr "OpenOffice.org GSB"
+msgid "KDE Internationalization"
+msgstr ""
 
-#~ msgid "GSB Themes"
-#~ msgstr "Temes GSB"
+msgid "Libraries"
+msgstr ""
 
-#~ msgid "Games"
-#~ msgstr "Jocs"
+msgid "Linux kernel"
+msgstr ""
 
-#~ msgid "Localization"
-#~ msgstr "Localització"
+#, fuzzy
+msgid "Localization"
+msgstr "Ubicació"
 
-#~ msgid "LXDE"
-#~ msgstr "LXDE"
+msgid "LXDE"
+msgstr ""
 
-#~ msgid "MATE"
-#~ msgstr "MATE"
+msgid "MATE"
+msgstr ""
 
-#~ msgid "Academic"
-#~ msgstr "Acadèmic"
+msgid "Miscellaneous"
+msgstr ""
 
-#~ msgid "Accessibility"
-#~ msgstr "Accessibilitat"
+msgid "Multimedia"
+msgstr ""
 
-#~ msgid "Audio"
-#~ msgstr "Àudio"
+msgid "Network"
+msgstr ""
 
-#~ msgid "Business"
-#~ msgstr "Negocis"
+#, fuzzy
+msgid "Networking"
+msgstr "treballant"
 
-#~ msgid "Desktop"
-#~ msgstr "Escriptori"
+#, fuzzy
+msgid "Office"
+msgstr "Oficial"
 
-#~ msgid "Development"
-#~ msgstr "Desenvolupament"
+msgid "Patches"
+msgstr ""
 
-#~ msgid "GIS"
-#~ msgstr "GIS"
+msgid "Perl"
+msgstr ""
 
-#~ msgid "Graphics"
-#~ msgstr "Gràfics"
+msgid "Python"
+msgstr ""
 
-#~ msgid "HAM Radio"
-#~ msgstr "Ràdio HAM"
+msgid "Ruby"
+msgstr ""
 
-#~ msgid "Haskell"
-#~ msgstr "Haskell"
+msgid "Slackware Extra"
+msgstr ""
 
-#~ msgid "Miscellaneous"
-#~ msgstr "Miscel·lània"
+msgid "System"
+msgstr ""
 
-#~ msgid "Multimedia"
-#~ msgstr "Multimèdia"
+msgid "TCL"
+msgstr ""
 
-#~ msgid "Network"
-#~ msgstr "Xarxa"
+msgid "teTeX"
+msgstr ""
 
-#~ msgid "Office"
-#~ msgstr "Oficina"
+msgid "X Applications"
+msgstr ""
 
-#~ msgid "Perl"
-#~ msgstr "Perl"
+msgid "Xfce"
+msgstr ""
 
-#~ msgid "Python"
-#~ msgstr "Python"
-
-#~ msgid "Ruby"
-#~ msgstr "Ruby"
-
-#~ msgid "System"
-#~ msgstr "Sistema"
-
-#~ msgid "Slackware Extra"
-#~ msgstr "Slackware extra"
+msgid "X Window System"
+msgstr ""

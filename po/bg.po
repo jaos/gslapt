@@ -1,18 +1,19 @@
 # SOME DESCRIPTIVE TITLE.
-# This file is put in the public domain.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the gslapt package.
 #
 # Translators:
 # Georgi Georgiev (RacerBG) <g.georgiev.shumen@gmail.com>, 2015,2020
+# Georgi Georgiev (RacerBG) <g.georgiev.shumen@gmail.com>, 2015,2020,2022
 # Georgi Georgiev (RacerBG) <g.georgiev.shumen@gmail.com>, 2022
 # Victor Keranov <victor_keranov@mail.bg>, 2006
 msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-12 22:34-0400\n"
+"POT-Creation-Date: 2026-10-21 20:21-0400\n"
 "PO-Revision-Date: 2012-09-17 21:52+0000\n"
-"Last-Translator: Georgi Georgiev (RacerBG) <g.georgiev.shumen@gmail.com>, "
-"2022\n"
+"Last-Translator: Victor Keranov <victor_keranov@mail.bg>, 2006\n"
 "Language-Team: Bulgarian (http://app.transifex.com/jaos/slapt-get/language/"
 "bg/)\n"
 "Language: bg\n"
@@ -39,9 +40,8 @@ msgstr ""
 msgid "Error"
 msgstr "Грешка"
 
-#, fuzzy
 msgid "Already in progress"
-msgstr "общ прогрес"
+msgstr ""
 
 msgid "Upgrade"
 msgstr "Обновяване"
@@ -264,9 +264,8 @@ msgstr "Инсталиране..."
 msgid "Upgrading..."
 msgstr "Обновяване..."
 
-#, fuzzy
 msgid "Invalid working directory"
-msgstr "Работна директория"
+msgstr ""
 
 msgid "Failed to commit preferences"
 msgstr "Неуспех при запис на предпочитанията"
@@ -573,170 +572,167 @@ msgstr "Мениджър на пакети Gslapt"
 msgid "Install, remove and upgrade software packages"
 msgstr "Инсталиране, премахване и обновяване на софтуерни пакети"
 
-#~ msgid ": Depends: "
-#~ msgstr ": Зависимости: "
+msgid "Academic"
+msgstr ""
 
-#~ msgid "Run Gslapt as root"
-#~ msgstr "Изпълни Gslapt с администраторски права"
+msgid "Accessibility"
+msgstr ""
 
-#~ msgid "Authentication is required to run Gslapt"
-#~ msgstr "Нужна е идентификация за изпълнение на Gslapt"
+#, fuzzy
+msgid "Applications"
+msgstr "Местоположение"
 
-#~ msgid "Base"
-#~ msgstr "База"
+msgid "Audio"
+msgstr ""
 
-#~ msgid "Applications"
-#~ msgstr "Програми"
+msgid "Base"
+msgstr ""
 
-#~ msgid "Development Tools"
-#~ msgstr "Средства за разработка"
+msgid "BSD Console games"
+msgstr ""
 
-#~ msgid "GNU Emacs"
-#~ msgstr "GNU Emacs"
+msgid "Business"
+msgstr ""
 
-#~ msgid "Documentation"
-#~ msgstr "Документация"
+msgid "Desktop"
+msgstr ""
 
-#~ msgid "GNOME"
-#~ msgstr "GNOME"
+msgid "Development"
+msgstr ""
 
-#~ msgid "Linux kernel"
-#~ msgstr "Linux ядро"
+msgid "Development Tools"
+msgstr ""
 
-#~ msgid "KDE"
-#~ msgstr "KDE"
+#, fuzzy
+msgid "Documentation"
+msgstr "Местоположение"
 
-#~ msgid "KDE Internationalization"
-#~ msgstr "KDE Интернационализация"
+msgid "Games"
+msgstr ""
 
-#~ msgid "Libraries"
-#~ msgstr "Библиотеки"
+msgid "GIS"
+msgstr ""
 
-#~ msgid "Networking"
-#~ msgstr "Мрежи"
+msgid "GNOME"
+msgstr ""
 
-#~ msgid "teTeX"
-#~ msgstr "teTeX"
+msgid "GNU Emacs"
+msgstr ""
 
-#~ msgid "TCL"
-#~ msgstr "TCL"
+msgid "Graphics"
+msgstr ""
 
-#~ msgid "X Window System"
-#~ msgstr "X Мениджър на прозорците"
+msgid "GSB Accessibility"
+msgstr ""
 
-#~ msgid "X Applications"
-#~ msgstr "X Програми"
+msgid "GSB Administration"
+msgstr ""
 
-#~ msgid "Xfce"
-#~ msgstr "Xfce"
+msgid "GSB Applications"
+msgstr ""
 
-#~ msgid "BSD Console games"
-#~ msgstr "BSD Конзолни игри"
+msgid "GSB Base"
+msgstr ""
 
-#~ msgid "Patches"
-#~ msgstr "Пачове"
+msgid "GSB Compiz Fusion"
+msgstr ""
 
-#~ msgid "GSB Base"
-#~ msgstr "GSB База"
+msgid "GSB Development"
+msgstr ""
 
-#~ msgid "GSB Accessibility"
-#~ msgstr "GSB Достъпност"
+msgid "GSB Libraries"
+msgstr ""
 
-#~ msgid "GSB Administration"
-#~ msgstr "GSB Администрация"
+msgid "GSB Mono"
+msgstr ""
 
-#~ msgid "GSB Applications"
-#~ msgstr "GSB Програми"
+#, fuzzy
+msgid "GSB Networking"
+msgstr "работи"
 
-#~ msgid "GSB Compiz Fusion"
-#~ msgstr "GSB Compiz Fusion"
+msgid "GSB Office"
+msgstr ""
 
-#~ msgid "GSB Development"
-#~ msgstr "GSB Разработка"
+msgid "GSB OpenOffice.org"
+msgstr ""
 
-#~ msgid "GSB Office"
-#~ msgstr "GSB Офис"
+msgid "GSB Themes"
+msgstr ""
 
-#~ msgid "GSB Libraries"
-#~ msgstr "GSB Библиотеки"
+msgid "HAM Radio"
+msgstr ""
 
-#~ msgid "GSB Mono"
-#~ msgstr "GSB Моно"
+msgid "Haskell"
+msgstr ""
 
-#~ msgid "GSB Networking"
-#~ msgstr "GSB Мрежи"
+msgid "KDE"
+msgstr ""
 
-#~ msgid "GSB OpenOffice.org"
-#~ msgstr "GSB OpenOffice.org"
+msgid "KDE Internationalization"
+msgstr ""
 
-#~ msgid "GSB Themes"
-#~ msgstr "GSB Теми"
+msgid "Libraries"
+msgstr ""
 
-#~ msgid "Games"
-#~ msgstr "Игри"
+msgid "Linux kernel"
+msgstr ""
 
-#~ msgid "Localization"
-#~ msgstr "Локализация"
+#, fuzzy
+msgid "Localization"
+msgstr "Местоположение"
 
-#~ msgid "LXDE"
-#~ msgstr "LXDE"
+msgid "LXDE"
+msgstr ""
 
-#~ msgid "MATE"
-#~ msgstr "MATE"
+msgid "MATE"
+msgstr ""
 
-#~ msgid "Academic"
-#~ msgstr "Наука"
+msgid "Miscellaneous"
+msgstr ""
 
-#~ msgid "Accessibility"
-#~ msgstr "Достъпност"
+msgid "Multimedia"
+msgstr ""
 
-#~ msgid "Audio"
-#~ msgstr "Аудио"
+msgid "Network"
+msgstr ""
 
-#~ msgid "Business"
-#~ msgstr "Бизнес"
+#, fuzzy
+msgid "Networking"
+msgstr "работи"
 
-#~ msgid "Desktop"
-#~ msgstr "Работен плот"
+#, fuzzy
+msgid "Office"
+msgstr "Официални"
 
-#~ msgid "Development"
-#~ msgstr "Разработка"
+msgid "Patches"
+msgstr ""
 
-#~ msgid "GIS"
-#~ msgstr "GIS"
+msgid "Perl"
+msgstr ""
 
-#~ msgid "Graphics"
-#~ msgstr "Графика"
+msgid "Python"
+msgstr ""
 
-#~ msgid "HAM Radio"
-#~ msgstr "Радиолюбителство"
+msgid "Ruby"
+msgstr ""
 
-#~ msgid "Haskell"
-#~ msgstr "Haskell"
+msgid "Slackware Extra"
+msgstr ""
 
-#~ msgid "Miscellaneous"
-#~ msgstr "Разни"
+msgid "System"
+msgstr ""
 
-#~ msgid "Multimedia"
-#~ msgstr "Мултимедия"
+msgid "TCL"
+msgstr ""
 
-#~ msgid "Network"
-#~ msgstr "Мрежа"
+msgid "teTeX"
+msgstr ""
 
-#~ msgid "Office"
-#~ msgstr "Офис"
+msgid "X Applications"
+msgstr ""
 
-#~ msgid "Perl"
-#~ msgstr "Perl"
+msgid "Xfce"
+msgstr ""
 
-#~ msgid "Python"
-#~ msgstr "Python"
-
-#~ msgid "Ruby"
-#~ msgstr "Ruby"
-
-#~ msgid "System"
-#~ msgstr "Система"
-
-#~ msgid "Slackware Extra"
-#~ msgstr "Slackware Extra"
+msgid "X Window System"
+msgstr ""

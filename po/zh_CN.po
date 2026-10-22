@@ -1,5 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# This file is put in the public domain.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the gslapt package.
 #
 # Translators:
 # Yang Jinsong <shannleon@gmail.com>, 2006
@@ -7,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-12 22:34-0400\n"
+"POT-Creation-Date: 2026-10-21 20:21-0400\n"
 "PO-Revision-Date: 2012-09-17 21:52+0000\n"
 "Last-Translator: Yang Jinsong <shannleon@gmail.com>, 2006\n"
 "Language-Team: Chinese (China) (http://app.transifex.com/jaos/slapt-get/"
@@ -36,9 +37,8 @@ msgstr ""
 msgid "Error"
 msgstr "Error"
 
-#, fuzzy
 msgid "Already in progress"
-msgstr "总进度"
+msgstr ""
 
 msgid "Upgrade"
 msgstr "升级"
@@ -179,20 +179,20 @@ msgstr "将要被删除的软件包"
 msgid "Package"
 msgstr "软件包"
 
-#, fuzzy, c-format
+#, c-format
 msgid "%d upgraded, "
 msgid_plural "%d upgraded, "
-msgstr[0] "升级"
+msgstr[0] ""
 
-#, fuzzy, c-format
+#, c-format
 msgid "%d reinstalled, "
 msgid_plural "%d reinstalled, "
-msgstr[0] "将要被安装"
+msgstr[0] ""
 
-#, fuzzy, c-format
+#, c-format
 msgid "%d newly installed, "
 msgid_plural "%d newly installed, "
-msgstr[0] "将要被安装"
+msgstr[0] ""
 
 #, c-format
 msgid "%d to remove "
@@ -255,9 +255,8 @@ msgstr "正在安装..."
 msgid "Upgrading..."
 msgstr "正在升级..."
 
-#, fuzzy
 msgid "Invalid working directory"
-msgstr "工作目录"
+msgstr ""
 
 msgid "Failed to commit preferences"
 msgstr "Failed to commit preferences"
@@ -555,98 +554,167 @@ msgstr "Gslapt Package Manager"
 msgid "Install, remove and upgrade software packages"
 msgstr "Install, remove and upgrade software packages"
 
-#~ msgid ": Depends: "
-#~ msgstr ": 依赖于: "
+msgid "Academic"
+msgstr ""
 
-#~ msgid "Base"
-#~ msgstr "Base"
+msgid "Accessibility"
+msgstr ""
 
-#~ msgid "Applications"
-#~ msgstr "Applications"
+#, fuzzy
+msgid "Applications"
+msgstr "位置"
 
-#~ msgid "Development Tools"
-#~ msgstr "Development Tools"
+msgid "Audio"
+msgstr ""
 
-#~ msgid "GNU Emacs"
-#~ msgstr "GNU Emacs"
+msgid "Base"
+msgstr ""
 
-#~ msgid "Documentation"
-#~ msgstr "Documentation"
+msgid "BSD Console games"
+msgstr ""
 
-#~ msgid "GNOME"
-#~ msgstr "GNOME"
+msgid "Business"
+msgstr ""
 
-#~ msgid "Linux kernel"
-#~ msgstr "Linux kernel"
+msgid "Desktop"
+msgstr ""
 
-#~ msgid "KDE"
-#~ msgstr "KDE"
+msgid "Development"
+msgstr ""
 
-#~ msgid "KDE Internationalization"
-#~ msgstr "KDE Internationalization"
+msgid "Development Tools"
+msgstr ""
 
-#~ msgid "Libraries"
-#~ msgstr "Libraries"
+#, fuzzy
+msgid "Documentation"
+msgstr "位置"
 
-#~ msgid "Networking"
-#~ msgstr "Networking"
+msgid "Games"
+msgstr ""
 
-#~ msgid "teTeX"
-#~ msgstr "teTeX"
+msgid "GIS"
+msgstr ""
 
-#~ msgid "TCL"
-#~ msgstr "TCL"
+msgid "GNOME"
+msgstr ""
 
-#~ msgid "X Window System"
-#~ msgstr "X Window System"
+msgid "GNU Emacs"
+msgstr ""
 
-#~ msgid "X Applications"
-#~ msgstr "X Applications"
+msgid "Graphics"
+msgstr ""
 
-#~ msgid "BSD Console games"
-#~ msgstr "BSD Console games"
+msgid "GSB Accessibility"
+msgstr ""
 
-#~ msgid "Patches"
-#~ msgstr "Patches"
+msgid "GSB Administration"
+msgstr ""
 
-#~ msgid "GSB Base"
-#~ msgstr "GSB Base"
+msgid "GSB Applications"
+msgstr ""
 
-#~ msgid "GSB Accessibility"
-#~ msgstr "GSB Accessibility"
+msgid "GSB Base"
+msgstr ""
 
-#~ msgid "GSB Administration"
-#~ msgstr "GSB Administration"
+msgid "GSB Compiz Fusion"
+msgstr ""
 
-#~ msgid "GSB Applications"
-#~ msgstr "GSB Applications"
+msgid "GSB Development"
+msgstr ""
 
-#~ msgid "GSB Compiz Fusion"
-#~ msgstr "GSB Compiz Fusion"
+msgid "GSB Libraries"
+msgstr ""
 
-#~ msgid "GSB Development"
-#~ msgstr "GSB Development"
+msgid "GSB Mono"
+msgstr ""
 
-#~ msgid "GSB Office"
-#~ msgstr "GSB Office"
+#, fuzzy
+msgid "GSB Networking"
+msgstr "进行中"
 
-#~ msgid "GSB Libraries"
-#~ msgstr "GSB Libraries"
+msgid "GSB Office"
+msgstr ""
 
-#~ msgid "GSB Mono"
-#~ msgstr "GSB Mono"
+msgid "GSB OpenOffice.org"
+msgstr ""
 
-#~ msgid "GSB Networking"
-#~ msgstr "GSB Networking"
+msgid "GSB Themes"
+msgstr ""
 
-#~ msgid "GSB OpenOffice.org"
-#~ msgstr "GSB OpenOffice.org"
+msgid "HAM Radio"
+msgstr ""
 
-#~ msgid "GSB Themes"
-#~ msgstr "GSB Themes"
+msgid "Haskell"
+msgstr ""
 
-#~ msgid "Games"
-#~ msgstr "Games"
+msgid "KDE"
+msgstr ""
 
-#~ msgid "Localization"
-#~ msgstr "Localization"
+msgid "KDE Internationalization"
+msgstr ""
+
+msgid "Libraries"
+msgstr ""
+
+msgid "Linux kernel"
+msgstr ""
+
+#, fuzzy
+msgid "Localization"
+msgstr "位置"
+
+msgid "LXDE"
+msgstr ""
+
+msgid "MATE"
+msgstr ""
+
+msgid "Miscellaneous"
+msgstr ""
+
+msgid "Multimedia"
+msgstr ""
+
+msgid "Network"
+msgstr ""
+
+#, fuzzy
+msgid "Networking"
+msgstr "进行中"
+
+#, fuzzy
+msgid "Office"
+msgstr "Official"
+
+msgid "Patches"
+msgstr ""
+
+msgid "Perl"
+msgstr ""
+
+msgid "Python"
+msgstr ""
+
+msgid "Ruby"
+msgstr ""
+
+msgid "Slackware Extra"
+msgstr ""
+
+msgid "System"
+msgstr ""
+
+msgid "TCL"
+msgstr ""
+
+msgid "teTeX"
+msgstr ""
+
+msgid "X Applications"
+msgstr ""
+
+msgid "Xfce"
+msgstr ""
+
+msgid "X Window System"
+msgstr ""

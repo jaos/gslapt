@@ -1,5 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# This file is put in the public domain.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the gslapt package.
 #
 # Translators:
 # 🎈 BALLOON | FU-SEN, 2016
@@ -11,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: slapt-get\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-12 22:34-0400\n"
+"POT-Creation-Date: 2026-10-21 20:21-0400\n"
 "PO-Revision-Date: 2012-09-17 21:52+0000\n"
 "Last-Translator: 🎈 BALLOON | FU-SEN, 2016\n"
 "Language-Team: Japanese (http://app.transifex.com/jaos/slapt-get/language/"
@@ -40,9 +41,8 @@ msgstr ""
 msgid "Error"
 msgstr "エラー"
 
-#, fuzzy
 msgid "Already in progress"
-msgstr "全体の進捗"
+msgstr ""
 
 msgid "Upgrade"
 msgstr "アップグレード"
@@ -188,17 +188,17 @@ msgstr "パッケージ"
 #, c-format
 msgid "%d upgraded, "
 msgid_plural "%d upgraded, "
-msgstr[0] "%d アップグレードされました。 "
+msgstr[0] "%d 更新、"
 
 #, c-format
 msgid "%d reinstalled, "
 msgid_plural "%d reinstalled, "
-msgstr[0] "%d 再インストールされました。"
+msgstr[0] "%d 再インストール、"
 
 #, c-format
 msgid "%d newly installed, "
 msgid_plural "%d newly installed, "
-msgstr[0] "%d 新しくインストールされました。"
+msgstr[0] "%d 新規インストール、"
 
 #, c-format
 msgid "%d to remove "
@@ -263,9 +263,8 @@ msgstr "インストール中..."
 msgid "Upgrading..."
 msgstr "アップグレード中..."
 
-#, fuzzy
 msgid "Invalid working directory"
-msgstr "作業ディレクトリ"
+msgstr ""
 
 msgid "Failed to commit preferences"
 msgstr "設定を反映できませんでした"
@@ -569,98 +568,167 @@ msgstr "Gslapt パッケージマネージャー"
 msgid "Install, remove and upgrade software packages"
 msgstr "ソフトウェアパッケージのインストール・削除・更新"
 
-#~ msgid ": Depends: "
-#~ msgstr ": 依存: "
+msgid "Academic"
+msgstr ""
 
-#~ msgid "Base"
-#~ msgstr "ベース"
+msgid "Accessibility"
+msgstr ""
 
-#~ msgid "Applications"
-#~ msgstr "アプリケーション"
+#, fuzzy
+msgid "Applications"
+msgstr "場所"
 
-#~ msgid "Development Tools"
-#~ msgstr "開発ツール"
+msgid "Audio"
+msgstr ""
 
-#~ msgid "GNU Emacs"
-#~ msgstr "GNU Emacs"
+msgid "Base"
+msgstr ""
 
-#~ msgid "Documentation"
-#~ msgstr "文章"
+msgid "BSD Console games"
+msgstr ""
 
-#~ msgid "GNOME"
-#~ msgstr "GNOME"
+msgid "Business"
+msgstr ""
 
-#~ msgid "Linux kernel"
-#~ msgstr "Linux カーネル"
+msgid "Desktop"
+msgstr ""
 
-#~ msgid "KDE"
-#~ msgstr "KDE"
+msgid "Development"
+msgstr ""
 
-#~ msgid "KDE Internationalization"
-#~ msgstr "KDE 言語ファイル"
+msgid "Development Tools"
+msgstr ""
 
-#~ msgid "Libraries"
-#~ msgstr "ライブラリ"
+#, fuzzy
+msgid "Documentation"
+msgstr "場所"
 
-#~ msgid "Networking"
-#~ msgstr "ネットワーク"
+msgid "Games"
+msgstr ""
 
-#~ msgid "teTeX"
-#~ msgstr "teTeX"
+msgid "GIS"
+msgstr ""
 
-#~ msgid "TCL"
-#~ msgstr "TCL"
+msgid "GNOME"
+msgstr ""
 
-#~ msgid "X Window System"
-#~ msgstr "X ウインドウシステム"
+msgid "GNU Emacs"
+msgstr ""
 
-#~ msgid "X Applications"
-#~ msgstr "X アプリケーション"
+msgid "Graphics"
+msgstr ""
 
-#~ msgid "BSD Console games"
-#~ msgstr "BSD コンソールゲーム"
+msgid "GSB Accessibility"
+msgstr ""
 
-#~ msgid "Patches"
-#~ msgstr "パッチ"
+msgid "GSB Administration"
+msgstr ""
 
-#~ msgid "GSB Base"
-#~ msgstr "GSB ベース"
+msgid "GSB Applications"
+msgstr ""
 
-#~ msgid "GSB Accessibility"
-#~ msgstr "GSB アクセサリ"
+msgid "GSB Base"
+msgstr ""
 
-#~ msgid "GSB Administration"
-#~ msgstr "GSB 管理"
+msgid "GSB Compiz Fusion"
+msgstr ""
 
-#~ msgid "GSB Applications"
-#~ msgstr "GSB アプリケーション"
+msgid "GSB Development"
+msgstr ""
 
-#~ msgid "GSB Compiz Fusion"
-#~ msgstr "GSB Compiz Fusion"
+msgid "GSB Libraries"
+msgstr ""
 
-#~ msgid "GSB Development"
-#~ msgstr "GSB 開発"
+msgid "GSB Mono"
+msgstr ""
 
-#~ msgid "GSB Office"
-#~ msgstr "GSB オフィス"
+#, fuzzy
+msgid "GSB Networking"
+msgstr "作業中"
 
-#~ msgid "GSB Libraries"
-#~ msgstr "GSB ライブラリ"
+msgid "GSB Office"
+msgstr ""
 
-#~ msgid "GSB Mono"
-#~ msgstr "GSB Mono"
+msgid "GSB OpenOffice.org"
+msgstr ""
 
-#~ msgid "GSB Networking"
-#~ msgstr "GSB ネットワーク"
+msgid "GSB Themes"
+msgstr ""
 
-#~ msgid "GSB OpenOffice.org"
-#~ msgstr "GSB OpenOffice.org"
+msgid "HAM Radio"
+msgstr ""
 
-#~ msgid "GSB Themes"
-#~ msgstr "GSB テーマ"
+msgid "Haskell"
+msgstr ""
 
-#~ msgid "Games"
-#~ msgstr "ゲーム"
+msgid "KDE"
+msgstr ""
 
-#~ msgid "Localization"
-#~ msgstr "言語関連"
+msgid "KDE Internationalization"
+msgstr ""
+
+msgid "Libraries"
+msgstr ""
+
+msgid "Linux kernel"
+msgstr ""
+
+#, fuzzy
+msgid "Localization"
+msgstr "場所"
+
+msgid "LXDE"
+msgstr ""
+
+msgid "MATE"
+msgstr ""
+
+msgid "Miscellaneous"
+msgstr ""
+
+msgid "Multimedia"
+msgstr ""
+
+msgid "Network"
+msgstr ""
+
+#, fuzzy
+msgid "Networking"
+msgstr "作業中"
+
+#, fuzzy
+msgid "Office"
+msgstr "公式"
+
+msgid "Patches"
+msgstr ""
+
+msgid "Perl"
+msgstr ""
+
+msgid "Python"
+msgstr ""
+
+msgid "Ruby"
+msgstr ""
+
+msgid "Slackware Extra"
+msgstr ""
+
+msgid "System"
+msgstr ""
+
+msgid "TCL"
+msgstr ""
+
+msgid "teTeX"
+msgstr ""
+
+msgid "X Applications"
+msgstr ""
+
+msgid "Xfce"
+msgstr ""
+
+msgid "X Window System"
+msgstr ""
