@@ -5,6 +5,7 @@ i18n.gettext(package,
   args: [
     '--directory=' + meson.project_build_root(),
     '--keyword=P_:1,2',
+    '--keyword=N_',
     '--from-code=UTF-8',
     '--no-location',
   ])

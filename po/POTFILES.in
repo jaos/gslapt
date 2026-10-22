@@ -16,3 +16,4 @@ ui/transaction_window.ui
 ui/window_preferences.ui
 gslapt.desktop
 gslapt-kde.desktop
+series_strings.c

@@ -107,6 +107,13 @@ custom_target('series_map.rc',
   install_dir: pkgdatadir,
 )
 
+custom_target('series-strings.c',
+  input: 'series_map.rc.in',
+  output: 'series_strings.c',
+  command: [find_program('seriesstrings.sh'), '@INPUT@', '@OUTPUT@'],
+  build_by_default: true,
+)
+
 cflags = [
   '-U_FORTIFY_SOURCE',
   '-D_FORTIFY_SOURCE=2', # switch to 3 with 15.1+
